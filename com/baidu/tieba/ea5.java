@@ -10,7 +10,7 @@ public interface ea5 {
 
     void b(boolean z);
 
-    doc<Boolean> c();
+    eoc<Boolean> c();
 
     boolean d();
 
@@ -18,5 +18,5 @@ public interface ea5 {
 
     boolean f();
 
-    doc<NewsRemindMessage> g();
+    eoc<NewsRemindMessage> g();
 }

@@ -55,12 +55,12 @@ public class x10 extends EventListener {
 
         /* renamed from: com.baidu.tieba.x10$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0529a implements c {
+        public class C0527a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0529a(a aVar) {
+            public C0527a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class x10 extends EventListener {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.c(this.a.source(), new C0529a(this));
+                return this.c.c(this.a.source(), new C0527a(this));
             }
             return (BufferedSource) invokeV.objValue;
         }

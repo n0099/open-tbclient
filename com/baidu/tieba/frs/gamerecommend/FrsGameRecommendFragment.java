@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.pt7;
-import com.baidu.tieba.pz7;
+import com.baidu.tieba.qt7;
+import com.baidu.tieba.qz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
+public class FrsGameRecommendFragment extends BaseFragment implements qt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pz7 a;
+    public qz7 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
@@ -241,10 +241,10 @@ public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        pz7 pz7Var;
+        qz7 qz7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (pz7Var = this.a) != null) {
-            pz7Var.i(i);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (qz7Var = this.a) != null) {
+            qz7Var.i(i);
         }
     }
 
@@ -274,9 +274,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            pz7 pz7Var = this.a;
-            if (pz7Var != null) {
-                pz7Var.j();
+            qz7 qz7Var = this.a;
+            if (qz7Var != null) {
+                qz7Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {
@@ -297,7 +297,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
         }
     }
 
-    @Override // com.baidu.tieba.pt7
+    @Override // com.baidu.tieba.qt7
     public NavigationBar x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -318,9 +318,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pt7 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            pz7 pz7Var = new pz7(getPageContext(), this.c, this.d);
-            this.a = pz7Var;
-            pz7Var.l(this.g);
+            qz7 qz7Var = new qz7(getPageContext(), this.c, this.d);
+            this.a = qz7Var;
+            qz7Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);

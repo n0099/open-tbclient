@@ -45,7 +45,7 @@ public final class m11 {
 
         /* renamed from: com.baidu.tieba.m11$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0392a implements ik0 {
+        public static final class C0391a implements ik0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ref.ObjectRef a;
@@ -58,7 +58,7 @@ public final class m11 {
                 }
             }
 
-            public C0392a(Ref.ObjectRef objectRef, Context context) {
+            public C0391a(Ref.ObjectRef objectRef, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class m11 {
                 Intrinsics.checkNotNullParameter(url, "url");
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 objectRef.element = null;
-                hk0.a().c(url, new C0392a(objectRef, context));
+                hk0.a().c(url, new C0391a(objectRef, context));
                 return (Drawable) objectRef.element;
             }
             return (Drawable) invokeLL.objValue;

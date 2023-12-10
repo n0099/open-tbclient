@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tieba.a4b;
 import com.baidu.tieba.tracker.Monitor;
-import com.baidu.tieba.z3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class kl6 {
     @NonNull
     public static b c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, y3b> a;
+    public final Map<String, z3b> a;
     @Nullable
     public Context b;
 
@@ -176,11 +176,11 @@ public class kl6 {
         if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !d(str) || !c.a(str)) {
             return;
         }
-        y3b remove = this.a.remove(c(str));
+        z3b remove = this.a.remove(c(str));
         if (remove == null) {
             return;
         }
-        Monitor.a.c(remove, z3b.b.a).k();
+        Monitor.a.c(remove, a4b.b.a).k();
     }
 
     public static void k(@NonNull WebView webView, boolean z, @NonNull Map<String, Object> map) {
@@ -206,11 +206,11 @@ public class kl6 {
         if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) != null) || !d(str) || !c.a(str)) {
             return;
         }
-        y3b remove = this.a.remove(c(str));
+        z3b remove = this.a.remove(c(str));
         if (remove == null) {
             return;
         }
-        Monitor.a.c(remove, z3b.a.a).b(e(str, map));
+        Monitor.a.c(remove, a4b.a.a).b(e(str, map));
     }
 
     @NonNull
@@ -237,10 +237,10 @@ public class kl6 {
             return;
         }
         String c2 = c(str);
-        y3b y3bVar = this.a.get(c2);
+        z3b z3bVar = this.a.get(c2);
         String str3 = "webview_landing_page_white_first_show";
-        if (y3bVar != null) {
-            boolean equals = TextUtils.equals(y3bVar.l2(), "webview_landing_page_white_first_show");
+        if (z3bVar != null) {
+            boolean equals = TextUtils.equals(z3bVar.l2(), "webview_landing_page_white_first_show");
             HashMap hashMap = new HashMap();
             if (equals == z) {
                 str2 = "当前event已存在，手动报错";
@@ -254,11 +254,11 @@ public class kl6 {
         if (!z) {
             str3 = "webview_landing_page_white_reshow";
         }
-        y3b y3bVar2 = new y3b(c2, AlbumActivityConfig.FROM_WEB_VIEW, str3);
-        this.a.put(c2, y3bVar2);
+        z3b z3bVar2 = new z3b(c2, AlbumActivityConfig.FROM_WEB_VIEW, str3);
+        this.a.put(c2, z3bVar2);
         Map<String, String> e = e(str, null);
         e.put("webviewWhiteType", "2");
-        i4b<l4b> c3 = Monitor.a.c(y3bVar2, z3b.c.a);
+        j4b<m4b> c3 = Monitor.a.c(z3bVar2, a4b.c.a);
         c3.f(e);
         c3.g();
     }

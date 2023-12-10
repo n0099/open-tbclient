@@ -213,7 +213,7 @@ public final class AICapacityApplyHelper {
             }
         }
         this.c = true;
-        this.d = new Runnable() { // from class: com.baidu.tieba.mxa
+        this.d = new Runnable() { // from class: com.baidu.tieba.nxa
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

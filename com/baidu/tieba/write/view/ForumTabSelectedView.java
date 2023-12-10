@@ -28,7 +28,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.e65;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.is7;
+import com.baidu.tieba.js7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class ForumTabSelectedView extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
                 BdUtilHelper.hideSoftKeyPad(this.a.getContext(), this.a);
-                is7.a(this.a.h.getPageActivity(), this.a.h);
+                js7.a(this.a.h.getPageActivity(), this.a.h);
             }
         }
     }

@@ -58,7 +58,7 @@ public class et4 implements qj6 {
         }
     }
 
-    public fxa c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
+    public gxa c(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i4), str9, Boolean.valueOf(z), Boolean.valueOf(z2), str10, str11, str12, str13})) == null) {
@@ -69,25 +69,25 @@ public class et4 implements qj6 {
                 payWalletActivityConfig.setIntentAction(IntentAction.ActivityForResult);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, payWalletActivityConfig));
             }
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa d(WebView webView, HashMap<String, String> hashMap) {
+    public gxa d(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             String str = hashMap.get(WalletPayResultActivityConfig.PAY_RESULT);
             if (StringUtils.isNotNull(str)) {
-                fxaVar.o(str);
+                gxaVar.o(str);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 }

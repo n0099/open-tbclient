@@ -111,7 +111,7 @@ public class d66 {
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
             l76.b();
             if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
-                Fresco.initialize(AppRuntime.getAppContext(), ur7.a());
+                Fresco.initialize(AppRuntime.getAppContext(), vr7.a());
             }
             f66.k().o(TbadkCoreApplication.getInst());
             i76.a().b(TbadkCoreApplication.getInst());

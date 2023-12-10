@@ -121,7 +121,7 @@ public class rz6 extends lo5<mx6, ox6> {
         this.k.o(new a(this));
     }
 
-    @Override // com.baidu.tieba.lva
+    @Override // com.baidu.tieba.mva
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

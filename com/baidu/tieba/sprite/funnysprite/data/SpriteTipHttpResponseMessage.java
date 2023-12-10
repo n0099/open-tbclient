@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = y5b.g(themeColorInfo);
+        String g = z5b.g(themeColorInfo);
         if (!rd.isEmpty(g)) {
             UiUtils.post(new a(this, g));
         }
@@ -261,8 +261,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
                     this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
-                    this.textColorTheme = y5b.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = y5b.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = z5b.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = z5b.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

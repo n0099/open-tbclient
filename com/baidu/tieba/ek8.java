@@ -1,25 +1,39 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class ek8 {
+public final class ek8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
+    public final BaseFragment a;
+    public boolean b;
+    public String c;
+    public String d;
+    public final au4 e;
 
-    public ek8() {
+    public ek8(BaseFragment fragment) {
+        zt4 zt4Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,57 +43,101 @@ public class ek8 {
                 return;
             }
         }
-        this.a = new ArrayList();
-    }
-
-    public List<ThreadData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = fragment;
+        if (fragment instanceof zt4) {
+            zt4Var = (zt4) fragment;
+        } else {
+            zt4Var = null;
         }
-        return (List) invokeV.objValue;
+        this.e = new au4(zt4Var);
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            Bundle arguments = this.a.getArguments();
+            if (arguments != null) {
+                this.b = arguments.getBoolean("tab_is_second_tab");
+                this.d = arguments.getString("tab_code");
+                this.c = arguments.getString("tab_name");
+            } else if (bundle != null) {
+                this.b = bundle.getBoolean("tab_is_second_tab");
+                this.d = bundle.getString("tab_code");
+                this.c = bundle.getString("tab_name");
             }
-            return !ListUtils.isEmpty(list);
         }
-        return invokeV.booleanValue;
     }
 
-    public ck8 a(boolean z, ak8 ak8Var) {
-        InterceptResult invokeZL;
+    public final void a(TbWebView tbWebView) {
+        HashMap<String, uc5> colourHeaderConfig;
+        uc5 uc5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, ak8Var)) == null) {
-            ck8 ck8Var = new ck8();
-            ck8Var.c = ak8Var.i();
-            ck8Var.e = ak8Var.a();
-            ck8Var.f = ak8Var.c();
-            ArrayList<ThreadData> h = ak8Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, tbWebView) == null) && !this.b && !StringUtils.isNull(this.c) && (colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig()) != null && (uc5Var = colourHeaderConfig.get(this.c)) != null) {
+            List<String> h5ImageUrlList = uc5Var.k();
+            Intrinsics.checkNotNullExpressionValue(h5ImageUrlList, "h5ImageUrlList");
+            JSONArray jSONArray = new JSONArray();
+            for (String str : h5ImageUrlList) {
+                jSONArray.put(str);
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            zi8.e(true, arrayList, ak8Var.e());
-            zi8.e(true, arrayList, ak8Var.f());
-            zi8.e(true, arrayList, ak8Var.d());
-            zi8.e(true, arrayList, ak8Var.g());
-            ck8Var.a = zi8.c(arrayList);
-            return ck8Var;
+            tbWebView.J("head_img", jSONArray);
         }
-        return (ck8) invokeZL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.b();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            YunDialogManager.onHidden(y05.h);
+            YunDialogManager.onHidden(y05.a(this.d));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.b) {
+            return;
+        }
+        if (this.a.isPrimary()) {
+            e();
+        } else {
+            d();
+        }
+    }
+
+    @SuppressLint({"UseRequireInsteadOfGet"})
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.getContext() == null) {
+            return;
+        }
+        Context context = this.a.getContext();
+        Intrinsics.checkNotNull(context);
+        YunDialogManager.onShow(context, y05.h);
+        Context context2 = this.a.getContext();
+        Intrinsics.checkNotNull(context2);
+        YunDialogManager.onShow(context2, y05.a(this.d));
+    }
+
+    public final void h(TbWebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, webView) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            a(webView);
+        }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.feed.helper.CommonOnClickKt$FeedBackOnClick$1;
 import com.baidu.tieba.l55;
-import com.baidu.tieba.ra7;
+import com.baidu.tieba.sa7;
 import com.baidu.tieba.t67;
 import com.baidu.tieba.u67;
 import com.baidu.tieba.v67;
@@ -78,7 +78,7 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
     }
 
     /* renamed from: invoke$lambda-2  reason: not valid java name */
-    public static final void m135invoke$lambda2(t67 data, View view2, ra7 helper, List reasons, boolean z) {
+    public static final void m135invoke$lambda2(t67 data, View view2, sa7 helper, List reasons, boolean z) {
         JSONObject c;
         String string;
         Interceptable interceptable = $ic;
@@ -157,34 +157,34 @@ public final class CommonOnClickKt$FeedBackOnClick$1 extends Lambda implements F
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, view2) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(view2, "view");
-            final ra7 ra7Var = new ra7(view2);
-            ra7Var.x(true);
-            ra7Var.t(data.c());
-            ra7Var.v(data.b());
+            final sa7 sa7Var = new sa7(view2);
+            sa7Var.x(true);
+            sa7Var.t(data.c());
+            sa7Var.v(data.b());
             if ((Intrinsics.areEqual(data.d(), "recommend_post") || Intrinsics.areEqual(data.d(), "frs_post")) && (data.a() instanceof u67)) {
                 Object a = data.a();
                 if (a != null) {
                     u67 u67Var = (u67) a;
-                    ra7Var.q(u67Var.c(), u67Var.b());
-                    ra7Var.r(u67Var);
+                    sa7Var.q(u67Var.c(), u67Var.b());
+                    sa7Var.r(u67Var);
                 } else {
                     throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.FeedFeedbackPostData");
                 }
             }
-            ra7Var.u(new ra7.f() { // from class: com.baidu.tieba.pa7
+            sa7Var.u(new sa7.f() { // from class: com.baidu.tieba.pa7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.ra7.f
+                @Override // com.baidu.tieba.sa7.f
                 public final void a(List list, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, list, z) == null) {
-                        CommonOnClickKt$FeedBackOnClick$1.m135invoke$lambda2(t67.this, view2, ra7Var, list, z);
+                        CommonOnClickKt$FeedBackOnClick$1.m135invoke$lambda2(t67.this, view2, sa7Var, list, z);
                     }
                 }
             });
-            ra7Var.s(true);
-            ra7Var.w(view2);
+            sa7Var.s(true);
+            sa7Var.w(view2);
         }
     }
 }

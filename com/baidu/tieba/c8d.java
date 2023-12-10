@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.ShortUserInfo;
+import tbclient.ShakeAdSwitch;
 /* loaded from: classes5.dex */
-public class c8d extends ktc {
+public class c8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ShortUserInfo shortUserInfo) {
+    public static JSONObject b(@NonNull ShakeAdSwitch shakeAdSwitch) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, shortUserInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, shakeAdSwitch)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "user_id", shortUserInfo.user_id);
-            ktc.a(jSONObject, "portrait", shortUserInfo.portrait);
-            ktc.a(jSONObject, "user_name", shortUserInfo.user_name);
-            ktc.a(jSONObject, "gender", shortUserInfo.gender);
-            ktc.a(jSONObject, "intro", shortUserInfo.intro);
+            ltc.a(jSONObject, "is_show", shakeAdSwitch.is_show);
+            ltc.a(jSONObject, "title", shakeAdSwitch.title);
+            ltc.a(jSONObject, "desc", shakeAdSwitch.desc);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

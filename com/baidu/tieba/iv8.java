@@ -1,127 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextImageMsg;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.Triple;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class iv8 extends dv8<TbSingleTextImageMsg, TextImageMsg> {
+public final class iv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867070, "Lcom/baidu/tieba/iv8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867070, "Lcom/baidu/tieba/iv8;");
-                return;
-            }
-        }
-        f = new a(null);
-    }
-
-    public /* synthetic */ iv8(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final Triple<Class<TbSingleTextImageMsg>, Class<TextImageMsg>, iv8> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbSingleTextImageMsg.class, TextImageMsg.class, new iv8(null));
-            }
-            return (Triple) invokeV.objValue;
-        }
-    }
 
     public iv8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        j(102, TbSingleTextImageMsg.class);
-        j(101, TbTextGenImageMsg.class);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
-    /* renamed from: n */
-    public TextImageMsg g(TbSingleTextImageMsg tbMsg) {
+    public IChatRoomEnterListener.TaskInfo a(TbTaskInfo tbInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
-            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            TextImageMsg textImageMsg = new TextImageMsg();
-            textImageMsg.setText(tbMsg.getText());
-            ev8.f.a(textImageMsg, tbMsg);
-            return textImageMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
+            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
+            IChatRoomEnterListener.TaskInfo taskInfo = new IChatRoomEnterListener.TaskInfo();
+            taskInfo.taskId = tbInfo.getTaskId();
+            taskInfo.taskType = tbInfo.getTaskType();
+            taskInfo.taskState = tbInfo.getTaskState();
+            taskInfo.taskResult = tbInfo.getTaskResult();
+            taskInfo.taskErrorMsg = tbInfo.getTaskErrorMsg();
+            taskInfo.originMsgId = tbInfo.getOriginMsgId();
+            taskInfo.originMsgKey = tbInfo.getOriginMsgKey();
+            taskInfo.taskProgress = tbInfo.getTaskProgress();
+            return taskInfo;
         }
-        return (TextImageMsg) invokeL.objValue;
+        return (IChatRoomEnterListener.TaskInfo) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
-    /* renamed from: o */
-    public TbSingleTextImageMsg h(int i, TextImageMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
-        InterceptResult invokeILL;
+    public TbTaskInfo b(IChatRoomEnterListener.TaskInfo sdkInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbSingleTextImageMsg tbSingleTextImageMsg = (TbSingleTextImageMsg) DataExt.toEntity(sdkMsgMap, l(i));
-            ev8.f.b(tbSingleTextImageMsg, sdkMsg);
-            tbSingleTextImageMsg.setText(sdkMsg.getText());
-            return tbSingleTextImageMsg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
+            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
+            TbTaskInfo tbTaskInfo = new TbTaskInfo();
+            String taskId = sdkInfo.taskId;
+            Intrinsics.checkNotNullExpressionValue(taskId, "taskId");
+            tbTaskInfo.setTaskId(taskId);
+            tbTaskInfo.setTaskType(sdkInfo.taskType);
+            tbTaskInfo.setTaskState(sdkInfo.taskState);
+            tbTaskInfo.setTaskResult(sdkInfo.taskResult);
+            String taskErrorMsg = sdkInfo.taskErrorMsg;
+            Intrinsics.checkNotNullExpressionValue(taskErrorMsg, "taskErrorMsg");
+            tbTaskInfo.setTaskErrorMsg(taskErrorMsg);
+            tbTaskInfo.setOriginMsgId(sdkInfo.originMsgId);
+            String originMsgKey = sdkInfo.originMsgKey;
+            Intrinsics.checkNotNullExpressionValue(originMsgKey, "originMsgKey");
+            tbTaskInfo.setOriginMsgKey(originMsgKey);
+            tbTaskInfo.setTaskProgress(sdkInfo.taskProgress);
+            return tbTaskInfo;
         }
-        return (TbSingleTextImageMsg) invokeILL.objValue;
+        return (TbTaskInfo) invokeL.objValue;
     }
 }

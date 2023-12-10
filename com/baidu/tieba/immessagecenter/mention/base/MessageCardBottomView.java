@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lw4;
-import com.baidu.tieba.m69;
+import com.baidu.tieba.n69;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
@@ -290,23 +290,23 @@ public class MessageCardBottomView extends LinearLayout {
         }
     }
 
-    public final AgreeData f(m69 m69Var, int i) {
+    public final AgreeData f(n69 n69Var, int i) {
         InterceptResult invokeLI;
         Agree agree;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, m69Var, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, n69Var, i)) == null) {
             AgreeData agreeData = new AgreeData();
-            OriginalThreadInfo l = m69Var.l();
+            OriginalThreadInfo l = n69Var.l();
             if (l != null && (agree = l.z) != null) {
                 agreeData.parseProtobuf(agree);
             }
             this.f.getImgAgree().cancelAnimation();
             this.f.setNeedMatchStrategy(false);
             this.f.setUseDynamicLikeResImmediately();
-            agreeData.postId = m69Var.o();
-            agreeData.threadId = m69Var.x();
-            agreeData.forumId = String.valueOf(m69Var.e());
-            if (m69Var.f()) {
+            agreeData.postId = n69Var.o();
+            agreeData.threadId = n69Var.x();
+            agreeData.forumId = String.valueOf(n69Var.e());
+            if (n69Var.f()) {
                 agreeData.hasAgree = true;
                 agreeData.agreeType = 2;
             }
@@ -378,11 +378,11 @@ public class MessageCardBottomView extends LinearLayout {
         EMManager.from(this.g).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0107);
     }
 
-    public void setAgreeData(m69 m69Var, int i) {
+    public void setAgreeData(n69 n69Var, int i) {
         AgreeData agreeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, m69Var, i) == null) {
-            this.h = f(m69Var, i);
+        if (interceptable == null || interceptable.invokeLI(1048586, this, n69Var, i) == null) {
+            this.h = f(n69Var, i);
             AgreeMessageData agreeMessageData = new AgreeMessageData();
             this.i = agreeMessageData;
             agreeMessageData.agreeData = this.h;

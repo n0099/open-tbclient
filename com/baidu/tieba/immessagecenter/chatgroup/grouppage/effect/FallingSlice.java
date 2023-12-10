@@ -12,8 +12,8 @@ import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz8;
-import com.baidu.tieba.h49;
+import com.baidu.tieba.hz8;
+import com.baidu.tieba.i49;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.jw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public h49 l;
+    public i49 l;
     public long m;
     public boolean n;
     public final jw5 o;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    gz8.m("c15184", str, this.a.m, this.a.n);
+                    hz8.m("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -217,16 +217,16 @@ public class FallingSlice extends Slice {
         }
     }
 
-    public void i0(@NonNull FallingData fallingData, long j, boolean z, @Nullable h49 h49Var) {
+    public void i0(@NonNull FallingData fallingData, long j, boolean z, @Nullable i49 i49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), h49Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), i49Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = h49Var;
+            this.l = i49Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                gz8.m("c15183", fallingData.getAffect(), this.m, z);
+                hz8.m("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

@@ -91,17 +91,17 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi5;
-import com.baidu.tieba.cu9;
+import com.baidu.tieba.du9;
 import com.baidu.tieba.ec5;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.g05;
-import com.baidu.tieba.ha8;
 import com.baidu.tieba.ia8;
+import com.baidu.tieba.ja8;
 import com.baidu.tieba.n05;
-import com.baidu.tieba.oxa;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.personExtra.PersonChangeModel;
+import com.baidu.tieba.pxa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.uu5;
 import com.baidu.tieba.view.BdTopToast;
@@ -124,7 +124,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public InputMethodManager A;
     public TextView A0;
     public PersonChangeModel B;
-    public ha8 B0;
+    public ia8 B0;
     public FrameLayout C;
     public boolean C0;
     public HeadImageView D;
@@ -153,7 +153,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     public ImageView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public View f1144T;
+    public View f1143T;
     public ViewGroup U;
     public ImageView V;
     public ImageView W;
@@ -585,7 +585,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 }
                 this.a.postMultiNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    oxa.j();
+                    pxa.j();
                 }
                 return null;
             }
@@ -1422,7 +1422,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
     }
 
     /* loaded from: classes7.dex */
-    public class w implements ha8.b {
+    public class w implements ia8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeActivity a;
@@ -1445,7 +1445,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.a = personChangeActivity;
         }
 
-        @Override // com.baidu.tieba.ha8.b
+        @Override // com.baidu.tieba.ia8.b
         public void a(Date date, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, date, j) == null) {
@@ -1487,7 +1487,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         public void onClick(f05 f05Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, cu9.a(), true);
+                BrowserHelper.startWebActivity((Context) this.a.getPageContext().getPageActivity(), (String) null, du9.a(), true);
                 f05Var.dismiss();
             }
         }
@@ -1968,7 +1968,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             if (!this.C0) {
                 TiebaStatic.log("c12204");
             } else {
-                ia8.b();
+                ja8.b();
             }
             registerListener(this.J0);
             registerListener(this.K0);
@@ -1991,7 +1991,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, this.I0);
-            this.f1144T = addCustomView;
+            this.f1143T = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
             this.V = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0480));
@@ -2351,25 +2351,25 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
         TiebaStatic.log(statisticItem);
     }
 
-    public final ha8 b2() {
+    public final ia8 b2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (this.B0 == null) {
-                this.B0 = new ha8(this);
+                this.B0 = new ia8(this);
             }
             return this.B0;
         }
-        return (ha8) invokeV.objValue;
+        return (ia8) invokeV.objValue;
     }
 
-    public final ha8.b c2() {
+    public final ia8.b c2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return new w(this);
         }
-        return (ha8.b) invokeV.objValue;
+        return (ia8.b) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -2657,7 +2657,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             }
                             return;
                         } else if (view2 == this.A0) {
-                            ia8.a();
+                            ja8.a();
                             if (!this.M && !this.N) {
                                 finish();
                                 return;

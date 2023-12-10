@@ -42,7 +42,7 @@ public class ii6 extends hi6<WebResourceResponse> {
     public final wh6<Pair<String, Map<String, String>>, Response> b;
 
     /* loaded from: classes6.dex */
-    public class a implements soc<Response, Exception> {
+    public class a implements toc<Response, Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -53,12 +53,12 @@ public class ii6 extends hi6<WebResourceResponse> {
 
         /* renamed from: com.baidu.tieba.ii6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0330a implements Runnable {
+        public class RunnableC0329a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0330a(a aVar) {
+            public RunnableC0329a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class ii6 extends hi6<WebResourceResponse> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.soc
+        @Override // com.baidu.tieba.toc
         /* renamed from: b */
         public void a(Response response, Exception exc) {
             Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class ii6 extends hi6<WebResourceResponse> {
                         this.e.j(this.a, response, this.b);
                         TbLog hybridLog = HybridLog.getInstance();
                         hybridLog.i("PreFetch", "sendASyncRequest，预取成功:" + this.a + " headers:" + this.b);
-                        SafeHandler.getInst().postDelayed(new RunnableC0330a(this), 30000L);
+                        SafeHandler.getInst().postDelayed(new RunnableC0329a(this), 30000L);
                     } catch (IOException e) {
                         BdLog.e(e);
                     }

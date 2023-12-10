@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.e5;
-import com.baidu.tieba.jsa;
+import com.baidu.tieba.ksa;
 import com.baidu.tieba.sz0;
 import com.baidu.tieba.vz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -292,7 +292,7 @@ public class TiebaMainDatabaseHelper extends e5 {
     public void prepareDBForV26(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
-            vz0 b = new jsa().b();
+            vz0 b = new ksa().b();
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, sz0.b(b));
             Iterator<String> it = sz0.a(b).iterator();
             while (it.hasNext()) {

@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rda;
+import com.baidu.tieba.sda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -484,8 +484,8 @@ public class VideoControllerView extends RelativeLayout {
             if (mediaPlayerControl != null && !this.e) {
                 int duration = mediaPlayerControl.getDuration();
                 MediaController.MediaPlayerControl mediaPlayerControl2 = this.b;
-                if (mediaPlayerControl2 instanceof rda) {
-                    currentPosition = ((rda) mediaPlayerControl2).getCurrentPositionSync();
+                if (mediaPlayerControl2 instanceof sda) {
+                    currentPosition = ((sda) mediaPlayerControl2).getCurrentPositionSync();
                 } else {
                     currentPosition = mediaPlayerControl2.getCurrentPosition();
                 }

@@ -6,34 +6,50 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AlaLiveInfo;
-import tbclient.BannerUserStory;
-import tbclient.UserStory;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.FeedForumInfo;
+import tbclient.RecomTopicInfo;
 /* loaded from: classes5.dex */
-public class cvc extends ktc {
+public class cvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BannerUserStory bannerUserStory) {
+    public static JSONObject b(@NonNull BannerList bannerList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bannerUserStory)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bannerList)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (bannerUserStory.user_story != null) {
+            if (bannerList.app != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (UserStory userStory : bannerUserStory.user_story) {
-                    jSONArray.put(tad.b(userStory));
+                for (App app : bannerList.app) {
+                    jSONArray.put(suc.b(app));
                 }
-                ktc.a(jSONObject, "user_story", jSONArray);
+                ltc.a(jSONObject, "app", jSONArray);
             }
-            ktc.a(jSONObject, "switch", bannerUserStory._switch);
-            if (bannerUserStory.ala_live_list != null) {
+            if (bannerList.feed_forum != null) {
                 JSONArray jSONArray2 = new JSONArray();
-                for (AlaLiveInfo alaLiveInfo : bannerUserStory.ala_live_list) {
-                    jSONArray2.put(huc.b(alaLiveInfo));
+                for (FeedForumInfo feedForumInfo : bannerList.feed_forum) {
+                    jSONArray2.put(ixc.b(feedForumInfo));
                 }
-                ktc.a(jSONObject, "ala_live_list", jSONArray2);
+                ltc.a(jSONObject, "feed_forum", jSONArray2);
+            }
+            RecomTopicInfo recomTopicInfo = bannerList.hot_topic;
+            if (recomTopicInfo != null) {
+                ltc.a(jSONObject, "hot_topic", m7d.b(recomTopicInfo));
+            }
+            ltc.a(jSONObject, "applist", bannerList.applist);
+            App app2 = bannerList.pb_banner_ad;
+            if (app2 != null) {
+                ltc.a(jSONObject, "pb_banner_ad", suc.b(app2));
+            }
+            if (bannerList.video_recommend_ad != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (App app3 : bannerList.video_recommend_ad) {
+                    jSONArray3.put(suc.b(app3));
+                }
+                ltc.a(jSONObject, "video_recommend_ad", jSONArray3);
             }
             return jSONObject;
         }

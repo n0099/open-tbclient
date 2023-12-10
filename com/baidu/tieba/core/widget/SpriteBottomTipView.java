@@ -39,7 +39,7 @@ import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.nt5;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.rw6;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -491,7 +491,7 @@ public final class SpriteBottomTipView extends LinearLayout implements rw6 {
             UtilHelper.getDimenPixelSize(R.dimen.T_X08);
             this.n = R.dimen.T_X08;
             this.o = R.color.CAM_X0101;
-            this.q = tua.f("#CC7F47");
+            this.q = uua.f("#CC7F47");
             this.w = R.drawable.pic_use_header_28_n;
             this.F = R.layout.funny_sprite_bottom_tip_layout;
         }

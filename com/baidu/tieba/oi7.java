@@ -8,251 +8,129 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import tbclient.AddBawuPopInfo;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsBannerHeader;
-import tbclient.FrsPage.FrsBottom;
-import tbclient.FrsPage.FrsSpriteBubble;
-import tbclient.FrsPage.LiveFuseForumData;
-import tbclient.FrsPage.PrivateForumTotalInfo;
-import tbclient.FrsPage.RecreationRankInfo;
-import tbclient.HotUserRankEntry;
-import tbclient.PopInfo;
-import tbclient.PrivatePopInfo;
-import tbclient.ServiceArea;
-import tbclient.SignActivityInfo;
-import tbclient.User;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class oi7 {
+public final class oi7 implements lm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataRes a;
-    public ForumInfo b;
-    public BusinessPromot c;
-    public FrsBottom d;
-    public PrivateForumTotalInfo e;
-    public PrivatePopInfo f;
-    public User g;
-    public PopInfo h;
-    public AddBawuPopInfo i;
-    public FrsSpriteBubble j;
+    public final List<mi7> a;
+    public final mi7 b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
 
-    public final void k(ActivityHead activityHead) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, activityHead) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof oi7) {
+                oi7 oi7Var = (oi7) obj;
+                return Intrinsics.areEqual(this.a, oi7Var.a) && Intrinsics.areEqual(this.b, oi7Var.b) && Intrinsics.areEqual(this.c, oi7Var.c) && Intrinsics.areEqual(this.d, oi7Var.d) && Intrinsics.areEqual(this.e, oi7Var.e) && Intrinsics.areEqual(this.f, oi7Var.f);
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void q(FrsBannerHeader frsBannerHeader) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, frsBannerHeader) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode() : invokeV.intValue;
     }
 
-    public final void s(HotUserRankEntry hotUserRankEntry) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, hotUserRankEntry) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "AiSecondFloorData(botList=" + this.a + ", selectedBot=" + this.b + ", guideText=" + this.c + ", maskImgUrl=" + this.d + ", titleImgUrl=" + this.e + ", aiPageUrl=" + this.f + ')';
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void t(List<LiveFuseForumData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-        }
-    }
-
-    public final void w(RecreationRankInfo recreationRankInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, recreationRankInfo) == null) {
-        }
-    }
-
-    public final void x(List<ServiceArea> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
-        }
-    }
-
-    public final void y(SignActivityInfo signActivityInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, signActivityInfo) == null) {
-        }
-    }
-
-    public oi7() {
+    public oi7(List<mi7> botList, mi7 selectedBot, String guideText, String maskImgUrl, String titleImgUrl, String aiPageUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {botList, selectedBot, guideText, maskImgUrl, titleImgUrl, aiPageUrl};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(botList, "botList");
+        Intrinsics.checkNotNullParameter(selectedBot, "selectedBot");
+        Intrinsics.checkNotNullParameter(guideText, "guideText");
+        Intrinsics.checkNotNullParameter(maskImgUrl, "maskImgUrl");
+        Intrinsics.checkNotNullParameter(titleImgUrl, "titleImgUrl");
+        Intrinsics.checkNotNullParameter(aiPageUrl, "aiPageUrl");
+        this.a = botList;
+        this.b = selectedBot;
+        this.c = guideText;
+        this.d = maskImgUrl;
+        this.e = titleImgUrl;
+        this.f = aiPageUrl;
     }
 
-    public final AddBawuPopInfo a() {
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<mi7> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
+            return this.a;
         }
-        return (AddBawuPopInfo) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final BusinessPromot b() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return (BusinessPromot) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final DataRes c() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (DataRes) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final ForumInfo d() {
+    public final mi7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (ForumInfo) invokeV.objValue;
+        return (mi7) invokeV.objValue;
     }
 
-    public final FrsBottom e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (FrsBottom) invokeV.objValue;
-    }
-
-    public final PopInfo f() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (PopInfo) invokeV.objValue;
-    }
-
-    public final PrivateForumTotalInfo g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.e;
         }
-        return (PrivateForumTotalInfo) invokeV.objValue;
-    }
-
-    public final PrivatePopInfo h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return (PrivatePopInfo) invokeV.objValue;
-    }
-
-    public final FrsSpriteBubble i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.j;
-        }
-        return (FrsSpriteBubble) invokeV.objValue;
-    }
-
-    public final User j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.g;
-        }
-        return (User) invokeV.objValue;
-    }
-
-    public final void A(User user) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, user) == null) {
-            this.g = user;
-        }
-    }
-
-    public final void l(AddBawuPopInfo addBawuPopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, addBawuPopInfo) == null) {
-            this.i = addBawuPopInfo;
-        }
-    }
-
-    public final void m(BusinessPromot businessPromot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, businessPromot) == null) {
-            this.c = businessPromot;
-        }
-    }
-
-    public final void n(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, dataRes) == null) {
-            this.a = dataRes;
-        }
-    }
-
-    public final void o(ForumInfo forumInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, forumInfo) == null) {
-            this.b = forumInfo;
-        }
-    }
-
-    public final void p(FrsBottom frsBottom) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, frsBottom) == null) {
-            this.d = frsBottom;
-        }
-    }
-
-    public final void r(PopInfo popInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, popInfo) == null) {
-            this.h = popInfo;
-        }
-    }
-
-    public final void u(PrivateForumTotalInfo privateForumTotalInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, privateForumTotalInfo) == null) {
-            this.e = privateForumTotalInfo;
-        }
-    }
-
-    public final void v(PrivatePopInfo privatePopInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, privatePopInfo) == null) {
-            this.f = privatePopInfo;
-        }
-    }
-
-    public final void z(FrsSpriteBubble frsSpriteBubble) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, frsSpriteBubble) == null) {
-            this.j = frsSpriteBubble;
-        }
+        return (String) invokeV.objValue;
     }
 }

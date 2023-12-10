@@ -46,12 +46,12 @@ public class fx6 {
 
         /* renamed from: com.baidu.tieba.fx6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0292a implements ye5.a {
+        public class C0288a implements ye5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0292a(a aVar) {
+            public C0288a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class fx6 {
             }
             this.c = fx6Var;
             this.a = new ArrayList<>();
-            this.b = new C0292a(this);
+            this.b = new C0288a(this);
             setPriority(4);
             setParallel(fx6.d);
         }

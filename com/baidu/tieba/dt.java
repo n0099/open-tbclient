@@ -208,7 +208,7 @@ public class dt extends vs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
             this.i = fw4Var;
-            mwa topAgreePost = fw4Var.getThreadData().getTopAgreePost();
+            nwa topAgreePost = fw4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.u() != null && topAgreePost.u().getUserId() != null) {
                 this.j.param("tid", fw4Var.getThreadData().tid).param("post_id", topAgreePost.U()).param("uid", TbadkCoreApplication.getCurrentAccount());
                 em6.b().a(this.j);

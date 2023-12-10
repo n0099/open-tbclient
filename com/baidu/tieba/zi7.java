@@ -6,22 +6,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.PrivateForumShareinfo;
-import tbclient.PrivateForumInfo;
-import tbclient.PrivatePopInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class zi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PrivateForumInfo a;
-    public final Integer b;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final long d;
+    public final String e;
+    public final String f;
 
-    public zi7(PrivateForumShareinfo privateForumShareinfo, PrivatePopInfo privatePopInfo, PrivateForumInfo privateForumInfo, Integer num) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof zi7) {
+                zi7 zi7Var = (zi7) obj;
+                return Intrinsics.areEqual(this.a, zi7Var.a) && Intrinsics.areEqual(this.b, zi7Var.b) && Intrinsics.areEqual(this.c, zi7Var.c) && this.d == zi7Var.d && Intrinsics.areEqual(this.e, zi7Var.e) && Intrinsics.areEqual(this.f, zi7Var.f);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + c.a(this.d)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "NewGuideInfoData(portrait=" + this.a + ", botUk=" + this.b + ", botName=" + this.c + ", botPaid=" + this.d + ", botBackground=" + this.e + ", text=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public zi7(String portrait, String botUk, String botName, long j, String botBackground, String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {privateForumShareinfo, privatePopInfo, privateForumInfo, num};
+            Object[] objArr = {portrait, botUk, botName, Long.valueOf(j), botBackground, text};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +64,52 @@ public final class zi7 {
                 return;
             }
         }
-        this.a = privateForumInfo;
-        this.b = num;
+        Intrinsics.checkNotNullParameter(portrait, "portrait");
+        Intrinsics.checkNotNullParameter(botUk, "botUk");
+        Intrinsics.checkNotNullParameter(botName, "botName");
+        Intrinsics.checkNotNullParameter(botBackground, "botBackground");
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = portrait;
+        this.b = botUk;
+        this.c = botName;
+        this.d = j;
+        this.e = botBackground;
+        this.f = text;
     }
 
-    public final PrivateForumInfo a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (PrivateForumInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Integer b() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (Integer) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final mi7 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new mi7(this.b, this.d, this.c, this.a, this.e);
+        }
+        return (mi7) invokeV.objValue;
     }
 }

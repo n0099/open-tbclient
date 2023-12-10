@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class i3a extends BaseOriginalThreadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public et k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i3a(TbPageContext tbPageContext) {
@@ -37,78 +36,43 @@ public class i3a extends BaseOriginalThreadView {
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.a();
-            if (this.k == null) {
-                et etVar = new et(this.a.getPageActivity());
-                this.k = etVar;
-                etVar.q(Boolean.TRUE);
-                this.k.setFrom("pb");
-                this.k.D(0);
-                this.k.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
-                this.k.J(false);
-                this.k.H(true);
-            }
-            l().addView(this.k.g());
-            l().addView(i(true));
+            l().addView(k().g());
+            l().addView(i(false));
             return l();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             super.b(tbPageContext, i);
-            if (this.e != i) {
-                this.e = i;
-                et etVar = this.k;
-                if (etVar != null) {
-                    etVar.onChangeSkinType(tbPageContext, i);
-                }
-            }
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             super.c(originalThreadInfo);
-            et etVar = this.k;
-            if (etVar != null) {
-                etVar.onBindDataToView(f());
-            }
+            k().onBindDataToView(f());
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void d(os.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            et etVar = this.k;
-            if (etVar != null) {
-                etVar.E(aVar);
-            }
+            k().A(aVar);
             m();
-        }
-    }
-
-    @Override // com.baidu.tieba.d3a
-    public void e(mm6 mm6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mm6Var) == null) {
-            super.e(mm6Var);
-            et etVar = this.k;
-            if (etVar != null) {
-                etVar.n(this.b);
-            }
         }
     }
 }

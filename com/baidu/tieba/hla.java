@@ -1,33 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ac7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hla implements yb7, vb7 {
+public final class hla implements ac7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.vb7
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yb7
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10755" : (String) invokeV.objValue;
-    }
 
     public hla() {
         Interceptable interceptable = $ic;
@@ -43,24 +28,57 @@ public final class hla implements yb7, vb7 {
         }
     }
 
-    @Override // com.baidu.tieba.yb7
-    public Map<String, String> a(v57 businessInfo) {
+    @Override // com.baidu.tieba.zb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ac7.a.b(this);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zb7
+    public Map<String, String> a(v57 v57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.putAll(tla.a.a(businessInfo));
-            String str = a.get("pic_count");
-            if (str == null) {
-                str = "0";
-            }
-            hashMap.put("obj_type", str);
-            hashMap.put(TiebaStatic.Params.AB_ACTION, "click");
-            hashMap.put(TiebaStatic.Params.OBJ_TO, "2");
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
+            return ac7.a.a(this, v57Var);
         }
         return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ac7
+    public String c(v57 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), "74")) {
+                return "";
+            }
+            String str = businessInfo.a().get("pic_type");
+            if (str == null) {
+                str = "normal";
+            }
+            int hashCode = str.hashCode();
+            if (hashCode != -1039745817) {
+                if (hashCode != 3322092) {
+                    if (hashCode != 112202875 || !str.equals("video")) {
+                        return "";
+                    }
+                    return "live_mix_card_video_image_click";
+                } else if (!str.equals("live")) {
+                    return "";
+                } else {
+                    return "live_mix_card_live_image_click";
+                }
+            } else if (!str.equals("normal")) {
+                return "";
+            } else {
+                return "live_mix_card_normal_image_click";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -38,7 +38,7 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.rva;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -68,7 +68,7 @@ public class hh5 extends le5 {
     public String o;
     public PbNewEditorTool p;
     public ThreadData q;
-    public qva.h r;
+    public rva.h r;
     public boolean s;
     public int t;
     public int u;
@@ -207,7 +207,7 @@ public class hh5 extends le5 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !d5b.d(i)) {
+                    } else if (i != 238010 && !e5b.d(i)) {
                         this.a.u().showToast(str);
                     }
                 } else {
@@ -256,7 +256,7 @@ public class hh5 extends le5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements qva.h {
+    public class c implements rva.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hh5 a;
@@ -279,7 +279,7 @@ public class hh5 extends le5 {
             this.a = hh5Var;
         }
 
-        @Override // com.baidu.tieba.qva.h
+        @Override // com.baidu.tieba.rva.h
         public void d(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -400,7 +400,7 @@ public class hh5 extends le5 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.m0(this.v);
-        qva.t(this.j.Q(), new c(this));
+        rva.t(this.j.Q(), new c(this));
     }
 
     public final void N(ArrayList<AtSelectData> arrayList) {
@@ -459,7 +459,7 @@ public class hh5 extends le5 {
         }
     }
 
-    public void V(qva.h hVar) {
+    public void V(rva.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, hVar) == null) {
             this.r = hVar;
@@ -645,7 +645,7 @@ public class hh5 extends le5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            qva.E(this.e, null);
+            rva.E(this.e, null);
         }
     }
 
@@ -866,7 +866,7 @@ public class hh5 extends le5 {
             writeData.onSaveDrafDataParse(this.i);
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            qva.E(this.e, writeData);
+            rva.E(this.e, writeData);
         }
     }
 

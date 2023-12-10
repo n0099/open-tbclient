@@ -25,8 +25,9 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
     public BdUniqueId a;
     public String b;
     public TbPageContext<?> c;
-    public vi d;
-    public mm6<ThreadData> e;
+    public boolean d;
+    public vi e;
+    public mm6<ThreadData> f;
 
     /* loaded from: classes7.dex */
     public class a extends mm6<ThreadData> {
@@ -59,7 +60,7 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
                 em6.b().d(true);
-                bj8.k(view2, threadData, this.b.b);
+                cj8.k(view2, threadData, this.b.b);
             }
         }
     }
@@ -95,8 +96,8 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((mz4) piVar).t;
                 threadData.objType = 1;
-                if (this.a.e != null) {
-                    this.a.e.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
                 }
                 ThreadCardUtils.jumpToPB((fw4) threadData, view2.getContext(), 0, false);
                 threadCardViewHolder.a().q(new nu.a(1));
@@ -123,7 +124,8 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.e = new a(this);
+        this.d = true;
+        this.f = new a(this);
         this.c = tbPageContext;
         this.a = bdUniqueId2;
         this.b = str;
@@ -132,7 +134,7 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
     public void z(vi viVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, viVar) == null) {
-            this.d = viVar;
+            this.e = viVar;
         }
     }
 
@@ -144,8 +146,11 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.c.getPageActivity(), false);
-            bVar.h(new zs(this.c.getPageActivity()));
-            cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            rt rtVar = new rt(this.c.getPageActivity());
+            rtVar.setFrom("index");
+            rtVar.u(this.d);
+            bVar.n(rtVar);
+            cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
             k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.a);
@@ -168,8 +173,8 @@ public class oj8 extends ci<mz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.e(mz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.e);
-                bj8.r(mz4Var, this.b);
+                threadCardViewHolder.a().r(this.f);
+                cj8.r(mz4Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;

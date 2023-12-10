@@ -41,7 +41,7 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
     public ls5 k;
     public ms5<P> l;
     public BdListView.p m;
-    public wda n;
+    public xda n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
@@ -438,10 +438,10 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (wdaVar = this.n) != null) {
-            wdaVar.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (xdaVar = this.n) != null) {
+            xdaVar.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
         }
     }
 
@@ -476,9 +476,9 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
     public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            wda wdaVar = this.n;
-            if (wdaVar != null) {
-                wdaVar.u(bdUniqueId);
+            xda xdaVar = this.n;
+            if (xdaVar != null) {
+                xdaVar.u(bdUniqueId);
             }
             xr5 xr5Var = this.d;
             if (xr5Var != null) {
@@ -541,9 +541,9 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                wda wdaVar = new wda(this.f, this.h);
-                this.n = wdaVar;
-                wdaVar.p(i);
+                xda xdaVar = new xda(this.f, this.h);
+                this.n = xdaVar;
+                xdaVar.p(i);
                 this.n.u(this.e);
             }
         }
@@ -559,10 +559,10 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
     }
 
     public void A() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (wdaVar = this.n) != null) {
-            wdaVar.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xdaVar = this.n) != null) {
+            xdaVar.r(true);
             B(false);
         }
     }
@@ -621,10 +621,10 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
 
     @Override // com.baidu.tieba.ks5
     public void d() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (wdaVar = this.n) != null) {
-            wdaVar.h();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (xdaVar = this.n) != null) {
+            xdaVar.h();
         }
     }
 
@@ -706,10 +706,10 @@ public class ps5<Q extends rr5, P extends pr5> extends ks5<Q, P> {
     }
 
     public final void y() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (wdaVar = this.n) != null) {
-            wdaVar.z();
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (xdaVar = this.n) != null) {
+            xdaVar.z();
             this.n.r(false);
         }
     }

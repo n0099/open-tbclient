@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi9;
 import com.baidu.tieba.ii9;
+import com.baidu.tieba.ji9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,14 +22,14 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public BdPageContext a;
     public b b;
-    public List<hi9> c;
+    public List<ii9> c;
     public HotSearchInfoData d;
-    public List<ii9> e;
+    public List<ji9> e;
     public String f;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void j(List<hi9> list, List<ii9> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void j(List<ii9> list, List<ji9> list2, HotSearchInfoData hotSearchInfoData, String str);
 
         void q(String str);
     }

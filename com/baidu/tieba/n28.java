@@ -1,135 +1,186 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.stamp.SignPopStampDialogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes7.dex */
-public final class n28 extends cga {
+public class n28 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsActivity a;
+    public FrsFragment b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.cga
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "forum_follow" : (String) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public class a implements SignPopStampDialogUtil.clickCallBack {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n28 a;
+
+        public a(n28 n28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = n28Var;
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void closeBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.finish();
+            }
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void jumpToIconCenterBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.finish();
+            }
+        }
+
+        @Override // com.baidu.tieba.stamp.SignPopStampDialogUtil.clickCallBack
+        public void shareBtn() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.finish();
+            }
+        }
     }
 
-    public n28() {
+    /* loaded from: classes7.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(n28 n28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                YunDialogManager.unMarkShowingDialogName("userIcon");
+            }
+        }
+    }
+
+    public n28(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = false;
+        this.a = frsActivity;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
         }
     }
 
-    @Override // com.baidu.tieba.cga
-    public boolean c() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean isDataReady() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ia5.e().o();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c) {
+                return true;
+            }
+            FrsFragment frsFragment = this.b;
+            if (frsFragment != null && !frsFragment.J4()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideForumIcon() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean isNeedExecute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Object d = d();
-            String str = null;
-            if (!(d instanceof ForumData)) {
-                d = null;
+            if (YunDialogManager.isShowingDialog()) {
+                return false;
             }
-            ForumData forumData = (ForumData) d;
-            if (forumData != null) {
-                str = forumData.getImage_url();
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            if (!PollingModel.checkIconPopHadShow() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.a.s1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
+                return false;
             }
-            if (str == null) {
-                return "";
-            }
-            return str;
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideForumId() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void onExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Object d = d();
-            String str = null;
-            if (!(d instanceof ForumData)) {
-                d = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (PollingModel.checkIconPopHadShow()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                SignPopStampDialogUtil signPopStampDialogUtil = new SignPopStampDialogUtil();
+                signPopStampDialogUtil.preShowPollingStampDialog(iconPopData);
+                signPopStampDialogUtil.setClickCallBack(new a(this));
+                signPopStampDialogUtil.setOnDismissListener(new b(this));
+                YunDialogManager.markShowingDialogName("userIcon");
+                if (!this.c) {
+                    this.b.R5(true);
+                    return;
+                }
+                return;
             }
-            ForumData forumData = (ForumData) d;
-            if (forumData != null) {
-                str = forumData.getId();
-            }
-            if (str == null) {
-                return "";
-            }
-            return str;
+            finish();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideForumName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Object d = d();
-            String str = null;
-            if (!(d instanceof ForumData)) {
-                d = null;
-            }
-            ForumData forumData = (ForumData) d;
-            if (forumData != null) {
-                str = forumData.getName();
-            }
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
-    public String provideForumSlogan() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object d = d();
-            String str = null;
-            if (!(d instanceof ForumData)) {
-                d = null;
-            }
-            ForumData forumData = (ForumData) d;
-            if (forumData != null) {
-                str = forumData.getSlogan();
-            }
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
     }
 }

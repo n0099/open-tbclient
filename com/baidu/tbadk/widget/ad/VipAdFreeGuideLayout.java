@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
 import com.baidu.tieba.k26;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.vya;
+import com.baidu.tieba.wya;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -342,7 +342,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.VipAdFreeGuideLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.VipAdFreeGuideLayout);
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();

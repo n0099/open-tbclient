@@ -61,12 +61,12 @@ public class zb6 extends FragmentDelegate {
         return (FragmentTabStructure) invokeV.objValue;
     }
 
-    public void a(gt7 gt7Var) {
+    public void a(ht7 ht7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, gt7Var) != null) || gt7Var == null || !gt7Var.i(2)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ht7Var) != null) || ht7Var == null || !ht7Var.i(2)) {
             return;
         }
-        gt7Var.a(this);
+        ht7Var.a(this);
     }
 
     public void b(String str) {

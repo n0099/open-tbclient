@@ -26,7 +26,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.nt5;
-import com.baidu.tieba.oea;
+import com.baidu.tieba.pea;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class OperableVideoShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oea a;
+    public pea a;
     public View b;
     public ImageView c;
     public View d;
@@ -222,11 +222,11 @@ public class OperableVideoShareView extends LinearLayout {
         }
     }
 
-    public void setVideoContainer(oea oeaVar) {
+    public void setVideoContainer(pea peaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oeaVar) == null) {
-            this.a = oeaVar;
-            this.i.setOnClickListener(oeaVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, peaVar) == null) {
+            this.a = peaVar;
+            this.i.setOnClickListener(peaVar);
         }
     }
 

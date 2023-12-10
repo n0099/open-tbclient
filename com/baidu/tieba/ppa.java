@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class ppa {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-    public static Context b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,16 +24,6 @@ public class ppa {
                 return;
             }
         }
-        a = AppConfig.isDebug();
-        b = AppRuntime.getAppContext();
-    }
-
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return (Context) invokeV.objValue;
+        boolean z = qpa.a;
     }
 }

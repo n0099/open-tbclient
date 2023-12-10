@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax5;
-import com.baidu.tieba.dcb;
+import com.baidu.tieba.ecb;
 import com.baidu.tieba.tbadkcore.databinding.ProgressBallBinding;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.progressball.ProgressBall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public final class ProgressBall extends RelativeLayout {
     public int c;
     public final Path d;
     public int e;
-    public dcb f;
+    public ecb f;
     public ProgressBallBinding g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public final class ProgressBall extends RelativeLayout {
         }
         this.a = "res:///";
         this.d = new Path();
-        this.f = new dcb();
+        this.f = new ecb();
         a();
     }
 
@@ -138,7 +138,7 @@ public final class ProgressBall extends RelativeLayout {
         }
     }
 
-    public final void b(dcb data) {
+    public final void b(ecb data) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -162,7 +162,7 @@ public final class ProgressBall extends RelativeLayout {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     progressBallBinding3 = null;
                 }
-                progressBallBinding3.b.setForegroundColor(tua.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
+                progressBallBinding3.b.setForegroundColor(uua.a(SkinManager.getColor(R.color.CAM_X0611), 0.6f));
                 ProgressBallBinding progressBallBinding4 = this.g;
                 if (progressBallBinding4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
@@ -283,7 +283,7 @@ public final class ProgressBall extends RelativeLayout {
             } else {
                 this.e = i;
             }
-            post(new Runnable() { // from class: com.baidu.tieba.ccb
+            post(new Runnable() { // from class: com.baidu.tieba.dcb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

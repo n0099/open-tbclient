@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Message;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xhc;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.yhc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,30 +16,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.yy.transvod.player.log.TLog;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public final class gic implements xhc, Runnable {
+public final class gic implements yhc {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] m;
+    public static final String[] h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
-    public int c;
-    public xhc.a d;
-    public Object e;
-    public Object f;
-    public LinkedList<Message> g;
-    public TreeMap<Long, Message> h;
-    public LinkedList<Message> i;
-    public TreeMap<Long, Message> j;
-    public AtomicInteger k;
-    public Thread l;
+    public Handler a;
+    public HandlerThread b;
+    public String c;
+    public int d;
+    public yhc.a e;
+    public final Handler.Callback f;
+    public AtomicInteger g;
+
+    /* loaded from: classes6.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gic a;
+
+        public a(gic gicVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gicVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gicVar;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                switch (message.what) {
+                    case -10004:
+                        this.a.e.onResume();
+                        return false;
+                    case -10003:
+                        this.a.e.onPause();
+                        return false;
+                    case -10002:
+                        this.a.m();
+                        return false;
+                    case -10001:
+                        this.a.l();
+                        return false;
+                    default:
+                        this.a.e.handleMessage(message);
+                        return false;
+                }
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,17 +95,26 @@ public final class gic implements xhc, Runnable {
                 return;
             }
         }
-        m = new String[]{"None", "Ready", "Running", "Paused", "Stopped"};
+        h = new String[]{"None", "Ready", "Running", "Paused", "Stopped"};
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k.get();
+            return this.g.get();
         }
         return invokeV.intValue;
+    }
+
+    public Handler k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (Handler) invokeV.objValue;
     }
 
     public gic(String str) {
@@ -79,28 +132,22 @@ public final class gic implements xhc, Runnable {
                 return;
             }
         }
-        this.a = gic.class.getSimpleName();
-        this.b = SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
-        this.c = -2;
-        this.d = null;
-        this.e = new Object();
-        this.f = new Object();
-        this.g = new LinkedList<>();
-        this.h = new TreeMap<>();
-        this.i = new LinkedList<>();
-        this.j = new TreeMap<>();
-        this.k = new AtomicInteger(1);
-        this.l = null;
+        this.a = null;
+        this.b = null;
+        this.c = "yythread";
+        this.d = -2;
+        this.e = null;
+        this.f = new a(this);
+        this.g = new AtomicInteger(1);
         if (str != null) {
-            this.b = str;
+            this.c = str;
         }
-        this.c = 0;
     }
 
-    public static int h(int i) {
+    public static int n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
             if (i > 19) {
                 i = 19;
             } else if (i < -8) {
@@ -111,11 +158,11 @@ public final class gic implements xhc, Runnable {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.xhc
-    public void b(xhc.a aVar) {
+    @Override // com.baidu.tieba.yhc
+    public void b(yhc.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.d = aVar;
+            this.e = aVar;
             if (aVar != null) {
                 return;
             }
@@ -123,36 +170,30 @@ public final class gic implements xhc, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (getStatus() == 1) {
-                this.c = i;
-                return;
+            this.d = i;
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.setPriority(this.d);
+                }
             }
-            throw new IllegalStateException("invalid state");
         }
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public boolean e(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, runnable)) == null) {
-            Message obtain = Message.obtain((Handler) null, runnable);
-            boolean sendMessage = sendMessage(obtain);
-            try {
-                obtain.recycle();
-            } catch (IllegalStateException unused) {
-                TLog.d(this.a, "message recycle error");
-            }
-            return sendMessage;
+            return sendMessage(Message.obtain((Handler) null, runnable));
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public boolean f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -162,258 +203,262 @@ public final class gic implements xhc, Runnable {
         return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            synchronized (this) {
+                if (this.g.get() != 4) {
+                    this.a.removeMessages(i);
+                }
+            }
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            synchronized (this) {
+                this.g.set(i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yhc
     public boolean sendMessage(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, message)) == null) {
-            return i(message, 0L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, message)) == null) {
+            return q(message, 0L);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            if (str != null) {
+                this.c = str;
+            }
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.setName(this.c);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public boolean a(int i, long j) {
         InterceptResult invokeCommon;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = i;
-            return i(obtain, j);
+            synchronized (this) {
+                int i2 = this.g.get();
+                if (i2 != 2 && i2 != 3) {
+                    Object[] objArr = new Object[3];
+                    if (this.b != null) {
+                        str = this.b.getName();
+                    } else {
+                        str = this.c;
+                    }
+                    objArr[0] = str;
+                    objArr[1] = Integer.valueOf(i);
+                    objArr[2] = h[i2];
+                    TLog.c(this, String.format("[%s] sendEmptyMessageDelayed(%d) failed. mThreadStatus = %s", objArr));
+                    return false;
+                }
+                return this.a.sendEmptyMessageDelayed(i, j);
+            }
         }
         return invokeCommon.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:4|5|(2:10|11)|15|50|19|20|21|22|11) */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0081, code lost:
-        r4 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0082, code lost:
-        r4.printStackTrace();
-        r4 = r7.a;
-        com.yy.transvod.player.log.TLog.m(r4, r7.b + "stop thread, join exception");
-     */
-    @Override // com.baidu.tieba.xhc
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @Override // com.baidu.tieba.yhc
     public void c() {
+        int i;
+        String str;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                int i = this.k.get();
-                if (i != 2 && i != 3) {
-                    TLog.m(this.a, String.format("[%s] already stopped? mThreadStatus = %s", this.b, m[i]));
+                i = this.g.get();
+                if (i != 4) {
+                    this.g.set(4);
+                    this.a.removeMessages(-10002);
+                    this.a.sendEmptyMessage(-10002);
+                } else {
+                    Object[] objArr = new Object[2];
+                    if (this.b != null) {
+                        str = this.b.getName();
+                    } else {
+                        str = this.c;
+                    }
+                    objArr[0] = str;
+                    objArr[1] = h[i];
+                    TLog.l(this, String.format("[%s] already stopped? mThreadStatus = %s", objArr));
                 }
-                String str = this.a;
-                TLog.h(str, this.b + "stop thread, status to 4");
-                this.k.set(4);
-                synchronized (this.f) {
-                    this.f.notify();
+            }
+            if (i != 4) {
+                try {
+                    if (this.b != null) {
+                        i2 = this.b.getThreadId();
+                    } else {
+                        i2 = 0;
+                    }
+                    if (Build.VERSION.SDK_INT >= 18) {
+                        this.b.quitSafely();
+                    }
+                    int threadId = this.b.getThreadId();
+                    this.b.join();
+                    TLog.g(this, String.format("[%s] tid %d, stop HandlerThread(%d).", this.b.getName(), Integer.valueOf(i2), Integer.valueOf(threadId)));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                int myTid = Process.myTid();
-                String str2 = this.a;
-                TLog.h(str2, this.b + "stop thread, join in");
-                this.l.join();
-                this.l = null;
-                this.k.set(1);
-                TLog.h(this.a, String.format("[%s] stop thread tid %d", this.b, Integer.valueOf(myTid)));
+                synchronized (this) {
+                    this.b = null;
+                    this.a = null;
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.xhc
+    @Override // com.baidu.tieba.yhc
     public void start() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (this.l != null) {
-                TLog.m(this.a, "is alive already");
-            } else if (this.d != null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.e != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 synchronized (this) {
-                    try {
-                        this.k.set(2);
-                        Thread thread = new Thread(this, this.b);
-                        this.l = thread;
-                        thread.setPriority(h(this.c));
-                        this.l.start();
-                        String str = this.a;
-                        TLog.h(str, this.b + "  isAlive:" + this.l.isAlive());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        String str2 = this.a;
-                        TLog.d(str2, this.b + " start thread, exception:" + e.getMessage());
-                    }
-                }
-                StringBuilder sb = new StringBuilder();
-                String str3 = this.b;
-                if (str3 != null) {
-                    sb.append(str3);
-                }
-                sb.append(" YYThread2 start cost:");
-                sb.append(System.currentTimeMillis() - currentTimeMillis);
-                TLog.m(this.a, sb.toString());
-            } else {
-                throw new RuntimeException("mCallback is null");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xhc
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.k.get() == 2) {
-            synchronized (this.f) {
-                Iterator<Message> it = this.g.iterator();
-                while (it.hasNext()) {
-                    Message next = it.next();
-                    if (next.what == i) {
-                        try {
-                            next.recycle();
-                        } catch (IllegalStateException unused) {
-                            TLog.d(this.a, "message recycle error");
-                        }
-                        it.remove();
-                    }
-                }
-                for (Map.Entry<Long, Message> entry : this.h.entrySet()) {
-                    if (entry.getValue().what == i) {
-                        this.h.remove(entry.getKey());
-                        try {
-                            entry.getValue().recycle();
-                        } catch (IllegalStateException unused2) {
-                            TLog.d(this.a, "message recycle error");
-                        }
-                    }
-                }
-                synchronized (this.e) {
-                    for (Map.Entry<Long, Message> entry2 : this.j.entrySet()) {
-                        if (entry2.getValue().what == i) {
-                            this.j.remove(entry2.getKey());
-                            try {
-                                entry2.getValue().recycle();
-                            } catch (IllegalStateException unused3) {
-                                TLog.d(this.a, "message recycle error");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean i(Message message, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, message, j)) == null) {
-            int i = this.k.get();
-            if (i == 2) {
-                synchronized (this.f) {
-                    Message obtain = Message.obtain();
-                    obtain.copyFrom(message);
-                    if (j == 0) {
-                        this.g.add(obtain);
+                    this.g.set(2);
+                    HandlerThread handlerThread = new HandlerThread(this.c, this.d);
+                    this.b = handlerThread;
+                    handlerThread.setPriority(n(this.d));
+                    this.b.start();
+                    this.a = new Handler(this.b.getLooper(), this.f);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(PreferencesUtil.LEFT_MOUNT);
+                    sb.append(this.c);
+                    sb.append("] tid ");
+                    if (this.b != null) {
+                        i = this.b.getThreadId();
                     } else {
-                        synchronized (this.e) {
-                            this.h.put(Long.valueOf(System.currentTimeMillis() + j), obtain);
-                        }
+                        i = 0;
                     }
-                    this.f.notify();
+                    sb.append(i);
+                    sb.append(this.a.toString());
+                    TLog.g(this, sb.toString());
+                    this.a.sendEmptyMessage(-10001);
                 }
-                return true;
+                TLog.l(this, this.c + " YYThread start cost :" + (System.currentTimeMillis() - currentTimeMillis));
+                return;
             }
-            TLog.d(this.a, String.format("[%s] sendMessageDelayed() failed. mThreadStatus = %s", this.b, m[i]));
-            return false;
+            throw new RuntimeException("mCallback is null");
         }
-        return invokeLJ.booleanValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TLog.h(this.a, this.b + " onstart, priority=" + this.c);
-            this.d.onStart();
-            long j = 0L;
-            do {
-                synchronized (this.f) {
-                    try {
-                        if (this.g.isEmpty()) {
-                            this.f.wait(j);
-                        }
-                        LinkedList<Message> linkedList = this.g;
-                        this.g = this.i;
-                        this.i = linkedList;
-                        synchronized (this.e) {
-                            this.j.putAll(this.h);
-                            this.h.clear();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                LinkedList<Message> linkedList2 = new LinkedList();
-                synchronized (this.e) {
-                    Iterator it = ((TreeMap) this.j.clone()).entrySet().iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            Map.Entry entry = (Map.Entry) it.next();
-                            if (((Long) entry.getKey()).longValue() <= currentTimeMillis) {
-                                Message message = new Message();
-                                message.copyFrom((Message) entry.getValue());
-                                this.j.remove(entry.getKey());
-                                try {
-                                    ((Message) entry.getValue()).recycle();
-                                } catch (IllegalStateException unused) {
-                                    TLog.d(this.a, "message recycle error");
-                                }
-                                linkedList2.add(message);
-                            } else {
-                                j = ((Long) entry.getKey()).longValue() - currentTimeMillis;
-                                break;
-                            }
-                        } else {
-                            j = 0;
-                            break;
-                        }
-                    }
-                }
-                for (Message message2 : linkedList2) {
-                    this.d.handleMessage(message2);
-                }
-                while (true) {
-                    Message poll = this.i.poll();
-                    if (poll == null) {
-                        break;
-                    }
-                    int i = poll.what;
-                    if (i == -10003) {
-                        this.k.set(3);
-                        this.d.onPause();
-                    } else if (i == -10004) {
-                        this.d.onResume();
-                    } else {
-                        this.d.handleMessage(poll);
-                    }
-                    try {
-                        poll.recycle();
-                    } catch (IllegalStateException unused2) {
-                        TLog.d(this.a, "message recycle error");
-                    }
-                }
-            } while (this.k.get() != 4);
-            TLog.d(this.a, this.b + " stopped");
-            TLog.h(this.a, this.b + " onstop");
-            this.d.onStop();
+            int myTid = Process.myTid();
+            Thread currentThread = Thread.currentThread();
+            TLog.g(this, PreferencesUtil.LEFT_MOUNT + currentThread.getName() + PreferencesUtil.RIGHT_MOUNT + " sdk_ver:" + Build.VERSION.SDK_INT + " tid:" + myTid + " " + currentThread.getId() + " priority" + Process.getThreadPriority(myTid) + " " + currentThread.getPriority());
+            this.e.onStart();
         }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.e.onStop();
+            if (Build.VERSION.SDK_INT < 18) {
+                this.b.quit();
+            } else {
+                this.b.quitSafely();
+            }
+            Process.myTid();
+            TLog.g(this, String.format("[%s] thread internalStop", Thread.currentThread().getName()));
+        }
+    }
+
+    public void o() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                int i = this.g.get();
+                if (i == 2) {
+                    this.g.set(3);
+                    this.a.removeMessages(-10003);
+                    this.a.sendEmptyMessage(-10003);
+                } else {
+                    Object[] objArr = new Object[2];
+                    if (this.b != null) {
+                        str = this.b.getName();
+                    } else {
+                        str = this.c;
+                    }
+                    objArr[0] = str;
+                    objArr[1] = h[i];
+                    TLog.l(this, String.format("[%s] already paused? mThreadStatus = %s", objArr));
+                }
+            }
+        }
+    }
+
+    public void p() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            synchronized (this) {
+                int i = this.g.get();
+                if (i == 3) {
+                    this.g.set(2);
+                    this.a.removeMessages(-10004);
+                    this.a.sendEmptyMessage(-10004);
+                } else {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(PreferencesUtil.LEFT_MOUNT);
+                    if (this.b != null) {
+                        str = this.b.getName();
+                    } else {
+                        str = this.c;
+                    }
+                    sb.append(str);
+                    sb.append(" ]");
+                    sb.append(" already resumed? mThreadStatus = ");
+                    sb.append(h[i]);
+                    TLog.l(this, sb.toString());
+                }
+            }
+        }
+    }
+
+    public boolean q(Message message, long j) {
+        InterceptResult invokeLJ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, message, j)) == null) {
+            synchronized (this) {
+                int i = this.g.get();
+                if (i != 2 && i != 3) {
+                    Object[] objArr = new Object[2];
+                    if (this.b != null) {
+                        str = this.b.getName();
+                    } else {
+                        str = this.c;
+                    }
+                    objArr[0] = str;
+                    objArr[1] = h[i];
+                    TLog.c(this, String.format("[%s] sendMessageDelayed() failed. mThreadStatus = %s", objArr));
+                    return false;
+                }
+                return this.a.sendMessageDelayed(message, j);
+            }
+        }
+        return invokeLJ.booleanValue;
     }
 }

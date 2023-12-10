@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.du5;
 import com.baidu.tieba.fw4;
-import com.baidu.tieba.mua;
+import com.baidu.tieba.nua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,7 +75,7 @@ public class RecommendInfoLayout extends RelativeLayout {
             } else {
                 new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
             }
-            mua.x(this.b, 2, 1);
+            nua.x(this.b, 2, 1);
         }
     }
 

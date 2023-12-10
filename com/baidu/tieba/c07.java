@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.xva;
+import com.baidu.tieba.yva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class c07 {
     public String j;
     public wy4 k;
     public LikeModel l;
-    public xva m;
+    public yva m;
     public boolean n;
 
     /* loaded from: classes5.dex */
@@ -170,12 +170,12 @@ public class c07 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements xva.a {
+    public class d implements yva.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c07 a;
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -200,7 +200,7 @@ public class c07 {
             this.a = c07Var;
         }
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -328,7 +328,7 @@ public class c07 {
                     return;
                 }
                 if (this.m == null) {
-                    this.m = new xva();
+                    this.m = new yva();
                 }
                 this.m.b(new d(this));
                 this.m.c(this.k.g(), this.k.f());

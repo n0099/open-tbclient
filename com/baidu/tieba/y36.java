@@ -34,7 +34,7 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
     public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
     public NewFriendsActivity a;
-    public List<rt8> b;
+    public List<st8> b;
     public c c;
 
     /* loaded from: classes9.dex */
@@ -45,7 +45,7 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes9.dex */
     public interface c {
-        void a(int i, int i2, View view2, rt8 rt8Var);
+        void a(int i, int i2, View view2, st8 st8Var);
     }
 
     @Override // android.widget.Adapter
@@ -137,18 +137,18 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
             this();
         }
 
-        public void a(rt8 rt8Var) {
+        public void a(st8 st8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rt8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, st8Var) == null) {
                 boolean z = false;
-                this.a.startLoad(rt8Var.e(), 12, false);
-                this.b.setText(rt8Var.d());
-                if (!TextUtils.isEmpty(rt8Var.a())) {
-                    this.c.setText(rt8Var.a());
+                this.a.startLoad(st8Var.e(), 12, false);
+                this.b.setText(st8Var.d());
+                if (!TextUtils.isEmpty(st8Var.a())) {
+                    this.c.setText(st8Var.a());
                 } else {
                     this.c.setText("");
                 }
-                int f = rt8Var.f();
+                int f = st8Var.f();
                 this.d.setText(((Integer) y36.d.get(f)).intValue());
                 this.d.setEnabled((f == 0 || f == 1) ? true : true);
             }
@@ -204,7 +204,7 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            List<rt8> list = this.b;
+            List<st8> list = this.b;
             if (list != null) {
                 int size = list.size();
                 for (int i = 0; i < size; i++) {
@@ -222,27 +222,27 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: c */
-    public rt8 getItem(int i) {
+    public st8 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.b.get(i);
         }
-        return (rt8) invokeI.objValue;
+        return (st8) invokeI.objValue;
     }
 
-    public synchronized void d(rt8 rt8Var) {
+    public synchronized void d(st8 st8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rt8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, st8Var) == null) {
             synchronized (this) {
                 if (this.b != null) {
-                    this.b.remove(rt8Var);
+                    this.b.remove(st8Var);
                 }
             }
         }
     }
 
-    public void e(List<rt8> list) {
+    public void e(List<st8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -256,15 +256,15 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void h(List<rt8> list) {
+    public void h(List<st8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
             if (list != null) {
-                for (rt8 rt8Var : list) {
-                    g(rt8Var);
+                for (st8 st8Var : list) {
+                    g(st8Var);
                 }
             }
         }
@@ -285,7 +285,7 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<rt8> list = this.b;
+            List<st8> list = this.b;
             if (list == null) {
                 return 0;
             }
@@ -294,20 +294,20 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
         return invokeV.intValue;
     }
 
-    public void g(rt8 rt8Var) {
+    public void g(st8 st8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rt8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, st8Var) == null) {
             if (this.b == null) {
                 this.b = new ArrayList();
             }
-            if (rt8Var != null && rt8Var.b() != 0) {
-                int b2 = b(rt8Var.b());
+            if (st8Var != null && st8Var.b() != 0) {
+                int b2 = b(st8Var.b());
                 if (b2 != -1) {
                     this.b.remove(b2);
-                    this.b.add(0, rt8Var);
+                    this.b.add(0, st8Var);
                     return;
                 }
-                this.b.add(0, rt8Var);
+                this.b.add(0, st8Var);
             }
         }
     }
@@ -331,7 +331,7 @@ public class y36 extends BaseAdapter implements View.OnClickListener {
                 dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ca7);
                 view2.setTag(dVar);
             }
-            rt8 item = getItem(i);
+            st8 item = getItem(i);
             dVar.a(item);
             dVar.d.setTag(Integer.valueOf(i));
             dVar.d.setOnClickListener(this);

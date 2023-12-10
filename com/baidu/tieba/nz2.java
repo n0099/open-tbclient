@@ -30,7 +30,7 @@ public class nz2 implements dl3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.nz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0412a {
+        public static class C0410a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class nz2 implements dl3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0412a.a;
+                return C0410a.a;
             }
             return (a) invokeV.objValue;
         }

@@ -1,97 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qa8 {
+public abstract class qa8<T, V extends TypeAdapter.ViewHolder> extends ci<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, a> a;
+    public FollowUserButton.a a;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final long b;
-
-        public a(String frsCustomCounts, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {frsCustomCounts, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(frsCustomCounts, "frsCustomCounts");
-            this.a = frsCustomCounts;
-            this.b = j;
-        }
-
-        public final JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.putOpt("frs_csm", this.a);
-                jSONObject.putOpt("last_time", Long.valueOf(this.b));
-                jSONObject.putOpt("is_show", Integer.valueOf(SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_recent_forum_is_show"), false) ? 1 : 0));
-                return jSONObject;
-            }
-            return (JSONObject) invokeV.objValue;
-        }
-    }
-
-    public qa8(Map<String, a> frsVisitedDataMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qa8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsVisitedDataMap};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(frsVisitedDataMap, "frsVisitedDataMap");
-        this.a = frsVisitedDataMap;
     }
 
-    public final JSONObject a() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
+    public void t(FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            for (String str : this.a.keySet()) {
-                a aVar = this.a.get(str);
-                if (aVar != null) {
-                    jSONObject = aVar.a();
-                } else {
-                    jSONObject = null;
-                }
-                jSONObject2.put(str, jSONObject);
-            }
-            return jSONObject2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

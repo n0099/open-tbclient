@@ -3,10 +3,10 @@ package com.baidu.tieba.gift.giftTab;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.r98;
+import com.baidu.tieba.s98;
 import com.baidu.tieba.tx4;
 import com.baidu.tieba.ux4;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.w98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String addFreeUrl;
-    public ArrayList<r98> categoryList;
+    public ArrayList<s98> categoryList;
     public int currencyType;
     public int freeChance;
     public ArrayList<tx4> giftList;
-    public ArrayList<v98> numberList;
+    public ArrayList<w98> numberList;
     public long sceneId;
     public ux4 urlTitleData;
 
@@ -112,9 +112,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.categoryList = new ArrayList<>();
                 for (PresentCategoryList presentCategoryList : getGiftListResIdl.data.list) {
                     if (presentCategoryList != null) {
-                        r98 r98Var = new r98();
-                        r98Var.d(presentCategoryList);
-                        this.categoryList.add(r98Var);
+                        s98 s98Var = new s98();
+                        s98Var.d(presentCategoryList);
+                        this.categoryList.add(s98Var);
                     }
                 }
             }
@@ -123,9 +123,9 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
                 this.numberList = new ArrayList<>();
                 for (PresentNumInfo presentNumInfo : getGiftListResIdl.data.num_info) {
                     if (presentNumInfo != null) {
-                        v98 v98Var = new v98();
-                        v98Var.c(presentNumInfo);
-                        this.numberList.add(v98Var);
+                        w98 w98Var = new w98();
+                        w98Var.c(presentNumInfo);
+                        this.numberList.add(w98Var);
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<r98> getCategoryList() {
+    public ArrayList<s98> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -168,7 +168,7 @@ public class DefaultGiftListHttpResponseMessage extends TbHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<v98> getGiftNumberList() {
+    public ArrayList<w98> getGiftNumberList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

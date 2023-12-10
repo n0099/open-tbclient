@@ -92,15 +92,15 @@ public class oj5 implements Callable<Boolean> {
             if (TextUtils.isEmpty(imageFileInfo.getTempUploadFileName())) {
                 imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.e + ".temp");
             }
-            mya.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
+            nya.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
             if (imageFileInfo.getImageType() == 1) {
                 isOriginalImg = false;
             } else {
                 isOriginalImg = this.c.isOriginalImg();
             }
-            kya.m(this.u, imageFileInfo);
+            lya.m(this.u, imageFileInfo);
             ImageUploadResult e = e(imageFileInfo, isOriginalImg, this.d, this.e + 1, this.b.size());
-            kya.d(this.u, imageFileInfo, e);
+            lya.d(this.u, imageFileInfo, e);
             if (e != null) {
                 UploadedImageInfo uploadedPicInfo = e.getUploadedPicInfo();
                 if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -111,13 +111,13 @@ public class oj5 implements Callable<Boolean> {
                 }
                 errorData.setError_code(e.error_code);
                 errorData.setError_msg(e.error_msg);
-                mya.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
+                nya.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
                 this.a.a(errorData);
                 return Boolean.FALSE;
             }
             errorData.setError_code(-52);
             errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.upload_error));
-            mya.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
+            nya.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
             this.a.a(errorData);
             return Boolean.FALSE;
         }
@@ -185,7 +185,7 @@ public class oj5 implements Callable<Boolean> {
     /* JADX WARN: Code restructure failed: missing block: B:166:0x03b5, code lost:
         r3.append(r27);
         r3.append(r4);
-        com.baidu.tieba.mya.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.baidu.tieba.nya.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:167:0x03cf, code lost:
         r13 = r8;
@@ -340,7 +340,7 @@ public class oj5 implements Callable<Boolean> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             String str5 = str;
-            mya.a("发帖：正在上传图片 = " + str5);
+            nya.a("发帖：正在上传图片 = " + str5);
             BitmapFactory.Options options2 = new BitmapFactory.Options();
             boolean z3 = true;
             options2.inJustDecodeBounds = true;
@@ -370,7 +370,7 @@ public class oj5 implements Callable<Boolean> {
                             try {
                                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                                 imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.file_size_over);
-                                mya.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                                nya.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                                 BdCloseHelper.close((Closeable) null);
                                 this.s = null;
                                 return imageUploadResult;
@@ -380,7 +380,7 @@ public class oj5 implements Callable<Boolean> {
                                 randomAccessFile2 = null;
                             }
                         } else {
-                            mya.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                            nya.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                             String b = xd.b(FileHelper.GetStreamFromFile(file));
                             sb5.append("path=");
                             sb5.append(str5);
@@ -483,10 +483,10 @@ public class oj5 implements Callable<Boolean> {
                                                     sb7.append("    p = ");
                                                     str2 = str;
                                                     sb7.append(str2);
-                                                    mya.a(sb7.toString());
+                                                    nya.a(sb7.toString());
                                                     BdCloseHelper.close(randomAccessFile2);
                                                     this.s = null;
-                                                    mya.a("发帖：上传图片 结束      p = " + str2);
+                                                    nya.a("发帖：上传图片 结束      p = " + str2);
                                                     return imageUploadResult;
                                                 }
                                             } else if (i8 == 0) {
@@ -528,10 +528,10 @@ public class oj5 implements Callable<Boolean> {
                                                     sb72.append("    p = ");
                                                     str2 = str;
                                                     sb72.append(str2);
-                                                    mya.a(sb72.toString());
+                                                    nya.a(sb72.toString());
                                                     BdCloseHelper.close(randomAccessFile2);
                                                     this.s = null;
-                                                    mya.a("发帖：上传图片 结束      p = " + str2);
+                                                    nya.a("发帖：上传图片 结束      p = " + str2);
                                                     return imageUploadResult;
                                                 }
                                             }
@@ -568,10 +568,10 @@ public class oj5 implements Callable<Boolean> {
                                                 sb722.append("    p = ");
                                                 str2 = str;
                                                 sb722.append(str2);
-                                                mya.a(sb722.toString());
+                                                nya.a(sb722.toString());
                                                 BdCloseHelper.close(randomAccessFile2);
                                                 this.s = null;
-                                                mya.a("发帖：上传图片 结束      p = " + str2);
+                                                nya.a("发帖：上传图片 结束      p = " + str2);
                                                 return imageUploadResult;
                                             }
                                         }
@@ -614,10 +614,10 @@ public class oj5 implements Callable<Boolean> {
                                                         sb7222.append("    p = ");
                                                         str2 = str;
                                                         sb7222.append(str2);
-                                                        mya.a(sb7222.toString());
+                                                        nya.a(sb7222.toString());
                                                         BdCloseHelper.close(randomAccessFile2);
                                                         this.s = null;
-                                                        mya.a("发帖：上传图片 结束      p = " + str2);
+                                                        nya.a("发帖：上传图片 结束      p = " + str2);
                                                         return imageUploadResult;
                                                     }
                                                 } catch (Throwable th4) {
@@ -714,7 +714,7 @@ public class oj5 implements Callable<Boolean> {
                                                             try {
                                                                 try {
                                                                     if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                                        mya.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
+                                                                        nya.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
                                                                         if (i3 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                             break;
                                                                         }
@@ -769,10 +769,10 @@ public class oj5 implements Callable<Boolean> {
                                                                                         sb72222.append("    p = ");
                                                                                         str2 = str;
                                                                                         sb72222.append(str2);
-                                                                                        mya.a(sb72222.toString());
+                                                                                        nya.a(sb72222.toString());
                                                                                         BdCloseHelper.close(randomAccessFile2);
                                                                                         this.s = null;
-                                                                                        mya.a("发帖：上传图片 结束      p = " + str2);
+                                                                                        nya.a("发帖：上传图片 结束      p = " + str2);
                                                                                         return imageUploadResult;
                                                                                     }
                                                                                 } else {
@@ -782,7 +782,7 @@ public class oj5 implements Callable<Boolean> {
                                                                                     if (this.c != null) {
                                                                                         this.c.hasUploadFileSize += i5;
                                                                                     }
-                                                                                    mya.a("发帖：正在上传图片 已上传 = " + j4 + "    p = " + str5);
+                                                                                    nya.a("发帖：正在上传图片 已上传 = " + j4 + "    p = " + str5);
                                                                                     if (this.n != null) {
                                                                                         try {
                                                                                             randomAccessFile4 = randomAccessFile3;
@@ -838,10 +838,10 @@ public class oj5 implements Callable<Boolean> {
                                                                                             sb722222.append("    p = ");
                                                                                             str2 = str;
                                                                                             sb722222.append(str2);
-                                                                                            mya.a(sb722222.toString());
+                                                                                            nya.a(sb722222.toString());
                                                                                             BdCloseHelper.close(randomAccessFile2);
                                                                                             this.s = null;
-                                                                                            mya.a("发帖：上传图片 结束      p = " + str2);
+                                                                                            nya.a("发帖：上传图片 结束      p = " + str2);
                                                                                             return imageUploadResult;
                                                                                         } catch (Throwable th7) {
                                                                                             th = th7;
@@ -888,10 +888,10 @@ public class oj5 implements Callable<Boolean> {
                                                                                     sb7222222.append("    p = ");
                                                                                     str2 = str;
                                                                                     sb7222222.append(str2);
-                                                                                    mya.a(sb7222222.toString());
+                                                                                    nya.a(sb7222222.toString());
                                                                                     BdCloseHelper.close(randomAccessFile2);
                                                                                     this.s = null;
-                                                                                    mya.a("发帖：上传图片 结束      p = " + str2);
+                                                                                    nya.a("发帖：上传图片 结束      p = " + str2);
                                                                                     return imageUploadResult;
                                                                                 }
                                                                                 try {
@@ -955,10 +955,10 @@ public class oj5 implements Callable<Boolean> {
                                                                                     sb72222222.append("    p = ");
                                                                                     str2 = str;
                                                                                     sb72222222.append(str2);
-                                                                                    mya.a(sb72222222.toString());
+                                                                                    nya.a(sb72222222.toString());
                                                                                     BdCloseHelper.close(randomAccessFile2);
                                                                                     this.s = null;
-                                                                                    mya.a("发帖：上传图片 结束      p = " + str2);
+                                                                                    nya.a("发帖：上传图片 结束      p = " + str2);
                                                                                     return imageUploadResult;
                                                                                 } catch (Throwable th8) {
                                                                                     th = th8;
@@ -1012,10 +1012,10 @@ public class oj5 implements Callable<Boolean> {
                                                                 sb722222222.append("    p = ");
                                                                 str2 = str;
                                                                 sb722222222.append(str2);
-                                                                mya.a(sb722222222.toString());
+                                                                nya.a(sb722222222.toString());
                                                                 BdCloseHelper.close(randomAccessFile2);
                                                                 this.s = null;
-                                                                mya.a("发帖：上传图片 结束      p = " + str2);
+                                                                nya.a("发帖：上传图片 结束      p = " + str2);
                                                                 return imageUploadResult;
                                                             }
                                                             c = 0;
@@ -1079,10 +1079,10 @@ public class oj5 implements Callable<Boolean> {
                                                 sb7222222222.append("    p = ");
                                                 str2 = str;
                                                 sb7222222222.append(str2);
-                                                mya.a(sb7222222222.toString());
+                                                nya.a(sb7222222222.toString());
                                                 BdCloseHelper.close(randomAccessFile2);
                                                 this.s = null;
-                                                mya.a("发帖：上传图片 结束      p = " + str2);
+                                                nya.a("发帖：上传图片 结束      p = " + str2);
                                                 return imageUploadResult;
                                             }
                                         } catch (Throwable th10) {
@@ -1094,7 +1094,7 @@ public class oj5 implements Callable<Boolean> {
                                         randomAccessFile2 = randomAccessFile;
                                         sb = sb2;
                                     }
-                                    mya.a("发帖：上传图片 结束      p = " + str2);
+                                    nya.a("发帖：上传图片 结束      p = " + str2);
                                     return imageUploadResult;
                                 }
                                 imageUploadResult2 = imageUploadResult3;
@@ -1103,7 +1103,7 @@ public class oj5 implements Callable<Boolean> {
                                 this.s = null;
                                 imageUploadResult = imageUploadResult2;
                                 str2 = str;
-                                mya.a("发帖：上传图片 结束      p = " + str2);
+                                nya.a("发帖：上传图片 结束      p = " + str2);
                                 return imageUploadResult;
                             }
                             sb = sb5;
@@ -1117,11 +1117,11 @@ public class oj5 implements Callable<Boolean> {
                             this.s = null;
                             imageUploadResult = imageUploadResult2;
                             str2 = str;
-                            mya.a("发帖：上传图片 结束      p = " + str2);
+                            nya.a("发帖：上传图片 结束      p = " + str2);
                             return imageUploadResult;
                         }
                         c = 0;
-                        mya.a("发帖：上传图片 结束      p = " + str2);
+                        nya.a("发帖：上传图片 结束      p = " + str2);
                         return imageUploadResult;
                     } catch (Throwable th11) {
                         th = th11;
@@ -1158,7 +1158,7 @@ public class oj5 implements Callable<Boolean> {
                     sb72222222222.append("    p = ");
                     str2 = str;
                     sb72222222222.append(str2);
-                    mya.a(sb72222222222.toString());
+                    nya.a(sb72222222222.toString());
                     BdCloseHelper.close(randomAccessFile2);
                     this.s = null;
                 } catch (Throwable th12) {
@@ -1166,7 +1166,7 @@ public class oj5 implements Callable<Boolean> {
                     randomAccessFile = null;
                 }
             } else {
-                mya.a("发帖：正在上传图片 失败 = " + str5);
+                nya.a("发帖：正在上传图片 失败 = " + str5);
                 return null;
             }
         } else {

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.tieba.bt5;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.kja;
 import com.baidu.tieba.oy4;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +92,7 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = jja.f().d("HOME");
+            builder.ad_context_list = kja.f().d("HOME");
             builder.app_pos = LocationCacheData.getInstance().createRecReqAppPosInfo();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 oy4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();

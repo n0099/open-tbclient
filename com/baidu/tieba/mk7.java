@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lu4;
+import com.baidu.tieba.si6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 @Service
 /* loaded from: classes7.dex */
-public final class mk7 implements lu4.d {
+public final class mk7 implements si6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.lu4.d
+    @Override // com.baidu.tieba.si6.a
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsPage.openNotification" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hybrid-main-frs" : (String) invokeV.objValue;
     }
 
     public mk7() {
@@ -41,45 +35,17 @@ public final class mk7 implements lu4.d {
         }
     }
 
-    @Override // com.baidu.tieba.lu4.c
-    public void a(String data) {
-        boolean z;
+    @Override // com.baidu.tieba.si6.a
+    public yga getData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            try {
-                JSONObject optJSONObject = new JSONObject(data).optJSONObject(GfhKeyValue.TYPE_DATE);
-                if (optJSONObject != null) {
-                    int optInt = optJSONObject.optInt("hour");
-                    int optInt2 = optJSONObject.optInt(TypeAdapters.AnonymousClass27.MINUTE);
-                    boolean z2 = false;
-                    if (optInt >= 0 && optInt < 24) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        if (optInt2 >= 0 && optInt2 < 60) {
-                            z2 = true;
-                        }
-                        if (z2) {
-                            ia5.e().e0(optInt, optInt2);
-                            if (!ia5.e().G()) {
-                                ia5.e().d0(true);
-                                DefaultLog.getInstance().i("OpenNotificationHybridNotify", "打开开关");
-                            }
-                            TbLog defaultLog = DefaultLog.getInstance();
-                            defaultLog.i("OpenNotificationHybridNotify", "设置成功，时间 H：" + optInt + ", M：" + optInt2);
-                            return;
-                        }
-                    }
-                    TbLog defaultLog2 = DefaultLog.getInstance();
-                    defaultLog2.i("OpenNotificationHybridNotify", "设置失败，时间 H：" + optInt + ", M：" + optInt2);
-                }
-            } catch (Exception e) {
-                TbLog defaultLog3 = DefaultLog.getInstance();
-                defaultLog3.i("OpenNotificationHybridNotify", "设置失败，异常：" + e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yga ygaVar = new yga();
+            ygaVar.g("423c0e8ef2b337e3c82e396a9630071b");
+            ygaVar.h("1.0.17.5");
+            ygaVar.f(getKey() + "_423c0e8ef2b337e3c82e396a9630071b");
+            return ygaVar;
         }
+        return (yga) invokeV.objValue;
     }
 }

@@ -66,13 +66,14 @@ import com.baidu.tieba.gw4;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.tieba.iz4;
-import com.baidu.tieba.kwa;
 import com.baidu.tieba.ky4;
 import com.baidu.tieba.kz4;
-import com.baidu.tieba.mwa;
-import com.baidu.tieba.nvc;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.nwa;
+import com.baidu.tieba.ovc;
 import com.baidu.tieba.ow4;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.pic;
 import com.baidu.tieba.pw4;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.qy5;
@@ -272,7 +273,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
     public iz4 forumData;
     public String forum_name;
     public String from;
-    public kwa funAdData;
+    public lwa funAdData;
     public String funAdId;
     public boolean hasItem;
     public boolean hasRecommend;
@@ -407,7 +408,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
     public String mPhotoLiveCover;
     public MediaData mPicMediaData;
     public PollData mPollData;
-    public List<mwa> mPostList;
+    public List<nwa> mPostList;
     public PushStatusData mPushStatusData;
     public String mRecomAbTag;
     public String mRecomExtra;
@@ -435,7 +436,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
     public int mTabId;
     public String mTabName;
     public int mTabShowMode;
-    public mwa mTopAgreePost;
+    public nwa mTopAgreePost;
     public TopicModule mTopicModule;
     public String mUrl;
     public VoiceRoom mVoiceRoomData;
@@ -451,7 +452,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
     public OriginalThreadInfo originalThreadData;
     public int originalThreadType;
     public boolean partialVisible;
-    public mwa pbFirstShareData;
+    public nwa pbFirstShareData;
     public PeiwanInfo peiwanInfo;
     public String person_center_post_id;
     public int positionInFrsItemTab;
@@ -781,7 +782,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
                 builder3.avatar = optJSONObject14.optString("avatar");
                 builder3.name = optJSONObject14.optString("name");
                 builder3._abstract = optJSONObject14.optString("abstract");
-                builder3.pic = optJSONObject14.optString("pic");
+                builder3.pic = optJSONObject14.optString(pic.f);
                 builder3.h5_url = optJSONObject14.optString("h5_url");
                 builder3.id = optJSONObject14.optString("id");
                 builder3.link = optJSONObject14.optString("link");
@@ -986,7 +987,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
             this.tiePlusMonitorClickUrl = jSONObject.optString("click_monitor_url");
             JSONObject optJSONObject25 = jSONObject.optJSONObject("business_mix");
             if (optJSONObject25 != null) {
-                this.mBusinessMix = nvc.b(optJSONObject25);
+                this.mBusinessMix = ovc.b(optJSONObject25);
             }
             praserTimeConsumingInfo();
             JSONObject optJSONObject26 = jSONObject.optJSONObject("voice_room");
@@ -1228,9 +1229,9 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
             }
             if (threadInfo.hot_post_list != null) {
                 for (int i7 = 0; i7 < threadInfo.hot_post_list.size(); i7++) {
-                    mwa mwaVar = new mwa();
-                    mwaVar.N0(threadInfo.hot_post_list.get(i7));
-                    this.mPostList.add(mwaVar);
+                    nwa nwaVar = new nwa();
+                    nwaVar.N0(threadInfo.hot_post_list.get(i7));
+                    this.mPostList.add(nwaVar);
                 }
             }
             if (threadInfo.robot_entrance != null) {
@@ -1699,7 +1700,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         this.isTbReadDispatch = 0;
         this.isInsertThread = false;
         this.mInsertFloor = -1;
-        this.mTopAgreePost = new mwa();
+        this.mTopAgreePost = new nwa();
         this.agreeData = new AgreeData();
         this.is_called = 0;
         this.middle_page_num = 0;
@@ -2781,13 +2782,13 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         return invokeV.intValue;
     }
 
-    public mwa getPbFirstShareData() {
+    public nwa getPbFirstShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             return this.pbFirstShareData;
         }
-        return (mwa) invokeV.objValue;
+        return (nwa) invokeV.objValue;
     }
 
     public String getPbTitle() {
@@ -2844,7 +2845,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         return invokeV.intValue;
     }
 
-    public List<mwa> getPostList() {
+    public List<nwa> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
@@ -3291,13 +3292,13 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public mwa getTopAgreePost() {
+    public nwa getTopAgreePost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
             return this.mTopAgreePost;
         }
-        return (mwa) invokeV.objValue;
+        return (nwa) invokeV.objValue;
     }
 
     public qz4 getTopicData() {
@@ -3742,9 +3743,9 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048779, this)) == null) {
-            kwa kwaVar = this.funAdData;
-            if (kwaVar != null) {
-                return kwaVar.h();
+            lwa lwaVar = this.funAdData;
+            if (lwaVar != null) {
+                return lwaVar.h();
             }
             return false;
         }
@@ -4916,9 +4917,9 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048739, this)) == null) {
-            kwa kwaVar = this.funAdData;
-            if (kwaVar != null) {
-                if (kwaVar.h()) {
+            lwa lwaVar = this.funAdData;
+            if (lwaVar != null) {
+                if (lwaVar.h()) {
                     if (this.funAdData.i()) {
                         return AdvertAppInfo.I;
                     }
@@ -6225,10 +6226,10 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         }
     }
 
-    public void setPbFirstShareData(mwa mwaVar) {
+    public void setPbFirstShareData(nwa nwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048938, this, mwaVar) == null) {
-            this.pbFirstShareData = mwaVar;
+        if (interceptable == null || interceptable.invokeL(1048938, this, nwaVar) == null) {
+            this.pbFirstShareData = nwaVar;
         }
     }
 
@@ -6267,7 +6268,7 @@ public class ThreadData extends fw4 implements PreLoadImageProvider, pi, IVideoD
         }
     }
 
-    public void setPostList(List<mwa> list) {
+    public void setPostList(List<nwa> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048944, this, list) == null) {
             this.mPostList = list;

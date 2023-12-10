@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a35;
-import com.baidu.tieba.cja;
+import com.baidu.tieba.dja;
 import com.baidu.tieba.dz0;
 import com.baidu.tieba.gy0;
 import com.baidu.tieba.jh0;
@@ -31,9 +31,9 @@ import com.baidu.tieba.m11;
 import com.baidu.tieba.p26;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.sia;
+import com.baidu.tieba.tia;
 import com.baidu.tieba.wg0;
-import com.baidu.tieba.yf9;
+import com.baidu.tieba.zf9;
 import com.baidu.tieba.zn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -343,7 +343,7 @@ public final class NadTitleController {
                         if (adCard3 != null) {
                             advertAppInfo = adCard3.getAdvertAppInfo();
                         }
-                        yf9.c(advertAppInfo);
+                        zf9.c(advertAppInfo);
                         jh0 jh0Var = this.a.d;
                         if (jh0Var != null) {
                             jh0Var.l();
@@ -511,7 +511,7 @@ public final class NadTitleController {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
             Resources resources = f().getResources();
             if (resources == null) {
-                i = sia.b;
+                i = tia.b;
                 return i;
             }
             return resources.getIdentifier(bVar.d, "color", f().getPackageName());
@@ -646,7 +646,7 @@ public final class NadTitleController {
             if (adCard2 != null) {
                 advertAppInfo2 = adCard2.getAdvertAppInfo();
             }
-            yf9.c(advertAppInfo2);
+            zf9.c(advertAppInfo2);
             p26.a(str);
         }
     }
@@ -667,7 +667,7 @@ public final class NadTitleController {
             Boolean bool = adCard.titleBold;
             Intrinsics.checkNotNullExpressionValue(bool, "card.titleBold");
             boolean booleanValue = bool.booleanValue();
-            i2 = sia.a;
+            i2 = tia.a;
             l.setParams(new gy0(str, str2, booleanValue, i2, bVar.c, k(bVar), j(bVar), h(bVar), g(), i, adCard.maxTitleLine));
             l().setCustomizedProcessor(new a(this));
             if (!l().j()) {
@@ -681,7 +681,7 @@ public final class NadTitleController {
                 }
                 this.d = null;
             }
-            wg0 d = cja.d(adCard);
+            wg0 d = dja.d(adCard);
             d.q.j = "title_shorturl";
             this.d = new jh0(d, l());
             return true;

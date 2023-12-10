@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
 import com.baidu.tieba.fw4;
-import com.baidu.tieba.te8;
+import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     public TextView h;
     public TextView i;
     public View j;
-    public te8 k;
-    public av4<te8> l;
+    public ue8 k;
+    public av4<ue8> l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -151,19 +151,19 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         e();
     }
 
-    public void setOnItemCoverListener(av4<te8> av4Var) {
+    public void setOnItemCoverListener(av4<ue8> av4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, av4Var) == null) {
             this.l = av4Var;
         }
     }
 
-    public void c(te8 te8Var) {
-        te8 te8Var2;
+    public void c(ue8 ue8Var) {
+        ue8 ue8Var2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, te8Var) == null) && te8Var != null) {
-            this.k = te8Var;
-            if (TextUtils.isEmpty(te8Var.d)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ue8Var) == null) && ue8Var != null) {
+            this.k = ue8Var;
+            if (TextUtils.isEmpty(ue8Var.d)) {
                 this.b.setVisibility(8);
                 this.c.setVisibility(8);
                 this.d.setVisibility(8);
@@ -172,44 +172,44 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 layoutParams.addRule(3, R.id.obfuscated_res_0x7f09268b);
                 this.i.setLayoutParams(layoutParams);
             } else {
-                this.b.startLoad(te8Var.d, 10, false);
+                this.b.startLoad(ue8Var.d, 10, false);
                 this.b.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090845);
                 layoutParams2.addRule(3, 0);
                 this.i.setLayoutParams(layoutParams2);
-                if (te8Var.e > 0) {
+                if (ue8Var.e > 0) {
                     this.d.setVisibility(0);
                     this.c.setVisibility(0);
-                    this.f.setText(StringUtils.translateSecondsToString(te8Var.e));
+                    this.f.setText(StringUtils.translateSecondsToString(ue8Var.e));
                 } else {
                     this.d.setVisibility(8);
                     this.c.setVisibility(8);
                 }
             }
-            this.h.setText(te8Var.b);
-            int i = te8Var.c;
+            this.h.setText(ue8Var.b);
+            int i = ue8Var.c;
             if (i < 1000) {
                 i = 1000;
             }
             String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i);
             TextView textView = this.i;
             textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a4f, numberUniformFormatExtraWithRoundInt));
-            this.g.setText(String.valueOf(te8Var.a));
+            this.g.setText(String.valueOf(ue8Var.a));
             d();
-            av4<te8> av4Var = this.l;
-            if (av4Var != null && (te8Var2 = this.k) != null) {
-                int i2 = te8Var2.a;
-                av4Var.d(this, te8Var2, i2, i2);
+            av4<ue8> av4Var = this.l;
+            if (av4Var != null && (ue8Var2 = this.k) != null) {
+                int i2 = ue8Var2.a;
+                av4Var.d(this, ue8Var2, i2, i2);
             }
         }
     }
 
     public final void d() {
-        te8 te8Var;
+        ue8 ue8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (te8Var = this.k) != null) {
-            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(te8Var.a);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ue8Var = this.k) != null) {
+            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(ue8Var.a);
             Drawable background = this.i.getBackground();
             DrawableCompat.setTint(background, SkinManager.getColor(indexTextColorRes));
             background.setAlpha(40);

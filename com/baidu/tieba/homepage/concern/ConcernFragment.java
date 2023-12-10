@@ -42,8 +42,8 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.l4b;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.m4b;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
@@ -63,7 +63,7 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class ConcernFragment extends BaseFragment implements mt7, l4b {
+public class ConcernFragment extends BaseFragment implements nt7, m4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -78,14 +78,14 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
     public final CustomMessageListener j;
     public final HttpMessageListener k;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -99,7 +99,7 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "a038" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String l2() {
         InterceptResult invokeV;
@@ -107,7 +107,7 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "home_follow_landing_page" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String z2() {
         InterceptResult invokeV;
@@ -620,7 +620,7 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -640,7 +640,7 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -649,7 +649,7 @@ public class ConcernFragment extends BaseFragment implements mt7, l4b {
         }
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String getTraceId() {
         InterceptResult invokeV;

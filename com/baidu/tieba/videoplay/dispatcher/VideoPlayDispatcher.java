@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
-import com.baidu.tieba.oma;
+import com.baidu.tieba.pma;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.yt5;
@@ -24,7 +24,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class VideoPlayDispatcher implements oma {
+public class VideoPlayDispatcher implements pma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +44,7 @@ public class VideoPlayDispatcher implements oma {
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x018f  */
     /* JADX WARN: Removed duplicated region for block: B:40:0x01a1  */
-    @Override // com.baidu.tieba.oma
+    @Override // com.baidu.tieba.pma
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

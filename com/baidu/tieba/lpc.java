@@ -1,36 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.hoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleDelayedProducer;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public final class lpc<T> implements doc.b<Boolean, T> {
+public final class lpc implements eoc.a<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final woc<? super T, Boolean> a;
-    public final boolean b;
+    public final long a;
+    public final TimeUnit b;
+    public final hoc c;
 
     /* loaded from: classes7.dex */
-    public class a extends joc<T> {
+    public class a implements roc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean e;
-        public boolean f;
-        public final /* synthetic */ SingleDelayedProducer g;
-        public final /* synthetic */ joc h;
-        public final /* synthetic */ lpc i;
+        public final /* synthetic */ koc a;
 
-        public a(lpc lpcVar, SingleDelayedProducer singleDelayedProducer, joc jocVar) {
+        public a(lpc lpcVar, koc kocVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lpcVar, singleDelayedProducer, jocVar};
+                Object[] objArr = {lpcVar, kocVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,62 +36,29 @@ public final class lpc<T> implements doc.b<Boolean, T> {
                     return;
                 }
             }
-            this.i = lpcVar;
-            this.g = singleDelayedProducer;
-            this.h = jocVar;
+            this.a = kocVar;
         }
 
-        @Override // com.baidu.tieba.eoc
-        public void onCompleted() {
+        @Override // com.baidu.tieba.roc
+        public void call() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f) {
-                this.f = true;
-                if (this.e) {
-                    this.g.setValue(Boolean.FALSE);
-                } else {
-                    this.g.setValue(Boolean.valueOf(this.i.b));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.onNext(0L);
+                    this.a.onCompleted();
+                } catch (Throwable th) {
+                    qoc.f(th, this.a);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.eoc
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (!this.f) {
-                    this.f = true;
-                    this.h.onError(th);
-                    return;
-                }
-                tsc.j(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.eoc
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.f) {
-                return;
-            }
-            this.e = true;
-            try {
-                if (this.i.a.call(t).booleanValue()) {
-                    this.f = true;
-                    this.g.setValue(Boolean.valueOf(true ^ this.i.b));
-                    unsubscribe();
-                }
-            } catch (Throwable th) {
-                poc.g(th, this, t);
             }
         }
     }
 
-    public lpc(woc<? super T, Boolean> wocVar, boolean z) {
+    public lpc(long j, TimeUnit timeUnit, hoc hocVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wocVar, Boolean.valueOf(z)};
+            Object[] objArr = {Long.valueOf(j), timeUnit, hocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,23 +68,20 @@ public final class lpc<T> implements doc.b<Boolean, T> {
                 return;
             }
         }
-        this.a = wocVar;
-        this.b = z;
+        this.a = j;
+        this.b = timeUnit;
+        this.c = hocVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.woc
+    @Override // com.baidu.tieba.soc
     /* renamed from: a */
-    public joc<? super T> call(joc<? super Boolean> jocVar) {
-        InterceptResult invokeL;
+    public void call(koc<? super Long> kocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jocVar)) == null) {
-            SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jocVar);
-            a aVar = new a(this, singleDelayedProducer, jocVar);
-            jocVar.b(aVar);
-            jocVar.f(singleDelayedProducer);
-            return aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+            hoc.a createWorker = this.c.createWorker();
+            kocVar.b(createWorker);
+            createWorker.c(new a(this, kocVar), this.a, this.b);
         }
-        return (joc) invokeL.objValue;
     }
 }

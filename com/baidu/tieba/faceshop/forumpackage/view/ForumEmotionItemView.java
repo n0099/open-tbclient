@@ -61,7 +61,7 @@ public class ForumEmotionItemView extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0275a {
+        public static class C0272a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -69,7 +69,7 @@ public class ForumEmotionItemView extends LinearLayout {
             public TextView c;
             public View d;
 
-            public C0275a(View view2) {
+            public C0272a(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,16 +183,16 @@ public class ForumEmotionItemView extends LinearLayout {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
-            C0275a c0275a;
+            C0272a c0272a;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
                     view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02b0, (ViewGroup) null);
-                    c0275a = new C0275a(view2);
-                    view2.setTag(c0275a);
+                    c0272a = new C0272a(view2);
+                    view2.setTag(c0272a);
                 } else {
-                    c0275a = (C0275a) view2.getTag();
+                    c0272a = (C0272a) view2.getTag();
                 }
                 EmotionPackageData.SingleEmotionData singleEmotionData = this.a.get(i);
                 if (i == 0 && this.c) {
@@ -200,7 +200,7 @@ public class ForumEmotionItemView extends LinearLayout {
                 } else {
                     z = false;
                 }
-                c0275a.a(singleEmotionData, z, this.d, i);
+                c0272a.a(singleEmotionData, z, this.d, i);
                 return view2;
             }
             return (View) invokeILL.objValue;

@@ -24,9 +24,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.in6;
 import com.baidu.tieba.jt;
 import com.baidu.tieba.tbadkCore.voice.VoicePlayBtn;
-import com.baidu.tieba.tua;
 import com.baidu.tieba.uu5;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -317,14 +317,14 @@ public final class CardPeiWanView extends RelativeLayout implements jt {
                     ThreadRecommendTag threadRecommendTag2 = threadRecommendTag;
                     ThemeColorInfo themeColorInfo = threadRecommendTag2.text_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo, "tagData.text_color");
-                    int f = tua.f(y5b.c(themeColorInfo));
-                    if (!tua.e(f)) {
+                    int f = uua.f(z5b.c(themeColorInfo));
+                    if (!uua.e(f)) {
                         this.j = f;
                     }
                     ThemeColorInfo themeColorInfo2 = threadRecommendTag2.background_color;
                     Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "tagData.background_color");
-                    int f2 = tua.f(y5b.c(themeColorInfo2));
-                    if (!tua.e(f2)) {
+                    int f2 = uua.f(z5b.c(themeColorInfo2));
+                    if (!uua.e(f2)) {
                         this.k = f2;
                     }
                     next.setTextColor(this.j);

@@ -1,79 +1,79 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.qq.e.ads.nativ.NativeExpressADView;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q4c extends FunNativeAd2Bridger<g5c, View> {
+public class q4c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ l4c b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q4c(l4c l4cVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public q4c(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l4cVar, reporterPidLoader};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = l4cVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, g5c g5cVar, BaseNativeAd2<g5c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, g5cVar, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(g5c g5cVar) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g5cVar)) == null) {
-            return (View) g5cVar.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, g5c g5cVar, BaseNativeAd2<g5c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, g5cVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            g5c g5cVar2 = g5cVar;
-            this.b.onShowStart(g5cVar2);
-            if (((NativeExpressADView) g5cVar2.a).getBoundData().getAdPatternType() == 2) {
-                l4c l4cVar = this.b;
-                l4cVar.getClass();
-                ((NativeExpressADView) g5cVar2.a).setMediaListener(new o4c(l4cVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            expressInflater.inflate();
+            try {
+                Object obj2 = ((e5c) obj).a;
+                Field declaredField = obj2.getClass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj3 = declaredField.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj3.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField2.setAccessible(true);
+                Object obj4 = declaredField2.get(obj3);
+                if (obj4 == null) {
+                    return null;
+                }
+                Object field = ReflectionUtils.getField(obj4, "c", "c");
+                Field declaredField3 = field.getClass().getSuperclass().getDeclaredField("k");
+                declaredField3.setAccessible(true);
+                Object field2 = ReflectionUtils.getField(declaredField3.get(field), "e", "e", "c");
+                Field declaredField4 = field2.getClass().getSuperclass().getDeclaredField("d");
+                declaredField4.setAccessible(true);
+                Object obj5 = declaredField4.get(field2);
+                Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("M");
+                declaredField5.setAccessible(true);
+                return n4c.a((JSONObject) declaredField5.get(obj5));
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -118,13 +118,13 @@ public class eb5 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return rva.b(context, "com.sina.weibo");
+                        return sva.b(context, "com.sina.weibo");
                     }
                     return true;
                 }
-                return rva.b(context, "com.tencent.mobileqq");
+                return sva.b(context, "com.tencent.mobileqq");
             }
-            return rva.b(context, "com.tencent.mm");
+            return sva.b(context, "com.tencent.mm");
         }
         return invokeLI.booleanValue;
     }

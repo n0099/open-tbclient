@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.e65;
 import com.baidu.tieba.l65;
-import com.baidu.tieba.o18;
+import com.baidu.tieba.p18;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -354,21 +354,21 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         }
     }
 
-    public void p(o18 o18Var) {
+    public void p(p18 p18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, o18Var) == null) {
-            GameCodeList gameCodeList = this.a.get(o18Var.a);
+        if (interceptable == null || interceptable.invokeL(1048582, this, p18Var) == null) {
+            GameCodeList gameCodeList = this.a.get(p18Var.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = o18Var.b;
+            builder.claimed_value = p18Var.b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.a.set(o18Var.a, builder.build(false));
-            notifyItemChanged(o18Var.a);
+            this.a.set(p18Var.a, builder.build(false));
+            notifyItemChanged(p18Var.a);
         }
     }
 }

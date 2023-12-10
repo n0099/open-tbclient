@@ -58,11 +58,11 @@ import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.az5;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.h5b;
+import com.baidu.tieba.i5b;
 import com.baidu.tieba.iy5;
 import com.baidu.tieba.kd5;
 import com.baidu.tieba.mv6;
-import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
 import com.baidu.tieba.td5;
 import com.baidu.tieba.util.AdApkInstallHelper;
 import com.baidu.tieba.view.BdTopToast;
@@ -85,7 +85,7 @@ import tbclient.PbContent;
 import tbclient.PluginUser;
 import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
-public class TiePlusHelper extends CustomMessageListener implements View.OnClickListener, oe7 {
+public class TiePlusHelper extends CustomMessageListener implements View.OnClickListener, pe7 {
     public static /* synthetic */ Interceptable $ic;
     public static List<kd5> w;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +113,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String u;
     public TbDownloadManager v;
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void a(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, downloadData) == null) {
@@ -745,7 +745,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void f(@NonNull DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048608, this, downloadData, i) == null) {
@@ -877,7 +877,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return (TiePlusHelper) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void b(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, downloadData) == null) {
@@ -892,7 +892,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void c(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, downloadData) == null) {
@@ -910,7 +910,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void d(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, downloadData) == null) {
@@ -928,7 +928,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.oe7
+    @Override // com.baidu.tieba.pe7
     public void e(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048606, this, downloadData) != null) || downloadData.getStatus() != 1) {
@@ -1587,7 +1587,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                h5b.b(this.b, str, bundle);
+                i5b.b(this.b, str, bundle);
             }
         }
     }

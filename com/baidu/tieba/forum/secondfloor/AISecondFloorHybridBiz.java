@@ -9,13 +9,13 @@ import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.view.BottomWebView;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
-import com.baidu.tieba.jm7;
-import com.baidu.tieba.li7;
+import com.baidu.tieba.km7;
 import com.baidu.tieba.lu4;
 import com.baidu.tieba.mi7;
 import com.baidu.tieba.ni7;
-import com.baidu.tieba.nm7;
-import com.baidu.tieba.ri7;
+import com.baidu.tieba.oi7;
+import com.baidu.tieba.om7;
+import com.baidu.tieba.si7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,18 +28,18 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u00001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u000b\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B#\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0002H\u0016J\b\u0010\u0010\u001a\u00020\u000eH\u0016J\b\u0010\u0011\u001a\u00020\u000eH\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\fR\u0014\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/forum/secondfloor/AISecondFloorHybridBiz;", "Lcom/baidu/tieba/forum/secondfloor/ISecondFloorBiz;", "Lcom/baidu/tieba/forum/data/AiSecondFloorData;", "activity", "Landroidx/fragment/app/FragmentActivity;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "secondFloorController", "Lcom/baidu/tieba/forum/secondfloor/SecondFloorController;", "(Landroidx/fragment/app/FragmentActivity;Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;Lcom/baidu/tieba/forum/secondfloor/SecondFloorController;)V", "expandSecondFloorHybridListener", "com/baidu/tieba/forum/secondfloor/AISecondFloorHybridBiz$expandSecondFloorHybridListener$1", "Lcom/baidu/tieba/forum/secondfloor/AISecondFloorHybridBiz$expandSecondFloorHybridListener$1;", "onDataAvailable", "", "data", "onViewAttached", "onViewDetached", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class AISecondFloorHybridBiz implements jm7<ni7> {
+public final class AISecondFloorHybridBiz implements km7<oi7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity a;
     public final ActivityForumBinding b;
-    public final nm7<ni7> c;
+    public final om7<oi7> c;
     public final AISecondFloorHybridBiz$expandSecondFloorHybridListener$1 d;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jm7
+    @Override // com.baidu.tieba.km7
     /* renamed from: g */
-    public void b(ni7 data) {
+    public void b(oi7 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -47,7 +47,7 @@ public final class AISecondFloorHybridBiz implements jm7<ni7> {
     }
 
     /* JADX WARN: Type inference failed for: r6v1, types: [com.baidu.tieba.forum.secondfloor.AISecondFloorHybridBiz$expandSecondFloorHybridListener$1] */
-    public AISecondFloorHybridBiz(FragmentActivity activity, ActivityForumBinding binding, nm7<ni7> secondFloorController) {
+    public AISecondFloorHybridBiz(FragmentActivity activity, ActivityForumBinding binding, om7<oi7> secondFloorController) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,9 +141,9 @@ public final class AISecondFloorHybridBiz implements jm7<ni7> {
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2(JSONObject it) {
                             FragmentActivity fragmentActivity;
-                            mi7 a;
-                            nm7 nm7Var;
-                            nm7 nm7Var2;
+                            ni7 a;
+                            om7 om7Var;
+                            om7 om7Var2;
                             Interceptable interceptable3 = $ic;
                             if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                                 Intrinsics.checkNotNullParameter(it, "it");
@@ -152,19 +152,19 @@ public final class AISecondFloorHybridBiz implements jm7<ni7> {
                                 String optString2 = it.optString("bot_background_url");
                                 if (!TextUtils.isEmpty(botUk) && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                                     fragmentActivity = this.this$0.a;
-                                    ri7 value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue();
+                                    si7 value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue();
                                     if (value == null || (a = value.a()) == null) {
                                         return;
                                     }
                                     Intrinsics.checkNotNullExpressionValue(botUk, "botUk");
-                                    a.h(new li7(botUk, JavaTypesHelper.toLong(optString, 0L), "", "", optString2));
-                                    ni7 i3 = a.i();
+                                    a.h(new mi7(botUk, JavaTypesHelper.toLong(optString, 0L), "", "", optString2));
+                                    oi7 i3 = a.i();
                                     if (i3 != null) {
                                         AISecondFloorHybridBiz aISecondFloorHybridBiz2 = this.this$0;
-                                        nm7Var = aISecondFloorHybridBiz2.c;
-                                        nm7Var.t(i3);
-                                        nm7Var2 = aISecondFloorHybridBiz2.c;
-                                        nm7Var2.f();
+                                        om7Var = aISecondFloorHybridBiz2.c;
+                                        om7Var.t(i3);
+                                        om7Var2 = aISecondFloorHybridBiz2.c;
+                                        om7Var2.f();
                                     }
                                 }
                             }
@@ -191,7 +191,7 @@ public final class AISecondFloorHybridBiz implements jm7<ni7> {
         };
     }
 
-    @Override // com.baidu.tieba.jm7
+    @Override // com.baidu.tieba.km7
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -199,7 +199,7 @@ public final class AISecondFloorHybridBiz implements jm7<ni7> {
         }
     }
 
-    @Override // com.baidu.tieba.jm7
+    @Override // com.baidu.tieba.km7
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

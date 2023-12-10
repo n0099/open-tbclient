@@ -18,24 +18,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c68;
-import com.baidu.tieba.dwa;
-import com.baidu.tieba.e28;
+import com.baidu.tieba.d68;
+import com.baidu.tieba.ewa;
+import com.baidu.tieba.f28;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.ju5;
-import com.baidu.tieba.kwa;
 import com.baidu.tieba.l36;
+import com.baidu.tieba.lwa;
 import com.baidu.tieba.mz4;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.q06;
-import com.baidu.tieba.r88;
+import com.baidu.tieba.s88;
 import com.baidu.tieba.t06;
-import com.baidu.tieba.t18;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tp5;
-import com.baidu.tieba.vha;
-import com.baidu.tieba.w18;
-import com.baidu.tieba.w88;
+import com.baidu.tieba.u18;
+import com.baidu.tieba.wha;
+import com.baidu.tieba.x18;
+import com.baidu.tieba.x88;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LOAD_THREAD_LIST = 30;
     public static int q = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t18 a;
+    public final u18 a;
     public boolean b;
     public long c;
     public final ArrayList<pi> d;
@@ -71,9 +71,9 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public int l;
     public int loadIndex;
     public boolean loadingDone;
-    public e28 m;
-    public w18.b n;
-    public w88 o;
+    public f28 m;
+    public x18.b n;
+    public x88 o;
     public final NetMessageListener p;
 
     /* loaded from: classes6.dex */
@@ -188,8 +188,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     }
                     this.a.a0(loadMoreResponseSocketMessage);
                 }
-                if (!TextUtils.isEmpty(this.a.a.v()) && vha.m().b() != null) {
-                    vha.m().b().g(this.a.a.v(), 2, false);
+                if (!TextUtils.isEmpty(this.a.a.v()) && wha.m().b() != null) {
+                    wha.m().b().g(this.a.a.v(), 2, false);
                 }
                 this.a.loadIndex++;
             }
@@ -197,13 +197,13 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsLoadMoreModel(t18 t18Var, e28 e28Var) {
-        super(t18Var.getPageContext());
+    public FrsLoadMoreModel(u18 u18Var, f28 f28Var) {
+        super(u18Var.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t18Var, e28Var};
+            Object[] objArr = {u18Var, f28Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -227,9 +227,9 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         this.j = false;
         this.l = 1;
         this.p = new a(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.a = t18Var;
-        setUniqueId(t18Var.getUniqueId());
-        this.m = e28Var;
+        this.a = u18Var;
+        setUniqueId(u18Var.getUniqueId());
+        this.m = f28Var;
         this.p.getHttpMessageListener().setSelfListener(true);
         this.p.getSocketMessageListener().setSelfListener(true);
         registerListener(this.p);
@@ -292,10 +292,10 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void i0(w88 w88Var) {
+    public void i0(x88 x88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, w88Var) == null) {
-            this.o = w88Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, x88Var) == null) {
+            this.o = x88Var;
         }
     }
 
@@ -306,7 +306,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void k0(w18.b bVar) {
+    public void k0(x18.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bVar) == null) {
             this.n = bVar;
@@ -343,10 +343,10 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
 
     public final void R(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, loadMoreRequestMessage) != null) || vha.m().b() == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, loadMoreRequestMessage) != null) || wha.m().b() == null) {
             return;
         }
-        loadMoreRequestMessage.setLoadCount(vha.m().b().e(str, false) + 1);
+        loadMoreRequestMessage.setLoadCount(wha.m().b().e(str, false) + 1);
     }
 
     public void T() {
@@ -361,13 +361,13 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     ArrayList<pi> arrayList = new ArrayList<>();
                     arrayList.add(this.f.remove(0));
                     ArrayList<pi> arrayList2 = null;
-                    t18 t18Var = this.a;
-                    if (t18Var != null && t18Var.Q1() != null) {
+                    u18 u18Var = this.a;
+                    if (u18Var != null && u18Var.Q1() != null) {
                         arrayList2 = this.a.Q1().switchThreadDataToThreadCardInfo(arrayList);
                     }
                     if (arrayList2 != null) {
                         for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                            w18.b bVar = this.n;
+                            x18.b bVar = this.n;
                             if (bVar != null) {
                                 bVar.removeItem(count + i3);
                             }
@@ -391,14 +391,14 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public ArrayList<pi> V(boolean z, boolean z2, boolean z3, ArrayList<pi> arrayList, dwa dwaVar, List<AdMixFloor> list, int i) {
+    public ArrayList<pi> V(boolean z, boolean z2, boolean z3, ArrayList<pi> arrayList, ewa ewaVar, List<AdMixFloor> list, int i) {
         InterceptResult invokeCommon;
-        t18 t18Var;
-        t18 t18Var2;
-        t18 t18Var3;
-        t18 t18Var4;
+        u18 u18Var;
+        u18 u18Var2;
+        u18 u18Var3;
+        u18 u18Var4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), arrayList, dwaVar, list, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), arrayList, ewaVar, list, Integer.valueOf(i)})) == null) {
             if (z3) {
                 this.d.clear();
                 this.e.clear();
@@ -430,8 +430,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                         mz4 mz4Var = (mz4) next2;
                         ThreadData threadData3 = mz4Var.t;
                         threadData3.setForum_name(this.a.v());
-                        t18 t18Var5 = this.a;
-                        if (t18Var5 != null && t18Var5.Q1() != null && this.a.Q1().getForum() != null) {
+                        u18 u18Var5 = this.a;
+                        if (u18Var5 != null && u18Var5.Q1() != null && this.a.Q1().getForum() != null) {
                             if (!StringUtils.isNull(this.a.Q1().getForum().getFirst_class())) {
                                 threadData3.setFirstClassName(this.a.Q1().getForum().getFirst_class());
                             }
@@ -455,8 +455,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                     } else if (next2 instanceof ThreadData) {
                         ThreadData threadData4 = (ThreadData) next2;
                         threadData4.setForum_name(this.a.v());
-                        t18 t18Var6 = this.a;
-                        if (t18Var6 != null && t18Var6.Q1() != null && this.a.Q1().getForum() != null) {
+                        u18 u18Var6 = this.a;
+                        if (u18Var6 != null && u18Var6.Q1() != null && this.a.Q1().getForum() != null) {
                             if (!StringUtils.isNull(this.a.Q1().getForum().getFirst_class())) {
                                 threadData4.setFirstClassName(this.a.Q1().getForum().getFirst_class());
                             }
@@ -489,18 +489,18 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 if (i != 1) {
                     if (i != 2) {
                         if (i != 3) {
-                            if (w88.d()) {
+                            if (x88.d()) {
                                 if (this.o != null) {
                                     String valueOf = String.valueOf(this.k);
-                                    if (this.k == 0 && (t18Var4 = this.a) != null && t18Var4.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
+                                    if (this.k == 0 && (u18Var4 = this.a) != null && u18Var4.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
                                         valueOf = this.a.Q1().getForum().getId();
                                     }
                                     this.o.b(arrayList2, z3, valueOf);
                                 }
                             } else {
-                                t18 t18Var7 = this.a;
-                                if (t18Var7 != null) {
-                                    FrsViewData Q1 = t18Var7.Q1();
+                                u18 u18Var7 = this.a;
+                                if (u18Var7 != null) {
+                                    FrsViewData Q1 = u18Var7.Q1();
                                     if (this.j && Q1 != null && (this.a instanceof t06)) {
                                         ArrayList<pi> arrayList4 = new ArrayList<>(this.d);
                                         arrayList4.addAll(this.f);
@@ -510,8 +510,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                             }
                         } else if (!ListUtils.isEmpty(list)) {
                             int intValue = list.get(0).ad_type.intValue();
-                            if (intValue == 1 && (t18Var3 = this.a) != null) {
-                                FrsViewData Q12 = t18Var3.Q1();
+                            if (intValue == 1 && (u18Var3 = this.a) != null) {
+                                FrsViewData Q12 = u18Var3.Q1();
                                 if (this.j && Q12 != null && (this.a instanceof t06)) {
                                     ArrayList<pi> arrayList5 = new ArrayList<>(this.d);
                                     arrayList5.addAll(this.f);
@@ -519,7 +519,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                                 }
                             } else if (intValue == 2 && this.o != null) {
                                 String valueOf2 = String.valueOf(this.k);
-                                if (this.k == 0 && (t18Var2 = this.a) != null && t18Var2.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
+                                if (this.k == 0 && (u18Var2 = this.a) != null && u18Var2.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
                                     valueOf2 = this.a.Q1().getForum().getId();
                                 }
                                 this.o.g(arrayList2, list, z3, String.valueOf(valueOf2));
@@ -527,15 +527,15 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                         }
                     } else if (this.o != null) {
                         String valueOf3 = String.valueOf(this.k);
-                        if (this.k == 0 && (t18Var = this.a) != null && t18Var.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
+                        if (this.k == 0 && (u18Var = this.a) != null && u18Var.Q1() != null && this.a.Q1().getForum() != null && this.a.Q1().getForum().getId() != null) {
                             valueOf3 = this.a.Q1().getForum().getId();
                         }
                         this.o.b(arrayList2, z2, String.valueOf(valueOf3));
                     }
                 } else {
-                    t18 t18Var8 = this.a;
-                    if (t18Var8 != null) {
-                        FrsViewData Q13 = t18Var8.Q1();
+                    u18 u18Var8 = this.a;
+                    if (u18Var8 != null) {
+                        FrsViewData Q13 = u18Var8.Q1();
                         if (this.j && Q13 != null && (this.a instanceof t06)) {
                             ArrayList<pi> arrayList6 = new ArrayList<>(this.d);
                             arrayList6.addAll(this.f);
@@ -556,10 +556,10 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
             ArrayList<pi> arrayList7 = new ArrayList<>();
             arrayList7.addAll(this.d);
             arrayList7.addAll(this.f);
-            t18 t18Var9 = this.a;
-            if (t18Var9 instanceof t06) {
-                c68.b((t06) t18Var9, t18Var9.Q1(), arrayList2, getPn());
-                c68.c(dwaVar, arrayList2, arrayList7);
+            u18 u18Var9 = this.a;
+            if (u18Var9 instanceof t06) {
+                d68.b((t06) u18Var9, u18Var9.Q1(), arrayList2, getPn());
+                d68.c(ewaVar, arrayList2, arrayList7);
             }
             return arrayList7;
         }
@@ -683,8 +683,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public final void c0(ArrayList<pi> arrayList, String str) {
-        kwa kwaVar;
-        kwa kwaVar2;
+        lwa lwaVar;
+        lwa lwaVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, arrayList, str) == null) {
             Iterator<pi> it = arrayList.iterator();
@@ -696,8 +696,8 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 pi next = it.next();
                 if (StringUtils.isNull(str)) {
                     if (!(next instanceof q06) && !(next instanceof l36)) {
-                        if ((next instanceof ThreadData) && (kwaVar = ((ThreadData) next).funAdData) != null) {
-                            kwaVar.p(true);
+                        if ((next instanceof ThreadData) && (lwaVar = ((ThreadData) next).funAdData) != null) {
+                            lwaVar.p(true);
                             it.remove();
                         }
                     } else {
@@ -713,7 +713,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                             it.remove();
                             i2 = i;
                         }
-                    } else if ((next instanceof ThreadData) && (kwaVar2 = ((ThreadData) next).funAdData) != null && kwaVar2.i()) {
+                    } else if ((next instanceof ThreadData) && (lwaVar2 = ((ThreadData) next).funAdData) != null && lwaVar2.i()) {
                         it.remove();
                         i3 = i;
                     }
@@ -771,7 +771,7 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 sendMessage(loadMoreRequestMessage);
                 this.isLoading = true;
                 this.c = System.currentTimeMillis();
-                r88.a();
+                s88.a();
                 return;
             }
             this.loadingDone = true;

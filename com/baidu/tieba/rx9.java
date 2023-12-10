@@ -1,86 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import android.view.MotionEvent;
-import android.view.View;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rx9 implements View.OnTouchListener {
+public final class rx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public b d;
-    public long e;
-    public Handler f;
+    @Inject
+    public final sf1<lm5> a;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rx9 a;
-
-        public a(rx9 rx9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rx9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 2) {
-                    if (i == 1 && this.a.a == 1) {
-                        if (this.a.d != null) {
-                            this.a.d.a();
-                        }
-                        this.a.a = 0;
-                        this.a.b = 0L;
-                        this.a.c = 0L;
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = 0;
-                this.a.b = 0L;
-                this.a.c = 0L;
-            }
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            qf1 b = qf1.b();
+            this.a = b;
+            b.a(new mm5());
         }
     }
 
-    public rx9(b bVar) {
+    public rx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,39 +40,90 @@ public class rx9 implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.e = 500L;
-        this.f = new a(this);
-        this.d = bVar;
+        f();
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public final lm5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                if (this.d == null) {
-                    return false;
-                }
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b = System.currentTimeMillis();
-                    this.f.sendEmptyMessageDelayed(1, this.e);
-                } else if (i == 2) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    this.c = currentTimeMillis;
-                    if (currentTimeMillis - this.b < this.e) {
-                        this.d.b();
-                    }
-                    this.f.sendEmptyMessage(2);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            sf1<lm5> sf1Var = this.a;
+            if (sf1Var != null) {
+                return sf1Var.get();
             }
-            return true;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (lm5) invokeV.objValue;
+    }
+
+    public final BaseFragment b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            lm5 a = a();
+            if (a != null) {
+                return a.F();
+            }
+            return null;
+        }
+        return (BaseFragment) invokeV.objValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            lm5 a = a();
+            if (a != null) {
+                return a.u();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            lm5 a = a();
+            if (a != null && a.E()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(int i, int i2, Intent intent) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (a = a()) != null) {
+            a.B(i, i2, intent);
+        }
+    }
+
+    public final void g(boolean z) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (a = a()) != null) {
+            a.G(z);
+        }
+    }
+
+    public final void h(BdUniqueId bdUniqueId) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) && (a = a()) != null) {
+            a.setUniqueId(bdUniqueId);
+        }
+    }
+
+    public final void i(boolean z) {
+        lm5 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (a = a()) != null) {
+            a.setUserVisibleHint(z);
+        }
     }
 }

@@ -31,8 +31,8 @@ public class ti6 implements pf1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new lk7());
-            arrayList.add(new rfb());
+            arrayList.add(new mk7());
+            arrayList.add(new sfb());
             return arrayList;
         }
         return invokeV.objValue;

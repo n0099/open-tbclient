@@ -190,8 +190,8 @@ public class mz4 extends fw4 implements pi {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    kwa kwaVar = this.t.funAdData;
-                    if (kwaVar != null && kwaVar.h()) {
+                    lwa lwaVar = this.t.funAdData;
+                    if (lwaVar != null && lwaVar.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.I;
                         }

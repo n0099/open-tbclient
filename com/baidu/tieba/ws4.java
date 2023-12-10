@@ -57,11 +57,11 @@ public class ws4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa c(WebView webView) {
+    public gxa c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             Activity a = fj6.a(webView.getContext());
             int i = 1;
             if (a instanceof BaseWebViewActivity) {
@@ -72,13 +72,13 @@ public class ws4 implements qj6 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 }

@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.NewGodInfo;
+import tbclient.NativeApp;
 /* loaded from: classes6.dex */
-public class k5d extends ktc {
+public class k5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NewGodInfo newGodInfo) {
+    public static JSONObject b(@NonNull NativeApp nativeApp) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nativeApp)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "status", newGodInfo.status);
-            ktc.a(jSONObject, "field_id", newGodInfo.field_id);
-            ktc.a(jSONObject, "field_name", newGodInfo.field_name);
-            ktc.a(jSONObject, "type", newGodInfo.type);
-            ktc.a(jSONObject, "type_name", newGodInfo.type_name);
+            ltc.a(jSONObject, "jump_and", nativeApp.jump_and);
+            ltc.a(jSONObject, "jump_ios", nativeApp.jump_ios);
+            ltc.a(jSONObject, "download_and", nativeApp.download_and);
+            ltc.a(jSONObject, "download_ios", nativeApp.download_ios);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

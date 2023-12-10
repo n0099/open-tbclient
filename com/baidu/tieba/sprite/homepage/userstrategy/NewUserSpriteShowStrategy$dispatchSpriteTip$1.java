@@ -3,7 +3,7 @@ package com.baidu.tieba.sprite.homepage.userstrategy;
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.m3b;
+import com.baidu.tieba.n3b;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy$dispatchSpriteTip$1;
@@ -71,7 +71,7 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteTip$1 extends Lambda 
     public final void invoke2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            v05.g(CollectionsKt__CollectionsJVMKt.listOf(new m3b(this.$context, this.$response, this.$spriteTipView, new sq6.e() { // from class: com.baidu.tieba.xra
+            v05.g(CollectionsKt__CollectionsJVMKt.listOf(new n3b(this.$context, this.$response, this.$spriteTipView, new sq6.e() { // from class: com.baidu.tieba.yra
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

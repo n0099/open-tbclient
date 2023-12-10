@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.compact.HotCardView;
-import com.baidu.tieba.jd7;
+import com.baidu.tieba.kd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class oo6 extends ab7<HotCardView, ic8> {
+public final class oo6 extends bb7<HotCardView, jc8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,25 +34,25 @@ public final class oo6 extends ab7<HotCardView, ic8> {
         }
     }
 
-    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
     public View a(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            jd7.a aVar = jd7.b;
+            kd7.a aVar = kd7.b;
             View a = super.a(parent);
             Intrinsics.checkNotNullExpressionValue(a, "super.createView(parent)");
-            jd7.a.f(aVar, a, null, null, 6, null);
+            kd7.a.f(aVar, a, null, null, 6, null);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
-    public void b(HotCardView view2, ic8 data) {
+    public void b(HotCardView view2, jc8 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, data) == null) {
             Intrinsics.checkNotNullParameter(view2, "view");

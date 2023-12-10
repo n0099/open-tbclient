@@ -1,219 +1,146 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ProgressBar;
+import com.baidu.adp.base.BdBaseView;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.f05;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class am9 {
+public class am9 extends BdBaseView<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NavigationBar a;
+    public ViewGroup b;
+    public GridView c;
+    public View d;
+    public zl9 e;
+    public BubbleChooseActivity f;
+    public ProgressBar g;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(int i);
-
-        void b();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements f05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ BubbleListData.BubbleData b;
-
-        public a(e eVar, BubbleListData.BubbleData bubbleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, bubbleData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = bubbleData;
-        }
-
-        @Override // com.baidu.tieba.f05.e
-        public void onClick(f05 f05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                f05Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(this.b.getBcode());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements f05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public b(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tieba.f05.e
-        public void onClick(f05 f05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                f05Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements f05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ BubbleListData.BubbleData b;
-
-        public c(e eVar, BubbleListData.BubbleData bubbleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, bubbleData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = bubbleData;
-        }
-
-        @Override // com.baidu.tieba.f05.e
-        public void onClick(f05 f05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                f05Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.a(this.b.getBcode());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements f05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-
-        public d(e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-        }
-
-        @Override // com.baidu.tieba.f05.e
-        public void onClick(f05 f05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                f05Var.dismiss();
-                e eVar = this.a;
-                if (eVar != null) {
-                    eVar.b();
-                }
-            }
-        }
-    }
-
-    public static void a(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public am9(TbPageContext<BubbleChooseActivity> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) != null) || bubbleData == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BdPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        f05 f05Var = new f05(tbPageContext.getPageActivity());
-        f05Var.setCanceledOnTouchOutside(false);
-        Date date = new Date();
-        Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
-        String dateStringDay = rd.getDateStringDay(date);
-        String dateStringDay2 = rd.getDateStringDay(date2);
-        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f03b9), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
-        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092659);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09265a);
-        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
-        textView.setText(format);
-        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f1708) + dateStringDay2);
-        f05Var.setContentView(inflate);
-        f05Var.setPositiveButton(R.string.use_immediately, new a(eVar, bubbleData));
-        f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new b(eVar));
-        f05Var.create(tbPageContext);
-        f05Var.show();
+        BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
+        this.f = orignalPage;
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0192);
+        NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
+        this.a = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.a.setTitleText(R.string.editor_privilege);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0193, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f0907f7);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090f51);
+        zl9 zl9Var = new zl9(tbPageContext);
+        this.e = zl9Var;
+        this.c.setAdapter((ListAdapter) zl9Var);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090552);
     }
 
-    public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+    public void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) != null) || bubbleData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.setVisibility(8);
         }
-        f05 f05Var = new f05(tbPageContext.getPageActivity());
-        f05Var.setCanceledOnTouchOutside(false);
-        f05Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f03bb), bubbleData.getLevel_name()));
-        f05Var.setPositiveButton(R.string.open_now, new c(eVar, bubbleData));
-        f05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03db, new d(eVar));
-        f05Var.create(tbPageContext);
-        f05Var.show();
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g.setVisibility(0);
+        }
+    }
+
+    public zl9 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (zl9) invokeV.objValue;
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public GridView y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (GridView) invokeV.objValue;
+    }
+
+    public void C(List<BubbleListData.BubbleData> list, boolean z) {
+        zl9 zl9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z) == null) && (zl9Var = this.e) != null) {
+            zl9Var.d(z);
+            this.e.c(list);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.onChangeSkinType((TbPageContext) getPageContext(), i);
+            BDLayoutMode layoutMode = this.f.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.f.getLayoutMode().onModeChanged(this.b);
+        }
+    }
+
+    public BubbleListData.BubbleData z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            zl9 zl9Var = this.e;
+            if (zl9Var == null) {
+                return null;
+            }
+            return zl9Var.getItem(i);
+        }
+        return (BubbleListData.BubbleData) invokeI.objValue;
     }
 }

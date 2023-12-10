@@ -29,12 +29,12 @@ public class v87 implements a97<u57> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.a97
     /* renamed from: a */
-    public rb7<?> b(@NonNull u57 u57Var) {
+    public sb7<?> b(@NonNull u57 u57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u57Var)) == null) {
-            return new sb7(new BrowseLocationUiState(u57Var), "browse_location");
+            return new tb7(new BrowseLocationUiState(u57Var), "browse_location");
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 }

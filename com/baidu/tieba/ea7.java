@@ -114,8 +114,8 @@ public final class ea7 implements aa7, ha7 {
         DrawableSpan.IconType iconType;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b87Var)) == null) {
-            String b = kd7.a.b(b87Var.c());
-            m77 a2 = kd7.a.a(b);
+            String b = ld7.a.b(b87Var.c());
+            m77 a2 = ld7.a.a(b);
             if (a2 != null) {
                 String h = a2.h();
                 if (Intrinsics.areEqual(h, WebpUtils.TYPE_IMG_WEBP)) {

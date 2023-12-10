@@ -32,7 +32,7 @@ public class iv3 {
 
         /* renamed from: com.baidu.tieba.iv3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0357a extends ResponseCallback<AdResponseInfo> {
+        public class C0355a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -40,18 +40,18 @@ public class iv3 {
 
             /* renamed from: com.baidu.tieba.iv3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0358a implements Runnable {
+            public class RunnableC0356a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0357a b;
+                public final /* synthetic */ C0355a b;
 
-                public RunnableC0358a(C0357a c0357a, AdElementInfo adElementInfo) {
+                public RunnableC0356a(C0355a c0355a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0357a, adElementInfo};
+                        Object[] objArr = {c0355a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class iv3 {
                             return;
                         }
                     }
-                    this.b = c0357a;
+                    this.b = c0355a;
                     this.a = adElementInfo;
                 }
 
@@ -74,7 +74,7 @@ public class iv3 {
                 }
             }
 
-            public C0357a(a aVar) {
+            public C0355a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class iv3 {
                     aVar.c.j(aVar.a, "requestSuccess", aVar.b);
                     if (adResponseInfo != null) {
                         if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            zv3.c(new RunnableC0358a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                            zv3.c(new RunnableC0356a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                             return;
                         }
                         if (!this.b.c.c) {
@@ -192,14 +192,14 @@ public class iv3 {
             nv3 nv3Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nv3Var = this.a) != null && nv3Var.i != null) {
-                C0357a c0357a = new C0357a(this);
+                C0355a c0355a = new C0355a(this);
                 if (NetworkUtils.f(this.c.a)) {
                     if (this.c.c) {
                         nv3 nv3Var2 = this.a;
                         if (nv3Var2 instanceof ov3) {
                             ov3 ov3Var = (ov3) nv3Var2;
                             if (this.b != null && ov3Var.i() != null) {
-                                this.b.a(ov3Var.g(), ov3Var.i(), c0357a);
+                                this.b.a(ov3Var.g(), ov3Var.i(), c0355a);
                                 return;
                             }
                             return;
@@ -209,7 +209,7 @@ public class iv3 {
                     String g = this.a.g();
                     bv3 bv3Var = this.b;
                     if (bv3Var != null) {
-                        bv3Var.f(g, c0357a);
+                        bv3Var.f(g, c0355a);
                     }
                     this.c.j(this.a, "request", this.b);
                     return;

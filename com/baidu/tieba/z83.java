@@ -78,7 +78,7 @@ public class z83 extends h83 {
     }
 
     /* loaded from: classes9.dex */
-    public class b implements roc<Boolean> {
+    public class b implements soc<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -110,7 +110,7 @@ public class z83 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Boolean bool) {
             k63 M;
@@ -138,7 +138,7 @@ public class z83 extends h83 {
     }
 
     /* loaded from: classes9.dex */
-    public class c implements woc<String, Boolean> {
+    public class c implements xoc<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -168,7 +168,7 @@ public class z83 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Boolean call(String str) {
             InterceptResult invokeL;
@@ -258,7 +258,7 @@ public class z83 extends h83 {
             fg2 l = fg2.l();
             l.n(4);
             eg2.b k = l.k();
-            doc.n(str2).J(Schedulers.io()).p(new c(this, str, str3, str4, k)).s(noc.b()).H(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
+            eoc.n(str2).J(Schedulers.io()).p(new c(this, str, str3, str4, k)).s(ooc.b()).H(new b(this, str, k, callbackHandler, unitedSchemeEntity, str5));
         }
     }
 }

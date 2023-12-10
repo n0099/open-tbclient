@@ -97,7 +97,7 @@ public class r55 {
         } else {
             i = R.color.CAM_X0107;
         }
-        textView.setTextColor(tua.a(SkinManager.getColor(i), SkinManager.RESOURCE_ALPHA_NORMAL));
+        textView.setTextColor(uua.a(SkinManager.getColor(i), SkinManager.RESOURCE_ALPHA_NORMAL));
     }
 
     public static void h(ImageView imageView, int i, boolean z) {
@@ -112,6 +112,6 @@ public class r55 {
         } else {
             f = SkinManager.RESOURCE_ALPHA_NORMAL;
         }
-        imageView.setImageDrawable(WebPManager.getPureDrawable(i, tua.a(color, f), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
+        imageView.setImageDrawable(WebPManager.getPureDrawable(i, uua.a(color, f), WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE));
     }
 }

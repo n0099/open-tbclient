@@ -29,12 +29,11 @@ import com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a95;
-import com.baidu.tieba.bd8;
 import com.baidu.tieba.cd8;
 import com.baidu.tieba.da;
+import com.baidu.tieba.dd8;
 import com.baidu.tieba.e05;
-import com.baidu.tieba.ed8;
-import com.baidu.tieba.gd8;
+import com.baidu.tieba.fd8;
 import com.baidu.tieba.hd8;
 import com.baidu.tieba.homepage.concern.ConcernFragment;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
@@ -46,15 +45,16 @@ import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.tieba.homepage.tabfeed.h5.NewTabWebFragment;
 import com.baidu.tieba.homepage.tabfeed.h5.TabWebFragment;
 import com.baidu.tieba.homepage.video.VideoTabFragment;
-import com.baidu.tieba.iya;
-import com.baidu.tieba.jd8;
+import com.baidu.tieba.id8;
+import com.baidu.tieba.jya;
+import com.baidu.tieba.kd8;
 import com.baidu.tieba.mj6;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.uc5;
-import com.baidu.tieba.yya;
+import com.baidu.tieba.zya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,13 +77,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public BaseFragment k;
     public GameVideoFragment l;
     public VideoTabFragment m;
-    public mt7 n;
+    public nt7 n;
     public String o;
     public String p;
     public boolean q;
     public int r;
     public int s;
-    public jd8 t;
+    public kd8 t;
     public boolean u;
     public List<b> v;
     public List<b> w;
@@ -148,7 +148,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         public String d;
         public int e;
         @Nullable
-        public gd8 f;
+        public hd8 f;
 
         public b(Fragment fragment, int i, String str) {
             Interceptable interceptable = $ic;
@@ -218,14 +218,14 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewScrollFragmentAdapter(Context context, FragmentManager fragmentManager, boolean z, bd8 bd8Var, ConcernPageView.t tVar) {
+    public NewScrollFragmentAdapter(Context context, FragmentManager fragmentManager, boolean z, cd8 cd8Var, ConcernPageView.t tVar) {
         super(fragmentManager);
         List<a95> h;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, fragmentManager, Boolean.valueOf(z), bd8Var, tVar};
+            Object[] objArr = {context, fragmentManager, Boolean.valueOf(z), cd8Var, tVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -245,11 +245,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.v = new ArrayList();
         this.w = new ArrayList();
         this.x = new HashMap<>();
-        yya.a("NewScrollFragmentAdapter init:" + z);
+        zya.a("NewScrollFragmentAdapter init:" + z);
         this.f = context;
         this.u = z;
         if (this.t == null) {
-            this.t = new jd8();
+            this.t = new kd8();
         }
         if (this.u) {
             h = this.t.f();
@@ -258,7 +258,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
         this.w.clear();
         this.x.clear();
-        n(context, bd8Var, tVar);
+        n(context, cd8Var, tVar);
         o(context, h);
         h();
         Y();
@@ -267,12 +267,12 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     public int D(int i) {
         InterceptResult invokeI;
-        gd8 gd8Var;
+        hd8 hd8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             b bVar = (b) ListUtils.getItem(this.v, i);
-            if (bVar != null && (gd8Var = bVar.f) != null) {
-                return gd8Var.a();
+            if (bVar != null && (hd8Var = bVar.f) != null) {
+                return hd8Var.a();
             }
             return 0;
         }
@@ -297,10 +297,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     public void L(int i) {
-        mt7 mt7Var;
+        nt7 nt7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (mt7Var = this.n) != null) {
-            mt7Var.L0();
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (nt7Var = this.n) != null) {
+            nt7Var.L0();
         }
     }
 
@@ -311,15 +311,15 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void Q(cd8 cd8Var) {
+    public void Q(dd8 dd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, cd8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, dd8Var) == null) {
             PersonalizeFragment personalizeFragment = this.h;
             if (personalizeFragment != null) {
-                personalizeFragment.P2(cd8Var);
+                personalizeFragment.P2(dd8Var);
             }
-            if (cd8Var instanceof ScrollFragmentTabHost) {
-                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) cd8Var;
+            if (dd8Var instanceof ScrollFragmentTabHost) {
+                ScrollFragmentTabHost scrollFragmentTabHost = (ScrollFragmentTabHost) dd8Var;
                 HotTopicTabFragment hotTopicTabFragment = this.j;
                 if (hotTopicTabFragment != null) {
                     hotTopicTabFragment.K2(scrollFragmentTabHost);
@@ -429,13 +429,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return invokeI.intValue;
     }
 
-    public void z(ed8 ed8Var) {
+    public void z(fd8 fd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048628, this, ed8Var) != null) || this.q) {
+        if ((interceptable != null && interceptable.invokeL(1048628, this, fd8Var) != null) || this.q) {
             return;
         }
         this.q = true;
-        ed8Var.a(1);
+        fd8Var.a(1);
     }
 
     public int A(String str) {
@@ -555,10 +555,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     public void M() {
-        mt7 mt7Var;
+        nt7 nt7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (mt7Var = this.n) != null) {
-            mt7Var.T();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (nt7Var = this.n) != null) {
+            nt7Var.T();
         }
     }
 
@@ -610,11 +610,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            jd8 jd8Var = this.t;
-            if (jd8Var == null) {
+            kd8 kd8Var = this.t;
+            if (kd8Var == null) {
                 return false;
             }
-            return jd8Var.c();
+            return kd8Var.c();
         }
         return invokeV.booleanValue;
     }
@@ -623,8 +623,8 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             Fragment item = getItem(this.s);
-            if (item instanceof mt7) {
-                ((mt7) item).T();
+            if (item instanceof nt7) {
+                ((nt7) item).T();
             }
         }
     }
@@ -633,9 +633,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             for (b bVar : this.v) {
-                gd8 gd8Var = bVar.f;
-                if (gd8Var != null) {
-                    gd8Var.c();
+                hd8 hd8Var = bVar.f;
+                if (hd8Var != null) {
+                    hd8Var.c();
                 }
             }
         }
@@ -655,22 +655,22 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return invokeV.intValue;
     }
 
-    public mt7 q() {
+    public nt7 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             return this.n;
         }
-        return (mt7) invokeV.objValue;
+        return (nt7) invokeV.objValue;
     }
 
     public String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            mt7 mt7Var = this.n;
-            if (mt7Var instanceof BaseFragment) {
-                return ((BaseFragment) mt7Var).getCurrentPageKey();
+            nt7 nt7Var = this.n;
+            if (nt7Var instanceof BaseFragment) {
+                return ((BaseFragment) nt7Var).getCurrentPageKey();
             }
             return null;
         }
@@ -799,20 +799,20 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             Fragment fragment = next.a;
             if (!(fragment instanceof ConcernFragment) && !(fragment instanceof PersonalizeWrapperFragment) && !(fragment instanceof HotTopicTabFragment)) {
                 it.remove();
-                gd8 gd8Var = next.f;
-                if (gd8Var != null) {
-                    gd8Var.c();
+                hd8 hd8Var = next.f;
+                if (hd8Var != null) {
+                    hd8Var.c();
                 }
             }
         }
         this.k = null;
         this.l = null;
         this.m = null;
-        jd8 jd8Var = this.t;
-        if (jd8Var == null) {
-            this.t = new jd8();
+        kd8 kd8Var = this.t;
+        if (kd8Var == null) {
+            this.t = new kd8();
         } else {
-            jd8Var.k();
+            kd8Var.k();
         }
         if (this.u) {
             h = this.t.f();
@@ -823,9 +823,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         h();
         Y();
         notifyDataSetChanged();
-        mt7 mt7Var = this.n;
-        if (mt7Var instanceof TabWebFragment) {
-            mt7Var.T();
+        nt7 nt7Var = this.n;
+        if (nt7Var instanceof TabWebFragment) {
+            nt7Var.T();
         }
     }
 
@@ -850,13 +850,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     }
 
     public void R(String str, int i) {
-        gd8 gd8Var;
+        hd8 hd8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048593, this, str, i) == null) {
             for (int i2 = 0; i2 < this.v.size(); i2++) {
                 b bVar = this.v.get(i2);
-                if (!TextUtils.isEmpty(str) && str.equals(bVar.d) && (gd8Var = bVar.f) != null) {
-                    gd8Var.d(i);
+                if (!TextUtils.isEmpty(str) && str.equals(bVar.d) && (hd8Var = bVar.f) != null) {
+                    hd8Var.d(i);
                 }
             }
         }
@@ -874,12 +874,12 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.v.clear();
-            yya.a("NewScrollFragmentAdapter updateFragmentTabItems start");
+            zya.a("NewScrollFragmentAdapter updateFragmentTabItems start");
             for (b bVar : this.w) {
                 this.v.add(bVar);
-                yya.a("NewScrollFragmentAdapter updateFragmentTabItems:" + bVar.c + " " + bVar.a);
+                zya.a("NewScrollFragmentAdapter updateFragmentTabItems:" + bVar.c + " " + bVar.a);
             }
-            yya.a("NewScrollFragmentAdapter updateFragmentTabItems end");
+            zya.a("NewScrollFragmentAdapter updateFragmentTabItems end");
         }
     }
 
@@ -921,10 +921,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public final void n(Context context, bd8 bd8Var, ConcernPageView.t tVar) {
+    public final void n(Context context, cd8 cd8Var, ConcernPageView.t tVar) {
         String E;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048615, this, context, bd8Var, tVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048615, this, context, cd8Var, tVar) == null) {
             if (this.g == null) {
                 this.g = new ConcernFragment(context);
                 e(2);
@@ -948,7 +948,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     this.h = new PersonalizeFragment(context);
                     e(1);
                 }
-                this.h.O2(bd8Var);
+                this.h.O2(cd8Var);
                 List<b> list = this.w;
                 PersonalizeFragment personalizeFragment = this.h;
                 if (this.u) {
@@ -960,7 +960,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             }
             for (int i = 0; i < this.w.size(); i++) {
                 b bVar = this.w.get(i);
-                yya.a("NewScrollFragmentAdapter generateLocalTabFragments" + i + " " + bVar.c + " " + bVar.a);
+                zya.a("NewScrollFragmentAdapter generateLocalTabFragments" + i + " " + bVar.c + " " + bVar.a);
             }
         }
     }
@@ -1021,9 +1021,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                                 bundle.putBoolean("tab_is_second_tab", this.u);
                                 newTabWebFragment.setArguments(bundle);
                                 b I = I(newTabWebFragment, a95Var);
-                                hd8 hd8Var = new hd8();
-                                I.f = hd8Var;
-                                hd8Var.b();
+                                id8 id8Var = new id8();
+                                I.f = id8Var;
+                                id8Var.b();
                                 newTabWebFragment.m3(I.f);
                                 this.w.add(I);
                             } else {
@@ -1038,9 +1038,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                                 bundle2.putBoolean("tab_is_second_tab", this.u);
                                 tabWebFragment.setArguments(bundle2);
                                 b I2 = I(tabWebFragment, a95Var);
-                                hd8 hd8Var2 = new hd8();
-                                I2.f = hd8Var2;
-                                hd8Var2.b();
+                                id8 id8Var2 = new id8();
+                                I2.f = id8Var2;
+                                id8Var2.b();
                                 this.w.add(I2);
                             }
                         }
@@ -1052,7 +1052,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     }
                 }
             }
-            yya.a("NewScrollFragmentAdapter generateSyncTabFragments:" + this.x);
+            zya.a("NewScrollFragmentAdapter generateSyncTabFragments:" + this.x);
         }
     }
 
@@ -1066,11 +1066,11 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 Fragment fragment3 = (Fragment) ListUtils.getItem(b(), i + 1);
                 this.r = -1;
                 if (f == 0.0f) {
-                    if (fragment instanceof mt7) {
-                        ((mt7) fragment).E0();
+                    if (fragment instanceof nt7) {
+                        ((nt7) fragment).E0();
                     }
-                    if (fragment3 instanceof mt7) {
-                        ((mt7) fragment3).E0();
+                    if (fragment3 instanceof nt7) {
+                        ((nt7) fragment3).E0();
                     }
                     if (fragment2 != null) {
                         fragment2.setMenuVisibility(true);
@@ -1079,14 +1079,14 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     }
                     return;
                 }
-                if (fragment instanceof mt7) {
-                    ((mt7) fragment).e0();
+                if (fragment instanceof nt7) {
+                    ((nt7) fragment).e0();
                 }
-                if (fragment2 instanceof mt7) {
-                    ((mt7) fragment2).e0();
+                if (fragment2 instanceof nt7) {
+                    ((nt7) fragment2).e0();
                 }
-                if (fragment3 instanceof mt7) {
-                    ((mt7) fragment3).e0();
+                if (fragment3 instanceof nt7) {
+                    ((nt7) fragment3).e0();
                 }
             }
         }
@@ -1098,16 +1098,16 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         if (interceptable == null || interceptable.invokeLIL(1048623, this, viewGroup, i, obj) == null) {
             super.setPrimaryItem(viewGroup, i, obj);
             if (obj != null && this.s != i) {
-                mt7 mt7Var = this.n;
-                if (mt7Var instanceof BaseFragment) {
-                    ((BaseFragment) mt7Var).setPrimary(false);
+                nt7 nt7Var = this.n;
+                if (nt7Var instanceof BaseFragment) {
+                    ((BaseFragment) nt7Var).setPrimary(false);
                 }
                 this.s = i;
-                VoiceManager b2 = iya.b(this.f);
+                VoiceManager b2 = jya.b(this.f);
                 if (b2 != null) {
                     b2.stopPlay();
                 }
-                VoiceManager a2 = iya.a(this.f);
+                VoiceManager a2 = jya.a(this.f);
                 if (a2 != null) {
                     a2.stopPlay();
                 }
@@ -1118,8 +1118,8 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     ((PersonalizeFragment) obj).l();
                 }
             }
-            if (obj instanceof mt7) {
-                this.n = (mt7) obj;
+            if (obj instanceof nt7) {
+                this.n = (nt7) obj;
             }
         }
     }

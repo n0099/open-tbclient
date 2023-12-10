@@ -1,70 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public List<pi> d;
+    public boolean e;
+    public int f;
 
-    public static List<xy7> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
+    public qy7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                xy7 xy7Var = new xy7();
-                if (gameForumSubTab != null) {
-                    xy7Var.a = gameForumSubTab.id.intValue();
-                    xy7Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    xy7Var.c = labelDataList;
-                    arrayList.add(xy7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<pi> b(List<ThreadInfo> list) {
+    public int a(List<pi> list) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
             if (ListUtils.isEmpty(list)) {
-                return null;
+                return 0;
             }
-            LinkedList linkedList = new LinkedList();
+            if (ListUtils.isEmpty(this.d)) {
+                LinkedList linkedList = new LinkedList();
+                this.d = linkedList;
+                linkedList.addAll(list);
+                return list.size();
+            }
+            LinkedList linkedList2 = new LinkedList();
             for (int i = 0; i < list.size(); i++) {
-                oy7 oy7Var = new oy7();
-                ThreadData threadData = new ThreadData();
-                oy7Var.c(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    zx4 zx4Var = new zx4();
-                    zx4Var.e(threadData.getLegoCard());
-                    linkedList.add(zx4Var);
-                } else {
-                    linkedList.add(oy7Var);
+                pi piVar = list.get(i);
+                int i2 = 0;
+                while (true) {
+                    if (i2 < this.d.size()) {
+                        pi piVar2 = this.d.get(i2);
+                        if (piVar != null && (piVar instanceof py7) && piVar2 != null && (piVar2 instanceof py7)) {
+                            ThreadData threadData = ((py7) piVar).getThreadData();
+                            ThreadData threadData2 = ((py7) piVar2).getThreadData();
+                            if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
+                                z = true;
+                                break;
+                            }
+                        }
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
+                    }
+                }
+                if (!z) {
+                    ListUtils.add(linkedList2, piVar);
                 }
             }
-            return linkedList;
+            if (linkedList2.size() != 0) {
+                ListUtils.addAll(this.d, 0, linkedList2);
+            }
+            return linkedList2.size();
         }
-        return (List) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

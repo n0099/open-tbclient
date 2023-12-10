@@ -1,58 +1,146 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.view.MotionEvent;
+import android.widget.LinearLayout;
+import androidx.fragment.app.FragmentActivity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.forum.databinding.ActivityForumBinding;
+import com.baidu.tieba.forum.widget.TbBottomSheetView;
+import com.baidu.tieba.forum.widget.ViewExtentionsKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
 /* loaded from: classes6.dex */
 public final class hi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FragmentActivity a;
+    public final ActivityForumBinding b;
+    public jn7 c;
+    public final a d;
 
-    public static final boolean d(t87 t87Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t87Var)) == null) {
-            if (t87Var.a() instanceof w57) {
-                return ((w57) t87Var.a()).q();
+    /* loaded from: classes6.dex */
+    public static final class a implements ip7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public final /* synthetic */ hi7 b;
+
+        public a(hi7 hi7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hi7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (t87Var.a() instanceof bg7) {
-                return ((bg7) t87Var.a()).w();
-            }
-            return false;
+            this.b = hi7Var;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.ip7
+        public Boolean a(MotionEvent e) {
+            InterceptResult invokeL;
+            gi7 gi7Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+                Intrinsics.checkNotNullParameter(e, "e");
+                int action = e.getAction();
+                fi7 fi7Var = null;
+                if (action != 0) {
+                    if (action == 2) {
+                        if (e.getRawY() - this.a > 5.0f) {
+                            return b();
+                        }
+                        if (e.getRawY() - this.a >= -5.0f) {
+                            return null;
+                        }
+                        Boolean b = b();
+                        if (Intrinsics.areEqual(b, Boolean.TRUE)) {
+                            FragmentActivity fragmentActivity = this.b.a;
+                            if (fragmentActivity instanceof fi7) {
+                                fi7Var = (fi7) fragmentActivity;
+                            }
+                            if (fi7Var != null && (gi7Var = (gi7) fi7Var.j2(Reflection.getOrCreateKotlinClass(gi7.class))) != null) {
+                                gi7Var.t();
+                            }
+                        }
+                        return b;
+                    }
+                } else {
+                    this.a = e.getRawY();
+                }
+                return null;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        public final Boolean b() {
+            InterceptResult invokeV;
+            jn7 jn7Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                jn7 jn7Var2 = this.b.c;
+                if (jn7Var2 != null) {
+                    jn7Var2.G();
+                }
+                TbBottomSheetView tbBottomSheetView = this.b.b.t;
+                Intrinsics.checkNotNullExpressionValue(tbBottomSheetView, "binding.topContentContainer");
+                LinearLayout linearLayout = this.b.b.h;
+                Intrinsics.checkNotNullExpressionValue(linearLayout, "binding.contentContainer");
+                if (!ViewExtentionsKt.f(tbBottomSheetView, linearLayout) || (jn7Var = this.b.c) == null) {
+                    return null;
+                }
+                return Boolean.valueOf(jn7Var.c());
+            }
+            return (Boolean) invokeV.objValue;
+        }
     }
 
-    public static final String f(t87 t87Var) {
-        InterceptResult invokeL;
+    public hi7(FragmentActivity activity, ActivityForumBinding binding, jn7 jn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, t87Var)) == null) {
-            if (t87Var.a() instanceof w57) {
-                return ((w57) t87Var.a()).m();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, binding, jn7Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (t87Var.a() instanceof bg7) {
-                return ((bg7) t87Var.a()).r();
-            }
-            return null;
         }
-        return (String) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+        Intrinsics.checkNotNullParameter(binding, "binding");
+        this.a = activity;
+        this.b = binding;
+        this.c = jn7Var;
+        this.d = new a(this);
     }
 
-    public static final boolean e(t87 t87Var, boolean z) {
-        InterceptResult invokeLZ;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, t87Var, z)) == null) {
-            if (t87Var.a() instanceof w57) {
-                ((w57) t87Var.a()).r(z);
-                return false;
-            } else if (t87Var.a() instanceof bg7) {
-                ((bg7) t87Var.a()).x(z);
-                return false;
-            } else {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.m.H(this.d);
         }
-        return invokeLZ.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.m.K(this.d);
+        }
     }
 }

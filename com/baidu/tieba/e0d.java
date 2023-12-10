@@ -5,28 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.ForumGroup;
-import tbclient.FrsPage.GroupFeedCard;
-import tbclient.FrsPage.TopbarEntrance;
+import tbclient.FrsPage.Forum;
 /* loaded from: classes5.dex */
-public class e0d extends ktc {
+public class e0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ForumGroup forumGroup) {
+    public static JSONObject b(@NonNull Forum forum) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forum)) == null) {
             JSONObject jSONObject = new JSONObject();
-            TopbarEntrance topbarEntrance = forumGroup.topbar_entrance;
-            if (topbarEntrance != null) {
-                ktc.a(jSONObject, "topbar_entrance", s2d.b(topbarEntrance));
-            }
-            GroupFeedCard groupFeedCard = forumGroup.feed_card;
-            if (groupFeedCard != null) {
-                ktc.a(jSONObject, "feed_card", o0d.b(groupFeedCard));
-            }
+            ltc.a(jSONObject, "forum_id", forum.forum_id);
+            ltc.a(jSONObject, "level1_dir_name", forum.level1_dir_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

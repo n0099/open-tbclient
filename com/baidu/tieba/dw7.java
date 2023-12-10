@@ -1,36 +1,34 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.cu;
+import com.baidu.tieba.frs.entelechy.adapter.FrsGroupCardLayoutHolder;
+import com.baidu.tieba.frs.view.FrsGroupCardLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dw7 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
+public final class dw7 extends ci<ix7, FrsGroupCardLayoutHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdUniqueId b;
-    public vi c;
-    public String d;
+    public final TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dw7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public dw7(TbPageContext<?> pageContext) {
+        super(pageContext.getPageActivity(), ix7.c.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {pageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,63 +40,40 @@ public class dw7 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    @Override // com.baidu.tieba.e26
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void x(vi viVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, viVar) == null) {
-            this.c = viVar;
-        }
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        this.a = pageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public ThreadCardViewHolder<qbb> onCreateViewHolder(ViewGroup viewGroup) {
+    public FrsGroupCardLayoutHolder onCreateViewHolder(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            cu.b bVar = new cu.b(this.a.getPageActivity(), false);
-            fbb fbbVar = new fbb(this.a);
-            fbbVar.s(3);
-            fbbVar.o(this.b);
-            bVar.n(fbbVar);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<qbb> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.b);
-            return threadCardViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Activity pageActivity = this.a.getPageActivity();
+            Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
+            return new FrsGroupCardLayoutHolder(new FrsGroupCardLayout(pageActivity, null, 2, null));
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (FrsGroupCardLayoutHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qbb qbbVar, ThreadCardViewHolder<qbb> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View convertView, ViewGroup parent, ix7 data, FrsGroupCardLayoutHolder holder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qbbVar, threadCardViewHolder})) == null) {
-            qbbVar.o(i);
-            threadCardViewHolder.e(qbbVar);
-            if (threadCardViewHolder.a() != null) {
-                threadCardViewHolder.a().s(i);
-                threadCardViewHolder.a().b(this.d);
-                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            }
-            return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, holder})) == null) {
+            Intrinsics.checkNotNullParameter(convertView, "convertView");
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(holder, "holder");
+            holder.a().setData(data);
+            View view2 = holder.getView();
+            Intrinsics.checkNotNullExpressionValue(view2, "holder.view");
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

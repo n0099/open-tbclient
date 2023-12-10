@@ -31,7 +31,7 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.mk5;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -530,7 +530,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public final void o() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && this.e != null) {
-            int f = tua.f(getDynamicTextColor());
+            int f = uua.f(getDynamicTextColor());
             if (f == 0 || f == Integer.MAX_VALUE) {
                 if (this.s) {
                     f = SkinManager.getColor(R.color.CAM_X0622);

@@ -13,7 +13,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class r67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends yb7> a;
+    public Map<String, ? extends zb7> a;
     public final v57 b;
     public final n77 c;
     public Map<String, String> d;
@@ -74,8 +74,8 @@ public final class r67 {
         return (Map) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.yb7>, java.util.Map<java.lang.String, com.baidu.tieba.yb7> */
-    public final Map<String, yb7> e() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.Map<java.lang.String, ? extends com.baidu.tieba.zb7>, java.util.Map<java.lang.String, com.baidu.tieba.zb7> */
+    public final Map<String, zb7> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -99,7 +99,7 @@ public final class r67 {
         }
     }
 
-    public final void h(Map<String, ? extends yb7> map) {
+    public final void h(Map<String, ? extends zb7> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
             Intrinsics.checkNotNullParameter(map, "<set-?>");

@@ -204,8 +204,8 @@ public final class lk5 {
             if (currentActivity == null || currentActivity.isFinishing()) {
                 return false;
             }
-            if (currentActivity instanceof j0b) {
-                return z1b.j.a().i();
+            if (currentActivity instanceof k0b) {
+                return a2b.j.a().i();
             }
             if ((!z && !FunnySpriteSwitch.Companion.isOn()) || !FunnySpriteResDownloadUtil.k().invoke().booleanValue()) {
                 return false;
@@ -233,7 +233,7 @@ public final class lk5 {
     public static final void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
-            if (i != 2 && 2 == z1b.j.a().c().a().c && 1 == z1b.j.a().c().b().c && 6 == z1b.j.a().c().c().c) {
+            if (i != 2 && 2 == a2b.j.a().c().a().c && 1 == a2b.j.a().c().b().c && 6 == a2b.j.a().c().c().c) {
                 DefaultLog.getInstance().i("SpriteTip", "requestSpriteTip：直播tab不请求轻互动");
             } else {
                 l(i);

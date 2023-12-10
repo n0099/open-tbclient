@@ -21,7 +21,7 @@ public final class ThreadPoolDispatcherKt {
         }
         if (z) {
             final AtomicInteger atomicInteger = new AtomicInteger();
-            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.flc
+            return ExecutorsKt.from((ExecutorService) Executors.newScheduledThreadPool(i, new ThreadFactory() { // from class: com.baidu.tieba.glc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

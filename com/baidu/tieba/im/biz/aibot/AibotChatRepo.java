@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cs8;
+import com.baidu.tieba.av8;
+import com.baidu.tieba.ds8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.ov8;
 import com.baidu.tieba.pv8;
 import com.baidu.tieba.qv8;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.tv8;
-import com.baidu.tieba.zu8;
+import com.baidu.tieba.rv8;
+import com.baidu.tieba.uv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public final class AibotChatRepo extends Slice {
     public long r;
     public final List<AibotChatDetail.BotList> s;
     public boolean t;
-    public pv8 u;
+    public qv8 u;
     public a v;
     public final Map<Integer, Class<? extends TbBaseMsg>> w;
 
@@ -74,7 +74,7 @@ public final class AibotChatRepo extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a implements pv8 {
+    public static final class a implements qv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AibotChatRepo a;
@@ -97,12 +97,12 @@ public final class AibotChatRepo extends Slice {
             this.a = aibotChatRepo;
         }
 
-        @Override // com.baidu.tieba.pv8
+        @Override // com.baidu.tieba.qv8
         public void a(int i, TreeSet<TbBaseMsg> msgSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, msgSet) == null) {
                 Intrinsics.checkNotNullParameter(msgSet, "msgSet");
-                pv8 i0 = this.a.i0();
+                qv8 i0 = this.a.i0();
                 if (i0 != null) {
                     i0.a(i, msgSet);
                 }
@@ -220,11 +220,11 @@ public final class AibotChatRepo extends Slice {
         this.w = linkedHashMap;
     }
 
-    public final void f0(long j, long j2, int i, ov8 callback) {
+    public final void f0(long j, long j2, int i, pv8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), callback}) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
-            zu8.a.b(this.r, j, j2, i, callback);
+            av8.a.b(this.r, j, j2, i, callback);
         }
     }
 
@@ -253,13 +253,13 @@ public final class AibotChatRepo extends Slice {
         return (List) invokeV.objValue;
     }
 
-    public final pv8 i0() {
+    public final qv8 i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.u;
         }
-        return (pv8) invokeV.objValue;
+        return (qv8) invokeV.objValue;
     }
 
     public final boolean j0() {
@@ -274,7 +274,7 @@ public final class AibotChatRepo extends Slice {
     public final void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            zu8.a.g(this.r, this.v);
+            av8.a.g(this.r, this.v);
         }
     }
 
@@ -283,7 +283,7 @@ public final class AibotChatRepo extends Slice {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            zu8.a.k(this.r, this.v);
+            av8.a.k(this.r, this.v);
         }
     }
 
@@ -307,24 +307,24 @@ public final class AibotChatRepo extends Slice {
                     String str2 = this.m;
                     Intrinsics.checkNotNull(str2);
                     fastRequest.P("fid", str2);
-                    fastRequest.P("recent_bots", cs8.d.a().e(this.m));
+                    fastRequest.P("recent_bots", ds8.d.a().e(this.m));
                 }
                 fastRequest.Q();
             }
         }
     }
 
-    public final void m0(String json, qv8 callback) {
+    public final void m0(String json, rv8 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, json, callback) == null) {
             Intrinsics.checkNotNullParameter(json, "json");
             Intrinsics.checkNotNullParameter(callback, "callback");
-            Map<String, Object> b2 = tv8.b(DataExt.toMap(json));
+            Map<String, Object> b2 = uv8.b(DataExt.toMap(json));
             Object obj = b2.get("type");
             if (obj != null) {
                 Class<? extends TbBaseMsg> cls = this.w.get(Integer.valueOf((int) ((Long) obj).longValue()));
                 Intrinsics.checkNotNull(cls);
-                zu8.a.h((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
+                av8.a.h((TbBaseMsg) DataExt.toEntity(b2, cls), callback);
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type kotlin.Long");
@@ -346,10 +346,10 @@ public final class AibotChatRepo extends Slice {
         }
     }
 
-    public final void p0(pv8 pv8Var) {
+    public final void p0(qv8 qv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pv8Var) == null) {
-            this.u = pv8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, qv8Var) == null) {
+            this.u = qv8Var;
         }
     }
 }

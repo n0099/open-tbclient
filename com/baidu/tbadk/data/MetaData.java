@@ -26,7 +26,7 @@ import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.md5;
 import com.baidu.tieba.pd5;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1630,7 +1630,7 @@ public class MetaData extends OrmObject implements Serializable, e75 {
                     for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                         JSONObject optJSONObject15 = optJSONArray4.optJSONObject(i4);
                         if (optJSONObject15 != null) {
-                            builder.img_info = y5b.j(optJSONObject15);
+                            builder.img_info = z5b.j(optJSONObject15);
                             this.tags.add(builder.build(true));
                         }
                     }

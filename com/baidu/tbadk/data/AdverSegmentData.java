@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.pic;
 import com.baidu.tieba.xd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -274,7 +275,7 @@ public class AdverSegmentData implements Comparable<AdverSegmentData>, Serializa
     public void parseJSONObject(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
-            this.pic = jSONObject.optString("pic");
+            this.pic = jSONObject.optString(pic.f);
             this.picClick = jSONObject.optString("pic_click");
             this.jumpLink = jSONObject.optString("jump_link");
             this.adSegmentId = jSONObject.optString("advertisement_id");

@@ -16,7 +16,7 @@ import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.j0;
 import com.baidu.tieba.q0;
 import com.baidu.tieba.r0;
-import com.baidu.tieba.ve7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1023,7 +1023,7 @@ public class DslTabIndicator extends j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048599, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ve7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, we7.DslTabLayout);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…R.styleable.DslTabLayout)");
             q0(obtainStyledAttributes.getDrawable(77));
             p0(obtainStyledAttributes.getColor(72, this.A));

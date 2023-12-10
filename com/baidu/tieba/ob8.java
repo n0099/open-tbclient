@@ -50,7 +50,9 @@ public class ob8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof dn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardUtils.jumpToPB((fw4) ((dn6) piVar), view2.getContext(), 1, false);
+                dn6 dn6Var = (dn6) piVar;
+                dn6Var.f = 1;
+                ThreadCardUtils.jumpToPB((fw4) dn6Var, view2.getContext(), 1, false);
                 ((ThreadCardViewHolder) view2.getTag()).a().q(new nu.a(1));
             }
         }
@@ -93,9 +95,12 @@ public class ob8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
-            bVar.h(new st(this.b.getPageActivity()));
+            lt ltVar = new lt(this.b.getPageActivity());
+            ltVar.B(true);
+            ltVar.x();
+            bVar.h(ltVar);
             cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.t(1);
+            k.t(2);
             ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
             setOnAdapterItemClickListener(new a(this));

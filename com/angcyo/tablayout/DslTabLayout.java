@@ -33,7 +33,7 @@ import com.baidu.tieba.p0;
 import com.baidu.tieba.r0;
 import com.baidu.tieba.s0;
 import com.baidu.tieba.u0;
-import com.baidu.tieba.ve7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -208,7 +208,7 @@ public class DslTabLayout extends ViewGroup {
             this.h = -1;
             this.i = -1;
             this.j = -1.0f;
-            TypedArray obtainStyledAttributes = c.obtainStyledAttributes(attributeSet, ve7.DslTabLayout_Layout);
+            TypedArray obtainStyledAttributes = c.obtainStyledAttributes(attributeSet, we7.DslTabLayout_Layout);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "c.obtainStyledAttributes…able.DslTabLayout_Layout)");
             this.a = obtainStyledAttributes.getString(10);
             this.b = obtainStyledAttributes.getString(2);
@@ -745,7 +745,7 @@ public class DslTabLayout extends ViewGroup {
                 return (m0) invokeV.objValue;
             }
         });
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(this.a, ve7.DslTabLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(this.a, we7.DslTabLayout);
         Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…R.styleable.DslTabLayout)");
         this.c = obtainStyledAttributes.getBoolean(104, this.c);
         int i5 = obtainStyledAttributes.getInt(102, -1);

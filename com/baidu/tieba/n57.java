@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class n57 extends bb7<w57<?>> {
+public abstract class n57 extends cb7<w57<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public w57<?> c;
@@ -28,7 +28,7 @@ public abstract class n57 extends bb7<w57<?>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     @NonNull
     /* renamed from: c */
     public w57<?> b() {

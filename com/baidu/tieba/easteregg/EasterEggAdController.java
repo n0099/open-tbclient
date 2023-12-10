@@ -18,6 +18,7 @@ import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a2b;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.easteregg.EasterEggAdController;
 import com.baidu.tieba.easteregg.data.EasterEggAdData;
@@ -27,7 +28,6 @@ import com.baidu.tieba.easteregg.view.EasterEggAdView;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.ky5;
 import com.baidu.tieba.lw6;
-import com.baidu.tieba.z1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,7 +156,7 @@ public final class EasterEggAdController {
                 this.a.l().b();
                 this.a.h.e();
                 YunDialogManager.unMarkShowingDialogName("easterEgg");
-                z1b.j.a().m(false);
+                a2b.j.a().m(false);
                 br6.b().c(new lw6());
             }
         }
@@ -464,7 +464,7 @@ public final class EasterEggAdController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, easterEggAdData) == null) {
             Intrinsics.checkNotNullParameter(easterEggAdData, "easterEggAdData");
-            z1b.j.a().m(true);
+            a2b.j.a().m(true);
             DefaultLog.getInstance().i("easterEgg", "彩蛋广告开始展示");
             this.e = easterEggAdData;
             l().g(easterEggAdData);
@@ -605,11 +605,11 @@ public final class EasterEggAdController {
             if (currentAccount == null) {
                 currentAccount = StringUtil.NULL_STRING;
             }
-            Integer num = z1b.j.a().d().get(currentAccount);
+            Integer num = a2b.j.a().d().get(currentAccount);
             if (num != null) {
                 i = num.intValue();
             }
-            z1b.j.a().d().put(currentAccount, Integer.valueOf(i + 1));
+            a2b.j.a().d().put(currentAccount, Integer.valueOf(i + 1));
         }
     }
 

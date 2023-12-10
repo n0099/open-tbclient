@@ -664,15 +664,15 @@ public class nm6 extends n05 {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wr7.h().p(true, false);
+            xr7.h().p(true, false);
         }
     }
 
     public final void Q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xr7.f().o(false);
-            xr7.f().p(true, false);
+            yr7.f().o(false);
+            yr7.f().p(true, false);
         }
     }
 
@@ -747,8 +747,8 @@ public class nm6 extends n05 {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xr7.f().o(true);
-            xr7.f().p(true, false);
+            yr7.f().o(true);
+            yr7.f().p(true, false);
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FRS_MULTI_MUSK_VIEW_SHOW);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("tid", this.w.getId());
@@ -802,14 +802,14 @@ public class nm6 extends n05 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.w != null && (list = this.s) != null && this.n != null) {
             list.clear();
-            if (fs7.d(fs7.a()) && !fs7.f()) {
+            if (gs7.d(gs7.a()) && !gs7.f()) {
                 boolean isBjh = this.w.isBjh();
-                if (this.w.getAuthor() != null && this.w.getAuthor().isForumBusinessAccount() && !this.w.isSelf() && !wt7.isOn()) {
+                if (this.w.getAuthor() != null && this.w.getAuthor().isForumBusinessAccount() && !this.w.isSelf() && !xt7.isOn()) {
                     z3 = true;
                 } else {
                     z3 = false;
                 }
-                boolean g2 = fs7.g();
+                boolean g2 = gs7.g();
                 boolean isWorksInfo = this.w.isWorksInfo();
                 boolean isScoreThread = this.w.isScoreThread();
                 if (this.w.isTiePlusCantDeleteUnion() && !this.w.isSelf()) {
@@ -822,7 +822,7 @@ public class nm6 extends n05 {
                 if (!isBjh && !z3 && !g2 && !isWorksInfo && !isScoreThread && z4) {
                     this.s.add(new l05(1, a0(R.string.delete_page, new Object[0]), this.n));
                 }
-                if (this.w.isWorksInfo() || this.w.isScoreThread() || (fs7.g() && !this.w.isBjh() && (this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || wt7.isOn()))) {
+                if (this.w.isWorksInfo() || this.w.isScoreThread() || (gs7.g() && !this.w.isBjh() && (this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || xt7.isOn()))) {
                     this.s.add(new l05(9, a0(R.string.forum_shield, new Object[0]), this.n));
                 }
                 if (this.w.getAuthor() != null) {
@@ -834,7 +834,7 @@ public class nm6 extends n05 {
                     this.s.add(new l05(2, a0(R.string.thread_forbid, new Object[0]), this.n));
                 }
             }
-            if (fs7.e() || fs7.f()) {
+            if (gs7.e() || gs7.f()) {
                 if (this.w.getIs_top() == 1) {
                     z = true;
                 } else {
@@ -847,7 +847,7 @@ public class nm6 extends n05 {
                 }
                 this.s.add(new l05(3, a0(i2, new Object[0]), this.n));
             }
-            if (fs7.e() || fs7.h()) {
+            if (gs7.e() || gs7.h()) {
                 if (this.w.getIs_good() == 1) {
                     z2 = true;
                 } else {
@@ -860,22 +860,22 @@ public class nm6 extends n05 {
                 }
                 this.s.add(new l05(4, a0(i3, new Object[0]), this.n));
             }
-            if (fs7.e()) {
+            if (gs7.e()) {
                 this.s.add(new l05(6, a0(R.string.frs_recommend_thread, new Object[0]), this.n));
             }
-            if (fs7.e() || fs7.f()) {
+            if (gs7.e() || gs7.f()) {
                 this.s.add(new l05(8, a0(R.string.frs_forum_bawu_send_broadcast, new Object[0]), this.n));
             }
-            if (fs7.e() && this.y) {
+            if (gs7.e() && this.y) {
                 this.s.add(new l05(7, a0(R.string.frs_move_area_thread, new Object[0]), this.n));
             }
-            if (!fs7.f() && xr7.f().j() && this.y && ((this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || wt7.isOn()) && !fs7.g())) {
+            if (!gs7.f() && yr7.f().j() && this.y && ((this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || xt7.isOn()) && !gs7.g())) {
                 this.s.add(new l05(5, a0(R.string.multi_delete, new Object[0]), this.n));
             }
-            if (fs7.g() && !fs7.f() && xr7.f().j() && this.y && (this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || wt7.isOn())) {
+            if (gs7.g() && !gs7.f() && yr7.f().j() && this.y && (this.w.getAuthor() == null || !this.w.getAuthor().isForumBusinessAccount() || this.w.isSelf() || xt7.isOn())) {
                 this.s.add(new l05(10, a0(R.string.multi_shield, new Object[0]), this.n));
             }
-            if (fs7.g() && this.w.isSelf() && !this.w.isBjh()) {
+            if (gs7.g() && this.w.isSelf() && !this.w.isBjh()) {
                 this.s.add(new l05(1, a0(R.string.obfuscated_res_0x7f0f055b, new Object[0]), this.n));
             }
             this.n.m(this.s);
@@ -895,7 +895,7 @@ public class nm6 extends n05 {
                     jx4 jx4Var = new jx4();
                     jx4Var.a = 2;
                     jx4Var.b = this.w.getTid();
-                    if (fs7.e()) {
+                    if (gs7.e()) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, jx4Var));
                     } else {
                         str = b0(gVar.b, R.string.set_good_success);
@@ -952,15 +952,15 @@ public class nm6 extends n05 {
     public final void e0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.l != null && this.w != null) {
-            BawuThrones b2 = yr7.c().b();
+            BawuThrones b2 = zr7.c().b();
             if (b2 == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
             } else if (b2.total_recommend_num.intValue() == b2.used_recommend_num.intValue()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
             } else if (SharedPrefHelper.getInstance().getBoolean("key_frs_recommend_tip", true)) {
-                yr7.c().f(this.l, String.valueOf(this.w.getFid()), this.w.getId());
+                zr7.c().f(this.l, String.valueOf(this.w.getFid()), this.w.getId());
             } else {
-                yr7.c().d(String.valueOf(this.w.getFid()), this.w.getId());
+                zr7.c().d(String.valueOf(this.w.getFid()), this.w.getId());
             }
         }
     }

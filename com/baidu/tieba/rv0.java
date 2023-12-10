@@ -36,13 +36,13 @@ public class rv0 extends qv0 {
 
         /* renamed from: com.baidu.tieba.rv0$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0466a implements Runnable {
+        public class RunnableC0462a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ms0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0466a(a aVar, ms0 ms0Var) {
+            public RunnableC0462a(a aVar, ms0 ms0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class rv0 extends qv0 {
                 if (!(obj instanceof ms0)) {
                     return;
                 }
-                wf0.c(new RunnableC0466a(this, (ms0) obj));
+                wf0.c(new RunnableC0462a(this, (ms0) obj));
             }
         }
     }

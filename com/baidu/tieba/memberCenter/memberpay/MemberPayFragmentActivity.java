@@ -51,8 +51,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.en9;
 import com.baidu.tieba.f05;
+import com.baidu.tieba.fn9;
 import com.baidu.tieba.hp5;
 import com.baidu.tieba.ip5;
 import com.baidu.tieba.jp5;
@@ -1021,7 +1021,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             if (TbSingleton.getInstance().isUserBan()) {
                 hp5.a(this);
             }
-            en9.a(this.g, this.h, this.C);
+            fn9.a(this.g, this.h, this.C);
         }
     }
 }

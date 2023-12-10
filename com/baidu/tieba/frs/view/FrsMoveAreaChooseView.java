@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wr7;
-import com.baidu.tieba.z78;
+import com.baidu.tieba.a88;
+import com.baidu.tieba.xr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -117,14 +117,14 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
             } else if (view2 == this.d) {
                 if (this.a != null && getParent() != null && this.f.n() >= 0) {
                     boolean z = SharedPrefHelper.getInstance().getBoolean("key_frs_move_area_tip", true);
-                    List<FrsTabInfo> g = wr7.h().g();
+                    List<FrsTabInfo> g = xr7.h().g();
                     FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.l());
                     FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.n());
                     if (frsTabInfo != null && frsTabInfo2 != null) {
                         if (z) {
-                            z78.a(this.a, frsTabInfo, frsTabInfo2);
+                            a88.a(this.a, frsTabInfo, frsTabInfo2);
                         } else {
-                            wr7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                            xr7.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         }
                         if (this.h != null) {
                             view2.setTag("choose_done");

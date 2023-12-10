@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +11,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ei9 extends di9<String> {
+public abstract class ei9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,9 +31,7 @@ public final class ei9 extends di9<String> {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ei9(String key) {
-        super(key);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,33 +41,87 @@ public final class ei9 extends di9<String> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_match_last_text");
+        this.a = "default";
+        this.a = "key_prefix_" + key;
     }
 
-    public final boolean f(String text) {
+    public final T a(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            return !TextUtils.equals(text, a(""));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            Intrinsics.checkNotNullParameter(t, "default");
+            return (T) b(t);
         }
-        return invokeL.booleanValue;
+        return (T) invokeL.objValue;
     }
 
-    public final void g(String text) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            if (f(text)) {
-                d(text);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
+    }
+
+    public final Object b(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
+            if (t instanceof String) {
+                String string = SharedPrefHelper.getInstance().getString(this.a, (String) t);
+                Intrinsics.checkNotNullExpressionValue(string, "getInstance().getString(key, default as String)");
+                return string;
+            } else if (t instanceof Integer) {
+                return Integer.valueOf(SharedPrefHelper.getInstance().getInt(this.a, ((Integer) t).intValue()));
+            } else {
+                if (t instanceof Long) {
+                    return Long.valueOf(SharedPrefHelper.getInstance().getLong(this.a, ((Long) t).longValue()));
+                }
+                if (t instanceof Boolean) {
+                    return Boolean.valueOf(SharedPrefHelper.getInstance().getBoolean(this.a, ((Boolean) t).booleanValue()));
+                }
+                if (t instanceof Float) {
+                    return Float.valueOf(SharedPrefHelper.getInstance().getFloat(this.a, ((Float) t).floatValue()));
+                }
+                return t;
             }
         }
+        return invokeL.objValue;
+    }
+
+    public final T d(T value) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
+            Intrinsics.checkNotNullParameter(value, "value");
+            if (value instanceof String) {
+                SharedPrefHelper.getInstance().putString(this.a, (String) value);
+            } else if (value instanceof Integer) {
+                SharedPrefHelper.getInstance().putInt(this.a, ((Integer) value).intValue());
+            } else if (value instanceof Long) {
+                SharedPrefHelper.getInstance().putLong(this.a, ((Long) value).longValue());
+            } else if (value instanceof Boolean) {
+                SharedPrefHelper.getInstance().putBoolean(this.a, ((Boolean) value).booleanValue());
+            } else if (value instanceof Float) {
+                SharedPrefHelper.getInstance().putFloat(this.a, ((Float) value).floatValue());
+            }
+            return value;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

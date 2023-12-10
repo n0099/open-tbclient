@@ -22,7 +22,7 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.rva;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -51,7 +51,7 @@ public final class lt4 extends le5 {
     public String h;
     public String i;
     public final NewWriteModel.d j;
-    public qva.h k;
+    public rva.h k;
 
     static {
         InterceptResult invokeClinit;
@@ -103,11 +103,11 @@ public final class lt4 extends le5 {
                 }
             }
         };
-        this.k = new qva.h() { // from class: com.baidu.tieba.ft4
+        this.k = new rva.h() { // from class: com.baidu.tieba.ft4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.qva.h
+            @Override // com.baidu.tieba.rva.h
             public final void d(WriteData writeData) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, writeData) == null) {
@@ -347,9 +347,9 @@ public final class lt4 extends le5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                qva.C(this.h, null);
+                rva.C(this.h, null);
             } else if (!TextUtils.isEmpty(this.i)) {
-                qva.E(this.i, null);
+                rva.E(this.i, null);
             }
         }
     }
@@ -372,9 +372,9 @@ public final class lt4 extends le5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!TextUtils.isEmpty(this.h)) {
-                qva.r(this.h, this.k);
+                rva.r(this.h, this.k);
             } else if (!TextUtils.isEmpty(this.i)) {
-                qva.t(this.i, this.k);
+                rva.t(this.i, this.k);
             }
         }
     }
@@ -502,7 +502,7 @@ public final class lt4 extends le5 {
             e0.setContent(this.e);
             if (!TextUtils.isEmpty(this.h)) {
                 e0.setType(1);
-                qva.C(this.h, e0);
+                rva.C(this.h, e0);
             } else if (!TextUtils.isEmpty(this.i)) {
                 e0.setType(2);
                 e0.setReplyId(h("replyUid"));
@@ -511,7 +511,7 @@ public final class lt4 extends le5 {
                 e0.setName(h("name"));
                 e0.setReSubPostId(h("reSubPostId"));
                 e0.setSubPbReplyPrefix(h("subPbReplyPrefix"));
-                qva.E(this.i, e0);
+                rva.E(this.i, e0);
             }
         }
     }

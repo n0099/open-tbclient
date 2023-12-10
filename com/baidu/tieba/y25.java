@@ -84,14 +84,14 @@ public class y25 extends Drawable implements Cloneable {
 
         /* renamed from: com.baidu.tieba.y25$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0539a implements Runnable {
+        public class RunnableC0536a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
             public final /* synthetic */ ViewGroup.MarginLayoutParams b;
             public final /* synthetic */ a c;
 
-            public RunnableC0539a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
+            public RunnableC0536a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public class y25 extends Drawable implements Cloneable {
                     marginLayoutParams.bottomMargin -= (int) u[3];
                     marginLayoutParams.width = (i3 - i) + ((int) u[0]) + ((int) u[2]);
                     marginLayoutParams.height = (i4 - i2) + ((int) u[1]) + ((int) u[3]);
-                    view2.post(new RunnableC0539a(this, view2, marginLayoutParams));
+                    view2.post(new RunnableC0536a(this, view2, marginLayoutParams));
                 }
                 view2.removeOnLayoutChangeListener(this);
             }
@@ -557,7 +557,7 @@ public class y25 extends Drawable implements Cloneable {
             int length = iArr.length;
             int[] iArr2 = new int[length];
             for (int i = 0; i < length; i++) {
-                iArr2[i] = tua.a(this.q[i], this.f);
+                iArr2[i] = uua.a(this.q[i], this.f);
             }
             return iArr2;
         }

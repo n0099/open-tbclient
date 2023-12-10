@@ -6,9 +6,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hp7;
 import com.baidu.tieba.ij;
-import com.baidu.tieba.mp7;
+import com.baidu.tieba.ip7;
+import com.baidu.tieba.np7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Function0<? extends View> A;
-    public final ArrayList<hp7> B;
+    public final ArrayList<ip7> B;
     public Function0<? extends View> z;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -105,7 +105,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final void H(hp7 hook) {
+    public final void H(ip7 hook) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hook) == null) {
             Intrinsics.checkNotNullParameter(hook, "hook");
@@ -129,7 +129,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         return (Boolean) invokeI.objValue;
     }
 
-    public final void K(hp7 hook) {
+    public final void K(ip7 hook) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, hook) == null) {
             Intrinsics.checkNotNullParameter(hook, "hook");
@@ -167,7 +167,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
             if (ijVar == null || (nestedScrollTarget = ijVar.getTarget()) == null) {
                 nestedScrollTarget = getNestedScrollTarget();
             }
-            if (mp7.a(this)) {
+            if (np7.a(this)) {
                 boolean z = true;
                 if ((nestedScrollTarget == null || !nestedScrollTarget.canScrollVertically(i)) ? false : false) {
                     nestedScrollTarget.scrollBy(0, i);
@@ -236,8 +236,8 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
             Boolean bool = null;
-            for (hp7 hp7Var : this.B) {
-                if (Intrinsics.areEqual(hp7Var.a(e), Boolean.TRUE)) {
+            for (ip7 ip7Var : this.B) {
+                if (Intrinsics.areEqual(ip7Var.a(e), Boolean.TRUE)) {
                     bool = Boolean.TRUE;
                 }
             }
@@ -254,7 +254,7 @@ public final class TbLinkageScrollView extends TbNestedScrollView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            if (mp7.a(this)) {
+            if (np7.a(this)) {
                 return null;
             }
             return Boolean.FALSE;

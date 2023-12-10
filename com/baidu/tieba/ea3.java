@@ -41,13 +41,13 @@ public class ea3 extends h83 {
 
         /* renamed from: com.baidu.tieba.ea3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0257a implements Runnable {
+        public class RunnableC0258a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0257a(a aVar, Bitmap bitmap) {
+            public RunnableC0258a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class ea3 extends h83 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    ej3.k(new RunnableC0257a(this, y), "savescreenshot");
+                    ej3.k(new RunnableC0258a(this, y), "savescreenshot");
                 }
             }
         }

@@ -1,60 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import com.baidu.tieba.rcc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes7.dex */
-public final class lcc {
+public class lcc {
     public static /* synthetic */ Interceptable $ic;
-    public static final lcc b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
+    public static rcc a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -69,43 +27,29 @@ public final class lcc {
                 return;
             }
         }
-        b = new lcc();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = availableProcessors + 1;
-        e = (availableProcessors * 2) + 1;
+        a = new rcc();
     }
 
-    public lcc() {
+    public static <TResult> TResult a(icc<TResult> iccVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iccVar)) == null) {
+            rcc.c("await must not be called on the UI thread");
+            if (iccVar.g()) {
+                return (TResult) rcc.b(iccVar);
             }
+            rcc.b bVar = new rcc.b();
+            iccVar.c(bVar);
+            iccVar.b(bVar);
+            bVar.a.await();
+            return (TResult) rcc.b(iccVar);
         }
-        this.a = new a((byte) 0);
+        return (TResult) invokeL.objValue;
     }
 
-    public static ExecutorService a() {
-        InterceptResult invokeV;
+    public static <TResult> icc<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    public static Executor b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(kcc.a(), callable) : (icc) invokeL.objValue;
     }
 }

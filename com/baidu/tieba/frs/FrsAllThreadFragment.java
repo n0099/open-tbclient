@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ot7;
-import com.baidu.tieba.qs7;
+import com.baidu.tieba.pt7;
+import com.baidu.tieba.rs7;
 import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,14 +27,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsAllThreadFragment extends BaseFragment implements ot7 {
+public class FrsAllThreadFragment extends BaseFragment implements pt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.ot7
+    @Override // com.baidu.tieba.pt7
     public void S0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -55,7 +55,7 @@ public class FrsAllThreadFragment extends BaseFragment implements ot7 {
         }
     }
 
-    @Override // com.baidu.tieba.ot7
+    @Override // com.baidu.tieba.pt7
     public void F() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -81,15 +81,15 @@ public class FrsAllThreadFragment extends BaseFragment implements ot7 {
         return (xo5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ot7
+    @Override // com.baidu.tieba.pt7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             F();
-            qs7 qs7Var = new qs7();
-            qs7Var.a = 1;
-            qs7Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, qs7Var));
+            rs7 rs7Var = new rs7();
+            rs7Var.a = 1;
+            rs7Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, rs7Var));
         }
     }
 

@@ -46,9 +46,9 @@ public final class d05 {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
                     ThreadRecommendTag.Builder builder3 = new ThreadRecommendTag.Builder();
                     builder3.text = optJSONObject2.optString("text");
-                    builder3.text_color = y5b.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    builder3.background_color = y5b.j(optJSONObject2.optJSONObject("background_color"));
-                    builder3.boundary_color = y5b.j(optJSONObject2.optJSONObject("boundary_color"));
+                    builder3.text_color = z5b.j(optJSONObject2.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    builder3.background_color = z5b.j(optJSONObject2.optJSONObject("background_color"));
+                    builder3.boundary_color = z5b.j(optJSONObject2.optJSONObject("boundary_color"));
                     ThreadRecommendTag build = builder3.build(true);
                     Intrinsics.checkNotNullExpressionValue(build, "tagBuilder.build(true)");
                     arrayList.add(build);

@@ -113,7 +113,7 @@ public final class ActivitySysItem extends BaseItem<TbActivitySysMsg> {
                     topBubbleData.setPinnedType("activity");
                     topBubbleData.setActivityID(activityInfo.getId());
                     topBubbleData.setActivityStatus(activityInfo.getStatus());
-                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ez8
+                    UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.fz8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

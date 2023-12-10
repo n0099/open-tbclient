@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface agb {
-    void a(int i, Intent intent);
+    Integer[] a();
 
-    Integer[] b();
+    void b(he5 he5Var);
 }

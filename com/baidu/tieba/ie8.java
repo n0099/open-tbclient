@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ie8 extends ee8<mz4, ThreadCardViewHolder<ThreadData>> {
+public class ie8 extends fe8<mz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public mm6<ThreadData> e;
@@ -100,7 +100,7 @@ public class ie8 extends ee8<mz4, ThreadCardViewHolder<ThreadData>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ie8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_TEXT_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,12 +128,9 @@ public class ie8 extends ee8<mz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
-            rt rtVar = new rt(this.b.getPageActivity());
-            rtVar.setFrom("index");
-            rtVar.u(u());
-            bVar.n(rtVar);
+            bVar.n(qt.s(this.b.getPageActivity(), "hot_topic", u()));
             cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
-            k.t(0);
+            k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.mPageId);
             setOnAdapterItemClickListener(new b(this));
@@ -143,7 +140,7 @@ public class ie8 extends ee8<mz4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ee8, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.fe8, com.baidu.tieba.ci
     /* renamed from: C */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -156,6 +153,7 @@ public class ie8 extends ee8<mz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(mz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.e);
+                gm6.a(threadCardViewHolder.a().g(), mz4Var.u, mz4Var.v);
                 z(threadCardViewHolder.getView(), mz4Var.t, i, i);
                 return threadCardViewHolder.getView();
             }

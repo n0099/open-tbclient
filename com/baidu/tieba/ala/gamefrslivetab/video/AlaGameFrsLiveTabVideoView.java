@@ -40,6 +40,7 @@ import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.du5;
 import com.baidu.tieba.fk5;
+import com.baidu.tieba.pic;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.util.TopicListUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -647,7 +648,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
             String substring = str.substring(str.indexOf("data=") + 5);
             ArrayList<String> arrayList = new ArrayList<>();
             try {
-                JSONArray optJSONArray = new JSONObject(substring).optJSONArray("pic");
+                JSONArray optJSONArray = new JSONObject(substring).optJSONArray(pic.f);
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     arrayList.add(optJSONArray.getString(i2));
                 }
@@ -710,7 +711,7 @@ public class AlaGameFrsLiveTabVideoView implements IGameFrsLiveTabVideoView {
                     String optString3 = jSONObject.optString("link_url");
                     String optString4 = jSONObject.optString("thread_id");
                     String optString5 = jSONObject.optString("forum_name");
-                    String optString6 = jSONObject.optString("pic");
+                    String optString6 = jSONObject.optString(pic.f);
                     if (TextUtils.isEmpty(optString3)) {
                         return false;
                     }

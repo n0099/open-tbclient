@@ -33,10 +33,10 @@ public class xa5 implements pf1 {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new yg5());
             arrayList.add(new gw6());
-            arrayList.add(new fn9());
-            arrayList.add(new aga());
-            arrayList.add(new dra());
-            arrayList.add(new qua());
+            arrayList.add(new gn9());
+            arrayList.add(new bga());
+            arrayList.add(new era());
+            arrayList.add(new rua());
             return arrayList;
         }
         return invokeV.objValue;

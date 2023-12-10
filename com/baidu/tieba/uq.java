@@ -45,12 +45,12 @@ public class uq {
 
             /* renamed from: com.baidu.tieba.uq$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes8.dex */
-            public class RunnableC0492a implements Runnable {
+            public class RunnableC0493a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0492a(a aVar) {
+                public RunnableC0493a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class uq {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    wo.c(new RunnableC0492a(this));
+                    wo.c(new RunnableC0493a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

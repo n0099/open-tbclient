@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class wjb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public wjb() {
         Interceptable interceptable = $ic;

@@ -2,7 +2,7 @@ package com.baidu.tieba.immessagecenter.arch.base;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.tieba.z09;
+import com.baidu.tieba.a19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,11 +40,11 @@ public class BaseRepository {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final <T> Object a(Function1<? super Continuation<? super z09<T>>, ? extends Object> function1, Continuation<? super z09<T>> continuation) {
+    public final <T> Object a(Function1<? super Continuation<? super a19<T>>, ? extends Object> function1, Continuation<? super a19<T>> continuation) {
         InterceptResult invokeLL;
         BaseRepository$syncRequest$1 baseRepository$syncRequest$1;
         int i;
-        z09 z09Var;
+        a19 a19Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, function1, continuation)) == null) {
             if (continuation instanceof BaseRepository$syncRequest$1) {
@@ -69,13 +69,13 @@ public class BaseRepository {
                             return coroutine_suspended;
                         }
                     }
-                    z09Var = (z09) obj;
-                    if (z09Var.a() != 0) {
-                        z09Var.e(ReqState.Success);
+                    a19Var = (a19) obj;
+                    if (a19Var.a() != 0) {
+                        a19Var.e(ReqState.Success);
                     } else {
-                        z09Var.e(ReqState.Error);
+                        a19Var.e(ReqState.Error);
                     }
-                    return z09Var;
+                    return a19Var;
                 }
             }
             baseRepository$syncRequest$1 = new BaseRepository$syncRequest$1(this, continuation);
@@ -84,10 +84,10 @@ public class BaseRepository {
             i = baseRepository$syncRequest$1.label;
             if (i == 0) {
             }
-            z09Var = (z09) obj2;
-            if (z09Var.a() != 0) {
+            a19Var = (a19) obj2;
+            if (a19Var.a() != 0) {
             }
-            return z09Var;
+            return a19Var;
         }
         return invokeLL.objValue;
     }

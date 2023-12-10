@@ -9,6 +9,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.a2b;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.log.TbLog;
@@ -18,7 +19,6 @@ import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$checkListSetList
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$mainTabTipCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$splashCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$spriteShowListener$2;
-import com.baidu.tieba.z1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -457,11 +457,11 @@ public final class HomeSpriteShowController {
         });
         this.f = owner;
         this.g = new HashMap<>();
-        if (z1b.j.a().h()) {
+        if (a2b.j.a().h()) {
             if (HomeSpriteEdgeFloatManager.l.b() && (lifecycle = this.f) != null) {
                 lifecycle.addObserver(HomeSpriteEdgeFloatManager.l.c());
             }
-            z1b.j.a().o(false);
+            a2b.j.a().o(false);
             return;
         }
         if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
@@ -521,7 +521,7 @@ public final class HomeSpriteShowController {
             defaultLog2.i("HomeSpriteShow", "开始展示首页小精灵:" + HomeSpriteEdgeFloatManager.l.b());
             if (HomeSpriteEdgeFloatManager.l.b()) {
                 if (!HomeSpriteEdgeFloatManager.l.h() && HomeSpriteEdgeFloatManager.l.g()) {
-                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ura
+                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.vra
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -533,7 +533,7 @@ public final class HomeSpriteShowController {
                             }
                         }
                     }, 3000L);
-                    SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.rra
+                    SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.sra
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -547,7 +547,7 @@ public final class HomeSpriteShowController {
                     });
                     return;
                 }
-                SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.tra
+                SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.ura
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

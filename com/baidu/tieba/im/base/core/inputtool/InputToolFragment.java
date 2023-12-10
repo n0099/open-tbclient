@@ -36,12 +36,13 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ao8;
+import com.baidu.tieba.bo8;
 import com.baidu.tieba.br6;
-import com.baidu.tieba.do8;
-import com.baidu.tieba.fl8;
+import com.baidu.tieba.eo8;
 import com.baidu.tieba.gf5;
-import com.baidu.tieba.go8;
+import com.baidu.tieba.gl8;
 import com.baidu.tieba.gu5;
+import com.baidu.tieba.ho8;
 import com.baidu.tieba.im.base.core.databinding.FragmentInputToolBinding;
 import com.baidu.tieba.im.base.core.inputtool.InputDelegate;
 import com.baidu.tieba.im.base.core.inputtool.keyboardtool.PanelType;
@@ -53,23 +54,22 @@ import com.baidu.tieba.im.base.core.inputtool.utility.NoSlidingLinearLayout;
 import com.baidu.tieba.im.base.core.slice.SliceFragment;
 import com.baidu.tieba.im.chat.ISendVoiceView;
 import com.baidu.tieba.kh5;
-import com.baidu.tieba.ko8;
-import com.baidu.tieba.kq8;
 import com.baidu.tieba.lo8;
+import com.baidu.tieba.lq8;
 import com.baidu.tieba.mo8;
-import com.baidu.tieba.on8;
-import com.baidu.tieba.oo8;
+import com.baidu.tieba.no8;
+import com.baidu.tieba.pn8;
 import com.baidu.tieba.po8;
 import com.baidu.tieba.qo8;
-import com.baidu.tieba.toc;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.ro8;
 import com.baidu.tieba.ue5;
-import com.baidu.tieba.uo8;
+import com.baidu.tieba.uoc;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.ve5;
 import com.baidu.tieba.view.BdTopToast;
+import com.baidu.tieba.vo8;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.tieba.ze5;
-import com.baidu.tieba.zn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,19 +77,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class InputToolFragment extends SliceFragment implements zn8, lo8 {
+public class InputToolFragment extends SliceFragment implements ao8, mo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public do8 A;
+    public eo8 A;
     public View B;
     public ViewGroup C;
-    public mo8 D;
+    public no8 D;
     public boolean E;
     public int F;
     public int G;
     @Nullable
-    public qo8 H;
+    public ro8 H;
     @Nullable
     public h I;
     public ViewTreeObserver.OnGlobalLayoutListener J;
@@ -106,9 +106,9 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
     public ISendVoiceView n;
     @Nullable
     public GroupChatRobotTopHeadView o;
-    public uo8 p;
+    public vo8 p;
     @Nullable
-    public on8 q;
+    public pn8 q;
     public int r;
     public int s;
     public boolean t;
@@ -116,18 +116,18 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
     public long v;
     public long w;
     @Nullable
-    public kq8 x;
+    public lq8 x;
     @Nullable
     public InputDelegate y;
     @Nullable
-    public go8 z;
+    public ho8 z;
 
     /* loaded from: classes6.dex */
     public interface h {
         int A();
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.mo8
     public View A2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,10 +137,10 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lo8
-    public void p2(@Nullable oo8 oo8Var) {
+    @Override // com.baidu.tieba.mo8
+    public void p2(@Nullable po8 po8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, oo8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, po8Var) == null) {
         }
     }
 
@@ -210,7 +210,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
                     if (TextUtils.isEmpty(charSequence)) {
                         return charSequence;
                     }
-                    boolean matches = ao8.a.matcher(charSequence.toString()).matches();
+                    boolean matches = bo8.a.matcher(charSequence.toString()).matches();
                     if (!matches) {
                         long currentTimeMillis = System.currentTimeMillis();
                         if (this.a.u == 0 || currentTimeMillis - this.a.u > 5000) {
@@ -231,15 +231,15 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements qo8 {
+    public class a implements ro8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
         public final /* synthetic */ InputToolFragment b;
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.ro8
         public /* synthetic */ void d() {
-            po8.a(this);
+            qo8.a(this);
         }
 
         public a(InputToolFragment inputToolFragment, Context context) {
@@ -261,26 +261,26 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.ro8
         public void b(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                qo8 qo8Var = this.b.H;
-                if (qo8Var != null) {
-                    qo8Var.b(i);
+                ro8 ro8Var = this.b.H;
+                if (ro8Var != null) {
+                    ro8Var.b(i);
                 }
-                if (i < ko8.b(this.a) / 2) {
+                if (i < lo8.b(this.a) / 2) {
                     TbSingleton.getInstance().setKeyboardHeight(i);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.ro8
         public void f() {
-            qo8 qo8Var;
+            ro8 ro8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (qo8Var = this.b.H) != null) {
-                qo8Var.f();
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ro8Var = this.b.H) != null) {
+                ro8Var.f();
             }
         }
     }
@@ -531,7 +531,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.E) {
-                    i = mo8.l;
+                    i = no8.l;
                 } else if (this.a.w3() && TbSingleton.getInstance().getEmotionBoardHeight() != 0) {
                     i = TbSingleton.getInstance().getEmotionBoardHeight();
                 } else {
@@ -577,7 +577,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         this.J = new g(this);
     }
 
-    @Override // com.baidu.tieba.jo8
+    @Override // com.baidu.tieba.ko8
     public int k() {
         InterceptResult invokeV;
         gf5 gf5Var;
@@ -596,9 +596,9 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             this.e.e.setPageContext(getPageContext());
             this.e.e.A(TbadkCoreApplication.getInst().getSkinType());
-            uo8 uo8Var = new uo8(this);
-            this.p = uo8Var;
-            uo8Var.x(this.e.e);
+            vo8 vo8Var = new vo8(this);
+            this.p = vo8Var;
+            vo8Var.x(this.e.e);
         }
     }
 
@@ -624,14 +624,14 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         }
     }
 
-    public void E3(qo8 qo8Var) {
+    public void E3(ro8 ro8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, qo8Var) == null) {
-            this.H = qo8Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ro8Var) == null) {
+            this.H = ro8Var;
         }
     }
 
-    @Override // com.baidu.tieba.zn8
+    @Override // com.baidu.tieba.ao8
     public void G0(boolean z) {
         int i;
         Interceptable interceptable = $ic;
@@ -679,7 +679,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.mo8
     public void w2(@NonNull PanelType panelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, panelType) == null) {
@@ -691,26 +691,26 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.lo8
-    public void y(@NonNull toc<PanelType, PanelType, Float, Float> tocVar) {
+    @Override // com.baidu.tieba.mo8
+    public void y(@NonNull uoc<PanelType, PanelType, Float, Float> uocVar) {
         InputDelegate inputDelegate;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048631, this, tocVar) == null) && (inputDelegate = this.y) != null) {
-            inputDelegate.X(tocVar);
+        if ((interceptable == null || interceptable.invokeL(1048631, this, uocVar) == null) && (inputDelegate = this.y) != null) {
+            inputDelegate.X(uocVar);
         }
     }
 
-    public void y3(@NonNull on8 on8Var) {
+    public void y3(@NonNull pn8 pn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, on8Var) == null) {
-            this.q = on8Var;
+        if (interceptable == null || interceptable.invokeL(1048632, this, pn8Var) == null) {
+            this.q = pn8Var;
         }
     }
 
-    public void z3(@NonNull kq8 kq8Var) {
+    public void z3(@NonNull lq8 lq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, kq8Var) == null) {
-            this.x = kq8Var;
+        if (interceptable == null || interceptable.invokeL(1048633, this, lq8Var) == null) {
+            this.x = lq8Var;
         }
     }
 
@@ -731,14 +731,14 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
             q3();
             t3();
             s3();
-            on8 on8Var = this.q;
-            if (on8Var != null) {
-                on8Var.w1();
+            pn8 pn8Var = this.q;
+            if (pn8Var != null) {
+                pn8Var.w1();
             }
         }
     }
 
-    @Override // com.baidu.tieba.jo8
+    @Override // com.baidu.tieba.ko8
     public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -752,7 +752,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.mo8
     public View C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -766,9 +766,9 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            on8 on8Var = this.q;
-            if (on8Var != null) {
-                return on8Var.N();
+            pn8 pn8Var = this.q;
+            if (pn8Var != null) {
+                return pn8Var.N();
             }
             return -1;
         }
@@ -786,7 +786,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
                     str = String.valueOf(j);
                 }
             }
-            br6.b().c(new fl8(str));
+            br6.b().c(new gl8(str));
         }
     }
 
@@ -868,7 +868,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         return (RelativeLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.mo8
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -900,16 +900,16 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         return (GroupChatUserReplyView) invokeV.objValue;
     }
 
-    public uo8 g3() {
+    public vo8 g3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.p;
         }
-        return (uo8) invokeV.objValue;
+        return (vo8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lo8
+    @Override // com.baidu.tieba.mo8
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
@@ -1003,12 +1003,12 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         }
     }
 
-    @Override // com.baidu.tieba.jo8
+    @Override // com.baidu.tieba.ko8
     public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return mo8.m;
+            return no8.m;
         }
         return invokeV.intValue;
     }
@@ -1048,7 +1048,7 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
             if (i == 0) {
                 this.r = SkinManager.getColor(R.color.CAM_X0212);
             } else if (i == 1) {
-                this.r = tua.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+                this.r = uua.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
             } else {
                 this.r = SkinManager.getColor(R.color.CAM_X0212);
             }
@@ -1063,33 +1063,33 @@ public class InputToolFragment extends SliceFragment implements zn8, lo8 {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048624, this) == null) && (context = getContext()) != null && this.B != null) {
-            this.D = new mo8();
+            this.D = new no8();
             if (TbSingleton.getInstance().getKeyboardHeight() == 0 && TbadkCoreApplication.getInst().getKeyboardHeight() != 0) {
                 TbSingleton.getInstance().setKeyboardHeight(TbadkCoreApplication.getInst().getKeyboardHeight());
             }
-            mo8 mo8Var = this.D;
-            mo8Var.l(context);
-            mo8Var.j(this.B);
-            mo8Var.g(this.C);
-            mo8Var.h(this);
-            mo8Var.m(TbSingleton.getInstance().getKeyboardHeight());
-            mo8Var.o(true);
-            mo8Var.n(new a(this, context));
+            no8 no8Var = this.D;
+            no8Var.l(context);
+            no8Var.j(this.B);
+            no8Var.g(this.C);
+            no8Var.h(this);
+            no8Var.m(TbSingleton.getInstance().getKeyboardHeight());
+            no8Var.o(true);
+            no8Var.n(new a(this, context));
         }
     }
 
-    public void H3(@NonNull go8 go8Var, @NonNull do8 do8Var) {
+    public void H3(@NonNull ho8 ho8Var, @NonNull eo8 eo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, go8Var, do8Var) == null) {
-            this.z = go8Var;
-            this.A = do8Var;
-            if (go8Var != null && do8Var != null) {
-                this.f.r0(go8Var.d(), this.A.a());
+        if (interceptable == null || interceptable.invokeLL(1048587, this, ho8Var, eo8Var) == null) {
+            this.z = ho8Var;
+            this.A = eo8Var;
+            if (ho8Var != null && eo8Var != null) {
+                this.f.r0(ho8Var.d(), this.A.a());
                 this.w = this.A.a();
             }
-            uo8 uo8Var = this.p;
-            if (uo8Var != null) {
-                uo8Var.A(this.z, this.A);
+            vo8 vo8Var = this.p;
+            if (vo8Var != null) {
+                vo8Var.A(this.z, this.A);
             }
             InputDelegate inputDelegate = this.y;
             if (inputDelegate != null) {

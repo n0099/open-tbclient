@@ -24,7 +24,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nga;
+import com.baidu.tieba.oga;
 import com.baidu.tieba.s16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +56,7 @@ public class ScanBoxView extends View {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public float f1149T;
+    public float f1150T;
     public Bitmap U;
     public Bitmap V;
     public Bitmap W;
@@ -117,29 +117,29 @@ public class ScanBoxView extends View {
         this.j = paint;
         paint.setAntiAlias(true);
         this.l = Color.parseColor("#33FFFFFF");
-        this.m = nga.b(context, 20.0f);
-        this.n = nga.b(context, 3.0f);
-        this.s = nga.b(context, 1.0f);
+        this.m = oga.b(context, 20.0f);
+        this.n = oga.b(context, 3.0f);
+        this.s = oga.b(context, 1.0f);
         this.t = -1;
-        this.r = nga.b(context, 90.0f);
-        this.o = nga.b(context, 200.0f);
-        this.q = nga.b(context, 140.0f);
+        this.r = oga.b(context, 90.0f);
+        this.o = oga.b(context, 200.0f);
+        this.q = oga.b(context, 140.0f);
         this.u = 0;
         this.v = false;
         this.w = null;
         this.x = null;
-        this.y = nga.b(context, 1.0f);
+        this.y = oga.b(context, 1.0f);
         this.z = -1;
         this.A = 1000;
         this.B = false;
         this.C = 0;
         this.D = false;
-        this.e = nga.b(context, 2.0f);
+        this.e = oga.b(context, 2.0f);
         this.G = null;
-        this.H = nga.f(context, 14.0f);
+        this.H = oga.f(context, 14.0f);
         this.I = -1;
         this.J = false;
-        this.K = nga.b(context, 20.0f);
+        this.K = oga.b(context, 20.0f);
         this.L = false;
         this.M = Color.parseColor("#22000000");
         this.N = false;
@@ -148,7 +148,7 @@ public class ScanBoxView extends View {
         TextPaint textPaint = new TextPaint();
         this.k = textPaint;
         textPaint.setAntiAlias(true);
-        this.d0 = nga.b(context, 4.0f);
+        this.d0 = oga.b(context, 4.0f);
         this.e0 = false;
         ColorMatrix colorMatrix = new ColorMatrix();
         colorMatrix.setScale(1.5f, 1.5f, 1.5f, 1.0f);
@@ -186,13 +186,13 @@ public class ScanBoxView extends View {
             }
             if (!TextUtils.isEmpty(this.G)) {
                 if (this.L) {
-                    this.c0 = new StaticLayout(this.G, this.k, nga.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+                    this.c0 = new StaticLayout(this.G, this.k, oga.d(getContext()).x, Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 } else {
                     this.c0 = new StaticLayout(this.G, this.k, this.o - (this.d0 * 2), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
                 }
             }
             if (this.B) {
-                int i2 = nga.d(getContext()).y;
+                int i2 = oga.d(getContext()).y;
                 int i3 = this.C;
                 if (i3 == 0) {
                     this.r = (i2 - this.p) / 2;
@@ -514,13 +514,13 @@ public class ScanBoxView extends View {
             if (this.W == null) {
                 Bitmap decodeResource = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0811e5);
                 this.W = decodeResource;
-                this.W = nga.e(decodeResource, this.t);
+                this.W = oga.e(decodeResource, this.t);
             }
-            Bitmap a = nga.a(this.W, 90);
+            Bitmap a = oga.a(this.W, 90);
             this.a0 = a;
-            Bitmap a2 = nga.a(a, 90);
+            Bitmap a2 = oga.a(a, 90);
             this.a0 = a2;
-            this.a0 = nga.a(a2, 90);
+            this.a0 = oga.a(a2, 90);
             Drawable drawable2 = this.w;
             if (drawable2 != null) {
                 this.U = ((BitmapDrawable) drawable2).getBitmap();
@@ -528,9 +528,9 @@ public class ScanBoxView extends View {
             if (this.U == null) {
                 Bitmap decodeResource2 = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0811e5);
                 this.U = decodeResource2;
-                this.U = nga.e(decodeResource2, this.t);
+                this.U = oga.e(decodeResource2, this.t);
             }
-            this.V = nga.a(this.U, 90);
+            this.V = oga.a(this.U, 90);
             this.b0 = (this.n * 1.0f) / 2.0f;
             this.k.setTextSize(this.H);
             this.k.setColor(this.I);
@@ -574,7 +574,7 @@ public class ScanBoxView extends View {
             if (this.D) {
                 float f = rect.left + this.b0 + 0.5f;
                 this.i = f;
-                this.f1149T = f;
+                this.f1150T = f;
                 return;
             }
             float f2 = rect.top + this.b0 + 0.5f;
@@ -633,7 +633,7 @@ public class ScanBoxView extends View {
                     Rect rect = this.g;
                     float f = this.b0;
                     int i = this.u;
-                    RectF rectF = new RectF(rect.left + f + 0.5f, rect.top + f + i, this.f1149T, (rect.bottom - f) - i);
+                    RectF rectF = new RectF(rect.left + f + 0.5f, rect.top + f + i, this.f1150T, (rect.bottom - f) - i);
                     Rect rect2 = new Rect((int) (this.R.getWidth() - rectF.width()), 0, this.R.getWidth(), this.R.getHeight());
                     if (rect2.left < 0) {
                         rect2.left = 0;
@@ -880,12 +880,12 @@ public class ScanBoxView extends View {
                         }
                     }
                 } else {
-                    float f5 = this.f1149T + this.e;
-                    this.f1149T = f5;
+                    float f5 = this.f1150T + this.e;
+                    this.f1150T = f5;
                     Rect rect3 = this.g;
                     float f6 = this.b0;
                     if (f5 > rect3.right - f6) {
-                        this.f1149T = rect3.left + f6 + 0.5f;
+                        this.f1150T = rect3.left + f6 + 0.5f;
                     }
                 }
             } else if (this.R == null) {

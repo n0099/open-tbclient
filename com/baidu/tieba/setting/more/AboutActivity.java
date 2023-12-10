@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kna;
-import com.baidu.tieba.nna;
+import com.baidu.tieba.lna;
 import com.baidu.tieba.oa5;
+import com.baidu.tieba.ona;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.sna;
 import com.baidu.tieba.tna;
+import com.baidu.tieba.una;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.xe9;
+import com.baidu.tieba.ye9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kna a;
+    public lna a;
     public AboutModel b;
     public c c;
     public String d;
-    public sna e;
-    public tna f;
+    public tna e;
+    public una f;
     public int g;
 
     /* loaded from: classes8.dex */
-    public class a implements nna {
+    public class a implements ona {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.nna
+        @Override // com.baidu.tieba.ona
         public void a(int i) {
             String str;
             String externalPrivateDir;
@@ -99,7 +99,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new sna(aboutActivity.getActivity());
+                        aboutActivity.e = new tna(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -208,7 +208,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void S0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            xe9.b().a(true);
+            ye9.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
@@ -216,9 +216,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.S();
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.R();
+            lna lnaVar = this.a;
+            if (lnaVar != null) {
+                lnaVar.R();
             }
         }
     }
@@ -233,17 +233,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.S();
+            lna lnaVar = this.a;
+            if (lnaVar != null) {
+                lnaVar.S();
             }
-            sna snaVar = this.e;
-            if (snaVar != null) {
-                snaVar.dismiss();
-            }
-            tna tnaVar = this.f;
+            tna tnaVar = this.e;
             if (tnaVar != null) {
-                tnaVar.i();
+                tnaVar.dismiss();
+            }
+            una unaVar = this.f;
+            if (unaVar != null) {
+                unaVar.i();
                 this.f = null;
             }
         }
@@ -254,9 +254,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.Y(i);
+            lna lnaVar = this.a;
+            if (lnaVar != null) {
+                lnaVar.Y(i);
             }
         }
     }
@@ -266,10 +266,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new tna();
-            kna knaVar = new kna(this, new a(this));
-            this.a = knaVar;
-            knaVar.W();
+            this.f = new una();
+            lna lnaVar = new lna(this, new a(this));
+            this.a = lnaVar;
+            lnaVar.W();
             U0();
         }
     }
@@ -278,9 +278,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         oa5 oa5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.S();
+            lna lnaVar = this.a;
+            if (lnaVar != null) {
+                lnaVar.S();
             }
             if (obj != null) {
                 oa5Var = (oa5) obj;
@@ -300,9 +300,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                kna knaVar2 = this.a;
-                if (knaVar2 != null) {
-                    knaVar2.W();
+                lna lnaVar2 = this.a;
+                if (lnaVar2 != null) {
+                    lnaVar2.W();
                     return;
                 }
                 return;
@@ -341,9 +341,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            kna knaVar = this.a;
-            if (knaVar != null) {
-                knaVar.W();
+            lna lnaVar = this.a;
+            if (lnaVar != null) {
+                lnaVar.W();
             }
         }
     }

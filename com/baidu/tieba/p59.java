@@ -11,7 +11,7 @@ public class p59 extends vx8 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p59() {
-        super(ku8.w(), 2001146);
+        super(gx8.a(), 2001149);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class p59 extends vx8 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((xt8) objArr[0], ((Integer) objArr[1]).intValue());
+                super((cx8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

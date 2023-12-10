@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,11 +16,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class naa extends ci<yba, CardViewHolder<ada>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
+    public View.OnClickListener b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public naa(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), yba.c, bdUniqueId);
+    public naa(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,7 +32,7 @@ public class naa extends ci<yba, CardViewHolder<ada>> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,6 +53,13 @@ public class naa extends ci<yba, CardViewHolder<ada>> {
         return (CardViewHolder) invokeL.objValue;
     }
 
+    public void x(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.b = onClickListener;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
@@ -60,9 +67,14 @@ public class naa extends ci<yba, CardViewHolder<ada>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ybaVar, cardViewHolder})) == null) {
-            cardViewHolder.a().j(ybaVar);
-            cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+            if (cardViewHolder != null && cardViewHolder.a() != null && ybaVar != null) {
+                cardViewHolder.a().j(ybaVar);
+                if (cardViewHolder.a().i() != null) {
+                    cardViewHolder.a().i().setOnClickListener(this.b);
+                }
+                return cardViewHolder.a().i();
+            }
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

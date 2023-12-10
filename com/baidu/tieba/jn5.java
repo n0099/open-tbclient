@@ -66,8 +66,8 @@ public class jn5 implements om5<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.R(locationData);
-                lxa.a().f(System.currentTimeMillis());
-                lxa.a().d(locationEvent.locationData);
+                mxa.a().f(System.currentTimeMillis());
+                mxa.a().d(locationEvent.locationData);
             }
             MutiProcessManager.publishEvent(locationEvent);
         }
@@ -113,7 +113,7 @@ public class jn5 implements om5<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                lxa.a().d(locationEvent.locationData);
+                mxa.a().d(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

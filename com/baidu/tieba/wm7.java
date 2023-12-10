@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tieba.feed.log.FeedStat;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class wm7 {
     public static /* synthetic */ Interceptable $ic;
@@ -60,47 +60,35 @@ public final class wm7 {
             }
         }
 
-        public final void a(String id, Map<String, String> businessInfo, Map<String, String> logInfo, Map<String, String> runInfo) {
-            int i;
+        public final void c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, id, businessInfo, logInfo, runInfo) == null) {
-                Intrinsics.checkNotNullParameter(id, "id");
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-                Intrinsics.checkNotNullParameter(runInfo, "runInfo");
-                if (Intrinsics.areEqual(id, "image_click") && (i = JavaTypesHelper.toInt(runInfo.get("get_pic_index"), -1)) >= 0) {
-                    JSONArray jSONArray = new JSONArray();
-                    String str = businessInfo.get("mix_card_pic_type_list");
-                    if (str != null) {
-                        try {
-                            jSONArray = new JSONArray(str);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (jSONArray.length() > 0) {
-                        Object obj = jSONArray.get(i);
-                        String str2 = logInfo.get("common_info_from_c15455");
-                        if (str2 != null) {
-                            JSONObject jSONObject = new JSONObject();
-                            try {
-                                jSONObject = new JSONObject(str2);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                            JSONObject optJSONObject = jSONObject.optJSONObject("base_info");
-                            if (optJSONObject == null) {
-                                optJSONObject = new JSONObject();
-                            } else {
-                                Intrinsics.checkNotNullExpressionValue(optJSONObject, "jsonObject.optJSONObject…ASE_INFO) ?: JSONObject()");
-                            }
-                            optJSONObject.put("stat_key", CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK);
-                            optJSONObject.put("obj_locate", obj);
-                            jSONObject.put("base_info", optJSONObject);
-                            FeedStat.a.l(jSONObject, runInfo);
-                        }
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 1).param("obj_source", "1"));
+            }
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", 2).param("obj_source", "1"));
+            }
+        }
+
+        public final void a(String tid, String fid) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, tid, fid) == null) {
+                Intrinsics.checkNotNullParameter(tid, "tid");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_MANAGE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid));
+            }
+        }
+
+        public final void b(String tid, String fid, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tid, fid, i) == null) {
+                Intrinsics.checkNotNullParameter(tid, "tid");
+                Intrinsics.checkNotNullParameter(fid, "fid");
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MANAGE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", fid).param("tid", tid).param("obj_type", i));
             }
         }
     }

@@ -36,12 +36,12 @@ public class vv1 {
 
         /* renamed from: com.baidu.tieba.vv1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0507a implements Runnable {
+        public class RunnableC0505a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0507a(a aVar) {
+            public RunnableC0505a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class vv1 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0507a(this));
+                this.a.runOnJSThread(new RunnableC0505a(this));
             }
         }
     }

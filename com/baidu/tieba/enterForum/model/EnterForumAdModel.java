@@ -10,9 +10,9 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.mua;
+import com.baidu.tieba.nua;
 import com.baidu.tieba.nx6;
-import com.baidu.tieba.pua;
+import com.baidu.tieba.qua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -131,7 +131,7 @@ public class EnterForumAdModel extends BdBaseModel {
         nx6 nx6Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (nx6Var = this.a) != null && nx6Var.a()) {
-            pua.g().c(a5.a(context).getUniqueId(), mua.h("a025", "common_fill", true, 1, 5));
+            qua.g().c(a5.a(context).getUniqueId(), nua.h("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

@@ -3,9 +3,9 @@ package com.baidu.tieba.forum.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.qi7;
-import com.baidu.tieba.ti7;
-import com.baidu.tieba.xi7;
+import com.baidu.tieba.ri7;
+import com.baidu.tieba.ui7;
+import com.baidu.tieba.yi7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +21,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class FrsGeneralTabListResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final a Companion;
-    public static xi7<ti7> dataParser;
+    public static yi7<ui7> dataParser;
     public transient /* synthetic */ FieldHolder $fh;
-    public ti7 generalTabListData;
+    public ui7 generalTabListData;
 
     /* loaded from: classes6.dex */
     public static final class a {
@@ -48,11 +48,11 @@ public final class FrsGeneralTabListResMsg extends HttpResponsedMessage {
             }
         }
 
-        public final void a(xi7<ti7> xi7Var) {
+        public final void a(yi7<ui7> yi7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xi7Var) == null) {
-                Intrinsics.checkNotNullParameter(xi7Var, "<set-?>");
-                FrsGeneralTabListResMsg.dataParser = xi7Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, yi7Var) == null) {
+                Intrinsics.checkNotNullParameter(yi7Var, "<set-?>");
+                FrsGeneralTabListResMsg.dataParser = yi7Var;
             }
         }
     }
@@ -71,16 +71,16 @@ public final class FrsGeneralTabListResMsg extends HttpResponsedMessage {
             }
         }
         Companion = new a(null);
-        dataParser = new qi7();
+        dataParser = new ri7();
     }
 
-    public final ti7 getGeneralTabListData() {
+    public final ui7 getGeneralTabListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.generalTabListData;
         }
-        return (ti7) invokeV.objValue;
+        return (ui7) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -99,14 +99,14 @@ public final class FrsGeneralTabListResMsg extends HttpResponsedMessage {
                 return;
             }
         }
-        this.generalTabListData = new ti7();
+        this.generalTabListData = new ui7();
     }
 
-    public final void setGeneralTabListData(ti7 ti7Var) {
+    public final void setGeneralTabListData(ui7 ui7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ti7Var) == null) {
-            Intrinsics.checkNotNullParameter(ti7Var, "<set-?>");
-            this.generalTabListData = ti7Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ui7Var) == null) {
+            Intrinsics.checkNotNullParameter(ui7Var, "<set-?>");
+            this.generalTabListData = ui7Var;
         }
     }
 
@@ -115,9 +115,9 @@ public final class FrsGeneralTabListResMsg extends HttpResponsedMessage {
     public void decodeInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            ti7 b = dataParser.b(bArr);
+            ui7 b = dataParser.b(bArr);
             if (b == null) {
-                b = new ti7();
+                b = new ui7();
             }
             this.generalTabListData = b;
         }

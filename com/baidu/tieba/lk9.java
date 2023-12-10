@@ -1,16 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.airbnb.lottie.LottieAnimationView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeAnimatorCallback;
+import com.baidu.tieba.medialive.like.HeartSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class lk9 extends fg1<LiveLocationService> {
+public class lk9 implements ILiveLikeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public int b;
+    public float c;
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void initImages(@NonNull View view2, @Nullable String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, strArr) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LottieAnimationView a;
+
+        public a(lk9 lk9Var, LottieAnimationView lottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lk9Var, lottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lottieAnimationView;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements HeartSurfaceView.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveLikeAnimatorCallback a;
+
+        public b(lk9 lk9Var, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lk9Var, liveLikeAnimatorCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = liveLikeAnimatorCallback;
+        }
+
+        @Override // com.baidu.tieba.medialive.like.HeartSurfaceView.e
+        public void a(int i, int i2) {
+            LiveLikeAnimatorCallback liveLikeAnimatorCallback;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && (liveLikeAnimatorCallback = this.a) != null) {
+                liveLikeAnimatorCallback.onAnimLocation(0, i, i2);
+            }
+        }
+    }
 
     public lk9() {
         Interceptable interceptable = $ic;
@@ -22,19 +110,115 @@ public class lk9 extends fg1<LiveLocationService> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 1.0f;
+        this.b = 500;
+        this.c = 0.4f;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeAnimatorView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
+            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            lottieAnimationView.setAnimation("lottie/liveshow_video_like_explosion.json");
+            return lottieAnimationView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            HeartSurfaceView heartSurfaceView = new HeartSurfaceView(AppRuntime.getAppContext());
+            heartSurfaceView.setUpResNormalMode();
+            heartSurfaceView.setZOrderOnTop(true);
+            heartSurfaceView.getHolder().setFormat(-3);
+            return heartSurfaceView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    @NonNull
+    public View getLikeViewNew() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return getLikeView();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void addLikeAnimation(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeartSurfaceView)) {
+            ((HeartSurfaceView) view2).p(i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fg1
-    /* renamed from: a */
-    public LiveLocationService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void setAnimatorListener(View view2, Animator.AnimatorListener animatorListener) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, animatorListener) == null) && (view2 instanceof LottieAnimationView)) {
+            ((LottieAnimationView) view2).addAnimatorListener(animatorListener);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void setLikeAnimatorListener(View view2, LiveLikeAnimatorCallback liveLikeAnimatorCallback) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, view2, liveLikeAnimatorCallback) == null) && (view2 instanceof LottieAnimationView)) {
+            ((HeartSurfaceView) view2).setAnimateEndListener(new b(this, liveLikeAnimatorCallback));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void addLikeAnimationNew(@NonNull View view2, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            addLikeAnimation(view2, i);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public View getLikeRippleView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new mk9();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LottieAnimationView lottieAnimationView = new LottieAnimationView(AppRuntime.getAppContext());
+            lottieAnimationView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            lottieAnimationView.setAnimation("lottie/liveshow_video_like_bg.json");
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(this.c, this.a);
+            ofFloat.setDuration(this.b);
+            ofFloat.addUpdateListener(new a(this, lottieAnimationView));
+            lottieAnimationView.setTag(ofFloat);
+            return lottieAnimationView;
         }
-        return (LiveLocationService) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void playAnimation(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, view2) == null) && (view2 instanceof LottieAnimationView)) {
+            ((LottieAnimationView) view2).playAnimation();
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.like.ILiveLikeView
+    public void startRipple(View view2) {
+        Object tag;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && (view2 instanceof LottieAnimationView) && (tag = view2.getTag()) != null && (tag instanceof ValueAnimator)) {
+            ((ValueAnimator) tag).start();
+        }
     }
 }

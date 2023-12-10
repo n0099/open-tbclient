@@ -17,18 +17,18 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.bk8;
+import com.baidu.tieba.cj8;
+import com.baidu.tieba.ck8;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.baidu.tieba.it;
 import com.baidu.tieba.jt;
-import com.baidu.tieba.re8;
+import com.baidu.tieba.se8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements jt, it<ck8>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,7 +41,7 @@ public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public av4<re8> k;
+    public av4<se8> k;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
@@ -51,7 +51,7 @@ public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, Vie
     }
 
     /* loaded from: classes6.dex */
-    public class a implements av4<re8> {
+    public class a implements av4<se8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -59,9 +59,9 @@ public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.av4
         /* renamed from: a */
-        public void d(View view2, re8 re8Var, int i, long j) {
+        public void d(View view2, se8 se8Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, re8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || re8Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, se8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || se8Var == null) {
             }
         }
 
@@ -86,12 +86,12 @@ public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.av4
         /* renamed from: c */
-        public void b(View view2, re8 re8Var, int i, long j) {
+        public void b(View view2, se8 se8Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, re8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || re8Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, se8Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || se8Var == null) {
                 return;
             }
-            bj8.a("c13753", re8Var, i + 1, this.a.j);
+            cj8.a("c13753", se8Var, i + 1, this.a.j);
         }
     }
 
@@ -164,20 +164,20 @@ public class HotTopicRankLayout extends LinearLayout implements jt, it<bk8>, Vie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: c */
-    public void onBindDataToView(bk8 bk8Var) {
+    public void onBindDataToView(ck8 ck8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bk8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck8Var) == null) {
             TextView textView = this.d;
-            String str = bk8Var.b;
+            String str = ck8Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.a(bk8Var);
+            this.b.a(ck8Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            bj8.c("c13753", this.j);
+            cj8.c("c13753", this.j);
         }
     }
 

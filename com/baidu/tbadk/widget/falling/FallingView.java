@@ -40,8 +40,8 @@ import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hw5;
-import com.baidu.tieba.i5b;
 import com.baidu.tieba.iw5;
+import com.baidu.tieba.j5b;
 import com.baidu.tieba.jw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -312,7 +312,7 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    i5b.b(this.b.a.b, 600);
+                    j5b.b(this.b.a.b, 600);
                 }
             }
         }

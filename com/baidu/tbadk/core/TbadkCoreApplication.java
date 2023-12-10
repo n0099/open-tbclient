@@ -90,21 +90,20 @@ import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.tieba.ec;
 import com.baidu.tieba.frs.mc.FrsNetModel;
 import com.baidu.tieba.ga5;
-import com.baidu.tieba.gfc;
 import com.baidu.tieba.h85;
+import com.baidu.tieba.hfc;
 import com.baidu.tieba.hu5;
 import com.baidu.tieba.ic5;
 import com.baidu.tieba.jk5;
 import com.baidu.tieba.kk5;
 import com.baidu.tieba.ld;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lp9;
+import com.baidu.tieba.mp9;
 import com.baidu.tieba.na5;
-import com.baidu.tieba.oxa;
 import com.baidu.tieba.p45;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
 import com.baidu.tieba.pt5;
-import com.baidu.tieba.qxa;
+import com.baidu.tieba.pxa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.tieba.rs5;
@@ -114,6 +113,7 @@ import com.baidu.tieba.service.ClearTempService;
 import com.baidu.tieba.service.TiebaActiveService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.sv4;
+import com.baidu.tieba.sxa;
 import com.baidu.tieba.u85;
 import com.baidu.tieba.v45;
 import com.baidu.tieba.y45;
@@ -235,13 +235,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
     public boolean mNeedShowNewVersion;
     public int mNewVcodeWebviewCrashCount;
     public int mPerformSampleCount;
-    public qxa mPhotoLiveReadHistory;
+    public rxa mPhotoLiveReadHistory;
     public boolean mPromotedMessageOn;
-    public rxa mReadThreadHistory;
+    public sxa mReadThreadHistory;
     public ArrayList<Activity> mRemoteActivity;
     public ShareItem mShareItem;
     public Hashtable<String, Integer> mSignLevelUpList;
-    public lp9 mSplash;
+    public mp9 mSplash;
     public int mTempFaceShopVersion;
     public boolean mThemeWebviewOpened;
     public BdUtilHelper.d mToast;
@@ -1446,7 +1446,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return gfc.a(sApp);
+                return hfc.a(sApp);
             }
             return "";
         }
@@ -1764,13 +1764,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return (ry4) invokeV.objValue;
     }
 
-    public qxa getPhotoLiveReadThreadHistory() {
+    public rxa getPhotoLiveReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             return this.mPhotoLiveReadHistory;
         }
-        return (qxa) invokeV.objValue;
+        return (rxa) invokeV.objValue;
     }
 
     @Modify(description = "flutter代理ip", type = Constants.SHORT_PING_CMD_TYPE)
@@ -1811,13 +1811,13 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return (String) invokeV.objValue;
     }
 
-    public rxa getReadThreadHistory() {
+    public sxa getReadThreadHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
             return this.mReadThreadHistory;
         }
-        return (rxa) invokeV.objValue;
+        return (sxa) invokeV.objValue;
     }
 
     public long getReporyUserInfoLastTime() {
@@ -1868,16 +1868,16 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
         return invokeV.intValue;
     }
 
-    public lp9 getSplash() {
+    public mp9 getSplash() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
             if (this.mSplash == null) {
-                this.mSplash = new lp9(this);
+                this.mSplash = new mp9(this);
             }
             return this.mSplash;
         }
-        return (lp9) invokeV.objValue;
+        return (mp9) invokeV.objValue;
     }
 
     public int getStartType() {
@@ -2802,7 +2802,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements BdActivit
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921410));
             ga5.p0().b0(true);
             NotificationHelper.cancelAllNotification(this);
-            oxa.n();
+            pxa.n();
         }
     }
 

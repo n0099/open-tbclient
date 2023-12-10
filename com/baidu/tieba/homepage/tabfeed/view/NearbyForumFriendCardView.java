@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.cq9;
+import com.baidu.tieba.cj8;
 import com.baidu.tieba.dq9;
 import com.baidu.tieba.ed5;
+import com.baidu.tieba.eq9;
 import com.baidu.tieba.it;
 import com.baidu.tieba.jt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq9>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements jt, it<eq9>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public cq9 j;
-    public dq9 k;
+    public dq9 j;
+    public eq9 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -69,18 +69,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: c */
-    public void onBindDataToView(dq9 dq9Var) {
+    public void onBindDataToView(eq9 eq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dq9Var) == null) {
-            this.k = dq9Var;
-            cq9 cq9Var = this.j;
-            if (cq9Var != null) {
-                cq9Var.E(dq9Var.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eq9Var) == null) {
+            this.k = eq9Var;
+            dq9 dq9Var = this.j;
+            if (dq9Var != null) {
+                dq9Var.E(eq9Var.a);
             }
-            this.i.setData(dq9Var.b);
-            if (dq9Var.c) {
+            this.i.setData(eq9Var.b);
+            if (eq9Var.c) {
                 this.d.setVisibility(0);
-                bj8.q();
+                cj8.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -92,7 +92,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0919fa && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-            bj8.j();
+            cj8.j();
         }
     }
 
@@ -164,7 +164,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.j = new cq9(context, ed5.l, 1);
+            this.j = new dq9(context, ed5.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.addAdapters(linkedList);
@@ -174,13 +174,13 @@ public class NearbyForumFriendCardView extends LinearLayout implements jt, it<dq
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            dq9 dq9Var = this.k;
-            if (dq9Var != null) {
-                dq9Var.a = z;
+            eq9 eq9Var = this.k;
+            if (eq9Var != null) {
+                eq9Var.a = z;
             }
-            cq9 cq9Var = this.j;
-            if (cq9Var != null) {
-                cq9Var.E(z);
+            dq9 dq9Var = this.j;
+            if (dq9Var != null) {
+                dq9Var.E(z);
             }
         }
     }

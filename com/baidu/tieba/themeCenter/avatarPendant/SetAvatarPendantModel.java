@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.f2b;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.g2b;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,9 +97,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 this.a.b = setPendantHttpResponse.getFreeUseLevel();
             }
             if (this.a.d != null) {
-                int i = f2b.b;
-                if (responsedMessage.getError() == f2b.c) {
-                    i = f2b.a;
+                int i = g2b.b;
+                if (responsedMessage.getError() == g2b.c) {
+                    i = g2b.a;
                 }
                 this.a.d.p0(this.a.c, this.a.a, this.a.b, responsedMessage.getErrorString(), i);
             }
@@ -121,7 +121,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.c = false;
         this.e = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        vva.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        wva.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.e);
     }
 

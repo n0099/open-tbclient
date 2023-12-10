@@ -22,19 +22,19 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.br6;
-import com.baidu.tieba.fb7;
 import com.baidu.tieba.feed.list.TemplateAdapter;
 import com.baidu.tieba.feed.widget.ThemeAndStarView;
 import com.baidu.tieba.gb7;
-import com.baidu.tieba.gd7;
 import com.baidu.tieba.hb7;
-import com.baidu.tieba.jd7;
-import com.baidu.tieba.kb7;
-import com.baidu.tieba.mb7;
+import com.baidu.tieba.hd7;
+import com.baidu.tieba.ib7;
+import com.baidu.tieba.kd7;
+import com.baidu.tieba.lb7;
 import com.baidu.tieba.nb7;
 import com.baidu.tieba.ob7;
-import com.baidu.tieba.qb7;
+import com.baidu.tieba.pb7;
 import com.baidu.tieba.rb7;
+import com.baidu.tieba.sb7;
 import com.baidu.tieba.t87;
 import com.baidu.tieba.w57;
 import com.baidu.tieba.x4;
@@ -44,13 +44,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
+public class FeedCardView extends RelativeLayout implements nb7, hb7, lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
     public RelativeLayout b;
-    public hb7 c;
-    public nb7 d;
+    public ib7 c;
+    public ob7 d;
     public boolean e;
     public View f;
     public View g;
@@ -161,7 +161,7 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements fb7.a {
+    public class d implements gb7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w57 a;
@@ -186,10 +186,10 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
             this.a = w57Var;
         }
 
-        @Override // com.baidu.tieba.fb7.a
-        public void a(View view2, rb7<?> rb7Var, qb7<?, ?> qb7Var) {
+        @Override // com.baidu.tieba.gb7.a
+        public void a(View view2, sb7<?> sb7Var, rb7<?, ?> rb7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, rb7Var, qb7Var) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, sb7Var, rb7Var) == null) {
                 this.a.i().invoke(this.b.getContext(), this.a);
                 if (this.b.d != null) {
                     this.b.d.a();
@@ -200,7 +200,7 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements fb7.e {
+    public class e implements gb7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedCardView a;
@@ -223,7 +223,7 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
             this.a = feedCardView;
         }
 
-        @Override // com.baidu.tieba.fb7.e
+        @Override // com.baidu.tieba.gb7.e
         public void a(@NonNull Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -375,22 +375,22 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gb7
-    public void setOnTemplateClickListener(@NonNull nb7 nb7Var) {
+    @Override // com.baidu.tieba.hb7
+    public void setOnTemplateClickListener(@NonNull ob7 ob7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, nb7Var) == null) {
-            this.d = nb7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ob7Var) == null) {
+            this.d = ob7Var;
         }
     }
 
-    @Override // com.baidu.tieba.mb7
+    @Override // com.baidu.tieba.nb7
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (int i = 0; i < this.a.getChildCount(); i++) {
                 View childAt = this.a.getChildAt(i);
-                if (childAt instanceof mb7) {
-                    ((mb7) childAt).b();
+                if (childAt instanceof nb7) {
+                    ((nb7) childAt).b();
                 }
             }
         }
@@ -418,7 +418,7 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
         }
     }
 
-    @Override // com.baidu.tieba.kb7
+    @Override // com.baidu.tieba.lb7
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -443,12 +443,12 @@ public class FeedCardView extends RelativeLayout implements mb7, gb7, kb7 {
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             linearLayoutManager.setRecycleChildrenOnDetach(true);
             this.a.setLayoutManager(linearLayoutManager);
-            this.a.setRecycledViewPool(jd7.f().g(getContext()));
+            this.a.setRecycledViewPool(kd7.f().g(getContext()));
             this.a.setId(R.id.obfuscated_res_0x7f0905ef);
             TemplateAdapter templateAdapter = new TemplateAdapter();
             this.c = templateAdapter;
-            templateAdapter.j(new gd7());
-            this.c.j(new ob7());
+            templateAdapter.j(new hd7());
+            this.c.j(new pb7());
             this.c.c(this.a, true);
             addView(this.a, new RelativeLayout.LayoutParams(-1, -2));
             this.b = new RelativeLayout(getContext());

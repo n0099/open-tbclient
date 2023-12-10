@@ -64,24 +64,24 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.module.frs.FrsService;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.aa5;
-import com.baidu.tieba.bga;
 import com.baidu.tieba.bt5;
+import com.baidu.tieba.cga;
 import com.baidu.tieba.dj5;
 import com.baidu.tieba.du5;
 import com.baidu.tieba.em5;
 import com.baidu.tieba.fp4;
-import com.baidu.tieba.ke9;
+import com.baidu.tieba.le9;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.po4;
 import com.baidu.tieba.r35;
-import com.baidu.tieba.ra8;
+import com.baidu.tieba.sa8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tblauncher.dispatcher.EnterForumDispatcher;
 import com.baidu.tieba.tblauncher.dispatcher.MessageCenterDispatcher;
 import com.baidu.tieba.util.TopicListUtil;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xma;
+import com.baidu.tieba.yma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class SchemaRouteActivity extends BaseActivity {
         fp4.e(intent.getData());
         fp4.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        xma.d().a(intent.getData());
+        yma.d().a(intent.getData());
         if (TextUtils.isEmpty(dataString)) {
             return;
         }
@@ -504,7 +504,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                     String queryParameter33 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_QUERY);
                                     new IntentConfig(this);
                                     if (!StringUtils.isNull(queryParameter33)) {
-                                        BrowserHelper.startWebActivity(getActivity(), BdUtilHelper.urlAddParam(BdUtilHelper.urlAddParam(ra8.a, "keyword=" + ra8.a(queryParameter33)), "pageType=result"));
+                                        BrowserHelper.startWebActivity(getActivity(), BdUtilHelper.urlAddParam(BdUtilHelper.urlAddParam(sa8.a, "keyword=" + sa8.a(queryParameter33)), "pageType=result"));
                                     } else {
                                         sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
                                     }
@@ -526,19 +526,19 @@ public class SchemaRouteActivity extends BaseActivity {
                                     TopicListUtil.openWebTopicListPage(getPageContext());
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                                    bga.e(this, dataString, true);
+                                    cga.e(this, dataString, true);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                                    bga.a(this, dataString);
+                                    cga.a(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                                    bga.d(this, dataString);
+                                    cga.d(this, dataString);
                                 }
                                 if (dataString.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                                    bga.b(this, dataString);
+                                    cga.b(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                                    bga.c(this, dataString);
+                                    cga.c(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                                     UrlSchemaJumpHelper.jumpGamePlayPage(this, dataString);
@@ -558,7 +558,7 @@ public class SchemaRouteActivity extends BaseActivity {
                                 }
                                 if (TextUtils.isEmpty(dataString)) {
                                     if (dataString.contains(UrlSchemaHelper.SCHEMA_GAME_RECOMMENT_PAGE) || dataString.contains(NewUrlSchemaHelper.Jump.JUMP_TO_VIDEO_SQUARE) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.contains(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_TB_LAUNCH) || dataString.contains("com.baidu.tieba://unidispatch/homepage") || dataString.contains("com.baidu.tieba://unidispatch/activitypage") || dataString.contains("com.baidu.tieba://unidispatch/minePage") || dataString.contains(MessageCenterDispatcher.url) || dataString.contains(EnterForumDispatcher.url) || dataString.contains("com.baidu.tieba://unidispatch/recommendforum") || dataString.contains("com.baidu.tieba://deeplink") || dataString.contains("com.baidu.tieba://unidispatch/videotab") || dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOMEPAGE_ANYTAB)) {
-                                        ke9.G(dataString);
+                                        le9.G(dataString);
                                         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(TbadkCoreApplication.getInst()).createUriCfg(intent.getData())));
                                         return;
                                     }
@@ -775,7 +775,7 @@ public class SchemaRouteActivity extends BaseActivity {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
                 dj5.a = true;
             }
-            ke9.o = true;
+            le9.o = true;
             GrowthFunnelHelper.updateAppStartInfoForActivity(this);
             super.onCreate(bundle);
             M0();

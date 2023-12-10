@@ -5,21 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.JNews;
+import tbclient.ItemThemeColor;
+import tbclient.ItemThemeColorElement;
 /* loaded from: classes6.dex */
-public class k4d extends ktc {
+public class k4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull JNews jNews) {
+    public static JSONObject b(@NonNull ItemThemeColor itemThemeColor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jNews)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemThemeColor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "jid", jNews.jid);
-            ktc.a(jSONObject, "url", jNews.url);
-            ktc.a(jSONObject, "from", jNews.from);
+            ItemThemeColorElement itemThemeColorElement = itemThemeColor.day;
+            if (itemThemeColorElement != null) {
+                ltc.a(jSONObject, "day", j4d.b(itemThemeColorElement));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

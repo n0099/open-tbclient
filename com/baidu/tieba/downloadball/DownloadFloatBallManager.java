@@ -20,11 +20,11 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.downloadball.DownloadFloatBall;
 import com.baidu.tieba.downloadball.DownloadFloatBallManager;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.jsa;
+import com.baidu.tieba.ksa;
 import com.baidu.tieba.kv6;
-import com.baidu.tieba.me7;
-import com.baidu.tieba.oe7;
-import com.baidu.tieba.wha;
+import com.baidu.tieba.ne7;
+import com.baidu.tieba.pe7;
+import com.baidu.tieba.xha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -103,12 +103,12 @@ public final class DownloadFloatBallManager {
     }
 
     /* loaded from: classes5.dex */
-    public final class b implements oe7 {
+    public final class b implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadFloatBallManager a;
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -135,7 +135,7 @@ public final class DownloadFloatBallManager {
             this.a = downloadFloatBallManager;
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -145,7 +145,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -154,7 +154,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -163,7 +163,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -172,7 +172,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
@@ -215,7 +215,7 @@ public final class DownloadFloatBallManager {
 
     public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && wha.i(DownloadFloatBallConfig.o.a().k())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && xha.i(DownloadFloatBallConfig.o.a().k())) {
             o();
             f();
         }
@@ -423,7 +423,7 @@ public final class DownloadFloatBallManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, downloadData)) == null) {
-            if (wha.i(DownloadFloatBallConfig.o.a().k())) {
+            if (xha.i(DownloadFloatBallConfig.o.a().k())) {
                 return DownloadFloatBallConfig.o.a().f();
             }
             int q = n().q(downloadData);
@@ -478,12 +478,12 @@ public final class DownloadFloatBallManager {
                 if (num != null) {
                     a2 = num.intValue();
                 } else {
-                    a2 = me7.a.a();
+                    a2 = ne7.a.a();
                 }
                 n.w(a2);
                 return;
             }
-            jsa k = n().m().k(str, "");
+            ksa k = n().m().k(str, "");
             ItemData itemData = new ItemData();
             itemData.parseJson(k.c());
             int i = itemData.mTbFileDownloaderType;

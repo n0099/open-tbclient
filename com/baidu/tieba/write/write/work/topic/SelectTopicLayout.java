@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.pm8;
+import com.baidu.tieba.nm8;
+import com.baidu.tieba.qm8;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicListLayout;
 import com.baidu.tieba.write.write.work.topic.view.SelectTopicSuggestLayout;
 import com.baidu.tieba.x25;
@@ -65,7 +65,7 @@ public class SelectTopicLayout extends RelativeLayout {
     public int t;
     public int u;
     public int v;
-    public List<pm8> w;
+    public List<qm8> w;
     public float x;
     public float y;
     public final View.OnClickListener z;
@@ -695,26 +695,26 @@ public class SelectTopicLayout extends RelativeLayout {
         return invokeLII.booleanValue;
     }
 
-    public void s(mm8 mm8Var, mm8 mm8Var2, mm8 mm8Var3) {
+    public void s(nm8 nm8Var, nm8 nm8Var2, nm8 nm8Var3) {
         SelectTopicListLayout selectTopicListLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048589, this, mm8Var, mm8Var2, mm8Var3) == null) && (selectTopicListLayout = this.l) != null) {
-            selectTopicListLayout.a(mm8Var, mm8Var2, mm8Var3);
+        if ((interceptable == null || interceptable.invokeLLL(1048589, this, nm8Var, nm8Var2, nm8Var3) == null) && (selectTopicListLayout = this.l) != null) {
+            selectTopicListLayout.a(nm8Var, nm8Var2, nm8Var3);
         }
     }
 
-    public void u(mm8 mm8Var) {
+    public void u(nm8 nm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, mm8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, nm8Var) == null) {
             this.w.clear();
             String searchKey = getSearchKey();
-            mm8 mm8Var2 = new mm8();
-            this.w.add(new pm8(searchKey, 0L, false));
-            if (mm8Var == null) {
-                mm8Var = mm8Var2;
+            nm8 nm8Var2 = new nm8();
+            this.w.add(new qm8(searchKey, 0L, false));
+            if (nm8Var == null) {
+                nm8Var = nm8Var2;
             }
-            mm8Var.c().addAll(0, this.w);
-            this.m.b(getSearchKey(), mm8Var.c());
+            nm8Var.c().addAll(0, this.w);
+            this.m.b(getSearchKey(), nm8Var.c());
         }
     }
 

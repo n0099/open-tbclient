@@ -9,7 +9,8 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tieba.pdb;
+import com.baidu.tieba.pic;
+import com.baidu.tieba.qdb;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +57,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(pdb.a(toast));
+        BdToastHelper.toast(qdb.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,7 +75,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                BdToastData a = pdb.a(dataRes.toast);
+                BdToastData a = qdb.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addPostHttpResponse.resultJSON.put("toast", json);
                 }
@@ -141,7 +142,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
                 }
                 if (addPostResIdl.data.advertisement != null) {
                     JSONObject jSONObject7 = new JSONObject();
-                    jSONObject7.put("pic", addPostResIdl.data.advertisement.pic);
+                    jSONObject7.put(pic.f, addPostResIdl.data.advertisement.pic);
                     jSONObject7.put("pic_click", addPostResIdl.data.advertisement.pic_click);
                     jSONObject7.put("jump_link", addPostResIdl.data.advertisement.jump_link);
                     jSONObject7.put("advertisement_id", addPostResIdl.data.advertisement.advertisement_id);

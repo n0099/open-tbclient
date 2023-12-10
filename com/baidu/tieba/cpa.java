@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class cpa {
+public class cpa implements zw {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bpa a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized bpa a() {
-        InterceptResult invokeV;
-        bpa bpaVar;
+    public cpa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (cpa.class) {
-                if (a == null) {
-                    a = new bpa();
-                }
-                bpaVar = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return bpaVar;
         }
-        return (bpa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
+        }
+        return (String) invokeV.objValue;
     }
 }

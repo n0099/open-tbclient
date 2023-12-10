@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.e45;
-import com.baidu.tieba.kia;
+import com.baidu.tieba.lia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
         if (StringUtils.isNull(optString2)) {
             jumpAppMarket(optString);
         } else {
-            kia.n().E(optString, optString2, optString, 0, kia.o(optString).intValue(), null, true, false, true, optString3, null, null);
+            lia.n().E(optString, optString2, optString, 0, lia.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
         StatisticItem statisticItem = new StatisticItem("c12775");
         if (StringUtils.isNull(this.mFid)) {

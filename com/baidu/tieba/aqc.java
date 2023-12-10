@@ -2,33 +2,38 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.hoc;
+import com.baidu.tieba.ioc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public final class aqc<T> implements hoc.c<T> {
+public final class aqc<T> implements ioc.c<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hoc<T> a;
-    public final roc<? super T> b;
-    public final roc<Throwable> c;
+    public final ioc.c<T> a;
+    public final long b;
+    public final TimeUnit c;
+    public final hoc d;
 
     /* loaded from: classes5.dex */
-    public static final class a<T> extends ioc<T> {
+    public static final class a<T> extends joc<T> implements roc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ioc<? super T> b;
-        public final roc<? super T> c;
-        public final roc<Throwable> d;
+        public final joc<? super T> b;
+        public final hoc.a c;
+        public final long d;
+        public final TimeUnit e;
+        public T f;
+        public Throwable g;
 
-        public a(ioc<? super T> iocVar, roc<? super T> rocVar, roc<Throwable> rocVar2) {
+        public a(joc<? super T> jocVar, hoc.a aVar, long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iocVar, rocVar, rocVar2};
+                Object[] objArr = {jocVar, aVar, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,45 +43,57 @@ public final class aqc<T> implements hoc.c<T> {
                     return;
                 }
             }
-            this.b = iocVar;
-            this.c = rocVar;
-            this.d = rocVar2;
+            this.b = jocVar;
+            this.c = aVar;
+            this.d = j;
+            this.e = timeUnit;
         }
 
-        @Override // com.baidu.tieba.ioc
+        @Override // com.baidu.tieba.joc
         public void b(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    poc.e(th2);
-                    this.b.b(new CompositeException(th, th2));
-                }
+                this.g = th;
+                this.c.c(this, this.d, this.e);
             }
         }
 
-        @Override // com.baidu.tieba.ioc
+        @Override // com.baidu.tieba.joc
         public void c(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.f = t;
+                this.c.c(this, this.d, this.e);
+            }
+        }
+
+        @Override // com.baidu.tieba.roc
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    poc.h(th, this, t);
+                    Throwable th = this.g;
+                    if (th != null) {
+                        this.g = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.f;
+                        this.f = null;
+                        this.b.c(t);
+                    }
+                } finally {
+                    this.c.unsubscribe();
                 }
             }
         }
     }
 
-    public aqc(hoc<T> hocVar, roc<? super T> rocVar, roc<Throwable> rocVar2) {
+    public aqc(ioc.c<T> cVar, long j, TimeUnit timeUnit, hoc hocVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hocVar, rocVar, rocVar2};
+            Object[] objArr = {cVar, Long.valueOf(j), timeUnit, hocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,20 +103,23 @@ public final class aqc<T> implements hoc.c<T> {
                 return;
             }
         }
-        this.a = hocVar;
-        this.b = rocVar;
-        this.c = rocVar2;
+        this.a = cVar;
+        this.d = hocVar;
+        this.b = j;
+        this.c = timeUnit;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.roc
+    @Override // com.baidu.tieba.soc
     /* renamed from: a */
-    public void call(ioc<? super T> iocVar) {
+    public void call(joc<? super T> jocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iocVar) == null) {
-            a aVar = new a(iocVar, this.b, this.c);
-            iocVar.a(aVar);
-            this.a.j(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jocVar) == null) {
+            hoc.a createWorker = this.d.createWorker();
+            a aVar = new a(jocVar, createWorker, this.b, this.c);
+            jocVar.a(createWorker);
+            jocVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

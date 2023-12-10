@@ -40,7 +40,7 @@ import com.baidu.tieba.gs4;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.jq5;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7 {
+public class NewFrsTabWebFragment extends BaseWebViewFragment implements nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -72,14 +72,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7 {
     public CustomMessageListener q;
     public final View.OnClickListener r;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -475,7 +475,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -486,7 +486,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

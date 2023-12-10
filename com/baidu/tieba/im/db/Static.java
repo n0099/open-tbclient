@@ -3,7 +3,7 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.eu8;
+import com.baidu.tieba.fu8;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
@@ -26,12 +26,12 @@ public class Static {
 
         /* renamed from: com.baidu.tieba.im.db.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0337a extends nu5<Void> {
+        public class C0336a extends nu5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
 
-            public C0337a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public C0336a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,7 +57,7 @@ public class Static {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        eu8.a((String) this.a.getData());
+                        fu8.a((String) this.a.getData());
                         return null;
                     }
                     return null;
@@ -125,7 +125,7 @@ public class Static {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2008015 || customResponsedMessage.getData() == null) {
                 return;
             }
-            ru5.c(new C0337a(this, customResponsedMessage), new b(this));
+            ru5.c(new C0336a(this, customResponsedMessage), new b(this));
         }
     }
 

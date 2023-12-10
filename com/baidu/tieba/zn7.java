@@ -1,10 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import org.json.JSONObject;
+import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.forum.data.ForumTabItem;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public interface zn7 {
-    void C2(ThreadData threadData, JSONObject jSONObject);
+public final class zn7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ForumTabItem a;
+    public final Fragment b;
 
-    void U0(rb7<?> rb7Var, JSONObject jSONObject);
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof zn7) {
+                zn7 zn7Var = (zn7) obj;
+                return Intrinsics.areEqual(this.a, zn7Var.a) && Intrinsics.areEqual(this.b, zn7Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FrsTabFragmentData(tabItem=" + this.a + ", fragment=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public zn7(ForumTabItem tabItem, Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tabItem, fragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(tabItem, "tabItem");
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        this.a = tabItem;
+        this.b = fragment;
+    }
+
+    public final Fragment a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Fragment) invokeV.objValue;
+    }
+
+    public final ForumTabItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (ForumTabItem) invokeV.objValue;
+    }
 }

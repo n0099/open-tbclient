@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.flow.CoverFlowLocalView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d35;
-import com.baidu.tieba.ds7;
 import com.baidu.tieba.e35;
+import com.baidu.tieba.es7;
 import com.baidu.tieba.f35;
 import com.baidu.tieba.h35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,10 +24,10 @@ import java.util.List;
 public class LocalBannerLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowLocalView<ds7> a;
-    public f35<ds7> b;
-    public List<ds7> c;
-    public f35<ds7> d;
+    public CoverFlowLocalView<es7> a;
+    public f35<es7> b;
+    public List<es7> c;
+    public f35<es7> d;
 
     /* loaded from: classes6.dex */
     public class a extends d35 {
@@ -98,7 +98,7 @@ public class LocalBannerLayout extends RelativeLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements f35<ds7> {
+    public class b implements f35<es7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LocalBannerLayout a;
@@ -132,10 +132,10 @@ public class LocalBannerLayout extends RelativeLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.f35
         /* renamed from: c */
-        public void a(int i, ds7 ds7Var) {
+        public void a(int i, es7 es7Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ds7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
-                this.a.b.a(i, ds7Var);
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, es7Var) == null) && i >= 0 && this.a.c != null && i <= this.a.c.size() + 1 && this.a.b != null) {
+                this.a.b.a(i, es7Var);
             }
         }
     }
@@ -205,7 +205,7 @@ public class LocalBannerLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(List<ds7> list) {
+    public void setData(List<es7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.c = list;
@@ -213,7 +213,7 @@ public class LocalBannerLayout extends RelativeLayout {
         }
     }
 
-    public void setOnCoverViewCallback(f35<ds7> f35Var) {
+    public void setOnCoverViewCallback(f35<es7> f35Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f35Var) == null) {
             this.b = f35Var;

@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.jr4;
+import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public class zp9 {
+public class zp9 extends jr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public MarkModel a;
 
-    public zp9() {
+    public zp9(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,49 +32,96 @@ public class zp9 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
+        this.a = null;
+        this.a = new MarkModel(baseActivity);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public zp9(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.a = null;
+        this.a = new MarkModel(baseFragmentActivity);
     }
 
-    public String b() {
+    @Override // com.baidu.tieba.jr4
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.R();
+        }
+    }
+
+    @Override // com.baidu.tieba.jr4
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.S();
+        }
+    }
+
+    @Override // com.baidu.tieba.jr4
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.T();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jr4
+    public MarkData f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.U();
+        }
+        return (MarkData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jr4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.V();
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.jr4
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            d(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a.W(z);
         }
     }
 
-    public void d(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.jr4
+    public void i(MarkData markData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            try {
-                this.a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
+            this.a.X(markData);
+        }
+    }
+
+    @Override // com.baidu.tieba.jr4
+    public void j(jr4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.a.Y(aVar);
         }
     }
 }

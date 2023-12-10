@@ -64,7 +64,7 @@ public class d16 {
     public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (rqa.a(this.c.getIntent())) {
+            if (sqa.a(this.c.getIntent())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
             if (bundle != null) {
@@ -108,10 +108,10 @@ public class d16 {
                 return;
             }
             b(bundle);
-            if (!rqa.a(this.c.getIntent()) && (rqa.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+            if (!sqa.a(this.c.getIntent()) && (sqa.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
                 a(this.c.getIntent());
             }
-            pua.g().i(this.c.getUniqueId());
+            qua.g().i(this.c.getUniqueId());
             e16 e16Var = new e16(this.c);
             this.b = e16Var;
             e16Var.i(d);
@@ -121,7 +121,7 @@ public class d16 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            pua.g().k(this.c.getUniqueId());
+            qua.g().k(this.c.getUniqueId());
             d = false;
             e16 e16Var = this.b;
             if (e16Var != null) {

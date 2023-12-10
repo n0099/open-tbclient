@@ -10,10 +10,10 @@ import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
 import com.baidu.tieba.bo5;
 import com.baidu.tieba.bt5;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.kja;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.v88;
+import com.baidu.tieba.w88;
 import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -536,7 +536,7 @@ public class FrsRequestData extends OrmObject implements INetRequestData, bo5 {
             builder.is_selection = Integer.valueOf(this.E);
             builder.call_from = Integer.valueOf(this.F);
             builder.hot_thread_id = Long.valueOf(this.H);
-            String d = v88.e().d("frs_feed");
+            String d = w88.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = ws5.g(d, ws5.f());
             builder.ad_bear_sid_price = Double.valueOf(ws5.i());
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements INetRequestData, bo5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = jja.f().d("FRS");
+                str = kja.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;

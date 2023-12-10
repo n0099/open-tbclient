@@ -362,7 +362,7 @@ public class fh5 extends je5 {
             arrayList.add(6);
             arrayList.add(9);
             a2.f(new ff5(a2.getContext(), 1));
-            if (jya.a() && mva.a(this.b, Boolean.TRUE) && (runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), ue5.class)) != null && (ue5Var = (ue5) runTask2.getData()) != null) {
+            if (kya.a() && nva.a(this.b, Boolean.TRUE) && (runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), ue5.class)) != null && (ue5Var = (ue5) runTask2.getData()) != null) {
                 ue5Var.l = 2;
                 a2.f(ue5Var);
             }

@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.settingcache.OfficialSettingCache;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,11 +16,11 @@ public class dn8 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) {
-            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8) {
                 if (imMessageCenterPojo.getUnread_count() <= 0) {
                     return imMessageCenterPojo;
                 }
-                return b(imMessageCenterPojo, ew8.n().l());
+                return b(imMessageCenterPojo, fw8.n().k());
             }
             return imMessageCenterPojo;
         }
@@ -35,7 +36,6 @@ public class dn8 {
             imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
             imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
             imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
-            imMessageCenterPojo2.setBjhAvatar(imMessageCenterPojo.getBjhAvatar());
             imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
             imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
             imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
@@ -49,20 +49,18 @@ public class dn8 {
             imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
             imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            boolean z = true;
             for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
-                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 2 && imMessageCenterPojo3.getIsFriend() == 0) {
-                    if (!fx8.a().isAcceptNotify(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
+                    if (!OfficialSettingCache.getInstance().isAcceptNotify(currentAccount, imMessageCenterPojo3.getGid())) {
                         imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                     } else {
-                        gx8.a().c(true);
-                        z = false;
+                        fx8.a().c(true);
                     }
                 }
             }
-            if (z) {
+            if (imMessageCenterPojo2.getUnread_count() <= 0) {
                 imMessageCenterPojo2.setUnread_count(1);
-                gx8.a().c(false);
+                fx8.a().c(false);
             }
             return imMessageCenterPojo2;
         }

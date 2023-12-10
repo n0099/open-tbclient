@@ -29,19 +29,19 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba8;
+import com.baidu.tieba.ca8;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.gift.giftTab.GiftTabView;
 import com.baidu.tieba.gift.send.SendGiftModel;
 import com.baidu.tieba.l55;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.r98;
-import com.baidu.tieba.t98;
+import com.baidu.tieba.s98;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.tx4;
+import com.baidu.tieba.u98;
 import com.baidu.tieba.ux4;
-import com.baidu.tieba.v98;
 import com.baidu.tieba.w98;
+import com.baidu.tieba.x98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GiftTabView a;
-    public w98 b;
+    public x98 b;
     public SendGiftModel c;
     public String d;
     public boolean e;
@@ -65,7 +65,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public int k;
     public String l;
     public tx4 m;
-    public ba8 n;
+    public ca8 n;
     public int o;
     public int p;
     public boolean q;
@@ -74,8 +74,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public View.OnClickListener t;
     public GiftTabView.o u;
     public GiftTabView.n v;
-    public w98.d w;
-    public w98.e x;
+    public x98.d w;
+    public x98.e x;
     public SendGiftModel.c y;
     public CustomMessageListener z;
 
@@ -394,7 +394,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class i implements w98.d {
+    public class i implements x98.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -417,7 +417,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.w98.d
+        @Override // com.baidu.tieba.x98.d
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -430,7 +430,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements w98.e {
+    public class j implements x98.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GiftTabActivity a;
@@ -453,8 +453,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // com.baidu.tieba.w98.e
-        public void a(int i, String str, boolean z, String str2, int i2, ux4 ux4Var, ArrayList<t98> arrayList, ArrayList<r98> arrayList2, ArrayList<v98> arrayList3) {
+        @Override // com.baidu.tieba.x98.e
+        public void a(int i, String str, boolean z, String str2, int i2, ux4 ux4Var, ArrayList<u98> arrayList, ArrayList<s98> arrayList2, ArrayList<w98> arrayList3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), ux4Var, arrayList, arrayList2, arrayList3}) == null) {
                 if (i != 0 && !StringUtils.isNull(str)) {
@@ -496,9 +496,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i, String str, ba8 ba8Var) {
+        public void a(int i, String str, ca8 ca8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, ba8Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, ca8Var) == null) {
                 this.a.a.G();
                 if (i != 0) {
                     if (StringUtils.isNull(str)) {
@@ -506,10 +506,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     } else {
                         this.a.showToast(str);
                     }
-                } else if (ba8Var == null) {
+                } else if (ca8Var == null) {
                 } else {
-                    this.a.n = ba8Var;
-                    PaymentConfirmRequestData a = ba8Var.a();
+                    this.a.n = ca8Var;
+                    PaymentConfirmRequestData a = ca8Var.a();
                     a.setTerminal(PaymentConfirmRequestData.TERMINAL_ANDROID);
                     this.a.sendMessage(new CustomMessage(2002001, new PaymentConfirmActivityConfig(this.a.getPageContext().getPageActivity(), a, this.a.r, this.a.s)));
                 }
@@ -833,12 +833,12 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        w98 w98Var;
+        x98 x98Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            if (this.q && (w98Var = this.b) != null) {
-                w98Var.n(this.d);
+            if (this.q && (x98Var = this.b) != null) {
+                x98Var.n(this.d);
             }
         }
     }
@@ -940,9 +940,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             textView.setText(String.format(string, objArr));
             this.a.P(this.u);
             this.a.Q(this.v);
-            w98 w98Var = new w98(getPageContext());
-            this.b = w98Var;
-            w98Var.s(this.x);
+            x98 x98Var = new x98(getPageContext());
+            this.b = x98Var;
+            x98Var.s(this.x);
             this.b.r(this.w);
             SendGiftModel sendGiftModel = new SendGiftModel(getPageContext());
             this.c = sendGiftModel;

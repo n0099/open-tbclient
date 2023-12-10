@@ -120,7 +120,7 @@ public class qs4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa d(WebView webView, String str, String str2) {
+    public gxa d(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
@@ -130,59 +130,59 @@ public class qs4 implements qj6 {
             } else {
                 SensorAccelerometerManager.getSensor().stop();
             }
-            fxa fxaVar = new fxa();
-            fxaVar.j = true;
-            return fxaVar;
+            gxa gxaVar = new gxa();
+            gxaVar.j = true;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa e(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa e(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("x", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Y));
                 jSONObject.put("y", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_X));
                 jSONObject.put("z", hashMap.get(CommonTbJsBridge.SENSOR_GYROSCOPE_EVENT_Z));
-                fxaVar.o(jSONObject.toString());
-                fxaVar.j = true;
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                gxaVar.j = true;
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa f(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa f(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("refreshRate", hashMap.get(CommonTbJsBridge.DEVICE_DISPLAY_REFRESH));
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa g(final WebView webView, String str) {
+    public gxa g(final WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
@@ -203,9 +203,9 @@ public class qs4 implements qj6 {
             } else {
                 RefreshRateManager.getInstance().stop();
             }
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(14:3|(1:5)(1:133)|6|(1:8)(1:132)|9|10|11|12|(16:13|14|15|16|17|18|19|20|21|22|23|24|25|26|(1:28)(1:111)|(24:29|30|31|32|33|34|35|36|37|38|39|40|41|42|43|44|45|46|47|48|49|50|51|52))|(4:(8:53|54|55|56|57|58|59|60)|65|66|67)|61|62|63|64) */
@@ -218,7 +218,7 @@ public class qs4 implements qj6 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public fxa h(WebView webView) {
+    public gxa h(WebView webView) {
         InterceptResult invokeL;
         String str;
         String str2;
@@ -233,7 +233,7 @@ public class qs4 implements qj6 {
         String str10;
         String str11;
         String str12;
-        fxa fxaVar;
+        gxa gxaVar;
         String l;
         String valueOf;
         String str13;
@@ -258,7 +258,7 @@ public class qs4 implements qj6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, webView)) == null) {
             String str14 = "model";
-            fxa fxaVar2 = new fxa();
+            gxa gxaVar2 = new gxa();
             StringBuilder sb2 = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb2.append("imei=");
@@ -480,9 +480,9 @@ public class qs4 implements qj6 {
                                                     jSONObject2.put("publicParams", jSONObject);
                                                     jSONObject2.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                                                     jSONObject2.put("sign", c);
-                                                    fxaVar = fxaVar2;
-                                                    fxaVar.o(jSONObject2.toString());
-                                                    return fxaVar;
+                                                    gxaVar = gxaVar2;
+                                                    gxaVar.o(jSONObject2.toString());
+                                                    return gxaVar;
                                                 }
                                             } catch (JSONException e6) {
                                                 e = e6;
@@ -522,9 +522,9 @@ public class qs4 implements qj6 {
                                                 jSONObject22.put("publicParams", jSONObject);
                                                 jSONObject22.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                                                 jSONObject22.put("sign", c2);
-                                                fxaVar = fxaVar2;
-                                                fxaVar.o(jSONObject22.toString());
-                                                return fxaVar;
+                                                gxaVar = gxaVar2;
+                                                gxaVar.o(jSONObject22.toString());
+                                                return gxaVar;
                                             }
                                         } catch (JSONException e7) {
                                             e = e7;
@@ -574,9 +574,9 @@ public class qs4 implements qj6 {
                                     jSONObject222.put("publicParams", jSONObject);
                                     jSONObject222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                                     jSONObject222.put("sign", c22);
-                                    fxaVar = fxaVar2;
-                                    fxaVar.o(jSONObject222.toString());
-                                    return fxaVar;
+                                    gxaVar = gxaVar2;
+                                    gxaVar.o(jSONObject222.toString());
+                                    return gxaVar;
                                 }
                             } catch (JSONException e10) {
                                 e = e10;
@@ -623,9 +623,9 @@ public class qs4 implements qj6 {
                             jSONObject2222.put("publicParams", jSONObject);
                             jSONObject2222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                             jSONObject2222.put("sign", c222);
-                            fxaVar = fxaVar2;
-                            fxaVar.o(jSONObject2222.toString());
-                            return fxaVar;
+                            gxaVar = gxaVar2;
+                            gxaVar.o(jSONObject2222.toString());
+                            return gxaVar;
                         }
                     } catch (JSONException e12) {
                         e = e12;
@@ -668,9 +668,9 @@ public class qs4 implements qj6 {
                         jSONObject22222.put("publicParams", jSONObject);
                         jSONObject22222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                         jSONObject22222.put("sign", c2222);
-                        fxaVar = fxaVar2;
-                        fxaVar.o(jSONObject22222.toString());
-                        return fxaVar;
+                        gxaVar = gxaVar2;
+                        gxaVar.o(jSONObject22222.toString());
+                        return gxaVar;
                     }
                 } catch (JSONException e13) {
                     e = e13;
@@ -741,9 +741,9 @@ public class qs4 implements qj6 {
                             jSONObject222222.put("publicParams", jSONObject);
                             jSONObject222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                             jSONObject222222.put("sign", c22222);
-                            fxaVar = fxaVar2;
-                            fxaVar.o(jSONObject222222.toString());
-                            return fxaVar;
+                            gxaVar = gxaVar2;
+                            gxaVar.o(jSONObject222222.toString());
+                            return gxaVar;
                         }
                     } catch (JSONException e16) {
                         e = e16;
@@ -779,9 +779,9 @@ public class qs4 implements qj6 {
                         jSONObject2222222.put("publicParams", jSONObject);
                         jSONObject2222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                         jSONObject2222222.put("sign", c222222);
-                        fxaVar = fxaVar2;
-                        fxaVar.o(jSONObject2222222.toString());
-                        return fxaVar;
+                        gxaVar = gxaVar2;
+                        gxaVar.o(jSONObject2222222.toString());
+                        return gxaVar;
                     }
                 } catch (JSONException e17) {
                     e = e17;
@@ -818,17 +818,17 @@ public class qs4 implements qj6 {
                     jSONObject22222222.put("publicParams", jSONObject);
                     jSONObject22222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
                     jSONObject22222222.put("sign", c2222222);
-                    fxaVar = fxaVar2;
-                    fxaVar.o(jSONObject22222222.toString());
-                    return fxaVar;
+                    gxaVar = gxaVar2;
+                    gxaVar.o(jSONObject22222222.toString());
+                    return gxaVar;
                 }
-                fxaVar.o(jSONObject22222222.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject22222222.toString());
+                return gxaVar;
             } catch (JSONException e18) {
                 e = e18;
                 BdLog.e(e);
-                fxaVar.o("");
-                return fxaVar;
+                gxaVar.o("");
+                return gxaVar;
             }
             StringBuilder sb322222222 = sb;
             sb322222222.append("tiebaclient!!!");
@@ -860,56 +860,56 @@ public class qs4 implements qj6 {
             jSONObject222222222.put("publicParams", jSONObject);
             jSONObject222222222.put("nativeReqParams", NetMessageHelper.getCommonParamsJson(true, true, true));
             jSONObject222222222.put("sign", c22222222);
-            fxaVar = fxaVar2;
+            gxaVar = gxaVar2;
         } else {
-            return (fxa) invokeL.objValue;
+            return (gxa) invokeL.objValue;
         }
     }
 
-    public fxa i(WebView webView) {
+    public gxa i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa k(WebView webView) {
+    public gxa k(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa j(WebView webView) {
+    public gxa j(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -943,22 +943,22 @@ public class qs4 implements qj6 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                fxaVar.o("");
-                return fxaVar;
+                gxaVar.o("");
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
+    public gxa m(WebView webView, int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{webView, Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -968,13 +968,13 @@ public class qs4 implements qj6 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                t4b.h(build);
-                t4b.g(build);
+                u4b.h(build);
+                u4b.g(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 }

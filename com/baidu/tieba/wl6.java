@@ -46,7 +46,7 @@ import com.baidu.tbadk.util.VideoAudioHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.play.TbVideoViewContainer;
-import com.baidu.tieba.sda;
+import com.baidu.tieba.tda;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
     public View A;
     public TextView B;
     public View C;
-    public eea D;
+    public fea D;
     public en6 E;
     public View F;
     public int G;
@@ -69,7 +69,7 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
     public boolean I;
     public boolean J;
     public String K;
-    public sda L;
+    public tda L;
     public Animation M;
     public TextView N;
     public TextView O;
@@ -155,7 +155,7 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements sda.c {
+    public class b implements tda.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wl6 a;
@@ -178,7 +178,7 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
             this.a = wl6Var;
         }
 
-        @Override // com.baidu.tieba.sda.c
+        @Override // com.baidu.tieba.tda.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i2 < i && i != 0 && (i2 * 100) / i >= 80 && i > 15000) {
@@ -289,13 +289,13 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
                     xl6.l(this.r, this.E.a.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 PbActivityConfig addLocateParam = new PbActivityConfig(this.p.getPageActivity()).createFromThreadCfg(this.E.a, null, xl6.g(), 18003, true, false, false).addLocateParam(this.E.getPbInputLocate());
-                if (this.E.f1089T == 0) {
+                if (this.E.f1091T == 0) {
                     str = "index";
                 } else {
                     str = "hot_juhe";
                 }
                 addLocateParam.setVideo_source(str);
-                if (this.E.f1089T == 0) {
+                if (this.E.f1091T == 0) {
                     addLocateParam.setFrom("from_personalize");
                 }
                 addLocateParam.setForumId(String.valueOf(this.E.a.getFid()));
@@ -421,29 +421,29 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (en6Var = this.E) != null && en6Var.a != null) {
-            gea geaVar = new gea();
-            if (this.E.f1089T == 0) {
+            hea heaVar = new hea();
+            if (this.E.f1091T == 0) {
                 str = "index";
             } else {
                 str = "hot_juhe";
             }
-            geaVar.a = str;
-            geaVar.c = this.E.a.getTid();
-            geaVar.d = this.E.a.getFid() + "";
-            geaVar.e = TbadkCoreApplication.getCurrentAccount();
+            heaVar.a = str;
+            heaVar.c = this.E.a.getTid();
+            heaVar.d = this.E.a.getFid() + "";
+            heaVar.e = TbadkCoreApplication.getCurrentAccount();
             en6 en6Var2 = this.E;
             ThreadData threadData = en6Var2.a;
-            geaVar.f = threadData.mRecomSource;
+            heaVar.f = threadData.mRecomSource;
             String str2 = threadData.mRecomAbTag;
-            geaVar.l = str2;
-            geaVar.g = str2;
-            geaVar.h = threadData.mRecomWeight;
-            geaVar.i = "";
-            geaVar.k = en6Var2.e();
+            heaVar.l = str2;
+            heaVar.g = str2;
+            heaVar.h = threadData.mRecomWeight;
+            heaVar.i = "";
+            heaVar.k = en6Var2.e();
             if (this.E.a.getThreadVideoInfo() != null) {
-                geaVar.m = this.E.a.getThreadVideoInfo().video_md5;
+                heaVar.m = this.E.a.getThreadVideoInfo().video_md5;
             }
-            vda.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", geaVar, this.w.getControl().getPcdnState());
+            wda.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", heaVar, this.w.getControl().getPcdnState());
         }
     }
 
@@ -534,9 +534,9 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
             TbVideoViewContainer tbVideoViewContainer = this.w;
             if (tbVideoViewContainer != null) {
                 tbVideoViewContainer.getControl().stopPlayback();
-                sda sdaVar = this.L;
-                if (sdaVar != null) {
-                    sdaVar.n();
+                tda tdaVar = this.L;
+                if (tdaVar != null) {
+                    tdaVar.n();
                 }
             }
             this.I = false;
@@ -582,7 +582,7 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
                     String str = SharedPrefHelper.getInstance().getString("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.E.getThreadData().getTid();
                     spannableStringBuilder.append((CharSequence) this.E.getThreadData().generateNaniTail(new a(this, 2, str, str)));
                 }
-                this.r.setOnTouchListener(new cab(spannableStringBuilder));
+                this.r.setOnTouchListener(new dab(spannableStringBuilder));
                 this.r.setText(spannableStringBuilder);
                 this.s.j(this.E.getThreadData());
                 this.s.setUserAfterClickListener(this.S);
@@ -776,9 +776,9 @@ public class wl6 extends nl6<en6> implements View.OnClickListener, d26 {
                 }
                 this.I = true;
                 this.w.getControl().setVideoPath(this.K, this.E.g);
-                sda sdaVar = this.L;
-                if (sdaVar != null) {
-                    sdaVar.m();
+                tda tdaVar = this.L;
+                if (tdaVar != null) {
+                    tdaVar.m();
                 }
                 M();
             }

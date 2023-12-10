@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.di5;
-import com.baidu.tieba.e9b;
+import com.baidu.tieba.f9b;
 import com.baidu.tieba.rw6;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.videoplay.view.EnterLiveRoomBtn;
@@ -146,7 +146,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.p9b
+                UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.q9b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,8 +213,8 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                 } else {
                     str = null;
                 }
-                e9b.g("sp_live_cancel_id_", str);
-                e9b.f("sp_live_click_cancel_key");
+                f9b.g("sp_live_cancel_id_", str);
+                f9b.f("sp_live_click_cancel_key");
                 this.a.d();
                 this.a.g();
             }
@@ -473,7 +473,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                 config.setCurrentRealHitStrategy(1);
                 g();
             } else if (config.getType() == 2) {
-                if (e9b.d(config)) {
+                if (f9b.d(config)) {
                     setCountDownStyle(config.getWaitSecond());
                     config.setCurrentRealHitStrategy(2);
                     return;
@@ -516,7 +516,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             if (z) {
                 LiveConfig liveConfig2 = this.i;
                 Intrinsics.checkNotNull(liveConfig2);
-                if (e9b.d(liveConfig2)) {
+                if (f9b.d(liveConfig2)) {
                     LiveConfig liveConfig3 = this.i;
                     Intrinsics.checkNotNull(liveConfig3);
                     setCountDownStyle(liveConfig3.getWaitSecond());
@@ -551,7 +551,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
             if (z) {
                 LiveConfig liveConfig2 = this.i;
                 Intrinsics.checkNotNull(liveConfig2);
-                if (e9b.d(liveConfig2)) {
+                if (f9b.d(liveConfig2)) {
                     this.g = new Timer();
                     LiveConfig liveConfig3 = this.i;
                     Intrinsics.checkNotNull(liveConfig3);
@@ -568,7 +568,7 @@ public final class EnterLiveRoomBtn extends LinearLayout implements View.OnClick
                         timer.schedule(this.j, 1000L, 1000L);
                     }
                     TbSingleton.getInstance().autoInLiveRoomTimes++;
-                    e9b.f("sp_live_day_show_auto_in_key");
+                    f9b.f("sp_live_day_show_auto_in_key");
                     return;
                 }
             }

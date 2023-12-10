@@ -28,12 +28,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.em6;
-import com.baidu.tieba.gf9;
+import com.baidu.tieba.hf9;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.lf9;
-import com.baidu.tieba.nva;
-import com.baidu.tieba.ye9;
+import com.baidu.tieba.mf9;
+import com.baidu.tieba.ova;
+import com.baidu.tieba.ze9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,8 +154,8 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 return;
             }
             em6.b().d(true);
-            gf9.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
-            nva.c(this.b.h, this.a.j);
+            hf9.e(this.a.l).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.l);
+            ova.c(this.b.h, this.a.j);
         }
     }
 
@@ -191,7 +191,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !ViewHelper.checkUpIsLogin(this.b.getContext())) {
                 return;
             }
-            lf9 a = lf9.a();
+            mf9 a = mf9.a();
             HorRankCard.a aVar = this.a;
             a.e(aVar, aVar.f, null, null);
         }
@@ -391,7 +391,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                     if (i <= 3) {
                         i2 = i;
                     }
-                    SkinManager.setBackgroundColor(itemViewHolder.k, ye9.a[i2]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, ze9.a[i2]);
                 }
             }
             itemViewHolder.f.setRadius(0);

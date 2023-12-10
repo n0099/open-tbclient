@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fu8;
+import com.baidu.tieba.gu8;
 import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.sd;
@@ -123,7 +123,7 @@ public final class ImAiBotDbService {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = fu8.e().g("select * from tb_ai_bot WHERE paid=?", new String[]{str});
+                    cursor = gu8.e().g("select * from tb_ai_bot WHERE paid=?", new String[]{str});
                     if (cursor != null && cursor.moveToNext()) {
                         String string = cursor.getString(cursor.getColumnIndex("paid"));
                         Intrinsics.checkNotNullExpressionValue(string, "cursor.getString(cursor.…elper.INDEX_AI_BOT_PAID))");
@@ -165,7 +165,7 @@ public final class ImAiBotDbService {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = fu8.e().g("select * from tb_ai_bot WHERE uid=?", new String[]{str});
+                    cursor = gu8.e().g("select * from tb_ai_bot WHERE uid=?", new String[]{str});
                     if (cursor != null && cursor.moveToNext()) {
                         String string = cursor.getString(cursor.getColumnIndex("paid"));
                         Intrinsics.checkNotNullExpressionValue(string, "cursor.getString(cursor.…elper.INDEX_AI_BOT_PAID))");
@@ -229,9 +229,9 @@ public final class ImAiBotDbService {
                 if (!TextUtils.isEmpty(str3)) {
                     contentValues.put("uk", str3);
                 }
-                if (fu8.e().i("tb_ai_bot", contentValues, "uid=?", new String[]{str2}) == 0) {
+                if (gu8.e().i("tb_ai_bot", contentValues, "uid=?", new String[]{str2}) == 0) {
                     contentValues.put("uid", str2);
-                    fu8.e().f("tb_ai_bot", null, contentValues);
+                    gu8.e().f("tb_ai_bot", null, contentValues);
                 }
             } catch (Exception e) {
                 TbLog iMLog2 = IMLog.getInstance();

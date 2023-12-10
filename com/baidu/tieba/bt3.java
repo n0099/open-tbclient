@@ -46,7 +46,7 @@ public class bt3 {
 
         /* renamed from: com.baidu.tieba.bt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0237a extends RequestBody {
+        public class C0236a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
@@ -61,7 +61,7 @@ public class bt3 {
                 return invokeV.longValue;
             }
 
-            public C0237a(a aVar, RequestBody requestBody) {
+            public C0236a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class bt3 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) {
-                return new C0237a(this, requestBody);
+                return new C0236a(this, requestBody);
             }
             return (RequestBody) invokeL.objValue;
         }

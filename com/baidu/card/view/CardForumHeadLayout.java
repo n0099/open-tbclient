@@ -39,9 +39,9 @@ import com.baidu.tieba.px4;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.rk6;
 import com.baidu.tieba.s36;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.TbLayerImageView;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -343,15 +343,15 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         if (f(this.p) && this.p.b() != null) {
-            this.e.setTextColor(tua.f(y5b.c(this.p.b().c())));
-            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(tua.f(y5b.c(this.p.b().a())));
+            this.e.setTextColor(uua.f(z5b.c(this.p.b().c())));
+            EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(uua.f(z5b.c(this.p.b().a())));
         } else {
             EMManager.from(this.e).setTextSize(R.dimen.T_X09).setCorner(R.string.J_X02).setTextColor(R.color.CAM_X0109);
             this.e.setBackgroundDrawable(null);
         }
         EMManager.from(this.q).setTextSize(R.dimen.T_X08);
         e65 e65Var = new e65();
-        e65Var.r(tua.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
+        e65Var.r(uua.a(SkinManager.getColor(R.color.CAM_X0341), 0.75f), SkinManager.getColor(R.color.CAM_X0101));
         this.q.setConfig(e65Var);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
@@ -580,9 +580,9 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     int i3 = s;
                     int i4 = t;
                     textView.setPadding(i3, i4, i3, i4);
-                    this.e.setTextColor(tua.f(y5b.c(this.p.b().c())));
+                    this.e.setTextColor(uua.f(z5b.c(this.p.b().c())));
                     setAttentionLineSpace(u);
-                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(tua.f(y5b.c(this.p.b().a())));
+                    EMManager.from(this.e).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBackGroundRealColor(uua.f(z5b.c(this.p.b().a())));
                 } else {
                     rk6.f(this.e, 8);
                     this.e.setPadding(0, 0, 0, 0);

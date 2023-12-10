@@ -36,13 +36,13 @@ public class ox1 extends kx1 {
 
         /* renamed from: com.baidu.tieba.ox1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0417a implements dl3<nb3<pb3.e>> {
+        public class C0419a implements dl3<nb3<pb3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ nu1.b a;
             public final /* synthetic */ a b;
 
-            public C0417a(a aVar, nu1.b bVar) {
+            public C0419a(a aVar, nu1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class ox1 extends kx1 {
                 if (c0 == null) {
                     return new ly1(1001, "null swan runtime");
                 }
-                c0.f0().g(j63.K(), "mapp_i_get_common_sys_info", new C0417a(this, bVar));
+                c0.f0().g(j63.K(), "mapp_i_get_common_sys_info", new C0419a(this, bVar));
                 return new ly1(0);
             }
             return (ly1) invokeLL.objValue;

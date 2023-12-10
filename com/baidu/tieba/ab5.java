@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.view.spanGroup.DownKeyChecker;
 import com.baidu.tbadk.data.PluginCheck;
 import com.baidu.tbadk.data.WebViewWhitePageList;
 import com.baidu.tbadk.tracker.LogUploadConfig;
-import com.baidu.tieba.ii8;
+import com.baidu.tieba.ji8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,11 +40,11 @@ public class ab5 implements pf1 {
             arrayList.add(new PluginCheck.a());
             arrayList.add(new WebViewWhitePageList.a());
             arrayList.add(new LogUploadConfig());
-            arrayList.add(new nc8());
-            arrayList.add(new ii8.b());
-            arrayList.add(new ac9());
-            arrayList.add(new t4a());
-            arrayList.add(new era());
+            arrayList.add(new oc8());
+            arrayList.add(new ji8.b());
+            arrayList.add(new bc9());
+            arrayList.add(new u4a());
+            arrayList.add(new fra());
             return arrayList;
         }
         return invokeV.objValue;

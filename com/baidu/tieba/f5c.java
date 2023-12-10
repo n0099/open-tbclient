@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.banner2.UnifiedBannerView;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class f5c extends d5c<UnifiedInterstitialAD> {
+public class f5c extends e5c<UnifiedBannerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f5c(UnifiedInterstitialAD unifiedInterstitialAD) {
-        super(unifiedInterstitialAD);
+    public f5c(UnifiedBannerView unifiedBannerView) {
+        super(unifiedBannerView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {unifiedInterstitialAD};
+            Object[] objArr = {unifiedBannerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,35 +34,39 @@ public class f5c extends d5c<UnifiedInterstitialAD> {
         }
     }
 
-    @Override // com.baidu.tieba.d5c
+    @Override // com.baidu.tieba.e5c
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((UnifiedInterstitialAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            A a = this.a;
+            return (a == 0 || ((UnifiedBannerView) a).getExtraInfo() == null) ? "" : (String) ((UnifiedBannerView) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d5c
+    @Override // com.baidu.tieba.e5c
     public void b(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            ((UnifiedInterstitialAD) this.a).sendLossNotification(map);
+            ((UnifiedBannerView) this.a).sendLossNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.d5c
+    @Override // com.baidu.tieba.e5c
     public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            ((UnifiedInterstitialAD) this.a).sendWinNotification(map);
+            ((UnifiedBannerView) this.a).sendWinNotification(map);
         }
     }
 
-    @Override // com.baidu.tieba.d5c
+    @Override // com.baidu.tieba.e5c
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((UnifiedInterstitialAD) this.a).getECPM();
+            return ((UnifiedBannerView) this.a).getECPM();
         }
         return invokeV.intValue;
     }

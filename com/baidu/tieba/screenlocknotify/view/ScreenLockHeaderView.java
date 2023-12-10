@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.uma;
+import com.baidu.tieba.vma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class ScreenLockHeaderView extends LinearLayout {
     public TextView e;
     public TextView f;
     public View g;
-    public uma h;
+    public vma h;
     public TextView i;
     public EditText j;
     public RelativeLayout k;
@@ -148,24 +148,24 @@ public class ScreenLockHeaderView extends LinearLayout {
         }
     }
 
-    public void d(uma umaVar) {
+    public void d(vma vmaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, umaVar) == null) {
-            this.h = umaVar;
-            this.a.setText(umaVar.a);
-            this.d.setText(a(umaVar.l));
-            this.e.setText(umaVar.e);
-            this.f.setText(b(umaVar.i));
+        if (interceptable == null || interceptable.invokeL(1048579, this, vmaVar) == null) {
+            this.h = vmaVar;
+            this.a.setText(vmaVar.a);
+            this.d.setText(a(vmaVar.l));
+            this.e.setText(vmaVar.e);
+            this.f.setText(b(vmaVar.i));
         }
     }
 
-    public uma getData() {
+    public vma getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
-        return (uma) invokeV.objValue;
+        return (vma) invokeV.objValue;
     }
 
     public View getEditText() {

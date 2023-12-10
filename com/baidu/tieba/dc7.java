@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.gb7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class dc7 {
+public final class dc7 implements gb7.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q67 a;
-    public a b;
-    public boolean c;
+    public final zb7 a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(q67 q67Var);
-    }
-
-    public abstract void a();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public dc7(Context context) {
+    public dc7(zb7 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,59 +31,43 @@ public abstract class dc7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        this.a = new q67();
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    public final q67 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gb7.c
+    public void a(sb7<?> data, rb7<?, ?> template, int i) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (q67) invokeV.objValue;
-    }
-
-    public final List<rb7<?>> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<rb7<?>> list = this.a.a;
-            Intrinsics.checkNotNullExpressionValue(list, "feedData.dataList");
-            return list;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final a d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            cb7 cb7Var = (cb7) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            v57 v57Var = new v57();
+            v57 v57Var2 = cb7Var.b;
+            if (v57Var2 != null) {
+                v57Var = v57Var2;
+            }
+            for (Map.Entry<String, String> entry : this.a.a(v57Var).entrySet()) {
+                statisticItem.param(entry.getKey(), entry.getValue());
+            }
+            n77 n77Var = cb7Var.a;
+            if (n77Var != null && (a = n77Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            em6.b().a(statisticItem);
         }
     }
 
-    public final void i(boolean z) {
+    @Override // com.baidu.tieba.gb7.c
+    public void b(RecyclerView rv) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            em6.b().c();
         }
     }
 }

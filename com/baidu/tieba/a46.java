@@ -78,7 +78,7 @@ public class a46 extends BdBaseView<NewFriendsActivity> {
         this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0703bd)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0eb7), null);
     }
 
-    public void A(List<rt8> list) {
+    public void A(List<st8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             this.e.setEmptyView(this.h);
@@ -101,7 +101,7 @@ public class a46 extends BdBaseView<NewFriendsActivity> {
         }
     }
 
-    public void F(List<rt8> list) {
+    public void F(List<st8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.f.h(list);
@@ -109,10 +109,10 @@ public class a46 extends BdBaseView<NewFriendsActivity> {
         }
     }
 
-    public void z(rt8 rt8Var) {
+    public void z(st8 st8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rt8Var) == null) {
-            this.f.d(rt8Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, st8Var) == null) {
+            this.f.d(st8Var);
             this.f.notifyDataSetChanged();
         }
     }

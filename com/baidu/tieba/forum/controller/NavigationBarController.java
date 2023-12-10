@@ -45,10 +45,11 @@ import com.baidu.tbadk.module.frs.FrsService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.an7;
-import com.baidu.tieba.cj7;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.aj7;
+import com.baidu.tieba.bn7;
+import com.baidu.tieba.dj7;
 import com.baidu.tieba.ea5;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.forum.ForumActivity;
 import com.baidu.tieba.forum.controller.NavigationBarController;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
@@ -56,21 +57,20 @@ import com.baidu.tieba.forum.databinding.ForumNavBarSecondFloorBinding;
 import com.baidu.tieba.forum.view.FrsAutoCarouselImageContainer;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.tieba.forum.widget.ViewExtentionsKt;
-import com.baidu.tieba.fs7;
-import com.baidu.tieba.kk7;
-import com.baidu.tieba.koc;
-import com.baidu.tieba.mi7;
-import com.baidu.tieba.ri7;
-import com.baidu.tieba.roc;
+import com.baidu.tieba.gs7;
+import com.baidu.tieba.lk7;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.ni7;
 import com.baidu.tieba.rq6;
 import com.baidu.tieba.si7;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.soc;
+import com.baidu.tieba.ti7;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.SymbolEMTextView;
-import com.baidu.tieba.wh7;
-import com.baidu.tieba.woc;
-import com.baidu.tieba.xm7;
+import com.baidu.tieba.xh7;
 import com.baidu.tieba.xoc;
-import com.baidu.tieba.zi7;
+import com.baidu.tieba.ym7;
+import com.baidu.tieba.yoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,12 +87,12 @@ import kotlin.jvm.internal.Reflection;
 import kotlin.jvm.internal.StringCompanionObject;
 import tbclient.PrivateForumInfo;
 @Metadata(d1 = {"\u0000\u008e\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\b\u0010%\u001a\u00020&H\u0002J\u0010\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020*H\u0002J\u0010\u0010+\u001a\u00020&2\u0006\u0010)\u001a\u00020*H\u0002J\u0010\u0010,\u001a\u00020&2\u0006\u0010)\u001a\u00020*H\u0002J\b\u0010-\u001a\u00020&H\u0002J\u0010\u0010.\u001a\u00020&2\u0006\u0010/\u001a\u000200H\u0016J\u001a\u00101\u001a\u00020&2\b\u00102\u001a\u0004\u0018\u0001032\u0006\u00104\u001a\u000205H\u0017J\b\u00106\u001a\u00020&H\u0016J\u000e\u00107\u001a\u00020&2\u0006\u00108\u001a\u000209J\u0010\u0010:\u001a\u00020&2\u0006\u0010)\u001a\u00020*H\u0002J\u0010\u0010;\u001a\u00020&2\u0006\u0010)\u001a\u00020*H\u0002J\b\u0010<\u001a\u00020&H\u0002J\b\u0010=\u001a\u00020&H\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u001b\u0010\t\u001a\u00020\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082.¢\u0006\u0002\n\u0000R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u001cR\u000e\u0010\u001d\u001a\u00020\u001eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\"\u001a\u0004\u0018\u00010#X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000¨\u0006>"}, d2 = {"Lcom/baidu/tieba/forum/controller/NavigationBarController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "navBarStat", "Lcom/baidu/tieba/forum/statistic/INavBarStat;", "(Landroidx/fragment/app/FragmentActivity;Lcom/baidu/tieba/forum/statistic/INavBarStat;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "autoCarouselImageContainer", "Lcom/baidu/tieba/forum/view/FrsAutoCarouselImageContainer;", "getAutoCarouselImageContainer", "()Lcom/baidu/tieba/forum/view/FrsAutoCarouselImageContainer;", "autoCarouselImageContainer$delegate", "Lkotlin/Lazy;", TaskUIData.keyBackBtn, "Landroid/widget/ImageView;", "forumIcon", "Lcom/baidu/tbadk/core/view/BarImageView;", "forumInfoLayout", "Landroid/view/View;", ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, "Lcom/baidu/tieba/view/SymbolEMTextView;", "messageIconController", "Lcom/baidu/tieba/controller/MessageIconController;", "messageSubscription", "Lrx/Subscription;", "getNavBarStat", "()Lcom/baidu/tieba/forum/statistic/INavBarStat;", "navigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "privateForumStatusTextView", "Landroid/widget/TextView;", "searchBtn", "secondFloorIconBinding", "Lcom/baidu/tieba/forum/databinding/ForumNavBarSecondFloorBinding;", "shareBtn", "adjustForumNameWidth", "", "checkIsNotPrivateManager", "", "forumData", "Lcom/baidu/tieba/forum/data/ForumData;", "configAiChatRoomGuideData", "configPrivateForumStatus", "expandSecondFloor", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, "setForumInfoAlpha", Key.ALPHA, "", "setNavigationBarCenterArea", "setPrivateForumStatus", "subscribeMessage", "subscribeNavSecondFloorEntranceVisibility", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class NavigationBarController extends wh7 {
+/* loaded from: classes6.dex */
+public final class NavigationBarController extends xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
-    public final an7 c;
+    public final bn7 c;
     public NavigationBar d;
     public ImageView e;
     public View f;
@@ -102,11 +102,11 @@ public final class NavigationBarController extends wh7 {
     public ImageView j;
     public ImageView k;
     public rq6 l;
-    public koc m;
+    public loc m;
     public TextView n;
     public final Lazy o;
 
-    public NavigationBarController(FragmentActivity activity, an7 navBarStat) {
+    public NavigationBarController(FragmentActivity activity, bn7 navBarStat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,14 +180,14 @@ public final class NavigationBarController extends wh7 {
                     rq6Var = null;
                 }
                 rq6Var.e();
-                an7 an7Var = this$0.c;
+                bn7 bn7Var = this$0.c;
                 rq6 rq6Var3 = this$0.l;
                 if (rq6Var3 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("messageIconController");
                 } else {
                     rq6Var2 = rq6Var3;
                 }
-                an7Var.a(rq6Var2.a());
+                bn7Var.a(rq6Var2.a());
             }
         }
     }
@@ -198,7 +198,7 @@ public final class NavigationBarController extends wh7 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             ViewModel viewModel = new ViewModelProvider(this$0.b).get(ForumViewModel.class);
             Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(activi…rumViewModel::class.java)");
-            si7 value = ((ForumViewModel) viewModel).a().getValue();
+            ti7 value = ((ForumViewModel) viewModel).a().getValue();
             if (value != null) {
                 ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).shareForum(this$0.b, value.a());
             }
@@ -261,7 +261,7 @@ public final class NavigationBarController extends wh7 {
         }
     }
 
-    public static final void A(NavigationBarController this$0, ri7 forumData) {
+    public static final void A(NavigationBarController this$0, si7 forumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, forumData) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -271,20 +271,20 @@ public final class NavigationBarController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException(ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME);
                 symbolEMTextView = null;
             }
-            symbolEMTextView.setText(forumData.f() + (char) 21543);
+            symbolEMTextView.setText(forumData.g() + (char) 21543);
             BarImageView barImageView = this$0.g;
             if (barImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("forumIcon");
                 barImageView = null;
             }
             boolean z = false;
-            barImageView.startLoad(forumData.d(), 45, false);
-            String n = forumData.n();
-            if (n.length() == 0) {
+            barImageView.startLoad(forumData.e(), 45, false);
+            String p = forumData.p();
+            if (p.length() == 0) {
                 z = true;
             }
             if (z) {
-                n = "#142354";
+                p = "#142354";
             }
             NavigationBar navigationBar2 = this$0.d;
             if (navigationBar2 == null) {
@@ -292,7 +292,7 @@ public final class NavigationBarController extends wh7 {
             } else {
                 navigationBar = navigationBar2;
             }
-            navigationBar.getBarBgView().setBackgroundColor(tua.f(n));
+            navigationBar.getBarBgView().setBackgroundColor(uua.f(p));
             Intrinsics.checkNotNullExpressionValue(forumData, "forumData");
             this$0.F(forumData);
         }
@@ -307,20 +307,20 @@ public final class NavigationBarController extends wh7 {
             ViewModel viewModel = new ViewModelProvider(this$0.b).get(ForumViewModel.class);
             Intrinsics.checkNotNullExpressionValue(viewModel, "ViewModelProvider(activi…rumViewModel::class.java)");
             ForumViewModel forumViewModel = (ForumViewModel) viewModel;
-            ri7 value = forumViewModel.c().getValue();
+            si7 value = forumViewModel.c().getValue();
             TbPageContext<?> tbPageContext = null;
             if (value != null) {
-                str = value.f();
+                str = value.g();
             } else {
                 str = null;
             }
-            ri7 value2 = forumViewModel.c().getValue();
+            si7 value2 = forumViewModel.c().getValue();
             if (value2 != null) {
-                l = Long.valueOf(value2.e());
+                l = Long.valueOf(value2.f());
             } else {
                 l = null;
             }
-            String i = fs7.i("frs", str, String.valueOf(l));
+            String i = gs7.i("frs", str, String.valueOf(l));
             Intrinsics.checkNotNullExpressionValue(i, "openHybridBarSearchPage(….toString()\n            )");
             BdPageContext<?> a = a5.a(this$0.b);
             if (a instanceof TbPageContext) {
@@ -337,7 +337,7 @@ public final class NavigationBarController extends wh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            xm7.a(5);
+            ym7.a(5);
             this$0.x();
         }
     }
@@ -357,7 +357,7 @@ public final class NavigationBarController extends wh7 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding = this$0.i;
             if (forumNavBarSecondFloorBinding != null) {
-                kk7.d(forumNavBarSecondFloorBinding, bool);
+                lk7.d(forumNavBarSecondFloorBinding, bool);
             }
         }
     }
@@ -367,17 +367,17 @@ public final class NavigationBarController extends wh7 {
         if (interceptable == null || interceptable.invokeLL(65550, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             this$0.x();
-            xm7.a(2);
+            ym7.a(2);
         }
     }
 
-    public static final void I(NavigationBarController this$0, String urlStr, ri7 forumData, int i, View view2) {
+    public static final void I(NavigationBarController this$0, String urlStr, si7 forumData, int i, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{this$0, urlStr, forumData, Integer.valueOf(i), view2}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(urlStr, "$urlStr");
             Intrinsics.checkNotNullParameter(forumData, "$forumData");
-            this$0.c.c(urlStr, forumData.e(), forumData.f(), i);
+            this$0.c.c(urlStr, forumData.f(), forumData.g(), i);
             UrlManager.getInstance().dealOneLink(new String[]{urlStr});
         }
     }
@@ -504,15 +504,15 @@ public final class NavigationBarController extends wh7 {
             z3.setAlpha(f3);
             ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding = this.i;
             if (forumNavBarSecondFloorBinding != null) {
-                kk7.e(forumNavBarSecondFloorBinding, z());
+                lk7.e(forumNavBarSecondFloorBinding, z());
             }
         }
     }
 
-    public final void F(ri7 ri7Var) {
+    public final void F(si7 si7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ri7Var) == null) {
-            w(ri7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, si7Var) == null) {
+            w(si7Var);
             ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding = this.i;
             NavigationBar navigationBar = this.d;
             TextView textView = null;
@@ -525,7 +525,7 @@ public final class NavigationBarController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("privateForumStatusTextView");
                 textView2 = null;
             }
-            this.i = kk7.b(forumNavBarSecondFloorBinding, navigationBar, ri7Var, textView2, new View.OnClickListener() { // from class: com.baidu.tieba.yg7
+            this.i = lk7.b(forumNavBarSecondFloorBinding, navigationBar, si7Var, textView2, new View.OnClickListener() { // from class: com.baidu.tieba.zg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -544,22 +544,22 @@ public final class NavigationBarController extends wh7 {
                 textView = textView3;
             }
             if (textView.getVisibility() == 8) {
-                t(ri7Var);
+                t(si7Var);
             }
             p();
         }
     }
 
-    public final void w(ri7 ri7Var) {
+    public final void w(si7 si7Var) {
         PrivateForumInfo a;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ri7Var) == null) {
-            if (!s(ri7Var)) {
-                zi7 k = ri7Var.k();
+        if (interceptable == null || interceptable.invokeL(1048587, this, si7Var) == null) {
+            if (!s(si7Var)) {
+                aj7 l = si7Var.l();
                 boolean z = true;
-                if ((k == null || (a = k.a()) == null || (num = a.private_forum_status) == null || num.intValue() != 1) ? false : false) {
-                    H(ri7Var);
+                if ((l == null || (a = l.a()) == null || (num = a.private_forum_status) == null || num.intValue() != 1) ? false : false) {
+                    H(si7Var);
                     return;
                 }
             }
@@ -572,7 +572,7 @@ public final class NavigationBarController extends wh7 {
         }
     }
 
-    public final void H(final ri7 ri7Var) {
+    public final void H(final si7 si7Var) {
         Integer num;
         int intValue;
         boolean z;
@@ -580,10 +580,10 @@ public final class NavigationBarController extends wh7 {
         Integer b;
         PrivateForumInfo a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ri7Var) == null) {
-            zi7 k = ri7Var.k();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, si7Var) == null) {
+            aj7 l = si7Var.l();
             TextView textView = null;
-            if (k != null && (a = k.a()) != null) {
+            if (l != null && (a = l.a()) != null) {
                 num = a.private_forum_audit_status;
             } else {
                 num = null;
@@ -594,8 +594,8 @@ public final class NavigationBarController extends wh7 {
             } else {
                 intValue = num.intValue();
             }
-            zi7 k2 = ri7Var.k();
-            if (k2 != null && (b = k2.b()) != null) {
+            aj7 l2 = si7Var.l();
+            if (l2 != null && (b = l2.b()) != null) {
                 i = b.intValue();
             }
             final int i2 = 2;
@@ -613,7 +613,7 @@ public final class NavigationBarController extends wh7 {
                 }
                 textView3.setVisibility(0);
                 StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                format = String.format(cj7.b(), Arrays.copyOf(new Object[]{Long.valueOf(ri7Var.e())}, 1));
+                format = String.format(dj7.b(), Arrays.copyOf(new Object[]{Long.valueOf(si7Var.f())}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
             } else {
                 if (i >= 0 && i < 101) {
@@ -640,7 +640,7 @@ public final class NavigationBarController extends wh7 {
                     }
                     textView5.setVisibility(0);
                     StringCompanionObject stringCompanionObject3 = StringCompanionObject.INSTANCE;
-                    format = String.format(cj7.a(), Arrays.copyOf(new Object[]{Long.valueOf(ri7Var.e()), ri7Var.f()}, 2));
+                    format = String.format(dj7.a(), Arrays.copyOf(new Object[]{Long.valueOf(si7Var.f()), si7Var.g()}, 2));
                     Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
                     i2 = 1;
                 } else {
@@ -660,7 +660,7 @@ public final class NavigationBarController extends wh7 {
             } else {
                 textView = textView7;
             }
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ig7
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -668,14 +668,14 @@ public final class NavigationBarController extends wh7 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        NavigationBarController.I(NavigationBarController.this, format, ri7Var, i2, view2);
+                        NavigationBarController.I(NavigationBarController.this, format, si7Var, i2, view2);
                     }
                 }
             });
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -740,11 +740,11 @@ public final class NavigationBarController extends wh7 {
         }
     }
 
-    public final void t(ri7 ri7Var) {
+    public final void t(si7 si7Var) {
         ViewGroup.MarginLayoutParams marginLayoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ri7Var) == null) {
-            mi7 a = ri7Var.a();
+        if (interceptable == null || interceptable.invokeL(1048586, this, si7Var) == null) {
+            ni7 a = si7Var.a();
             if (a != null && a.g()) {
                 z().setVisibility(0);
                 ViewGroup.LayoutParams layoutParams = z().getLayoutParams();
@@ -763,7 +763,7 @@ public final class NavigationBarController extends wh7 {
                 }
                 if (linearLayout != null) {
                     linearLayout.setGravity(21);
-                    z().post(new Runnable() { // from class: com.baidu.tieba.oh7
+                    z().post(new Runnable() { // from class: com.baidu.tieba.ph7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -781,22 +781,22 @@ public final class NavigationBarController extends wh7 {
                     z().d(CollectionsKt__CollectionsJVMKt.listOf(a.d().b()));
                     ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding = this.i;
                     if (forumNavBarSecondFloorBinding != null) {
-                        kk7.d(forumNavBarSecondFloorBinding, Boolean.TRUE);
+                        lk7.d(forumNavBarSecondFloorBinding, Boolean.TRUE);
                     }
                 } else {
                     z().setTipText(a.b().b());
                     z().d(a.b().a());
                     ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding2 = this.i;
                     if (forumNavBarSecondFloorBinding2 != null) {
-                        kk7.d(forumNavBarSecondFloorBinding2, Boolean.FALSE);
+                        lk7.d(forumNavBarSecondFloorBinding2, Boolean.FALSE);
                     }
                 }
                 ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding3 = this.i;
                 if (forumNavBarSecondFloorBinding3 != null) {
-                    kk7.e(forumNavBarSecondFloorBinding3, z());
+                    lk7.e(forumNavBarSecondFloorBinding3, z());
                 }
                 O();
-                z().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ng7
+                z().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.og7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -808,7 +808,7 @@ public final class NavigationBarController extends wh7 {
                         }
                     }
                 });
-                xm7.a(1);
+                ym7.a(1);
                 return;
             }
             z().setVisibility(8);
@@ -819,41 +819,41 @@ public final class NavigationBarController extends wh7 {
         ea5 ea5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ea5Var = (ea5) ServiceManager.getService(ea5.a)) != null) {
-            koc H = doc.c(ea5Var.g().k(new woc() { // from class: com.baidu.tieba.ch7
+            loc H = eoc.c(ea5Var.g().k(new xoc() { // from class: com.baidu.tieba.dh7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.woc
+                @Override // com.baidu.tieba.xoc
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? NavigationBarController.N((NewsRemindMessage) obj) : invokeL.objValue;
                 }
-            }), ea5Var.c(), new xoc() { // from class: com.baidu.tieba.eh7
+            }), ea5Var.c(), new yoc() { // from class: com.baidu.tieba.fh7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.xoc
+                @Override // com.baidu.tieba.yoc
                 public final Object a(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? NavigationBarController.K((NewsRemindMessage) obj, (Boolean) obj2) : invokeLL.objValue;
                 }
-            }).p(new woc() { // from class: com.baidu.tieba.wg7
+            }).p(new xoc() { // from class: com.baidu.tieba.xg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.woc
+                @Override // com.baidu.tieba.xoc
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? NavigationBarController.L((Pair) obj) : invokeL.objValue;
                 }
-            }).H(new roc() { // from class: com.baidu.tieba.nh7
+            }).H(new soc() { // from class: com.baidu.tieba.oh7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.roc
+                @Override // com.baidu.tieba.soc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -887,7 +887,7 @@ public final class NavigationBarController extends wh7 {
     public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).e().observe(this.b, new Observer() { // from class: com.baidu.tieba.hh7
+            ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).e().observe(this.b, new Observer() { // from class: com.baidu.tieba.ih7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -902,17 +902,17 @@ public final class NavigationBarController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.l();
-            koc kocVar = this.m;
-            if (kocVar == null) {
+            loc locVar = this.m;
+            if (locVar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("messageSubscription");
-                kocVar = null;
+                locVar = null;
             }
-            kocVar.unsubscribe();
+            locVar.unsubscribe();
             this.i = null;
         }
     }
@@ -925,7 +925,7 @@ public final class NavigationBarController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
                 navigationBar = null;
             }
-            navigationBar.post(new Runnable() { // from class: com.baidu.tieba.eg7
+            navigationBar.post(new Runnable() { // from class: com.baidu.tieba.fg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -958,7 +958,7 @@ public final class NavigationBarController extends wh7 {
         return (FrsAutoCarouselImageContainer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     @SuppressLint({"SetTextI18n"})
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
@@ -1038,7 +1038,7 @@ public final class NavigationBarController extends wh7 {
                 View findViewById3 = view3.findViewById(R.id.obfuscated_res_0x7f09259b);
                 Intrinsics.checkNotNullExpressionValue(findViewById3, "forumInfoLayout.findViewById(R.id.text_forum_name)");
                 this.h = (SymbolEMTextView) findViewById3;
-                ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.gh7
+                ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.hh7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1046,7 +1046,7 @@ public final class NavigationBarController extends wh7 {
                     public final void onChanged(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            NavigationBarController.A(NavigationBarController.this, (ri7) obj);
+                            NavigationBarController.A(NavigationBarController.this, (si7) obj);
                         }
                     }
                 });
@@ -1062,7 +1062,7 @@ public final class NavigationBarController extends wh7 {
                     Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
                     navigationBar6 = null;
                 }
-                View addCustomView3 = navigationBar6.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0321, new View.OnClickListener() { // from class: com.baidu.tieba.jg7
+                View addCustomView3 = navigationBar6.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0321, new View.OnClickListener() { // from class: com.baidu.tieba.kg7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1088,7 +1088,7 @@ public final class NavigationBarController extends wh7 {
                         Intrinsics.throwUninitializedPropertyAccessException("messageIconController");
                         rq6Var = null;
                     }
-                    navigationBar7.addCustomView(controlAlign, rq6Var.d(), new View.OnClickListener() { // from class: com.baidu.tieba.og7
+                    navigationBar7.addCustomView(controlAlign, rq6Var.d(), new View.OnClickListener() { // from class: com.baidu.tieba.pg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1105,7 +1105,7 @@ public final class NavigationBarController extends wh7 {
                         Intrinsics.throwUninitializedPropertyAccessException("navigationBar");
                         navigationBar8 = null;
                     }
-                    View addCustomView4 = navigationBar8.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0323, new View.OnClickListener() { // from class: com.baidu.tieba.sg7
+                    View addCustomView4 = navigationBar8.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0323, new View.OnClickListener() { // from class: com.baidu.tieba.tg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1142,21 +1142,21 @@ public final class NavigationBarController extends wh7 {
         }
     }
 
-    public final boolean s(ri7 ri7Var) {
+    public final boolean s(si7 si7Var) {
         InterceptResult invokeL;
         PrivateForumInfo privateForumInfo;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ri7Var)) == null) {
-            zi7 k = ri7Var.k();
-            if (k != null) {
-                privateForumInfo = k.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, si7Var)) == null) {
+            aj7 l = si7Var.l();
+            if (l != null) {
+                privateForumInfo = l.a();
             } else {
                 privateForumInfo = null;
             }
             if (privateForumInfo != null) {
-                UserData q = ri7Var.q();
-                if (q != null && q.getIs_manager() == 1) {
+                UserData s = si7Var.s();
+                if (s != null && s.getIs_manager() == 1) {
                     z = true;
                 } else {
                     z = false;

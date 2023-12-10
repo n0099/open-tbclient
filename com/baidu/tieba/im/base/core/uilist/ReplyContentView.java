@@ -120,7 +120,7 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void d(TbReMsgInfo tbReMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbReMsgInfo) == null) {
-            a17.e(getContext(), tbReMsgInfo.getContent(), this.c, new a17.i() { // from class: com.baidu.tieba.iq8
+            a17.e(getContext(), tbReMsgInfo.getContent(), this.c, new a17.i() { // from class: com.baidu.tieba.jq8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

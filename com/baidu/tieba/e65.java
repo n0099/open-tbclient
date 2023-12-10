@@ -151,7 +151,7 @@ public class e65 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setColor(tua.a(i, 0.08f));
+                gradientDrawable.setColor(uua.a(i, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.s, this.d));
             }

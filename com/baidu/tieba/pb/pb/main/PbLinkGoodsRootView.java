@@ -44,11 +44,11 @@ import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tbadk.core.view.commonMountCard.TbMountCardLinkLayout;
 import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aw9;
 import com.baidu.tieba.cs4;
 import com.baidu.tieba.h65;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.vm6;
-import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -500,11 +500,11 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void h(zv9 zv9Var, List<vm6> list, String str, PbFragment pbFragment, boolean z) {
+    public void h(aw9 aw9Var, List<vm6> list, String str, PbFragment pbFragment, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{zv9Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{aw9Var, list, str, pbFragment, Boolean.valueOf(z)}) == null) {
             this.q = pbFragment;
-            i(zv9Var, list, str, z);
+            i(aw9Var, list, str, z);
             PbFragment pbFragment2 = this.q;
             if (pbFragment2 != null) {
                 j(pbFragment2.a7());
@@ -512,14 +512,14 @@ public class PbLinkGoodsRootView extends RelativeLayout {
         }
     }
 
-    public void i(zv9 zv9Var, List<vm6> list, String str, boolean z) {
+    public void i(aw9 aw9Var, List<vm6> list, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zv9Var, list, str, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aw9Var, list, str, Boolean.valueOf(z)}) == null) {
             this.m = list;
-            ThreadData R = zv9Var.R();
+            ThreadData R = aw9Var.R();
             this.r = R;
-            R.setForum_name(zv9Var.p());
-            this.r.setFid(Long.valueOf(zv9Var.o()).longValue());
+            R.setForum_name(aw9Var.p());
+            this.r.setFid(Long.valueOf(aw9Var.o()).longValue());
             this.p = z;
             this.n = list.size();
             if (list.size() < 4) {

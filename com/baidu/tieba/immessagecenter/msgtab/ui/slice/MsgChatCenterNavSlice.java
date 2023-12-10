@@ -30,9 +30,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gu5;
-import com.baidu.tieba.i79;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.immessagecenter.msgtab.ui.slice.MsgChatCenterNavSlice;
+import com.baidu.tieba.j79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -212,7 +212,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 }
                 this.n = linearLayout;
                 if (linearLayout != null) {
-                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s89
+                    linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.t89
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -248,7 +248,7 @@ public final class MsgChatCenterNavSlice extends Slice {
                 }
                 this.q = tbImageView;
                 if (tbImageView != null) {
-                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.t89
+                    tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.u89
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -281,7 +281,7 @@ public final class MsgChatCenterNavSlice extends Slice {
             RobotMallConfig robotMallConfig = TbSingleton.getInstance().getRobotMallConfig();
             Intrinsics.checkNotNullExpressionValue(robotMallConfig, "getInstance().robotMallConfig");
             this.r = robotMallConfig;
-            if (i79.a.a()) {
+            if (j79.a.a()) {
                 RobotMallConfig robotMallConfig2 = this.r;
                 RobotMallConfig robotMallConfig3 = null;
                 if (robotMallConfig2 == null) {

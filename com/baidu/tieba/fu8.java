@@ -3,207 +3,130 @@ package com.baidu.tieba;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteStatement;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class fu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static fu8 a;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fu8() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776736, "Lcom/baidu/tieba/fu8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947776736, "Lcom/baidu/tieba/fu8;");
+                return;
+            }
+        }
+        c = new HashMap<>();
+    }
+
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        gu8.e().h();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    gu8.e().i("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends") && !next.startsWith("tb_group_chat_room_") && !next.equals("tb_chat_sys_notify")) {
+                                    gu8.e().b(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
+                }
+            } finally {
+                gu8.e().c();
             }
         }
     }
 
-    public static fu8 e() {
+    public static LinkedList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (fu8.class) {
-                    if (a == null) {
-                        a = new fu8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
                     }
                 }
-            }
-            return a;
-        }
-        return (fu8) invokeV.objValue;
-    }
-
-    public SQLiteStatement a(String str) {
-        InterceptResult invokeL;
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (c = eu8.c()) == null) {
-                return null;
-            }
-            try {
-                return c.compileStatement(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+                return linkedList;
+            } finally {
+                sd.a(cursor);
             }
         }
-        return (SQLiteStatement) invokeL.objValue;
+        return (LinkedList) invokeV.objValue;
     }
 
-    public boolean b(String str, String str2, String[] strArr) {
-        InterceptResult invokeLLL;
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, strArr)) == null) {
-            SQLiteDatabase c = eu8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                if (c.delete(str, str2, strArr) <= 0) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (fu8.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
                 }
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return false;
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    sd.b(b);
+                }
+                eu8 eu8Var = new eu8(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = eu8Var.getWritableDatabase();
+                return b;
             }
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public void c() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (c = eu8.c()) == null) {
-            return;
-        }
-        BdLog.i("begin commit transaction");
-        if (c.inTransaction()) {
-            try {
-                c.setTransactionSuccessful();
-                c.endTransaction();
-                return;
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: endTransaction error:" + e.getMessage(), -1, "", new Object[0]);
-                return;
-            }
-        }
-        BdLog.e("there is no current transaction");
-    }
-
-    public void h() {
-        SQLiteDatabase c;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (c = eu8.c()) == null) {
-            return;
-        }
-        if (c.inTransaction()) {
-            BdLog.e("there is exist transaction");
-            return;
-        }
-        try {
-            c.beginTransaction();
-            BdLog.i("db.beginTransaction");
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
-            BdLog.e(e.getMessage());
-            Logger.addLog("im", -1L, 0, "im_check: startTransaction error:" + e.getMessage(), -1, "", new Object[0]);
-        }
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SQLiteDatabase c = eu8.c();
-            if (c == null) {
-                return false;
-            }
-            try {
-                c.execSQL(str);
-                return true;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: execSQL error:" + e.getMessage(), -1, "", new Object[0]);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long f(String str, String str2, ContentValues contentValues) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, contentValues)) == null) {
-            SQLiteDatabase c = eu8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            try {
-                return c.insert(str, str2, contentValues);
-            } catch (Exception e) {
-                Logger.addLog("im", -1L, 0, "im_check: insertOrUpdate error:" + e.getMessage(), -1, "", new Object[0]);
-                BdLog.e(e.getMessage());
-                return -1L;
-            }
-        }
-        return invokeLLL.longValue;
-    }
-
-    public Cursor g(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, strArr)) == null) {
-            SQLiteDatabase c = eu8.c();
-            if (c == null) {
-                return null;
-            }
-            try {
-                return c.rawQuery(str, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage() + str);
-                return null;
-            }
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    public int i(String str, ContentValues contentValues, String str2, String[] strArr) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, str, contentValues, str2, strArr)) == null) {
-            SQLiteDatabase c = eu8.c();
-            if (c == null || TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return c.update(str, contentValues, str2, strArr);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                Logger.addLog("im", -1L, 0, "im_check: update error" + e.getMessage(), -1, "", new Object[0]);
-                return -1;
-            }
-        }
-        return invokeLLLL.intValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

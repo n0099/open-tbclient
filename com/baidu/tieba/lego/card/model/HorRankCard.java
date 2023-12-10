@@ -7,7 +7,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.cg9;
+import com.baidu.tieba.dg9;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
@@ -30,7 +30,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final cg9 rightText;
+    public final dg9 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -153,7 +153,7 @@ public class HorRankCard extends BaseCardInfo {
             aVar.l = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = cg9.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = dg9.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -211,13 +211,13 @@ public class HorRankCard extends BaseCardInfo {
         return invokeV.doubleValue;
     }
 
-    public cg9 getRightText() {
+    public dg9 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.rightText;
         }
-        return (cg9) invokeV.objValue;
+        return (dg9) invokeV.objValue;
     }
 
     public int getTitleColor() {

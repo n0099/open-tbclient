@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
 import com.baidu.tieba.j37;
-import com.baidu.tieba.mea;
+import com.baidu.tieba.nea;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import tbclient.VideoInfo;
 public final class ip6 implements j37.r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final si8 a;
+    public final ti8 a;
     public final ViewGroup b;
     public String c;
 
@@ -85,7 +85,7 @@ public final class ip6 implements j37.r {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.a = new si8(context, rootView);
+        this.a = new ti8(context, rootView);
         this.b = rootView;
         this.c = "";
     }
@@ -102,7 +102,7 @@ public final class ip6 implements j37.r {
             Intrinsics.checkNotNullExpressionValue(context, "rootView.context");
             m.invoke(context, rect, state);
             for (e87 e87Var : state.o()) {
-                ac7.a.f(e87Var, state.k() + 1);
+                bc7.a.f(e87Var, state.k() + 1);
                 state.j().invoke(e87Var);
             }
         }
@@ -116,7 +116,7 @@ public final class ip6 implements j37.r {
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public final class ip6 implements j37.r {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public final class ip6 implements j37.r {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -146,7 +146,7 @@ public final class ip6 implements j37.r {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -156,7 +156,7 @@ public final class ip6 implements j37.r {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public final class ip6 implements j37.r {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -192,7 +192,7 @@ public final class ip6 implements j37.r {
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -264,7 +264,7 @@ public final class ip6 implements j37.r {
                 }
             }
             this.a.setData(threadData);
-            gea geaVar = new gea();
+            hea heaVar = new hea();
             Map<String, String> map2 = p.j;
             if (map2 != null) {
                 String str5 = map2.get("feed_social_source");
@@ -272,56 +272,56 @@ public final class ip6 implements j37.r {
                     switch (str5.hashCode()) {
                         case 49:
                             if (str5.equals("1")) {
-                                geaVar.a = "1";
+                                heaVar.a = "1";
                                 break;
                             }
                             break;
                         case 52:
                             if (str5.equals("4")) {
-                                geaVar.a = "25";
+                                heaVar.a = "25";
                                 break;
                             }
                             break;
                     }
                 }
-                geaVar.c = map2.get("thread_id");
-                geaVar.d = map2.get("forum_id");
-                geaVar.v = map2.get("nid");
-                geaVar.m = p.i;
+                heaVar.c = map2.get("thread_id");
+                heaVar.d = map2.get("forum_id");
+                heaVar.v = map2.get("nid");
+                heaVar.m = p.i;
                 if (!p.d) {
                     str4 = "0";
                 }
-                geaVar.p = str4;
+                heaVar.p = str4;
                 String str6 = map2.get("extra");
                 if (str6 == null) {
                     str6 = "";
                 }
-                geaVar.k = str6;
+                heaVar.k = str6;
                 String str7 = map2.get("source");
                 if (str7 == null) {
                     str7 = "";
                 }
-                geaVar.f = str7;
+                heaVar.f = str7;
                 String str8 = map2.get("abtest_tag");
                 if (str8 == null) {
                     str8 = "";
                 }
-                geaVar.l = str8;
+                heaVar.l = str8;
                 String str9 = map2.get("weight");
                 if (str9 != null) {
                     str2 = str9;
                 }
-                geaVar.h = str2;
-                geaVar.e = TbadkCoreApplication.getCurrentAccount();
-                geaVar.q = String.valueOf(state.k() + 1);
+                heaVar.h = str2;
+                heaVar.e = TbadkCoreApplication.getCurrentAccount();
+                heaVar.q = String.valueOf(state.k() + 1);
             }
-            this.a.setStatistic(geaVar);
+            this.a.setStatistic(heaVar);
             state.r(new a(this));
-            this.a.d(new mea.a() { // from class: com.baidu.tieba.do6
+            this.a.d(new nea.a() { // from class: com.baidu.tieba.do6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.mea.a
+                @Override // com.baidu.tieba.nea.a
                 public final void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -332,7 +332,7 @@ public final class ip6 implements j37.r {
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void startPlay() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (this.b.getContext() instanceof IVideoNeedPreload)) {

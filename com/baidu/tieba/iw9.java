@@ -11,8 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class iw9 implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +29,7 @@ public class iw9 implements pi {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public iw9() {
@@ -49,7 +51,7 @@ public class iw9 implements pi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

@@ -16,11 +16,11 @@ import com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader;
 import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.gj5;
 import com.baidu.tieba.n75;
-import com.baidu.tieba.vfb;
 import com.baidu.tieba.vq6;
+import com.baidu.tieba.wfb;
 import com.baidu.tieba.wq6;
 import com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt;
-import com.baidu.tieba.xfb;
+import com.baidu.tieba.yfb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,19 +77,19 @@ public final class LocalFileInterceptorKt {
         return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.wfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
     public static final /* synthetic */ WebResourceResponse a(Uri uri, WebResourceRequest webResourceRequest) {
         return e(uri, webResourceRequest);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.wfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
     public static final /* synthetic */ WebResourceResponse c(Uri uri, WebResourceRequest webResourceRequest) {
         return j(uri, webResourceRequest);
     }
 
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.wfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
-    public static final /* synthetic */ WebResourceResponse b(Map map, WriteData writeData, xfb xfbVar, Uri uri, WebResourceRequest webResourceRequest) {
-        return f(map, writeData, xfbVar, uri, webResourceRequest);
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.xfb.a(android.webkit.WebView, android.webkit.WebResourceRequest):android.webkit.WebResourceResponse] */
+    public static final /* synthetic */ WebResourceResponse b(Map map, WriteData writeData, yfb yfbVar, Uri uri, WebResourceRequest webResourceRequest) {
+        return f(map, writeData, yfbVar, uri, webResourceRequest);
     }
 
     public static final WebResourceResponse e(Uri uri, WebResourceRequest webResourceRequest) {
@@ -124,7 +124,7 @@ public final class LocalFileInterceptorKt {
         return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public static final WebResourceResponse f(Map<String, String> map, WriteData writeData, xfb xfbVar, Uri uri, WebResourceRequest webResourceRequest) {
+    public static final WebResourceResponse f(Map<String, String> map, WriteData writeData, yfb yfbVar, Uri uri, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLLLLL;
         ImageFileInfo imageFileInfo;
         WebResourceResponse e;
@@ -135,7 +135,7 @@ public final class LocalFileInterceptorKt {
         LinkedList<ImageFileInfo> chosedFiles2;
         Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, map, writeData, xfbVar, uri, webResourceRequest)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, map, writeData, yfbVar, uri, webResourceRequest)) == null) {
             String queryParameter = uri.getQueryParameter("ref");
             HashMap hashMap = null;
             if (queryParameter == null) {
@@ -171,7 +171,7 @@ public final class LocalFileInterceptorKt {
                         imageFileInfo2 = null;
                     }
                     if (imageFileInfo2 != null) {
-                        e = g(imageFileInfo2, xfbVar, webResourceRequest);
+                        e = g(imageFileInfo2, yfbVar, webResourceRequest);
                     } else {
                         HybridLog.getInstance().i("LocalFileInterceptor", "加载本地图片失败，writeImagesInfo中没有:" + queryParameter);
                         e = null;
@@ -221,12 +221,12 @@ public final class LocalFileInterceptorKt {
         return (WebResourceResponse) invokeLLLLL.objValue;
     }
 
-    public static final WebResourceResponse g(ImageFileInfo imageFileInfo, xfb xfbVar, WebResourceRequest webResourceRequest) {
+    public static final WebResourceResponse g(ImageFileInfo imageFileInfo, yfb yfbVar, WebResourceRequest webResourceRequest) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, imageFileInfo, xfbVar, webResourceRequest)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, imageFileInfo, yfbVar, webResourceRequest)) == null) {
             final wq6 wq6Var = new wq6();
-            gj5 gj5Var = new gj5() { // from class: com.baidu.tieba.tfb
+            gj5 gj5Var = new gj5() { // from class: com.baidu.tieba.ufb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -239,8 +239,8 @@ public final class LocalFileInterceptorKt {
                 }
             };
             BdImage bdImage = null;
-            if (imageFileInfo != null && xfbVar != null) {
-                bdImage = xfb.d(xfbVar, imageFileInfo, gj5Var, true, false, 8, null);
+            if (imageFileInfo != null && yfbVar != null) {
+                bdImage = yfb.d(yfbVar, imageFileInfo, gj5Var, true, false, 8, null);
             }
             if (bdImage != null) {
                 WebResourceResponse f = ImageLoader.f(bdImage.getImageByte(), WordCommandManager.IMAGE_PNG, webResourceRequest);
@@ -265,10 +265,10 @@ public final class LocalFileInterceptorKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, imageFileInfo)) == null) {
             wq6 wq6Var = new wq6();
-            vfb.a aVar = vfb.a;
+            wfb.a aVar = wfb.a;
             String filePath = imageFileInfo.getFilePath();
             Intrinsics.checkNotNullExpressionValue(filePath, "info.filePath");
-            vfb.a.b(aVar, filePath, 0, 0, new Function1<BdImage, Unit>(imageFileInfo, wq6Var) { // from class: com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt$localPreviewImage$1
+            wfb.a.b(aVar, filePath, 0, 0, new Function1<BdImage, Unit>(imageFileInfo, wq6Var) { // from class: com.baidu.tieba.write.webwrite.ability.LocalFileInterceptorKt$localPreviewImage$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ wq6<byte[]> $future;

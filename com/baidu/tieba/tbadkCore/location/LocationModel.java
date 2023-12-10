@@ -14,9 +14,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.lxa;
+import com.baidu.tieba.mxa;
 import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            vva.h(303017, LocationSocketResponsedMessage.class, false, false);
+            wva.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            lxa.a().e(z);
-            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", lxa.a().c());
+            mxa.a().e(z);
+            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", mxa.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void V(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = lxa.a().b();
+            LocationData b2 = mxa.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             R(locationData);
-            lxa.a().f(System.currentTimeMillis());
-            lxa.a().d(locationData);
+            mxa.a().f(System.currentTimeMillis());
+            mxa.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.nl6;
-import com.baidu.tieba.oy7;
-import com.baidu.tieba.rxa;
+import com.baidu.tieba.py7;
+import com.baidu.tieba.sxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsGameStrategyItemView extends nl6<oy7> {
+public class FrsGameStrategyItemView extends nl6<py7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -126,12 +126,12 @@ public class FrsGameStrategyItemView extends nl6<oy7> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.nl6
     /* renamed from: r */
-    public void j(oy7 oy7Var) {
+    public void j(py7 py7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, oy7Var) == null) && oy7Var != null && oy7Var.getThreadData() != null) {
-            ThreadData threadData = oy7Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048581, this, py7Var) == null) && py7Var != null && py7Var.getThreadData() != null) {
+            ThreadData threadData = py7Var.getThreadData();
             this.m.setText(threadData.getTitle());
-            rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(threadData.getId())) {
                 SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0108);
             } else {

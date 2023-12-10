@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.sdk.internal.ci;
 import com.baidu.tieba.c95;
-import com.baidu.tieba.cxa;
-import com.baidu.tieba.fxa;
-import com.baidu.tieba.jxa;
+import com.baidu.tieba.dxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.kxa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cxa callback;
+    public dxa callback;
     public TBWebViewActivity mActivity;
 
     public TbWebChromeClient(TBWebViewActivity tBWebViewActivity) {
@@ -64,10 +64,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(cxa cxaVar) {
+    public void setOnJsPromptCallback(dxa dxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cxaVar) == null) {
-            this.callback = cxaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, dxaVar) == null) {
+            this.callback = dxaVar;
         }
     }
 
@@ -148,16 +148,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        cxa cxaVar;
+        dxa dxaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!c95.a(str) && str2.startsWith("tiebaapp")) {
-                fxa fxaVar = new fxa();
-                fxaVar.w(jxa.b(str2));
-                fxaVar.y(301);
-                callJsMethod(webView, fxaVar.c(), fxaVar.d());
+                gxa gxaVar = new gxa();
+                gxaVar.w(kxa.b(str2));
+                gxaVar.y(301);
+                callJsMethod(webView, gxaVar.c(), gxaVar.d());
             }
-            if (c95.a(str) && (cxaVar = this.callback) != null && cxaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (c95.a(str) && (dxaVar = this.callback) != null && dxaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

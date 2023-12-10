@@ -47,13 +47,13 @@ public class ep4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
-            if (rfa.b()) {
+            if (sfa.b()) {
                 httpMessage.addParam("brand", Build.BRAND);
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, rfa.c());
-                String g = rfa.g("brand");
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, sfa.c());
+                String g = sfa.g("brand");
                 if (!TextUtils.isEmpty(g)) {
-                    httpMessage.addParam(g, rfa.e());
+                    httpMessage.addParam(g, sfa.e());
                 }
             }
             httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());

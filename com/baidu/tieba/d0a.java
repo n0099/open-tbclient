@@ -1,98 +1,68 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
-import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import tbclient.SpritePBGuide;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class d0a {
+public class d0a extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<Activity> a;
-    public SpritePBGuide b;
-    public String c;
-    public String d;
+    public Context a;
+    public jj5 b;
+    public LinkedList<ImageFileInfo> c;
+    public int d;
     public int e;
-    public SpriteAnimationTipManager f;
-    public SpriteBottomTipView g;
-    public d h;
+    public c f;
+    public BdUniqueId g;
 
     /* loaded from: classes5.dex */
-    public interface d {
-        void onDismiss();
+    public interface c {
+        void C(int i);
+
+        void G0(int i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements gj5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
 
-        public a(d0a d0aVar) {
+        public a(d0a d0aVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d0aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && lk5.e()) {
-                String b = lk5.b("", 0);
-                if (b.startsWith("tiebaapp://router/portal")) {
-                    UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{b});
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d0a a;
-
-        public b(d0a d0aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d0aVar};
+                Object[] objArr = {d0aVar, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,84 +72,85 @@ public class d0a {
                     return;
                 }
             }
-            this.a = d0aVar;
+            this.a = viewGroup;
+        }
+
+        @Override // com.baidu.tieba.gj5
+        public void a(BdImage bdImage, String str, boolean z) {
+            TbImageView tbImageView;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, bdImage, str, z) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(str)) != null && bdImage != null) {
+                tbImageView.invalidate();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdResourceCallback<BdImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ String b;
+
+        public b(d0a d0aVar, ViewGroup viewGroup, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d0aVar, viewGroup, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
+            TbImageView tbImageView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.g();
-                return null;
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(this.b)) != null && bdImage != null) {
+                tbImageView.invalidate();
             }
-            return (Unit) invokeV.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements SpriteBottomTipView.b {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ d0a b;
+        public TbImageView a;
+        public LinearLayout b;
+        public ImageView c;
 
-        public c(d0a d0aVar, Activity activity) {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d0aVar, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.b = d0aVar;
-            this.a = activity;
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.f.i();
-            }
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void onBtnClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.b.g();
-                this.b.l(this.a);
-                this.b.m();
-            }
-        }
-
-        @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b.g();
-                this.b.l(this.a);
-                this.b.m();
             }
         }
     }
 
-    public d0a(Activity activity) {
+    public d0a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -189,246 +160,153 @@ public class d0a {
                 return;
             }
         }
-        this.a = new WeakReference<>(activity);
+        this.a = null;
+        this.b = new jj5();
+        this.c = null;
+        this.a = context;
+        int equipmentWidth = BdUtilHelper.getEquipmentWidth(context);
+        this.e = equipmentWidth;
+        this.d = ((equipmentWidth - (BdUtilHelper.getDimens(this.a, R.dimen.tbds44) * 2)) - (BdUtilHelper.getDimens(this.a, R.dimen.tbds10) * 2)) / 3;
     }
 
-    public final boolean k(@Nullable SpritePBGuide spritePBGuide) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, spritePBGuide)) == null) {
-            if (spritePBGuide == null || TextUtils.isEmpty(spritePBGuide.button_text) || TextUtils.isEmpty(spritePBGuide.jump_url)) {
-                return false;
-            }
-            if (spritePBGuide.guide_type.longValue() == 0 && TextUtils.isEmpty(spritePBGuide.guide_text)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void l(Context context) {
-        SpritePBGuide spritePBGuide;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, context) == null) && (spritePBGuide = this.b) != null && !TextUtils.isEmpty(spritePBGuide.jump_url)) {
-            UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(context), new String[]{this.b.jump_url});
-        }
-    }
-
-    public void p(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.h = dVar;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    @NonNull
-    public static FrameLayout.LayoutParams e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 83;
-            layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds141);
-            return layoutParams;
-        }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.get() == null) {
-                return false;
-            }
-            return k(this.b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        SpriteAnimationTipManager spriteAnimationTipManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (spriteAnimationTipManager = this.f) != null) {
-            spriteAnimationTipManager.q();
-            d dVar = this.h;
-            if (dVar != null) {
-                dVar.onDismiss();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f091563 && (view2.getTag() instanceof Integer)) {
+                c cVar2 = this.f;
+                if (cVar2 != null) {
+                    cVar2.G0(((Integer) view2.getTag()).intValue());
+                }
+            } else if (id == R.id.obfuscated_res_0x7f0912af && (view2.getTag(view2.getId()) instanceof Integer) && (cVar = this.f) != null) {
+                cVar.C(((Integer) view2.getTag(view2.getId())).intValue());
             }
         }
     }
 
-    public final String i() {
+    public final void a(ImageFileInfo imageFileInfo, d dVar, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, imageFileInfo, dVar, viewGroup) != null) || imageFileInfo == null) {
+            return;
+        }
+        int i = this.d;
+        ImageOperation g = tj5.g(i, i);
+        imageFileInfo.clearPageActions();
+        imageFileInfo.addPageAction(g);
+        if (imageFileInfo.getImageType() == 0) {
+            BdImage c2 = this.b.c(imageFileInfo, true);
+            dVar.a.setTag(imageFileInfo.toCachedKey(true));
+            if (c2 != null) {
+                dVar.a.invalidate();
+            } else {
+                this.b.d(imageFileInfo, new a(this, viewGroup), true);
+            }
+            dVar.a.setTagStr(this.a.getString(R.string.obfuscated_res_0x7f0f0628));
+        } else if (imageFileInfo.getImageType() == 1) {
+            String filePath = imageFileInfo.getFilePath();
+            if (!rd.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                String genCacheKey = BdResourceLoader.getInstance().genCacheKey(filePath, 20);
+                dVar.a.setTag(genCacheKey);
+                BdResourceLoader.getInstance().loadResource(filePath, 20, new b(this, viewGroup, genCacheKey), 0, 0, this.g, null, filePath, Boolean.FALSE, null);
+            }
+            dVar.a.setTagStr("");
+        }
+    }
+
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
+
+    public void c(LinkedList<ImageFileInfo> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, linkedList) == null) {
+            this.c = linkedList;
+        }
+    }
+
+    public void d(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            LinkedList<ImageFileInfo> linkedList = this.c;
+            if (linkedList == null) {
+                return null;
+            }
+            if (linkedList.size() - 1 >= i) {
+                return this.c.get(i);
+            }
+            return 0;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            SpritePBGuide spritePBGuide = this.b;
-            if (spritePBGuide != null && !TextUtils.isEmpty(spritePBGuide.button_text)) {
-                return this.b.button_text;
+            LinkedList<ImageFileInfo> linkedList = this.c;
+            if (linkedList == null) {
+                return 0;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.check_immediately);
+            return linkedList.size();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void n() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            SpriteAnimationTipManager spriteAnimationTipManager = this.f;
-            if (spriteAnimationTipManager != null) {
-                spriteAnimationTipManager.r("see_res");
-            }
-            SpriteBottomTipView spriteBottomTipView = this.g;
-            if (spriteBottomTipView != null) {
-                spriteBottomTipView.j(TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    }
-
-    public final SpriteBottomTipView f(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
-            aVar.o(R.layout.funny_sprite_enter_frs_tip_layout);
-            aVar.e(i());
-            aVar.t(j());
-            aVar.n(this.c);
-            aVar.x(R.dimen.T_X07);
-            aVar.y(R.string.F_X01);
-            aVar.v(R.color.CAM_X0105);
-            aVar.m(R.drawable.pic_use_header_28_n);
-            aVar.s(true);
-            aVar.p(Integer.valueOf((int) R.drawable.funny_sprite_tip_bg_right));
-            aVar.r(new c(this, activity));
-            SpriteBottomTipView a2 = aVar.a();
-            ViewGroup.LayoutParams layoutParams = a2.getTitleView().getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds78);
-                a2.getTitleView().setLayoutParams(marginLayoutParams);
-            }
-            return a2;
-        }
-        return (SpriteBottomTipView) invokeL.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15293");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!TextUtils.isEmpty(currentAccount)) {
-                statisticItem.addParam("uid", currentAccount);
-            }
-            if (!TextUtils.isEmpty(this.d)) {
-                statisticItem.addParam("fid", this.d);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15294");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (!TextUtils.isEmpty(currentAccount)) {
-                statisticItem.addParam("uid", currentAccount);
-            }
-            if (!TextUtils.isEmpty(this.d)) {
-                statisticItem.addParam("fid", this.d);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SpritePBGuide spritePBGuide = this.b;
-            if (spritePBGuide != null) {
-                if (spritePBGuide.guide_type.longValue() == 1) {
-                    return String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f101c), StringHelper.numberUniformFormatExtraWithRoundFloat(this.e));
-                }
-                String str = this.b.guide_text;
-                if (str != null) {
-                    return str;
-                }
-                return "";
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void o(SpritePBGuide spritePBGuide, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, spritePBGuide, str, str2) == null) {
-            this.b = spritePBGuide;
-            this.c = str;
-            this.d = str2;
-        }
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Activity activity;
-        boolean z;
-        String str;
-        String str2;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            DefaultLog.getInstance().i("PbTopicTip", "准备展示精灵动画提示控件");
-            if (!d() || (activity = this.a.get()) == null || activity.isFinishing()) {
-                return false;
-            }
-            this.f = new SpriteAnimationTipManager(activity);
-            if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                z = true;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                dVar = new d();
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c4, (ViewGroup) null);
+                dVar.a = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0912af);
+                dVar.b = (LinearLayout) view3.findViewById(R.id.obfuscated_res_0x7f091563);
+                dVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0908c8);
+                dVar.a.setOnClickListener(this);
+                dVar.a.setTagTextSize(BdUtilHelper.getDimens(this.a, R.dimen.tbds30));
+                dVar.a.setDrawBorder(true);
+                dVar.a.setDrawCorner(false);
+                dVar.a.setRadius(0);
+                dVar.b.setOnClickListener(this);
+                dVar.a.setGifIconSupport(true);
+                dVar.a.setLongIconSupport(true);
+                SkinManager.setBackgroundResource(dVar.c, R.drawable.icon_delete_img);
+                ViewGroup.LayoutParams layoutParams = dVar.a.getLayoutParams();
+                int i2 = this.d;
+                layoutParams.width = i2;
+                layoutParams.height = i2;
+                view3.setTag(dVar);
             } else {
-                z = false;
+                view3 = view2;
+                dVar = (d) view2.getTag();
             }
-            if (z) {
-                str = "funny_sprite_appear_day";
-            } else {
-                str = "funny_sprite_appear_dark";
+            LinkedList<ImageFileInfo> linkedList = this.c;
+            if (linkedList != null && linkedList.size() - 1 >= i) {
+                a(this.c.get(i), dVar, viewGroup);
+                TbImageView tbImageView = dVar.a;
+                tbImageView.setTag(tbImageView.getId(), Integer.valueOf(i));
+                dVar.b.setTag(Integer.valueOf(i));
             }
-            jr6 a2 = lk5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
-            if (z) {
-                str2 = "funny_sprite_show_day";
-            } else {
-                str2 = "funny_sprite_show_dark";
-            }
-            jr6 a3 = lk5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
-            if (z) {
-                str3 = "funny_sprite_exit_day";
-            } else {
-                str3 = "funny_sprite_exit_dark";
-            }
-            this.f.v(a2, a3, lk5.a(FunnySpriteResDownloadUtil.i(str3, "see_res", true), false, 2));
-            this.f.A(12000L);
-            SpriteBottomTipView f = f(activity);
-            this.g = f;
-            this.f.z(f);
-            this.f.t(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
-            this.f.u(e());
-            this.f.w(new a(this));
-            this.f.s(new b(this));
-            this.f.B();
-            h();
-            return true;
+            return view3;
         }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

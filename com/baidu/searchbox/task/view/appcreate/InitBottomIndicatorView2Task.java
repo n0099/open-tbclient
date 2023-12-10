@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.xa8;
+import com.baidu.tieba.ya8;
 /* loaded from: classes4.dex */
 public class InitBottomIndicatorView2Task extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -26,7 +26,7 @@ public class InitBottomIndicatorView2Task extends LaunchTask {
         try {
             kk5.e().a(1004, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
             kk5.e().a(1005, (MaintabBottomIndicator) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null));
-            kk5.e().a(1012, new xa8(TbadkCoreApplication.getInst()));
+            kk5.e().a(1012, new ya8(TbadkCoreApplication.getInst()));
         } catch (Exception e) {
             BdLog.e(e);
         }

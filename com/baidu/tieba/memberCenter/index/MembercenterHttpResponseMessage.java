@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.da;
 import com.baidu.tieba.e05;
-import com.baidu.tieba.qm9;
+import com.baidu.tieba.rm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm9 mMembercenter;
+    public rm9 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterHttpResponseMessage() {
@@ -41,13 +41,13 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public qm9 getMembercenterData() {
+    public rm9 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mMembercenter;
         }
-        return (qm9) invokeV.objValue;
+        return (rm9) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         DataRes dataRes = getVipInfoResIdl.data;
         if (dataRes != null) {
-            this.mMembercenter = new qm9(dataRes);
+            this.mMembercenter = new rm9(dataRes);
         }
         if (getError() == 0) {
             if (TbadkCoreApplication.isLogin()) {

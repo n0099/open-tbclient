@@ -2,12 +2,12 @@ package com.baidu.searchbox.dns;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.ipa;
+import com.baidu.tieba.jpa;
 @Autowired
 /* loaded from: classes3.dex */
 public class HttpDnsRuntime {
     @Inject(force = true)
     public static IHttpDnsConfig getHttpDnsConfig() {
-        return ipa.a();
+        return jpa.a();
     }
 }

@@ -89,7 +89,7 @@ public class av2 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements roc<Boolean> {
+    public class b implements soc<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ av2 a;
@@ -113,7 +113,7 @@ public class av2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class av2 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements woc<String, Boolean> {
+    public class c implements xoc<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ av2 a;
@@ -151,7 +151,7 @@ public class av2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Boolean call(String str) {
             InterceptResult invokeL;
@@ -594,7 +594,7 @@ public class av2 {
                     } else {
                         e(wu2.f, "recorderResume");
                     }
-                    doc.n("").J(Schedulers.io()).p(new c(this)).s(noc.b()).H(new b(this));
+                    eoc.n("").J(Schedulers.io()).p(new c(this)).s(ooc.b()).H(new b(this));
                 } catch (IllegalStateException e2) {
                     f();
                     k32.d("recorder", "can't start", e2);

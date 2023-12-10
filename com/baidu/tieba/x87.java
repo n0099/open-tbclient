@@ -49,7 +49,7 @@ public class x87 extends u87 {
 
     @Override // com.baidu.tieba.u87
     @NonNull
-    public rb7<?> h(@NonNull w57<?> w57Var, @NonNull r67 r67Var) {
+    public sb7<?> h(@NonNull w57<?> w57Var, @NonNull r67 r67Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w57Var, r67Var)) == null) {
@@ -59,6 +59,6 @@ public class x87 extends u87 {
             f67Var.a = r67Var.c();
             return f67Var;
         }
-        return (rb7) invokeLL.objValue;
+        return (sb7) invokeLL.objValue;
     }
 }

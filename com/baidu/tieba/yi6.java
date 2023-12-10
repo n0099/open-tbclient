@@ -128,8 +128,8 @@ public class yi6 {
                         aj6Var.d = optString2;
                         aj6Var.f = e(next, jSONObject2);
                         hashMap.put(next, aj6Var);
-                        uga.a().j(next, next);
-                        uga.a().k(next, optString2);
+                        vga.a().j(next, next);
+                        vga.a().k(next, optString2);
                     } catch (JSONException unused) {
                     }
                 }
@@ -156,9 +156,9 @@ public class yi6 {
             String optString = jSONObject.optString("staticPrePath", "");
             for (String str2 : hashSet) {
                 if (!TextUtils.isEmpty(str2)) {
-                    uga a = uga.a();
+                    vga a = vga.a();
                     a.j(optString + "/" + str2, str);
-                    uga a2 = uga.a();
+                    vga a2 = vga.a();
                     a2.k(optString + "/" + str2, str2);
                 }
             }
@@ -167,7 +167,7 @@ public class yi6 {
         return (Set) invokeLL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0095 A[Catch: Exception -> 0x00e1, TryCatch #0 {Exception -> 0x00e1, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0046, B:22:0x0053, B:24:0x0059, B:25:0x008f, B:27:0x0095, B:29:0x00a3, B:30:0x00af, B:32:0x00bb, B:34:0x00c1), top: B:44:0x0023 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

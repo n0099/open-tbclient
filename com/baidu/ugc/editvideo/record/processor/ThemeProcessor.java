@@ -4,7 +4,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.tieba.hc0;
 import com.baidu.tieba.pc0;
-import com.baidu.tieba.xwb;
+import com.baidu.tieba.ywb;
 /* loaded from: classes9.dex */
 public class ThemeProcessor extends BaseEffectProcessor {
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
@@ -12,10 +12,10 @@ public class ThemeProcessor extends BaseEffectProcessor {
         if (hc0Var == null) {
             return i;
         }
-        int b = xwb.b(hc0Var.l());
+        int b = ywb.b(hc0Var.l());
         int i2 = i;
         for (int i3 = 1; i3 < b; i3++) {
-            MediaTrack mediaTrack = (MediaTrack) xwb.c(hc0Var.l(), i3);
+            MediaTrack mediaTrack = (MediaTrack) ywb.c(hc0Var.l(), i3);
             if (!pc0.m(mediaTrack, "effect") && !pc0.m(mediaTrack, "template_effect") && !pc0.m(mediaTrack, "edit_sticker") && !pc0.m(mediaTrack, "multi_input") && !pc0.m(mediaTrack, "only_background") && !pc0.m(mediaTrack, "watermark") && !pc0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !pc0.m(mediaTrack, "user_background")) {
                 i2 = hc0Var.j(mediaTrack, i2, null);
             }

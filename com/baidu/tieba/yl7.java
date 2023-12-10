@@ -1,106 +1,123 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forum.model.FrsPageRequestMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
 public final class yl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<sb7<?>> a;
+    public cm7 b;
+    public bm7 c;
 
-    public static final FrsPageRequestMessage a(Bundle bundle) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        String str;
-        boolean z;
-        int i;
-        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bundle)) == null) {
-            Intrinsics.checkNotNullParameter(bundle, "bundle");
-            String string = bundle.getString("name");
-            String str2 = "";
-            if (string == null) {
-                string = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            Uri uri = (Uri) bundle.getParcelable(IntentConfig.KEY_URI);
-            String str3 = (uri == null || (str3 = uri.toString()) == null) ? "" : "";
-            if (uri == null || (str = uri.getQueryParameter("name")) == null) {
-                if (uri != null) {
-                    str = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                } else {
-                    str = null;
-                }
+            if (obj instanceof yl7) {
+                yl7 yl7Var = (yl7) obj;
+                return Intrinsics.areEqual(this.a, yl7Var.a) && Intrinsics.areEqual(this.b, yl7Var.b) && Intrinsics.areEqual(this.c, yl7Var.c);
             }
-            if (string.length() == 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                if (str != null && str.length() != 0) {
-                    z2 = false;
-                } else {
-                    z2 = true;
-                }
-                if (!z2) {
-                    string = str.toString();
-                }
-            }
-            FrsPageRequestMessage frsPageRequestMessage = new FrsPageRequestMessage();
-            frsPageRequestMessage.setSortType(-1);
-            frsPageRequestMessage.setDefaultSortType(0);
-            frsPageRequestMessage.setPn(1);
-            frsPageRequestMessage.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
-            frsPageRequestMessage.setHotThreadId(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
-            frsPageRequestMessage.setObjLocate("2");
-            frsPageRequestMessage.setObjSource("-2");
-            String urlEncode = rd.getUrlEncode(string);
-            Intrinsics.checkNotNullExpressionValue(urlEncode, "getUrlEncode(forumName)");
-            frsPageRequestMessage.setKw(urlEncode);
-            frsPageRequestMessage.setWithGroup(1);
-            frsPageRequestMessage.setCid(0);
-            frsPageRequestMessage.setScrW(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            frsPageRequestMessage.setScrH(BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst()));
-            frsPageRequestMessage.setScrDip(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            if (TbImageHelper.getInstance().isShowBigImage()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            frsPageRequestMessage.setQType(i);
-            frsPageRequestMessage.setUpSchema(str3);
-            String string2 = bundle.getString("yuelaou_locate");
-            if (string2 == null) {
-                string2 = "";
-            }
-            frsPageRequestMessage.setYuelaoLocate(string2);
-            frsPageRequestMessage.setLastClickTid(JavaTypesHelper.toLong(ju5.a(), 0L));
-            String string3 = bundle.getString("from");
-            if (string3 != null) {
-                str2 = string3;
-            }
-            frsPageRequestMessage.setStType(str2);
-            frsPageRequestMessage.setDefaultNavTab(1);
-            frsPageRequestMessage.setLoadType(1);
-            if (ThreadData.isRecAppLoaded.get() && vha.m().b() != null) {
-                frsPageRequestMessage.setRefreshCount(vha.m().b().d(string, false) + 1);
-                frsPageRequestMessage.setLoadCount(vha.m().b().e(string, false));
-            }
-            frsPageRequestMessage.setNewFrs(1);
-            return frsPageRequestMessage;
+            return false;
         }
-        return (FrsPageRequestMessage) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            cm7 cm7Var = this.b;
+            int hashCode2 = (hashCode + (cm7Var == null ? 0 : cm7Var.hashCode())) * 31;
+            bm7 bm7Var = this.c;
+            return hashCode2 + (bm7Var != null ? bm7Var.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "ModelData(feedList=" + this.a + ", subTabData=" + this.b + ", sortTabData=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public yl7(List<sb7<?>> feedList, cm7 cm7Var, bm7 bm7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {feedList, cm7Var, bm7Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(feedList, "feedList");
+        this.a = feedList;
+        this.b = cm7Var;
+        this.c = bm7Var;
+    }
+
+    public /* synthetic */ yl7(List list, cm7 cm7Var, bm7 bm7Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, (i & 2) != 0 ? null : cm7Var, (i & 4) != 0 ? null : bm7Var);
+    }
+
+    public final List<sb7<?>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final bm7 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (bm7) invokeV.objValue;
+    }
+
+    public final cm7 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (cm7) invokeV.objValue;
+    }
+
+    public final void d(bm7 bm7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bm7Var) == null) {
+            this.c = bm7Var;
+        }
+    }
+
+    public final void e(cm7 cm7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cm7Var) == null) {
+            this.b = cm7Var;
+        }
     }
 }

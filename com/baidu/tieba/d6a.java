@@ -1,95 +1,55 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.data.AdverSegmentData;
+import android.animation.TypeEvaluator;
+import android.graphics.PointF;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class d6a {
+public final class d6a implements TypeEvaluator<PointF> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final PointF a;
+    public final PointF b;
 
-    public static final boolean a(AdverSegmentData adverSegmentData, int i) {
-        InterceptResult invokeLI;
+    public d6a(PointF point1, PointF point2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, adverSegmentData, i)) == null) {
-            if (adverSegmentData == null || StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_pb_falling_ad_feedback_click_time", 0L))) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {point1, point2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                if (i == 2) {
-                    int i2 = SharedPrefHelper.getInstance().getInt("key_pb_commont_egg_limlit_a", 0);
-                    if (TbSingleton.getInstance().getAdVertiSementData() != null && i2 < TbSingleton.getInstance().getAdVertiSementData().a()) {
-                        SharedPrefHelper.getInstance().putInt("key_pb_commont_egg_limlit_a", i2 + 1);
-                        return true;
-                    }
-                } else {
-                    String string = SharedPrefHelper.getInstance().getString("key_pb_commont_egg_limlit_bc", new JSONObject().toString());
-                    if (TextUtils.isEmpty(adverSegmentData.getAdSegmentId())) {
-                        return false;
-                    }
-                    JSONObject jSONObject = new JSONObject(string);
-                    JSONArray jSONArray = new JSONArray();
-                    JSONArray optJSONArray = jSONObject.optJSONArray(adverSegmentData.getAdSegmentId());
-                    if (optJSONArray != null) {
-                        int length = optJSONArray.length();
-                        for (int i3 = 0; i3 < length; i3++) {
-                            long optLong = optJSONArray.optLong(i3);
-                            if (StringHelper.isTaday(optLong)) {
-                                jSONArray.put(optLong);
-                            }
-                        }
-                    }
-                    if (TbSingleton.getInstance().getAdVertiSementData() != null && jSONArray.length() < TbSingleton.getInstance().getAdVertiSementData().b()) {
-                        jSONArray.put(System.currentTimeMillis());
-                        jSONObject.remove(adverSegmentData.getAdSegmentId());
-                        jSONObject.put(adverSegmentData.getAdSegmentId(), jSONArray);
-                        SharedPrefHelper.getInstance().putString("key_pb_commont_egg_limlit_bc", jSONObject.toString());
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            return false;
         }
-        return invokeLI.booleanValue;
+        Intrinsics.checkNotNullParameter(point1, "point1");
+        Intrinsics.checkNotNullParameter(point2, "point2");
+        this.a = point1;
+        this.b = point2;
     }
 
-    public static final int b(View view2) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public PointF evaluate(float f, PointF startValue, PointF endValue) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            return view2.getMeasuredWidth();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), startValue, endValue})) == null) {
+            Intrinsics.checkNotNullParameter(startValue, "startValue");
+            Intrinsics.checkNotNullParameter(endValue, "endValue");
+            double d = 1 - f;
+            float f2 = 3;
+            double d2 = f;
+            return new PointF((int) ((startValue.x * Math.pow(d, 3.0d)) + (this.a.x * f2 * f * Math.pow(d, 2.0d)) + (this.b.x * f2 * Math.pow(d2, 2.0d) * d) + (endValue.x * Math.pow(d2, 3.0d))), (int) ((startValue.y * Math.pow(d, 3.0d)) + (this.a.y * f2 * f * Math.pow(d, 2.0d)) + (f2 * this.b.y * Math.pow(d2, 2.0d) * d) + (endValue.y * Math.pow(d2, 3.0d))));
         }
-        return invokeL.intValue;
-    }
-
-    public static final int c(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            if (mode != Integer.MIN_VALUE) {
-                if (mode == 1073741824) {
-                    return size;
-                }
-                return i;
-            }
-            return Math.min(i, size);
-        }
-        return invokeII.intValue;
+        return (PointF) invokeCommon.objValue;
     }
 }

@@ -4,26 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Abstract;
+import tbclient.AbstractComponent;
+import tbclient.FeedContentResource;
 /* loaded from: classes7.dex */
-public class ntc extends ktc {
+public class ntc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Abstract r4) {
+    public static JSONObject b(@NonNull AbstractComponent abstractComponent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, r4)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, abstractComponent)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "type", r4.type);
-            ktc.a(jSONObject, "text", r4.text);
-            ktc.a(jSONObject, "link", r4.link);
-            ktc.a(jSONObject, "src", r4.src);
-            ktc.a(jSONObject, "un", r4.un);
-            ktc.a(jSONObject, "during_time", r4.during_time);
-            ktc.a(jSONObject, "voice_md5", r4.voice_md5);
+            if (abstractComponent.data != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedContentResource feedContentResource : abstractComponent.data) {
+                    jSONArray.put(exc.b(feedContentResource));
+                }
+                ltc.a(jSONObject, "data", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

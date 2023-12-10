@@ -36,13 +36,13 @@ import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.ju8;
 import com.baidu.tieba.ku8;
+import com.baidu.tieba.lu8;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
-import com.baidu.tieba.vya;
-import com.baidu.tieba.vz8;
+import com.baidu.tieba.wya;
+import com.baidu.tieba.wz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -85,12 +85,12 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
 
         /* renamed from: com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0342a implements SimpleLottieValueCallback<Integer> {
+        public class C0341a implements SimpleLottieValueCallback<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0342a(a aVar) {
+            public C0341a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +146,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
             if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
                 for (KeyPath keyPath : this.a.a.resolveKeyPath(new KeyPath("**"))) {
                     if (keyPath.matches("填充 1", 2) || keyPath.matches("填充 1", 1)) {
-                        this.a.a.addValueCallback(keyPath, (KeyPath) LottieProperty.COLOR, (SimpleLottieValueCallback<KeyPath>) new C0342a(this));
+                        this.a.a.addValueCallback(keyPath, (KeyPath) LottieProperty.COLOR, (SimpleLottieValueCallback<KeyPath>) new C0341a(this));
                     }
                 }
             }
@@ -188,7 +188,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(ku8.w().n(vz8.r(this.a), this.b, false));
+                return Boolean.valueOf(lu8.w().n(wz8.r(this.a), this.b, false));
             }
             return (Boolean) invokeV.objValue;
         }
@@ -264,7 +264,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(ju8.w().n(vz8.r(this.a), this.b, false));
+                return Boolean.valueOf(ku8.w().n(wz8.r(this.a), this.b, false));
             }
             return (Boolean) invokeV.objValue;
         }
@@ -357,7 +357,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
         this.d = null;
         this.i = 0;
         this.j = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.ChatVoiceView, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.ChatVoiceView, 0, 0);
         if (obtainStyledAttributes != null) {
             z = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
@@ -657,7 +657,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, chatMessage) == null) {
             boolean z = true;
-            if (vz8.A(chatMessage) || ((s = vz8.s(chatMessage)) != null && s.getHas_read() == 1)) {
+            if (wz8.A(chatMessage) || ((s = wz8.s(chatMessage)) != null && s.getHas_read() == 1)) {
                 z = false;
             }
             if (z) {
@@ -678,7 +678,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.IPlayVie
                 }
                 this.d.setVisibility(4);
                 l();
-                VoiceMsgData s = vz8.s(this.f);
+                VoiceMsgData s = wz8.s(this.f);
                 if (s != null && s.getHas_read() != 1) {
                     s.setHas_read(1);
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(s);

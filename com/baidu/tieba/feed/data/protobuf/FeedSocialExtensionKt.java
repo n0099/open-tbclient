@@ -6,9 +6,9 @@ import com.baidu.tieba.e87;
 import com.baidu.tieba.k57;
 import com.baidu.tieba.m87;
 import com.baidu.tieba.r67;
-import com.baidu.tieba.rb7;
 import com.baidu.tieba.s67;
 import com.baidu.tieba.sb7;
+import com.baidu.tieba.tb7;
 import com.baidu.tieba.w97;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -49,7 +49,7 @@ public final class FeedSocialExtensionKt {
         a = FeedSocialExtensionKt$onShowManageClickImpl$1.INSTANCE;
     }
 
-    public static final void a(FeedSocialComponent feedSocialComponent, List<rb7<?>> dataList, r67 feedExtraData, m87 videoSchemaData) {
+    public static final void a(FeedSocialComponent feedSocialComponent, List<sb7<?>> dataList, r67 feedExtraData, m87 videoSchemaData) {
         List list;
         k57 k57Var;
         boolean z;
@@ -117,7 +117,7 @@ public final class FeedSocialExtensionKt {
             k57Var.t(CollectionsKt___CollectionsKt.plus((Collection) k57Var.l(), (Iterable) listOf));
             k57Var.v(CollectionsKt___CollectionsKt.plus((Collection) k57Var.s(), (Iterable) list));
             k57Var.u(CollectionsKt___CollectionsKt.plus((Collection) k57Var.r(), (Iterable) listOf3));
-            dataList.add(new sb7(k57Var, "social_bar"));
+            dataList.add(new tb7(k57Var, "social_bar"));
         }
     }
 }

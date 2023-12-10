@@ -1,133 +1,289 @@
 package com.baidu.tieba;
 
 import android.content.Intent;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
+import com.baidu.tieba.pb.pb.main.PbCommentFloatActivity;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class l0a extends le5 {
+public class l0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VoiceData.VoiceModel b;
-    public PbEditorData.ThreadData c;
-    public BaseActivity<?> d;
+    public hh5 a;
+    public TbPageContext b;
+    public RelativeLayout c;
+    public PbFakeFloorModel d;
+    public String e;
+    public String f;
+    public NewWriteModel.d g;
+    public aw9 h;
+    public View.OnClickListener i;
+    public int j;
+    public Runnable k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l0a(EditorTools editorTools) {
-        super(editorTools);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l0a a;
+
+        public a(l0a l0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l0aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !(TbadkCoreApplication.getInst().getCurrentActivity() instanceof PbCommentFloatActivity) || ((PbCommentFloatActivity) TbadkCoreApplication.getInst().getCurrentActivity()).n2() || this.a.a == null) {
+                return;
+            }
+            for (ue5 ue5Var : this.a.a.a().getAllTools()) {
+                if (ue5Var != null) {
+                    ve5 ve5Var = ue5Var.m;
+                    if ((ve5Var instanceof PbNewInputContainer) && ((View) ve5Var).getVisibility() == 0 && !ue5Var.o) {
+                        ue5Var.m.display();
+                    }
+                }
+            }
+            if (this.a.j < 5) {
+                l0a.c(this.a);
+                SafeHandler.getInst().postDelayed(this.a.k, 200L);
+            }
+        }
+    }
+
+    public l0a(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {tbPageContext, pbFakeFloorModel, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.j = 0;
+        this.k = new a(this);
+        this.b = tbPageContext;
+        this.c = relativeLayout;
+        this.d = pbFakeFloorModel;
     }
 
-    public void e(BaseActivity baseActivity) {
+    public static /* synthetic */ int c(l0a l0aVar) {
+        int i = l0aVar.j;
+        l0aVar.j = i + 1;
+        return i;
+    }
+
+    public void l(int i) {
+        hh5 hh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baseActivity) == null) && !StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
-            a().K(new he5(2, 12, " "));
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (hh5Var = this.a) != null && hh5Var.a() != null) {
+            this.a.a().F(i);
         }
     }
 
-    public BaseActivity<?> b() {
-        InterceptResult invokeV;
+    public void o(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.f = str;
         }
-        return (BaseActivity) invokeV.objValue;
     }
 
-    public VoiceData.VoiceModel c() {
+    public void p(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
+    }
+
+    public void q(int i) {
+        hh5 hh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (hh5Var = this.a) != null) {
+            hh5Var.T(i);
+        }
+    }
+
+    public void r(aw9 aw9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, aw9Var) == null) {
+            this.h = aw9Var;
+        }
+    }
+
+    public void s(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, dVar) == null) {
+            this.g = dVar;
+            hh5 hh5Var = this.a;
+            if (hh5Var != null) {
+                hh5Var.U(dVar);
+            }
+        }
+    }
+
+    public final void e() {
+        hh5 hh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null && (hh5Var = this.a) != null && hh5Var.a() != null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams.addRule(12);
+            this.c.addView(this.a.a(), layoutParams);
+            l(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public hh5 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (VoiceData.VoiceModel) invokeV.objValue;
-    }
-
-    public void f(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && i2 == -1 && i == 23004) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
-        }
+        return (hh5) invokeV.objValue;
     }
 
     public void g() {
-        PbEditorData.ThreadData threadData;
+        hh5 hh5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (threadData = this.c) != null && !StringUtils.isNull(threadData.getAuthorName()) && this.c.getAuthorId() > 0) {
-            String valueOf = String.valueOf(this.c.getAuthorId());
-            if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.d.getActivity(), this.c.getAuthorId(), this.c.getAuthorName(), this.c.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, JavaTypesHelper.toLong(this.c.getThreadId(), 0L), JavaTypesHelper.toLong(this.c.getPostId(), 0L))));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hh5Var = this.a) != null) {
+            hh5Var.B();
+            if (StringUtils.isNull(this.e)) {
+                this.a.H();
+            }
+            this.a.a().I();
+        }
+    }
+
+    public void h() {
+        hh5 hh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hh5Var = this.a) != null && hh5Var.a() != null) {
+            this.a.a().y();
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            hh5 hh5Var = this.a;
+            if (hh5Var != null && hh5Var.a() != null) {
+                return this.a.a().D();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.k);
+            hh5 hh5Var = this.a;
+            if (hh5Var != null) {
+                hh5Var.G();
+            }
+        }
+    }
+
+    public void n() {
+        hh5 hh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (hh5Var = this.a) != null) {
+            hh5Var.I();
+        }
+    }
+
+    public final void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && this.c != null && this.a == null) {
+            ih5 ih5Var = new ih5(z);
+            ih5Var.i(str);
+            hh5 hh5Var = (hh5) ih5Var.a(this.b.getPageActivity());
+            this.a = hh5Var;
+            hh5Var.R(this.b);
+            this.a.e0(this.d);
+            this.a.S(1);
+            aw9 aw9Var = this.h;
+            if (aw9Var != null) {
+                this.a.g0(aw9Var.R());
+            }
+            this.a.a().M(true);
+            this.a.a().setOnCancelClickListener(this.i);
+            this.a.C(this.b);
+            e();
+            this.a.U(this.g);
+        }
+    }
+
+    public void k(int i, int i2, Intent intent) {
+        hh5 hh5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) && (hh5Var = this.a) != null) {
+            hh5Var.F(i, i2, intent);
+        }
+    }
+
+    public void t(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            this.e = str2;
+            hh5 hh5Var = this.a;
+            if (hh5Var == null) {
+                i(str3, z);
             } else {
-                BdUtilHelper.showToast(this.d.getActivity(), (int) R.string.can_not_send_gift_to_yourself);
-            }
-        }
-    }
-
-    public void h(BaseActivity<?> baseActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, baseActivity) == null) {
-            this.d = baseActivity;
-        }
-    }
-
-    public void j(VoiceData.VoiceModel voiceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, voiceModel) == null) {
-            this.b = voiceModel;
-        }
-    }
-
-    public void i(PbEditorData.ThreadData threadData) {
-        String forumName;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
-            this.c = threadData;
-            if (a() != null && this.c != null) {
-                a().setFid(JavaTypesHelper.toLong(this.c.getForumId(), 0L));
-                EditorTools a = a();
-                String str = "";
-                if (StringUtils.isNull(this.c.getForumName())) {
-                    forumName = "";
-                } else {
-                    forumName = this.c.getForumName();
+                hh5Var.e0(this.d);
+                if (StringUtils.isNull(this.e)) {
+                    this.a.C(this.b);
                 }
-                a.setFname(forumName);
-                EditorTools a2 = a();
-                if (!StringUtils.isNull(this.c.getThreadId())) {
-                    str = this.c.getThreadId();
-                }
-                a2.setTid(str);
-                a().K(new he5(70, -1, this.c.getForumId()));
             }
+            this.a.a0(str);
+            this.a.Z(str2, "");
+            SafeHandler.getInst().postDelayed(this.k, 200L);
+            this.a.q(this.f);
+            if (this.a.A()) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 10).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
+                this.a.x(null);
+                return;
+            }
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 3).param("obj_locate", 9).param("obj_type", 2).param("obj_source", UtilHelper.getCurrentPageName(TbadkCoreApplication.getInst().getCurrentActivity())));
         }
     }
 }

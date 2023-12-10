@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.animation.Interpolator;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class tk7 implements Interpolator {
+public final class tk7 implements qk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
+    public final Integer[] a;
+    public final Function2<Integer, Intent, Unit> b;
 
-    public tk7(float f) {
+    public tk7(Integer[] codes, Function2<? super Integer, ? super Intent, Unit> onActivityResult) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {codes, onActivityResult};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,18 +32,27 @@ public final class tk7 implements Interpolator {
                 return;
             }
         }
-        this.a = f;
+        Intrinsics.checkNotNullParameter(codes, "codes");
+        Intrinsics.checkNotNullParameter(onActivityResult, "onActivityResult");
+        this.a = codes;
+        this.b = onActivityResult;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    @Override // com.baidu.tieba.qk7
+    public void a(int i, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            double pow = Math.pow(2.0d, (-10) * f);
-            float f2 = this.a;
-            return (float) ((pow * Math.sin(((f - (f2 / 4)) * 6.283185307179586d) / f2)) + 1);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intent) == null) {
+            this.b.invoke(Integer.valueOf(i), intent);
         }
-        return invokeF.floatValue;
+    }
+
+    @Override // com.baidu.tieba.qk7
+    public Integer[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Integer[]) invokeV.objValue;
     }
 }

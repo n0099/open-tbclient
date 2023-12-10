@@ -57,8 +57,8 @@ public class nw5 implements rw5 {
     public boolean j;
     public boolean k;
     public String l;
-    public final axa m;
-    public final cxa n;
+    public final bxa m;
+    public final dxa n;
 
     @Override // com.baidu.tieba.lq5
     public boolean C1() {
@@ -95,7 +95,7 @@ public class nw5 implements rw5 {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements cxa {
+    public class a implements dxa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nw5 a;
@@ -118,7 +118,7 @@ public class nw5 implements rw5 {
             this.a = nw5Var;
         }
 
-        @Override // com.baidu.tieba.cxa
+        @Override // com.baidu.tieba.dxa
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -353,9 +353,9 @@ public class nw5 implements rw5 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_float_web_content_view, (ViewGroup) linearLayout, true);
         this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092af0);
         this.e = (FrameLayout) inflate.findViewById(R.id.load_state_container);
-        axa axaVar = new axa();
-        this.m = axaVar;
-        axaVar.a(new CommonTbJsBridge(context));
+        bxa bxaVar = new bxa();
+        this.m = bxaVar;
+        bxaVar.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
         BrowserHelper.initCookie(context);
         v();
@@ -425,10 +425,10 @@ public class nw5 implements rw5 {
 
     @Override // com.baidu.tieba.rw5
     public void onDestroy() {
-        axa axaVar;
+        bxa bxaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (axaVar = this.m) != null) {
-            axaVar.h();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bxaVar = this.m) != null) {
+            bxaVar.h();
         }
     }
 
@@ -445,9 +445,9 @@ public class nw5 implements rw5 {
             e.printStackTrace();
         }
         q(MissionEvent.MESSAGE_PAUSE);
-        axa axaVar = this.m;
-        if (axaVar != null) {
-            axaVar.i(this.d, CommonTbJsBridge.RE_HIDE, null);
+        bxa bxaVar = this.m;
+        if (bxaVar != null) {
+            bxaVar.i(this.d, CommonTbJsBridge.RE_HIDE, null);
         }
     }
 
@@ -480,9 +480,9 @@ public class nw5 implements rw5 {
             e.printStackTrace();
         }
         q("onResume");
-        axa axaVar = this.m;
-        if (axaVar != null) {
-            axaVar.i(this.d, CommonTbJsBridge.RE_SHOW, null);
+        bxa bxaVar = this.m;
+        if (bxaVar != null) {
+            bxaVar.i(this.d, CommonTbJsBridge.RE_SHOW, null);
             if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
                 this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }

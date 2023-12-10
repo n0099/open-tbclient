@@ -1,60 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URI;
-import kotlin.jvm.JvmField;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class ra8 {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115008, "Lcom/baidu/tieba/ra8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final long b;
+
+        public a(String frsCustomCounts, long j) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsCustomCounts, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948115008, "Lcom/baidu/tieba/ra8;");
+            Intrinsics.checkNotNullParameter(frsCustomCounts, "frsCustomCounts");
+            this.a = frsCustomCounts;
+            this.b = j;
+        }
+
+        public final JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("frs_csm", this.a);
+                jSONObject.putOpt("last_time", Long.valueOf(this.b));
+                jSONObject.putOpt("is_show", Integer.valueOf(SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_recent_forum_is_show"), false) ? 1 : 0));
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    public ra8(Map<String, a> frsVisitedDataMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsVisitedDataMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + "mo/q/hybrid-usergrow-search/searchGlobal?nonavigationbar=1&customfullscreen=1&user_skin_overlay=0&loadingSignal=1&page_key=a026";
+        Intrinsics.checkNotNullParameter(frsVisitedDataMap, "frsVisitedDataMap");
+        this.a = frsVisitedDataMap;
     }
 
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public final JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            for (String str : this.a.keySet()) {
+                a aVar = this.a.get(str);
+                if (aVar != null) {
+                    jSONObject = aVar.a();
+                } else {
+                    jSONObject = null;
+                }
+                jSONObject2.put(str, jSONObject);
             }
-            if (z) {
-                return "";
-            }
-            try {
-                String aSCIIString = new URI(null, null, str, null).toASCIIString();
-                Intrinsics.checkNotNullExpressionValue(aSCIIString, "URI(null, null, value, null).toASCIIString()");
-                return aSCIIString;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return "";
-            }
+            return jSONObject2;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

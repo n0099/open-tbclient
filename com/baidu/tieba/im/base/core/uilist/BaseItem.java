@@ -9,8 +9,8 @@ import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.EmojiData;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.pq8;
-import com.baidu.tieba.yv8;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements pi, Serializa
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy isLeft$delegate;
     public boolean isShowLocatedColor;
-    public pq8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
+    public qq8<? extends BaseItem<? extends TbBaseMsg>> itemEventCallback;
     public int sendStatus;
     public TbMsg tbMsg;
 
@@ -428,7 +428,7 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements pi, Serializa
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Boolean.valueOf(!yv8.c(this.this$0.getTbMsg().getUserId()));
+                    return Boolean.valueOf(!zv8.c(this.this$0.getTbMsg().getUserId()));
                 }
                 return (Boolean) invokeV.objValue;
             }
@@ -445,13 +445,13 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements pi, Serializa
         return invokeV.objValue;
     }
 
-    public final pq8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
+    public final qq8<? extends BaseItem<? extends TbBaseMsg>> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.itemEventCallback;
         }
-        return (pq8) invokeV.objValue;
+        return (qq8) invokeV.objValue;
     }
 
     public final int getSendStatus() {
@@ -521,10 +521,10 @@ public abstract class BaseItem<TbMsg extends TbBaseMsg> implements pi, Serializa
         }
     }
 
-    public final void setItemEventCallback(pq8<? extends BaseItem<? extends TbBaseMsg>> pq8Var) {
+    public final void setItemEventCallback(qq8<? extends BaseItem<? extends TbBaseMsg>> qq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, pq8Var) == null) {
-            this.itemEventCallback = pq8Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, qq8Var) == null) {
+            this.itemEventCallback = qq8Var;
         }
     }
 

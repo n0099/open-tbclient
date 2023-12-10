@@ -6,13 +6,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.agb;
-import com.baidu.tieba.cgb;
+import com.baidu.tieba.bgb;
 import com.baidu.tieba.dgb;
 import com.baidu.tieba.egb;
+import com.baidu.tieba.fgb;
 import com.baidu.tieba.he5;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lu4;
-import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public final class BizBus {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<lu4.d> a;
-    public final ArrayList<cgb> b;
+    public final ArrayList<dgb> b;
     public final HashMap<Integer, ArrayList<Function2<Integer, Intent, Unit>>> c;
-    public final HashMap<Integer, zfb> d;
+    public final HashMap<Integer, agb> d;
     public final ArrayList<Function1<JSONObject, Unit>> e;
 
     public BizBus() {
@@ -59,64 +59,64 @@ public final class BizBus {
         this.e = new ArrayList<>();
     }
 
-    public final void a(cgb cgbVar) {
-        zfb[] f;
+    public final void a(dgb dgbVar) {
+        agb[] f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, cgbVar) == null) && (f = cgbVar.f()) != null) {
-            for (zfb zfbVar : f) {
-                for (Integer num : zfbVar.a()) {
-                    this.d.put(Integer.valueOf(num.intValue()), zfbVar);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dgbVar) == null) && (f = dgbVar.f()) != null) {
+            for (agb agbVar : f) {
+                for (Integer num : agbVar.a()) {
+                    this.d.put(Integer.valueOf(num.intValue()), agbVar);
                 }
             }
         }
     }
 
     public final void j(Intent intent) {
-        egb egbVar;
+        fgb fgbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
-            Iterator<cgb> it = this.b.iterator();
+            Iterator<dgb> it = this.b.iterator();
             while (it.hasNext()) {
-                cgb next = it.next();
-                if (next instanceof egb) {
-                    egbVar = (egb) next;
+                dgb next = it.next();
+                if (next instanceof fgb) {
+                    fgbVar = (fgb) next;
                 } else {
-                    egbVar = null;
+                    fgbVar = null;
                 }
-                if (egbVar != null) {
-                    egbVar.onNewIntent(intent);
+                if (fgbVar != null) {
+                    fgbVar.onNewIntent(intent);
                 }
             }
         }
     }
 
     public final void k(Bundle savedInstanceState) {
-        egb egbVar;
+        fgb fgbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, savedInstanceState) == null) {
             Intrinsics.checkNotNullParameter(savedInstanceState, "savedInstanceState");
-            Iterator<cgb> it = this.b.iterator();
+            Iterator<dgb> it = this.b.iterator();
             while (it.hasNext()) {
-                cgb next = it.next();
-                if (next instanceof egb) {
-                    egbVar = (egb) next;
+                dgb next = it.next();
+                if (next instanceof fgb) {
+                    fgbVar = (fgb) next;
                 } else {
-                    egbVar = null;
+                    fgbVar = null;
                 }
-                if (egbVar != null) {
-                    egbVar.onSaveInstanceState(savedInstanceState);
+                if (fgbVar != null) {
+                    fgbVar.onSaveInstanceState(savedInstanceState);
                 }
             }
         }
     }
 
-    public final void b(cgb cgbVar) {
-        agb[] b;
+    public final void b(dgb dgbVar) {
+        bgb[] b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cgbVar) == null) && (b = cgbVar.b()) != null) {
-            for (agb agbVar : b) {
-                for (Integer num : agbVar.b()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dgbVar) == null) && (b = dgbVar.b()) != null) {
+            for (bgb bgbVar : b) {
+                for (Integer num : bgbVar.b()) {
                     int intValue = num.intValue();
                     ArrayList<Function2<Integer, Intent, Unit>> arrayList = this.c.get(Integer.valueOf(intValue));
                     if (arrayList == null) {
@@ -124,25 +124,25 @@ public final class BizBus {
                     } else {
                         Intrinsics.checkNotNullExpressionValue(arrayList, "activityRequestHandlers[code] ?: ArrayList()");
                     }
-                    arrayList.add(new BizBus$addActivityResultHandler$1$1(agbVar));
+                    arrayList.add(new BizBus$addActivityResultHandler$1$1(bgbVar));
                     this.c.put(Integer.valueOf(intValue), arrayList);
                 }
             }
         }
     }
 
-    public final void c(cgb cgbVar) {
+    public final void c(dgb dgbVar) {
         Function1<JSONObject, Unit> e;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cgbVar) == null) && (e = cgbVar.e()) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dgbVar) == null) && (e = dgbVar.e()) != null) {
             this.e.add(e);
         }
     }
 
-    public final void d(cgb cgbVar) {
+    public final void d(dgb dgbVar) {
         WrapListener[] a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, cgbVar) == null) && (a = cgbVar.a()) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, dgbVar) == null) && (a = dgbVar.a()) != null) {
             for (WrapListener wrapListener : a) {
                 this.a.add(wrapListener);
                 lu4.b.a().c(wrapListener);
@@ -166,11 +166,11 @@ public final class BizBus {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, action)) == null) {
             Intrinsics.checkNotNullParameter(action, "action");
-            zfb zfbVar = this.d.get(Integer.valueOf(action.a));
-            if (zfbVar != null) {
-                zfbVar.b(action);
+            agb agbVar = this.d.get(Integer.valueOf(action.a));
+            if (agbVar != null) {
+                agbVar.b(action);
             }
-            if (zfbVar != null) {
+            if (agbVar != null) {
                 return true;
             }
             return false;
@@ -178,7 +178,7 @@ public final class BizBus {
         return invokeL.booleanValue;
     }
 
-    public final void l(cgb biz) {
+    public final void l(dgb biz) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, biz) == null) {
             Intrinsics.checkNotNullParameter(biz, "biz");
@@ -191,19 +191,19 @@ public final class BizBus {
     }
 
     public final void e(Bundle bundle, Intent intent) {
-        egb egbVar;
+        fgb fgbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, bundle, intent) == null) {
-            Iterator<cgb> it = this.b.iterator();
+            Iterator<dgb> it = this.b.iterator();
             while (it.hasNext()) {
-                cgb next = it.next();
-                if (next instanceof egb) {
-                    egbVar = (egb) next;
+                dgb next = it.next();
+                if (next instanceof fgb) {
+                    fgbVar = (fgb) next;
                 } else {
-                    egbVar = null;
+                    fgbVar = null;
                 }
-                if (egbVar != null) {
-                    egbVar.c(bundle, intent);
+                if (fgbVar != null) {
+                    fgbVar.c(bundle, intent);
                 }
             }
         }
@@ -221,37 +221,37 @@ public final class BizBus {
     }
 
     public final void h() {
-        dgb dgbVar;
+        egb egbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Iterator<lu4.d> it = this.a.iterator();
             while (true) {
-                dgb dgbVar2 = null;
+                egb egbVar2 = null;
                 if (!it.hasNext()) {
                     break;
                 }
                 lu4.d next = it.next();
                 lu4.b.a().e(next);
-                if (next instanceof dgb) {
-                    dgbVar2 = (dgb) next;
+                if (next instanceof egb) {
+                    egbVar2 = (egb) next;
                 }
-                if (dgbVar2 != null) {
-                    dgbVar2.onDestroy();
+                if (egbVar2 != null) {
+                    egbVar2.onDestroy();
                 }
             }
             this.a.clear();
             this.c.clear();
             this.d.clear();
-            Iterator<cgb> it2 = this.b.iterator();
+            Iterator<dgb> it2 = this.b.iterator();
             while (it2.hasNext()) {
-                cgb next2 = it2.next();
-                if (next2 instanceof dgb) {
-                    dgbVar = (dgb) next2;
+                dgb next2 = it2.next();
+                if (next2 instanceof egb) {
+                    egbVar = (egb) next2;
                 } else {
-                    dgbVar = null;
+                    egbVar = null;
                 }
-                if (dgbVar != null) {
-                    dgbVar.onDestroy();
+                if (egbVar != null) {
+                    egbVar.onDestroy();
                 }
             }
             this.b.clear();

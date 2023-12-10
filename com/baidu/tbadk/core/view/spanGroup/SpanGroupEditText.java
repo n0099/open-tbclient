@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca8;
+import com.baidu.tieba.da8;
 import com.baidu.tieba.fx4;
 import com.baidu.tieba.x65;
 import com.baidu.tieba.z4;
@@ -444,18 +444,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void h(List<ca8> list, List<String> list2) {
+    public void h(List<da8> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048591, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            ca8 ca8Var = list.get(i);
+            da8 da8Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.o(ca8Var.a())) {
+            if (!this.b.o(da8Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                fx4 b = fx4.b(tbLinkSpanGroup, ca8Var);
+                fx4 b = fx4.b(tbLinkSpanGroup, da8Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();

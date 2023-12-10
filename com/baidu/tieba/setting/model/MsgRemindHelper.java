@@ -345,7 +345,7 @@ public final class MsgRemindHelper {
     public final void e(final Map<String, ? extends Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.jna
+            UiUtils.post(new Runnable() { // from class: com.baidu.tieba.kna
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

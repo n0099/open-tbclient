@@ -71,7 +71,7 @@ import com.baidu.tieba.s36;
 import com.baidu.tieba.ss;
 import com.baidu.tieba.sz4;
 import com.baidu.tieba.tu;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.v65;
 import com.baidu.tieba.view.VirtualImageStatusTip;
 import com.baidu.tieba.zu5;
@@ -759,13 +759,13 @@ public class CardUserInfoLayout extends RelativeLayout implements jt {
             } else {
                 f2 = sz4Var.f();
             }
-            bVar.D(tua.f(f2));
+            bVar.D(uua.f(f2));
             if (z) {
                 b2 = sz4Var.a();
             } else {
                 b2 = sz4Var.b();
             }
-            bVar.q(tua.f(b2));
+            bVar.q(uua.f(b2));
             bVar.A(dimenPixelSize);
             bVar.x(dimenPixelSize);
             bVar.z(dimenPixelSize);

@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface db7 {
-    Object getVideoHolder();
+    void a(Runnable runnable);
 }

@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.v88;
+import com.baidu.tieba.w88;
 import com.baidu.tieba.ws5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -88,7 +88,7 @@ public class FrsCommonTabRequestData extends OrmObject implements INetRequestDat
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = v88.e().d("frs_feed");
+            String d = w88.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = ws5.g(d, ws5.f());
             builder.ad_bear_sid_price = Double.valueOf(ws5.i());

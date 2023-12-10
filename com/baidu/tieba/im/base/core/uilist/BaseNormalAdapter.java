@@ -16,8 +16,8 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseNormalAdapter.SelfHolder;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.rq8;
+import com.baidu.tieba.nq8;
+import com.baidu.tieba.sq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends mq8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
+public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends TbNormalMsg>, ChildViewHolder extends BaseViewHolder, ChildExtraHolder extends BaseViewHolder, BaseStyleHolder extends SelfHolder> extends nq8<ChildItemData, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
@@ -158,17 +158,17 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull rq8 rq8Var) {
+        public void d(@NonNull sq8 sq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
-                super.d(rq8Var);
-                this.a.d(rq8Var);
-                this.b.d(rq8Var);
-                this.c.d(rq8Var);
-                this.d.d(rq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq8Var) == null) {
+                super.d(sq8Var);
+                this.a.d(sq8Var);
+                this.b.d(sq8Var);
+                this.c.d(sq8Var);
+                this.d.d(sq8Var);
                 if (e()) {
-                    this.e.d(rq8Var);
-                    this.f.d(rq8Var);
+                    this.e.d(sq8Var);
+                    this.f.d(sq8Var);
                 }
             }
         }
@@ -246,7 +246,7 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
         }
     }
 
-    @Override // com.baidu.tieba.mq8
+    @Override // com.baidu.tieba.nq8
     @NonNull
     public Context D() {
         InterceptResult invokeV;
@@ -351,7 +351,7 @@ public abstract class BaseNormalAdapter<ChildItemData extends BaseItem<? extends
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mq8, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.nq8, com.baidu.tieba.ci
     /* renamed from: Y */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder, ChildExtraHolder, BaseStyleHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         BaseStyleHolder basestyleholder;

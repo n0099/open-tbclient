@@ -34,7 +34,7 @@ public final class q97 {
         return (b67) invokeL.objValue;
     }
 
-    public static final void b(TitleComponent titleComponent, List<rb7<?>> dataList, SpannableStringBuilder titleBuilder, r67 feedExtraData, boolean z) {
+    public static final void b(TitleComponent titleComponent, List<sb7<?>> dataList, SpannableStringBuilder titleBuilder, r67 feedExtraData, boolean z) {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
@@ -53,7 +53,7 @@ public final class q97 {
                 z2 = false;
             }
             if (z2) {
-                dataList.add(new sb7(y47Var, "title"));
+                dataList.add(new tb7(y47Var, "title"));
             }
         }
     }

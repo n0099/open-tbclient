@@ -21,8 +21,8 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.gt7;
 import com.baidu.tieba.ht7;
+import com.baidu.tieba.it7;
 import com.baidu.tieba.sb6;
 import com.baidu.tieba.zb6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ht7)) {
+            if (!(data instanceof it7)) {
                 return;
             }
-            ht7 ht7Var = (ht7) data;
+            it7 it7Var = (it7) data;
             sb6 sb6Var = new sb6(true);
             sb6Var.getFragmentTabStructure().type = 2;
-            sb6Var.b(ht7Var.c());
-            sb6Var.c(ht7Var.d());
-            sb6Var.a(ht7Var.b());
+            sb6Var.b(it7Var.c());
+            sb6Var.c(it7Var.d());
+            sb6Var.a(it7Var.b());
             sb6Var.d(1);
             sb6Var.e(false);
-            ht7Var.a(sb6Var);
+            it7Var.a(sb6Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof gt7)) {
+            if (!(data instanceof ht7)) {
                 return;
             }
-            gt7 gt7Var = (gt7) data;
+            ht7 ht7Var = (ht7) data;
             sb6 sb6Var = new sb6(true);
             sb6Var.getFragmentTabStructure().type = 9;
-            sb6Var.b(gt7Var.d());
-            sb6Var.c(gt7Var.e());
-            sb6Var.a(gt7Var.c());
+            sb6Var.b(ht7Var.d());
+            sb6Var.c(ht7Var.e());
+            sb6Var.a(ht7Var.c());
             sb6Var.d(1);
             sb6Var.e(true);
-            if (gt7Var.i(9)) {
-                gt7Var.a(sb6Var);
+            if (ht7Var.i(9)) {
+                ht7Var.a(sb6Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ht7)) {
+            if (!(data instanceof it7)) {
                 return;
             }
-            ht7 ht7Var = (ht7) data;
+            it7 it7Var = (it7) data;
             sb6 sb6Var = new sb6(false);
             sb6Var.getFragmentTabStructure().type = 1;
-            sb6Var.b(ht7Var.c());
-            sb6Var.c(ht7Var.d());
-            sb6Var.a(ht7Var.b());
+            sb6Var.b(it7Var.c());
+            sb6Var.c(it7Var.d());
+            sb6Var.a(it7Var.b());
             sb6Var.d(2);
             sb6Var.e(false);
-            ht7Var.a(sb6Var);
+            it7Var.a(sb6Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof ht7)) {
+            if (!(data instanceof it7)) {
                 return;
             }
-            ht7 ht7Var = (ht7) data;
+            it7 it7Var = (it7) data;
             ac6 ac6Var = new ac6();
             ac6Var.getFragmentTabStructure().type = 3;
-            ac6Var.a(ht7Var.c());
-            ac6Var.b(ht7Var.d());
+            ac6Var.a(it7Var.c());
+            ac6Var.b(it7Var.d());
             ac6Var.c(false);
-            ht7Var.a(ac6Var);
+            it7Var.a(ac6Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof gt7)) {
+            if (!(data instanceof ht7)) {
                 return;
             }
-            gt7 gt7Var = (gt7) data;
+            ht7 ht7Var = (ht7) data;
             ac6 ac6Var = new ac6();
             ac6Var.getFragmentTabStructure().type = 8;
             ac6Var.getFragmentTabStructure().textResId = R.string.obfuscated_res_0x7f0f028a;
-            ac6Var.a(gt7Var.d());
-            ac6Var.b(gt7Var.e());
+            ac6Var.a(ht7Var.d());
+            ac6Var.b(ht7Var.e());
             ac6Var.c(true);
-            if (gt7Var.i(8)) {
-                gt7Var.a(ac6Var);
+            if (ht7Var.i(8)) {
+                ht7Var.a(ac6Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof gt7)) {
+            if (!(data instanceof ht7)) {
                 return;
             }
-            gt7 gt7Var = (gt7) data;
+            ht7 ht7Var = (ht7) data;
             zb6 zb6Var = new zb6();
-            zb6Var.c(gt7Var.d());
-            zb6Var.d(gt7Var.e());
-            zb6Var.b(gt7Var.c());
-            zb6Var.a(gt7Var);
+            zb6Var.c(ht7Var.d());
+            zb6Var.d(ht7Var.e());
+            zb6Var.b(ht7Var.c());
+            zb6Var.a(ht7Var);
         }
     }
 

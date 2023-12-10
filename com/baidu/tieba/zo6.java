@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class zo6 extends ab7<RecommendCollectCardView, qbb> {
+public class zo6 extends bb7<RecommendCollectCardView, rbb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,26 +33,26 @@ public class zo6 extends ab7<RecommendCollectCardView, qbb> {
         }
     }
 
-    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            jd7.i(a, Integer.valueOf((jd7.e() / 2) - du.r));
+            kd7.i(a, Integer.valueOf((kd7.e() / 2) - du.r));
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
-    public void b(@NonNull RecommendCollectCardView recommendCollectCardView, @NonNull qbb qbbVar) {
+    public void b(@NonNull RecommendCollectCardView recommendCollectCardView, @NonNull rbb rbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCollectCardView, qbbVar) == null) {
-            recommendCollectCardView.setData(qbbVar);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCollectCardView, rbbVar) == null) {
+            recommendCollectCardView.setData(rbbVar);
             recommendCollectCardView.f();
         }
     }

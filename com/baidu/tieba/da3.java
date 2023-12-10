@@ -41,14 +41,14 @@ public class da3 extends h83 {
 
         /* renamed from: com.baidu.tieba.da3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0252a implements pc2.f {
+        public class C0249a implements pc2.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pc2.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0252a(a aVar, pc2.e eVar, JSONObject jSONObject) {
+            public C0249a(a aVar, pc2.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +136,7 @@ public class da3 extends h83 {
                     str2 = "0";
                 }
                 q.D("preload", str2);
-                pc2.q(f, new C0252a(this, f, c2));
+                pc2.q(f, new C0249a(this, f, c2));
             }
         }
 

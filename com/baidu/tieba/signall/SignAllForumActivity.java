@@ -34,13 +34,13 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.dqa;
+import com.baidu.tieba.cqa;
 import com.baidu.tieba.eqa;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.iqa;
-import com.baidu.tieba.kqa;
+import com.baidu.tieba.fqa;
+import com.baidu.tieba.jqa;
 import com.baidu.tieba.lq6;
+import com.baidu.tieba.lqa;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.signall.GetForumListModel;
@@ -58,7 +58,7 @@ import java.util.ArrayList;
 public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> implements p55.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kqa a;
+    public lqa a;
     public GetForumListModel b;
     public f05 c;
     public SignAllForumModel d;
@@ -157,16 +157,16 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.GetForumListModel.b
-        public void a(dqa dqaVar) {
+        public void a(eqa eqaVar) {
             long j;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dqaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, eqaVar) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 this.a.a.x();
-                bqa i = dqaVar.i();
+                cqa i = eqaVar.i();
                 if (i != null) {
                     if (i.a() == 0) {
-                        this.a.a.H(dqaVar, this.a.b.V());
+                        this.a.a.H(eqaVar, this.a.b.V());
                     } else {
                         this.a.showToast(i.b(), false);
                         this.a.finish();
@@ -252,7 +252,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            dqa A;
+            eqa A;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof SignData) || (A = this.a.a.A()) == null) {
                 return;
@@ -296,17 +296,17 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
 
         @Override // com.baidu.tieba.signall.SignAllForumModel.a
-        public void a(iqa iqaVar) {
+        public void a(jqa jqaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, iqaVar) != null) || iqaVar == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jqaVar) != null) || jqaVar == null) {
                 return;
             }
-            if (iqaVar.a() != 3250013 || !this.a.g) {
-                bqa b = iqaVar.b();
+            if (jqaVar.a() != 3250013 || !this.a.g) {
+                cqa b = jqaVar.b();
                 if (b != null) {
                     if (b.a() == 0) {
-                        dqa A = this.a.a.A();
-                        A.D(iqaVar);
+                        eqa A = this.a.a.A();
+                        A.D(jqaVar);
                         if (this.a.e) {
                             Intent intent = new Intent(this.a.getPageContext().getPageActivity(), SignAllForumActivity.class);
                             intent.addFlags(805306368);
@@ -319,14 +319,14 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                         this.a.a.z().notifyDataSetChanged();
                         SignAllForumProgressView F = this.a.a.F();
                         if (!A.A()) {
-                            if (iqaVar.h() == 0) {
-                                if (iqaVar.e() != 0) {
-                                    this.a.showToast(iqaVar.g());
+                            if (jqaVar.h() == 0) {
+                                if (jqaVar.e() != 0) {
+                                    this.a.showToast(jqaVar.g());
                                 } else {
                                     this.a.showToast(R.string.obfuscated_res_0x7f0f1448);
                                 }
                             } else {
-                                this.a.f1(iqaVar.f());
+                                this.a.f1(jqaVar.f());
                                 this.a.c.show();
                             }
                         }
@@ -343,7 +343,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 return;
             }
             this.a.g = false;
-            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), iqaVar.c()).setIcon(BdToast.ToastIcon.FAILURE).setDuration(3000).show();
+            BdToast.makeText(TbadkCoreApplication.getInst().getContext(), jqaVar.c()).setIcon(BdToast.ToastIcon.FAILURE).setDuration(3000).show();
             if (this.a.a != null && this.a.a.F() != null) {
                 this.a.a.F().setSignBefore(0);
             }
@@ -491,7 +491,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public final void l1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            dqa A = this.a.A();
+            eqa A = this.a.A();
             this.a.F().setDuration(Math.max(A.x().size() * 50, 2000));
             this.a.F().setSigning(0);
             this.d.V(A);
@@ -515,8 +515,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
                 getForumListModel.cancelLoadData();
                 this.b = null;
             }
-            kqa kqaVar = this.a;
-            if (kqaVar != null && kqaVar.z() != null) {
+            lqa lqaVar = this.a;
+            if (lqaVar != null && lqaVar.z() != null) {
                 this.a.z().d();
             }
             SignAllForumModel signAllForumModel = this.d;
@@ -587,8 +587,8 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            kqa kqaVar = this.a;
-            if (kqaVar != null && kqaVar.D() != null) {
+            lqa lqaVar = this.a;
+            if (lqaVar != null && lqaVar.D() != null) {
                 return this.a.D().getPreLoadHandle();
             }
             return null;
@@ -636,15 +636,15 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         }
     }
 
-    public final void j1(dqa dqaVar) {
+    public final void j1(eqa eqaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, dqaVar) != null) || dqaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, eqaVar) != null) || eqaVar == null) {
             return;
         }
-        String d2 = dqaVar.d();
-        String e2 = dqaVar.e();
-        boolean B = dqaVar.B();
-        if (dqaVar.C()) {
+        String d2 = eqaVar.d();
+        String e2 = eqaVar.e();
+        boolean B = eqaVar.B();
+        if (eqaVar.C()) {
             this.a.J(0);
             new Handler().postDelayed(new f(this, d2, e2, B), 500L);
         }
@@ -664,9 +664,9 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public final void g1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kqa kqaVar = new kqa(this);
-            this.a = kqaVar;
-            kqaVar.I(this);
+            lqa lqaVar = new lqa(this);
+            this.a = lqaVar;
+            lqaVar.I(this);
             this.a.K(this);
             SignAllForumModel signAllForumModel = this.d;
             if (signAllForumModel.isRunning) {
@@ -705,12 +705,12 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        kqa kqaVar;
+        lqa lqaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048591, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && i == 25050 && (kqaVar = this.a) != null) {
-                kqaVar.L();
+            if (i2 == -1 && i == 25050 && (lqaVar = this.a) != null) {
+                lqaVar.L();
             }
         }
     }
@@ -719,7 +719,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             if (this.e) {
-                dqa A = this.a.A();
+                eqa A = this.a.A();
                 Intent intent = new Intent(getPageContext().getPageActivity(), SignAllForumActivity.class);
                 intent.addFlags(805306368);
                 intent.putExtra("signall_noyify_click", true);
@@ -732,13 +732,13 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
             }
             showToast(str);
             this.a.F().setSignSuccess();
-            ArrayList<eqa> x = this.a.A().x();
+            ArrayList<fqa> x = this.a.A().x();
             int size = x.size();
             for (int i = 0; i < size; i++) {
-                eqa eqaVar = x.get(i);
-                eqaVar.s(true);
-                eqaVar.t(false);
-                eqaVar.u(false);
+                fqa fqaVar = x.get(i);
+                fqaVar.s(true);
+                fqaVar.t(false);
+                fqaVar.u(false);
             }
             this.a.z().notifyDataSetChanged();
         }
@@ -748,7 +748,7 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
-            dqa A = this.a.A();
+            eqa A = this.a.A();
             if (view2 == this.a.E()) {
                 if (A == null) {
                     return;
@@ -813,10 +813,10 @@ public class SignAllForumActivity extends BaseActivity<SignAllForumActivity> imp
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        eqa eqaVar;
+        fqa fqaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.z().getItemViewType(i) == 0 && this.a.A() != null && this.a.A().k() != null && this.a.A().k().size() > i && (eqaVar = this.a.A().k().get(i)) != null) {
-            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(eqaVar.d(), "SignTogetherPage").setCallFrom(6)));
+        if ((interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.z().getItemViewType(i) == 0 && this.a.A() != null && this.a.A().k() != null && this.a.A().k().size() > i && (fqaVar = this.a.A().k().get(i)) != null) {
+            sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getPageContext().getPageActivity()).createNormalCfg(fqaVar.d(), "SignTogetherPage").setCallFrom(6)));
             TiebaStatic.log("signall_frs_click");
         }
     }

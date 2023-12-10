@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lu4;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class lr8 implements lu4.d {
+public final class lr8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
+    public static final lr8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,75 +31,70 @@ public abstract class lr8 implements lu4.d {
                 return;
             }
         }
-        b = new a(null);
+        a = new lr8();
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void a(lr8 h5Notify) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, h5Notify) == null) {
-                Intrinsics.checkNotNullParameter(h5Notify, "h5Notify");
-                lu4.b.a().c(h5Notify);
-            }
-        }
-
-        public final void b(lr8 h5Notify) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h5Notify) == null) {
-                Intrinsics.checkNotNullParameter(h5Notify, "h5Notify");
-                lu4.b.a().e(h5Notify);
-            }
-        }
-    }
-
-    public lr8(String keyStr) {
+    public lr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {keyStr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(keyStr, "keyStr");
-        this.a = keyStr;
     }
 
-    @Override // com.baidu.tieba.lu4.d
-    public String getKey() {
-        InterceptResult invokeV;
+    public final void a(String botId, Integer num, String duration) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, botId, num, duration) == null) {
+            Intrinsics.checkNotNullParameter(botId, "botId");
+            Intrinsics.checkNotNullParameter(duration, "duration");
+            StatisticItem statisticItem = new StatisticItem("c15413");
+            statisticItem.param("obj_type", 5);
+            statisticItem.param("obj_id", botId);
+            if (num != null) {
+                i = num.intValue();
+            } else {
+                i = 0;
+            }
+            statisticItem.param("obj_source", i);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, duration);
+            TiebaStatic.log(statisticItem);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public final void b(int i, String botPaid, Integer num) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, botPaid, num) == null) {
+            Intrinsics.checkNotNullParameter(botPaid, "botPaid");
+            StatisticItem statisticItem = new StatisticItem("c15413");
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_id", botPaid);
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
+            }
+            statisticItem.param("obj_source", i2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            StatisticItem statisticItem = new StatisticItem("c15439");
+            statisticItem.param("obj_type", i);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

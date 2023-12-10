@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public final class rqc<T> extends joc<T> {
+public final class rqc<T> implements foc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final roc<? super T> e;
-    public final roc<Throwable> f;
-    public final qoc g;
+    public final soc<? super T> a;
+    public final soc<? super Throwable> b;
+    public final roc c;
 
-    public rqc(roc<? super T> rocVar, roc<Throwable> rocVar2, qoc qocVar) {
+    public rqc(soc<? super T> socVar, soc<? super Throwable> socVar2, roc rocVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rocVar, rocVar2, qocVar};
+            Object[] objArr = {socVar, socVar2, rocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,32 +28,32 @@ public final class rqc<T> extends joc<T> {
                 return;
             }
         }
-        this.e = rocVar;
-        this.f = rocVar2;
-        this.g = qocVar;
+        this.a = socVar;
+        this.b = socVar2;
+        this.c = rocVar;
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.call();
+            this.c.call();
         }
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.f.call(th);
+            this.b.call(th);
         }
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.call(t);
+            this.a.call(t);
         }
     }
 }

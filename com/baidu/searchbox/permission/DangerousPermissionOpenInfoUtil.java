@@ -2,7 +2,7 @@ package com.baidu.searchbox.permission;
 
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.fqb;
+import com.baidu.tieba.gqb;
 import com.baidu.ubc.UBCManager;
 import com.kuaishou.weapon.p0.g;
 import org.json.JSONException;
@@ -29,6 +29,6 @@ public class DangerousPermissionOpenInfoUtil {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        ((fqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject.toString());
+        ((gqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent("2505", jSONObject.toString());
     }
 }

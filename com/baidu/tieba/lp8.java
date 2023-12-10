@@ -1,81 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.view.BdTopToast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class lp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
-        InterceptResult invokeL;
+    public lp8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
-                if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts()) && ListUtils.getCount(itemsDTO.getOpts()) > 0 && ListUtils.getItem(itemsDTO.getOpts(), 0) != null) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = ((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) ListUtils.getItem(itemsDTO.getOpts(), 0)).getExt();
-                    if (itemsDTO.getItemType() == 0) {
-                        continue;
-                    } else if (itemsDTO.getItemType() == 1 && (ext == null || StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize()))) {
-                        c(itemsDTO.getItemType());
-                        return false;
-                    } else if (!itemsDTO.isOptional() && itemsDTO.getItemType() == 2 && (ext == null || ListUtils.isEmpty(ext.getAtUserInfos()))) {
-                        c(itemsDTO.getItemType());
-                        return false;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public static List<String> b(@Nullable List<AtSelectData> list) {
-        InterceptResult invokeL;
+    public void a(int i, int i2, String str, long j, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !ListUtils.isEmpty(list) && ListUtils.getCount(list) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (AtSelectData atSelectData : list) {
-                    if (atSelectData != null) {
-                        arrayList.add(atSelectData.getUid());
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Long.valueOf(j), str2, Long.valueOf(j2), str3}) == null) {
+            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("obj_source", i2).param("obj_name", str).param("fid", j).param("fname", str2).param("room_id", j2).param("obj_id", str3).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
-        return (List) invokeL.objValue;
     }
 
-    public static void c(int i) {
-        String str;
+    public void b(int i, long j, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i == 1) {
-                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a2);
-            } else if (i == 2) {
-                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a1);
-            } else {
-                str = "";
-            }
-            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                new BdTopToast(currentActivity, 2000).setIcon(false).setContent(str).show((ViewGroup) currentActivity.findViewById(16908290));
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Long.valueOf(j2), str2}) == null) {
+            TiebaStatic.log(new StatisticItem("c15134").param("obj_type", i).param("fid", j).param("fname", str).param("room_id", j2).param("obj_id", str2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        }
+    }
+
+    public void c(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            TiebaStatic.log(new StatisticItem("c15128").param("fid", j).param("room_id", j2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 }

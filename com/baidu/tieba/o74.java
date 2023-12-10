@@ -98,7 +98,7 @@ public class o74 implements ao1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, r5b.c);
+            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, s5b.c);
         }
         return (File) invokeV.objValue;
     }

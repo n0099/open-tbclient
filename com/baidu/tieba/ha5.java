@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.data.NewsNotifyMessage;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
@@ -117,7 +117,7 @@ public class ha5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements roc<Triple<Integer, Integer, Boolean>> {
+    public class b implements soc<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ha5 a;
@@ -141,7 +141,7 @@ public class ha5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Triple<Integer, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
@@ -155,7 +155,7 @@ public class ha5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements woc<Triple<Integer, Integer, Boolean>, Boolean> {
+    public class c implements xoc<Triple<Integer, Integer, Boolean>, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -176,7 +176,7 @@ public class ha5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Boolean call(Triple<Integer, Integer, Boolean> triple) {
             InterceptResult invokeL;
@@ -195,7 +195,7 @@ public class ha5 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements doc.a<Triple<Integer, Integer, Boolean>> {
+    public class d implements eoc.a<Triple<Integer, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Map a;
@@ -219,13 +219,13 @@ public class ha5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super Triple<Integer, Integer, Boolean>> jocVar) {
+        public void call(koc<? super Triple<Integer, Integer, Boolean>> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jocVar) == null) {
-                jocVar.onNext(ha5.p(this.a));
-                jocVar.onCompleted();
+            if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+                kocVar.onNext(ha5.p(this.a));
+                kocVar.onCompleted();
             }
         }
     }
@@ -318,7 +318,7 @@ public class ha5 {
                     if (value != null && !TextUtils.isEmpty(value.getLast_content()) && value.getUnread_count() > 0) {
                         if (value.getCustomGroupType() != -4 && value.getCustomGroupType() != -7) {
                             if (value.getCustomGroupType() == 2) {
-                                PersonalSettingItemData setting = fx8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), value.getGid());
+                                PersonalSettingItemData setting = gx8.a().getSetting(TbadkCoreApplication.getCurrentAccount(), value.getGid());
                                 if (setting != null) {
                                     if (setting.isAcceptNotify()) {
                                         unread_count = value.getUnread_count();
@@ -352,7 +352,7 @@ public class ha5 {
                                     }
                                 }
                             } else if (value.getCustomGroupType() != -8) {
-                                if (value.getCustomGroupType() == 9 && cx8.b().d(Long.valueOf(JavaTypesHelper.toLong(value.getGid(), 0L))) && value.getUnread_count() > 0) {
+                                if (value.getCustomGroupType() == 9 && dx8.b().d(Long.valueOf(JavaTypesHelper.toLong(value.getGid(), 0L))) && value.getUnread_count() > 0) {
                                     i2 += value.getUnread_count();
                                 }
                             }
@@ -479,11 +479,11 @@ public class ha5 {
     public final void n(Map<String, ImMessageCenterPojo> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-            doc.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(noc.b()).k(new c(this)).x().I(new b(this), new roc() { // from class: com.baidu.tieba.da5
+            eoc.d(new d(this, new ConcurrentHashMap(map))).J(Schedulers.computation()).s(ooc.b()).k(new c(this)).x().I(new b(this), new soc() { // from class: com.baidu.tieba.da5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.roc
+                @Override // com.baidu.tieba.soc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

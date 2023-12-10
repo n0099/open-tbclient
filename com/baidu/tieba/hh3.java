@@ -94,12 +94,12 @@ public class hh3 extends eh3 {
 
         /* renamed from: com.baidu.tieba.hh3$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0307b implements bh3 {
+        public class C0306b implements bh3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0307b(b bVar) {
+            public C0306b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,9 +300,9 @@ public class hh3 extends eh3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0307b c0307b = new C0307b(this);
-            this.g = c0307b;
-            hh3Var.c.setConnectListener(c0307b);
+            C0306b c0306b = new C0306b(this);
+            this.g = c0306b;
+            hh3Var.c.setConnectListener(c0306b);
         }
 
         @Override // com.baidu.tieba.fh3

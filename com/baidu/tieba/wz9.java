@@ -1,134 +1,162 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.da;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.pb.pb.main.PbBjhRecommendViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class wz9 {
+/* loaded from: classes9.dex */
+public class wz9 extends a0a<xw4, PbBjhRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static wz9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public da<byte[]> a;
-    public da<byte[]> b;
+    public aw9 g;
+    public int h;
 
-    public wz9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wz9(i6a i6aVar, BdUniqueId bdUniqueId) {
+        super(i6aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i6aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((i6a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
     }
 
-    public static synchronized wz9 b() {
-        InterceptResult invokeV;
-        wz9 wz9Var;
+    public void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (wz9.class) {
-                if (c == null) {
-                    c = new wz9();
-                }
-                wz9Var = c;
-            }
-            return wz9Var;
-        }
-        return (wz9) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                e05.k();
-                this.a = e05.i("tb.pb_mark");
-            }
-            if (this.b == null) {
-                e05.k();
-                this.b = e05.i("tb.pb_normal");
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.h = i;
         }
     }
 
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        da.b<byte[]> h;
-        byte[] bArr;
+    public void B(aw9 aw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (UbsABTestHelper.isNoCachePb()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aw9Var) == null) {
+            this.g = aw9Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ci
+    /* renamed from: y */
+    public PbBjhRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null), this.a.u0());
+            x(pbBjhRecommendViewHolder);
+            return pbBjhRecommendViewHolder;
+        }
+        return (PbBjhRecommendViewHolder) invokeL.objValue;
+    }
+
+    public final void x(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, pbBjhRecommendViewHolder) != null) || pbBjhRecommendViewHolder == null) {
+            return;
+        }
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (pbBjhRecommendViewHolder.a != skinType) {
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.h, R.color.CAM_X0204, skinType);
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0203, skinType);
+            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.q, R.color.CAM_X0204, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.s, R.color.CAM_X0302, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.l, R.color.CAM_X0105, 1, skinType);
+            pbBjhRecommendViewHolder.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.o, R.color.CAM_X0101, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.u, R.color.CAM_X0109, 1, skinType);
+            SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.g, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
+            EMManager.from(pbBjhRecommendViewHolder.g).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0204);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(BdUtilHelper.getDimens(this.a.u0(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.k);
+        }
+        pbBjhRecommendViewHolder.a = skinType;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.a0a, com.baidu.tieba.ci
+    /* renamed from: z */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xw4 xw4Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xw4Var, pbBjhRecommendViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xw4Var, (xw4) pbBjhRecommendViewHolder);
+            if (xw4Var == null) {
                 return null;
             }
-            if (z) {
-                da<byte[]> daVar = this.a;
-                if (daVar != null && str != null) {
-                    h = daVar.h(str);
+            x(pbBjhRecommendViewHolder);
+            pbBjhRecommendViewHolder.f(xw4Var);
+            pbBjhRecommendViewHolder.g(this.h);
+            aw9 aw9Var = this.g;
+            if (aw9Var != null) {
+                pbBjhRecommendViewHolder.k(aw9Var.T());
+                pbBjhRecommendViewHolder.i(this.g.y0());
+                if (this.g.R() != null && this.g.R().getBaijiahaoData() != null) {
+                    pbBjhRecommendViewHolder.h(this.g.R().getBaijiahaoData().oriUgcNid);
                 }
-                h = null;
-            } else {
-                da<byte[]> daVar2 = this.b;
-                if (daVar2 != null && str != null) {
-                    h = daVar2.h(str);
+                int i2 = this.h;
+                int i3 = 3;
+                if (i2 == 2) {
+                    i3 = 1;
+                } else if (i2 == 1) {
+                    i3 = 2;
+                } else if (i2 != 3) {
+                    i3 = 4;
                 }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                da<byte[]> daVar = this.a;
-                if (daVar != null && str != null) {
-                    daVar.i(str, new byte[0], 0L);
-                    return;
+                if (xw4Var.threadType == 40) {
+                    StatisticItem.make("c13536").param("tid", xw4Var.getTid()).param("fid", xw4Var.getFid()).param("obj_source", i3).param("obj_locate", xw4Var.c()).param("obj_id", this.g.T()).param("obj_type", xw4Var.isBjhDynamicThread() ? 1 : 0).eventStat();
+                } else {
+                    StatisticItem.make("c13533").param("tid", xw4Var.getTid()).param("fid", xw4Var.getFid()).param("obj_source", i3).param("obj_locate", xw4Var.c()).param("obj_id", this.g.T()).eventStat();
                 }
-                return;
+                if (this.g.y0()) {
+                    StatisticItem statisticItem = new StatisticItem("c13588");
+                    if (xw4Var.getForumData() != null) {
+                        statisticItem.param("fid", xw4Var.getForumData().b());
+                    }
+                    statisticItem.param("tid", xw4Var.getTid());
+                    statisticItem.param("obj_param1", xw4Var.mRecomWeight);
+                    statisticItem.param("obj_source", xw4Var.mRecomSource);
+                    statisticItem.param("obj_locate", xw4Var.c());
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
+                    statisticItem.param("obj_id", this.g.T());
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    if (xw4Var.getThreadData().getBaijiahaoData() != null) {
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, xw4Var.getThreadData().getBaijiahaoData().oriUgcNid);
+                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, xw4Var.getThreadData().getBaijiahaoData().oriUgcVid);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, xw4Var.getVideoRecStaticticType());
+                    statisticItem.param("ab_tag", xw4Var.mRecomAbTag);
+                    statisticItem.param("extra", xw4Var.mRecomExtra);
+                    TiebaStatic.log(statisticItem);
+                }
             }
-            da<byte[]> daVar2 = this.b;
-            if (daVar2 != null && str != null) {
-                daVar2.i(str, new byte[0], 0L);
-            }
+            return view2;
         }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

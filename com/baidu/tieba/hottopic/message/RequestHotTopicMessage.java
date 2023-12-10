@@ -21,7 +21,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public int call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1108common;
+    public CommonReq f1109common;
     public Long fid;
     public String first_dir;
     public Integer q_type;
@@ -99,7 +99,7 @@ public class RequestHotTopicMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f1108common;
+            return this.f1109common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -213,7 +213,7 @@ public class RequestHotTopicMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, commonReq) == null) {
-            this.f1108common = commonReq;
+            this.f1109common = commonReq;
         }
     }
 

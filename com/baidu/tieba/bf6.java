@@ -33,7 +33,7 @@ public class bf6 {
             }
         }
         this.a = tbPageContext;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, vva.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, wva.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
         tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

@@ -5,12 +5,12 @@ import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.tieba.fob;
 import com.baidu.tieba.gob;
-import com.baidu.tieba.job;
-import com.baidu.tieba.lob;
-import com.baidu.tieba.pnb;
-import com.baidu.tieba.snb;
+import com.baidu.tieba.hob;
+import com.baidu.tieba.kob;
+import com.baidu.tieba.mob;
+import com.baidu.tieba.qnb;
+import com.baidu.tieba.tnb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import org.chromium.base.annotations.NativeClassQualifiedName;
 @JNINamespace("cronet")
 @VisibleForTesting
 /* loaded from: classes9.dex */
-public final class CronetUrlRequest extends job {
+public final class CronetUrlRequest extends kob {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -55,10 +55,10 @@ public final class CronetUrlRequest extends job {
     public String E;
     public String F;
     public CronetUploadDataStream G;
-    public lob H;
+    public mob H;
     public int I;
     public CronetException J;
-    public pnb K;
+    public qnb K;
     public j L;
     @GuardedBy("mUrlRequestAdapterLock")
     public Runnable M;
@@ -275,16 +275,16 @@ public final class CronetUrlRequest extends job {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lob a;
+        public final /* synthetic */ mob a;
         public final /* synthetic */ String b;
         public final /* synthetic */ CronetUrlRequest c;
 
-        public b(CronetUrlRequest cronetUrlRequest, lob lobVar, String str) {
+        public b(CronetUrlRequest cronetUrlRequest, mob mobVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cronetUrlRequest, lobVar, str};
+                Object[] objArr = {cronetUrlRequest, mobVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -295,7 +295,7 @@ public final class CronetUrlRequest extends job {
                 }
             }
             this.c = cronetUrlRequest;
-            this.a = lobVar;
+            this.a = mobVar;
             this.b = str;
         }
 
@@ -476,7 +476,7 @@ public final class CronetUrlRequest extends job {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(job.o(this.b));
+                this.a.a(kob.o(this.b));
             }
         }
     }
@@ -655,7 +655,7 @@ public final class CronetUrlRequest extends job {
                     this.D = null;
                     this.E = null;
                     this.F = null;
-                    this.H = new lob(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
+                    this.H = new mob(new ArrayList(this.i), 0, "", new HeadersList(null), false, "", "");
                     return;
                 }
                 throw new NullPointerException("Executor is required");
@@ -780,7 +780,7 @@ public final class CronetUrlRequest extends job {
         }
     }
 
-    @Override // com.baidu.tieba.job
+    @Override // com.baidu.tieba.kob
     public void p(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
@@ -801,7 +801,7 @@ public final class CronetUrlRequest extends job {
         }
     }
 
-    @Override // com.baidu.tieba.job
+    @Override // com.baidu.tieba.kob
     public void n(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
@@ -817,7 +817,7 @@ public final class CronetUrlRequest extends job {
         }
     }
 
-    @Override // com.baidu.tieba.job
+    @Override // com.baidu.tieba.kob
     public void q(UploadDataProvider uploadDataProvider, Executor executor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048603, this, uploadDataProvider, executor) == null) {
@@ -846,9 +846,9 @@ public final class CronetUrlRequest extends job {
     private void onError(int i2, int i3, int i4, String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Long.valueOf(j2)}) == null) {
-            lob lobVar = this.H;
-            if (lobVar != null) {
-                lobVar.j(j2);
+            mob mobVar = this.H;
+            if (mobVar != null) {
+                mobVar.j(j2);
             }
             int M = M(i2);
             K(new NetworkExceptionImpl("Exception in CronetUrlRequest: " + str, M, i3));
@@ -898,7 +898,7 @@ public final class CronetUrlRequest extends job {
     public final void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            snb.v().o(this.b, this);
+            tnb.v().o(this.b, this);
         }
     }
 
@@ -927,7 +927,7 @@ public final class CronetUrlRequest extends job {
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Long.valueOf(j14), Boolean.valueOf(z), Long.valueOf(j15), Long.valueOf(j16)}) == null) {
             synchronized (this.f) {
                 if (this.K == null) {
-                    this.K = new pnb(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
+                    this.K = new qnb(j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, j14, z, j15, j16);
                 } else {
                     throw new IllegalStateException("Metrics collection should only happen once.");
                 }
@@ -978,7 +978,7 @@ public final class CronetUrlRequest extends job {
                     if (L()) {
                         return;
                     }
-                    snb.v().k(this.b, this);
+                    tnb.v().k(this.b, this);
                     return;
                 }
                 throw new IllegalStateException("No redirect to follow.");
@@ -1009,7 +1009,7 @@ public final class CronetUrlRequest extends job {
     private void onRedirectReceived(String str, int i2, String str2, String[] strArr, boolean z, String str3, String str4, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{str, Integer.valueOf(i2), str2, strArr, Boolean.valueOf(z), str3, str4, Long.valueOf(j2)}) == null) {
-            lob R = R(i2, str2, strArr, z, str3, str4, j2);
+            mob R = R(i2, str2, strArr, z, str3, str4, j2);
             this.i.add(str);
             Q(new b(this, R, str));
         }
@@ -1032,19 +1032,19 @@ public final class CronetUrlRequest extends job {
             if (this.b == 0) {
                 return;
             }
-            snb.v().s(this.b, this).isEmpty();
-            snb.v().j(this.b, this).isEmpty();
-            snb.v().r(this.b, this).isEmpty();
+            tnb.v().s(this.b, this).isEmpty();
+            tnb.v().j(this.b, this).isEmpty();
+            tnb.v().r(this.b, this).isEmpty();
             boolean z = false;
-            snb.v().e(this.b, this, false).isEmpty();
-            snb.v().e(this.b, this, true).isEmpty();
-            snb.v().t(this.b, this).isEmpty();
-            int i3 = (snb.v().g(this.b, this, 1) > 0L ? 1 : (snb.v().g(this.b, this, 1) == 0L ? 0 : -1));
-            int i4 = (snb.v().g(this.b, this, 2) > 0L ? 1 : (snb.v().g(this.b, this, 2) == 0L ? 0 : -1));
-            int i5 = (snb.v().g(this.b, this, 3) > 0L ? 1 : (snb.v().g(this.b, this, 3) == 0L ? 0 : -1));
-            int i6 = (snb.v().g(this.b, this, 4) > 0L ? 1 : (snb.v().g(this.b, this, 4) == 0L ? 0 : -1));
-            int i7 = (snb.v().g(this.b, this, 5) > 0L ? 1 : (snb.v().g(this.b, this, 5) == 0L ? 0 : -1));
-            RequestTimeInfo i8 = snb.v().i(this.b, this);
+            tnb.v().e(this.b, this, false).isEmpty();
+            tnb.v().e(this.b, this, true).isEmpty();
+            tnb.v().t(this.b, this).isEmpty();
+            int i3 = (tnb.v().g(this.b, this, 1) > 0L ? 1 : (tnb.v().g(this.b, this, 1) == 0L ? 0 : -1));
+            int i4 = (tnb.v().g(this.b, this, 2) > 0L ? 1 : (tnb.v().g(this.b, this, 2) == 0L ? 0 : -1));
+            int i5 = (tnb.v().g(this.b, this, 3) > 0L ? 1 : (tnb.v().g(this.b, this, 3) == 0L ? 0 : -1));
+            int i6 = (tnb.v().g(this.b, this, 4) > 0L ? 1 : (tnb.v().g(this.b, this, 4) == 0L ? 0 : -1));
+            int i7 = (tnb.v().g(this.b, this, 5) > 0L ? 1 : (tnb.v().g(this.b, this, 5) == 0L ? 0 : -1));
+            RequestTimeInfo i8 = tnb.v().i(this.b, this);
             this.x = i8;
             if (i8 == null) {
                 this.x = new RequestTimeInfo();
@@ -1053,7 +1053,7 @@ public final class CronetUrlRequest extends job {
                 this.g.y(this);
             }
             this.g.t();
-            i v = snb.v();
+            i v = tnb.v();
             long j2 = this.b;
             if (i2 == 2) {
                 z = true;
@@ -1103,15 +1103,15 @@ public final class CronetUrlRequest extends job {
     public void e(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, byteBuffer) == null) {
-            fob.b(byteBuffer);
-            fob.a(byteBuffer);
+            gob.b(byteBuffer);
+            gob.a(byteBuffer);
             synchronized (this.f) {
                 if (this.e) {
                     this.e = false;
                     if (L()) {
                         return;
                     }
-                    if (snb.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
+                    if (tnb.v().d(this.b, this, byteBuffer, byteBuffer.position(), byteBuffer.limit())) {
                         return;
                     }
                     this.e = true;
@@ -1123,15 +1123,15 @@ public final class CronetUrlRequest extends job {
     }
 
     public final void N() {
-        pnb pnbVar;
+        qnb qnbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pnbVar = this.K) != null) {
-            gob gobVar = new gob(this.k, this.p, pnbVar, this.I, this.H, this.J);
-            this.g.z(gobVar);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (qnbVar = this.K) != null) {
+            hob hobVar = new hob(this.k, this.p, qnbVar, this.I, this.H, this.J);
+            this.g.z(hobVar);
             VersionSafeCallbacks.e eVar = this.w;
             if (eVar != null) {
                 try {
-                    eVar.a().execute(new h(this, gobVar));
+                    eVar.a().execute(new h(this, hobVar));
                 } catch (RejectedExecutionException e2) {
                     Log.e(CronetUrlRequestContext.s, "Exception posting task to executor", e2);
                 }
@@ -1139,7 +1139,7 @@ public final class CronetUrlRequest extends job {
         }
     }
 
-    public final lob R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
+    public final mob R(int i2, String str, String[] strArr, boolean z, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), str, strArr, Boolean.valueOf(z), str2, str3, Long.valueOf(j2)})) == null) {
@@ -1147,14 +1147,14 @@ public final class CronetUrlRequest extends job {
             for (int i3 = 0; i3 < strArr.length; i3 += 2) {
                 headersList.add(new AbstractMap.SimpleImmutableEntry(strArr[i3], strArr[i3 + 1]));
             }
-            return new lob(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
+            return new mob(new ArrayList(this.i), i2, str, headersList, z, str2, str3, j2);
         }
-        return (lob) invokeCommon.objValue;
+        return (mob) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:107:0x0230 */
     /* JADX WARN: Code restructure failed: missing block: B:79:0x01f1, code lost:
-        if (com.baidu.tieba.snb.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
+        if (com.baidu.tieba.tnb.v().l(r19.b, r19, "X-From-H3-TRNet", com.baidu.searchbox.player.model.YYOption.IsLive.VALUE_TRUE) == false) goto L84;
      */
     /* JADX WARN: Code restructure failed: missing block: B:82:0x01fb, code lost:
         throw new java.lang.IllegalArgumentException("Invalid value for header X-From-H3-TRNet.");
@@ -1199,7 +1199,7 @@ public final class CronetUrlRequest extends job {
                     Log.i(CronetUrlRequestContext.s, "****** Request start, url is: %s", this.k);
                     G();
                     try {
-                        i v = snb.v();
+                        i v = tnb.v();
                         long p = this.g.p();
                         String str = this.k;
                         int i3 = this.l;
@@ -1210,7 +1210,7 @@ public final class CronetUrlRequest extends job {
                                 z = false;
                                 this.b = v.q(this, p, str, i3, z4, z5, z, this.s, this.t, this.u, this.v, this.m);
                                 this.g.u();
-                                if (this.n != null && !snb.v().f(this.b, this, this.n)) {
+                                if (this.n != null && !tnb.v().f(this.b, this, this.n)) {
                                     throw new IllegalArgumentException("Invalid http method " + this.n);
                                 }
                                 if (this.D != null) {
@@ -1219,7 +1219,7 @@ public final class CronetUrlRequest extends job {
                                 i2 = 1;
                                 if (this.y) {
                                     try {
-                                        snb.v().c(this.b, this);
+                                        tnb.v().c(this.b, this);
                                     } catch (RuntimeException e2) {
                                         e = e2;
                                         J(i2);
@@ -1227,22 +1227,22 @@ public final class CronetUrlRequest extends job {
                                     }
                                 }
                                 if (this.z > 0) {
-                                    snb.v().m(this.b, this, this.z);
+                                    tnb.v().m(this.b, this, this.z);
                                 }
                                 if (this.A > 0) {
-                                    snb.v().b(this.b, this, this.A);
+                                    tnb.v().b(this.b, this, this.A);
                                 }
                                 if (this.B > 0) {
-                                    snb.v().p(this.b, this, this.B);
+                                    tnb.v().p(this.b, this, this.B);
                                 }
                                 if (this.C > 0) {
-                                    snb.v().h(this.b, this, this.C);
+                                    tnb.v().h(this.b, this, this.C);
                                 }
                                 if (!TextUtils.isEmpty(this.E)) {
-                                    snb.v().u(this.b, this, this.E);
+                                    tnb.v().u(this.b, this, this.E);
                                 }
                                 if (!TextUtils.isEmpty(this.F)) {
-                                    snb.v().a(this.b, this, this.F);
+                                    tnb.v().a(this.b, this, this.F);
                                 }
                                 it = this.o.iterator();
                                 boolean z6 = false;
@@ -1258,11 +1258,11 @@ public final class CronetUrlRequest extends job {
                                     if (next.getKey().equalsIgnoreCase("X-From-H3-TRNet") && !next.getValue().isEmpty()) {
                                         z6 = true;
                                     }
-                                    if (!snb.v().l(this.b, this, next.getKey(), next.getValue())) {
+                                    if (!tnb.v().l(this.b, this, next.getKey(), next.getValue())) {
                                         throw new IllegalArgumentException("Invalid header " + next.getKey() + "=" + next.getValue());
                                     }
                                 }
-                                if (!z2 && !snb.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
+                                if (!z2 && !tnb.v().l(this.b, this, HttpRequest.EXT_HEADER_TRACE_ID, UUID.randomUUID().toString().replace("-", "").toLowerCase())) {
                                     throw new IllegalArgumentException("Invalid value for header X-Bd-Traceid .");
                                 }
                                 if (this.G == null) {

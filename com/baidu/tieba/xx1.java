@@ -20,7 +20,7 @@ public class xx1 {
     public transient /* synthetic */ FieldHolder $fh;
     public fy1 a;
     public boolean b;
-    public koc c;
+    public loc c;
 
     /* loaded from: classes9.dex */
     public class a implements Runnable {

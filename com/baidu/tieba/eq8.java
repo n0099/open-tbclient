@@ -1,9 +1,54 @@
 package com.baidu.tieba;
+
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface eq8 {
-    void a(int i, int i2);
+public abstract class eq8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public dq8 a;
+    public lq8 b;
+    public kq8 c;
 
-    void b(int i, int i2);
+    public abstract BaseTagItemViewHolder b(ViewGroup viewGroup, int i);
 
-    void c(int i, int i2);
+    public eq8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(dq8 dq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dq8Var) == null) {
+            this.a = dq8Var;
+        }
+    }
+
+    public void c(kq8 kq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kq8Var) == null) {
+            this.c = kq8Var;
+        }
+    }
+
+    public void d(lq8 lq8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lq8Var) == null) {
+            this.b = lq8Var;
+        }
+    }
 }

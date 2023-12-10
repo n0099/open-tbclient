@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.RecGuide;
+import tbclient.RankingParam;
 /* loaded from: classes6.dex */
-public class j7d extends ktc {
+public class j7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecGuide recGuide) {
+    public static JSONObject b(@NonNull RankingParam rankingParam) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rankingParam)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, ClearCacheUbcController.DOCUMENT, recGuide.document);
-            ktc.a(jSONObject, "url", recGuide.url);
-            ktc.a(jSONObject, "pic", recGuide.pic);
+            ltc.a(jSONObject, "rank_type", rankingParam.rank_type);
+            ltc.a(jSONObject, "rank_code", rankingParam.rank_code);
+            ltc.a(jSONObject, "sort_type", rankingParam.sort_type);
+            ltc.a(jSONObject, "tab_id", rankingParam.tab_id);
+            ltc.a(jSONObject, "pn", rankingParam.pn);
+            ltc.a(jSONObject, "rn", rankingParam.rn);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

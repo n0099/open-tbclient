@@ -24,7 +24,7 @@ public class ai6 implements wh6<Pair<String, Map<String, String>>, Response> {
     public class a extends ResponseCallback<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ soc a;
+        public final /* synthetic */ toc a;
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
@@ -34,12 +34,12 @@ public class ai6 implements wh6<Pair<String, Map<String, String>>, Response> {
             return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
         }
 
-        public a(ai6 ai6Var, soc socVar) {
+        public a(ai6 ai6Var, toc tocVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ai6Var, socVar};
+                Object[] objArr = {ai6Var, tocVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,7 +49,7 @@ public class ai6 implements wh6<Pair<String, Map<String, String>>, Response> {
                     return;
                 }
             }
-            this.a = socVar;
+            this.a = tocVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,13 +113,13 @@ public class ai6 implements wh6<Pair<String, Map<String, String>>, Response> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wh6
     /* renamed from: d */
-    public void b(Pair<String, Map<String, String>> pair, soc<Response, Exception> socVar) {
+    public void b(Pair<String, Map<String, String>> pair, toc<Response, Exception> tocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, socVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, tocVar) == null) {
             if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, socVar));
+                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, tocVar));
             } else {
-                socVar.a(null, new IllegalArgumentException("url is null !"));
+                tocVar.a(null, new IllegalArgumentException("url is null !"));
             }
         }
     }

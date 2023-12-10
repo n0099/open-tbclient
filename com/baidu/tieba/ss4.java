@@ -134,58 +134,58 @@ public class ss4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa c(WebView webView) {
+    public gxa c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             try {
                 dj6.a();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa i(WebView webView) {
+    public gxa i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             try {
                 dj6.c();
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa d(WebView webView) {
+    public gxa d(WebView webView) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -204,24 +204,24 @@ public class ss4 implements qj6 {
                     jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
                 }
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
+                gxaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa f(WebView webView, int i) {
+    public gxa f(WebView webView, int i) {
         InterceptResult invokeLI;
         boolean z;
         TriState triState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, webView, i)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             if (i == 1) {
                 z = true;
@@ -237,23 +237,23 @@ public class ss4 implements qj6 {
                 QuickWebViewSwitch.setState(triState);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (fxa) invokeLI.objValue;
+        return (gxa) invokeLI.objValue;
     }
 
-    public fxa g(WebView webView, String str) {
+    public gxa g(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             try {
                 if (StringUtils.isNull(str)) {
@@ -266,23 +266,23 @@ public class ss4 implements qj6 {
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa h(WebView webView, ArrayList<JSONObject> arrayList) {
+    public gxa h(WebView webView, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, arrayList)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!e()) {
-                return fxaVar;
+                return gxaVar;
             }
             try {
                 ds4 ds4Var = new ds4();
@@ -301,12 +301,12 @@ public class ss4 implements qj6 {
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                fxaVar.o(jSONObject2.toString());
+                gxaVar.o(jSONObject2.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 }

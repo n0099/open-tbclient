@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.baidu.tieba.mm6;
-import com.baidu.tieba.w7a;
-import com.baidu.tieba.x8a;
+import com.baidu.tieba.x7a;
+import com.baidu.tieba.y8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w7a a;
+    public x7a a;
     public Bundle b;
-    public x8a c;
+    public y8a c;
     public mm6 d;
 
     /* loaded from: classes7.dex */
-    public class a extends mm6<x8a> {
+    public class a extends mm6<y8a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -64,12 +64,12 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.mm6
         /* renamed from: d */
-        public void a(View view2, x8a x8aVar) {
+        public void a(View view2, y8a y8aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, x8aVar) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, y8aVar) != null) {
                 return;
             }
-            this.b.c = x8aVar;
+            this.b.c = y8aVar;
             if (this.b.c == null || this.b.Q0()) {
                 return;
             }
@@ -112,9 +112,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            w7a w7aVar = this.a;
-            if (w7aVar != null) {
-                w7aVar.d();
+            x7a x7aVar = this.a;
+            if (x7aVar != null) {
+                x7aVar.d();
             }
         }
     }
@@ -169,9 +169,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
             setContentView(R.layout.obfuscated_res_0x7f0d07ff);
-            w7a w7aVar = new w7a(getPageContext(), this.b, this.d);
-            this.a = w7aVar;
-            w7aVar.c();
+            x7a x7aVar = new x7a(getPageContext(), this.b, this.d);
+            this.a = x7aVar;
+            x7aVar.c();
         }
     }
 

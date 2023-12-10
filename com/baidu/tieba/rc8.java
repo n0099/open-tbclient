@@ -5,29 +5,28 @@ import android.view.View;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
-import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.homepage.concern.view.ConcernRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rc8 extends os<RecommendBarCardModel> {
+public class rc8 extends os<bz4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendBarLayout f;
+    public ConcernRecommendLayout f;
     public int g;
-    public int h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rc8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+    public rc8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,7 +38,10 @@ public class rc8 extends os<RecommendBarCardModel> {
             }
         }
         this.g = 3;
-        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
+        ConcernRecommendLayout concernRecommendLayout = new ConcernRecommendLayout(tbPageContext.getPageActivity());
+        this.f = concernRecommendLayout;
+        concernRecommendLayout.setPageContext(tbPageContext);
+        this.f.setPageUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.os
@@ -56,18 +58,31 @@ public class rc8 extends os<RecommendBarCardModel> {
     public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.f.setPageId(bdUniqueId);
+            this.f.setPageUniqueId(bdUniqueId);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: r */
-    public void onBindDataToView(RecommendBarCardModel recommendBarCardModel) {
+    public void onBindDataToView(bz4 bz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, recommendBarCardModel) == null) && recommendBarCardModel != null && this.h != recommendBarCardModel.hashCode()) {
-            this.h = recommendBarCardModel.hashCode();
-            this.f.setData(recommendBarCardModel);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bz4Var) == null) {
+            this.f.setData(bz4Var);
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f.setHasBorder(z);
+        }
+    }
+
+    public void t(av4<MetaData> av4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, av4Var) == null) {
+            this.f.setOnItemCoverListener(av4Var);
         }
     }
 

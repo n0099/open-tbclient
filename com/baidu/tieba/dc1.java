@@ -23,13 +23,13 @@ public class dc1 {
 
         /* renamed from: com.baidu.tieba.dc1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0253a extends vc1 {
+        public class C0250a extends vc1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0253a(a aVar, JSONArray jSONArray) {
+            public C0250a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class dc1 {
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = dc1.a()) == null) {
                 return;
             }
-            zb1.d(a, new C0253a(this, a));
+            zb1.d(a, new C0250a(this, a));
         }
     }
 

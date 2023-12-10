@@ -22,6 +22,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.BlueCheckRadioButton;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ak7;
 import com.baidu.tieba.b77;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.dr6;
@@ -29,28 +30,27 @@ import com.baidu.tieba.feed.data.ThreadManageType;
 import com.baidu.tieba.forum.management.ThreadManageDialog;
 import com.baidu.tieba.g67;
 import com.baidu.tieba.h87;
-import com.baidu.tieba.hk7;
-import com.baidu.tieba.ho7;
+import com.baidu.tieba.ik7;
+import com.baidu.tieba.io7;
 import com.baidu.tieba.j87;
-import com.baidu.tieba.jl7;
 import com.baidu.tieba.jx4;
+import com.baidu.tieba.kl7;
 import com.baidu.tieba.l05;
-import com.baidu.tieba.ml7;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.nl7;
+import com.baidu.tieba.ol7;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.p77;
 import com.baidu.tieba.q57;
 import com.baidu.tieba.s57;
 import com.baidu.tieba.s87;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
-import com.baidu.tieba.vm7;
 import com.baidu.tieba.w4;
+import com.baidu.tieba.wm7;
 import com.baidu.tieba.wx4;
-import com.baidu.tieba.xj7;
 import com.baidu.tieba.y67;
 import com.baidu.tieba.y77;
-import com.baidu.tieba.zj7;
+import com.baidu.tieba.yj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,10 +116,10 @@ public final class ThreadManageDialog extends n05 {
             }
             switch (this.a.q.getLoadDataMode()) {
                 case 0:
-                    nl7.b(obj, this.a.n);
+                    ol7.b(obj, this.a.n);
                     return;
                 case 1:
-                    nl7.c(obj, this.a.n);
+                    ol7.c(obj, this.a.n);
                     return;
                 case 2:
                 case 3:
@@ -129,10 +129,10 @@ public final class ThreadManageDialog extends n05 {
                     threadManageDialog.M(threadManageDialog.q.getLoadDataMode(), obj);
                     return;
                 case 6:
-                    nl7.d(obj, this.a.n, this.a.v);
+                    ol7.d(obj, this.a.n, this.a.v);
                     return;
                 default:
-                    ho7.b(null, 1, null);
+                    io7.b(null, 1, null);
                     return;
             }
         }
@@ -178,7 +178,7 @@ public final class ThreadManageDialog extends n05 {
                     obj = null;
                 }
                 if (obj == null) {
-                    ho7.a("ThreadManageItemData extData must not be null！！！");
+                    io7.a("ThreadManageItemData extData must not be null！！！");
                 } else if (i == ThreadManageType.ID_DEL.getValue()) {
                     this.a.U(obj);
                 } else if (i == ThreadManageType.ID_FORBID.getValue()) {
@@ -197,7 +197,7 @@ public final class ThreadManageDialog extends n05 {
                 } else if (i == ThreadManageType.ID_BROADCAST.getValue()) {
                     this.a.H(obj);
                 } else {
-                    ho7.b(null, 1, null);
+                    io7.b(null, 1, null);
                 }
             }
         }
@@ -241,7 +241,7 @@ public final class ThreadManageDialog extends n05 {
         h(this.o);
         L();
         this.v = new ThreadManageDialog$showGoodClassListDialog$1(this);
-        this.w = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.cl7
+        this.w = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.dl7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -351,7 +351,7 @@ public final class ThreadManageDialog extends n05 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             if (obj instanceof p77) {
                 p77 p77Var = (p77) obj;
-                vm7.a.b(p77Var.e(), p77Var.a(), 7);
+                wm7.a.b(p77Var.e(), p77Var.a(), 7);
             }
             br6.b().c(new s87(this.n, true, false));
         }
@@ -362,7 +362,7 @@ public final class ThreadManageDialog extends n05 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             if (obj instanceof g67) {
                 g67 g67Var = (g67) obj;
-                vm7.a.b(g67Var.g(), g67Var.b(), 5);
+                wm7.a.b(g67Var.g(), g67Var.b(), 5);
             }
             br6.b().c(new s87(this.n, true, false, 4, null));
         }
@@ -453,7 +453,7 @@ public final class ThreadManageDialog extends n05 {
                                 int i2 = gVar.h;
                                 String str3 = gVar.i;
                                 Intrinsics.checkNotNullExpressionValue(str3, "retData.topScheme");
-                                ml7.i(activity, i2, str3, gVar.d);
+                                nl7.i(activity, i2, str3, gVar.d);
                                 z5 = z4;
                             }
                             z2 = true;
@@ -469,7 +469,7 @@ public final class ThreadManageDialog extends n05 {
                         Intrinsics.checkNotNullExpressionValue(str4, "retData.mForumId");
                         String str5 = gVar.g;
                         Intrinsics.checkNotNullExpressionValue(str5, "retData.mCommitGoodId");
-                        b2.c(new xj7(str4, str5, false));
+                        b2.c(new yj7(str4, str5, false));
                     }
                     z2 = false;
                 } else {
@@ -497,7 +497,7 @@ public final class ThreadManageDialog extends n05 {
                     Intrinsics.checkNotNullExpressionValue(str6, "retData.mForumId");
                     String str7 = gVar.g;
                     Intrinsics.checkNotNullExpressionValue(str7, "retData.mCommitGoodId");
-                    b3.c(new xj7(str6, str7, true));
+                    b3.c(new yj7(str6, str7, true));
                 }
                 ForumManageModel.e eVar = new ForumManageModel.e();
                 eVar.a = gVar.f;
@@ -506,7 +506,7 @@ public final class ThreadManageDialog extends n05 {
                 eVar.d = i;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
                 if (z5) {
-                    br6.b().c(new zj7(this.n, CollectionsKt__CollectionsJVMKt.listOf(gVar.f), i));
+                    br6.b().c(new ak7(this.n, CollectionsKt__CollectionsJVMKt.listOf(gVar.f), i));
                 }
                 if (TextUtils.isEmpty(str)) {
                     str = N(R.string.operation_success, new Object[0]);
@@ -543,7 +543,7 @@ public final class ThreadManageDialog extends n05 {
         y77 y77Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, obj) == null) {
-            hk7.a();
+            ik7.a();
             if (obj instanceof y77) {
                 y77Var = (y77) obj;
             } else {
@@ -553,16 +553,16 @@ public final class ThreadManageDialog extends n05 {
                 return;
             }
             y77 y77Var2 = (y77) obj;
-            vm7.a.b(y77Var2.c(), y77Var2.b(), 6);
+            wm7.a.b(y77Var2.c(), y77Var2.b(), 6);
             q57 a2 = y77Var.a();
             if (a2 == null) {
-                jl7.a(this.l.getUniqueId());
+                kl7.a(this.l.getUniqueId());
             } else if (a2.b() <= a2.c()) {
-                jl7.a(this.l.getUniqueId());
+                kl7.a(this.l.getUniqueId());
             } else if (SharedPrefHelper.getInstance().getBoolean("key_frs_recommend_tip", true)) {
-                jl7.d(this.l, y77Var.b(), y77Var.c(), a2, ThreadManageDialog$recommendThread$1.INSTANCE);
+                kl7.d(this.l, y77Var.b(), y77Var.c(), a2, ThreadManageDialog$recommendThread$1.INSTANCE);
             } else {
-                jl7.b(y77Var.b(), y77Var.c(), this.l.getUniqueId());
+                kl7.b(y77Var.b(), y77Var.c(), this.l.getUniqueId());
             }
         }
     }
@@ -580,9 +580,9 @@ public final class ThreadManageDialog extends n05 {
                 return;
             }
             g67 g67Var2 = (g67) obj;
-            vm7.a.b(g67Var2.g(), g67Var2.b(), 1);
+            wm7.a.b(g67Var2.g(), g67Var2.b(), 1);
             if (UtilHelper.isCurrentAccount(g67Var.h())) {
-                ml7.d(this.n, new Function0<Unit>(this, g67Var) { // from class: com.baidu.tieba.forum.management.ThreadManageDialog$startDeleteThread$1
+                nl7.d(this.n, new Function0<Unit>(this, g67Var) { // from class: com.baidu.tieba.forum.management.ThreadManageDialog$startDeleteThread$1
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ g67 $deleteThreadItemData;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -627,7 +627,7 @@ public final class ThreadManageDialog extends n05 {
                     }
                 });
             } else {
-                ml7.f(this.l, this.q, g67Var);
+                nl7.f(this.l, this.q, g67Var);
             }
         }
     }
@@ -651,7 +651,7 @@ public final class ThreadManageDialog extends n05 {
             String b2 = y67Var.b();
             String a2 = y67Var.a();
             String g = y67Var.g();
-            vm7.a.b(e, a2, 2);
+            wm7.a.b(e, a2, 2);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.n, a2, b2, e, c, f, d, null, g)));
         }
     }
@@ -670,7 +670,7 @@ public final class ThreadManageDialog extends n05 {
                 return;
             }
             j87 j87Var2 = (j87) obj;
-            vm7.a.b(j87Var2.e(), j87Var2.b(), 3);
+            wm7.a.b(j87Var2.e(), j87Var2.b(), 3);
             this.u = j87Var;
             if (j87Var.f()) {
                 i = 5;
@@ -697,7 +697,7 @@ public final class ThreadManageDialog extends n05 {
                 return;
             }
             b77 b77Var2 = (b77) obj;
-            vm7.a.b(b77Var2.e(), b77Var2.b(), 4);
+            wm7.a.b(b77Var2.e(), b77Var2.b(), 4);
             this.s = b77Var;
             if (b77Var.g()) {
                 i = 3;

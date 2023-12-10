@@ -53,38 +53,38 @@ public class vs4 implements qj6 {
         }
     }
 
-    public fxa c(WebView webView, String str, String str2) {
+    public gxa c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             HybridLog.getInstance().w(str, str2);
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa d(WebView webView, HashMap<String, String> hashMap) {
+    public gxa d(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (hashMap != null && hashMap.get("result") != null) {
-                fxaVar.o(hashMap.get("result"));
+                gxaVar.o(hashMap.get("result"));
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa e(WebView webView, String str, JSONObject jSONObject) {
+    public gxa e(WebView webView, String str, JSONObject jSONObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, webView, str, jSONObject)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (TextUtils.isEmpty(str)) {
-                fxaVar.r("logKey为null或者是空字符串");
-                return fxaVar;
+                gxaVar.r("logKey为null或者是空字符串");
+                return gxaVar;
             }
             StatisticItem statisticItem = new StatisticItem(str);
             if (jSONObject != null) {
@@ -95,8 +95,8 @@ public class vs4 implements qj6 {
                 }
             }
             statisticItem.eventStat();
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.tieba.ay6;
 import com.baidu.tieba.cy6;
 import com.baidu.tieba.jq5;
 import com.baidu.tieba.ox6;
-import com.baidu.tieba.pua;
+import com.baidu.tieba.qua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -207,7 +207,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            pua.g().k(getUniqueId());
+            qua.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -260,7 +260,7 @@ public class EnterForumFragment extends BaseFragment {
             this.b = null;
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
-            pua.g().k(getUniqueId());
+            qua.g().k(getUniqueId());
             super.onDestroy();
         }
     }
@@ -303,7 +303,7 @@ public class EnterForumFragment extends BaseFragment {
             super.onCreate(bundle);
             registerListener(this.f);
             registerListener(this.g);
-            pua.g().i(getUniqueId());
+            qua.g().i(getUniqueId());
         }
     }
 
@@ -336,7 +336,7 @@ public class EnterForumFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0342, viewGroup, false);
             L2(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            pua.g().i(getUniqueId());
+            qua.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -353,7 +353,7 @@ public class EnterForumFragment extends BaseFragment {
                 if (ay6Var != null) {
                     refreshImage(ay6Var.D());
                 }
-                pua.g().h(getUniqueId(), false);
+                qua.g().h(getUniqueId(), false);
             }
             ay6 ay6Var2 = this.a;
             if (ay6Var2 != null) {

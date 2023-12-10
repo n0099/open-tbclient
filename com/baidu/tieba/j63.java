@@ -52,13 +52,13 @@ public abstract class j63 extends g63 {
 
         /* renamed from: com.baidu.tieba.j63$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0364a implements Runnable {
+        public class RunnableC0362a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dl3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0364a(a aVar, dl3 dl3Var) {
+            public RunnableC0362a(a aVar, dl3 dl3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public abstract class j63 extends g63 {
                     if (z && !this.a.d("event_flag_force_post", false)) {
                         dl3Var.a(this.a);
                     } else {
-                        j63.M().post(new RunnableC0364a(this, dl3Var));
+                        j63.M().post(new RunnableC0362a(this, dl3Var));
                     }
                 }
             }

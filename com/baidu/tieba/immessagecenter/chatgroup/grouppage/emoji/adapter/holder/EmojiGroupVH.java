@@ -6,10 +6,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i49;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.EmojiGridView;
-import com.baidu.tieba.iz8;
-import com.baidu.tieba.k49;
+import com.baidu.tieba.j49;
+import com.baidu.tieba.jz8;
+import com.baidu.tieba.l49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,13 +22,13 @@ public class EmojiGroupVH extends RecyclerView.ViewHolder {
     public EmojiGridView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmojiGroupVH(@NonNull View view2, @NonNull k49 k49Var) {
+    public EmojiGroupVH(@NonNull View view2, @NonNull l49 l49Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, k49Var};
+            Object[] objArr = {view2, l49Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,9 +42,9 @@ public class EmojiGroupVH extends RecyclerView.ViewHolder {
         this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909ee);
         EmojiGridView emojiGridView = (EmojiGridView) view2.findViewById(R.id.obfuscated_res_0x7f0909ed);
         this.b = emojiGridView;
-        emojiGridView.setNumColumns(iz8.a());
-        i49 i49Var = new i49(view2.getContext());
-        i49Var.c(k49Var);
-        this.b.setAdapter((ListAdapter) i49Var);
+        emojiGridView.setNumColumns(jz8.a());
+        j49 j49Var = new j49(view2.getContext());
+        j49Var.c(l49Var);
+        this.b.setAdapter((ListAdapter) j49Var);
     }
 }

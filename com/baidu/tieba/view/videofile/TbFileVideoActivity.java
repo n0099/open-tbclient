@@ -32,13 +32,13 @@ import com.baidu.tbadk.data.QmFilterItem;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.mcb;
 import com.baidu.tieba.n05;
+import com.baidu.tieba.ncb;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.sq6;
 import com.baidu.tieba.view.widget.TbGLMediaPreviewView;
 import com.baidu.tieba.view.widget.mediaedit.MultiMediaEditLayout;
-import com.baidu.tieba.w5b;
+import com.baidu.tieba.x5b;
 import com.baidu.tieba.xq6;
 import com.baidu.tieba.zq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -212,7 +212,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     this.a.f.end = j2;
                 } else if (this.a.h == 2) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", w5b.a(this.a.l));
+                    intent.putExtra("enter_anim_values", x5b.a(this.a.l));
                     intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.a.f);
                     this.a.setResult(-1, intent);
                     this.a.finish();
@@ -253,7 +253,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, p05Var, i, view2) == null) {
                 if (i == 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", w5b.a(this.b.l));
+                    intent.putExtra("enter_anim_values", x5b.a(this.b.l));
                     this.b.setResult(0, intent);
                     this.b.finish();
                     return;
@@ -330,7 +330,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 return;
             }
             Intent intent = new Intent();
-            intent.putExtra("enter_anim_values", w5b.a(this.l));
+            intent.putExtra("enter_anim_values", x5b.a(this.l));
             setResult(0, intent);
             finish();
         }
@@ -412,7 +412,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 VideoInfo videoInfo = (VideoInfo) getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
                 this.g = videoInfo;
                 if (videoInfo != null) {
-                    this.f = mcb.a(videoInfo);
+                    this.f = ncb.a(videoInfo);
                 } else {
                     this.f = (TbMultiMediaData) getIntent().getParcelableExtra(TbFileVideoActivityConfig.MULTI_MEDIA_DATA);
                 }

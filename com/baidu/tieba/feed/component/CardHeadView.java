@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac7;
+import com.baidu.tieba.bc7;
 import com.baidu.tieba.e77;
 import com.baidu.tieba.e87;
 import com.baidu.tieba.feed.component.CardHeadView;
@@ -21,9 +21,9 @@ import com.baidu.tieba.feed.widget.AutoDegradeTagView;
 import com.baidu.tieba.feed.widget.ForumAttentionView;
 import com.baidu.tieba.feed.widget.HeadImageView;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
-import com.baidu.tieba.kb7;
 import com.baidu.tieba.l67;
 import com.baidu.tieba.lb7;
+import com.baidu.tieba.mb7;
 import com.baidu.tieba.o47;
 import com.baidu.tieba.t67;
 import com.baidu.tieba.y57;
@@ -41,7 +41,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0015\u001a\u00020\u0016H\u0002J\b\u0010\u0017\u001a\u00020\u0016H\u0002J\b\u0010\u0018\u001a\u00020\u0016H\u0002J\b\u0010\u0019\u001a\u00020\u0016H\u0002J\b\u0010\u001a\u001a\u00020\u0016H\u0002J\b\u0010\u001b\u001a\u00020\u0016H\u0016J\u000e\u0010\u001c\u001a\u00020\u00162\u0006\u0010\u001d\u001a\u00020\u001eR\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/feed/component/CardHeadView;", "Landroid/widget/RelativeLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "attentionView", "Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "feedBackBtn", "Landroid/widget/ImageView;", "forumAttentionView", "Lcom/baidu/tieba/feed/widget/ForumAttentionView;", "headExtendInfo", "Lcom/baidu/tieba/feed/widget/AutoDegradeTagView;", "headImageView", "Lcom/baidu/tieba/feed/widget/HeadImageView;", "headMainView", "headRightLayout", "Landroid/widget/LinearLayout;", "initAttentionView", "", "initFeedBackBtn", "initHeadInfoLayout", "initImageView", "initRightLayout", "onChangeSkin", "updateState", "uiState", "Lcom/baidu/tieba/feed/component/uistate/CardHeadUiState;", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class CardHeadView extends RelativeLayout implements kb7 {
+public final class CardHeadView extends RelativeLayout implements lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -108,7 +108,7 @@ public final class CardHeadView extends RelativeLayout implements kb7 {
                 this.a.s().invoke(view2, data, this.a);
                 if (data instanceof e77) {
                     for (e87 e87Var : ((e77) data).a()) {
-                        ac7.a.f(e87Var, this.a.k() + 1);
+                        bc7.a.f(e87Var, this.a.k() + 1);
                         this.a.j().invoke(e87Var);
                     }
                 }
@@ -192,7 +192,7 @@ public final class CardHeadView extends RelativeLayout implements kb7 {
             Intrinsics.checkNotNullExpressionValue(it, "it");
             r.invoke(it, str, uiState);
             for (e87 e87Var : uiState.v()) {
-                ac7.a.f(e87Var, uiState.k() + 1);
+                bc7.a.f(e87Var, uiState.k() + 1);
                 uiState.j().invoke(e87Var);
             }
         }
@@ -397,10 +397,10 @@ public final class CardHeadView extends RelativeLayout implements kb7 {
         }
     }
 
-    @Override // com.baidu.tieba.kb7
+    @Override // com.baidu.tieba.lb7
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || lb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || mb7.a(this)) {
             return;
         }
         HeadImageView headImageView = this.a;

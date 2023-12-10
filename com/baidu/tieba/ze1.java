@@ -56,12 +56,12 @@ public class ze1 {
 
         /* renamed from: com.baidu.tieba.ze1$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0550a implements mp0.b {
+        public class C0548a implements mp0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0550a(a aVar) {
+            public C0548a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class ze1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    mp0.a(this.a, this.b, new C0550a(this), this.e);
+                    mp0.a(this.a, this.b, new C0548a(this), this.e);
                 } catch (Exception e) {
                     dz0.e(new fz0(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

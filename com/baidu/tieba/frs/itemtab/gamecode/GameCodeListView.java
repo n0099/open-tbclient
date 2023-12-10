@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o18;
 import com.baidu.tieba.os5;
+import com.baidu.tieba.p18;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -200,10 +200,10 @@ public class GameCodeListView extends ConstraintLayout implements os5 {
         }
     }
 
-    public void b(o18 o18Var) {
+    public void b(p18 p18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o18Var) == null) {
-            this.c.p(o18Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p18Var) == null) {
+            this.c.p(p18Var);
         }
     }
 

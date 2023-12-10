@@ -39,16 +39,16 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.axa;
 import com.baidu.tieba.bs4;
 import com.baidu.tieba.bxa;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cxa;
+import com.baidu.tieba.dxa;
 import com.baidu.tieba.gs4;
 import com.baidu.tieba.gy4;
 import com.baidu.tieba.jq5;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
+public class FrsTabWebFragment extends BaseWebViewFragment implements nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -71,25 +71,25 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
     public View i;
     public NestedScrollWebView j;
     public FrameLayout k;
-    public axa l;
+    public bxa l;
     public boolean m;
     public boolean n;
     public boolean o;
     public boolean p;
     public FrsViewData q;
-    public cxa r;
+    public dxa r;
     public CustomMessageListener s;
     public NestedScrollWebView.a t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -107,7 +107,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements cxa {
+    public class a implements dxa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsTabWebFragment a;
@@ -130,7 +130,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
             this.a = frsTabWebFragment;
         }
 
-        @Override // com.baidu.tieba.cxa
+        @Override // com.baidu.tieba.dxa
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -557,7 +557,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -570,17 +570,17 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         }
     }
 
-    public final bxa h3() {
+    public final cxa h3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, bxa.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, cxa.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (bxa) runTask.getData();
+                return (cxa) runTask.getData();
             }
             return null;
         }
-        return (bxa) invokeV.objValue;
+        return (cxa) invokeV.objValue;
     }
 
     public final void j3() {
@@ -599,7 +599,7 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -650,9 +650,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onDestroy();
-            axa axaVar = this.l;
-            if (axaVar != null) {
-                axaVar.h();
+            bxa bxaVar = this.l;
+            if (bxaVar != null) {
+                bxaVar.h();
             }
             kk5.e().b();
         }
@@ -754,9 +754,9 @@ public class FrsTabWebFragment extends BaseWebViewFragment implements mt7 {
             }
             j3();
             this.a = this.g;
-            axa axaVar = new axa();
-            this.l = axaVar;
-            axaVar.a(new XiubaTbJsBridge(getPageContext()));
+            bxa bxaVar = new bxa();
+            this.l = bxaVar;
+            bxaVar.a(new XiubaTbJsBridge(getPageContext()));
             this.l.a(new CommonTbJsBridge(getPageContext().getPageActivity()));
             this.l.a(h3());
             registerListener(this.s);

@@ -30,9 +30,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.AutoChangeLineView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bfb;
+import com.baidu.tieba.cfb;
 import com.baidu.tieba.lq5;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -410,7 +410,7 @@ public class SelectTagListView extends LinearLayout implements lq5, View.OnClick
     }
 
     /* loaded from: classes8.dex */
-    public class g implements bfb.c {
+    public class g implements cfb.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagListView a;
@@ -433,7 +433,7 @@ public class SelectTagListView extends LinearLayout implements lq5, View.OnClick
             this.a = selectTagListView;
         }
 
-        @Override // com.baidu.tieba.bfb.c
+        @Override // com.baidu.tieba.cfb.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -761,7 +761,7 @@ public class SelectTagListView extends LinearLayout implements lq5, View.OnClick
             if (list != null && list.size() != 0) {
                 EMManager.from(this.c).setTextSelectorColor(R.color.CAM_X0302);
             } else {
-                this.c.setTextColor(tua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.c.setTextColor(uua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -788,7 +788,7 @@ public class SelectTagListView extends LinearLayout implements lq5, View.OnClick
             this.p.setOnClickListener(new d(this));
             this.p.setOnEditorActionListener(new e(this));
             this.p.addTextChangedListener(new f(this));
-            this.p.setFilters(new InputFilter[]{new bfb.a(this.u, new g(this))});
+            this.p.setFilters(new InputFilter[]{new cfb.a(this.u, new g(this))});
             this.r.setOnClickListener(new h(this));
             EMManager.from(this.j).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0209);
         }

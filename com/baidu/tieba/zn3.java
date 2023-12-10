@@ -50,12 +50,12 @@ public class zn3 extends mx2 {
 
         /* renamed from: com.baidu.tieba.zn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0551a implements dl3<String> {
+        public class C0552a implements dl3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0551a(a aVar) {
+            public C0552a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class zn3 extends mx2 {
                 if (!ib3.h(nb3Var)) {
                     ib3.q(nb3Var, this.a, this.b);
                 } else {
-                    zn3.z(this.c, new C0551a(this));
+                    zn3.z(this.c, new C0552a(this));
                 }
             }
         }

@@ -122,7 +122,7 @@ public class w05 extends u05 {
                 spriteAnimationTipManager.q();
             }
             sb5.s(false);
-            br6.b().c(new bua(null, 1));
+            br6.b().c(new cua(null, 1));
         }
     }
 
@@ -134,7 +134,7 @@ public class w05 extends u05 {
                 aVar.callback(false);
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
-            } else if (2 == z1b.b().c().a().c && 1 == z1b.b().c().b().c && 6 == z1b.b().c().c().c) {
+            } else if (2 == a2b.b().c().a().c && 1 == a2b.b().c().b().c && 6 == a2b.b().c().c().c) {
                 DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
                 aVar.callback(false);
             } else {

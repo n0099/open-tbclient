@@ -1,118 +1,387 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class d1a extends zz9<ny4, PbRecommendNovelHolder> {
+public final class d1a {
     public static /* synthetic */ Interceptable $ic;
+    public static final d1a a;
+    public static boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zv9 g;
-    public PbRecommendNovelHolder.b h;
 
-    /* loaded from: classes5.dex */
-    public class a implements PbRecommendNovelHolder.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d1a a;
-
-        public a(d1a d1aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653077, "Lcom/baidu/tieba/d1a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = d1aVar;
-        }
-
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(ny4 ny4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, ny4Var) == null) && ny4Var != null) {
-                b6a.a(this.a.g, ny4Var, ny4Var.h0, 6);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d1a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((h6a) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947653077, "Lcom/baidu/tieba/d1a;");
                 return;
             }
         }
-        this.h = new a(this);
+        a = new d1a();
     }
 
-    public void s(zv9 zv9Var) {
+    public d1a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zv9Var) == null) {
-            this.g = zv9Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: y */
-    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07e7, viewGroup, false), this.h);
-        }
-        return (PbRecommendNovelHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zz9, com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        z(i, view2, viewGroup, (ny4) obj, (PbRecommendNovelHolder) viewHolder);
-        return view2;
-    }
-
-    public View z(int i, View view2, ViewGroup viewGroup, ny4 ny4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ny4Var, pbRecommendNovelHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ny4Var, (ny4) pbRecommendNovelHolder);
-            if (ny4Var == null) {
-                return view2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            ny4Var.h0 = i + 1;
-            b6a.d(this.b.getUniqueId(), this.g, ny4Var, ny4Var.h0, 6);
-            pbRecommendNovelHolder.d(ny4Var);
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public static final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    @JvmStatic
+    public static final void e(PbModel pbModel, String str, int i, AbsPbActivity.e eVar) {
+        TbRichTextData tbRichTextData;
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65539, null, pbModel, str, i, eVar) == null) {
+            Intrinsics.checkNotNullParameter(pbModel, "pbModel");
+            if (eVar == null) {
+                return;
+            }
+            aw9 s1 = pbModel.s1();
+            TbRichText f = f(pbModel, str, i);
+            if (f == null || (tbRichTextData = f.Q().get(c)) == null) {
+                return;
+            }
+            eVar.f = String.valueOf(f.getPostId());
+            eVar.a = new ArrayList<>();
+            eVar.b = new ConcurrentHashMap<>();
+            boolean z = false;
+            if (!tbRichTextData.V().W()) {
+                eVar.h = false;
+                String a2 = bw9.a(tbRichTextData);
+                eVar.a.add(a2);
+                ImageUrlData imageUrlData = new ImageUrlData();
+                imageUrlData.imageUrl = str;
+                if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
+                    imageUrlData.urlType = 38;
+                } else {
+                    Intrinsics.checkNotNull(s1);
+                    if (s1.n0()) {
+                        i4 = 17;
+                    } else {
+                        i4 = 18;
+                    }
+                    imageUrlData.urlType = i4;
+                }
+                imageUrlData.urlThumbType = imageUrlData.urlType;
+                imageUrlData.imageThumbUrl = imageUrlData.imageUrl;
+                imageUrlData.originalUrl = n1a.k(tbRichTextData);
+                imageUrlData.originalUrl = n1a.k(tbRichTextData);
+                imageUrlData.originalSize = n1a.l(tbRichTextData);
+                imageUrlData.mIsShowOrigonButton = n1a.h(tbRichTextData);
+                imageUrlData.isLongPic = n1a.g(tbRichTextData);
+                imageUrlData.postId = f.getPostId();
+                imageUrlData.mIsReserver = pbModel.E1();
+                imageUrlData.mIsSeeHost = pbModel.V0();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+                Intrinsics.checkNotNullExpressionValue(concurrentHashMap, "result.assistUrls");
+                concurrentHashMap.put(a2, imageUrlData);
+                if (s1 != null) {
+                    if (s1.n() != null) {
+                        eVar.c = s1.n().getName();
+                        eVar.d = s1.n().getId();
+                    }
+                    if (s1.R() != null) {
+                        eVar.e = s1.R().getId();
+                    }
+                    if (s1.u() == 1) {
+                        z = true;
+                    }
+                    eVar.g = z;
+                }
+                imageUrlData.threadId = JavaTypesHelper.toLong(eVar.e, -1L);
+                return;
+            }
+            eVar.h = true;
+            Intrinsics.checkNotNull(s1);
+            int size = s1.I().size();
+            b = false;
+            eVar.j = -1;
+            if (s1.l() != null) {
+                TbRichText f0 = s1.l().f0();
+                d1a d1aVar = a;
+                ArrayList<String> arrayList = eVar.a;
+                Intrinsics.checkNotNullExpressionValue(arrayList, "result.urlList");
+                i2 = d1aVar.c(pbModel, f0, f, i, i, arrayList, eVar.b);
+            } else {
+                i2 = i;
+            }
+            int i5 = i2;
+            int i6 = 0;
+            while (i6 < size) {
+                nwa nwaVar = s1.I().get(i6);
+                if (nwaVar.U() != null && s1.l() != null && s1.l().U() != null && Intrinsics.areEqual(nwaVar.U(), s1.l().U())) {
+                    i3 = i6;
+                } else {
+                    TbRichText f02 = nwaVar.f0();
+                    d1a d1aVar2 = a;
+                    ArrayList<String> arrayList2 = eVar.a;
+                    Intrinsics.checkNotNullExpressionValue(arrayList2, "result.urlList");
+                    i3 = i6;
+                    i5 = d1aVar2.c(pbModel, f02, f, i5, i, arrayList2, eVar.b);
+                }
+                i6 = i3 + 1;
+            }
+            if (eVar.a.size() > 0) {
+                ArrayList<String> arrayList3 = eVar.a;
+                eVar.i = arrayList3.get(arrayList3.size() - 1);
+            }
+            if (s1.n() != null) {
+                eVar.c = s1.n().getName();
+                eVar.d = s1.n().getId();
+            }
+            if (s1.R() != null) {
+                eVar.e = s1.R().getId();
+            }
+            if (s1.u() == 1) {
+                z = true;
+            }
+            eVar.g = z;
+            eVar.j = i5;
+        }
+    }
+
+    @JvmStatic
+    public static final TbRichText f(PbModel pbModel, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, pbModel, str, i)) == null) {
+            TbRichText tbRichText = null;
+            if (pbModel == null || pbModel.s1() == null || str == null || i < 0) {
+                return null;
+            }
+            aw9 s1 = pbModel.s1();
+            if (s1.l() != null) {
+                ArrayList<nwa> arrayList = new ArrayList<>();
+                arrayList.add(s1.l());
+                tbRichText = a.b(arrayList, str, i);
+            }
+            if (tbRichText == null) {
+                ArrayList<nwa> I = s1.I();
+                a.a(s1, I);
+                return a.b(I, str, i);
+            }
+            return tbRichText;
+        }
+        return (TbRichText) invokeLLI.objValue;
+    }
+
+    public final void a(aw9 aw9Var, ArrayList<nwa> arrayList) {
+        List<nwa> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, aw9Var, arrayList) == null) && aw9Var != null && aw9Var.W() != null && aw9Var.W().a != null && (list = aw9Var.W().a) != null && arrayList != null) {
+            ArrayList arrayList2 = new ArrayList();
+            ArrayList arrayList3 = new ArrayList();
+            if (list.size() > 0 && arrayList.size() > 0) {
+                arrayList3.addAll(list);
+                Iterator<nwa> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    nwa next = it.next();
+                    if (next != null) {
+                        Iterator it2 = arrayList3.iterator();
+                        while (it2.hasNext()) {
+                            nwa nwaVar = (nwa) it2.next();
+                            if (nwaVar != null && !TextUtils.isEmpty(next.U()) && !TextUtils.isEmpty(nwaVar.U()) && Intrinsics.areEqual(next.U(), nwaVar.U())) {
+                                arrayList2.add(nwaVar);
+                            }
+                        }
+                    }
+                }
+                if (arrayList2.size() > 0) {
+                    arrayList3.removeAll(arrayList2);
+                }
+                if (arrayList3.size() > 0) {
+                    arrayList.addAll(arrayList3);
+                }
+            }
+        }
+    }
+
+    public final TbRichText b(ArrayList<nwa> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        ArrayList<TbRichTextData> Q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, i)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    nwa nwaVar = arrayList.get(i2);
+                    Intrinsics.checkNotNullExpressionValue(nwaVar, "datas[k]");
+                    TbRichText f0 = nwaVar.f0();
+                    if (f0 != null && (Q = f0.Q()) != null) {
+                        int size2 = Q.size();
+                        int i3 = -1;
+                        for (int i4 = 0; i4 < size2; i4++) {
+                            if (Q.get(i4) != null) {
+                                TbRichTextData tbRichTextData = Q.get(i4);
+                                Intrinsics.checkNotNull(tbRichTextData);
+                                if (tbRichTextData.getType() == 8) {
+                                    i3++;
+                                    TbRichTextData tbRichTextData2 = Q.get(i4);
+                                    Intrinsics.checkNotNull(tbRichTextData2);
+                                    if (!Intrinsics.areEqual(tbRichTextData2.V().Q(), str)) {
+                                        TbRichTextData tbRichTextData3 = Q.get(i4);
+                                        Intrinsics.checkNotNull(tbRichTextData3);
+                                        if (!Intrinsics.areEqual(tbRichTextData3.V().R(), str)) {
+                                            if (i3 > i) {
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    int equipmentDensity = (int) BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst());
+                                    TbRichTextData tbRichTextData4 = Q.get(i4);
+                                    Intrinsics.checkNotNull(tbRichTextData4);
+                                    int width = tbRichTextData4.V().getWidth() * equipmentDensity;
+                                    TbRichTextData tbRichTextData5 = Q.get(i4);
+                                    Intrinsics.checkNotNull(tbRichTextData5);
+                                    int height = tbRichTextData5.V().getHeight() * equipmentDensity;
+                                    if (width < 80 || height < 80 || width * height < 10000) {
+                                        return null;
+                                    }
+                                    c = i4;
+                                    return f0;
+                                }
+                                continue;
+                            }
+                        }
+                        continue;
+                    }
+                }
+            }
+            return null;
+        }
+        return (TbRichText) invokeLLI.objValue;
+    }
+
+    public final int c(PbModel pbModel, TbRichText tbRichText, TbRichText tbRichText2, int i, int i2, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+        InterceptResult invokeCommon;
+        boolean z;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbModel, tbRichText, tbRichText2, Integer.valueOf(i), Integer.valueOf(i2), arrayList, concurrentHashMap})) == null) {
+            if (tbRichText == tbRichText2) {
+                b = true;
+            }
+            if (tbRichText != null) {
+                int size = tbRichText.Q().size();
+                int i4 = i;
+                int i5 = -1;
+                for (int i6 = 0; i6 < size; i6++) {
+                    TbRichTextData tbRichTextData = tbRichText.Q().get(i6);
+                    if ((tbRichTextData == null || tbRichTextData.getType() != 20) && tbRichTextData != null && tbRichTextData.getType() == 8) {
+                        i5++;
+                        int equipmentDensity = (int) BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst());
+                        int width = tbRichTextData.V().getWidth() * equipmentDensity;
+                        int height = tbRichTextData.V().getHeight() * equipmentDensity;
+                        if (width >= 80 && height >= 80 && width * height >= 10000) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (!z && tbRichTextData.V().W()) {
+                            if (tbRichTextData.getType() != 20) {
+                                String bigImageUrl = bw9.a(tbRichTextData);
+                                if (!TextUtils.isEmpty(bigImageUrl)) {
+                                    arrayList.add(bigImageUrl);
+                                    TbRichTextImageInfo V = tbRichTextData.V();
+                                    if (V != null) {
+                                        String Q = V.Q();
+                                        ImageUrlData imageUrlData = new ImageUrlData();
+                                        if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
+                                            imageUrlData.urlType = 38;
+                                            Q = V.R();
+                                        } else {
+                                            aw9 aw9Var = null;
+                                            if (pbModel != null && pbModel.s1() != null) {
+                                                aw9Var = pbModel.s1();
+                                            }
+                                            if (aw9Var != null && aw9Var.n0()) {
+                                                i3 = 17;
+                                            } else {
+                                                i3 = 18;
+                                            }
+                                            imageUrlData.urlType = i3;
+                                        }
+                                        imageUrlData.imageUrl = Q;
+                                        imageUrlData.imageThumbUrl = Q;
+                                        imageUrlData.urlThumbType = imageUrlData.urlType;
+                                        imageUrlData.originalUrl = n1a.k(tbRichTextData);
+                                        imageUrlData.originalSize = n1a.l(tbRichTextData);
+                                        imageUrlData.mIsShowOrigonButton = n1a.h(tbRichTextData);
+                                        imageUrlData.isLongPic = n1a.g(tbRichTextData);
+                                        imageUrlData.postId = tbRichText.getPostId();
+                                        Intrinsics.checkNotNull(pbModel);
+                                        imageUrlData.threadId = JavaTypesHelper.toLong(pbModel.M1(), -1L);
+                                        imageUrlData.mIsReserver = pbModel.E1();
+                                        imageUrlData.mIsSeeHost = pbModel.V0();
+                                        if (concurrentHashMap != null) {
+                                            Intrinsics.checkNotNullExpressionValue(bigImageUrl, "bigImageUrl");
+                                            concurrentHashMap.put(bigImageUrl, imageUrlData);
+                                        }
+                                    }
+                                }
+                                if (!b) {
+                                    i4++;
+                                }
+                            }
+                        } else if (tbRichText == tbRichText2) {
+                            if (i5 <= i2) {
+                                i4--;
+                            }
+                        }
+                    }
+                }
+                return i4;
+            }
+            return i;
+        }
+        return invokeCommon.intValue;
     }
 }

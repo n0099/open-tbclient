@@ -1,33 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dy8 extends fq8 {
+public class dy8 extends wx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cq8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dy8() {
+        super(ku8.w(), 2001147);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,42 +19,12 @@ public class dy8 extends fq8 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((yt8) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.fq8
-    public List<bq8> j(@NonNull List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof TbBaseMsg) {
-                    TbBaseMsg tbBaseMsg = (TbBaseMsg) obj;
-                    List<AbilityItem> quickOperate = tbBaseMsg.getQuickOperate();
-                    if (ListUtils.isEmpty(quickOperate)) {
-                        break;
-                    }
-                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
-                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
-                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
-                            ny8 ny8Var = new ny8();
-                            ny8Var.f(abilityItem);
-                            ny8Var.g(tbBaseMsg);
-                            if (tbBaseMsg != null) {
-                                ny8Var.h(tbBaseMsg.getUserId());
-                            }
-                            arrayList.add(ny8Var);
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
     }
 }

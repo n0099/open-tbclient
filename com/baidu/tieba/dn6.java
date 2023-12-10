@@ -41,7 +41,7 @@ public class dn6 extends um6 {
     public static final BdUniqueId R0;
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f1088T = "";
+    public static String f1090T = "";
     public static String U = "";
     public static String V = "";
     public static String W = "";
@@ -705,7 +705,7 @@ public class dn6 extends um6 {
             } else if (isVideoThreadType()) {
                 return null;
             } else {
-                StatisticItem l3 = l(f1088T);
+                StatisticItem l3 = l(f1090T);
                 if (l3 != null) {
                     l3.setPosition(this.position);
                     l3.param(TiebaStatic.Params.AB_ACTION, "show");

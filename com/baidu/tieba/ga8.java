@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ga8 extends q6 {
+public class ga8 extends k6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,24 +33,24 @@ public class ga8 extends q6 {
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
     @Override // com.baidu.tieba.n6
-    public /* bridge */ /* synthetic */ SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        i(socketResponsedMessage2);
-        return socketResponsedMessage2;
+    public /* bridge */ /* synthetic */ HttpResponsedMessage g(HttpResponsedMessage httpResponsedMessage) {
+        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
+        i(httpResponsedMessage2);
+        return httpResponsedMessage2;
     }
 
-    public SocketResponsedMessage i(SocketResponsedMessage socketResponsedMessage) {
+    public HttpResponsedMessage i(HttpResponsedMessage httpResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage == null) {
-                return socketResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return httpResponsedMessage;
             }
-            if (socketResponsedMessage.getError() == 1990055 && !ea8.c(socketResponsedMessage.getCmd())) {
-                ea8.d();
+            if (httpResponsedMessage.getError() == 1990055 && !fa8.c(httpResponsedMessage.getCmd())) {
+                fa8.d();
             }
-            return socketResponsedMessage;
+            return httpResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

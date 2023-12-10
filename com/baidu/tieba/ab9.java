@@ -1,40 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.impersonal.data.MsgGuideInfo;
+import com.baidu.tieba.impersonal.data.BehaviorExt;
+import com.baidu.tieba.impersonal.template.PersonalImageMsgTemplate;
+import com.baidu.tieba.impersonal.template.PersonalTextMsgTemplate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import java.util.ArrayList;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes5.dex */
-public final class ab9 extends lq8 {
+public final class ab9 implements jb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> b;
+    public final lq8 a;
+    public final id9 b;
+    public final BehaviorExt c;
 
-    @Override // com.baidu.tieba.lq8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "jump_to" : (String) invokeV.objValue;
-    }
-
-    public ab9(TbPageContext<BaseFragmentActivity> pageContext) {
+    public ab9(lq8 processor, id9 sendTransfer, BehaviorExt behaviorExt) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pageContext};
+            Object[] objArr = {processor, sendTransfer, behaviorExt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,36 +34,27 @@ public final class ab9 extends lq8 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
-        this.b = pageContext;
+        Intrinsics.checkNotNullParameter(processor, "processor");
+        Intrinsics.checkNotNullParameter(sendTransfer, "sendTransfer");
+        Intrinsics.checkNotNullParameter(behaviorExt, "behaviorExt");
+        this.a = processor;
+        this.b = sendTransfer;
+        this.c = behaviorExt;
     }
 
-    @Override // com.baidu.tieba.lq8
-    public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
+    @Override // com.baidu.tieba.jb7
+    public List<rb7<?, ?>> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseItem, obj) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            if (Intrinsics.areEqual(abilityItem.getType(), d())) {
-                return;
-            }
-            MsgGuideInfo a = ee9.a.a(abilityItem);
-            if (a != null) {
-                String content = a.getContent();
-                Boolean bool = null;
-                if (content != null) {
-                    if (!(!StringsKt__StringsJVMKt.isBlank(content))) {
-                        content = null;
-                    }
-                    if (content != null) {
-                        bool = Boolean.valueOf(UrlManager.getInstance().dealOneLink(this.b, new String[]{content}));
-                    }
-                }
-                if (bool != null) {
-                    return;
-                }
-            }
-            a(abilityItem, baseItem);
-            Unit unit = Unit.INSTANCE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new PersonalTextMsgTemplate("text_left", this.b, this.a, this.c));
+            arrayList.add(new PersonalTextMsgTemplate("text_right", this.b, this.a, this.c));
+            arrayList.add(new sd9("loading_left"));
+            arrayList.add(new td9("voice_left"));
+            arrayList.add(new PersonalImageMsgTemplate("image_left"));
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 }

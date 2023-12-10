@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qy6 extends gx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +176,7 @@ public class qy6 extends gx4 {
             qy6Var.C(arrayList);
             qy6Var.z(jSONObject.optString("need_trans"));
             qy6Var.u(jSONObject.optString("from"));
-            qy6Var.B(y5b.j(jSONObject.optJSONObject("theme_color")));
+            qy6Var.B(z5b.j(jSONObject.optJSONObject("theme_color")));
             return qy6Var;
         }
         return (qy6) invokeL.objValue;

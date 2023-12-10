@@ -21,15 +21,15 @@ import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMe
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
-import com.baidu.tieba.qq7;
-import com.baidu.tieba.sq7;
+import com.baidu.tieba.rq7;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tq7;
-import com.baidu.tieba.uua;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.uq7;
+import com.baidu.tieba.vua;
 import com.baidu.tieba.w4;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,16 +42,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public tq7 c;
-    public qq7<TbTitleActivity> d;
+    public uq7 c;
+    public rq7<TbTitleActivity> d;
     public LikeModel e;
-    public qq7.c f;
+    public rq7.c f;
     public View.OnClickListener g;
     public NoNetworkView.b h;
     public w4 i;
 
     /* loaded from: classes6.dex */
-    public class a implements qq7.c {
+    public class a implements rq7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -74,7 +74,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.baidu.tieba.qq7.c
+        @Override // com.baidu.tieba.rq7.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
@@ -249,7 +249,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
                 if (obj != null && (obj instanceof LikeReturnData)) {
-                    uua.i().n(this.a.b, false);
+                    vua.i().n(this.a.b, false);
                     z = true;
                 }
                 if (z) {
@@ -316,9 +316,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public final void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vva.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            vva.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            vva.b(2003007, sq7.class);
+            wva.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            wva.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            wva.b(2003007, tq7.class);
         }
     }
 
@@ -368,11 +368,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            tq7 tq7Var = new tq7(this, this.g);
-            this.c = tq7Var;
-            tq7Var.H(this.h);
+            uq7 uq7Var = new uq7(this, this.g);
+            this.c = uq7Var;
+            uq7Var.H(this.h);
             Q0();
-            this.d = new qq7<>(this.f, this);
+            this.d = new rq7<>(this.f, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("forum_id");

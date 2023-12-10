@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.cta;
 import com.baidu.tieba.da;
 import com.baidu.tieba.dta;
 import com.baidu.tieba.e05;
+import com.baidu.tieba.eta;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes8.dex */
     public interface c {
-        void a(boolean z, int i, dta dtaVar, String str, boolean z2);
+        void a(boolean z, int i, eta etaVar, String str, boolean z2);
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Object, Integer, cta> {
+    public class b extends BdAsyncTask<Object, Integer, dta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public cta b;
+        public dta b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new cta();
+            this.b = new dta();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public cta doInBackground(Object... objArr) {
+        public dta doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (cta) invokeL.objValue;
+            return (dta) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(cta ctaVar) {
+        public void onPostExecute(dta dtaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ctaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dtaVar) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, ctaVar.b(), this.c.g);
-                } else if (ctaVar.h() != null) {
-                    this.c.b.a(true, ctaVar.a(), ctaVar.h(), ctaVar.b(), this.c.g);
+                    this.c.b.a(false, -1, null, dtaVar.b(), this.c.g);
+                } else if (dtaVar.h() != null) {
+                    this.c.b.a(true, dtaVar.a(), dtaVar.h(), dtaVar.b(), this.c.g);
                 }
             }
         }

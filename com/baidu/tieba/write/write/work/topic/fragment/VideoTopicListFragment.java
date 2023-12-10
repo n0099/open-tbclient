@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.pm8;
+import com.baidu.tieba.nm8;
+import com.baidu.tieba.qm8;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(pm8 pm8Var) {
+        public void a(qm8 qm8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pm8Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, pm8Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, qm8Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, qm8Var));
             }
         }
     }
@@ -129,11 +129,11 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void J2(mm8 mm8Var) {
+    public void J2(nm8 nm8Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mm8Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && mm8Var != null) {
-            videoHotTopicSearchAdapter.l("", mm8Var.c());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nm8Var) == null) && (videoHotTopicSearchAdapter = this.d) != null && nm8Var != null) {
+            videoHotTopicSearchAdapter.l("", nm8Var.c());
         }
     }
 

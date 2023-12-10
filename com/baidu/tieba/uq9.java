@@ -19,13 +19,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
+public class uq9 extends pq9<mz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
     public TbPageContext<?> d;
-    public vi e;
-    public mm6<ThreadData> f;
+    public boolean e;
+    public vi f;
+    public mm6<ThreadData> g;
 
     /* loaded from: classes8.dex */
     public class a extends mm6<ThreadData> {
@@ -95,8 +96,8 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ThreadData threadData = ((mz4) piVar).t;
                 threadData.objType = 1;
-                if (this.a.f != null) {
-                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), threadData);
                 }
                 Context context = view2.getContext();
                 String K0 = this.a.b.getOrignalPage().K0();
@@ -130,7 +131,8 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.f = new a(this);
+        this.e = true;
+        this.g = new a(this);
         this.d = tbPageContext;
         this.c = bdUniqueId2;
     }
@@ -138,7 +140,7 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
     public void D(vi viVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viVar) == null) {
-            this.e = viVar;
+            this.f = viVar;
         }
     }
 
@@ -150,8 +152,11 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.d.getPageActivity(), false);
-            bVar.h(new zs(this.d.getPageActivity()));
-            cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.e);
+            rt rtVar = new rt(this.d.getPageActivity());
+            rtVar.setFrom("index");
+            rtVar.u(this.e);
+            bVar.n(rtVar);
+            cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.t(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.i(this.c);
@@ -174,8 +179,8 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.e(mz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().r(this.f);
-                kq9.c(this, mz4Var);
+                threadCardViewHolder.a().r(this.g);
+                lq9.c(this, mz4Var);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -186,7 +191,7 @@ public class uq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
     public final void C(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            kq9.b(this, threadData);
+            lq9.b(this, threadData);
         }
     }
 }

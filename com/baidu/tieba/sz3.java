@@ -48,7 +48,7 @@ public class sz3 extends EventTargetImpl implements pz3 {
 
         /* renamed from: com.baidu.tieba.sz3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0476a implements jl3 {
+        public class C0478a implements jl3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -60,7 +60,7 @@ public class sz3 extends EventTargetImpl implements pz3 {
                 }
             }
 
-            public C0476a(a aVar) {
+            public C0478a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -174,7 +174,7 @@ public class sz3 extends EventTargetImpl implements pz3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0476a(this);
+                        this.a.k = new C0478a(this);
                         sz3.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

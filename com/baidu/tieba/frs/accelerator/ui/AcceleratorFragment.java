@@ -33,13 +33,13 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b78;
+import com.baidu.tieba.c78;
 import com.baidu.tieba.frs.accelerator.AcceleratorData;
 import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
 import com.baidu.tieba.frs.accelerator.view.ProgressCircle;
-import com.baidu.tieba.ju7;
-import com.baidu.tieba.lu7;
+import com.baidu.tieba.ku7;
 import com.baidu.tieba.mu7;
+import com.baidu.tieba.nu7;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -110,25 +110,25 @@ public class AcceleratorFragment extends BaseFragment {
 
             /* renamed from: com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment$j$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0281a implements p05.f {
+            public class C0277a implements p05.f {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ ju7 a;
+                public final /* synthetic */ ku7 a;
                 public final /* synthetic */ a b;
 
                 /* renamed from: com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment$j$a$a$a  reason: collision with other inner class name */
                 /* loaded from: classes6.dex */
-                public class RunnableC0282a implements Runnable {
+                public class RunnableC0278a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C0281a a;
+                    public final /* synthetic */ C0277a a;
 
-                    public RunnableC0282a(C0281a c0281a) {
+                    public RunnableC0278a(C0277a c0277a) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0281a};
+                            Object[] objArr = {c0277a};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -138,7 +138,7 @@ public class AcceleratorFragment extends BaseFragment {
                                 return;
                             }
                         }
-                        this.a = c0281a;
+                        this.a = c0277a;
                     }
 
                     @Override // java.lang.Runnable
@@ -152,12 +152,12 @@ public class AcceleratorFragment extends BaseFragment {
                     }
                 }
 
-                public C0281a(a aVar, ju7 ju7Var) {
+                public C0277a(a aVar, ku7 ku7Var) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar, ju7Var};
+                        Object[] objArr = {aVar, ku7Var};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -168,20 +168,20 @@ public class AcceleratorFragment extends BaseFragment {
                         }
                     }
                     this.b = aVar;
-                    this.a = ju7Var;
+                    this.a = ku7Var;
                 }
 
                 @Override // com.baidu.tieba.p05.f
                 public void E0(p05 p05Var, int i, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeLIL(1048576, this, p05Var, i, view2) == null) {
-                        PkgNameAndNodeInfoData pkgNameAndNodeInfoData = lu7.a(this.b.a.a.c.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i));
+                        PkgNameAndNodeInfoData pkgNameAndNodeInfoData = mu7.a(this.b.a.a.c.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(i));
                         this.b.a.a.d = pkgNameAndNodeInfoData;
                         this.b.a.a.a.d = pkgNameAndNodeInfoData.getNodeInfo().getNodeTag();
                         this.b.a.a.a.e = pkgNameAndNodeInfoData.getNodeInfo().getNodeName();
                         this.a.b();
                         this.b.a.a.p3();
-                        this.b.a.a.y.postDelayed(new RunnableC0282a(this), 100L);
+                        this.b.a.a.y.postDelayed(new RunnableC0278a(this), 100L);
                     }
                 }
             }
@@ -208,10 +208,10 @@ public class AcceleratorFragment extends BaseFragment {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    ju7 c = ju7.c(this.a.a.getPageContext());
-                    c.e(new C0281a(this, c));
+                    ku7 c = ku7.c(this.a.a.getPageContext());
+                    c.e(new C0277a(this, c));
                     c.d(this.a.a.a.e);
-                    c.f(lu7.b(this.a.a.c.getAvailableTornadoNodeInfoList(), this.a.a.c.getAvailableNodesNum()));
+                    c.f(mu7.b(this.a.a.c.getAvailableTornadoNodeInfoList(), this.a.a.c.getAvailableNodesNum()));
                     c.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0067));
                     c.h();
                 }
@@ -242,7 +242,7 @@ public class AcceleratorFragment extends BaseFragment {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !Tornado.INSTANCE.isRunning()) {
                 return;
             }
-            b78.f(this.a.getActivity(), new a(this));
+            c78.f(this.a.getActivity(), new a(this));
         }
     }
 
@@ -311,8 +311,8 @@ public class AcceleratorFragment extends BaseFragment {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                mu7.f(this.a.z);
-                b78.i(this.a.getActivity(), new a(this));
+                nu7.f(this.a.z);
+                c78.i(this.a.getActivity(), new a(this));
             }
         }
     }
@@ -735,7 +735,7 @@ public class AcceleratorFragment extends BaseFragment {
             }
             this.a.i3();
             this.a.o3();
-            mu7.c(this.a.z);
+            nu7.c(this.a.z);
         }
     }
 
@@ -769,7 +769,7 @@ public class AcceleratorFragment extends BaseFragment {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 AcceleratorFragment acceleratorFragment = this.a;
                 acceleratorFragment.m3(acceleratorFragment.a.c);
-                mu7.a(this.a.z);
+                nu7.a(this.a.z);
             }
         }
     }
@@ -1048,7 +1048,7 @@ public class AcceleratorFragment extends BaseFragment {
             this.j.startLoad(this.a.i, 10, false);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0607).into(this.k);
             this.t.setText(R.string.obfuscated_res_0x7f0f0069);
-            mu7.d(this.z);
+            nu7.d(this.z);
             this.t.setOnClickListener(new l(this));
             q3(R.string.obfuscated_res_0x7f0f005a);
             this.x.setClickable(true);
@@ -1101,15 +1101,15 @@ public class AcceleratorFragment extends BaseFragment {
             this.j.startLoad(this.a.i, 10, false);
             TBSelector.makeDrawableSelector().setShape(1).gradientLinear(DrawableSelector.TOP_BOTTOM, R.color.CAM_X0503, R.color.CAM_X0609).into(this.k);
             this.t.setText(R.string.obfuscated_res_0x7f0f0063);
-            mu7.b(this.z);
+            nu7.b(this.z);
             this.u.setText(R.string.obfuscated_res_0x7f0f006c);
-            mu7.g(this.z);
+            nu7.g(this.z);
             this.t.setOnClickListener(new m(this));
             this.u.setOnClickListener(new n(this));
             l3();
             e3();
             if (z) {
-                b78.g(getActivity(), new a(this));
+                c78.g(getActivity(), new a(this));
             }
             if (this.z > 0) {
                 TbSingleton.getInstance().acceleratorItemId = this.z;
@@ -1210,7 +1210,7 @@ public class AcceleratorFragment extends BaseFragment {
             if (getActivity() != null && getActivity().getWindow() != null) {
                 getActivity().getWindow().addFlags(512);
             }
-            mu7.e(this.A, this.z, this.B);
+            nu7.e(this.A, this.z, this.B);
         }
     }
 

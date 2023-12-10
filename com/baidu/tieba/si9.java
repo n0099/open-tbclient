@@ -1,35 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SearchSug.DataRes;
 /* loaded from: classes8.dex */
 public class si9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdTypeRecyclerView a;
+    public final List<ci> b;
+    public ui9 c;
+    public xi9 d;
+    public vi9 e;
+    public wi9 f;
+    public yi9 g;
 
-    public static void a(TextView textView, String str, String str2) {
+    public si9(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = str2.trim().toLowerCase();
-            textView.setText(str);
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            if (indexOf >= 0) {
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
-                if (indexOf > 0) {
-                    spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
-                }
-                spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
-                textView.setText(spannableStringBuilder);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new ArrayList();
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = null;
+        a(context, bdTypeRecyclerView);
+    }
+
+    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
+            this.c = new ui9(context, zi9.c);
+            this.d = new xi9(context, cj9.l);
+            this.e = new vi9(context, aj9.i);
+            this.f = new wi9(context, bj9.g);
+            this.g = new yi9(context, dj9.e);
+            this.b.add(this.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.b.add(this.g);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ui9 ui9Var = this.c;
+            if (ui9Var != null) {
+                ui9Var.notifyDataSetChanged();
+            }
+            xi9 xi9Var = this.d;
+            if (xi9Var != null) {
+                xi9Var.notifyDataSetChanged();
+            }
+            vi9 vi9Var = this.e;
+            if (vi9Var != null) {
+                vi9Var.notifyDataSetChanged();
+            }
+            wi9 wi9Var = this.f;
+            if (wi9Var != null) {
+                wi9Var.notifyDataSetChanged();
+            }
+            yi9 yi9Var = this.g;
+            if (yi9Var != null) {
+                yi9Var.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void c(DataRes dataRes, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
+            return;
+        }
+        List<pi> a = ej9.a(dataRes, str);
+        if (!ListUtils.isEmpty(a)) {
+            this.a.setData(a);
         }
     }
 }

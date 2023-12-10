@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface in7 {
-    boolean F();
 
-    void G();
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    View H();
+        public static void a(in7 in7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65536, null, in7Var, i) == null) {
+            }
+        }
+    }
 
-    float I();
+    void a();
 
-    void J(int i);
+    void b();
 
-    void K(hf7 hf7Var, boolean z);
-
-    void L();
-
-    int M();
-
-    boolean c();
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
+    void c(int i);
 }

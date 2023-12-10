@@ -32,20 +32,20 @@ public class p15 implements pf1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new iw6());
-            arrayList.add(new pj7());
-            arrayList.add(new kn7());
-            arrayList.add(new c48());
-            arrayList.add(new g48());
-            arrayList.add(new k48());
-            arrayList.add(new o48());
-            arrayList.add(new s48());
-            arrayList.add(new w48());
-            arrayList.add(new a58());
-            arrayList.add(new e58());
-            arrayList.add(new ou9());
-            arrayList.add(new tu9());
-            arrayList.add(new yu9());
-            arrayList.add(new i0b());
+            arrayList.add(new qj7());
+            arrayList.add(new ln7());
+            arrayList.add(new d48());
+            arrayList.add(new h48());
+            arrayList.add(new l48());
+            arrayList.add(new p48());
+            arrayList.add(new t48());
+            arrayList.add(new x48());
+            arrayList.add(new b58());
+            arrayList.add(new f58());
+            arrayList.add(new pu9());
+            arrayList.add(new uu9());
+            arrayList.add(new zu9());
+            arrayList.add(new j0b());
             return arrayList;
         }
         return invokeV.objValue;

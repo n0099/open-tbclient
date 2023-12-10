@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface wea {
-    void A1();
+    void W(boolean z);
 }

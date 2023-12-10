@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fc6 extends gs7<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements km6 {
+public class fc6 extends hs7<ThreadData, FrsPageAlaEmptyLiveViewHolder> implements km6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public pc6 l;
@@ -104,7 +104,7 @@ public class fc6 extends gs7<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     /* renamed from: I */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaEmptyLiveViewHolder frsPageAlaEmptyLiveViewHolder) {
         InterceptResult invokeCommon;
@@ -129,7 +129,7 @@ public class fc6 extends gs7<ThreadData, FrsPageAlaEmptyLiveViewHolder> implemen
         }
     }
 
-    @Override // com.baidu.tieba.gs7
+    @Override // com.baidu.tieba.hs7
     public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) {

@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.es8;
+import com.baidu.tieba.fs8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public final class PersonChatCustomLayout extends FrameLayout {
     public float d;
     public float e;
     public boolean f;
-    public es8 g;
+    public fs8 g;
 
     public static /* synthetic */ void getOrientation$annotations() {
     }
@@ -81,8 +81,8 @@ public final class PersonChatCustomLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent event) {
         InterceptResult invokeL;
-        es8 es8Var;
-        es8 es8Var2;
+        fs8 fs8Var;
+        fs8 fs8Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, event)) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -96,9 +96,9 @@ public final class PersonChatCustomLayout extends FrameLayout {
                     if (action != 2) {
                         this.a = Event.ETC;
                         this.b = 0;
-                        es8 es8Var3 = this.g;
-                        if (es8Var3 != null) {
-                            es8Var3.c();
+                        fs8 fs8Var3 = this.g;
+                        if (fs8Var3 != null) {
+                            fs8Var3.c();
                         }
                         this.f = false;
                     } else {
@@ -116,14 +116,14 @@ public final class PersonChatCustomLayout extends FrameLayout {
                                 }
                                 this.b = i2;
                                 this.a = Event.MOVE;
-                                es8 es8Var4 = this.g;
-                                if (es8Var4 != null) {
-                                    es8Var4.d(i2);
+                                fs8 fs8Var4 = this.g;
+                                if (fs8Var4 != null) {
+                                    fs8Var4.d(i2);
                                 }
                             }
                         }
-                        if (this.f && this.b == 1 && (es8Var2 = this.g) != null) {
-                            es8Var2.b(f);
+                        if (this.f && this.b == 1 && (fs8Var2 = this.g) != null) {
+                            fs8Var2.b(f);
                         }
                         this.c = event.getX();
                         event.getY();
@@ -131,9 +131,9 @@ public final class PersonChatCustomLayout extends FrameLayout {
                 } else {
                     this.a = Event.UP;
                     this.b = 0;
-                    es8 es8Var5 = this.g;
-                    if (es8Var5 != null) {
-                        es8Var5.c();
+                    fs8 fs8Var5 = this.g;
+                    if (fs8Var5 != null) {
+                        fs8Var5.c();
                     }
                     this.f = false;
                 }
@@ -144,8 +144,8 @@ public final class PersonChatCustomLayout extends FrameLayout {
                 this.e = y;
                 this.c = x;
                 this.a = Event.DOWN;
-                if (z && (es8Var = this.g) != null) {
-                    es8Var.a();
+                if (z && (fs8Var = this.g) != null) {
+                    fs8Var.a();
                 }
             }
             return super.dispatchTouchEvent(event);
@@ -153,10 +153,10 @@ public final class PersonChatCustomLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public final void setEventCallback(es8 es8Var) {
+    public final void setEventCallback(fs8 fs8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, es8Var) == null) {
-            this.g = es8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fs8Var) == null) {
+            this.g = fs8Var;
         }
     }
 }

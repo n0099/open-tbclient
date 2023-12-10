@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h6a;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.i6a;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
 import com.baidu.tieba.pb.pb.main.adapter.PbChatGuideFloorAdapter;
-import com.baidu.tieba.xz9;
+import com.baidu.tieba.yz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import tbclient.AichatBotCommentCard;
 import tbclient.ChatContent;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\u0018\u0000 \u00192\u00020\u0001:\u0001\u0019B\u0019\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u001c\u0010\u0007\u001a\u00020\b2\b\u0010\t\u001a\u0004\u0018\u00010\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fH\u0002J\u0010\u0010\r\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nH\u0002J\u0010\u0010\u000e\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nH\u0002J\u0014\u0010\u000f\u001a\u0004\u0018\u00010\n2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0014J0\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u00132\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0017\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\nH\u0014¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/pb/pb/main/adapter/PbChatGuideFloorAdapter;", "Lcom/baidu/tieba/pb/pb/main/PbCommenFloorItemAdapter;", "activity", "Lcom/baidu/tieba/pb/videopb/PbCompatible;", "mType", "Lcom/baidu/adp/BdUniqueId;", "(Lcom/baidu/tieba/pb/videopb/PbCompatible;Lcom/baidu/adp/BdUniqueId;)V", "fillTopRightButton", "", "holder", "Lcom/baidu/tieba/pb/pb/main/PbCommenFloorItemViewHolder;", "postData", "Lcom/baidu/tieba/tbadkCore/data/PostData;", "initRightTopButtonBackground", "initRightTopButtonText", "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "onFillViewHolder", "Landroid/view/View;", CriusAttrConstants.POSITION, "", "convertView", "data", "viewHolder", "Companion", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public final class PbChatGuideFloorAdapter extends xz9 {
+public final class PbChatGuideFloorAdapter extends yz9 {
     public static /* synthetic */ Interceptable $ic;
     public static final a C;
     public static final Lazy<Integer> D;
@@ -151,19 +151,19 @@ public final class PbChatGuideFloorAdapter extends xz9 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbChatGuideFloorAdapter(h6a h6aVar, BdUniqueId bdUniqueId) {
-        super(h6aVar, bdUniqueId);
+    public PbChatGuideFloorAdapter(i6a i6aVar, BdUniqueId bdUniqueId) {
+        super(i6aVar, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h6aVar, bdUniqueId};
+            Object[] objArr = {i6aVar, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((h6a) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((i6a) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -171,12 +171,12 @@ public final class PbChatGuideFloorAdapter extends xz9 {
         }
     }
 
-    public static final void I0(mwa mwaVar, String uk, View view2) {
+    public static final void I0(nwa nwaVar, String uk, View view2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, mwaVar, uk, view2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, nwaVar, uk, view2) == null) {
             Intrinsics.checkNotNullParameter(uk, "$uk");
-            ChatContent B = mwaVar.B();
+            ChatContent B = nwaVar.B();
             if (B != null) {
                 String str = B.scheme;
                 if (str != null && str.length() != 0) {
@@ -192,18 +192,18 @@ public final class PbChatGuideFloorAdapter extends xz9 {
         }
     }
 
-    public final void H0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, final mwa mwaVar) {
+    public final void H0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, final nwa nwaVar) {
         String str;
         boolean z;
         final String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, pbCommenFloorItemViewHolder, mwaVar) == null) && pbCommenFloorItemViewHolder != null && mwaVar != null && mwaVar.D0()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, pbCommenFloorItemViewHolder, nwaVar) == null) && pbCommenFloorItemViewHolder != null && nwaVar != null && nwaVar.D0()) {
             pbCommenFloorItemViewHolder.c0.setVisibility(0);
             pbCommenFloorItemViewHolder.d0.setVisibility(8);
             pbCommenFloorItemViewHolder.e0.setVisibility(8);
             pbCommenFloorItemViewHolder.D0.setVisibility(8);
-            ChatContent B = mwaVar.B();
+            ChatContent B = nwaVar.B();
             String str4 = null;
             if (B != null) {
                 str = B.btn_text;
@@ -216,7 +216,7 @@ public final class PbChatGuideFloorAdapter extends xz9 {
                 z = true;
             }
             if (!z) {
-                AichatBotCommentCard s = mwaVar.s();
+                AichatBotCommentCard s = nwaVar.s();
                 if (s != null) {
                     str2 = s.uk;
                 } else {
@@ -228,7 +228,7 @@ public final class PbChatGuideFloorAdapter extends xz9 {
                 EMManager.from(pbCommenFloorItemViewHolder.A0).setTextColor(R.color.CAM_X0304);
                 pbCommenFloorItemViewHolder.A0.setText(StringHelper.cutChineseAndEnglishWithEmoji(str, 12, ""));
                 pbCommenFloorItemViewHolder.z0.setVisibility(0);
-                pbCommenFloorItemViewHolder.z0.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w1a
+                pbCommenFloorItemViewHolder.z0.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x1a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,12 +236,12 @@ public final class PbChatGuideFloorAdapter extends xz9 {
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            PbChatGuideFloorAdapter.I0(mwa.this, str2, view2);
+                            PbChatGuideFloorAdapter.I0(nwa.this, str2, view2);
                         }
                     }
                 });
                 a aVar = C;
-                AichatBotCommentCard s2 = mwaVar.s();
+                AichatBotCommentCard s2 = nwaVar.s();
                 if (s2 != null) {
                     str4 = s2.uk;
                 }
@@ -289,7 +289,7 @@ public final class PbChatGuideFloorAdapter extends xz9 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xz9, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.yz9, com.baidu.tieba.ci
     /* renamed from: p0 */
     public PbCommenFloorItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -304,14 +304,14 @@ public final class PbChatGuideFloorAdapter extends xz9 {
         return (PbCommenFloorItemViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xz9, com.baidu.tieba.zz9, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.yz9, com.baidu.tieba.a0a, com.baidu.tieba.ci
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        q0(i, view2, viewGroup, (mwa) obj, (PbCommenFloorItemViewHolder) viewHolder);
+        q0(i, view2, viewGroup, (nwa) obj, (PbCommenFloorItemViewHolder) viewHolder);
         return view2;
     }
 
-    @Override // com.baidu.tieba.xz9
-    public View q0(int i, View view2, ViewGroup parent, mwa data, PbCommenFloorItemViewHolder viewHolder) {
+    @Override // com.baidu.tieba.yz9
+    public View q0(int i, View view2, ViewGroup parent, nwa data, PbCommenFloorItemViewHolder viewHolder) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;

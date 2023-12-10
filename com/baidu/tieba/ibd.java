@@ -5,23 +5,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.Voice;
+import tbclient.FrequentlyForumInfo;
+import tbclient.VitalityInfo;
 /* loaded from: classes6.dex */
-public class ibd extends ktc {
+public class ibd extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Voice voice) {
+    public static JSONObject b(@NonNull VitalityInfo vitalityInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, voice)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vitalityInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "type", voice.type);
-            ktc.a(jSONObject, "during_time", voice.during_time);
-            ktc.a(jSONObject, "voice_md5", voice.voice_md5);
-            ktc.a(jSONObject, "voice_url", voice.voice_url);
-            ktc.a(jSONObject, "uid", voice.uid);
+            FrequentlyForumInfo frequentlyForumInfo = vitalityInfo.frequently_forum_info;
+            if (frequentlyForumInfo != null) {
+                ltc.a(jSONObject, "frequently_forum_info", qyc.b(frequentlyForumInfo));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

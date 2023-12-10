@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.e05;
-import com.baidu.tieba.mm8;
+import com.baidu.tieba.nm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mm8 mBangTopic;
-    public mm8 mSugTopic;
-    public mm8 mUserHisTopic;
-    public mm8 mVideoTopic;
+    public nm8 mBangTopic;
+    public nm8 mSugTopic;
+    public nm8 mUserHisTopic;
+    public nm8 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectHttpResponseMessage(int i) {
@@ -75,69 +75,69 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         if (dataRes.user_his_topic != null) {
-            mm8 mm8Var = new mm8();
-            mm8Var.e(getSugTopicResIdl.data.user_his_topic);
-            mm8Var.g(0);
-            this.mUserHisTopic = mm8Var;
+            nm8 nm8Var = new nm8();
+            nm8Var.e(getSugTopicResIdl.data.user_his_topic);
+            nm8Var.g(0);
+            this.mUserHisTopic = nm8Var;
         }
         if (getSugTopicResIdl.data.bang_topic != null) {
-            mm8 mm8Var2 = new mm8();
-            mm8Var2.g(1);
-            mm8Var2.e(getSugTopicResIdl.data.bang_topic);
-            this.mBangTopic = mm8Var2;
+            nm8 nm8Var2 = new nm8();
+            nm8Var2.g(1);
+            nm8Var2.e(getSugTopicResIdl.data.bang_topic);
+            this.mBangTopic = nm8Var2;
         }
         if (getSugTopicResIdl.data.sug_topic != null) {
-            mm8 mm8Var3 = new mm8();
-            mm8Var3.e(getSugTopicResIdl.data.sug_topic);
-            this.mSugTopic = mm8Var3;
+            nm8 nm8Var3 = new nm8();
+            nm8Var3.e(getSugTopicResIdl.data.sug_topic);
+            this.mSugTopic = nm8Var3;
         }
         if (getSugTopicResIdl.data.video_topic != null) {
-            mm8 mm8Var4 = new mm8();
-            mm8Var4.e(getSugTopicResIdl.data.video_topic);
-            this.mVideoTopic = mm8Var4;
+            nm8 nm8Var4 = new nm8();
+            nm8Var4.e(getSugTopicResIdl.data.video_topic);
+            this.mVideoTopic = nm8Var4;
         }
     }
 
-    public mm8 getBangTopic() {
+    public nm8 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mBangTopic;
         }
-        return (mm8) invokeV.objValue;
+        return (nm8) invokeV.objValue;
     }
 
-    public mm8 getSugTopic() {
+    public nm8 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mSugTopic;
         }
-        return (mm8) invokeV.objValue;
+        return (nm8) invokeV.objValue;
     }
 
-    public mm8 getUserHisTopic() {
+    public nm8 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mUserHisTopic;
         }
-        return (mm8) invokeV.objValue;
+        return (nm8) invokeV.objValue;
     }
 
-    public mm8 getVideoTopic() {
+    public nm8 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mVideoTopic;
         }
-        return (mm8) invokeV.objValue;
+        return (nm8) invokeV.objValue;
     }
 
-    public void setVideoTopic(mm8 mm8Var) {
+    public void setVideoTopic(nm8 nm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mm8Var) == null) {
-            this.mVideoTopic = mm8Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nm8Var) == null) {
+            this.mVideoTopic = nm8Var;
         }
     }
 }

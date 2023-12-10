@@ -28,9 +28,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.log.TbLogManager;
-import com.baidu.tieba.rna;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.model.SystemHelpSettingModel;
+import com.baidu.tieba.sna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rna a;
+    public sna a;
     public SystemHelpSettingModel b;
     public f05 c;
 
@@ -558,7 +558,7 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new rna(this);
+            this.a = new sna(this);
             this.b = new SystemHelpSettingModel(this);
             if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
                 this.a.C().k();
@@ -582,12 +582,12 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        rna rnaVar;
+        sna snaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (rnaVar = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, view2) != null) || (snaVar = this.a) == null) {
             return;
         }
-        if (view2 == rnaVar.y()) {
+        if (view2 == snaVar.y()) {
             if (this.b != null) {
                 CyberPlayerManager.deleteVideoCache(null);
                 if (TextUtils.isEmpty(this.a.y().getTip())) {

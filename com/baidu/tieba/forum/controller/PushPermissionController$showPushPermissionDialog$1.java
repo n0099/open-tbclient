@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
-import com.baidu.tieba.cga;
+import com.baidu.tieba.dga;
 import com.baidu.tieba.forum.controller.PushPermissionController$showPushPermissionDialog$1;
 import com.baidu.tieba.vb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,24 +23,24 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class PushPermissionController$showPushPermissionDialog$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ Date $currentDate;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $fid;
     public final /* synthetic */ TbPageContext<BaseFragmentActivity> $pageContext;
-    public final /* synthetic */ cga $pushGuide;
+    public final /* synthetic */ dga $pushGuide;
     public final /* synthetic */ PushPermissionController this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PushPermissionController$showPushPermissionDialog$1(PushPermissionController pushPermissionController, TbPageContext<BaseFragmentActivity> tbPageContext, cga cgaVar, String str, Date date) {
+    public PushPermissionController$showPushPermissionDialog$1(PushPermissionController pushPermissionController, TbPageContext<BaseFragmentActivity> tbPageContext, dga dgaVar, String str, Date date) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pushPermissionController, tbPageContext, cgaVar, str, date};
+            Object[] objArr = {pushPermissionController, tbPageContext, dgaVar, str, date};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,18 +53,18 @@ public final class PushPermissionController$showPushPermissionDialog$1 extends L
         }
         this.this$0 = pushPermissionController;
         this.$pageContext = tbPageContext;
-        this.$pushGuide = cgaVar;
+        this.$pushGuide = dgaVar;
         this.$fid = str;
         this.$currentDate = date;
     }
 
     /* renamed from: invoke$lambda-0  reason: not valid java name */
-    public static final void m137invoke$lambda0(TbPageContext pageContext, cga cgaVar, PushPermissionController this$0, View view2) {
+    public static final void m137invoke$lambda0(TbPageContext pageContext, dga dgaVar, PushPermissionController this$0, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, pageContext, cgaVar, this$0, view2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, pageContext, dgaVar, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(pageContext, "$pageContext");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            new cga.b(pageContext, cgaVar).a();
+            new dga.b(pageContext, dgaVar).a();
             this$0.p();
         }
     }
@@ -92,9 +92,9 @@ public final class PushPermissionController$showPushPermissionDialog$1 extends L
                 vb5 s2 = this.this$0.s();
                 Intrinsics.checkNotNull(s2);
                 final TbPageContext<BaseFragmentActivity> tbPageContext = this.$pageContext;
-                final cga cgaVar = this.$pushGuide;
+                final dga dgaVar = this.$pushGuide;
                 final PushPermissionController pushPermissionController = this.this$0;
-                s2.v(new View.OnClickListener() { // from class: com.baidu.tieba.ug7
+                s2.v(new View.OnClickListener() { // from class: com.baidu.tieba.vg7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public final class PushPermissionController$showPushPermissionDialog$1 extends L
                     public final void onClick(View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            PushPermissionController$showPushPermissionDialog$1.m137invoke$lambda0(TbPageContext.this, cgaVar, pushPermissionController, view2);
+                            PushPermissionController$showPushPermissionDialog$1.m137invoke$lambda0(TbPageContext.this, dgaVar, pushPermissionController, view2);
                         }
                     }
                 });

@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.content.Context;
-import com.baidu.tieba.ac7;
+import com.baidu.tieba.bc7;
 import com.baidu.tieba.e87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -33,7 +33,7 @@ public final class CardUiStateKt {
                 return;
             }
         }
-        a = new CardUiStateKt$sendStatData$1(ac7.a);
+        a = new CardUiStateKt$sendStatData$1(bc7.a);
         b = CardUiStateKt$handleClick$1.INSTANCE;
     }
 

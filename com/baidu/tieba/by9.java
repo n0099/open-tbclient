@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.view.ViewGroup;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes5.dex */
-public interface by9 extends cy9 {
-    void setScaleType(ImageView.ScaleType scaleType);
+public interface by9<D extends IBaseDialogData> {
+    int a();
 
-    void startLoad(String str);
+    void b();
 
-    void startLoad(String str, int i, boolean z);
+    void c(D d);
+
+    ViewGroup getViewGroup();
 }

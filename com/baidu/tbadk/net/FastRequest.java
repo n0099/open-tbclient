@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.c7;
 import com.baidu.tieba.gu5;
 import com.baidu.tieba.jk6;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -411,7 +411,7 @@ public class FastRequest extends BdBaseModel<BaseFragmentActivity> implements Li
         this.d = new HashMap();
         this.h = null;
         this.k = false;
-        TbHttpMessageTask e2 = vva.e(i, str, ResponseMessage.class, false, true, true, true);
+        TbHttpMessageTask e2 = wva.e(i, str, ResponseMessage.class, false, true, true, true);
         this.a = e2;
         this.j = e2.getUrl();
         d dVar = new d(this, i, true);

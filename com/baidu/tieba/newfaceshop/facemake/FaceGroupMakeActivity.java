@@ -39,8 +39,8 @@ import com.baidu.tieba.f05;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.qr9;
 import com.baidu.tieba.rr9;
+import com.baidu.tieba.sr9;
 import com.baidu.tieba.uu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,7 +52,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInformationModel.b {
+public class FaceGroupMakeActivity extends BaseActivity implements rr9.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -67,7 +67,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public qr9 m;
+    public rr9 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -157,7 +157,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                rr9 l = rr9.l();
+                sr9 l = sr9.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -267,7 +267,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 f05Var.dismiss();
-                rr9.l().i();
+                sr9.l().i();
                 this.a.finish();
             }
         }
@@ -414,7 +414,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.qr9.c
+    @Override // com.baidu.tieba.rr9.c
     public void e0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, faceData) != null) || faceData == null) {
@@ -425,7 +425,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
         f1();
     }
 
-    @Override // com.baidu.tieba.qr9.c
+    @Override // com.baidu.tieba.rr9.c
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -447,7 +447,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
     public final void b1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (k = rr9.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (k = sr9.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -516,7 +516,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = rr9.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = sr9.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             initView();
@@ -559,9 +559,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0927ce);
             f1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090ef5);
-            qr9 qr9Var = new qr9(this.n);
-            this.m = qr9Var;
-            qr9Var.f(this);
+            rr9 rr9Var = new rr9(this.n);
+            this.m = rr9Var;
+            rr9Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090388);
@@ -662,7 +662,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements qr9.c, BarInf
             this.k.setClickable(true);
             this.k.setText(R.string.obfuscated_res_0x7f0f071c);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = rr9.l().k();
+            FaceGroupDraft k = sr9.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {

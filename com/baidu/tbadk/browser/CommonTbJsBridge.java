@@ -46,24 +46,24 @@ import com.baidu.tbadk.switchs.OpenJsSdkSwitch;
 import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.at4;
-import com.baidu.tieba.axa;
 import com.baidu.tieba.bt4;
 import com.baidu.tieba.bxa;
 import com.baidu.tieba.ck;
 import com.baidu.tieba.controller.TransmitShareController;
 import com.baidu.tieba.ct4;
+import com.baidu.tieba.cxa;
 import com.baidu.tieba.dt4;
 import com.baidu.tieba.et4;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.fxa;
 import com.baidu.tieba.gp4;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.id5;
 import com.baidu.tieba.ij6;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.ns4;
-import com.baidu.tieba.nz8;
 import com.baidu.tieba.os4;
+import com.baidu.tieba.oz8;
 import com.baidu.tieba.ps4;
 import com.baidu.tieba.qs4;
 import com.baidu.tieba.rd;
@@ -91,7 +91,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @ck
 /* loaded from: classes4.dex */
-public class CommonTbJsBridge implements bxa {
+public class CommonTbJsBridge implements cxa {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_POST_WALL = "postFakeTheWall";
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
@@ -200,7 +200,7 @@ public class CommonTbJsBridge implements bxa {
     public rs4 hostJsBridgePlugin;
     public ss4 hybridDebugJsBridgePlugin;
     public ts4 hybridJsBridgePlugin;
-    public axa jsPromptBridge;
+    public bxa jsPromptBridge;
     public vs4 logJsBridgePlugin;
     public final Context mContext;
     public int mH5PersonalizedRecSwitch;
@@ -220,7 +220,7 @@ public class CommonTbJsBridge implements bxa {
     public dt4 toastJsBridgePlugin;
     public et4 yabmentJsBridgePlugin;
 
-    @Override // com.baidu.tieba.bxa
+    @Override // com.baidu.tieba.cxa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         boolean z;
@@ -709,13 +709,13 @@ public class CommonTbJsBridge implements bxa {
         return (String) invokeL.objValue;
     }
 
-    public fxa changeSkinTypeInH5(HashMap hashMap) {
+    public gxa changeSkinTypeInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (hashMap == null) {
-                return fxaVar;
+                return gxaVar;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -724,10 +724,10 @@ public class CommonTbJsBridge implements bxa {
                 e.printStackTrace();
             }
             callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            fxaVar.o(jSONObject.toString());
-            return fxaVar;
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
@@ -809,407 +809,407 @@ public class CommonTbJsBridge implements bxa {
         }
     }
 
-    public fxa checkAppInstall(String str) {
+    public gxa checkAppInstall(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             return this.systemJsBridgePlugin.e(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa checkAuthState(String str) {
+    public gxa checkAuthState(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             return this.accountJsBridgePlugin.d(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa checkInstallGameApk(String str) {
+    public gxa checkInstallGameApk(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             return this.systemJsBridgePlugin.f(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa closeNativeMask(int i) {
+    public gxa closeNativeMask(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             return this.systemJsBridgePlugin.g(this.mWebView, i);
         }
-        return (fxa) invokeI.objValue;
+        return (gxa) invokeI.objValue;
     }
 
-    public fxa dealClickGoBackToH5(HashMap hashMap) {
+    public gxa dealClickGoBackToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa dealGoBackFromNative(HashMap hashMap) {
+    public gxa dealGoBackFromNative(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.i(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
     public void dealSpringFestivalTimer(HashMap hashMap) {
-        axa axaVar;
+        bxa bxaVar;
         WebView webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) && (axaVar = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
-            axaVar.i(webView, "getPageLeaveTime", hashMap);
+        if ((interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) && (bxaVar = this.jsPromptBridge) != null && (webView = this.mWebView) != null && hashMap != null) {
+            bxaVar.i(webView, "getPageLeaveTime", hashMap);
         }
     }
 
-    public fxa deviceMotion(HashMap<String, Object> hashMap) {
+    public gxa deviceMotion(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, hashMap)) == null) {
             return this.deviceJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa deviceRefreshRate(HashMap<String, Object> hashMap) {
+    public gxa deviceRefreshRate(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, hashMap)) == null) {
             return this.deviceJsBridgePlugin.f(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa deviceRefreshRateParams(String str) {
+    public gxa deviceRefreshRateParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             return this.deviceJsBridgePlugin.g(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa disableBack(int i) {
+    public gxa disableBack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
             return this.systemJsBridgePlugin.j(this.mWebView, i);
         }
-        return (fxa) invokeI.objValue;
+        return (gxa) invokeI.objValue;
     }
 
-    public fxa finishTestAnswer(long j) {
+    public gxa finishTestAnswer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
             return this.activityJsBridgePlugin.c(this.mWebView, j);
         }
-        return (fxa) invokeJ.objValue;
+        return (gxa) invokeJ.objValue;
     }
 
-    public fxa getAppStorage(String str) {
+    public gxa getAppStorage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             return this.systemJsBridgePlugin.m(this.mWebView, str, "1");
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa getGetModalData(String str) {
+    public gxa getGetModalData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
             return this.toastJsBridgePlugin.e(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa getPhotoAlbumResult(HashMap<String, String> hashMap) {
+    public gxa getPhotoAlbumResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.r(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
+    public gxa getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public gxa getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
+    public gxa getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa handleSaveImage(String str) {
+    public gxa handleSaveImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
             return this.systemJsBridgePlugin.z(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa handleVoiceMsgResult(HashMap<String, Object> hashMap) {
+    public gxa handleVoiceMsgResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa nativeNetworkProxy(HashMap<String, String> hashMap) {
+    public gxa nativeNetworkProxy(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, hashMap)) == null) {
             return this.hybridJsBridgePlugin.m(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
+    public gxa newThirdPartyLoginResultToH5(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, hashMap)) == null) {
             return this.accountJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa notifyApkInstallResult(HashMap<String, Object> hashMap) {
+    public gxa notifyApkInstallResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.G(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
+    public gxa notifyFileDownloadStatusResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048646, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.H(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa onFetchHistoryMsgsResult(HashMap<String, Object> hashMap) {
+    public gxa onFetchHistoryMsgsResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.j(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa onKeyboardHeightChange(HashMap<String, Object> hashMap) {
+    public gxa onKeyboardHeightChange(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.J(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa onReceiveNewMsgsResult(HashMap<String, Object> hashMap) {
+    public gxa onReceiveNewMsgsResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048650, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa onSendMsgResult(HashMap<String, Object> hashMap) {
+    public gxa onSendMsgResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, hashMap)) == null) {
             return this.hostJsBridgePlugin.l(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa openMXDYab(String str) {
+    public gxa openMXDYab(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, str)) == null) {
             return this.paymentJsBridgePlugin.c(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa openVipSuccessInH5(HashMap hashMap) {
+    public gxa openVipSuccessInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, hashMap)) == null) {
             return this.paymentJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa orderGameApkResult(HashMap<String, Object> hashMap) {
+    public gxa orderGameApkResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048658, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.L(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa perloadPicModule(ArrayList<String> arrayList) {
+    public gxa perloadPicModule(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048659, this, arrayList)) == null) {
             return this.hostJsBridgePlugin.m(this.mWebView, arrayList);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa personlizedSwitchChange(String str) {
+    public gxa personlizedSwitchChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048660, this, str)) == null) {
             return this.activityJsBridgePlugin.d(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa playSound(String str) {
+    public gxa playSound(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048661, this, str)) == null) {
             return this.systemJsBridgePlugin.N(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa postWriteWallData(HashMap hashMap) {
+    public gxa postWriteWallData(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048663, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.e(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa preheatWeb(ArrayList<String> arrayList) {
+    public gxa preheatWeb(ArrayList<String> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048664, this, arrayList)) == null) {
             return this.hostJsBridgePlugin.n(this.mWebView, arrayList);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa reHide(HashMap hashMap) {
+    public gxa reHide(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048666, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.o(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa reShow(HashMap hashMap) {
+    public gxa reShow(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.p(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa realNameAuthResult(HashMap<String, Object> hashMap) {
+    public gxa realNameAuthResult(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048669, this, hashMap)) == null) {
             return this.accountJsBridgePlugin.o(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa refreshTailInH5(HashMap hashMap) {
+    public gxa refreshTailInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048671, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.q(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa replyPost(String str) {
+    public gxa replyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048672, this, str)) == null) {
             return this.routerJsBridgePlugin.r(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa replyPostResult(HashMap<String, String> hashMap) {
+    public gxa replyPostResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048673, this, hashMap)) == null) {
             return this.routerJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa saveImageSuccess(HashMap<String, Integer> hashMap) {
+    public gxa saveImageSuccess(HashMap<String, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048675, this, hashMap)) == null) {
             return this.systemJsBridgePlugin.Q(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa setClipperInformation(String str) {
+    public gxa setClipperInformation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048680, this, str)) == null) {
             return this.clipperJsBridgePlugin.d(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public void setJsPromptBridge(axa axaVar) {
+    public void setJsPromptBridge(bxa bxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048682, this, axaVar) == null) {
-            this.jsPromptBridge = axaVar;
-            this.aliHttpProxy.m(axaVar);
+        if (interceptable == null || interceptable.invokeL(1048682, this, bxaVar) == null) {
+            this.jsPromptBridge = bxaVar;
+            this.aliHttpProxy.m(bxaVar);
         }
     }
 
@@ -1220,148 +1220,148 @@ public class CommonTbJsBridge implements bxa {
         }
     }
 
-    public fxa setSearchHistory(HashMap hashMap) {
+    public gxa setSearchHistory(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048684, this, hashMap)) == null) {
             return this.hybridJsBridgePlugin.s(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa shareSuccessNotification(HashMap hashMap) {
+    public gxa shareSuccessNotification(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048687, this, hashMap)) == null) {
             return this.shareJsBridgePlugin.h(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa springFestivalTimeToH5(HashMap<String, String> hashMap) {
+    public gxa springFestivalTimeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048693, this, hashMap)) == null) {
             return this.logJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa startDownloadCss(String str) {
+    public gxa startDownloadCss(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048697, this, str)) == null) {
             return this.accountJsBridgePlugin.q(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa startLoginModule(String str) {
+    public gxa startLoginModule(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048699, this, str)) == null) {
             return this.accountJsBridgePlugin.r(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa switchOfflineBundleStatus(int i) {
+    public gxa switchOfflineBundleStatus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048700, this, i)) == null) {
             return this.hybridDebugJsBridgePlugin.f(this.mWebView, i);
         }
-        return (fxa) invokeI.objValue;
+        return (gxa) invokeI.objValue;
     }
 
-    public fxa switchOfflineInterface(String str) {
+    public gxa switchOfflineInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048701, this, str)) == null) {
             return this.hybridDebugJsBridgePlugin.g(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa switchUrlHost(ArrayList<JSONObject> arrayList) {
+    public gxa switchUrlHost(ArrayList<JSONObject> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048702, this, arrayList)) == null) {
             return this.hybridDebugJsBridgePlugin.h(this.mWebView, arrayList);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa tbPayResult(HashMap<String, String> hashMap) {
+    public gxa tbPayResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048704, this, hashMap)) == null) {
             return this.yabmentJsBridgePlugin.d(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa updateSearchForumInfo(String str) {
+    public gxa updateSearchForumInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048708, this, str)) == null) {
             return this.activityJsBridgePlugin.h(this.mWebView, str);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa writePostSuccess(HashMap hashMap) {
+    public gxa writePostSuccess(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048712, this, hashMap)) == null) {
             return this.activityJsBridgePlugin.k(this.mWebView, hashMap);
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa handlePortal(String str, String str2, String str3) {
+    public gxa handlePortal(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048628, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.i(this.mWebView, str, str2, str3);
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa jumpToVideo(String str, String str2, String str3) {
+    public gxa jumpToVideo(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048637, this, str, str2, str3)) == null) {
             return this.routerJsBridgePlugin.l(this.mWebView, str, str2, str3);
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa operateNotifyDataChanged(String str, String str2, boolean z) {
+    public gxa operateNotifyDataChanged(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048656, this, str, str2, z)) == null) {
             return this.subscriptionJsBridgePlugin.f(this.mWebView, str, str2, z);
         }
-        return (fxa) invokeLLZ.objValue;
+        return (gxa) invokeLLZ.objValue;
     }
 
-    public fxa sendMessage(String str, String str2, String str3) {
+    public gxa sendMessage(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048679, this, str, str2, str3)) == null) {
             return this.hostJsBridgePlugin.q(this.mWebView, str, str2, str3);
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa showDialog(int i, String str, String str2) {
+    public gxa showDialog(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i, str, str2)) == null) {
             return this.toastJsBridgePlugin.f(this.mWebView, i, str, str2);
         }
-        return (fxa) invokeILL.objValue;
+        return (gxa) invokeILL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1457,85 +1457,85 @@ public class CommonTbJsBridge implements bxa {
         }
     }
 
-    public fxa deleteOfflineBundle() {
+    public gxa deleteOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.hybridDebugJsBridgePlugin.c(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getAlipayUserId() {
+    public gxa getAlipayUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.aliHttpProxy.l();
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getClipperInformation() {
+    public gxa getClipperInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.clipperJsBridgePlugin.c(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getDeviceInfo() {
+    public gxa getDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.deviceJsBridgePlugin.h(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getHdid() {
+    public gxa getHdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             return this.deviceJsBridgePlugin.i(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getHistoryForumData() {
+    public gxa getHistoryForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.systemJsBridgePlugin.q(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getOfflineUserInfo() {
+    public gxa getOfflineUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return this.hybridDebugJsBridgePlugin.d(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getStartLoadTimeInterval() {
+    public gxa getStartLoadTimeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.systemJsBridgePlugin.t(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getSupplementInfo() {
+    public gxa getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.deviceJsBridgePlugin.j(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
     public TbDownloadManager getTbDownloadManager() {
@@ -1554,13 +1554,13 @@ public class CommonTbJsBridge implements bxa {
         return (TbDownloadManager) invokeV.objValue;
     }
 
-    public fxa getZid() {
+    public gxa getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.deviceJsBridgePlugin.k(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
     public int getmH5PersonalizedRecSwitch() {
@@ -1572,60 +1572,60 @@ public class CommonTbJsBridge implements bxa {
         return invokeV.intValue;
     }
 
-    public fxa goToNotificationSetting() {
+    public gxa goToNotificationSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             return this.systemJsBridgePlugin.v(this.mWebView, "");
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa handleGamePushStatus() {
+    public gxa handleGamePushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.subscriptionJsBridgePlugin.e(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa handleGetPhotoAlbum() {
+    public gxa handleGetPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.systemJsBridgePlugin.w(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa hasNotificationPermission() {
+    public gxa hasNotificationPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             return this.systemJsBridgePlugin.A(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa jumpToHotTrendPage() {
+    public gxa jumpToHotTrendPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             MainEntrance.goToMainTabRefresh(this.mContext, 16, false);
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa keyboardHeightChange() {
+    public gxa keyboardHeightChange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             return this.systemJsBridgePlugin.D(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
     public void onDestroy() {
@@ -1639,49 +1639,49 @@ public class CommonTbJsBridge implements bxa {
         }
     }
 
-    public fxa playVibrate() {
+    public gxa playVibrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             return this.systemJsBridgePlugin.O(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa receiveNewMsgs() {
+    public gxa receiveNewMsgs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
             return this.hostJsBridgePlugin.o(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa setDisableGoBack() {
+    public gxa setDisableGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             return this.navigationBarJsBridgePlugin.c(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa toOneKeyDeletion() {
+    public gxa toOneKeyDeletion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048706, this)) == null) {
             return this.activityJsBridgePlugin.g(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa updateOfflineBundle() {
+    public gxa updateOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048707, this)) == null) {
             return this.hybridDebugJsBridgePlugin.i(this.mWebView);
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
     private boolean isLegalSchema(List<String> list, String str) {
@@ -1724,7 +1724,7 @@ public class CommonTbJsBridge implements bxa {
             shareItem.isShowShareOuerItem = true;
             shareItem.obj_type = 11;
             TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null));
-            nz8.b(shareItem.groupData);
+            oz8.b(shareItem.groupData);
         }
     }
 
@@ -1785,45 +1785,45 @@ public class CommonTbJsBridge implements bxa {
         return (String) invokeL.objValue;
     }
 
-    public fxa handleGoToMyLive(String str) {
+    public gxa handleGoToMyLive(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa handleGoToMyPost(String str) {
+    public gxa handleGoToMyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, str)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa onUserLoginChanged(HashMap hashMap) {
+    public gxa onUserLoginChanged(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, hashMap)) == null) {
@@ -1837,11 +1837,11 @@ public class CommonTbJsBridge implements bxa {
                 e.printStackTrace();
             }
             callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            fxa fxaVar = new fxa();
-            fxaVar.o(jSONObject.toString());
-            return fxaVar;
+            gxa gxaVar = new gxa();
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
     public String startApp(String str) {
@@ -1868,7 +1868,7 @@ public class CommonTbJsBridge implements bxa {
         return (String) invokeL.objValue;
     }
 
-    public fxa thirdPartyLoginResultToH5(HashMap hashMap) {
+    public gxa thirdPartyLoginResultToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048705, this, hashMap)) == null) {
@@ -1884,11 +1884,11 @@ public class CommonTbJsBridge implements bxa {
                 e.printStackTrace();
             }
             callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            fxa fxaVar = new fxa();
-            fxaVar.o(jSONObject.toString());
-            return fxaVar;
+            gxa gxaVar = new gxa();
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
     private void shareLoacalImage(String str, int i) {
@@ -1937,294 +1937,294 @@ public class CommonTbJsBridge implements bxa {
         }
     }
 
-    public fxa deviceGyroscopeParams(String str, String str2) {
+    public gxa deviceGyroscopeParams(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
             return this.deviceJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa finishPage(String str, String str2) {
+    public gxa finishPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.c(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
     @NonNull
-    public fxa getViewPosition(@NonNull String str, @Nullable String str2) {
+    public gxa getViewPosition(@NonNull String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, str, str2)) == null) {
             return this.subscriptionJsBridgePlugin.d(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa handleGoToBarDetail(String str, int i) {
+    public gxa handleGoToBarDetail(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048625, this, str, i)) == null) {
             return this.routerJsBridgePlugin.h(this.mWebView, str, i);
         }
-        return (fxa) invokeLI.objValue;
+        return (gxa) invokeLI.objValue;
     }
 
-    public fxa jumpForumRulesEditPage(String str, String str2) {
+    public gxa jumpForumRulesEditPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, str, str2)) == null) {
             return this.routerJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa jumpLoginActivity(int i, String str) {
+    public gxa jumpLoginActivity(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048634, this, i, str)) == null) {
             return this.accountJsBridgePlugin.g(this.mWebView, i, str);
         }
-        return (fxa) invokeIL.objValue;
+        return (gxa) invokeIL.objValue;
     }
 
-    public fxa jumpToHtmlPage(String str, int i) {
+    public gxa jumpToHtmlPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048636, this, str, i)) == null) {
             return this.routerJsBridgePlugin.k(this.mWebView, str, i);
         }
-        return (fxa) invokeLI.objValue;
+        return (gxa) invokeLI.objValue;
     }
 
-    public fxa localYaLog(String str, String str2) {
+    public gxa localYaLog(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048640, this, str, str2)) == null) {
             return this.logJsBridgePlugin.c(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa openThirdPartApp(int i, String str) {
+    public gxa openThirdPartApp(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048654, this, i, str)) == null) {
             return this.routerJsBridgePlugin.n(this.mWebView, i, str);
         }
-        return (fxa) invokeIL.objValue;
+        return (gxa) invokeIL.objValue;
     }
 
-    public fxa orderGameApk(String str, String str2) {
+    public gxa orderGameApk(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048657, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.K(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa putAppStorage(String str, String str2) {
+    public gxa putAppStorage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048665, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.P(this.mWebView, str, str2, "1");
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa reportUserTheme(String str, ArrayList<String> arrayList) {
+    public gxa reportUserTheme(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048674, this, str, arrayList)) == null) {
             return this.routerJsBridgePlugin.t(this.mWebView, str, arrayList);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
+    public gxa selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048676, this, i, arrayList)) == null) {
             return this.systemJsBridgePlugin.R(this.mWebView, i, arrayList);
         }
-        return (fxa) invokeIL.objValue;
+        return (gxa) invokeIL.objValue;
     }
 
-    public fxa selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
+    public gxa selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048677, this, str, arrayList)) == null) {
             return this.routerJsBridgePlugin.u(this.mWebView, str, arrayList);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa sendCompleteTaskReqMsg(String str, String str2) {
+    public gxa sendCompleteTaskReqMsg(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048678, this, str, str2)) == null) {
             return this.activityJsBridgePlugin.f(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa startApp(String str, String str2) {
+    public gxa startApp(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048695, this, str, str2)) == null) {
             return this.systemJsBridgePlugin.T(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa updateTailStyle(int i, String str) {
+    public gxa updateTailStyle(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048709, this, i, str)) == null) {
             return this.activityJsBridgePlugin.i(this.mWebView, i, str);
         }
-        return (fxa) invokeIL.objValue;
+        return (gxa) invokeIL.objValue;
     }
 
-    public fxa worldCupRaiseSuccess(String str, String str2) {
+    public gxa worldCupRaiseSuccess(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048711, this, str, str2)) == null) {
             return this.activityJsBridgePlugin.j(this.mWebView, str, str2);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa fetchHistoryMsgs(int i, long j, long j2, String str, String str2) {
+    public gxa fetchHistoryMsgs(int i, long j, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
             return this.hostJsBridgePlugin.d(this.mWebView, i, j, j2, str, str2);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa fileDownloadDelete(String str, String str2, String str3, int i, String str4, String str5) {
+    public gxa fileDownloadDelete(String str, String str2, String str3, int i, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
             return this.systemJsBridgePlugin.k(this.mWebView, str, str2, str3, i, str4, str5);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa fileDownloadPause(String str, String str2, String str3, int i, String str4, String str5) {
+    public gxa fileDownloadPause(String str, String str2, String str3, int i, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4, str5})) == null) {
             return this.systemJsBridgePlugin.l(this.mWebView, str, str2, str3, i, str4, str5);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
+    public gxa installGameApk(String str, String str2, String str3, String str4, int i, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048632, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), str5})) == null) {
             return this.systemJsBridgePlugin.B(this.mWebView, str, str2, str3, str4, i, str5);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
+    public gxa nativeNetworkProxy(String str, String str2, String str3, JSONObject jSONObject, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048641, this, new Object[]{str, str2, str3, jSONObject, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return this.hybridJsBridgePlugin.l(this.mWebView, str, str2, str3, jSONObject, i, i2);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa gamePush(String str, String str2, String str3, String str4) {
+    public gxa gamePush(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048599, this, str, str2, str3, str4)) == null) {
             return this.subscriptionJsBridgePlugin.c(this.mWebView, str, str2, str3, str4);
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 
-    public fxa getFileDownloadProgress(String str, String str2, String str3, String str4) {
+    public gxa getFileDownloadProgress(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048604, this, str, str2, str3, str4)) == null) {
             return this.systemJsBridgePlugin.o(this.mWebView, str, str2, str3, str4);
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 
-    public fxa getFileDownloadStatus(String str, String str2, String str3, String str4) {
+    public gxa getFileDownloadStatus(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048605, this, str, str2, str3, str4)) == null) {
             return this.systemJsBridgePlugin.p(this.mWebView, str, str2, str3, str4);
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 
-    public fxa goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public gxa goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
             return this.routerJsBridgePlugin.f(this.mWebView, str, str2, str3, str4, str5, str6, str7);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
+    public gxa goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17, String str18) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048622, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18})) == null) {
             return this.routerJsBridgePlugin.g(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17, str18);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa launchApk(String str, String str2, String str3, int i, String str4) {
+    public gxa launchApk(String str, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4})) == null) {
             return this.systemJsBridgePlugin.F(this.mWebView, str, str2, str3, i, str4);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa showTipToast(String str, String str2, String str3, int i, int i2) {
+    public gxa showTipToast(String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048692, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return this.toastJsBridgePlugin.i(this.mWebView, str, str2, str3, i, i2);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa notifyAliAuthResult(HashMap<String, String> hashMap) {
+    public gxa notifyAliAuthResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             int i2 = -1;
             try {
                 i2 = Integer.parseInt(hashMap.get("status"));
-                fxaVar.y(i2);
-                fxaVar.u(hashMap.get("message"));
+                gxaVar.y(i2);
+                gxaVar.u(hashMap.get("message"));
                 if (i2 == 0) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("avatar", hashMap.get("avatar"));
                     jSONObject.put("nick_name", hashMap.get("nick_name"));
                     jSONObject.put("alipay_user_id", hashMap.get("alipay_user_id"));
-                    fxaVar.o(jSONObject.toString());
+                    gxaVar.o(jSONObject.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -2236,25 +2236,25 @@ public class CommonTbJsBridge implements bxa {
                 i = 1;
             }
             TiebaStatic.log(statisticItem.param("obj_param1", i));
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa realNameAuth(String str, boolean z, String str2, int i) {
+    public gxa realNameAuth(String str, boolean z, String str2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048668, this, new Object[]{str, Boolean.valueOf(z), str2, Integer.valueOf(i)})) == null) {
             return this.accountJsBridgePlugin.n(this.mWebView, str, z, str2, i);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa startAllLoginModule(String str, String str2, String str3, String str4) {
+    public gxa startAllLoginModule(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048694, this, str, str2, str3, str4)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (TbadkCoreApplication.isLogin()) {
                 ij6.a().d(new Runnable() { // from class: com.baidu.tieba.rr4
                     public static /* synthetic */ Interceptable $ic;
@@ -2268,64 +2268,64 @@ public class CommonTbJsBridge implements bxa {
                         }
                     }
                 }, 100L);
-                return fxaVar;
+                return gxaVar;
             }
             return this.accountJsBridgePlugin.p(this.mWebView, str, str2, str3, str4);
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 
-    public fxa setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public gxa setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048685, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
             return this.shareJsBridgePlugin.d(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, i, str9);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject, JSONObject jSONObject2) {
+    public gxa share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject, JSONObject jSONObject2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048686, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject, jSONObject2})) == null) {
             return this.shareJsBridgePlugin.f(this.mWebView, i, i2, str, str2, str3, str4, str5, str6, str7, str8, i3, str9, i4, str10, str11, j, i5, i6, j2, str12, str13, str14, str15, jSONObject, jSONObject2);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public gxa showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048690, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             return this.toastJsBridgePlugin.h(this.mWebView, i, i2, str, str2, i3, str3, str4, d, str5, str6, i4, str7, str8, str9, i5, i6);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
+    public gxa startDownloadGameApk(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, int i, String str11, int i2, String str12) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048698, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, Integer.valueOf(i), str11, Integer.valueOf(i2), str12})) == null) {
             return this.systemJsBridgePlugin.U(this.mWebView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, i, str11, i2, str12);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa tbPay(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
+    public gxa tbPay(WebView webView, String str, int i, int i2, int i3, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i4, String str9, boolean z, boolean z2, String str10, String str11, String str12, String str13) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048703, this, new Object[]{webView, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i4), str9, Boolean.valueOf(z), Boolean.valueOf(z2), str10, str11, str12, str13})) == null) {
             return this.yabmentJsBridgePlugin.c(webView, str, i, i2, i3, str2, str3, str4, str5, str6, str7, str8, i4, str9, z, z2, str10, str11, str12, str13);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa wakeKeyboard(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
+    public gxa wakeKeyboard(String str, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, JSONObject jSONObject, boolean z7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048710, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), jSONObject, Boolean.valueOf(z7)})) == null) {
             return this.systemJsBridgePlugin.V(this.mWebView, str, z, z2, z3, z4, z5, z6, jSONObject, z7);
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 }

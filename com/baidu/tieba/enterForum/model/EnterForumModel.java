@@ -33,8 +33,8 @@ import com.baidu.tieba.px6;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.rx6;
-import com.baidu.tieba.twa;
 import com.baidu.tieba.tx6;
+import com.baidu.tieba.uwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class EnterForumModel extends BdBaseModel {
     public px6 a;
     public RecentlyVisitedForumData b;
     public f c;
-    public twa d;
+    public uwa d;
     public long e;
     public long f;
     public long g;
@@ -495,10 +495,10 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public final void b0() {
-        twa twaVar;
+        uwa uwaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (twaVar = this.d) != null) {
-            twaVar.a();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (uwaVar = this.d) != null) {
+            uwaVar.a();
             this.d = null;
         }
     }
@@ -576,7 +576,7 @@ public class EnterForumModel extends BdBaseModel {
             forumGuideRequestMessage.setSortType(Integer.valueOf(i2));
             this.e = System.currentTimeMillis();
             if (this.d == null) {
-                this.d = new twa("forumrecommendStat");
+                this.d = new uwa("forumrecommendStat");
             }
             sendMessage(forumGuideRequestMessage);
             return true;
@@ -655,9 +655,9 @@ public class EnterForumModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             e eVar = new e(this);
             boolean z3 = !z;
-            twa twaVar = this.d;
-            if (twaVar != null) {
-                twaVar.b(z2, z3, i, str, i2, j, j2);
+            uwa uwaVar = this.d;
+            if (uwaVar != null) {
+                uwaVar.b(z2, z3, i, str, i2, j, j2);
                 this.d = null;
             }
             if (!z && this.a.h()) {

@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.sh8;
-import com.baidu.tieba.tua;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.th8;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
     public View d;
     public BarImageView e;
     public TbImageView f;
-    public sh8 g;
+    public th8 g;
     public ImageView h;
 
     public final void c() {
@@ -155,22 +155,22 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sh8 sh8Var = this.g;
+            th8 th8Var = this.g;
             int i2 = Integer.MAX_VALUE;
-            if (sh8Var != null && sh8Var.h() != null) {
-                i2 = tua.f(y5b.d(this.g.h()));
-                i = tua.f(y5b.f(this.g.h()));
+            if (th8Var != null && th8Var.h() != null) {
+                i2 = uua.f(z5b.d(this.g.h()));
+                i = uua.f(z5b.f(this.g.h()));
             } else {
                 i = Integer.MAX_VALUE;
             }
-            if (tua.e(i2) || tua.e(i)) {
+            if (uua.e(i2) || uua.e(i)) {
                 if (TbadkApplication.getInst().getSkinType() == 4) {
-                    f = tua.f("#4D4070FF");
+                    f = uua.f("#4D4070FF");
                 } else {
-                    f = tua.f("#324070FF");
+                    f = uua.f("#324070FF");
                 }
                 i2 = f;
-                i = tua.f("#004070FF");
+                i = uua.f("#004070FF");
             }
             EMManager.from(this.d).setCorner(R.string.J_X05).setGradientColorValue(new int[]{i2, i}, Direction.TOP);
         }
@@ -194,40 +194,40 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            sh8 sh8Var = this.g;
-            if (sh8Var != null) {
-                f("c15375", sh8Var.f(), this.g.b(), this.g.d(), this.g.j());
+            th8 th8Var = this.g;
+            if (th8Var != null) {
+                f("c15375", th8Var.f(), this.g.b(), this.g.d(), this.g.j());
             }
         }
     }
 
-    public void setData(sh8 sh8Var) {
+    public void setData(th8 th8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sh8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, th8Var) == null) {
             int i = 8;
-            if (sh8Var == null) {
+            if (th8Var == null) {
                 ViewCommonUtil.setVisibility(this, 8);
                 return;
             }
-            this.g = sh8Var;
-            String c = sh8Var.c();
+            this.g = th8Var;
+            String c = th8Var.c();
             String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f078f);
             if (!rd.isEmpty(c) && !c.endsWith(string)) {
                 c = c + string;
             }
             this.c.setText(c);
             this.e.startLoad(this.g.a(), 10, false);
-            if (!rd.isEmpty(sh8Var.d())) {
-                if (sh8Var.l()) {
+            if (!rd.isEmpty(th8Var.d())) {
+                if (th8Var.l()) {
                     TbImageView tbImageView = this.f;
-                    if (!sh8Var.k()) {
+                    if (!th8Var.k()) {
                         i = 0;
                     }
                     ViewCommonUtil.setVisibility(tbImageView, i);
                 } else {
                     ViewCommonUtil.setVisibility(this.f, 0);
                 }
-                this.f.startLoad(sh8Var.d(), 10, false);
+                this.f.startLoad(th8Var.d(), 10, false);
             } else {
                 ViewCommonUtil.setVisibility(this.f, 8);
             }

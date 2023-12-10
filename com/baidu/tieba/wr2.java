@@ -44,12 +44,12 @@ public class wr2 {
 
         /* renamed from: com.baidu.tieba.wr2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0520a extends TimerTask {
+        public class C0516a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0520a(a aVar) {
+            public C0516a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class wr2 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new C0520a(this);
+                return new C0516a(this);
             }
             return (TimerTask) invokeV.objValue;
         }

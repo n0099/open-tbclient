@@ -26,7 +26,7 @@ public class g56 extends fg1<mf0> {
 
         /* renamed from: com.baidu.tieba.g56$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0295a implements of0 {
+        public class C0294a implements of0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
@@ -69,7 +69,7 @@ public class g56 extends fg1<mf0> {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "2" : (String) invokeV.objValue;
             }
 
-            public C0295a(a aVar) {
+            public C0294a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -283,7 +283,7 @@ public class g56 extends fg1<mf0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0295a(this);
+                return new C0294a(this);
             }
             return (of0) invokeV.objValue;
         }

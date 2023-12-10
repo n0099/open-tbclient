@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.un9;
 import com.baidu.tieba.ve5;
 import com.baidu.tieba.vn9;
 import com.baidu.tieba.wn9;
-import com.baidu.tieba.yn9;
+import com.baidu.tieba.xn9;
+import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,9 +26,9 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ve5 
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public un9 b;
-    public wn9 c;
-    public yn9 d;
+    public vn9 b;
+    public xn9 c;
+    public zn9 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -79,14 +79,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ve5 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            vn9 vn9Var;
+            wn9 wn9Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (vn9Var = (vn9) view2.getTag()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || (wn9Var = (wn9) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(vn9Var.b());
+            this.a.c.c(wn9Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.K(new he5(26, -1, vn9Var.b()));
+            this.a.e.K(new he5(26, -1, wn9Var.b()));
         }
     }
 
@@ -168,13 +168,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements ve5 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0997, (ViewGroup) this, true);
-            this.d = new yn9(this);
-            wn9 wn9Var = new wn9(tbPageContext);
-            this.c = wn9Var;
-            wn9Var.c(str);
-            un9 un9Var = new un9(tbPageContext, this.c, this.f);
-            this.b = un9Var;
-            this.d.a(un9Var);
+            this.d = new zn9(this);
+            xn9 xn9Var = new xn9(tbPageContext);
+            this.c = xn9Var;
+            xn9Var.c(str);
+            vn9 vn9Var = new vn9(tbPageContext, this.c, this.f);
+            this.b = vn9Var;
+            this.d.a(vn9Var);
         }
     }
 }

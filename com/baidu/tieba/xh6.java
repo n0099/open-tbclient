@@ -64,18 +64,18 @@ public class xh6 implements wh6<String, Pair<InputStream, Long>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wh6
     /* renamed from: e */
-    public void b(String str, soc<Pair<InputStream, Long>, Exception> socVar) {
+    public void b(String str, toc<Pair<InputStream, Long>, Exception> tocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, socVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, tocVar) == null) {
             try {
                 File c = c(str);
                 if (c != null) {
-                    socVar.a(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                    tocVar.a(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
                 } else {
-                    socVar.a(null, new IllegalArgumentException(str + "file not exist !"));
+                    tocVar.a(null, new IllegalArgumentException(str + "file not exist !"));
                 }
             } catch (Exception e) {
-                socVar.a(null, e);
+                tocVar.a(null, e);
             }
         }
     }

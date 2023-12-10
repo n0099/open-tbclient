@@ -136,7 +136,7 @@ public class fv2 extends h83 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements roc<File> {
+    public class c implements soc<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -166,7 +166,7 @@ public class fv2 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(File file) {
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class fv2 extends h83 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements woc<File, File> {
+    public class d implements xoc<File, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -213,7 +213,7 @@ public class fv2 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public File call(File file) {
             InterceptResult invokeL;
@@ -438,7 +438,7 @@ public class fv2 extends h83 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                 return;
             }
-            doc.n(file).p(new d(this, context)).J(Schedulers.io()).s(noc.b()).H(new c(this, callbackHandler, str, context));
+            eoc.n(file).p(new d(this, context)).J(Schedulers.io()).s(ooc.b()).H(new c(this, callbackHandler, str, context));
         }
     }
 }

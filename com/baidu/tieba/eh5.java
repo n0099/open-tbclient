@@ -65,7 +65,7 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.rva;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import tbclient.SpriteMemeInfo;
 /* loaded from: classes5.dex */
-public class eh5 extends le5 implements qva.h {
+public class eh5 extends le5 implements rva.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -209,12 +209,12 @@ public class eh5 extends le5 implements qva.h {
                     this.a.V(true);
                     WriteData e0 = this.a.g.e0();
                     this.a.P();
-                    qva.C(this.a.l, null);
+                    rva.C(this.a.l, null);
                     if (e0 == null) {
                         return;
                     }
                     if (e0.getType() == 2) {
-                        qva.r(e0.getThreadId(), this.a);
+                        rva.r(e0.getThreadId(), this.a);
                     }
                 }
                 eh5 eh5Var = this.a;
@@ -600,7 +600,7 @@ public class eh5 extends le5 implements qva.h {
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
-            qva.r(str, this);
+            rva.r(str, this);
         }
     }
 
@@ -1099,7 +1099,7 @@ public class eh5 extends le5 implements qva.h {
                     this.e = null;
                     this.s = null;
                     if (!TextUtils.isEmpty(this.l)) {
-                        qva.C(this.l, null);
+                        rva.C(this.l, null);
                     }
                     V(true);
                     NewWriteModel.d dVar = this.u;
@@ -1235,7 +1235,7 @@ public class eh5 extends le5 implements qva.h {
             e0.setContent(this.c);
             e0.setVideoInfo(this.s);
             e0.setVoiceModel(this.e);
-            qva.C(str, e0);
+            rva.C(str, e0);
         }
     }
 
@@ -1323,7 +1323,7 @@ public class eh5 extends le5 implements qva.h {
         }
     }
 
-    @Override // com.baidu.tieba.qva.h
+    @Override // com.baidu.tieba.rva.h
     public void d(WriteData writeData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048605, this, writeData) != null) || writeData == null) {

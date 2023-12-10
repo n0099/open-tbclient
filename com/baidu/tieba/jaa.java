@@ -21,7 +21,7 @@ public class jaa extends ci<uba, CardViewHolder<xca>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public jaa(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), uba.d);
+        super(tbPageContext.getPageActivity(), uba.g);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,8 +60,8 @@ public class jaa extends ci<uba, CardViewHolder<xca>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ubaVar, cardViewHolder})) == null) {
-            cardViewHolder.a().j(ubaVar);
             cardViewHolder.a().k(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.a().j(ubaVar);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;

@@ -52,7 +52,7 @@ public class nd2 implements eg2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements roc<Cursor> {
+    public static class a implements soc<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y83.c a;
@@ -76,7 +76,7 @@ public class nd2 implements eg2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class nd2 implements eg2 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements woc<String, Cursor> {
+    public static class b implements xoc<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public class nd2 implements eg2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Cursor call(String str) {
             InterceptResult invokeL;
@@ -628,7 +628,7 @@ public class nd2 implements eg2 {
         if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
             return;
         }
-        doc.n("").J(Schedulers.io()).p(new b()).s(noc.b()).H(new a(cVar));
+        eoc.n("").J(Schedulers.io()).p(new b()).s(ooc.b()).H(new a(cVar));
     }
 
     @NonNull

@@ -1,54 +1,33 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.data.IResponseData;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ExcFrsPage.DataRes;
-import tbclient.ExcFrsPage.ExcFrsPageResIdl;
-import tbclient.ExcFrsPage.ExcellentTagInfo;
+@Service
 /* loaded from: classes8.dex */
-public class wi8 implements zn5, IResponseData {
+public final class wi8 extends dga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Object> a;
-    public List<Object> b;
 
-    @Override // com.baidu.tieba.ao5
-    public String getCacheKey() {
+    @Override // com.baidu.tieba.dga
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.mvc.data.IResponseData
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.zn5
-    public byte[] toCacheByteArray() {
+    @Override // com.baidu.tieba.dga
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "new_user" : (String) invokeV.objValue;
     }
 
     public wi8() {
@@ -61,48 +40,6 @@ public class wi8 implements zn5, IResponseData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zn5
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            try {
-                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
-                return true;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.mvc.data.IResponseData
-    public void initByProtobuf(Message message) {
-        ExcFrsPageResIdl excFrsPageResIdl;
-        Error error;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, message) != null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
-            return;
-        }
-        if (dataRes.thread_list != null) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.addAll(excFrsPageResIdl.data.thread_list);
-        }
-        excFrsPageResIdl.data.has_more.intValue();
-        excFrsPageResIdl.data.pn.intValue();
-        if (excFrsPageResIdl.data.tag_list != null) {
-            this.b = new ArrayList();
-            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
-                if (excellentTagInfo != null) {
-                    this.b.add(excellentTagInfo);
-                }
             }
         }
     }

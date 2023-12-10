@@ -7,9 +7,9 @@ import com.baidu.tieba.kz4;
 import com.baidu.tieba.o87;
 import com.baidu.tieba.p87;
 import com.baidu.tieba.r67;
-import com.baidu.tieba.rb7;
 import com.baidu.tieba.sb7;
-import com.baidu.tieba.va7;
+import com.baidu.tieba.tb7;
+import com.baidu.tieba.wa7;
 import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +38,7 @@ public final class FeedPollExtensionKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(PollInfo pollInfo, List<rb7<?>> dataList, r67 feedExtraData, String schema) {
+    public static final void a(PollInfo pollInfo, List<sb7<?>> dataList, r67 feedExtraData, String schema) {
         long j;
         xz4 xz4Var;
         boolean z;
@@ -98,7 +98,7 @@ public final class FeedPollExtensionKt {
             Long total_poll = pollInfo.total_poll;
             Intrinsics.checkNotNullExpressionValue(total_poll, "total_poll");
             o87 o87Var = new o87(str3, j2, title, intValue2, longValue2, intValue3, intValue4, polled_value, intValue5, intValue6, total_poll.longValue(), arrayList, schema);
-            String str5 = va7.a.a(pollInfo.business_info).get("task_info");
+            String str5 = wa7.a.a(pollInfo.business_info).get("task_info");
             final Ref.ObjectRef objectRef = new Ref.ObjectRef();
             boolean z2 = true;
             if (str5 != null) {
@@ -164,7 +164,7 @@ public final class FeedPollExtensionKt {
             } else {
                 xz4Var = null;
             }
-            dataList.add(new sb7(new e57(o87Var, xz4Var), "card_vote"));
+            dataList.add(new tb7(new e57(o87Var, xz4Var), "card_vote"));
         }
     }
 }

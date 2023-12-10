@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.mobads.sdk.api.IBasicCPUData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
 import java.lang.reflect.Field;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f3c extends k3c {
+public class f3c extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,51 +38,43 @@ public class f3c extends k3c {
         }
     }
 
-    @Override // com.baidu.tieba.k3c
-    public JSONObject c(Object obj) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object invoke;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                if (obj instanceof y2c) {
-                    Field declaredField = obj.getClass().getSuperclass().getDeclaredField("mAdProd");
+                if (obj instanceof IBasicCPUData) {
+                    Object findField = ReflectionUtils.findField("java.lang.Object", obj);
+                    Object findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.aq", obj);
+                    if (findField2 == null) {
+                        findField2 = ReflectionUtils.findField("com.baidu.mobads.sdk.internal.ap", obj);
+                    }
+                    if (findField == null || findField2 == null || (invoke = ReflectionUtils.invoke(findField2, "b", new Class[]{Object.class, String.class, Object[].class}, findField, "getNativeResonse", new Object[0])) == null) {
+                        return null;
+                    }
+                    Field declaredField = invoke.getClass().getDeclaredField("x");
                     declaredField.setAccessible(true);
-                    Object obj2 = declaredField.get(obj);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField2 = obj2.getClass().getSuperclass().getDeclaredField("k");
-                    declaredField2.setAccessible(true);
-                    Object obj3 = declaredField2.get(obj2);
-                    if (obj3 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj3.getClass().getDeclaredField("adProdTemplate");
-                    declaredField3.setAccessible(true);
-                    Object obj4 = declaredField3.get(obj3);
-                    if (obj4 == null) {
-                        return null;
-                    }
-                    Field declaredField4 = obj4.getClass().getSuperclass().getDeclaredField("f");
-                    declaredField4.setAccessible(true);
-                    Object obj5 = declaredField4.get(obj4);
-                    if (obj5 == null) {
-                        return null;
-                    }
-                    Field declaredField5 = obj5.getClass().getDeclaredField("p");
-                    declaredField5.setAccessible(true);
-                    Object obj6 = declaredField5.get(obj5);
-                    if (obj6 instanceof JSONObject) {
-                        return (JSONObject) obj6;
+                    Object obj2 = declaredField.get(invoke);
+                    if (obj2 instanceof JSONObject) {
+                        JSONObject jSONObject = (JSONObject) obj2;
+                        JSONObject optJSONObject = jSONObject.optJSONObject("apo");
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("publisher")).setTitle(jSONObject.optString("tit")).setDescription(jSONObject.optString("desc")).setImageUrl(jSONObject.optString("w_picurl")).setIconUrl(jSONObject.optString("icon")).setClickUrl(jSONObject.optString("curl")).setVideoUrl(jSONObject.optString("vurl")).setAppName(jSONObject.optString("appname")).setAppPkg(jSONObject.optString("apk_name")).setAppUrl(jSONObject.optString("app_store_link"));
+                        if (optJSONObject != null) {
+                            builder.setDeepLinkUrl(optJSONObject.optString("page"));
+                        }
+                        return builder.build();
                     }
                     return null;
                 }
                 return null;
-            } catch (Exception unused) {
-                LogPrinter.d();
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }
-        return (JSONObject) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

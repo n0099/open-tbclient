@@ -103,7 +103,7 @@ public final class HandlerContext extends HandlerDispatcher implements Delay {
     @Override // kotlinx.coroutines.android.HandlerDispatcher, kotlinx.coroutines.Delay
     public DisposableHandle invokeOnTimeout(long j, final Runnable runnable, CoroutineContext coroutineContext) {
         if (this.handler.postDelayed(runnable, RangesKt___RangesKt.coerceAtMost(j, 4611686018427387903L))) {
-            return new DisposableHandle() { // from class: com.baidu.tieba.glc
+            return new DisposableHandle() { // from class: com.baidu.tieba.hlc
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

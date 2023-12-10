@@ -135,22 +135,22 @@ public class rs4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa c(WebView webView, String str, String str2) {
+    public gxa c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             Context a2 = fj6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
             }
             UtilHelper.smsTo(a2, str, str2);
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa d(WebView webView, int i, long j, long j2, String str, String str2) {
+    public gxa d(WebView webView, int i, long j, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
@@ -165,9 +165,9 @@ public class rs4 implements qj6 {
                 BdLog.e(e);
             }
             UiUtils.post(new a(this, jSONObject));
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
     public final String e(WebView webView) {
@@ -192,32 +192,32 @@ public class rs4 implements qj6 {
         return (String) invokeL.objValue;
     }
 
-    public final fxa f(HashMap<String, Object> hashMap) {
+    public final gxa f(HashMap<String, Object> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
-                fxaVar.o(DataExt.toJson(hashMap));
-                return fxaVar;
+                gxaVar.o(DataExt.toJson(hashMap));
+                return gxaVar;
             } catch (Exception e) {
                 BdLog.e(e);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa o(WebView webView) {
+    public gxa o(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, webView)) == null) {
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa g(WebView webView, JSONObject jSONObject, String str, String str2, String str3, ArrayList<String> arrayList, String str4) {
+    public gxa g(WebView webView, JSONObject jSONObject, String str, String str2, String str3, ArrayList<String> arrayList, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, jSONObject, str, str2, str3, arrayList, str4})) == null) {
@@ -234,43 +234,43 @@ public class rs4 implements qj6 {
                 BdLog.e(e);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921820, jSONObject2));
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa h(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa h(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
-                fxaVar.o(DataExt.toJson(hashMap));
+                gxaVar.o(DataExt.toJson(hashMap));
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa i(WebView webView, boolean z) {
+    public gxa i(WebView webView, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, z)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (z) {
                 to5.c();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLZ.objValue;
+        return (gxa) invokeLZ.objValue;
     }
 
-    public fxa j(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa j(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, webView, hashMap)) == null) {
@@ -279,10 +279,10 @@ public class rs4 implements qj6 {
             }
             return f(hashMap);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa k(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa k(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
@@ -291,32 +291,32 @@ public class rs4 implements qj6 {
             }
             return f(hashMap);
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa l(WebView webView, HashMap<String, Object> hashMap) {
+    public gxa l(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
-                fxaVar.o(DataExt.toJson(hashMap));
+                gxaVar.o(DataExt.toJson(hashMap));
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa m(WebView webView, ArrayList<String> arrayList) {
+    public gxa m(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, arrayList)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             Context a2 = fj6.a(webView.getContext());
             if (a2 == null) {
                 a2 = webView.getContext();
@@ -327,12 +327,12 @@ public class rs4 implements qj6 {
                     Glide.with(a2).asBitmap().load(it.next()).diskCacheStrategy(DiskCacheStrategy.ALL).preload();
                 }
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa n(WebView webView, ArrayList<String> arrayList) {
+    public gxa n(WebView webView, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         char c;
         Interceptable interceptable = $ic;
@@ -353,42 +353,42 @@ public class rs4 implements qj6 {
             } else {
                 c = 65535;
             }
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (c == 65535) {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 0);
-                    fxaVar.o(jSONObject.toString());
-                    return fxaVar;
+                    gxaVar.o(jSONObject.toString());
+                    return gxaVar;
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
             } else if (c == 1) {
-                fxaVar.r("url不支持预热");
+                gxaVar.r("url不支持预热");
             } else if (c == 2) {
-                fxaVar.r("预热池已存在该url");
+                gxaVar.r("预热池已存在该url");
             } else {
-                fxaVar.r("其它错误");
+                gxaVar.r("其它错误");
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa p(WebView webView, String str, String str2, String str3, String str4, String str5) {
+    public gxa p(WebView webView, String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{webView, str, str2, str3, str4, str5})) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
             readRecordsData.Q(true);
             to5.d(str2, readRecordsData);
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa q(WebView webView, String str, String str2, String str3) {
+    public gxa q(WebView webView, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048593, this, webView, str, str2, str3)) == null) {
@@ -402,8 +402,8 @@ public class rs4 implements qj6 {
                 BdLog.e(e);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921816, jSONObject));
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 }

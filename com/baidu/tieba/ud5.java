@@ -22,7 +22,7 @@ public class ud5 {
 
         /* renamed from: com.baidu.tieba.ud5$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0490a implements vd5 {
+        public class C0488a implements vd5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ db0 a;
@@ -37,7 +37,7 @@ public class ud5 {
                 return invokeL.booleanValue;
             }
 
-            public C0490a(a aVar, db0 db0Var) {
+            public C0488a(a aVar, db0 db0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class ud5 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0490a(this, db0Var));
+                downloadData.setCallback(new C0488a(this, db0Var));
                 wd5.k().l(downloadData);
             }
         }

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.ci9;
+import com.baidu.tieba.di9;
 import com.baidu.tieba.lq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -87,7 +87,7 @@ public class SelectLocationActivity extends SuspendedActivity {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
-            return new ci9(getPageContext(), linearLayout, navigationBar);
+            return new di9(getPageContext(), linearLayout, navigationBar);
         }
         return (lq5) invokeLL.objValue;
     }

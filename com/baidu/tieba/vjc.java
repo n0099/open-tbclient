@@ -1,5 +1,11 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLSurface;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -15,26 +21,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import com.yy.transvod.player.log.TLog;
 import java.util.concurrent.atomic.AtomicBoolean;
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-import javax.microedition.khronos.egl.EGLSurface;
+@TargetApi(17)
 /* loaded from: classes8.dex */
-public class vjc implements bkc {
+public final class vjc implements ckc {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] g;
     public static final int[] h;
     public static final int[] i;
     public static final int[] j;
-    public static final int[] k;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicBoolean a;
-    public EGLConfig b;
-    public EGL10 c;
-    public EGLDisplay d;
-    public EGLContext e;
-    public EGLSurface f;
-    public EGLSurface g;
+    public EGLDisplay b;
+    public EGLContext c;
+    public EGLSurface d;
+    public EGLSurface e;
+    public EGLConfig f;
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,43 +59,46 @@ public class vjc implements bkc {
                 return;
             }
         }
-        h = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12344};
-        i = new int[]{12440, 2, 12344};
-        j = new int[]{12375, 1, 12374, 1, 12344};
-        k = new int[]{12344};
+        g = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12344};
+        h = new int[]{12440, 2, 12344};
+        i = new int[]{12375, 1, 12374, 1, 12417, 12380, 12416, 12380, 12344};
+        j = new int[]{12344};
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TLog.g(this, "EglCoreKhronos.release enter.");
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            TLog.g(this, "EglCore.release enter.");
             b(0, false);
-            EGLDisplay eGLDisplay = this.d;
-            if (eGLDisplay != EGL10.EGL_NO_DISPLAY) {
-                EGLContext eGLContext = this.e;
-                if (eGLContext != EGL10.EGL_NO_CONTEXT) {
-                    this.c.eglDestroyContext(eGLDisplay, eGLContext);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
+                EGLContext eGLContext = this.c;
+                if (eGLContext != EGL14.EGL_NO_CONTEXT) {
+                    EGL14.eglDestroyContext(eGLDisplay, eGLContext);
                 }
-                EGLSurface eGLSurface = this.f;
-                if (eGLSurface != EGL10.EGL_NO_SURFACE) {
-                    this.c.eglDestroySurface(this.d, eGLSurface);
+                EGLSurface eGLSurface = this.d;
+                if (eGLSurface != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface);
                 }
-                EGLSurface eGLSurface2 = this.g;
-                if (eGLSurface2 != EGL10.EGL_NO_SURFACE) {
-                    this.c.eglDestroySurface(this.d, eGLSurface2);
-                    TLog.g(this, "EglCoreKhronos.release, destroy offscren surface");
+                EGLSurface eGLSurface2 = this.e;
+                if (eGLSurface2 != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface2);
+                    TLog.g(this, "EglCore.release offscreen surface.");
                 }
-                this.c.eglTerminate(this.d);
+                if (i()) {
+                    EGL14.eglReleaseThread();
+                }
+                EGL14.eglTerminate(this.b);
             }
-            this.b = null;
-            this.d = EGL10.EGL_NO_DISPLAY;
-            this.e = EGL10.EGL_NO_CONTEXT;
-            EGLSurface eGLSurface3 = EGL10.EGL_NO_SURFACE;
-            this.f = eGLSurface3;
-            this.g = eGLSurface3;
+            this.f = null;
+            this.b = EGL14.EGL_NO_DISPLAY;
+            this.c = EGL14.EGL_NO_CONTEXT;
+            EGLSurface eGLSurface3 = EGL14.EGL_NO_SURFACE;
+            this.d = eGLSurface3;
+            this.e = eGLSurface3;
             this.a.set(false);
-            TLog.g(this, "EglCoreKhronos.release leave.");
+            TLog.g(this, "EglCore.release leave.");
         }
     }
 
@@ -103,57 +116,53 @@ public class vjc implements bkc {
             }
         }
         this.a = new AtomicBoolean(false);
-        this.b = null;
-        this.c = null;
-        this.d = EGL10.EGL_NO_DISPLAY;
-        this.e = EGL10.EGL_NO_CONTEXT;
-        EGLSurface eGLSurface = EGL10.EGL_NO_SURFACE;
-        this.f = eGLSurface;
-        this.g = eGLSurface;
-        this.c = (EGL10) EGLContext.getEGL();
+        this.b = EGL14.EGL_NO_DISPLAY;
+        this.c = EGL14.EGL_NO_CONTEXT;
+        EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+        this.d = eGLSurface;
+        this.e = eGLSurface;
+        this.f = null;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TLog.g(this, "EglCoreKhronos.setup enter.");
-            if (this.d != EGL10.EGL_NO_DISPLAY && this.e != EGL10.EGL_NO_CONTEXT) {
-                TLog.g(this, "EglCoreKhronos.setup already created.");
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.c != EGL14.EGL_NO_CONTEXT) {
+                TLog.g(this, "already created.");
                 return;
             }
-            EGLDisplay eglGetDisplay = this.c.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            this.d = eglGetDisplay;
-            if (eglGetDisplay != EGL10.EGL_NO_DISPLAY) {
-                TLog.g(this, "mEgl.eglGetDisplay() = " + this.d);
+            TLog.g(this, "EglCore.setup enter.");
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.b = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                TLog.g(this, "EGL14.eglGetDisplay() = " + this.b);
                 int[] iArr = new int[2];
-                if (this.c.eglInitialize(this.d, iArr)) {
+                if (EGL14.eglInitialize(this.b, iArr, 0, iArr, 1)) {
                     TLog.g(this, String.format("EGLDisplay.majoy:%d, EGLDisplay.minor:%d", Integer.valueOf(iArr[0]), Integer.valueOf(iArr[1])));
-                    int[] iArr2 = new int[1];
-                    this.c.eglChooseConfig(this.d, h, null, 0, iArr2);
-                    int i2 = iArr2[0];
-                    EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                    this.c.eglChooseConfig(this.d, h, eGLConfigArr, i2, iArr2);
+                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                    EGL14.eglChooseConfig(this.b, g, 0, eGLConfigArr, 0, 1, new int[1], 0);
                     EGLConfig eGLConfig = eGLConfigArr[0];
-                    this.b = eGLConfig;
-                    EGL10 egl10 = this.c;
-                    EGLContext eglCreateContext = egl10.eglCreateContext(this.d, eGLConfig, egl10.eglGetCurrentContext(), i);
-                    this.e = eglCreateContext;
-                    if (eglCreateContext != EGL10.EGL_NO_CONTEXT) {
-                        TLog.g(this, "mEgl.eglCreateContext() = " + this.e);
-                        TLog.g(this, "EglCoreKhronos.setup leave.");
+                    this.f = eGLConfig;
+                    EGLContext eglCreateContext = EGL14.eglCreateContext(this.b, eGLConfig, EGL14.eglGetCurrentContext(), h, 0);
+                    this.c = eglCreateContext;
+                    if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
+                        TLog.g(this, "EGL14.eglCreateContext() = " + this.c);
+                        EGL14.eglQueryContext(this.b, this.c, 12440, iArr, 0);
+                        TLog.g(this, String.format("EGLContext.version:%d", Integer.valueOf(iArr[0])));
+                        TLog.g(this, "EglCore.setup leave.");
                         return;
                     }
-                    throw new RuntimeException(String.format("mEgl.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(this.c.eglGetError())));
+                    throw new RuntimeException(String.format("EGL14.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
                 }
-                this.d = EGL10.EGL_NO_DISPLAY;
-                throw new RuntimeException(String.format("mEgl.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(this.c.eglGetError())));
+                this.b = EGL14.EGL_NO_DISPLAY;
+                throw new RuntimeException(String.format("EGL14.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
             }
-            throw new RuntimeException(String.format("mEgl.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(this.c.eglGetError())));
+            throw new RuntimeException(String.format("EGL14.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
         }
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,15 +172,15 @@ public class vjc implements bkc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public int c() {
         InterceptResult invokeV;
         EGLSurface eGLSurface;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.d;
-            if (eGLDisplay == EGL10.EGL_NO_DISPLAY || (eGLSurface = this.f) == EGL10.EGL_NO_SURFACE || !this.c.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr)) {
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr, 0)) {
                 return 0;
             }
             return iArr[0];
@@ -179,15 +188,15 @@ public class vjc implements bkc {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public int f() {
         InterceptResult invokeV;
         EGLSurface eGLSurface;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.d;
-            if (eGLDisplay == EGL10.EGL_NO_DISPLAY || (eGLSurface = this.f) == EGL10.EGL_NO_SURFACE || !this.c.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr)) {
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr, 0)) {
                 return 0;
             }
             return iArr[0];
@@ -195,121 +204,130 @@ public class vjc implements bkc {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public boolean swapBuffer() {
         InterceptResult invokeV;
         EGLSurface eGLSurface;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            EGLDisplay eGLDisplay = this.d;
-            if (eGLDisplay != EGL10.EGL_NO_DISPLAY && (eGLSurface = this.f) != EGL10.EGL_NO_SURFACE) {
-                return this.c.eglSwapBuffers(eGLDisplay, eGLSurface);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && (eGLSurface = this.d) != EGL14.EGL_NO_SURFACE) {
+                return EGL14.eglSwapBuffers(eGLDisplay, eGLSurface);
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public boolean b(int i2, boolean z) {
         InterceptResult invokeCommon;
         EGLContext eGLContext;
         int eglGetError;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (this.d == EGL10.EGL_NO_DISPLAY) {
+            if (this.b == EGL14.EGL_NO_DISPLAY) {
                 return false;
             }
-            EGLSurface g = g(i2);
+            EGLSurface g2 = g(i2);
             if (z) {
-                eGLContext = this.e;
+                eGLContext = this.c;
             } else {
-                eGLContext = EGL10.EGL_NO_CONTEXT;
+                eGLContext = EGL14.EGL_NO_CONTEXT;
             }
-            if (g == EGL10.EGL_NO_SURFACE && eGLContext != EGL10.EGL_NO_CONTEXT) {
+            if (g2 == EGL14.EGL_NO_SURFACE && eGLContext != EGL14.EGL_NO_CONTEXT) {
                 return true;
             }
-            boolean eglMakeCurrent = this.c.eglMakeCurrent(this.d, g, g, eGLContext);
-            if (!eglMakeCurrent && (eglGetError = this.c.eglGetError()) != 12288) {
-                TLog.c(this, String.format("mEgl.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
+            boolean eglMakeCurrent = EGL14.eglMakeCurrent(this.b, g2, g2, eGLContext);
+            if (!eglMakeCurrent && (eglGetError = EGL14.eglGetError()) != 12288) {
+                TLog.c(this, String.format("EGL14.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
             }
             return eglMakeCurrent;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     public void d(boolean z) {
         EGLSurface eGLSurface;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            TLog.g(this, "EglCoreKhronos.destroySurface enter, windowSurface:" + z);
+            TLog.g(this, "EglCore.destroySurface enter, windowSurface: " + z);
             if (z) {
-                eGLSurface = this.f;
+                eGLSurface = this.d;
             } else {
-                eGLSurface = this.g;
+                eGLSurface = this.e;
             }
             if (z) {
                 this.a.set(false);
             }
             b(0, true);
-            EGLDisplay eGLDisplay = this.d;
-            if (eGLDisplay != EGL10.EGL_NO_DISPLAY && eGLSurface != EGL10.EGL_NO_SURFACE) {
-                this.c.eglDestroySurface(eGLDisplay, eGLSurface);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && eGLSurface != EGL14.EGL_NO_SURFACE) {
+                EGL14.eglDestroySurface(eGLDisplay, eGLSurface);
                 if (z) {
-                    this.f = EGL10.EGL_NO_SURFACE;
+                    this.d = EGL14.EGL_NO_SURFACE;
                 } else {
-                    this.g = EGL10.EGL_NO_SURFACE;
+                    this.e = EGL14.EGL_NO_SURFACE;
                 }
             }
-            TLog.g(this, "EglCoreKhronos.destroySurface leave.");
+            TLog.g(this, "EglCore.destroySurface  leave.");
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x006a, code lost:
-        if (r7.f != javax.microedition.khronos.egl.EGL10.EGL_NO_SURFACE) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
+        if (r6.d != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x006c, code lost:
-        r2 = true;
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x007f, code lost:
+        r1 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00b5, code lost:
-        if (r7.g != javax.microedition.khronos.egl.EGL10.EGL_NO_SURFACE) goto L14;
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c4, code lost:
+        if (r6.e != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
      */
-    @Override // com.baidu.tieba.bkc
+    @Override // com.baidu.tieba.ckc
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean e(Object obj) {
         InterceptResult invokeL;
+        int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            TLog.g(this, "EglCoreKhronos.createSurface enter.");
+            StringBuilder sb = new StringBuilder();
+            sb.append("EglCore.createSurface enter: ");
             boolean z = false;
-            if (this.d != EGL10.EGL_NO_DISPLAY && this.b != null) {
+            if (obj != null) {
+                i2 = obj.hashCode();
+            } else {
+                i2 = 0;
+            }
+            sb.append(i2);
+            TLog.g(this, sb.toString());
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.f != null) {
                 if (obj != null) {
                     try {
                         if (h(obj)) {
-                            EGLSurface eglCreateWindowSurface = this.c.eglCreateWindowSurface(this.d, this.b, obj, k);
-                            this.f = eglCreateWindowSurface;
-                            if (eglCreateWindowSurface == EGL10.EGL_NO_SURFACE) {
-                                TLog.c(this, String.format("mEgl.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(this.c.eglGetError())));
+                            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.b, this.f, obj, j, 0);
+                            this.d = eglCreateWindowSurface;
+                            if (eglCreateWindowSurface == EGL14.EGL_NO_SURFACE) {
+                                TLog.c(this, String.format("EGL14.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
                             }
-                            TLog.g(this, "mEgl.eglCreateWindowSurface() = " + this.f);
+                            TLog.g(this, "EGL14.eglCreateWindowSurface() = " + this.d);
                             this.a.set(b(1, true));
                         }
                     } catch (Exception e) {
-                        TLog.g(this, "mEgl.eglCreateWindowSurface() = " + e.toString());
+                        TLog.g(this, "EGL14.eglCreateWindowSurface() = " + e.toString());
                     }
                 }
-                EGLSurface eglCreatePbufferSurface = this.c.eglCreatePbufferSurface(this.d, this.b, j);
-                this.g = eglCreatePbufferSurface;
-                if (eglCreatePbufferSurface == EGL10.EGL_NO_SURFACE) {
-                    TLog.c(this, String.format("mEgl.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(this.c.eglGetError())));
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.b, this.f, i, 0);
+                this.e = eglCreatePbufferSurface;
+                if (eglCreatePbufferSurface == EGL14.EGL_NO_SURFACE) {
+                    TLog.c(this, String.format("EGL14.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
                 }
                 b(2, true);
-                TLog.g(this, "mEgl.eglCreatePbufferSurface() = " + this.g);
+                TLog.g(this, "EGL14.eglCreatePbufferSurface() = " + this.e);
             }
-            TLog.g(this, "EglCoreKhronos.createSurface leave.");
+            TLog.g(this, "EglCore.createSurface leave.");
             return z;
         }
         return invokeL.booleanValue;
@@ -319,12 +337,12 @@ public class vjc implements bkc {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            EGLSurface eGLSurface = EGL10.EGL_NO_SURFACE;
+            EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
             if (i2 == 1) {
-                return this.f;
+                return this.d;
             }
             if (i2 == 2) {
-                return this.g;
+                return this.e;
             }
             return eGLSurface;
         }

@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uxa;
+import com.baidu.tieba.vxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ public class j85 {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public String b;
-    public uxa.c c;
+    public vxa.c c;
 
     /* loaded from: classes6.dex */
     public static class a extends c {
@@ -125,7 +125,7 @@ public class j85 {
         return (j85) invokeL.objValue;
     }
 
-    public void h(uxa.c cVar) {
+    public void h(vxa.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.c = cVar;
@@ -168,13 +168,13 @@ public class j85 {
         return (String) invokeV.objValue;
     }
 
-    public uxa.c f() {
+    public vxa.c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (uxa.c) invokeV.objValue;
+        return (vxa.c) invokeV.objValue;
     }
 
     public int g() {

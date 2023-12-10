@@ -1,64 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.FrsService;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.PeiwanInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ji8 {
-    public static /* synthetic */ Interceptable $ic;
+public final class ji8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a a;
+    public static long b = -1;
+    public static long c = 1800;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ThreadData threadData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, threadData) == null) && threadData != null && threadData.getPeiwanInfo() != null) {
-            PeiwanInfo peiwanInfo = threadData.getPeiwanInfo();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HOME_PEI_WAN_CARD_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", String.valueOf(threadData.floorPosition));
-            statisticItem.addParam(TiebaStatic.Params.OBJ_TO, peiwanInfo.room_id.longValue());
-            if (threadData.isFromNet) {
-                str = "1";
-            } else {
-                str = "0";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884368, "Lcom/baidu/tieba/ji8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            statisticItem.addParam("obj_param1", str);
-            statisticItem.eventStat();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947884368, "Lcom/baidu/tieba/ji8;");
+                return;
+            }
         }
+        a = new a(null);
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, pi piVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, piVar)) == null) {
-            if (piVar instanceof um6) {
-                um6 um6Var = (um6) piVar;
-                ThreadData threadData = um6Var.a;
-                if (threadData != null && threadData.getVoiceRoomData() != null && !StringUtils.isNull(um6Var.a.getVoiceRoomData().room_name) && um6Var.a.getVoiceRoomData().room_id.longValue() > 0) {
-                    ((FrsService) ServiceManager.getService(FrsService.Companion.getServiceReference())).navToVoiceRoom(tbPageContext, um6Var.a.getVoiceRoomData().room_id.longValue());
-                    return true;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                ThreadData threadData2 = um6Var.a;
-                if (threadData2 != null && threadData2.getPeiwanInfo() != null && !StringUtils.isNull(um6Var.a.getPeiwanInfo().scheme)) {
-                    UrlManager.getInstance().dealOneLink(um6Var.a.getPeiwanInfo().scheme);
-                    a(um6Var.a);
+            }
+        }
+
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+                return;
+            }
+            ji8.b = System.currentTimeMillis();
+        }
+
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                long j = ji8.b;
+                if (UbsABTestHelper.isExistSid("main_tab_hot_reload_enable_android_a") && j > 0 && System.currentTimeMillis() - j > ji8.c * 1000) {
                     return true;
                 }
                 return false;
             }
-            return false;
+            return invokeV.booleanValue;
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Singleton
+    @Service
+    /* loaded from: classes6.dex */
+    public static final class b implements za5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.za5
+        public void parseJson(JSONObject json) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+                Intrinsics.checkNotNullParameter(json, "json");
+                try {
+                    a aVar = ji8.a;
+                    ji8.c = json.optLong("main_tab_hot_reload_interval", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT);
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.i("HomeHotReloadHelper", "首页热启动间隔：" + ji8.c);
+                } catch (Exception e) {
+                    TbLog defaultLog2 = DefaultLog.getInstance();
+                    defaultLog2.e("HomeHotReloadHelper", "首页热启动间隔数据数据解析失败" + e.getMessage());
+                }
+            }
+        }
     }
 }

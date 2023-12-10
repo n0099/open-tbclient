@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollVi
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.CardFrsGameRecommendGameItemView;
 import com.baidu.tieba.card.CardFrsGameRecommendGameLayout;
-import com.baidu.tieba.gs7;
+import com.baidu.tieba.hs7;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.su6;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class GameRecommendGameAdapter extends gs7<su6, CardFrsGameRecommendGameHolder> {
+public class GameRecommendGameAdapter extends hs7<su6, CardFrsGameRecommendGameHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -189,7 +189,7 @@ public class GameRecommendGameAdapter extends gs7<su6, CardFrsGameRecommendGameH
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     /* renamed from: K */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, su6 su6Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
         InterceptResult invokeCommon;

@@ -56,10 +56,10 @@ import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.dr6;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.jgb;
+import com.baidu.tieba.kgb;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.ngb;
 import com.baidu.tieba.ogb;
+import com.baidu.tieba.pgb;
 import com.baidu.tieba.s25;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
@@ -183,13 +183,57 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class b extends er6<ogb> {
+    public static final class b extends er6<pgb> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(WebWriteActivity webWriteActivity, Class<ogb> cls) {
+        public b(WebWriteActivity webWriteActivity, Class<pgb> cls) {
+            super(cls);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webWriteActivity, cls};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Class) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = webWriteActivity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.er6
+        public void onEvent(pgb event) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                RelativeLayout relativeLayout = this.b.i;
+                if (relativeLayout == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("mNavigationBarRightBtn");
+                    relativeLayout = null;
+                }
+                relativeLayout.setClickable(event.a());
+                this.b.t1(event.a());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c extends er6<ogb> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WebWriteActivity b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(WebWriteActivity webWriteActivity, Class<ogb> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -212,50 +256,6 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
         public void onEvent(ogb event) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                RelativeLayout relativeLayout = this.b.i;
-                if (relativeLayout == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("mNavigationBarRightBtn");
-                    relativeLayout = null;
-                }
-                relativeLayout.setClickable(event.a());
-                this.b.t1(event.a());
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c extends er6<ngb> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WebWriteActivity b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(WebWriteActivity webWriteActivity, Class<ngb> cls) {
-            super(cls);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {webWriteActivity, cls};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Class) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = webWriteActivity;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.er6
-        public void onEvent(ngb event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -316,13 +316,13 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
     }
 
     /* loaded from: classes8.dex */
-    public static final class e extends er6<jgb> {
+    public static final class e extends er6<kgb> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ WebWriteActivity b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(WebWriteActivity webWriteActivity, Class<jgb> cls) {
+        public e(WebWriteActivity webWriteActivity, Class<kgb> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -352,7 +352,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(jgb event) {
+        public void onEvent(kgb event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
@@ -363,7 +363,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     String string = this.b.getString(R.string.hanpen_error);
                     String string2 = this.b.getString(R.string.write_save_draft_leave);
                     final WebWriteActivity webWriteActivity2 = this.b;
-                    webWriteActivity.showNetRefreshView(u1, string, null, string2, true, new View.OnClickListener() { // from class: com.baidu.tieba.pfb
+                    webWriteActivity.showNetRefreshView(u1, string, null, string2, true, new View.OnClickListener() { // from class: com.baidu.tieba.qfb
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1094,11 +1094,11 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             dr6 b2 = br6.b();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            b2.b(new ar6(pageContext, ogb.class), new b(this, ogb.class));
+            b2.b(new ar6(pageContext, pgb.class), new b(this, pgb.class));
             dr6 b3 = br6.b();
             TbPageContext<BaseFragmentActivity> pageContext2 = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext2, "pageContext");
-            b3.b(new ar6(pageContext2, ngb.class), new c(this, ngb.class));
+            b3.b(new ar6(pageContext2, ogb.class), new c(this, ogb.class));
             String str2 = "";
             if (bundle != null) {
                 str2 = bundle.getString("from", "");
@@ -1113,7 +1113,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             dr6 b4 = br6.b();
             TbPageContext<BaseFragmentActivity> pageContext3 = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext3, "pageContext");
-            b4.b(new ar6(pageContext3, jgb.class), new e(this, jgb.class));
+            b4.b(new ar6(pageContext3, kgb.class), new e(this, kgb.class));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_source", "new_write").param("obj_type", this.a));
         }
     }
@@ -1131,7 +1131,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             BaseWebWriteFragment b2 = tabPagerAdapter.b();
             final String str = (b2 == null || (str = b2.m3()) == null) ? "normal" : "normal";
             SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("key_last_select_write_tab"), str);
-            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.mfb
+            Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.nfb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1157,7 +1157,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             if (this.isResumed) {
                 if (s25.a.a("newWritePageGuideDialog") < 1) {
                     this.e = false;
-                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ofb
+                    SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.pfb
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1234,7 +1234,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
             x1().setTabPadding(BdUtilHelper.getDimens(this, R.dimen.tbds36), 0, BdUtilHelper.getDimens(this, R.dimen.tbds36), 0);
             x1().setViewPager(y1());
             v1().setIsClose(true);
-            v1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qfb
+            v1().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.rfb
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1305,7 +1305,7 @@ public final class WebWriteActivity extends BaseFragmentActivity implements Voic
                     Intrinsics.throwUninitializedPropertyAccessException("mNavigationBarRightBtn");
                     relativeLayout4 = null;
                 }
-                v1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.nfb
+                v1.addCustomView(controlAlign, relativeLayout4, new View.OnClickListener() { // from class: com.baidu.tieba.ofb
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

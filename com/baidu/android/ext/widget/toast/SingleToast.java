@@ -30,9 +30,9 @@ import com.baidu.searchbox.config.ext.FontSizeTextViewExtKt;
 import com.baidu.searchbox.config.ext.FontSizeViewExtKt;
 import com.baidu.searchbox.skin.NightModeHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.doc;
-import com.baidu.tieba.noc;
-import com.baidu.tieba.roc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.ooc;
+import com.baidu.tieba.soc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -223,7 +223,7 @@ public final class SingleToast {
                                 i3 = 2000;
                             }
                             UniversalToast.OnDismissListener unused = SingleToast.onDismissListener = null;
-                            doc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(noc.b()).H(new roc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
+                            eoc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(ooc.b()).H(new soc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass1 this$0;
@@ -247,7 +247,7 @@ public final class SingleToast {
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.tieba.roc
+                                @Override // com.baidu.tieba.soc
                                 public void call(Long l) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, l) == null) {
@@ -1023,7 +1023,7 @@ public final class SingleToast {
                                 i3 = 2000;
                             }
                             UniversalToast.OnDismissListener unused2 = SingleToast.onDismissListener = null;
-                            doc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(noc.b()).H(new roc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.9.2
+                            eoc.M(i3, TimeUnit.MILLISECONDS).J(Schedulers.io()).s(ooc.b()).H(new soc<Long>(this) { // from class: com.baidu.android.ext.widget.toast.SingleToast.9.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass9 this$0;
@@ -1047,7 +1047,7 @@ public final class SingleToast {
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
-                                @Override // com.baidu.tieba.roc
+                                @Override // com.baidu.tieba.soc
                                 public void call(Long l) {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeL(1048576, this, l) == null) {

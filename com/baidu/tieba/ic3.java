@@ -52,12 +52,12 @@ public class ic3 {
 
             /* renamed from: com.baidu.tieba.ic3$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0328a implements Runnable {
+            public class RunnableC0315a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public RunnableC0328a(b bVar) {
+                public RunnableC0315a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -151,19 +151,19 @@ public class ic3 {
                         }
                         return;
                     }
-                    this.a.submit(new RunnableC0328a(this));
+                    this.a.submit(new RunnableC0315a(this));
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.ic3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0327a implements Runnable {
+        public class RunnableC0314a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0327a(a aVar, b bVar) {
+            public RunnableC0314a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -220,7 +220,7 @@ public class ic3 {
                 }
                 Timer timer = new Timer();
                 b bVar = new b(null);
-                ek3.e0(new RunnableC0327a(this, bVar));
+                ek3.e0(new RunnableC0314a(this, bVar));
                 timer.schedule(new b(this, f, c, timer, hc3Var, z, bVar), 0L, hc3Var.a);
             }
         }

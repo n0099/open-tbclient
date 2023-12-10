@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.bxa;
-import com.baidu.tieba.fxa;
+import com.baidu.tieba.cxa;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.xd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class CommonTbJsBridge implements bxa {
+public class CommonTbJsBridge implements cxa {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements bxa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bxa
+    @Override // com.baidu.tieba.cxa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements bxa {
         return invokeLLLL.booleanValue;
     }
 
-    public fxa getSupplementInfo() {
+    public gxa getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements bxa {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                fxaVar.o(jSONObject.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject.toString());
+                return gxaVar;
             } catch (JSONException e) {
                 BdLog.e(e);
-                fxaVar.o("");
-                return fxaVar;
+                gxaVar.o("");
+                return gxaVar;
             }
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 }

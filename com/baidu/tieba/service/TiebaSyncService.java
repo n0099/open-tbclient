@@ -54,23 +54,23 @@ import com.baidu.tieba.h95;
 import com.baidu.tieba.i95;
 import com.baidu.tieba.ia5;
 import com.baidu.tieba.id;
-import com.baidu.tieba.knb;
+import com.baidu.tieba.lnb;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.oa5;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.qf;
 import com.baidu.tieba.qv4;
-import com.baidu.tieba.rfa;
 import com.baidu.tieba.s95;
+import com.baidu.tieba.sfa;
 import com.baidu.tieba.t85;
-import com.baidu.tieba.v4b;
-import com.baidu.tieba.v88;
 import com.baidu.tieba.vs5;
 import com.baidu.tieba.w4b;
+import com.baidu.tieba.w88;
 import com.baidu.tieba.wallet.YYLiveConfig;
 import com.baidu.tieba.ws5;
-import com.baidu.tieba.xe9;
+import com.baidu.tieba.x4b;
 import com.baidu.tieba.y16;
+import com.baidu.tieba.ye9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -228,23 +228,23 @@ public class TiebaSyncService extends BdBaseService {
             oa5 oa5Var = null;
             try {
                 this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
-                if (rfa.b()) {
+                if (sfa.b()) {
                     this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     this.a.addPostData("brand", Build.BRAND);
                     this.a.addPostData("model", DeviceInfoHelper.getModel());
                 } else {
-                    this.a.addPostData(HttpRequest.NEED_DECRYPT, rfa.c());
-                    String g = rfa.g(HttpRequest.OS_VERSION);
+                    this.a.addPostData(HttpRequest.NEED_DECRYPT, sfa.c());
+                    String g = sfa.g(HttpRequest.OS_VERSION);
                     if (!TextUtils.isEmpty(g)) {
-                        this.a.addPostData(g, rfa.j());
+                        this.a.addPostData(g, sfa.j());
                     }
-                    String g2 = rfa.g("brand");
+                    String g2 = sfa.g("brand");
                     if (!TextUtils.isEmpty(g2)) {
-                        this.a.addPostData(g2, rfa.e());
+                        this.a.addPostData(g2, sfa.e());
                     }
-                    String g3 = rfa.g("model");
+                    String g3 = sfa.g("model");
                     if (!TextUtils.isEmpty(g3)) {
-                        this.a.addPostData(g3, rfa.h());
+                        this.a.addPostData(g3, sfa.h());
                     }
                 }
                 this.a.addPostData(HttpConstants.HTTP_BOARD, Build.BOARD);
@@ -409,7 +409,7 @@ public class TiebaSyncService extends BdBaseService {
                 }
                 ABTestSwitchManager.getInstance().parseJSONArray(this.b.mModel.c());
                 UbsABTestDataManager.getInstance().parseJSONArray(this.b.mModel.s());
-                v88.e().k(this.b.mModel.m());
+                w88.e().k(this.b.mModel.m());
                 TbSingleton.getInstance().setAdFloatViewData(this.b.mModel.f());
                 SyncDataEvent syncDataEvent = new SyncDataEvent();
                 String str4 = "";
@@ -598,7 +598,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        knb x;
+        lnb x;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && (x = this.mModel.x()) != null) {
             TbSingleton.getInstance().setYYLiveTabConfig(x);
@@ -708,14 +708,14 @@ public class TiebaSyncService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             if (!PermissionUtil.isBrowseMode()) {
-                xe9.b().a(false);
+                ye9.b().a(false);
             }
             VersionData u = this.mModel.u();
             if (u != null && u.hasNewVer() && TbConfig.COULD_UPDATE) {
                 if (TbSingleton.getInstance().isSplashShowing()) {
-                    v4b.c().e(this.mModel);
+                    w4b.c().e(this.mModel);
                 } else {
-                    w4b.b(this.mModel);
+                    x4b.b(this.mModel);
                 }
             }
         }

@@ -23,18 +23,18 @@ import com.baidu.tieba.em6;
 import com.baidu.tieba.frs.view.UserRecommendItemView;
 import com.baidu.tieba.frs.view.UserRecommendLayout;
 import com.baidu.tieba.g75;
-import com.baidu.tieba.gs7;
+import com.baidu.tieba.hs7;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.ts7;
+import com.baidu.tieba.us7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsUserRecommendAdapter extends gs7<ts7, FrsUserRecommendViewHolder> {
+public class FrsUserRecommendAdapter extends hs7<us7, FrsUserRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -298,27 +298,27 @@ public class FrsUserRecommendAdapter extends gs7<ts7, FrsUserRecommendViewHolder
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ts7 ts7Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, us7 us7Var, FrsUserRecommendViewHolder frsUserRecommendViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ts7Var, frsUserRecommendViewHolder})) == null) {
-            if (ts7Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, us7Var, frsUserRecommendViewHolder})) == null) {
+            if (us7Var != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                frsUserRecommendViewHolder.d.setText(ts7Var.b());
+                frsUserRecommendViewHolder.d.setText(us7Var.b());
                 frsUserRecommendViewHolder.c.setPageContext(this.c);
-                frsUserRecommendViewHolder.c.setData(ts7Var.c());
+                frsUserRecommendViewHolder.c.setData(us7Var.c());
                 frsUserRecommendViewHolder.b.setMaxOverScrollDistance(frsUserRecommendViewHolder.c.getChildItemWidth());
                 frsUserRecommendViewHolder.d.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0106));
                 frsUserRecommendViewHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0205));
-                if (!ts7Var.d()) {
-                    for (MetaData metaData : ts7Var.c()) {
+                if (!us7Var.d()) {
+                    for (MetaData metaData : us7Var.c()) {
                         if (metaData != null && !rd.isEmpty(metaData.getUserId())) {
                             em6.b().a(new StatisticItem("c12530").param("obj_id", metaData.getUserId()));
                         }
                     }
-                    ts7Var.g(true);
+                    us7Var.g(true);
                 }
             }
             return frsUserRecommendViewHolder.getView();

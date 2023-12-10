@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.zub;
+import com.baidu.tieba.avb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,19 +100,19 @@ public abstract class j07 implements m07 {
             if (!p07Var.g && !p07Var.e) {
                 float f = p07Var.d;
                 if (f != 0.0f) {
-                    zub.a e = zub.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    avb.a e = avb.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
                     iArr[0] = e.b();
                     iArr[1] = e.a();
                 }
             } else {
-                zub.a e2 = e();
+                avb.a e2 = e();
                 float f2 = this.a.d;
                 if (f2 != 0.0f) {
-                    zub.a f3 = zub.f(f2, e2.b(), e2.a());
+                    avb.a f3 = avb.f(f2, e2.b(), e2.a());
                     iArr[0] = f3.b();
                     iArr[1] = f3.a();
                 }
-                zub.a d = zub.d(iArr[0], iArr[1]);
+                avb.a d = avb.d(iArr[0], iArr[1]);
                 iArr[0] = d.b();
                 iArr[1] = d.a();
             }
@@ -171,13 +171,13 @@ public abstract class j07 implements m07 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
             if (i != 0 && i2 != 0) {
-                Bitmap h = twb.h(bitmap, i, i2, z);
+                Bitmap h = uwb.h(bitmap, i, i2, z);
                 if (this.d) {
-                    a2 = bdb.b();
+                    a2 = cdb.b();
                 } else {
-                    a2 = bdb.a();
+                    a2 = cdb.a();
                 }
-                String c = bdb.c(a2, h, System.currentTimeMillis() + ".jpg");
+                String c = cdb.c(a2, h, System.currentTimeMillis() + ".jpg");
                 if (h != null) {
                     h.recycle();
                     return c;
@@ -189,7 +189,7 @@ public abstract class j07 implements m07 {
         return (String) invokeCommon.objValue;
     }
 
-    public zub.a e() {
+    public avb.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -197,7 +197,7 @@ public abstract class j07 implements m07 {
             int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
             int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
             if (multiMediaData == null) {
-                return new zub.a(i, i2);
+                return new avb.a(i, i2);
             }
             if (multiMediaData.type == 1) {
                 float f = multiMediaData.angle;
@@ -210,9 +210,9 @@ public abstract class j07 implements m07 {
                     i2 = multiMediaData.width;
                 }
             }
-            return new zub.a(i, i2);
+            return new avb.a(i, i2);
         }
-        return (zub.a) invokeV.objValue;
+        return (avb.a) invokeV.objValue;
     }
 
     public void g(o07 o07Var, Bitmap bitmap) {

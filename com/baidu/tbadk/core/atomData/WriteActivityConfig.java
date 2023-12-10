@@ -25,10 +25,10 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.lya;
 import com.baidu.tieba.mya;
 import com.baidu.tieba.nya;
-import com.baidu.tieba.vdb;
+import com.baidu.tieba.oya;
+import com.baidu.tieba.wdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -139,8 +139,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            boolean o = lya.l().o();
-            mya.a("发帖阻拦状态 = " + o);
+            boolean o = mya.l().o();
+            nya.a("发帖阻拦状态 = " + o);
             if (o && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 BdUtilHelper.showToast(currentActivity, "正在发布，请稍后");
             }
@@ -175,7 +175,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            nya.h = new Intent(getIntent());
+            oya.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -366,7 +366,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (vdb.m.equals(str)) {
+            if (wdb.m.equals(str)) {
                 setType(11);
             }
             return this;

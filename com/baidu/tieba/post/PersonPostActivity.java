@@ -38,15 +38,15 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bfa;
+import com.baidu.tieba.cfa;
 import com.baidu.tieba.personExtra.PersonExtraStatic;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.ti;
-import com.baidu.tieba.vea;
-import com.baidu.tieba.vva;
 import com.baidu.tieba.wea;
+import com.baidu.tieba.wva;
 import com.baidu.tieba.xea;
+import com.baidu.tieba.yea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,7 +55,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, xea, vea {
+public class PersonPostActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener, VoiceManager.j, yea, wea {
     public static /* synthetic */ Interceptable $ic;
     public static final String t;
     public transient /* synthetic */ FieldHolder $fh;
@@ -264,19 +264,19 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public ti onGetPreLoadListView() {
         InterceptResult invokeV;
-        bfa bfaVar;
+        cfa cfaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             PersonPostAdapter personPostAdapter = this.p;
             if (personPostAdapter != null) {
                 PersonThreadFragment c2 = personPostAdapter.c();
                 if (c2 != null) {
-                    bfaVar = c2.Q2();
+                    cfaVar = c2.Q2();
                 } else {
-                    bfaVar = null;
+                    cfaVar = null;
                 }
-                if (bfaVar != null && bfaVar.f() != null) {
-                    return bfaVar.f().getPreLoadHandle();
+                if (cfaVar != null && cfaVar.f() != null) {
+                    return cfaVar.f().getPreLoadHandle();
                 }
             }
             return null;
@@ -315,13 +315,13 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xea
+    @Override // com.baidu.tieba.yea
     public void s() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && this.p != null) {
             for (int i = 0; i < this.p.getCount(); i++) {
-                if (this.p.getItem(i) instanceof wea) {
-                    ((wea) this.p.getItem(i)).A1();
+                if (this.p.getItem(i) instanceof xea) {
+                    ((xea) this.p.getItem(i)).A1();
                 }
             }
         }
@@ -330,8 +330,8 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     public final void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            vva.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, vva.a("c/u/feed/userpost", 303002));
+            wva.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, wva.a("c/u/feed/userpost", 303002));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -461,7 +461,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vea
+    @Override // com.baidu.tieba.wea
     public void W(boolean z) {
         ImageView imageView;
         Interceptable interceptable = $ic;

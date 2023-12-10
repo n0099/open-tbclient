@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.BottomMenu;
-import tbclient.SubBottomMenu;
+import tbclient.BotReplyUserInfo;
 /* loaded from: classes7.dex */
-public class lvc extends ktc {
+public class lvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull BottomMenu bottomMenu) {
+    public static JSONObject b(@NonNull BotReplyUserInfo botReplyUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bottomMenu)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, botReplyUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "name", bottomMenu.name);
-            ktc.a(jSONObject, "url", bottomMenu.url);
-            if (bottomMenu.submenu != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (SubBottomMenu subBottomMenu : bottomMenu.submenu) {
-                    jSONArray.put(z8d.b(subBottomMenu));
-                }
-                ktc.a(jSONObject, "submenu", jSONArray);
-            }
-            ktc.a(jSONObject, "type", bottomMenu.type);
+            ltc.a(jSONObject, PersonalMsgSettingDispatcher.PERSONAL_PORTRAIT_URL, botReplyUserInfo.portrait_url);
+            ltc.a(jSONObject, "name", botReplyUserInfo.name);
+            ltc.a(jSONObject, "icon_url", botReplyUserInfo.icon_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

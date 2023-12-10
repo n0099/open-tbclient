@@ -30,17 +30,17 @@ import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
 import com.baidu.tieba.al5;
-import com.baidu.tieba.au8;
-import com.baidu.tieba.aw8;
 import com.baidu.tieba.b55;
-import com.baidu.tieba.b59;
+import com.baidu.tieba.bu8;
+import com.baidu.tieba.bw8;
+import com.baidu.tieba.c59;
 import com.baidu.tieba.cl5;
-import com.baidu.tieba.cv8;
 import com.baidu.tieba.dl5;
+import com.baidu.tieba.dv8;
 import com.baidu.tieba.eu5;
 import com.baidu.tieba.gl5;
 import com.baidu.tieba.gu5;
-import com.baidu.tieba.gz8;
+import com.baidu.tieba.hz8;
 import com.baidu.tieba.im.base.core.repo.MsgProcessor;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
@@ -51,19 +51,19 @@ import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
 import com.baidu.tieba.im.lib.socket.msg.data.EnableDegradeUserData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.kl5;
-import com.baidu.tieba.mv8;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.qp8;
+import com.baidu.tieba.nv8;
 import com.baidu.tieba.rk5;
+import com.baidu.tieba.rp8;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.sk5;
 import com.baidu.tieba.st5;
-import com.baidu.tieba.t49;
-import com.baidu.tieba.tq8;
 import com.baidu.tieba.u49;
-import com.baidu.tieba.uv8;
-import com.baidu.tieba.yv8;
+import com.baidu.tieba.uq8;
+import com.baidu.tieba.v49;
+import com.baidu.tieba.vv8;
 import com.baidu.tieba.zk5;
+import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,7 +82,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import kotlin.Pair;
 /* loaded from: classes6.dex */
-public class GroupChatRepo extends qp8 implements LifecycleObserver {
+public class GroupChatRepo extends rp8 implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -397,12 +397,12 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
 
         /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0344a implements Runnable {
+        public class RunnableC0343a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0344a(a aVar) {
+            public RunnableC0343a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -464,7 +464,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
                     this.d.Z(tVar, i, str, treeSet, this.c);
                 }
                 if (this.b != null) {
-                    UiUtils.runOnUiThread(new RunnableC0344a(this));
+                    UiUtils.runOnUiThread(new RunnableC0343a(this));
                 }
             }
         }
@@ -972,7 +972,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         public void a(long j, int i, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-                tq8.h(j, i, str);
+                uq8.h(j, i, str);
             }
         }
     }
@@ -1042,7 +1042,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return au8.j().f(yv8.b(), this.a.d);
+                return bu8.j().f(zv8.b(), this.a.d);
             }
             return (GroupChatRoomPojo) invokeV.objValue;
         }
@@ -1429,8 +1429,8 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
                 Iterator<ChatMsg> it = treeSet.iterator();
                 while (it.hasNext()) {
                     ChatMsg next = it.next();
-                    uv8<?, ?> a = cv8.c.a(next.getClass());
-                    if (a != null && (tbBaseMsg = (TbBaseMsg) aw8.b(a, mv8.a, next)) != null) {
+                    vv8<?, ?> a = dv8.c.a(next.getClass());
+                    if (a != null && (tbBaseMsg = (TbBaseMsg) bw8.b(a, nv8.a, next)) != null) {
                         treeSet2.add(tbBaseMsg);
                     }
                 }
@@ -1464,9 +1464,9 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         this.c = tbPageContext;
         this.b = tbPageContext.getPageActivity();
         this.d = j2;
-        b55<List<? extends ChatMsg>> b55Var = new b55<>(new t49());
+        b55<List<? extends ChatMsg>> b55Var = new b55<>(new u49());
         this.n = b55Var;
-        b55Var.g(new u49(tbPageContext, b55Var));
+        b55Var.g(new v49(tbPageContext, b55Var));
         this.p = new Counter(j2);
         this.r = b();
     }
@@ -1576,7 +1576,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         }
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -1591,7 +1591,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         }
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     @Nullable
     public BubbleInfo f() {
         InterceptResult invokeV;
@@ -1603,7 +1603,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         return (BubbleInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     @Nullable
     public List<EnableDegradeUserData> i() {
         InterceptResult invokeV;
@@ -1615,7 +1615,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     @Nullable
     public TbBaseMsg.c j() {
         InterceptResult invokeV;
@@ -1655,7 +1655,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     @Nullable
     public List<EnableDegradeUserData> m() {
         InterceptResult invokeV;
@@ -1682,7 +1682,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         }
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     public long n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1692,7 +1692,7 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.qp8
+    @Override // com.baidu.tieba.rp8
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1744,8 +1744,8 @@ public class GroupChatRepo extends qp8 implements LifecycleObserver {
             this.f.l(this.b, this.d, new p(this, zk5Var, bVar));
             ChatRoomDetail chatRoomDetail = this.h;
             if (chatRoomDetail != null && chatRoomDetail.getBasicInfo() != null) {
-                gz8.c("c15089", TbadkCoreApplication.getCurrentAccount(), this.h.getBasicInfo().getForumId(), this.d, i2);
-                b59.b(this.h.getBasicInfo().getForumId());
+                hz8.c("c15089", TbadkCoreApplication.getCurrentAccount(), this.h.getBasicInfo().getForumId(), this.d, i2);
+                c59.b(this.h.getBasicInfo().getForumId());
             }
         }
     }

@@ -1,12 +1,12 @@
 package com.baidu.ugc.audioedit;
 
-import com.baidu.tieba.ftb;
+import com.baidu.tieba.gtb;
 import org.vinuxproject.sonic.Sonic;
 /* loaded from: classes9.dex */
-public class AudioSpeedOperator implements ftb {
+public class AudioSpeedOperator implements gtb {
     public Sonic mSonic;
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public int availableBytes() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -15,7 +15,7 @@ public class AudioSpeedOperator implements ftb {
         return 0;
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public void close() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -23,7 +23,7 @@ public class AudioSpeedOperator implements ftb {
         }
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public void flush() {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -31,7 +31,7 @@ public class AudioSpeedOperator implements ftb {
         }
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public byte[] getOutPutBytes() {
         int availableBytes = availableBytes();
         byte[] bArr = new byte[availableBytes];
@@ -39,12 +39,12 @@ public class AudioSpeedOperator implements ftb {
         return bArr;
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public void init(int i, int i2) {
         this.mSonic = new Sonic(i, i2);
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public boolean putBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -54,7 +54,7 @@ public class AudioSpeedOperator implements ftb {
         return false;
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public int receiveBytes(byte[] bArr, int i) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {
@@ -63,7 +63,7 @@ public class AudioSpeedOperator implements ftb {
         return 0;
     }
 
-    @Override // com.baidu.tieba.ftb
+    @Override // com.baidu.tieba.gtb
     public void setSpeed(float f) {
         Sonic sonic = this.mSonic;
         if (sonic != null) {

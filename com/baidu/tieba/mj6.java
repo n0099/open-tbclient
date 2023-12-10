@@ -76,8 +76,8 @@ public class mj6 {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            JsInterfaces_tbadkcore.register();
             BridgeConfig_tbadkcore.register();
+            JsInterfaces_tbadkcore.register();
         }
     }
 

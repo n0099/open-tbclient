@@ -20,7 +20,7 @@ import java.util.List;
 public class hh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<dxa> a;
+    public ArrayList<exa> a;
 
     public hh6() {
         Interceptable interceptable = $ic;
@@ -38,19 +38,19 @@ public class hh6 {
         this.a = new ArrayList<>();
     }
 
-    public void a(dxa dxaVar) {
+    public void a(exa exaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dxaVar) == null) {
-            this.a.add(dxaVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, exaVar) == null) {
+            this.a.add(exaVar);
         }
     }
 
     public void g(List<Pair<String, String>> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty()) {
-            Iterator<dxa> it = this.a.iterator();
+            Iterator<exa> it = this.a.iterator();
             while (it.hasNext()) {
-                dxa next = it.next();
+                exa next = it.next();
                 next.removeObserverBridge(list);
                 next.onDestroy();
             }
@@ -68,7 +68,7 @@ public class hh6 {
         }
     }
 
-    public boolean f(WebView webView, List<fxa> list) {
+    public boolean f(WebView webView, List<gxa> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, list)) == null) {
@@ -77,9 +77,9 @@ public class hh6 {
             }
             while (true) {
                 boolean z = false;
-                for (fxa fxaVar : list) {
-                    if (fxaVar != null && fxaVar.k()) {
-                        if (c(webView, fxaVar.c(), fxaVar.d(), fxaVar.j) || z) {
+                for (gxa gxaVar : list) {
+                    if (gxaVar != null && gxaVar.k()) {
+                        if (c(webView, gxaVar.c(), gxaVar.d(), gxaVar.j) || z) {
                             z = true;
                         }
                     }
@@ -107,63 +107,63 @@ public class hh6 {
         return invokeCommon.booleanValue;
     }
 
-    public fxa d(WebView webView, hxa hxaVar, fxa fxaVar) {
+    public gxa d(WebView webView, ixa ixaVar, gxa gxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, hxaVar, fxaVar)) == null) {
-            if (fxaVar == null) {
-                fxaVar = new fxa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, ixaVar, gxaVar)) == null) {
+            if (gxaVar == null) {
+                gxaVar = new gxa();
             }
-            if ("notification".equals(hxaVar.c()) && "addObserver".equals(hxaVar.a())) {
-                Iterator<dxa> it = this.a.iterator();
+            if ("notification".equals(ixaVar.c()) && "addObserver".equals(ixaVar.a())) {
+                Iterator<exa> it = this.a.iterator();
                 while (it.hasNext()) {
-                    fxaVar = it.next().addObserver(webView, hxaVar.d(), fxaVar, true);
-                    if (fxaVar.j()) {
-                        return fxaVar;
+                    gxaVar = it.next().addObserver(webView, ixaVar.d(), gxaVar, true);
+                    if (gxaVar.j()) {
+                        return gxaVar;
                     }
                 }
-                if (!fxaVar.j()) {
-                    fxaVar.z(202);
-                    fxaVar.v(fj6.b().getString(R.string.can_find_notification_name));
+                if (!gxaVar.j()) {
+                    gxaVar.z(202);
+                    gxaVar.v(fj6.b().getString(R.string.can_find_notification_name));
                 }
             } else {
-                Iterator<dxa> it2 = this.a.iterator();
+                Iterator<exa> it2 = this.a.iterator();
                 while (it2.hasNext()) {
-                    fxaVar = it2.next().dispatch(webView, hxaVar, fxaVar);
-                    if (fxaVar.i()) {
-                        return fxaVar;
+                    gxaVar = it2.next().dispatch(webView, ixaVar, gxaVar);
+                    if (gxaVar.i()) {
+                        return gxaVar;
                     }
                 }
-                if (!fxaVar.i()) {
-                    fxaVar.z(202);
+                if (!gxaVar.i()) {
+                    gxaVar.z(202);
                 }
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public boolean e(WebView webView, fxa fxaVar) {
+    public boolean e(WebView webView, gxa gxaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, fxaVar)) == null) {
-            if (webView == null || fxaVar == null || !fxaVar.k()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, gxaVar)) == null) {
+            if (webView == null || gxaVar == null || !gxaVar.k()) {
                 return false;
             }
-            return c(webView, fxaVar.c(), fxaVar.d(), fxaVar.j);
+            return c(webView, gxaVar.c(), gxaVar.d(), gxaVar.j);
         }
         return invokeLL.booleanValue;
     }
 
-    public List<fxa> h(WebView webView, String str, HashMap hashMap) {
+    public List<gxa> h(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, webView, str, hashMap)) == null) {
-            List<fxa> list = null;
+            List<gxa> list = null;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator<dxa> it = this.a.iterator();
+            Iterator<exa> it = this.a.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(webView, str, hashMap);
                 if (!ListUtils.isEmpty(list)) {

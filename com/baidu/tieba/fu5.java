@@ -163,8 +163,8 @@ public class fu5 {
                 }
             }
             if (UbsABTestHelper.isAdNotInstallRemindA()) {
-                for (jsa jsaVar : new TbDownloadManager().m().j()) {
-                    ApkDownloadInfoData b = i35.a.b(jsaVar);
+                for (ksa ksaVar : new TbDownloadManager().m().j()) {
+                    ApkDownloadInfoData b = i35.a.b(ksaVar);
                     if (b != null) {
                         if (i(b.getApkFile().getAbsolutePath()) && !j(b.getApkPackageName())) {
                             if (!hashMap.containsKey(b.getApkPackageName())) {

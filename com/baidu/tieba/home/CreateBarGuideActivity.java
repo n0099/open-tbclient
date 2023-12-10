@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.home.BfbInfoModel;
-import com.baidu.tieba.ja8;
+import com.baidu.tieba.ka8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public ja8 b;
+    public ka8 b;
     public BfbInfoModel c;
     public BfbInfoModel.b d;
 
@@ -163,9 +163,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            ja8 ja8Var = this.b;
-            if (ja8Var != null) {
-                ja8Var.g();
+            ka8 ka8Var = this.b;
+            if (ka8Var != null) {
+                ka8Var.g();
                 this.b = null;
             }
             this.c.O();
@@ -177,9 +177,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            ja8 ja8Var = this.b;
-            if (ja8Var != null) {
-                ja8Var.f();
+            ka8 ka8Var = this.b;
+            if (ka8Var != null) {
+                ka8Var.f();
             }
         }
     }
@@ -212,9 +212,9 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
             BfbInfoModel bfbInfoModel = new BfbInfoModel(this);
             this.c = bfbInfoModel;
             bfbInfoModel.S(this.d);
-            ja8 ja8Var = new ja8(this);
-            this.b = ja8Var;
-            ja8Var.e();
+            ka8 ka8Var = new ka8(this);
+            this.b = ka8Var;
+            ka8Var.e();
             showLoadingView(this.b.d());
             this.c.loadData();
             TiebaStatic.log("c11222");

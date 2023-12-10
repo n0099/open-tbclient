@@ -23,7 +23,7 @@ public final class l97 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(FeedOriginComponent feedOriginComponent, List<rb7<?>> dataList, r67 feedExtraData) {
+    public static final void a(FeedOriginComponent feedOriginComponent, List<sb7<?>> dataList, r67 feedExtraData) {
         u47 u47Var;
         b57 b57Var;
         q47 q47Var;
@@ -69,7 +69,7 @@ public final class l97 {
                 }
                 FeedItem feedItem = feedOriginComponent.item;
                 if (feedItem != null) {
-                    HashMap<String, String> a2 = va7.a.a(feedItem.business_info);
+                    HashMap<String, String> a2 = wa7.a.a(feedItem.business_info);
                     String str5 = a2.get("apk_detail");
                     String str6 = feedExtraData.a().a().get("origin_thread_id");
                     if (str6 == null) {
@@ -100,7 +100,7 @@ public final class l97 {
                             } else {
                                 str2 = str;
                             }
-                            dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
+                            dataList.add(new tb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
                         }
                     } else {
                         FeedItem item2 = feedOriginComponent.item;
@@ -114,7 +114,7 @@ public final class l97 {
                         str = feedOriginComponent.schema;
                         if (str == null) {
                         }
-                        dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e2, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
+                        dataList.add(new tb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e2, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
                     }
                 }
                 q47Var = null;
@@ -123,7 +123,7 @@ public final class l97 {
                 str = feedOriginComponent.schema;
                 if (str == null) {
                 }
-                dataList.add(new sb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e22, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
+                dataList.add(new tb7(new s47(a, u47Var, b57Var, q47Var, m47Var, str2, e22, feedExtraData.a().a(), feedExtraData.c().a(), null, 512, null), "origin_card"));
             }
         }
     }

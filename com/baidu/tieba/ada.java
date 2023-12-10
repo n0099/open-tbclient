@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,16 +16,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ada extends nl6<yba> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public ImageView j;
-    public TextView k;
-    public String l;
+    public TbImageView i;
+    public View j;
+    public View k;
 
     @Override // com.baidu.tieba.nl6
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01dd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01db : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,7 +35,7 @@ public class ada extends nl6<yba> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ada(TbPageContext<?> tbPageContext) {
+    public ada(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -53,61 +52,44 @@ public class ada extends nl6<yba> {
                 return;
             }
         }
-        p(i());
+        View i3 = i();
+        this.j = i3;
+        this.i = (TbImageView) i3.findViewById(R.id.obfuscated_res_0x7f0906df);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f09187a);
     }
 
-    public final void p(View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nl6
+    /* renamed from: p */
+    public void j(yba ybaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090662);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090661);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090663);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ybaVar) == null) {
+            if (ybaVar == null) {
+                this.j.setVisibility(8);
+            }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = ybaVar.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = ybaVar.b;
+                }
+            }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            k(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
-            }
-            this.a = i;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl6
-    /* renamed from: r */
-    public void j(yba ybaVar) {
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ybaVar) == null) {
-            if (ybaVar == null) {
-                this.i.setVisibility(8);
-                return;
-            }
-            if (this.i.getVisibility() != 0) {
-                this.i.setVisibility(0);
-            }
-            if (StringUtils.isNull(this.l)) {
-                TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f10da);
-                Object[] objArr = new Object[1];
-                if (ybaVar.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1930);
-                } else if (ybaVar.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1427);
-                } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f09de);
-                }
-                objArr[0] = string;
-                textView.setText(String.format(string2, objArr));
-                return;
-            }
-            this.k.setText(this.l);
-        }
+        this.a = i;
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 }

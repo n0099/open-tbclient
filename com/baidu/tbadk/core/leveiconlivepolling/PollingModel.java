@@ -40,7 +40,7 @@ import com.baidu.tieba.l45;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.o45;
 import com.baidu.tieba.uh5;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.tieba.xc5;
 import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -362,7 +362,7 @@ public class PollingModel extends BdBaseModel {
         this.mContext = tbPageContext;
         setUniqueId(bdUniqueId);
         this.uniqueId = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, vva.a(TbConfig.GET_POLLING_DATA, 309732));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, wva.a(TbConfig.GET_POLLING_DATA, 309732));
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

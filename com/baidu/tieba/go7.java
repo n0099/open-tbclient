@@ -1,83 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.tieba.feed.data.protobuf.FeedHeadExtensionKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.List;
+import kotlin.collections.MapsKt__MapsKt;
+import tbclient.FeedAuthorSocial;
+import tbclient.FeedHeadImg;
+import tbclient.LayoutManageInfo;
 /* loaded from: classes6.dex */
 public final class go7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static final bj7 b(FeedAuthorSocial feedAuthorSocial, m87 m87Var) {
+        InterceptResult invokeLL;
+        String str;
+        String str2;
+        long j;
+        List<h87> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (currentTimeMillis < j) {
-                return 1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedAuthorSocial, m87Var)) == null) {
+            FeedHeadImg feedHeadImg = feedAuthorSocial.image_data;
+            if (feedHeadImg != null) {
+                str = feedHeadImg.img_url;
+            } else {
+                str = null;
             }
-            if (currentTimeMillis > j2) {
-                return 3;
+            FeedHeadImg feedHeadImg2 = feedAuthorSocial.image_data;
+            if (feedHeadImg2 != null) {
+                str2 = feedHeadImg2.schema;
+            } else {
+                str2 = null;
             }
-            return 2;
+            List<l67> p = FeedHeadExtensionKt.p(feedAuthorSocial.main_data, null, MapsKt__MapsKt.emptyMap());
+            Integer num = feedAuthorSocial.comment_num;
+            if (num != null) {
+                j = num.intValue();
+            } else {
+                j = 0;
+            }
+            List<LayoutManageInfo> list2 = feedAuthorSocial.manage_list;
+            if (list2 != null) {
+                list = w97.b(list2);
+            } else {
+                list = null;
+            }
+            return new bj7(str, str2, p, j, m87Var, list);
         }
-        return invokeCommon.intValue;
-    }
-
-    public static final boolean b(Object bindData) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bindData)) == null) {
-            Intrinsics.checkNotNullParameter(bindData, "bindData");
-            if (bindData instanceof w57) {
-                Map<String, String> a = ((w57) bindData).e().a().a();
-                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
-                if (JavaTypesHelper.toInt(a.get("is_livepost"), 0) == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                long j = JavaTypesHelper.toLong(a.get("task_start_time"), 0L);
-                long j2 = JavaTypesHelper.toLong(a.get("task_end_time"), 0L);
-                if (i == 41 && z && a(j, j2) == 2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean c(Object bindData) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bindData)) == null) {
-            Intrinsics.checkNotNullParameter(bindData, "bindData");
-            if (bindData instanceof w57) {
-                Map<String, String> a = ((w57) bindData).e().a().a();
-                int i = JavaTypesHelper.toInt(a.get("thread_type"), 0);
-                if (JavaTypesHelper.toInt(a.get("is_official"), 0) == 2) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (JavaTypesHelper.toInt(a.get("frs_toplive_force"), 0) == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if ((i == 49 || i == 69) && z && z2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (bj7) invokeLL.objValue;
     }
 }

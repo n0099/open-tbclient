@@ -9,10 +9,10 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.dfb;
 import com.baidu.tieba.efb;
 import com.baidu.tieba.ffb;
 import com.baidu.tieba.gfb;
+import com.baidu.tieba.hfb;
 import com.baidu.tieba.o95;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public efb c;
+    public ffb c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final efb T0() {
+    public final ffb T0() {
         InterceptResult invokeV;
-        efb ffbVar;
+        ffb gfbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == JavaTypesHelper.toInt("5", 0)) {
-                ffbVar = new dfb(this.b, this.a);
+                gfbVar = new efb(this.b, this.a);
             } else if (this.e == JavaTypesHelper.toInt("4", 0)) {
-                ffbVar = new gfb(this.b, this.a);
+                gfbVar = new hfb(this.b, this.a);
             } else {
-                ffbVar = new ffb(this.b, this.a);
+                gfbVar = new gfb(this.b, this.a);
             }
-            ffbVar.c(this.f);
-            return ffbVar;
+            gfbVar.c(this.f);
+            return gfbVar;
         }
-        return (efb) invokeV.objValue;
+        return (ffb) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.k0(z);
             }
-            efb T0 = T0();
+            ffb T0 = T0();
             this.c = T0;
             this.b.setPresenter(T0);
             this.c.a(this.g);

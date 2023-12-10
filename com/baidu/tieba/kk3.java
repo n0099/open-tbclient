@@ -44,13 +44,13 @@ public class kk3 {
 
         /* renamed from: com.baidu.tieba.kk3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0381a implements Runnable {
+        public class RunnableC0379a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0381a(a aVar, Activity activity) {
+            public RunnableC0379a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class kk3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0381a runnableC0381a = new RunnableC0381a(this, activity);
+                RunnableC0379a runnableC0379a = new RunnableC0379a(this, activity);
                 if (ri3.a()) {
-                    runnableC0381a.run();
+                    runnableC0379a.run();
                 } else {
-                    ej3.j(runnableC0381a, "moveTaskToFront");
+                    ej3.j(runnableC0379a, "moveTaskToFront");
                 }
             }
         }

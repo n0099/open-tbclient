@@ -41,29 +41,29 @@ public class mr6 implements lr6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
-        public rvb b;
+        public svb b;
         public final /* synthetic */ mr6 c;
 
         /* loaded from: classes7.dex */
-        public class a implements rvb {
+        public class a implements svb {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.rvb
+            @Override // com.baidu.tieba.svb
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.rvb
+            @Override // com.baidu.tieba.svb
             public void b(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.rvb
+            @Override // com.baidu.tieba.svb
             public void c(long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
@@ -111,7 +111,7 @@ public class mr6 implements lr6 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
-            if (com.baidu.tieba.nxb.h(r6, r7[0], r1, r5.b) != false) goto L18;
+            if (com.baidu.tieba.oxb.h(r6, r7[0], r1, r5.b) != false) goto L18;
          */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
@@ -127,7 +127,7 @@ public class mr6 implements lr6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sb, listArr)) == null) {
                 if (listArr[0] != null && listArr[0].size() != 0) {
-                    String str = f6b.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+                    String str = g6b.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
                     if (!StringUtils.isNull(str)) {
                         File file = new File(str);
                         if (!file.getParentFile().exists()) {
@@ -138,7 +138,7 @@ public class mr6 implements lr6 {
                     try {
                         if (listArr[0].size() == 1) {
                             try {
-                                z = q5b.b(listArr[0].get(0), str, this.b);
+                                z = r5b.b(listArr[0].get(0), str, this.b);
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 if (sb != null) {
@@ -257,7 +257,7 @@ public class mr6 implements lr6 {
                 this.a.addAll(listArr[0]);
                 Iterator<String> it = this.a.iterator();
                 while (it.hasNext()) {
-                    if (qvb.a(it.next()) <= 0) {
+                    if (rvb.a(it.next()) <= 0) {
                         return "";
                     }
                 }
@@ -272,9 +272,9 @@ public class mr6 implements lr6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 super.onPostExecute((b) str);
-                rvb rvbVar = this.b;
-                if (rvbVar != null) {
-                    rvbVar.a();
+                svb svbVar = this.b;
+                if (svbVar != null) {
+                    svbVar.a();
                 }
                 if (this.c.c != null) {
                     this.c.c.c(str);
@@ -348,7 +348,7 @@ public class mr6 implements lr6 {
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!TextUtils.isEmpty(str)) {
-                    f += dxb.f(str);
+                    f += exb.f(str);
                 }
             }
             if (f < 3000.0f) {

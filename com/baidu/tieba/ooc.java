@@ -1,194 +1,81 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.goc;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.exceptions.OnErrorNotImplementedException;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes7.dex */
-public class ooc extends goc {
+public final class ooc {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<ooc> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
+    public final hoc a;
 
-    /* loaded from: classes7.dex */
-    public static class a extends goc.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final moc b;
-        public volatile boolean c;
-
-        public a(Handler handler) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040422, "Lcom/baidu/tieba/ooc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = handler;
-            this.b = loc.a().b();
-        }
-
-        @Override // com.baidu.tieba.goc.a
-        public koc b(qoc qocVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qocVar)) == null) {
-                return c(qocVar, 0L, TimeUnit.MILLISECONDS);
-            }
-            return (koc) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.goc.a
-        public koc c(qoc qocVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{qocVar, Long.valueOf(j), timeUnit})) == null) {
-                if (this.c) {
-                    return jtc.c();
-                }
-                this.b.c(qocVar);
-                b bVar = new b(qocVar, this.a);
-                Message obtain = Message.obtain(this.a, bVar);
-                obtain.obj = this;
-                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-                if (this.c) {
-                    this.a.removeCallbacks(bVar);
-                    return jtc.c();
-                }
-                return bVar;
-            }
-            return (koc) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.koc
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.koc
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c = true;
-                this.a.removeCallbacksAndMessages(this);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948040422, "Lcom/baidu/tieba/ooc;");
+                return;
             }
         }
+        b = new AtomicReference<>();
     }
 
-    /* loaded from: classes7.dex */
-    public static final class b implements Runnable, koc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final qoc a;
-        public final Handler b;
-        public volatile boolean c;
-
-        public b(qoc qocVar, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qocVar, handler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static ooc a() {
+        ooc oocVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                ooc oocVar2 = b.get();
+                if (oocVar2 != null) {
+                    return oocVar2;
                 }
-            }
-            this.a = qocVar;
-            this.b = handler;
+                oocVar = new ooc();
+            } while (!b.compareAndSet(null, oocVar));
+            return oocVar;
         }
-
-        @Override // com.baidu.tieba.koc
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.koc
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.c = true;
-                this.b.removeCallbacks(this);
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            IllegalStateException illegalStateException;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a.call();
-                } catch (Throwable th) {
-                    if (th instanceof OnErrorNotImplementedException) {
-                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
-                    } else {
-                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
-                    }
-                    wsc.c().b().a(illegalStateException);
-                    Thread currentThread = Thread.currentThread();
-                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
-                }
-            }
-        }
+        return (ooc) invokeV.objValue;
     }
 
-    public ooc(Looper looper) {
+    public static hoc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (hoc) invokeV.objValue;
+    }
+
+    public ooc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(looper);
-    }
-
-    @Override // com.baidu.tieba.goc
-    public goc.a createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+        hoc b2 = moc.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new poc(Looper.getMainLooper());
         }
-        return (goc.a) invokeV.objValue;
     }
 }

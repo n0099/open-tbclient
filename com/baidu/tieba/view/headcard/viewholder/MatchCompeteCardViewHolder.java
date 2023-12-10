@@ -3,8 +3,8 @@ package com.baidu.tieba.view.headcard.viewholder;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tieba.jbb;
-import com.baidu.tieba.nbb;
+import com.baidu.tieba.kbb;
+import com.baidu.tieba.obb;
 import com.baidu.tieba.view.headcard.compete.CompeteCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,19 +41,19 @@ public final class MatchCompeteCardViewHolder extends RecyclerView.ViewHolder {
         this.a = mView;
     }
 
-    public final void a(jbb jbbVar, boolean z, String str, String str2) {
-        nbb nbbVar;
+    public final void a(kbb kbbVar, boolean z, String str, String str2) {
+        obb obbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{jbbVar, Boolean.valueOf(z), str, str2}) == null) {
-            if (jbbVar != null) {
-                nbbVar = jbbVar.d();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{kbbVar, Boolean.valueOf(z), str, str2}) == null) {
+            if (kbbVar != null) {
+                obbVar = kbbVar.d();
             } else {
-                nbbVar = null;
+                obbVar = null;
             }
-            if (nbbVar == null) {
+            if (obbVar == null) {
                 return;
             }
-            this.a.t(jbbVar, z, str, str2);
+            this.a.t(kbbVar, z, str, str2);
         }
     }
 }

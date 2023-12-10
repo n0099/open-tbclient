@@ -31,7 +31,7 @@ public class nk0 extends fg1<al0> {
 
         /* renamed from: com.baidu.tieba.nk0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0410a implements cp0<JSONObject> {
+        public class C0409a implements cp0<JSONObject> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ in0 a;
@@ -46,7 +46,7 @@ public class nk0 extends fg1<al0> {
                 }
             }
 
-            public C0410a(a aVar, in0 in0Var, al0.b bVar, co0 co0Var) {
+            public C0409a(a aVar, in0 in0Var, al0.b bVar, co0 co0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -184,7 +184,7 @@ public class nk0 extends fg1<al0> {
                 kp0Var.l(d(in0Var.h()));
                 kp0Var.h(fp0.c);
                 kp0Var.d("User-Agent", hf0.c().a().h());
-                a.a(kp0Var, new C0410a(this, in0Var, bVar, co0Var));
+                a.a(kp0Var, new C0409a(this, in0Var, bVar, co0Var));
             }
         }
 

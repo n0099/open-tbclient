@@ -5,46 +5,42 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.NegFeedBackDecorItem;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.nu;
-import com.baidu.tieba.rs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mg8 extends pa8<dn6, ThreadCardViewHolder<dn6>> implements e26 {
+public class mg8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId b;
-    public TbPageContext<?> c;
-    public NEGFeedBackView.NEGFeedbackEventCallback d;
-    public String e;
-    public boolean f;
-    public mm6<dn6> g;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public vi c;
 
     /* loaded from: classes7.dex */
-    public class a extends mm6<dn6> {
+    public class a implements zi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mg8 b;
+        public final /* synthetic */ lt a;
 
-        public a(mg8 mg8Var) {
+        public a(mg8 mg8Var, lt ltVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mg8Var};
+                Object[] objArr = {mg8Var, ltVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,154 +50,33 @@ public class mg8 extends pa8<dn6, ThreadCardViewHolder<dn6>> implements e26 {
                     return;
                 }
             }
-            this.b = mg8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.mm6
-        /* renamed from: d */
-        public void a(View view2, dn6 dn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dn6Var) == null) {
-                int i = 1;
-                em6.b().d(true);
-                c26.c().h("page_recommend", "show_");
-                if (dn6Var != null && dn6Var.getThreadData() != null && !rd.isEmpty(dn6Var.getThreadData().getTid())) {
-                    int id = view2.getId();
-                    if (id == R.id.thread_card_root) {
-                        TiebaStatic.log(dn6Var.q());
-                        c26.c().i("page_recommend", "clk_", dn6Var.q());
-                        hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 1);
-                    } else if (id == R.id.thread_info_commont_container) {
-                        TiebaStatic.log(dn6Var.q());
-                        c26.c().i("page_recommend", "clk_", dn6Var.q());
-                        hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 1);
-                        i = 5;
-                    } else {
-                        if (id == R.id.thread_card_voice) {
-                            TiebaStatic.log(dn6Var.O());
-                            c26.c().i("page_recommend", "clk_", dn6Var.O());
-                        } else {
-                            if (id == R.id.user_avatar) {
-                                TiebaStatic.log(dn6Var.N());
-                                c26.c().i("page_recommend", "clk_", dn6Var.N());
-                                hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 4);
-                            } else if (id == R.id.user_name) {
-                                TiebaStatic.log(dn6Var.N());
-                                c26.c().i("page_recommend", "clk_", dn6Var.N());
-                                hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 4);
-                            } else if (id == R.id.forum_name_text) {
-                                TiebaStatic.log(dn6Var.f());
-                                c26.c().i("page_recommend", "clk_", dn6Var.f());
-                            } else if (id == R.id.god_reply_voice_btn) {
-                                StatisticItem statisticItem = new StatisticItem("c10760");
-                                statisticItem.param("obj_locate", 4);
-                                TiebaStatic.log(statisticItem);
-                            } else if (id == R.id.god_reply_content) {
-                                StatisticItem statisticItem2 = new StatisticItem("c10760");
-                                statisticItem2.param("obj_locate", 2);
-                                TiebaStatic.log(statisticItem2);
-                                hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 1);
-                            } else if (id != R.id.god_reply_user_pendant_header && id != R.id.god_reply_username_text) {
-                                if (view2 instanceof TbImageView) {
-                                    if (view2.getTag(R.id.god_reply_image_layout) instanceof Integer) {
-                                        StatisticItem statisticItem3 = new StatisticItem("c10760");
-                                        statisticItem3.param("obj_locate", 3);
-                                        TiebaStatic.log(statisticItem3);
-                                    }
-                                    TiebaStatic.log(dn6Var.J());
-                                    c26.c().i("page_recommend", "clk_", dn6Var.J());
-                                    hi8.c(dn6Var.a, dn6Var.k(), dn6Var.h(), 2);
-                                }
-                            } else {
-                                StatisticItem statisticItem4 = new StatisticItem("c10760");
-                                statisticItem4.param("obj_locate", 1);
-                                TiebaStatic.log(statisticItem4);
-                            }
-                            i = 2;
-                        }
-                        i = 0;
-                    }
-                    if (i != 0) {
-                        hi8.d(dn6Var.a, this.b.b, dn6Var.h(), i);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements rs.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(mg8 mg8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mg8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rs.b
-        public void a(fw4 fw4Var, View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, fw4Var, view2) == null) && fw4Var != null) {
-                if (view2.getId() == R.id.user_name) {
-                    fw4Var.objType = 3;
-                } else if (view2.getId() == R.id.user_avatar) {
-                    fw4Var.objType = 4;
-                } else {
-                    fw4Var.objType = 1;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements zi {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mg8 a;
-
-        public c(mg8 mg8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mg8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mg8Var;
+            this.a = ltVar;
         }
 
         @Override // com.baidu.tieba.zi
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            dn6 dn6Var;
+            ThreadData threadData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (piVar instanceof dn6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                dn6 dn6Var = (dn6) piVar;
-                dn6Var.f = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), dn6Var);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                boolean z = piVar instanceof dn6;
+                int i2 = 0;
+                if (z && (dn6Var = (dn6) piVar) != null && dn6Var.u && (threadData = dn6Var.a) != null && threadData.getItem() != null) {
+                    int intValue = dn6Var.a.getItem().button_link_type.intValue();
+                    if (dn6Var.a.getItem().apk_detail != null) {
+                        i2 = dn6Var.a.getItem().apk_detail.pkg_source.intValue();
+                    }
+                    int a = m65.a(intValue, i2);
+                    ItemData itemData = new ItemData();
+                    itemData.parseProto(dn6Var.a.getItem());
+                    ItemCardHelper.q(this.a.z(), dn6Var.a.getItem().item_id.longValue(), this.a.y(itemData), dn6Var.a.getTid(), a, "", 2);
+                    ItemClickJumpUtil.itemClickJump(dn6Var.a.getItem().forum_name, String.valueOf(dn6Var.a.getItem().item_id), 1, 1);
+                } else if (z && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                    dn6 dn6Var2 = (dn6) piVar;
+                    dn6Var2.f = 1;
+                    ThreadCardUtils.jumpToPB((fw4) dn6Var2, view2.getContext(), 4, false);
+                    ((ThreadCardViewHolder) view2.getTag()).a().q(new nu.a(1));
                 }
-                ThreadCardUtils.jumpToPB((fw4) dn6Var, view2.getContext(), 2, false);
-                threadCardViewHolder.a().q(new nu.a(1));
             }
         }
     }
@@ -225,87 +100,34 @@ public class mg8 extends pa8<dn6, ThreadCardViewHolder<dn6>> implements e26 {
                 return;
             }
         }
-        this.d = null;
-        this.f = true;
-        this.g = new a(this);
-        this.c = tbPageContext;
-        x();
+        this.b = tbPageContext;
     }
 
-    public void A(NEGFeedBackView.NEGFeedbackEventCallback nEGFeedbackEventCallback) {
+    public void x(vi viVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nEGFeedbackEventCallback) == null) {
-            this.d = nEGFeedbackEventCallback;
-        }
-    }
-
-    @Override // com.baidu.tieba.e26
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void setFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dn6.f1088T = "c10705";
-            dn6.U = "c10730";
-            dn6.V = "c10731";
-            dn6.W = "c10704";
-            dn6.X = "c10755";
-            dn6.Y = "c10710";
-            dn6.Z = "c10736";
-            dn6.a0 = "c10737";
-            dn6.b0 = "c10711";
-            dn6.c0 = "c10758";
-            dn6.d0 = "c10757";
+        if (interceptable == null || interceptable.invokeL(1048580, this, viVar) == null) {
+            this.c = viVar;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
-    /* renamed from: y */
+    /* renamed from: t */
     public ThreadCardViewHolder<dn6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            cu.b bVar = new cu.b(this.c.getPageActivity());
-            rs rsVar = new rs(this.c.getPageActivity());
-            rsVar.o(this.b);
-            rsVar.c(1024);
-            rsVar.x(new b(this));
-            bVar.o(rsVar);
-            bVar.n(new mt(this.c.getPageActivity()));
-            bVar.h(new zs(this.c.getPageActivity()));
-            dt dtVar = new dt(this.c.getPageActivity());
-            dtVar.C(this.f);
-            dtVar.B("index");
-            dtVar.D(new StatisticItem("c13342"));
-            bVar.h(dtVar);
-            eu euVar = new eu(this.c.getPageActivity());
-            lw4 lw4Var = new lw4();
-            lw4Var.b = 1;
-            lw4Var.h = 1;
-            euVar.C(lw4Var);
-            euVar.E(1);
-            euVar.J(3);
-            euVar.F(2);
-            euVar.D(false);
-            bVar.m(euVar);
-            cu i = bVar.i();
-            i.t(2);
-            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(i);
-            threadCardViewHolder.i(this.b);
-            setOnAdapterItemClickListener(new c(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            cu.b bVar = new cu.b(this.b.getPageActivity(), false);
+            lt ltVar = new lt(this.b.getPageActivity());
+            ltVar.B(true);
+            ltVar.E(1);
+            ltVar.x();
+            bVar.h(ltVar);
+            cu k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
+            k.t(2);
+            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new a(this, ltVar));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -313,27 +135,17 @@ public class mg8 extends pa8<dn6, ThreadCardViewHolder<dn6>> implements e26 {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
-    /* renamed from: z */
+    /* renamed from: u */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dn6 dn6Var, ThreadCardViewHolder<dn6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
-            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
+            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && dn6Var.a != null) {
                 dn6Var.B(dn6Var.position + 1);
                 dn6Var.a.statFloor = dn6Var.h();
-                em6.b().a(dn6Var.I("c12190"));
-                if (threadCardViewHolder.a() instanceof d26) {
-                    threadCardViewHolder.a().b(this.e);
-                }
-                NegFeedBackDecorItem r = threadCardViewHolder.r(true);
-                r.setNegEventCallback(this.d);
-                threadCardViewHolder.n(dn6Var.showFollowBtn(), this.a);
-                r.onBindDataToView(dn6Var.getNegFeedBackData());
+                threadCardViewHolder.a().s(i);
                 threadCardViewHolder.e(dn6Var);
-                threadCardViewHolder.h(this.g);
-                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
-                hi8.p(dn6Var.a, this.b, dn6Var.h());
-                hi8.o(dn6Var.a, dn6Var.k(), dn6Var.h());
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 return threadCardViewHolder.getView();
             }
             return null;

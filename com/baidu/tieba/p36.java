@@ -110,12 +110,12 @@ public class p36 {
 
         /* renamed from: com.baidu.tieba.p36$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0420a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0422a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0420a(a aVar) {
+            public C0422a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -236,7 +236,7 @@ public class p36 {
                                 ValueAnimator ofInt = ValueAnimator.ofInt(this.a.i.x, this.a.i.x - (o36.b - o36.a));
                                 ofInt.setDuration(200L);
                                 ofInt.setInterpolator(new DecelerateInterpolator());
-                                ofInt.addUpdateListener(new C0420a(this));
+                                ofInt.addUpdateListener(new C0422a(this));
                                 ofInt.start();
                             }
                             this.a.f.d();

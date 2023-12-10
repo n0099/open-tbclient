@@ -31,12 +31,12 @@ public class xi6 extends BdAsyncTask<Void, Void, vi6> {
     public final String c;
     public final String d;
 
-    public xi6(String str, xga xgaVar) {
+    public xi6(String str, yga ygaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, xgaVar};
+            Object[] objArr = {str, ygaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,15 +47,15 @@ public class xi6 extends BdAsyncTask<Void, Void, vi6> {
             }
         }
         this.a = str;
-        this.c = xgaVar.c();
-        this.b = xgaVar.a();
-        this.d = xgaVar.b();
+        this.c = ygaVar.c();
+        this.b = ygaVar.a();
+        this.d = ygaVar.b();
     }
 
-    public static void c(String str, xga xgaVar) {
+    public static void c(String str, yga ygaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, xgaVar) == null) {
-            xi6 xi6Var = new xi6(str, xgaVar);
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, ygaVar) == null) {
+            xi6 xi6Var = new xi6(str, ygaVar);
             xi6Var.setPriority(4);
             xi6Var.execute(new Void[0]);
         }

@@ -15,7 +15,7 @@ import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.kq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public abstract class wo3 extends h83 {
     public abstract String r();
 
     /* loaded from: classes8.dex */
-    public class c implements doc.a<ap3> {
+    public class c implements eoc.a<ap3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,14 +45,14 @@ public abstract class wo3 extends h83 {
         public class a implements kq2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ joc a;
+            public final /* synthetic */ koc a;
 
-            public a(c cVar, joc jocVar) {
+            public a(c cVar, koc kocVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, jocVar};
+                    Object[] objArr = {cVar, kocVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public abstract class wo3 extends h83 {
                         return;
                     }
                 }
-                this.a = jocVar;
+                this.a = kocVar;
             }
 
             @Override // com.baidu.tieba.kq2.a
@@ -108,18 +108,18 @@ public abstract class wo3 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super ap3> jocVar) {
+        public void call(koc<? super ap3> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jocVar) == null) {
-                rp2.I().b("bd09", true, false, new a(this, jocVar));
+            if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+                rp2.I().b("bd09", true, false, new a(this, kocVar));
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public class a implements roc<ap3> {
+    public class a implements soc<ap3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zo3 a;
@@ -151,7 +151,7 @@ public abstract class wo3 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(ap3 ap3Var) {
             Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public abstract class wo3 extends h83 {
     }
 
     /* loaded from: classes8.dex */
-    public class b implements roc<Throwable> {
+    public class b implements soc<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -195,7 +195,7 @@ public abstract class wo3 extends h83 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
@@ -446,7 +446,7 @@ public abstract class wo3 extends h83 {
         return (ResponseCallback) invokeL.objValue;
     }
 
-    public final doc<ap3> q(Context context) {
+    public final eoc<ap3> q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -456,9 +456,9 @@ public abstract class wo3 extends h83 {
             if (ri3.h() && (context.checkSelfPermission(com.kuaishou.weapon.p0.g.g) != 0 || context.checkSelfPermission(com.kuaishou.weapon.p0.g.h) != 0)) {
                 return null;
             }
-            return doc.d(new c(this));
+            return eoc.d(new c(this));
         }
-        return (doc) invokeL.objValue;
+        return (eoc) invokeL.objValue;
     }
 
     public final void s(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull String str, @NonNull JSONObject jSONObject) {
@@ -466,7 +466,7 @@ public abstract class wo3 extends h83 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, callbackHandler, str, jSONObject) == null) {
             k32.i("recommend", "get request params");
             zo3 zo3Var = new zo3(context, jSONObject);
-            doc<ap3> q = q(context);
+            eoc<ap3> q = q(context);
             if (q != null) {
                 q.K(60L, TimeUnit.MILLISECONDS).I(new a(this, zo3Var, context, callbackHandler, str), new b(this, context, callbackHandler, str, zo3Var));
                 return;

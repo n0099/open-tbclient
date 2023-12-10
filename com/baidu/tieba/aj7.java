@@ -6,66 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes5.dex */
 public final class aj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final List<l67> c;
-    public final long d;
-    public final m87 e;
-    public final List<h87> f;
+    public final PrivateForumInfo a;
+    public final Integer b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof aj7) {
-                aj7 aj7Var = (aj7) obj;
-                return Intrinsics.areEqual(this.a, aj7Var.a) && Intrinsics.areEqual(this.b, aj7Var.b) && Intrinsics.areEqual(this.c, aj7Var.c) && this.d == aj7Var.d && Intrinsics.areEqual(this.e, aj7Var.e) && Intrinsics.areEqual(this.f, aj7Var.f);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 == null ? 0 : str2.hashCode())) * 31;
-            List<l67> list = this.c;
-            int hashCode3 = (((((hashCode2 + (list == null ? 0 : list.hashCode())) * 31) + c.a(this.d)) * 31) + this.e.hashCode()) * 31;
-            List<h87> list2 = this.f;
-            return hashCode3 + (list2 != null ? list2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "StaggeredVideoAuthorData(imgUrl=" + this.a + ", imgSchema=" + this.b + ", mainData=" + this.c + ", commentNum=" + this.d + ", videoSchemaData=" + this.e + ", manageItemList=" + this.f + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public aj7(String str, String str2, List<? extends l67> list, long j, m87 videoSchemaData, List<h87> list2) {
+    public aj7(PrivateForumShareinfo privateForumShareinfo, PrivatePopInfo privatePopInfo, PrivateForumInfo privateForumInfo, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, list, Long.valueOf(j), videoSchemaData, list2};
+            Object[] objArr = {privateForumShareinfo, privatePopInfo, privateForumInfo, num};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,57 +31,25 @@ public final class aj7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-        this.a = str;
-        this.b = str2;
-        this.c = list;
-        this.d = j;
-        this.e = videoSchemaData;
-        this.f = list2;
+        this.a = privateForumInfo;
+        this.b = num;
     }
 
-    public final long a() {
+    public final PrivateForumInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return invokeV.longValue;
+        return (PrivateForumInfo) invokeV.objValue;
     }
 
-    public final String b() {
+    public final Integer b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final List<l67> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final List<h87> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (List) invokeV.objValue;
+        return (Integer) invokeV.objValue;
     }
 }

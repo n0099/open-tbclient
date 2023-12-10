@@ -20,14 +20,14 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ad8;
 import com.baidu.tieba.bd8;
-import com.baidu.tieba.dd8;
+import com.baidu.tieba.cd8;
+import com.baidu.tieba.ed8;
 import com.baidu.tieba.homepage.framework.RecommendFrsControlFragment;
 import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.vp5;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.xi8;
 import com.baidu.tieba.y05;
 import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,21 +38,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
-public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
+public class PersonalizeWrapperFragment extends BaseFragment implements nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizeWrapperTabHost a;
-    public dd8 b;
-    public bd8 c;
+    public ed8 b;
+    public cd8 c;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -60,12 +60,12 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements bd8 {
+    public class a implements cd8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalizeWrapperFragment a;
 
-        @Override // com.baidu.tieba.bd8
+        @Override // com.baidu.tieba.cd8
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -90,7 +90,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
             this.a = personalizeWrapperFragment;
         }
 
-        @Override // com.baidu.tieba.bd8
+        @Override // com.baidu.tieba.cd8
         public void c(int i, zs5 zs5Var, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), zs5Var, Integer.valueOf(i2)}) == null) {
@@ -101,7 +101,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
             }
         }
 
-        @Override // com.baidu.tieba.bd8
+        @Override // com.baidu.tieba.cd8
         public void d(int i, int i2, zs5 zs5Var, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), zs5Var, Integer.valueOf(i3)}) == null) {
@@ -114,22 +114,22 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements dd8.c {
+    public static class b implements ed8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<PersonalizeWrapperFragment> a;
 
-        @Override // com.baidu.tieba.dd8.c
+        @Override // com.baidu.tieba.ed8.c
         public void c(DataRes dataRes, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, dataRes, z) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.dd8.c
-        public void d(boolean z, wi8 wi8Var, boolean z2, String str, String str2, boolean z3) {
+        @Override // com.baidu.tieba.ed8.c
+        public void d(boolean z, xi8 xi8Var, boolean z2, String str, String str2, boolean z3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), wi8Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), xi8Var, Boolean.valueOf(z2), str, str2, Boolean.valueOf(z3)}) == null) {
             }
         }
 
@@ -151,7 +151,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
             this.a = new WeakReference<>(personalizeWrapperFragment);
         }
 
-        @Override // com.baidu.tieba.dd8.c
+        @Override // com.baidu.tieba.ed8.c
         public void a(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
             PersonalizeWrapperFragment personalizeWrapperFragment;
             Interceptable interceptable = $ic;
@@ -161,7 +161,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
             personalizeWrapperFragment.a.L(dataRes, z, z2);
         }
 
-        @Override // com.baidu.tieba.dd8.c
+        @Override // com.baidu.tieba.ed8.c
         public void b(String str, String str2, int i, boolean z, int i2) {
             PersonalizeWrapperFragment personalizeWrapperFragment;
             Interceptable interceptable = $ic;
@@ -201,7 +201,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -209,7 +209,7 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         PersonalizeWrapperTabHost personalizeWrapperTabHost;
         Interceptable interceptable = $ic;
@@ -344,9 +344,9 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
     public final void J2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dd8 dd8Var = new dd8(getPageContext(), getUniqueId());
-            this.b = dd8Var;
-            dd8Var.j(new b(this));
+            ed8 ed8Var = new ed8(getPageContext(), getUniqueId());
+            this.b = ed8Var;
+            ed8Var.j(new b(this));
             MessageManager.getInstance().sendMessage(new RecommendFrsControlFragment.ControlModelMessage(this.b));
         }
     }
@@ -402,8 +402,8 @@ public class PersonalizeWrapperFragment extends BaseFragment implements mt7 {
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY);
-        ad8.d().h(System.currentTimeMillis() - ad8.d().a(1));
-        vp5.a().B(System.currentTimeMillis() - ad8.d().a(1));
+        bd8.d().h(System.currentTimeMillis() - bd8.d().a(1));
+        vp5.a().B(System.currentTimeMillis() - bd8.d().a(1));
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY);
     }

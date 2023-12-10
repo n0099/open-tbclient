@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.tga;
+import com.baidu.tieba.uga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,17 +41,17 @@ public class nu4 {
         return invokeL.booleanValue;
     }
 
-    public static tga.g b(String str, String str2) {
+    public static uga.g b(String str, String str2) {
         InterceptResult invokeLL;
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            File file = new File(tga.g + "bdtbNWCache");
+            File file = new File(uga.g + "bdtbNWCache");
             FileInputStream fileInputStream2 = null;
             if (TextUtils.isEmpty(str2) || !file.exists()) {
                 return null;
             }
-            tga.g gVar = new tga.g();
+            uga.g gVar = new uga.g();
             File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
             gVar.a = file.getAbsolutePath();
             gVar.c = str2;
@@ -85,25 +85,25 @@ public class nu4 {
                 th = th2;
             }
         } else {
-            return (tga.g) invokeLL.objValue;
+            return (uga.g) invokeLL.objValue;
         }
     }
 
     public static boolean c(String str) {
         InterceptResult invokeL;
-        vga d;
+        wga d;
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (QuickWebViewSwitch.getInOn() && !tga.s(str)) {
+            if (QuickWebViewSwitch.getInOn() && !uga.s(str)) {
                 try {
-                    d = uga.a().d(new URL(str).getPath());
+                    d = vga.a().d(new URL(str).getPath());
                 } catch (MalformedURLException | Exception unused) {
                 }
                 if (d != null && d.e) {
-                    String p = tga.n().p(d.b);
+                    String p = uga.n().p(d.b);
                     if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
-                        String str2 = tga.n().m() + "/" + d.b + "/" + p + "/";
+                        String str2 = uga.n().m() + "/" + d.b + "/" + p + "/";
                         if (!d.c.endsWith(".html")) {
                             file = new File(str2, d.c + ".html");
                         } else {
@@ -144,28 +144,28 @@ public class nu4 {
     public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !jk6.a(set)) {
-            tga.f fVar = new tga.f();
+            uga.f fVar = new uga.f();
             fVar.a = new HashMap();
             fVar.b = new HashMap<>();
             for (String str : set) {
-                tga.g b = b(str, tga.n().p(str));
+                uga.g b = b(str, uga.n().p(str));
                 if (b != null && !TextUtils.isEmpty(b.a) && !jk6.b(b.b)) {
                     fVar.a.put(str, b);
                     fVar.b.putAll(b.b);
                 }
             }
             if (!jk6.b(fVar.b)) {
-                uga.a().i(fVar.b);
+                vga.a().i(fVar.b);
             }
         }
     }
 
-    public static HashMap<String, vga> f(InputStream inputStream) {
+    public static HashMap<String, wga> f(InputStream inputStream) {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
         BufferedReader bufferedReader;
-        HashMap<String, vga> hashMap;
+        HashMap<String, wga> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
             InputStreamReader inputStreamReader2 = null;
@@ -238,7 +238,7 @@ public class nu4 {
         return (HashMap) invokeL.objValue;
     }
 
-    public static void e(JSONObject jSONObject, HashMap<String, vga> hashMap) {
+    public static void e(JSONObject jSONObject, HashMap<String, wga> hashMap) {
         String str;
         String str2;
         String str3;
@@ -284,34 +284,34 @@ public class nu4 {
                             }
                             String optString = jSONObject3.optString("staticPrePath", "");
                             int optInt = jSONObject3.optInt("proxyMode");
-                            uga.a().j(next, next);
-                            uga.a().k(next, str2);
+                            vga.a().j(next, next);
+                            vga.a().k(next, str2);
                             Iterator<String> it = arrayList2.iterator();
                             while (it.hasNext()) {
                                 String next2 = it.next();
                                 if (!TextUtils.isEmpty(next2)) {
-                                    uga a = uga.a();
+                                    vga a = vga.a();
                                     String str6 = str5;
                                     a.j(optString + "/" + next2, next);
-                                    uga a2 = uga.a();
+                                    vga a2 = vga.a();
                                     a2.k(optString + "/" + next2, next2);
                                     str5 = str6;
                                 }
                             }
                             String str7 = str5;
-                            vga vgaVar = new vga();
-                            vgaVar.a = arrayList;
-                            vgaVar.b = str;
-                            vgaVar.c = str2;
-                            vgaVar.d = arrayList2;
+                            wga wgaVar = new wga();
+                            wgaVar.a = arrayList;
+                            wgaVar.b = str;
+                            wgaVar.c = str2;
+                            wgaVar.d = arrayList2;
                             if (optInt == 1) {
                                 z = true;
                             } else {
                                 z = false;
                             }
-                            vgaVar.f = z;
-                            vgaVar.e = true;
-                            hashMap.put(next, vgaVar);
+                            wgaVar.f = z;
+                            wgaVar.e = true;
+                            hashMap.put(next, wgaVar);
                             jSONObject2 = jSONObject;
                             str4 = str3;
                             str5 = str7;

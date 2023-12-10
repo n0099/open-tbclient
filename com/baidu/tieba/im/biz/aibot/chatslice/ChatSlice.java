@@ -16,24 +16,24 @@ import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.br8;
+import com.baidu.tieba.ar8;
+import com.baidu.tieba.aw8;
 import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.cr8;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
 import com.baidu.tieba.im.biz.aibot.chatslice.ChatSlice;
 import com.baidu.tieba.im.biz.aibot.data.AibotChatDetail;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
-import com.baidu.tieba.kr8;
 import com.baidu.tieba.lr8;
 import com.baidu.tieba.mg6;
 import com.baidu.tieba.mr8;
+import com.baidu.tieba.nr8;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sdkcode.tts.TtsApi;
 import com.baidu.tieba.sdkcode.tts.TtsListener;
 import com.baidu.tieba.sdkcode.tts.TtsManager;
 import com.baidu.tieba.sv4;
-import com.baidu.tieba.zq8;
-import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u0099\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001(\u0018\u0000 Q2\u00020\u00012\u00020\u0002:\u0004QRSTB'\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\b\u0010\b\u001a\u0004\u0018\u00010\t¢\u0006\u0002\u0010\nJ\b\u00102\u001a\u000203H\u0002J\u000e\u00104\u001a\u0002032\u0006\u00105\u001a\u00020\"J\b\u00106\u001a\u000203H\u0002J\b\u00107\u001a\u00020\fH\u0002J\b\u00108\u001a\u00020\fH\u0002J\b\u00109\u001a\u000203H\u0002J\b\u0010:\u001a\u000203H\u0016J\"\u0010;\u001a\u00020<2\u0006\u0010=\u001a\u00020>2\u0006\u0010?\u001a\u00020@2\b\u0010A\u001a\u0004\u0018\u00010BH\u0016J\b\u0010C\u001a\u000203H\u0016J\b\u0010D\u001a\u000203H\u0016J\b\u0010E\u001a\u000203H\u0016J\u0010\u0010F\u001a\u0002032\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\u0018\u0010G\u001a\u0002032\u0006\u0010H\u001a\u00020 2\u0006\u0010I\u001a\u00020\fH\u0016J\u001c\u0010J\u001a\u0002032\b\u0010K\u001a\u0004\u0018\u00010<2\b\u0010A\u001a\u0004\u0018\u00010BH\u0016J\b\u0010L\u001a\u000203H\u0002J\b\u0010M\u001a\u000203H\u0002J\u0012\u0010N\u001a\u0002032\n\b\u0002\u0010O\u001a\u0004\u0018\u00010PR\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0012\u001a\u00020\u0013X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u001b\u0010\u0018\u001a\u00020\u00198BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001a\u0010\u001bR\u000e\u0010\u001e\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u00020(X\u0082\u0004¢\u0006\u0004\n\u0002\u0010)R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b*\u0010+R\u001a\u0010,\u001a\u00020-X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b.\u0010/\"\u0004\b0\u00101¨\u0006U"}, d2 = {"Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice;", "Lcom/baidu/tieba/im/base/core/slice/Slice;", "Lcom/baidu/tieba/im/biz/aibot/IPageChangeNotify;", "botUk", "", "botPaid", "repo", "Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "argsData", "Lcom/baidu/tbadk/module/imaibot/AibotArgs;", "(Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;Lcom/baidu/tbadk/module/imaibot/AibotArgs;)V", "canBackToPersonPage", "", "canChatPageStat", "chatDetail", "Lcom/baidu/tieba/im/biz/aibot/data/AibotChatDetail;", "chatStartTime", "", "h5Sender", "Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "getH5Sender", "()Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;", "setH5Sender", "(Lcom/baidu/tieba/im/biz/aibot/helper/H5Sender;)V", "initData", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "getInitData", "()Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$InitData;", "initData$delegate", "Lkotlin/Lazy;", "isWebViewReady", "mPageState", "", "mTTSExt", "Lorg/json/JSONObject;", "mTTSHelper", "Lcom/baidu/tieba/sdkcode/tts/TtsApi;", "mTTSListenerAdapter", "Lcom/baidu/tieba/sdkcode/tts/TtsListener$TtsListenerAdapter;", "onWebViewReady", "com/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$onWebViewReady$1;", "getRepo", "()Lcom/baidu/tieba/im/biz/aibot/AibotChatRepo;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "setWebView", "(Lcom/baidu/tieba/browser/TbWebView;)V", "dealChatPageShow", "", "dealVoiceByMsgInTTS", "params", "initInjectBizData", "isChatPageState", "isPersonPageState", "loadUrl", "onCreate", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "onSetChatDetail", "onSetPageState", "state", "refreshPage", "onViewCreated", "view", "statChatPageDuration", "trySetChatDetailToH5", "trySetPageStateToH5", "pageStateExt", "Lcom/baidu/tieba/im/biz/aibot/chatslice/ChatSlice$PageStateExt;", "Companion", "InitData", "PageStateExt", "VisitedBotSet", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatSlice extends Slice implements br8 {
+public final class ChatSlice extends Slice implements cr8 {
     public static /* synthetic */ Interceptable $ic;
     public static final a A;
     public static final String z;
@@ -69,7 +69,7 @@ public final class ChatSlice extends Slice implements br8 {
     public final String k;
     public final AibotArgs l;
     public TbWebView m;
-    public mr8 n;
+    public nr8 n;
     public AibotChatDetail o;
     public boolean p;
     public final TtsApi q;
@@ -744,7 +744,7 @@ public final class ChatSlice extends Slice implements br8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class d extends lr8 {
+    public static final class d extends mr8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatSlice c;
@@ -775,7 +775,7 @@ public final class ChatSlice extends Slice implements br8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                zq8.a.a("ChatSlice onWebViewReady");
+                ar8.a.a("ChatSlice onWebViewReady");
                 this.c.p = true;
                 this.c.w0();
             }
@@ -802,7 +802,7 @@ public final class ChatSlice extends Slice implements br8 {
     public final void w0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.p && this.o != null) {
-            mr8 m0 = m0();
+            nr8 m0 = m0();
             AibotChatDetail aibotChatDetail = this.o;
             if (aibotChatDetail == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("chatDetail");
@@ -810,7 +810,7 @@ public final class ChatSlice extends Slice implements br8 {
             }
             m0.c("imBizAibotChatDetailData", DataExt.toJson(aibotChatDetail));
             y0(this, null, 1, null);
-            zq8.a.a("ChatSlice trySetChatDetailToH5");
+            ar8.a.a("ChatSlice trySetChatDetailToH5");
         }
     }
 
@@ -883,7 +883,7 @@ public final class ChatSlice extends Slice implements br8 {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     sv4 t = sv4.t();
-                    String b2 = zv8.b(t.j());
+                    String b2 = aw8.b(t.j());
                     Intrinsics.checkNotNullExpressionValue(b2, "am.currentAccountId.toUk()");
                     String m = t.m();
                     Intrinsics.checkNotNullExpressionValue(m, "am.currentAccountNameShow");
@@ -926,13 +926,13 @@ public final class ChatSlice extends Slice implements br8 {
         this.y = new c(this);
     }
 
-    @Override // com.baidu.tieba.br8
+    @Override // com.baidu.tieba.cr8
     public void O(AibotChatDetail chatDetail) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatDetail) == null) {
             Intrinsics.checkNotNullParameter(chatDetail, "chatDetail");
             try {
-                zq8.a.a("ChatSlice setChatDetail");
+                ar8.a.a("ChatSlice setChatDetail");
                 this.o = chatDetail;
                 s0();
                 w0();
@@ -942,11 +942,11 @@ public final class ChatSlice extends Slice implements br8 {
         }
     }
 
-    public final void t0(mr8 mr8Var) {
+    public final void t0(nr8 nr8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, mr8Var) == null) {
-            Intrinsics.checkNotNullParameter(mr8Var, "<set-?>");
-            this.n = mr8Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, nr8Var) == null) {
+            Intrinsics.checkNotNullParameter(nr8Var, "<set-?>");
+            this.n = nr8Var;
         }
     }
 
@@ -964,7 +964,7 @@ public final class ChatSlice extends Slice implements br8 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.s = System.currentTimeMillis();
             if (this.u) {
-                kr8 kr8Var = kr8.a;
+                lr8 lr8Var = lr8.a;
                 String str = this.k;
                 AibotArgs aibotArgs = this.l;
                 if (aibotArgs != null) {
@@ -972,23 +972,23 @@ public final class ChatSlice extends Slice implements br8 {
                 } else {
                     num = null;
                 }
-                kr8Var.b(1, str, num);
+                lr8Var.b(1, str, num);
             }
         }
     }
 
-    public final mr8 m0() {
+    public final nr8 m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            mr8 mr8Var = this.n;
-            if (mr8Var != null) {
-                return mr8Var;
+            nr8 nr8Var = this.n;
+            if (nr8Var != null) {
+                return nr8Var;
             }
             Intrinsics.throwUninitializedPropertyAccessException("h5Sender");
             return null;
         }
-        return (mr8) invokeV.objValue;
+        return (nr8) invokeV.objValue;
     }
 
     public final InitData n0() {
@@ -1020,7 +1020,7 @@ public final class ChatSlice extends Slice implements br8 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
             this.q.releaseAll();
-            lr8.b.b(this.w);
+            mr8.b.b(this.w);
             o0().onDestroy();
         }
     }
@@ -1052,7 +1052,7 @@ public final class ChatSlice extends Slice implements br8 {
     public final void p0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            zq8.a.a("ChatSlice initInjectBizData");
+            ar8.a.a("ChatSlice initInjectBizData");
             o0().I("imBizAibotInitData", new b(this));
         }
     }
@@ -1086,7 +1086,7 @@ public final class ChatSlice extends Slice implements br8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.v();
-            lr8.b.a(this.w);
+            mr8.b.a(this.w);
         }
     }
 
@@ -1116,13 +1116,13 @@ public final class ChatSlice extends Slice implements br8 {
             TbWebView tbWebView = new TbWebView(container.getContext());
             tbWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             u0(tbWebView);
-            t0(new mr8(tbWebView));
+            t0(new nr8(tbWebView));
             return tbWebView;
         }
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.br8
+    @Override // com.baidu.tieba.cr8
     public void e2(int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -1203,7 +1203,7 @@ public final class ChatSlice extends Slice implements br8 {
             if (!rd.isEquals(str, o0().getUrl())) {
                 o0().loadUrl(str);
             }
-            zq8.a.a("ChatSlice loadUrl", str);
+            ar8.a.a("ChatSlice loadUrl", str);
         }
     }
 
@@ -1216,7 +1216,7 @@ public final class ChatSlice extends Slice implements br8 {
         String uid = BIMManager.getBdUidFromBdUK(this.j);
         String format = new DecimalFormat(cj.d).format(Float.valueOf(((float) (System.currentTimeMillis() - this.s)) / 1000.0f));
         if (format != null && Float.parseFloat(format) > 0.0f && Float.parseFloat(format) < 259200.0f) {
-            kr8 kr8Var = kr8.a;
+            lr8 lr8Var = lr8.a;
             Intrinsics.checkNotNullExpressionValue(uid, "uid");
             AibotArgs aibotArgs = this.l;
             if (aibotArgs != null) {
@@ -1224,7 +1224,7 @@ public final class ChatSlice extends Slice implements br8 {
             } else {
                 num = null;
             }
-            kr8Var.a(uid, num, format);
+            lr8Var.a(uid, num, format);
             this.s = System.currentTimeMillis();
         }
     }

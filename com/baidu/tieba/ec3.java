@@ -46,11 +46,11 @@ public class ec3 {
 
         /* renamed from: com.baidu.tieba.ec3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class RunnableC0258a implements Runnable {
+        public static class RunnableC0259a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0258a() {
+            public RunnableC0259a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -76,7 +76,7 @@ public class ec3 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0258a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0259a(), "V8SoCleaner", 3);
             }
         }
     }

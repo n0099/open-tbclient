@@ -10,7 +10,7 @@ import java.util.List;
 public class t77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rb7<?>> a;
+    public List<sb7<?>> a;
     public e87 b;
 
     public t77() {

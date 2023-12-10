@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz8;
+import com.baidu.tieba.hz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbNoticeModifySysMsg;
@@ -147,7 +147,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysItem, Hol
                 }
                 holder.d.setText(R.string.obfuscated_res_0x7f0f097a);
                 holder.e.setText(R.string.obfuscated_res_0x7f0f1857);
-                gz8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+                hz8.d("c15095", 2, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
             }
         }
     }

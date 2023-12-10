@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,10 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mw9 implements pi {
+public class mw9 extends nwa {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId m1;
     public transient /* synthetic */ FieldHolder $fh;
+    @DrawableRes
+    public int i1;
+    public String j1;
+    public int k1;
+    public int l1;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +33,7 @@ public class mw9 implements pi {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        m1 = BdUniqueId.gen();
     }
 
     public mw9() {
@@ -40,16 +46,18 @@ public class mw9 implements pi {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.l1 = 0;
     }
 
-    @Override // com.baidu.tieba.pi
+    @Override // com.baidu.tieba.nwa, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a;
+            return m1;
         }
         return (BdUniqueId) invokeV.objValue;
     }

@@ -17,7 +17,7 @@ public class mw5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
-    public cxa b;
+    public dxa b;
 
     public mw5(Activity activity) {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class mw5 extends WebChromeClient {
         this.a = activity;
     }
 
-    public void b(cxa cxaVar) {
+    public void b(dxa dxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cxaVar) == null) {
-            this.b = cxaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dxaVar) == null) {
+            this.b = dxaVar;
         }
     }
 
@@ -102,16 +102,16 @@ public class mw5 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        cxa cxaVar;
+        dxa dxaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!c95.a(str) && str2.startsWith("tiebaapp")) {
-                fxa fxaVar = new fxa();
-                fxaVar.w(jxa.b(str2));
-                fxaVar.y(301);
-                a(webView, fxaVar.c(), fxaVar.d());
+                gxa gxaVar = new gxa();
+                gxaVar.w(kxa.b(str2));
+                gxaVar.y(301);
+                a(webView, gxaVar.c(), gxaVar.d());
             }
-            if (c95.a(str) && (cxaVar = this.b) != null && cxaVar.onJsPrompt(str2, jsPromptResult)) {
+            if (c95.a(str) && (dxaVar = this.b) != null && dxaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

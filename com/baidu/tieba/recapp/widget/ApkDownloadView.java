@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a36;
-import com.baidu.tieba.vja;
 import com.baidu.tieba.wg0;
+import com.baidu.tieba.wja;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ApkDownloadView extends FrameLayout implements a36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vja a;
+    public wja a;
     public a36.a b;
 
     @Override // com.baidu.tieba.ph0
@@ -136,7 +136,7 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.a = (vja) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d012c, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090b4f);
+            this.a = (wja) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d012c, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090b4f);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -152,9 +152,9 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            vja vjaVar = this.a;
-            if (vjaVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vjaVar).setBackgroundSkin(i);
+            wja wjaVar = this.a;
+            if (wjaVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wjaVar).setBackgroundSkin(i);
             }
         }
     }
@@ -162,18 +162,18 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     public void setForegroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            vja vjaVar = this.a;
-            if (vjaVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vjaVar).setForeground(i);
+            wja wjaVar = this.a;
+            if (wjaVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wjaVar).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        vja vjaVar;
+        wja wjaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && !TextUtils.isEmpty(str) && (vjaVar = this.a) != null) {
-            vjaVar.setInitText(str);
+        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && !TextUtils.isEmpty(str) && (wjaVar = this.a) != null) {
+            wjaVar.setInitText(str);
         }
     }
 
@@ -186,19 +186,19 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     }
 
     public void setRatio(int i) {
-        vja vjaVar;
+        wja wjaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (vjaVar = this.a) != null) {
-            vjaVar.setRatio(i);
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (wjaVar = this.a) != null) {
+            wjaVar.setRatio(i);
         }
     }
 
     public void setStrokeWidth(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            vja vjaVar = this.a;
-            if (vjaVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vjaVar).setStrokeWidth(i);
+            wja wjaVar = this.a;
+            if (wjaVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wjaVar).setStrokeWidth(i);
             }
         }
     }
@@ -213,9 +213,9 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            vja vjaVar = this.a;
-            if (vjaVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vjaVar).setTextColorInitSkin(i);
+            wja wjaVar = this.a;
+            if (wjaVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wjaVar).setTextColorInitSkin(i);
             }
         }
     }
@@ -223,9 +223,9 @@ public class ApkDownloadView extends FrameLayout implements a36 {
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            vja vjaVar = this.a;
-            if (vjaVar instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) vjaVar).setTextColorSkin(i);
+            wja wjaVar = this.a;
+            if (wjaVar instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) wjaVar).setTextColorSkin(i);
             }
         }
     }

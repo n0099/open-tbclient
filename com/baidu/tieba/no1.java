@@ -31,7 +31,7 @@ public class no1 implements qq1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new llc(inputStream);
+            return new mlc(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

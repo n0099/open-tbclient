@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.aw8;
 import com.baidu.tieba.c;
 import com.baidu.tieba.ot5;
-import com.baidu.tieba.tq8;
-import com.baidu.tieba.zv8;
+import com.baidu.tieba.uq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -346,7 +346,7 @@ public final class MsgContentMergeUtil {
                     if (userInfo != null) {
                         String senderUid = chatMsg.getSenderUid();
                         Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        obj2 = userInfo.get(zv8.c(senderUid));
+                        obj2 = userInfo.get(aw8.c(senderUid));
                     } else {
                         obj2 = null;
                     }
@@ -362,7 +362,7 @@ public final class MsgContentMergeUtil {
                     }
                     chatRoomContentExt = chatMsg.getChatRoomContentExt();
                 } catch (Exception e) {
-                    tq8.g("merge_msg_content_exception", j, e);
+                    uq8.g("merge_msg_content_exception", j, e);
                 }
                 if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
                     z = false;

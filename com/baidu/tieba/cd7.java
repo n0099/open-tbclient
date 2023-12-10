@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cd7 extends ab7<FeedCardView, w57<?>> {
+public class cd7 extends bb7<FeedCardView, w57<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class cd7 extends ab7<FeedCardView, w57<?>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
     public void b(@NonNull FeedCardView feedCardView, @NonNull w57<?> w57Var) {
         Interceptable interceptable = $ic;

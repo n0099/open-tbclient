@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsLiveModel;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.pt7;
+import com.baidu.tieba.qt7;
 import com.baidu.tieba.rb6;
 import com.baidu.tieba.ub6;
 import com.baidu.tieba.vb6;
@@ -46,7 +46,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, pt7 {
+public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquareRefreshHandler, qt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -594,7 +594,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         }
     }
 
-    @Override // com.baidu.tieba.pt7
+    @Override // com.baidu.tieba.qt7
     public NavigationBar x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

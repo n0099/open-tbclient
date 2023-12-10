@@ -36,14 +36,14 @@ public class sw1 extends rw1 {
 
         /* renamed from: com.baidu.tieba.sw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0472a implements wf3.a {
+        public class C0474a implements wf3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ dx1 b;
             public final /* synthetic */ a c;
 
-            public C0472a(a aVar, String str, dx1 dx1Var) {
+            public C0474a(a aVar, String str, dx1 dx1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class sw1 extends rw1 {
                 dx1 dx1Var = new dx1("accelerometerChange", jSONObject, str);
                 wf3 a = wf3.a();
                 a.b(this.a.i(), b.a(jSONObject.optString("interval")));
-                a.e(new C0472a(this, str, dx1Var));
+                a.e(new C0474a(this, str, dx1Var));
                 a.f();
                 dx1Var.b(this.a);
                 return ly1.f();

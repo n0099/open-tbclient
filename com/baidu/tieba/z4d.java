@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.MaskLayerText;
+import tbclient.LotteryTheme;
 /* loaded from: classes9.dex */
-public class z4d extends ktc {
+public class z4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull MaskLayerText maskLayerText) {
+    public static JSONObject b(@NonNull LotteryTheme lotteryTheme) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, maskLayerText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lotteryTheme)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "text", maskLayerText.text);
-            ktc.a(jSONObject, "schema", maskLayerText.schema);
+            ltc.a(jSONObject, "bgcolor", lotteryTheme.bgcolor);
+            ltc.a(jSONObject, "bgimage", lotteryTheme.bgimage);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

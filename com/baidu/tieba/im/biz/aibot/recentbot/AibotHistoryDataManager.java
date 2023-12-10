@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cs8;
+import com.baidu.tieba.ds8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -154,7 +154,7 @@ public final class AibotHistoryDataManager {
                     return;
                 }
             }
-            this.botChatList = new SizedSyncTreeSet<>(10, new TreeSet(cs8.d.a().c()));
+            this.botChatList = new SizedSyncTreeSet<>(10, new TreeSet(ds8.d.a().c()));
         }
 
         public final SizedSyncTreeSet<BotChatData> getBotChatList() {

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h37 implements qb7<DelegateFunAdView, y27> {
+public class h37 implements rb7<DelegateFunAdView, y27> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
@@ -45,7 +45,7 @@ public class h37 implements qb7<DelegateFunAdView, y27> {
         this.a = g37.b(bdUniqueId);
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -57,7 +57,7 @@ public class h37 implements qb7<DelegateFunAdView, y27> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: d */
     public void b(@NonNull DelegateFunAdView delegateFunAdView, @NonNull y27 y27Var) {
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class h37 implements qb7<DelegateFunAdView, y27> {
         }
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public String c() {
         InterceptResult invokeV;

@@ -34,12 +34,12 @@ public class jk3 implements dl3<Exception> {
 
         /* renamed from: com.baidu.tieba.jk3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0366a implements Runnable {
+        public class RunnableC0365a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0366a(a aVar) {
+            public RunnableC0365a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,7 +103,7 @@ public class jk3 implements dl3<Exception> {
                     if (this.a.c != null) {
                         this.a.b.removeCallbacks(this.a.c);
                     }
-                    this.a.c = new RunnableC0366a(this);
+                    this.a.c = new RunnableC0365a(this);
                     long a = qi4.a(300) * 1000;
                     this.a.b.postDelayed(this.a.c, a);
                     if (jk3.e) {

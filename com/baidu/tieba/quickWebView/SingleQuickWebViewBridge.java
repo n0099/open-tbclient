@@ -6,9 +6,9 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.ck;
-import com.baidu.tieba.fxa;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.sga;
+import com.baidu.tieba.tga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,16 +23,16 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public sga mProxy;
+    public tga mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, sga sgaVar) {
+    public SingleQuickWebViewBridge(Context context, tga tgaVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, sgaVar};
+            Object[] objArr = {context, tgaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = sgaVar;
+        this.mProxy = tgaVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.bxa
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.cxa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public fxa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public gxa requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            sga sgaVar = this.mProxy;
-            if (sgaVar != null) {
-                sgaVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            tga tgaVar = this.mProxy;
+            if (tgaVar != null) {
+                tgaVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            fxaVar.x(str);
-            return fxaVar;
+            gxaVar.x(str);
+            return gxaVar;
         }
-        return (fxa) invokeLLLL.objValue;
+        return (gxa) invokeLLLL.objValue;
     }
 
-    public fxa requestByNativeToH5(HashMap<String, String> hashMap) {
+    public gxa requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (hashMap != null && hashMap.get("result") != null) {
-                fxaVar.o(hashMap.get("result"));
-                fxaVar.x(hashMap.get("NotificationKey"));
+                gxaVar.o(hashMap.get("result"));
+                gxaVar.x(hashMap.get("NotificationKey"));
             }
-            fxaVar.A(true);
-            return fxaVar;
+            gxaVar.A(true);
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 }

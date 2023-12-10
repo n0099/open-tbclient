@@ -77,7 +77,7 @@ public class c26 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (rd.isEmpty(str) || (b26Var = this.c) == null || !b26Var.g()) {
-                hrb.d(str);
+                irb.d(str);
             }
         }
     }
@@ -87,7 +87,7 @@ public class c26 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (rd.isEmpty(str) || (b26Var = this.c) == null || !b26Var.g()) {
-                hrb.e(str);
+                irb.e(str);
             }
         }
     }
@@ -166,7 +166,7 @@ public class c26 {
                     hashMap.put(str3, str4);
                 }
             }
-            hrb.c(str2 + statisticItem.getKey(), str, "", hashMap);
+            irb.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

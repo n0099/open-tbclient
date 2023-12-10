@@ -1,78 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class d4c extends BaseAdRipper {
+public class d4c implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
+    public static final d4c b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d4c(Ssp.Pid pid) {
-        super(pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656022, "Lcom/baidu/tieba/d4c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947656022, "Lcom/baidu/tieba/d4c;");
                 return;
             }
         }
+        b = new d4c();
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
-        Object findField2;
+    public d4c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Object obj2 = ((d5c) obj).a;
-                Field declaredField = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj3 = declaredField.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj3.getClass().getDeclaredField("c");
-                declaredField2.setAccessible(true);
-                Object obj4 = declaredField2.get(obj3);
-                if (obj4 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.a", obj4)) == null || (findField2 = ReflectionUtils.findField("com.qq.e.comm.plugin.B.r", findField)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField2.getClass().getSuperclass().getDeclaredField("L");
-                declaredField3.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField3.get(findField2);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return m4c.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        this.a = new HashSet();
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
+        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

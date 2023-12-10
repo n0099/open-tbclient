@@ -62,7 +62,7 @@ public class r96 extends nl6<n86> {
 
         /* renamed from: com.baidu.tieba.r96$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0458a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0459a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -73,7 +73,7 @@ public class r96 extends nl6<n86> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0458a(a aVar, View view2) {
+            public C0459a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -205,7 +205,7 @@ public class r96 extends nl6<n86> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-                return new C0458a(this, LayoutInflater.from(this.a.c()).inflate(R.layout.obfuscated_res_0x7f0d0982, viewGroup, false));
+                return new C0459a(this, LayoutInflater.from(this.a.c()).inflate(R.layout.obfuscated_res_0x7f0d0982, viewGroup, false));
             }
             return (AlaBannerViewHolder) invokeLI.objValue;
         }

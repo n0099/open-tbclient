@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -618,10 +618,10 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                        this.k.setTextColor(tua.f(this.mThemeColorInfo.dark.font_color));
+                        this.k.setTextColor(uua.f(this.mThemeColorInfo.dark.font_color));
                         return;
                     } else {
-                        this.k.setTextColor(tua.f(this.mThemeColorInfo.day.font_color));
+                        this.k.setTextColor(uua.f(this.mThemeColorInfo.day.font_color));
                         return;
                     }
                 }

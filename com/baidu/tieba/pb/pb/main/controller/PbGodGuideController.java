@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.breathetip.BreatheTipWidget;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j4a;
+import com.baidu.tieba.aw9;
+import com.baidu.tieba.k4a;
 import com.baidu.tieba.ub5;
 import com.baidu.tieba.x55;
 import com.baidu.tieba.y55;
-import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,7 +101,7 @@ public class PbGodGuideController implements LifecycleObserver {
             breatheTipWidget.g(false);
             this.e = breatheTipWidget;
             if (breatheTipWidget.k((Activity) this.a, 3000L)) {
-                SharedPrefHelper.getInstance().putInt(j4a.a, SharedPrefHelper.getInstance().getInt(j4a.a, 0) + 1);
+                SharedPrefHelper.getInstance().putInt(k4a.a, SharedPrefHelper.getInstance().getInt(k4a.a, 0) + 1);
                 ub5.b("c15280", this.c, this.d);
             }
         }
@@ -130,12 +130,12 @@ public class PbGodGuideController implements LifecycleObserver {
         }
     }
 
-    public boolean b(zv9 zv9Var, Context context, View view2, String str, String str2) {
+    public boolean b(aw9 aw9Var, Context context, View view2, String str, String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, zv9Var, context, view2, str, str2)) == null) {
-            j4a.a();
-            if (!j4a.c(zv9Var)) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, aw9Var, context, view2, str, str2)) == null) {
+            k4a.a();
+            if (!k4a.c(aw9Var)) {
                 return false;
             }
             this.a = new a(context, view2, str, str2);

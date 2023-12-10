@@ -79,11 +79,11 @@ public class bt4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa c(WebView webView, String str, String str2, String str3, String str4) {
+    public gxa c(WebView webView, String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -96,52 +96,52 @@ public class bt4 implements qj6 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return fxaVar;
+                return gxaVar;
             }
-            fxaVar.p();
-            return fxaVar;
+            gxaVar.p();
+            return gxaVar;
         }
-        return (fxa) invokeLLLLL.objValue;
+        return (gxa) invokeLLLLL.objValue;
     }
 
     @NonNull
-    public fxa d(WebView webView, @NonNull String str, @Nullable String str2) {
+    public gxa d(WebView webView, @NonNull String str, @Nullable String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, webView, str, str2)) == null) {
-            fxa fxaVar = new fxa();
-            fxaVar.y(0);
-            fxaVar.o(lv5.b().c(str, str2));
-            return fxaVar;
+            gxa gxaVar = new gxa();
+            gxaVar.y(0);
+            gxaVar.o(lv5.b().c(str, str2));
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa e(WebView webView) {
+    public gxa e(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             String string = SharedPrefHelper.getInstance().getString("key_match_id_list_football", "");
             String string2 = SharedPrefHelper.getInstance().getString("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
                 jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
-                fxaVar.o(jSONObject.toString());
+                gxaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa f(WebView webView, String str, String str2, boolean z) {
+    public gxa f(WebView webView, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{webView, str, str2, Boolean.valueOf(z)})) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
                 if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
@@ -189,7 +189,7 @@ public class bt4 implements qj6 {
                         hashMap.put("data", new HashMap(DataExt.toMapSafe(str2)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921542, hashMap));
                     } else if (ys4.a(str)) {
-                        ys4.b(str, str2, fxaVar);
+                        ys4.b(str, str2, gxaVar);
                     } else if ("changeOftenForumList".equals(str)) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921811, str2));
                     } else if ("na.oneClickSignRefresh".equals(str)) {
@@ -219,8 +219,8 @@ public class bt4 implements qj6 {
                     hybridLog.e("NotifyDataChanged", "H5通知H5异常:" + e4);
                 }
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 }

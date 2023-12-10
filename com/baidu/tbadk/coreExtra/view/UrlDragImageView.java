@@ -62,7 +62,7 @@ import com.baidu.tieba.gj5;
 import com.baidu.tieba.it5;
 import com.baidu.tieba.jj5;
 import com.baidu.tieba.tj5;
-import com.baidu.tieba.u9b;
+import com.baidu.tieba.v9b;
 import com.baidu.tieba.vd5;
 import com.baidu.tieba.wd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1015,7 +1015,7 @@ public class UrlDragImageView extends RelativeLayout {
                 dragImageView2.setVisibility(8);
             }
             SafeHandler.getInst().removeCallbacks(this.f0);
-            u9b.a().d(-1);
+            v9b.a().d(-1);
             ImageUrlData imageUrlData = this.K;
             if (imageUrlData != null) {
                 wd5.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);

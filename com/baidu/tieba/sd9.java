@@ -1,28 +1,54 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import com.baidu.tieba.impersonal.components.LoadingMsgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sd9 extends qd9<VoiceMsgContent, ChatVoiceView, nb9> {
+public final class sd9 extends rd9<sb9, LoadingMsgView, mb9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int b;
-    public final int c;
-    public final int d;
+
+    /* loaded from: classes8.dex */
+    public static final class a implements LoadingMsgView.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mb9 a;
+
+        public a(mb9 mb9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mb9Var;
+        }
+
+        @Override // com.baidu.tieba.impersonal.components.LoadingMsgView.a
+        public void onShow() {
+            sb9 f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f = this.a.c().f()) != null) {
+                f.d(true);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sd9(String name) {
@@ -43,81 +69,47 @@ public final class sd9 extends qd9<VoiceMsgContent, ChatVoiceView, nb9> {
             }
         }
         Intrinsics.checkNotNullParameter(name, "name");
-        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
-        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
-    }
-
-    public static final boolean l(nb9 data, View it) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
-            Intrinsics.checkNotNullParameter(data, "$data");
-            Function2<View, ub9<VoiceMsgContent>, Unit> d = data.d();
-            if (d != null) {
-                Intrinsics.checkNotNullExpressionValue(it, "it");
-                d.invoke(it, data.c());
-                return true;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qd9
-    public void f(ViewGroup container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-            int i = this.b;
-            int i2 = this.d;
-            container.setPadding(i, i2, this.c, i2);
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qd9
-    /* renamed from: k */
-    public void d(ChatVoiceView chatVoiceView, final nb9 data) {
-        VoiceData.VoiceModel d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (chatVoiceView != null) {
-                chatVoiceView.g(true, !data.c().e().e());
-                VoiceMsgContent f = data.c().f();
-                if (f != null && (d = f.d()) != null) {
-                    chatVoiceView.setData(d);
-                }
-                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.jd9
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnLongClickListener
-                    public final boolean onLongClick(View view2) {
-                        InterceptResult invokeL;
-                        Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? sd9.l(nb9.this, view2) : invokeL.booleanValue;
-                    }
-                });
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qd9
-    /* renamed from: m */
-    public ChatVoiceView g(ViewGroup parent) {
+    @Override // com.baidu.tieba.rd9
+    /* renamed from: l */
+    public LoadingMsgView g(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
-            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
-            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090f2a);
-            chatVoiceView.setOnClickListener(chatVoiceView);
-            return chatVoiceView;
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            LoadingMsgView loadingMsgView = new LoadingMsgView(context, null, 2, null);
+            loadingMsgView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+            return loadingMsgView;
         }
-        return (ChatVoiceView) invokeL.objValue;
+        return (LoadingMsgView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rd9
+    /* renamed from: k */
+    public void d(LoadingMsgView loadingMsgView, mb9 data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, loadingMsgView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (loadingMsgView != null) {
+                loadingMsgView.setShowEmotionTextStatusListener(new a(data));
+            }
+            sb9 f = data.c().f();
+            if (f != null) {
+                if (loadingMsgView != null) {
+                    loadingMsgView.setHasShowEmotionText(f.c());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setAnimationId(f.a());
+                }
+                if (loadingMsgView != null) {
+                    loadingMsgView.setEmotionText(f.b());
+                }
+            }
+        }
     }
 }

@@ -23,11 +23,11 @@ import com.baidu.tieba.i6;
 import com.baidu.tieba.ib;
 import com.baidu.tieba.lt5;
 import com.baidu.tieba.qd5;
-import com.baidu.tieba.qxa;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.rxa;
 import com.baidu.tieba.sv4;
-import com.baidu.tieba.tga;
+import com.baidu.tieba.sxa;
+import com.baidu.tieba.uga;
 import com.baidu.tieba.vp5;
 import com.baidu.tieba.w75;
 /* loaded from: classes4.dex */
@@ -44,7 +44,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     private void initQuickWebViewManager() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            tga.n().r();
+            uga.n().r();
         }
     }
 
@@ -68,8 +68,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
 
     public void intReadThreadHistory() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new rxa(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new qxa(300);
+            TbadkApplication.getInst().mReadThreadHistory = new sxa(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new rxa(300);
             BdActivityStack.getInst().setOnActivityAllClosed(TbadkApplication.getInst());
         }
     }

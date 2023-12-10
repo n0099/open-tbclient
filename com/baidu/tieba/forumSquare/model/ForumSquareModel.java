@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar7;
 import com.baidu.tieba.br7;
+import com.baidu.tieba.cr7;
 import com.baidu.tieba.enterForum.data.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.forumSquare.ForumSquareStatic;
 import com.baidu.tieba.forumSquare.message.ForumSquareRequestMessage;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.tieba.vx6;
-import com.baidu.tieba.xq7;
+import com.baidu.tieba.yq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ import org.chromium.net.NetError;
 public class ForumSquareModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xq7 a;
+    public yq7 a;
     public boolean b;
-    public final HashMap<String, br7> c;
+    public final HashMap<String, cr7> c;
     public final List<String> d;
     public boolean e;
     public CustomMessageListener f;
@@ -223,13 +223,13 @@ public class ForumSquareModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumSquareModel(Context context, xq7 xq7Var) {
+    public ForumSquareModel(Context context, yq7 yq7Var) {
         super(UtilHelper.getTbPageContext(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, xq7Var};
+            Object[] objArr = {context, yq7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -247,7 +247,7 @@ public class ForumSquareModel extends BdBaseModel {
         this.g = new b(this, 2001438);
         this.h = new c(this, CmdConfigHttp.CMD_FORUM_SQUARE, 309653);
         new ForumSquareStatic();
-        this.a = xq7Var;
+        this.a = yq7Var;
         this.h.getHttpMessageListener().setSelfListener(true);
         this.h.getSocketMessageListener().setSelfListener(true);
         registerListener(this.h);
@@ -264,7 +264,7 @@ public class ForumSquareModel extends BdBaseModel {
         return invokeL.booleanValue;
     }
 
-    public br7 d0(String str) {
+    public cr7 d0(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -273,18 +273,18 @@ public class ForumSquareModel extends BdBaseModel {
             }
             return this.c.get(str);
         }
-        return (br7) invokeL.objValue;
+        return (cr7) invokeL.objValue;
     }
 
     public boolean e0(String str) {
         InterceptResult invokeL;
-        br7 br7Var;
+        cr7 cr7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (br7Var = this.c.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (cr7Var = this.c.get(str)) == null) {
                 return false;
             }
-            return br7Var.d;
+            return cr7Var.d;
         }
         return invokeL.booleanValue;
     }
@@ -326,22 +326,22 @@ public class ForumSquareModel extends BdBaseModel {
     }
 
     public void g0(String str) {
-        br7 br7Var;
+        cr7 cr7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
             forumSquareRequestMessage.className = str;
             if (TextUtils.isEmpty(str)) {
-                br7Var = new br7();
+                cr7Var = new cr7();
             } else {
-                br7 br7Var2 = this.c.get(str);
-                if (br7Var2 == null) {
-                    br7Var2 = new br7();
-                    this.c.put(str, br7Var2);
+                cr7 cr7Var2 = this.c.get(str);
+                if (cr7Var2 == null) {
+                    cr7Var2 = new cr7();
+                    this.c.put(str, cr7Var2);
                 }
-                br7Var = br7Var2;
+                cr7Var = cr7Var2;
             }
-            forumSquareRequestMessage.pn = br7Var.e + 1;
+            forumSquareRequestMessage.pn = cr7Var.e + 1;
             this.b = true;
             sendMessage(forumSquareRequestMessage);
         }
@@ -366,15 +366,15 @@ public class ForumSquareModel extends BdBaseModel {
                 str = (String) ListUtils.getItem(this.d, 0);
                 vx6Var.d = str;
             }
-            br7 br7Var = this.c.get(str);
-            if (br7Var == null) {
-                br7Var = new br7();
-                this.c.put(str, br7Var);
+            cr7 cr7Var = this.c.get(str);
+            if (cr7Var == null) {
+                cr7Var = new cr7();
+                this.c.put(str, cr7Var);
             }
-            br7Var.b(vx6Var);
-            xq7 xq7Var = this.a;
-            if (xq7Var != null) {
-                xq7Var.onSucc(str, this.d, br7Var.a());
+            cr7Var.b(vx6Var);
+            yq7 yq7Var = this.a;
+            if (yq7Var != null) {
+                yq7Var.onSucc(str, this.d, cr7Var.a());
             }
         }
     }
@@ -402,14 +402,14 @@ public class ForumSquareModel extends BdBaseModel {
     public final void k0(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            for (Map.Entry<String, br7> entry : this.c.entrySet()) {
-                br7 value = entry.getValue();
+            for (Map.Entry<String, cr7> entry : this.c.entrySet()) {
+                cr7 value = entry.getValue();
                 if (value != null && !ListUtils.isEmpty(value.a())) {
                     for (pi piVar : value.a()) {
-                        if (piVar instanceof ar7) {
-                            ar7 ar7Var = (ar7) piVar;
-                            if (ar7Var.a == j) {
-                                ar7Var.d = z;
+                        if (piVar instanceof br7) {
+                            br7 br7Var = (br7) piVar;
+                            if (br7Var.a == j) {
+                                br7Var.d = z;
                             }
                         }
                     }

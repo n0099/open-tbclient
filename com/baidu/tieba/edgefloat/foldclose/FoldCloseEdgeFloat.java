@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ebb;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
+import com.baidu.tieba.fbb;
 import com.baidu.tieba.rw6;
 import com.baidu.tieba.sw6;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
@@ -34,7 +34,7 @@ public final class FoldCloseEdgeFloat {
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
     public View.OnClickListener b;
-    public ebb c;
+    public fbb c;
     public final Lazy d;
     public final Lazy e;
 
@@ -280,10 +280,10 @@ public final class FoldCloseEdgeFloat {
         }
     }
 
-    public final void m(ebb ebbVar) {
+    public final void m(fbb fbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ebbVar) == null) {
-            this.c = ebbVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fbbVar) == null) {
+            this.c = fbbVar;
         }
     }
 
@@ -321,13 +321,13 @@ public final class FoldCloseEdgeFloat {
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    public final ebb f() {
+    public final fbb f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
-        return (ebb) invokeV.objValue;
+        return (fbb) invokeV.objValue;
     }
 
     public final View.OnClickListener g() {

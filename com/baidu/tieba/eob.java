@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.VersionSafeCallbacks;
+import com.baidu.turbonet.net.ExperimentalCronetEngine;
+import com.baidu.turbonet.net.ICronetEngineBuilder;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
 /* loaded from: classes5.dex */
-public class eob extends dob {
+public class eob extends onb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VersionSafeCallbacks.c n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public eob(Context context) {
@@ -33,13 +35,46 @@ public class eob extends dob {
         }
     }
 
-    @Override // com.baidu.tieba.nnb
-    public VersionSafeCallbacks.c w() {
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder a(String str) {
+        super.g(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder d(String str) {
+        super.z(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder e(String str) {
+        super.A(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder f(String str) {
+        super.C(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public ExperimentalCronetEngine b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (s() == null) {
+                D(r());
+            }
+            return new CronetUrlRequestContext(this);
         }
-        return (VersionSafeCallbacks.c) invokeV.objValue;
+        return (ExperimentalCronetEngine) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ICronetEngineBuilder
+    public /* bridge */ /* synthetic */ ICronetEngineBuilder c(boolean z, String str) {
+        super.l(z, str);
+        return this;
     }
 }

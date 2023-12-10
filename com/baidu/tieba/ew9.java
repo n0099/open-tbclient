@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,32 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.PbPage.SimilarContent;
+import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
-public final class ew9 extends um6 {
+public final class ew9 extends dn6 {
     public static /* synthetic */ Interceptable $ic;
     @JvmField
-
-    /* renamed from: T  reason: collision with root package name */
-    public static final BdUniqueId f1091T;
+    public static final BdUniqueId X0;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<String> R;
-    public final String S;
+    public final SimilarContent S0;
+    public int T0;
+    public final List<String> U0;
+    public final String V0;
+    public final ThreadData W0;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
-            if (obj instanceof ew9) {
-                ew9 ew9Var = (ew9) obj;
-                return Intrinsics.areEqual(this.R, ew9Var.R) && Intrinsics.areEqual(this.S, ew9Var.S);
-            }
-            return false;
+            return (obj instanceof ew9) && Intrinsics.areEqual(this.S0, ((ew9) obj).S0);
         }
         return invokeL.booleanValue;
     }
@@ -43,14 +46,14 @@ public final class ew9 extends um6 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.R.hashCode() * 31) + this.S.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.S0.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "PbFirstFloorSimilarTitleData(tags=" + this.R + ", url=" + this.S + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return "PbFirstFloorSimilarData(similarContent=" + this.S0 + ')';
         }
         return (String) invokeV.objValue;
     }
@@ -70,55 +73,96 @@ public final class ew9 extends um6 {
         }
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        f1091T = gen;
+        X0 = gen;
     }
 
-    public final List<String> G() {
+    public final List<String> V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.R;
+            return this.U0;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.um6, com.baidu.tieba.fw4
-    public ThreadData getThreadData() {
+    public final String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ThreadData threadData = this.a;
-            Intrinsics.checkNotNullExpressionValue(threadData, "threadData");
-            return threadData;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return f1091T;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.S;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.V0;
         }
         return (String) invokeV.objValue;
     }
 
-    public ew9(List<String> tags, String url) {
+    public final ThreadData X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.W0;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public final boolean Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.T0 == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.T0 == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.um6, com.baidu.tieba.fw4
+    public NegativeFeedBackData getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return new NegativeFeedBackData();
+        }
+        return (NegativeFeedBackData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dn6, com.baidu.tieba.um6, com.baidu.tieba.fw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.W0;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dn6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return X0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ew9(SimilarContent similarContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tags, url};
+            Object[] objArr = {similarContent};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,9 +172,31 @@ public final class ew9 extends um6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(tags, "tags");
-        Intrinsics.checkNotNullParameter(url, "url");
-        this.R = tags;
-        this.S = url;
+        Intrinsics.checkNotNullParameter(similarContent, "similarContent");
+        this.S0 = similarContent;
+        this.U0 = new ArrayList();
+        if (ListUtils.isNotEmpty(this.S0.similar_label_list)) {
+            ((ArrayList) this.U0).addAll(this.S0.similar_label_list);
+        }
+        ThreadData threadData = new ThreadData();
+        this.W0 = threadData;
+        threadData.parserProtobuf(this.S0.similar_thread);
+        SimpleForum simpleForum = this.S0.similar_forum;
+        if (simpleForum != null) {
+            ThreadData threadData2 = this.W0;
+            Long l = simpleForum.id;
+            Intrinsics.checkNotNullExpressionValue(l, "similarContent.similar_forum.id");
+            threadData2.setFid(l.longValue());
+            iz4 iz4Var = new iz4();
+            iz4Var.m(this.S0.similar_forum);
+            this.W0.setForumData(iz4Var);
+        }
+        this.W0.setSimilarPageType(true);
+        String str = this.S0.similar_url;
+        Intrinsics.checkNotNullExpressionValue(str, "similarContent.similar_url");
+        this.V0 = str;
+        Integer num = this.S0.user_type;
+        Intrinsics.checkNotNullExpressionValue(num, "similarContent.user_type");
+        this.T0 = num.intValue();
     }
 }

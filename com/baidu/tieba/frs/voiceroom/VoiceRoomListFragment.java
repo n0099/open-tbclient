@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment;
 import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.g88;
+import com.baidu.tieba.h88;
 import com.baidu.tieba.ir4;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.q55;
@@ -56,7 +56,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0289a e;
+        public static final C0285a e;
         public transient /* synthetic */ FieldHolder $fh;
         public final View a;
         public final NavigationBar b;
@@ -76,7 +76,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
                     return;
                 }
             }
-            e = new C0289a(null);
+            e = new C0285a(null);
         }
 
         public boolean equals(Object obj) {
@@ -112,15 +112,15 @@ public final class VoiceRoomListFragment extends BaseFragment {
 
         /* renamed from: com.baidu.tieba.frs.voiceroom.VoiceRoomListFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0289a {
+        public static final class C0285a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0289a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0285a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0289a() {
+            public C0285a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -377,9 +377,9 @@ public final class VoiceRoomListFragment extends BaseFragment {
             VoiceRoomListViewModel G2 = G2();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            f = g88.f(arguments);
+            f = h88.f(arguments);
             long callFrom = f.getCallFrom();
-            d = g88.d(arguments);
+            d = h88.d(arguments);
             G2.e(pageContext, callFrom, d);
         }
     }
@@ -396,10 +396,10 @@ public final class VoiceRoomListFragment extends BaseFragment {
             if (arguments != null) {
                 VoiceRoomStat voiceRoomStat = VoiceRoomStat.a;
                 VoiceRoomStat.StatType statType = VoiceRoomStat.StatType.PAGE_ENTER;
-                f = g88.f(arguments);
-                d = g88.d(arguments);
+                f = h88.f(arguments);
+                d = h88.d(arguments);
                 Long valueOf = Long.valueOf(d);
-                e = g88.e(arguments);
+                e = h88.e(arguments);
                 voiceRoomStat.c(statType, f, null, null, valueOf, e);
             }
         }
@@ -470,7 +470,7 @@ public final class VoiceRoomListFragment extends BaseFragment {
             q55 q55Var = new q55(getPageContext());
             this.b = q55Var;
             if (q55Var != null) {
-                q55Var.a(new p55.g() { // from class: com.baidu.tieba.c88
+                q55Var.a(new p55.g() { // from class: com.baidu.tieba.d88
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

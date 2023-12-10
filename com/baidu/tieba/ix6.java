@@ -84,7 +84,7 @@ public class ix6 extends BaseAdapter {
             public void onClick(f05 f05Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
-                    uxa.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", null);
+                    vxa.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", null);
                     f05Var.dismiss();
                 }
             }

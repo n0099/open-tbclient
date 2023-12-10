@@ -40,14 +40,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a11;
 import com.baidu.tieba.a36;
 import com.baidu.tieba.a85;
-import com.baidu.tieba.cja;
 import com.baidu.tieba.df0;
+import com.baidu.tieba.dja;
 import com.baidu.tieba.ef0;
 import com.baidu.tieba.hw4;
 import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.mha;
+import com.baidu.tieba.nha;
 import com.baidu.tieba.p26;
-import com.baidu.tieba.qf9;
 import com.baidu.tieba.recapp.lego.controller.NadTagController;
 import com.baidu.tieba.recapp.lego.controller.NadTitleController;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -61,11 +60,12 @@ import com.baidu.tieba.recapp.view.NadOperateBar;
 import com.baidu.tieba.recapp.widget.ApkDownloadView;
 import com.baidu.tieba.recapp.widget.NadLongProgressButton;
 import com.baidu.tieba.recapp.widget.NadProgressButton;
-import com.baidu.tieba.tha;
+import com.baidu.tieba.rf9;
+import com.baidu.tieba.uha;
 import com.baidu.tieba.w11;
-import com.baidu.tieba.wha;
-import com.baidu.tieba.wr7;
+import com.baidu.tieba.xha;
 import com.baidu.tieba.xr7;
+import com.baidu.tieba.yr7;
 import com.baidu.tieba.z01;
 import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
     public NadOperateBar S;
 
     /* renamed from: T  reason: collision with root package name */
-    public NadLongProgressButton f1150T;
+    public NadLongProgressButton f1151T;
     public NadProgressButton U;
     public NadCustomAppInfoView V;
     public ViewTreeObserver W;
@@ -246,7 +246,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
     }
 
     /* loaded from: classes8.dex */
-    public class d implements mha {
+    public class d implements nha {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdCard a;
@@ -271,7 +271,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             this.a = adCard;
         }
 
-        @Override // com.baidu.tieba.mha
+        @Override // com.baidu.tieba.nha
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -741,18 +741,18 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 this.C.setVisibility(8);
                 if (adCard.isContainOperateRecommendReason()) {
                     this.U.setVisibility(0);
-                    this.f1150T.setVisibility(8);
+                    this.f1151T.setVisibility(8);
                     return;
                 }
                 this.U.setVisibility(8);
-                this.f1150T.setVisibility(0);
+                this.f1151T.setVisibility(0);
                 return;
             }
             this.N.setVisibility(0);
             this.V.setVisibility(8);
             this.S.setVisibility(8);
-            this.f1150T.setVisibility(8);
-            if (tha.a.a()) {
+            this.f1151T.setVisibility(8);
+            if (uha.a.a()) {
                 this.U.setVisibility(0);
                 this.C.setVisibility(8);
                 return;
@@ -789,12 +789,12 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 z = df0.b(this.i.getPageActivity(), advertAppInfo.q);
             }
             if (!z) {
-                i2 = wha.b(this.i, str3, downloadId, extInfo, str2);
+                i2 = xha.b(this.i, str3, downloadId, extInfo, str2);
             }
             HashMap<String, Object> T2 = T(str);
-            qf9 qf9Var = this.k;
-            if (qf9Var != null) {
-                qf9Var.a(i2, T2);
+            rf9 rf9Var = this.k;
+            if (rf9Var != null) {
+                rf9Var.a(i2, T2);
             }
         }
     }
@@ -803,7 +803,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, adCard) == null) {
             this.C.setVisibility(8);
-            this.f1150T.setVisibility(8);
+            this.f1151T.setVisibility(8);
             this.U.setVisibility(8);
             setCustomViewRadius(Y(R.string.J_X05));
             this.N.setVisibility(8);
@@ -859,7 +859,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lg9
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.mg9
     public void setMulDel(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
@@ -954,7 +954,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                     string = adCard.nadTagModel.a;
                 }
                 this.c0.setText(string);
-                this.c0.setTextColor(cja.h(adCard.nadTagModel.b, SkinManager.getColor(R.color.CAM_X0619)));
+                this.c0.setTextColor(dja.h(adCard.nadTagModel.b, SkinManager.getColor(R.color.CAM_X0619)));
                 return;
             }
             this.c0.setVisibility(8);
@@ -1028,10 +1028,10 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, adCard)) == null) {
             if (adCard.isNewLayout()) {
                 if (!adCard.isContainOperateRecommendReason()) {
-                    return this.f1150T;
+                    return this.f1151T;
                 }
                 return this.U;
-            } else if (tha.a.a()) {
+            } else if (uha.a.a()) {
                 return this.U;
             } else {
                 return this.C;
@@ -1052,7 +1052,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             if (X instanceof a36) {
                 a36 a36Var = (a36) X;
                 a36Var.setOnClickInterceptListener(new n(this, adCard.getButtonCmdScheme()));
-                this.R = new z26(a36Var, cja.d(adCard));
+                this.R = new z26(a36Var, dja.d(adCard));
             }
         }
     }
@@ -1141,7 +1141,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
                 layoutParams6.rightMargin = -i8;
             }
             this.x = (BdUtilHelper.getEquipmentWidth(getContext()) - (this.s * 2)) - (this.v * 2);
-            if ((xr7.f().i() || wr7.h().j()) && o0()) {
+            if ((yr7.f().i() || xr7.h().j()) && o0()) {
                 this.p.setVisibility(0);
                 SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
             } else {
@@ -1179,7 +1179,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
         return (Boolean) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lg9
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.mg9
     public void g() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && q0()) {
@@ -1529,7 +1529,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             EMManager.from(nadOperateBar).setCorner(R.string.J_X16).setBackGroundColor(R.color.CAM_X0905);
             e0(this.o);
             this.P = (VipAdFreeGuideLayout) this.m.findViewById(R.id.obfuscated_res_0x7f090686);
-            this.f1150T = (NadLongProgressButton) this.m.findViewById(R.id.obfuscated_res_0x7f091966);
+            this.f1151T = (NadLongProgressButton) this.m.findViewById(R.id.obfuscated_res_0x7f091966);
             this.U = (NadProgressButton) this.m.findViewById(R.id.obfuscated_res_0x7f091974);
             this.W = this.m.getViewTreeObserver();
             g gVar = new g(this);
@@ -1554,7 +1554,7 @@ public abstract class AdCardBaseView extends BaseLegoCardView<AdCard> {
             this.G.onChangeSkinType();
             if (getBusinessType() == 1 || getBusinessType() == 2) {
                 View view2 = this.m;
-                view2.setBackgroundDrawable(cja.f(R.string.J_X06, R.color.CAM_X0205, R.color.cp_bg_line_e_alpha50, view2.getMeasuredHeight()));
+                view2.setBackgroundDrawable(dja.f(R.string.J_X06, R.color.CAM_X0205, R.color.cp_bg_line_e_alpha50, view2.getMeasuredHeight()));
             }
             HomeGroupUbsUIHelper.handleHeadSegmentTitleViewColor((TextView) this.H.getUserName());
             SkinManager.setViewTextColor(this.d0.n(), R.color.CAM_X0105, 1);

@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.PostInfo;
+import tbclient.FrsPage.PhotoInfo;
 /* loaded from: classes6.dex */
-public class j1d extends ktc {
+public class j1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PostInfo postInfo) {
+    public static JSONObject b(@NonNull PhotoInfo photoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, postInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, photoInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "common_post_pic", postInfo.common_post_pic);
-            ktc.a(jSONObject, "large_post_pic", postInfo.large_post_pic);
+            ltc.a(jSONObject, pic.f, photoInfo.pic);
+            ltc.a(jSONObject, "num", photoInfo.num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

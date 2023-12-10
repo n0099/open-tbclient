@@ -1,27 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes9.dex */
-public class xpa {
+public class xpa implements qpb {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wpa a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized wpa a() {
-        InterceptResult invokeV;
-        wpa wpaVar;
+    public xpa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (xpa.class) {
-                if (a == null) {
-                    a = new wpa();
-                }
-                wpaVar = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return wpaVar;
         }
-        return (wpa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qpb
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return PermissionUtil.isAgreePrivacyPolicy();
+        }
+        return invokeV.booleanValue;
     }
 }

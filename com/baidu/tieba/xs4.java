@@ -50,22 +50,22 @@ public class xs4 implements qj6 {
         }
     }
 
-    public fxa c(WebView webView, String str) {
+    public gxa c(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa d(WebView webView, HashMap hashMap) {
+    public gxa d(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
             a(webView, CommonTbJsBridge.OPEN_VIP_SUCCESS, new JSONObject());
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 }

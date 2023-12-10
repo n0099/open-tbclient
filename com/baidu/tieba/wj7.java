@@ -6,12 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
 public final class wj7 extends cr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public final boolean a;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -20,7 +19,7 @@ public final class wj7 extends cr6 {
             if (this == obj) {
                 return true;
             }
-            return (obj instanceof wj7) && Intrinsics.areEqual(this.a, ((wj7) obj).a);
+            return (obj instanceof wj7) && this.a == ((wj7) obj).a;
         }
         return invokeL.booleanValue;
     }
@@ -28,24 +27,31 @@ public final class wj7 extends cr6 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean z = this.a;
+            if (z) {
+                return 1;
+            }
+            return z ? 1 : 0;
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "FrsRecommendResultEvent(forumId=" + this.a + ')';
+            return "FragmentVisibilityEvent(visible=" + this.a + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public wj7(String forumId) {
+    public wj7(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumId};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,16 +61,15 @@ public final class wj7 extends cr6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumId, "forumId");
-        this.a = forumId;
+        this.a = z;
     }
 
-    public final String a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

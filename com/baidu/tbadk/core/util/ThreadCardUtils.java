@@ -44,9 +44,9 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cab;
+import com.baidu.tieba.dab;
 import com.baidu.tieba.fw4;
-import com.baidu.tieba.hs7;
+import com.baidu.tieba.is7;
 import com.baidu.tieba.j55;
 import com.baidu.tieba.kj6;
 import com.baidu.tieba.kz4;
@@ -481,7 +481,7 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new cab(spannableStringBuilder));
+                textView.setOnTouchListener(new dab(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLineForDot(textView, spannableStringBuilder, i2, i);
                 } else {
@@ -623,7 +623,7 @@ public final class ThreadCardUtils {
         if (threadData != null && spannableString != null && !rd.isEmptyStringAfterTrim(spannableString.toString())) {
             textView.setVisibility(0);
             threadData.setShowFullThread(false);
-            textView.setOnTouchListener(new cab(spannableString));
+            textView.setOnTouchListener(new dab(spannableString));
             threadData.setShowFullThread(cutAndSetTextByMaxLine(textView, new SpannableStringBuilder(spannableString), 5, (int) f));
             xl6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
@@ -817,7 +817,7 @@ public final class ThreadCardUtils {
                 createFromThreadCfg.setFromHomePageQuality(z3);
                 if (TbSingleton.getInstance().isPbPreloadSwitchOn() && isPreloadType(threadData) && !z2 && !z4) {
                     createFromThreadCfg.setNeedPreLoad(true);
-                    hs7.e(threadData);
+                    is7.e(threadData);
                 }
                 createFromThreadCfg.setThreadData(threadData);
                 createFromThreadCfg.setVideoOriginArea(rect);
@@ -917,7 +917,7 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new cab(spannableStringBuilder));
+                textView.setOnTouchListener(new dab(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLine(textView, spannableStringBuilder, 5, i);
                 } else {
@@ -943,7 +943,7 @@ public final class ThreadCardUtils {
                         spannableStringBuilder.insert(threadData.getTabName().length(), (CharSequence) TAB_NAME_SPLIT_STRING);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0203)), threadData.getTabName().length(), threadData.getTabName().length() + 5, 33);
                     }
-                    textView.setOnTouchListener(new cab(spannableStringBuilder));
+                    textView.setOnTouchListener(new dab(spannableStringBuilder));
                     setAbstractStyleAb(textView);
                     if (textView2.getVisibility() != 8) {
                         i2 = 5 - zd.a(i, textView2.getPaint(), textView2.getText().toString(), 2);
@@ -1024,7 +1024,7 @@ public final class ThreadCardUtils {
                         ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                     }
                     setAbstractStyleAb(textView);
-                    textView.setOnTouchListener(new cab(spannableStringBuilder));
+                    textView.setOnTouchListener(new dab(spannableStringBuilder));
                     textView.setVisibility(0);
                     if (z2) {
                         i3 = 2;

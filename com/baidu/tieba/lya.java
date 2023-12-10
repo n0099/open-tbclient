@@ -1,660 +1,421 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PublishProgressData;
-import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbErrInfo;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.vcode.VcodeTool;
-import com.baidu.tieba.push.PushGuideManager;
-import com.baidu.tieba.push.PushSceneItem;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.UploadedImageInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImageStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishImagesStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVideoStatData;
+import com.baidu.tieba.tbadkCore.writeModel.AsyncPublishVoiceStatData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.List;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
+import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class lya implements NewWriteModel.d {
+public class lya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewWriteModel a;
-    public boolean b;
-    public NewWriteModel.d c;
 
-    /* loaded from: classes7.dex */
-    public class a implements NewWriteModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lya a;
-
-        /* renamed from: com.baidu.tieba.lya$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0391a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WriteData a;
-            public final /* synthetic */ PostWriteCallBackData b;
-            public final /* synthetic */ a c;
-
-            public RunnableC0391a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, writeData, postWriteCallBackData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = writeData;
-                this.b = postWriteCallBackData;
+    public static float a(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (j <= 0 || j2 <= 0) {
+                return -1.0f;
             }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    PublishProgressData.valueOf(this.a, 100).send(false);
-                    if ((!rd.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) || (this.a.getVideoInfo() != null && this.a.getVideoInfo().hasUpload())) {
-                        new nya().w(this.b);
-                    } else {
-                        new nya().v(this.b, this.a);
-                    }
-                    qva.k(this.c.a.m());
-                    this.c.a.j();
-                    if (!rd.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) {
-                        this.b.mVideoMd5 = this.a.getVideoInfo().getVideoMd5();
-                        if (!rd.isEmpty(this.a.getForumName())) {
-                            this.b.mFrom = 2;
-                        }
-                    }
-                    this.c.a.u();
-                }
-            }
+            return (((float) j2) / 1024.0f) / (((float) j) / 1000.0f);
         }
+        return invokeCommon.floatValue;
+    }
 
-        public a(lya lyaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lyaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lyaVar;
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
         }
+    }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, o95 o95Var, WriteData writeData, AntiData antiData) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, o95Var, writeData, antiData}) != null) || writeData == null) {
+    public static void c(WriteData writeData, ErrorData errorData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
+            if (errorData != null && errorData.getError_code() == 5) {
                 return;
             }
-            if (z) {
-                WorkPostNotifyFlutterData notifyFlutterPostSucc = WorkPostNotifyFlutterData.notifyFlutterPostSucc(postWriteCallBackData.getVideoid());
-                notifyFlutterPostSucc.setForumId(writeData.getForumId());
-                notifyFlutterPostSucc.setForumName(writeData.getForumName());
-                notifyFlutterPostSucc.setThreadDataByWriteData(writeData);
-                notifyFlutterPostSucc.setFlutterPageId(WriteMsgHolder.getFlutterPageId());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterPostSucc));
-                int i = 3;
-                int i2 = SharedPrefHelper.getInstance().getInt("key_video_works_progress_bar_waiting_time", 3);
-                if (i2 > 0) {
-                    i = i2;
-                }
-                SafeHandler.getInst().postDelayed(new RunnableC0391a(this, writeData, postWriteCallBackData), (i + 1) * 1000);
-                WriteMsgHolder.setCurrentWriteActivityFromTag(null);
-                this.a.u();
-                return;
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            long currentTimeMillis = System.currentTimeMillis();
+            asyncPublishStatData.endTime = currentTimeMillis;
+            asyncPublishStatData.sendThreadDuration = currentTimeMillis - asyncPublishStatData.startTime;
+            if (errorData != null && errorData.getError_code() == 0) {
+                asyncPublishStatData.errorCode = 0;
+            } else if (errorData != null) {
+                asyncPublishStatData.errorCode = errorData.error_code;
+                asyncPublishStatData.errorMessage = errorData.error_msg;
+            } else {
+                asyncPublishStatData.errorCode = -17;
+                asyncPublishStatData.errorMessage = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0e70);
             }
-            if (!VcodeTool.tryShowOnWriteScene(postWriteCallBackData, o95Var, writeData, antiData)) {
-                if (postWriteCallBackData != null) {
-                    str = postWriteCallBackData.getErrorString();
+            f(asyncPublishStatData);
+            b("上传结束（endAsyncPublish）: id =" + asyncPublishStatData.startTime + "    endTime = " + asyncPublishStatData.endTime);
+        }
+    }
+
+    public static void g(WriteData writeData, VideoFinishResult videoFinishResult) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, writeData, videoFinishResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVideoStatData asyncPublishVideoStatData = asyncPublishStatData.videoData;
+            asyncPublishVideoStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveVideo = 1;
+            if (videoFinishResult == null) {
+                asyncPublishVideoStatData.errorCode = -53;
+            } else if (videoFinishResult.isSuccess()) {
+                asyncPublishVideoStatData.errorCode = 0;
+                asyncPublishVideoStatData.md5 = videoFinishResult.getVideoMd5();
+                asyncPublishVideoStatData.url = videoFinishResult.getVideoUrl();
+            } else {
+                asyncPublishVideoStatData.errorCode = videoFinishResult.getErrorNo();
+                asyncPublishVideoStatData.errorMessage = videoFinishResult.getUserMessage();
+            }
+            asyncPublishStatData.videoErrorCode = asyncPublishVideoStatData.errorCode;
+            asyncPublishStatData.videoErrorMessage = asyncPublishVideoStatData.errorMessage;
+            long j = asyncPublishVideoStatData.endTime - asyncPublishVideoStatData.startTime;
+            asyncPublishStatData.videoUploadDuration = j;
+            long j2 = asyncPublishVideoStatData.size;
+            asyncPublishStatData.videoSize = j2;
+            asyncPublishStatData.videoUploadRate = a(j, j2);
+            b("上传视频结束（endAsyncPublishVideo）: id =" + asyncPublishVideoStatData.startTime + "    endTime = " + asyncPublishVideoStatData.endTime);
+        }
+    }
+
+    public static void h(WriteData writeData, ImageUploadResult imageUploadResult) {
+        ImageUploadResult.PicDetailedInfo picDetailedInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, writeData, imageUploadResult) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().videoFirstFrame != null) {
+            AsyncPublishImageStatData asyncPublishImageStatData = writeData.getAsyncPublishStatData().videoFirstFrame;
+            asyncPublishImageStatData.endTime = System.currentTimeMillis();
+            if (imageUploadResult == null) {
+                asyncPublishImageStatData.errorCode = -53;
+            } else {
+                ImageUploadResult.picInfo picinfo = imageUploadResult.picInfo;
+                if (picinfo != null && (picDetailedInfo = picinfo.bigPic) != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                    asyncPublishImageStatData.errorCode = 0;
+                    asyncPublishImageStatData.picId = imageUploadResult.picInfo.bigPic.picUrl;
                 } else {
-                    str = "";
+                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
+                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, WorkPostNotifyFlutterData.notifyFlutterPostFail(str)));
-                new nya().t(postWriteCallBackData, o95Var, writeData, antiData);
-                WriteMsgHolder.setCurrentWriteActivityFromTag(null);
-                this.a.u();
             }
-            this.a.b = false;
+            long j = asyncPublishImageStatData.endTime - asyncPublishImageStatData.startTime;
+            asyncPublishImageStatData.uploadDuration = j;
+            asyncPublishImageStatData.uploadRate = a(j, asyncPublishImageStatData.originSize);
+            b("上传视频首帧结束（endAsyncPublishVideoFirstFrame）: id =" + asyncPublishImageStatData.startTime + "    endTime = " + asyncPublishImageStatData.endTime);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ WriteData b;
-        public final /* synthetic */ lya c;
-
-        public b(lya lyaVar, PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lyaVar, postWriteCallBackData, writeData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = lyaVar;
-            this.a = postWriteCallBackData;
-            this.b = writeData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((!rd.isEmpty(this.a.getVideoid()) && this.b.getVideoInfo() != null) || (this.b.getVideoInfo() != null && this.b.getVideoInfo().hasUpload())) {
-                    new nya().w(this.a);
-                    return;
-                }
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity != null) {
-                    boolean areNotificationsEnabled = NotificationManagerCompat.from(currentActivity).areNotificationsEnabled();
-                    boolean z = ia5.e().f;
-                    boolean z2 = ia5.e().g;
-                    if (this.b.isShareThread()) {
-                        return;
-                    }
-                    if (this.b.isQuestionThread()) {
-                        this.c.r(areNotificationsEnabled, z, this.a, this.b);
-                    } else {
-                        this.c.s(areNotificationsEnabled, z, z2, this.a, this.b);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-
-        public c(lya lyaVar, PostWriteCallBackData postWriteCallBackData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lyaVar, postWriteCallBackData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                new nya().u(JavaTypesHelper.toLong(this.a.getPostId(), 0L), JavaTypesHelper.toLong(this.a.getThreadId(), 0L), "post_success");
-                return null;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Function0<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-
-        public d(lya lyaVar, PostWriteCallBackData postWriteCallBackData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lyaVar, postWriteCallBackData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // kotlin.jvm.functions.Function0
-        /* renamed from: a */
-        public Unit invoke() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                new nya().u(JavaTypesHelper.toLong(this.a.getPostId(), 0L), JavaTypesHelper.toLong(this.a.getThreadId(), 0L), "post_question_success");
-                return null;
-            }
-            return (Unit) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final lya a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-615626252, "Lcom/baidu/tieba/lya$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-615626252, "Lcom/baidu/tieba/lya$e;");
-                    return;
-                }
-            }
-            a = new lya(null);
-        }
-    }
-
-    public lya() {
+    public static void d(WriteData writeData, ImageFileInfo imageFileInfo, ImageUploadResult imageUploadResult) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, writeData, imageFileInfo, imageUploadResult) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            asyncPublishImageStatData.endTime = currentTimeMillis;
+            long j = currentTimeMillis - asyncPublishImageStatData.endCompressTime;
+            asyncPublishImageStatData.uploadDuration = j;
+            if (j <= 0) {
+                asyncPublishImageStatData.uploadDuration = 1L;
             }
+            asyncPublishImageStatData.uploadRate = (((float) asyncPublishImageStatData.compressSize) / 1024.0f) / (((float) asyncPublishImageStatData.uploadDuration) / 1000.0f);
+            if (imageUploadResult != null) {
+                UploadedImageInfo uploadedPicInfo = imageUploadResult.getUploadedPicInfo();
+                if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
+                    asyncPublishImageStatData.errorCode = 0;
+                    asyncPublishImageStatData.picId = uploadedPicInfo.toPostString();
+                } else {
+                    asyncPublishImageStatData.errorCode = imageUploadResult.error_code;
+                    asyncPublishImageStatData.errorMessage = imageUploadResult.error_msg;
+                }
+            } else {
+                asyncPublishImageStatData.errorCode = -52;
+                asyncPublishImageStatData.errorMessage = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e70);
+            }
+            b("结束单张上传图片（endAsyncPublishImage）: path =" + imageFileInfo.getFilePath());
+            b("结束单张上传图片（网络耗时）: time = " + (asyncPublishImageStatData.endTime - asyncPublishImageStatData.endCompressTime));
         }
-        this.b = false;
-        this.c = new a(this);
-        NewWriteModel newWriteModel = new NewWriteModel();
-        this.a = newWriteModel;
-        newWriteModel.m0(this);
     }
 
-    public WriteData m() {
-        InterceptResult invokeV;
-        String draftString;
+    public static void e(WriteData writeData, ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData, errorData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishImagesStatData asyncPublishImagesStatData = asyncPublishStatData.imagesData;
+            asyncPublishImagesStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveImage = 1;
+            asyncPublishStatData.imageCount = asyncPublishImagesStatData.imageInfo.size();
+            long j = 0;
+            for (AsyncPublishImageStatData asyncPublishImageStatData : asyncPublishImagesStatData.imageInfo.values()) {
+                j += asyncPublishImageStatData.compressSize;
+            }
+            asyncPublishStatData.imageSize = j;
+            long j2 = asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime;
+            asyncPublishStatData.imageUploadDuration = j2;
+            asyncPublishStatData.imageUploadRate = a(j2, j);
+            if (errorData == null) {
+                asyncPublishImagesStatData.errorCode = 0;
+            } else {
+                asyncPublishImagesStatData.errorCode = errorData.error_code;
+                asyncPublishImagesStatData.errorMessage = errorData.error_msg;
+            }
+            asyncPublishStatData.imageErrorCode = asyncPublishImagesStatData.errorCode;
+            asyncPublishStatData.imageErrorMessage = asyncPublishImagesStatData.errorMessage;
+            b("结束上传多张图片（endAsyncPublishImages）: id =" + asyncPublishImagesStatData.startTime + "    endTime = " + asyncPublishImagesStatData.endTime);
             StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.getWriteData = ");
-            if (this.a.e0() == null) {
-                draftString = StringUtil.NULL_STRING;
-            } else {
-                draftString = this.a.e0().toDraftString();
-            }
-            sb.append(draftString);
-            mya.a(sb.toString());
-            return this.a.e0();
-        }
-        return (WriteData) invokeV.objValue;
-    }
-
-    public /* synthetic */ lya(a aVar) {
-        this();
-    }
-
-    public final boolean i(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            PushSceneItem l = PushGuideManager.l("post_question_success");
-            if (l == null) {
-                return false;
-            }
-            List<String> sceneClass = l.getSceneClass();
-            if (ListUtils.isEmpty(sceneClass)) {
-                return false;
-            }
-            return sceneClass.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(@NonNull TbPageContextSupport tbPageContextSupport) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContextSupport) == null) {
-            mya.a("AsyncWriteHelper.initWriteStatus()");
-            this.a.n0(tbPageContextSupport.getPageContext());
-            this.a.setWriteData(null);
-            this.a.k0(false);
+            sb.append("结束上传多张图片（整体耗时）: time = ");
+            sb.append(asyncPublishImagesStatData.endTime - asyncPublishImagesStatData.startTime);
+            b(sb.toString());
         }
     }
 
-    public void p(@NonNull BdPageContext bdPageContext) {
+    public static void i(WriteData writeData, q85 q85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bdPageContext) == null) {
-            mya.a("AsyncWriteHelper.onWriteActClose()");
-            NewWriteModel newWriteModel = this.a;
-            if (newWriteModel.e == bdPageContext) {
-                newWriteModel.n0(null);
-            }
-        }
-    }
-
-    public void q(@NonNull BdPageContext bdPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bdPageContext) == null) {
-            this.a.n0(bdPageContext);
-        }
-    }
-
-    public final void v(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, postWriteCallBackData) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004510, postWriteCallBackData));
-        }
-    }
-
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            mya.a("AsyncWriteHelper.setHasImage = " + z);
-            this.a.k0(z);
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.a.j0(z);
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.a.l0(z);
-        }
-    }
-
-    public static lya l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            mya.a("AsyncWriteHelper.getInstance()");
-            return e.a;
-        }
-        return (lya) invokeV.objValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            mya.a("AsyncWriteHelper.startPostWrite()");
-            boolean o0 = this.a.o0();
-            this.b = o0;
-            return o0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            mya.a("AsyncWriteHelper.cancelLoadData()");
-            this.a.cancelLoadData();
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            mya.a("AsyncWriteHelper.checkImageNum = " + this.a.c0());
-            return this.a.c0();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return PushGuideManager.e("post_success");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            FileHelper.deleteFileOrDir(new File(f6b.f));
-            qva.B("");
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            NewWriteModel newWriteModel = this.a;
-            if (newWriteModel != null) {
-                newWriteModel.setWriteData(null);
-            }
-            this.b = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, o95 o95Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, o95Var, writeData, antiData}) == null) && writeData != null && postWriteCallBackData != null) {
-            if (z) {
-                PublishProgressData.valueOf(writeData, 100).send(true);
-                if (writeData.isPutStorageTid()) {
-                    t(postWriteCallBackData.getThreadId());
-                }
-                SafeHandler.getInst().postDelayed(new b(this, postWriteCallBackData, writeData), 200L);
-                if (writeData.isRichTextEditorMode()) {
-                    if (writeData.getRichContentData() != null) {
-                        a75.b(writeData.getRichContentData().toString(), "2");
-                    }
+        if ((interceptable == null || interceptable.invokeLL(65544, null, writeData, q85Var) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().voiceData != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVoiceStatData asyncPublishVoiceStatData = asyncPublishStatData.voiceData;
+            asyncPublishVoiceStatData.endTime = System.currentTimeMillis();
+            asyncPublishStatData.haveVoice = 1;
+            if (q85Var != null && q85Var.d()) {
+                p85 a = q85Var.a();
+                if (a != null) {
+                    asyncPublishVoiceStatData.errorCode = 0;
+                    asyncPublishVoiceStatData.md5 = a.b();
                 } else {
-                    a75.b(writeData.getToServerContent(), "2");
+                    asyncPublishVoiceStatData.errorCode = q85Var.b();
+                    asyncPublishVoiceStatData.errorMessage = q85Var.c();
                 }
-                qva.k(m());
-                j();
-                v(postWriteCallBackData);
-                if (!rd.isEmpty(postWriteCallBackData.getVideoid()) && writeData.getVideoInfo() != null) {
-                    postWriteCallBackData.mVideoMd5 = writeData.getVideoInfo().getVideoMd5();
-                    if (!rd.isEmpty(writeData.getForumName())) {
-                        postWriteCallBackData.mFrom = 2;
-                    }
-                }
-                tya.a(m(), postWriteCallBackData.getThreadId());
-                PublishProgressData.valueOf(writeData, 100).send(false);
-                WriteMsgHolder.setCurrentWriteActivityFromTag(null);
-                u();
-                return;
-            }
-            PublishProgressData.valueOf(writeData, 100).send(false);
-            if (!VcodeTool.tryShowOnWriteScene(postWriteCallBackData, o95Var, writeData, antiData)) {
-                new nya().t(postWriteCallBackData, o95Var, writeData, antiData);
-                WriteMsgHolder.setCurrentWriteActivityFromTag(null);
-                u();
-            }
-            this.b = false;
-        }
-    }
-
-    public void k(boolean z, PostWriteCallBackData postWriteCallBackData, o95 o95Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, o95Var, writeData, antiData}) == null) {
-            if (writeData != null && writeData.isWork() && WriteMsgHolder.getCurrentWriteActivityFromTag() == null) {
-                this.c.callback(z, postWriteCallBackData, o95Var, writeData, antiData);
+            } else if (q85Var != null) {
+                asyncPublishVoiceStatData.errorCode = q85Var.b();
+                asyncPublishVoiceStatData.errorMessage = q85Var.c();
             } else {
-                callback(z, postWriteCallBackData, o95Var, writeData, antiData);
+                asyncPublishVoiceStatData.errorCode = TbErrInfo.ERR_VOI_SEND;
             }
+            asyncPublishStatData.voiceErrorCode = asyncPublishVoiceStatData.errorCode;
+            asyncPublishStatData.voiceErrorMessage = asyncPublishVoiceStatData.errorMessage;
+            long j = asyncPublishVoiceStatData.endTime - asyncPublishVoiceStatData.startTime;
+            asyncPublishStatData.voiceUploadDuration = j;
+            long j2 = asyncPublishVoiceStatData.size;
+            asyncPublishStatData.voiceSize = j2;
+            asyncPublishStatData.voiceUploadRate = a(j, j2);
+            b("上传声音结束（endAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.startTime + "    endTime = " + asyncPublishVoiceStatData.endTime);
         }
     }
 
-    public final void r(boolean z, boolean z2, @NonNull PostWriteCallBackData postWriteCallBackData, @NonNull WriteData writeData) {
+    public static void f(@NonNull AsyncPublishStatData asyncPublishStatData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), postWriteCallBackData, writeData}) == null) {
-            if (z && z2) {
-                new nya().v(postWriteCallBackData, writeData);
-            } else if (postWriteCallBackData.getToast() != null) {
-            } else {
-                boolean e2 = PushGuideManager.e("post_question_success");
-                String firstClass = writeData.getFirstClass();
-                if (!TextUtils.isEmpty(firstClass) && i(firstClass) && e2) {
-                    cga j = PushGuideManager.j("post_question_success");
-                    TbPageContext currentPageContext = TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity());
-                    if (j != null && currentPageContext != null) {
-                        j.e(writeData);
-                        j.k(currentPageContext, new d(this, postWriteCallBackData));
-                        return;
-                    }
-                    return;
-                }
-                new nya().v(postWriteCallBackData, writeData);
-            }
-        }
-    }
-
-    public final void s(boolean z, boolean z2, boolean z3, @NonNull PostWriteCallBackData postWriteCallBackData, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), postWriteCallBackData, writeData}) == null) {
-            if (z && z2 && z3) {
-                new nya().v(postWriteCallBackData, writeData);
-            } else if (postWriteCallBackData.getToast() != null) {
-            } else {
-                if (h()) {
-                    cga j = PushGuideManager.j("post_success");
-                    TbPageContext currentPageContext = TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity());
-                    if (j != null && currentPageContext != null) {
-                        j.e(writeData);
-                        j.k(currentPageContext, new c(this, postWriteCallBackData));
-                        return;
-                    }
-                    return;
-                }
-                new nya().v(postWriteCallBackData, writeData);
-            }
-        }
-    }
-
-    public final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, asyncPublishStatData) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("tid", str);
-                jSONObject.put("time", System.currentTimeMillis() + "");
-                String jSONObject2 = jSONObject.toString();
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONObject2.length(); i++) {
-                    char charAt = jSONObject2.charAt(i);
-                    if (charAt == '\"') {
-                        sb.append("\\\"");
-                    } else {
-                        sb.append(charAt);
-                    }
+                jSONObject.put("ext", asyncPublishStatData.toEndStatJson());
+                uBCManager.onEvent("4259", jSONObject);
+                b("【打点】-【结束】endAsyncPublishStat: id = " + asyncPublishStatData.id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            k(asyncPublishStatData);
+        }
+    }
+
+    public static void l(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, writeData) == null) && writeData != null && writeData.startPublishTime() > 0) {
+            AsyncPublishStatData asyncPublishStatData = new AsyncPublishStatData(writeData);
+            writeData.setAsyncPublishStatData(asyncPublishStatData);
+            b("开始后台上传（startAsyncPublish） id = " + asyncPublishStatData.id + "  parentId = " + asyncPublishStatData.parentId);
+            o(asyncPublishStatData);
+        }
+    }
+
+    public static void n(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, writeData) == null) && writeData != null && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            asyncPublishStatData.imagesData = new AsyncPublishImagesStatData();
+            WriteImagesInfo writeImagesInfo = writeData.getWriteImagesInfo();
+            if (writeImagesInfo != null) {
+                asyncPublishStatData.needImageParallel = writeImagesInfo.needImageParallel ? 1 : 0;
+                asyncPublishStatData.imageChunkSize = writeImagesInfo.imageChunkSize;
+                asyncPublishStatData.imageUploadConcurrency = writeImagesInfo.imageUploadConcurrency;
+                asyncPublishStatData.imageChunkRetry = writeImagesInfo.imageChunkRetry;
+            }
+            b("多张图片开始上传（startAsyncPublishImages）: startTime = " + asyncPublishStatData.imagesData.startTime);
+        }
+    }
+
+    public static void o(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, asyncPublishStatData) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", asyncPublishStatData.toClickStatJson());
+                uBCManager.onEvent("4260", jSONObject);
+                b("【打点】-【点击】startAsyncPublishStat: id = " + asyncPublishStatData.id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            t(asyncPublishStatData);
+        }
+    }
+
+    public static void t(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, asyncPublishStatData) == null) {
+            BdStatsItem statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+            statsItem.append("action", "async_publish_start");
+            statsItem.append("extId", Long.valueOf(asyncPublishStatData.id));
+            statsItem.append("parentId", Long.valueOf(asyncPublishStatData.parentId));
+            statsItem.append("startTime", Long.valueOf(asyncPublishStatData.startTime));
+            BdStatisticsManager.getInstance().performance("thread", statsItem);
+        }
+    }
+
+    public static void j(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j)}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            asyncPublishImageStatData.endCompressTime = System.currentTimeMillis();
+            asyncPublishImageStatData.compressTempPath = str;
+            asyncPublishImageStatData.compressWidth = iArr[0];
+            asyncPublishImageStatData.compressHeight = iArr[1];
+            asyncPublishImageStatData.compressSize = j;
+            b("压缩结束（endCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB");
+        }
+    }
+
+    public static void k(@NonNull AsyncPublishStatData asyncPublishStatData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, asyncPublishStatData) == null) {
+            try {
+                BdStatsItem statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+                statsItem.append("action", "async_publish_end");
+                statsItem.append("extId", Long.valueOf(asyncPublishStatData.id));
+                statsItem.append("parentId", Long.valueOf(asyncPublishStatData.parentId));
+                statsItem.append("startTime", Long.valueOf(asyncPublishStatData.startTime));
+                statsItem.append("endTime", Long.valueOf(asyncPublishStatData.endTime));
+                statsItem.append(CloudStabilityUBCUtils.KEY_ERROR_CODE, Integer.valueOf(asyncPublishStatData.errorCode));
+                statsItem.append("errorMessage", asyncPublishStatData.errorMessage);
+                statsItem.append("sendThreadDuration", Long.valueOf(asyncPublishStatData.sendThreadDuration));
+                statsItem.append("haveImage", Integer.valueOf(asyncPublishStatData.haveImage));
+                statsItem.append("haveVideo", Integer.valueOf(asyncPublishStatData.haveVideo));
+                statsItem.append("haveVoice", Integer.valueOf(asyncPublishStatData.haveVoice));
+                if (asyncPublishStatData.imagesData != null) {
+                    statsItem.append("imagesData", asyncPublishStatData.imagesData.toJson().toString());
+                    statsItem.append("imageErrorCode", Integer.valueOf(asyncPublishStatData.imageErrorCode));
+                    statsItem.append("imageErrorMessage", asyncPublishStatData.imageErrorMessage);
+                    statsItem.append("imageUploadRate", Float.valueOf(asyncPublishStatData.imageUploadRate));
+                    statsItem.append("imageUploadDuration", Long.valueOf(asyncPublishStatData.imageUploadDuration));
+                    statsItem.append("imageCount", Integer.valueOf(asyncPublishStatData.imageCount));
+                    statsItem.append("imageSize", Long.valueOf(asyncPublishStatData.imageSize));
+                    statsItem.append("needImageParallel", Integer.valueOf(asyncPublishStatData.needImageParallel));
+                    statsItem.append("imageChunkSize", Integer.valueOf(asyncPublishStatData.imageChunkSize));
+                    statsItem.append("imageUploadConcurrency", Integer.valueOf(asyncPublishStatData.imageUploadConcurrency));
+                    statsItem.append("imageChunkRetry", Integer.valueOf(asyncPublishStatData.imageChunkRetry));
                 }
-                SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-                sharedPrefHelper.putString("key_local_app_storage_fake_tid", sb.toString());
-            } catch (JSONException e2) {
-                throw new RuntimeException(e2);
+                if (asyncPublishStatData.voiceData != null) {
+                    statsItem.append("voiceData", asyncPublishStatData.voiceData.toJson().toString());
+                    statsItem.append("voiceErrorCode", Integer.valueOf(asyncPublishStatData.voiceErrorCode));
+                    statsItem.append("voiceErrorMessage", asyncPublishStatData.voiceErrorMessage);
+                    statsItem.append("voiceUploadDuration", Long.valueOf(asyncPublishStatData.voiceUploadDuration));
+                    statsItem.append("voiceUploadRate", Float.valueOf(asyncPublishStatData.voiceUploadRate));
+                }
+                if (asyncPublishStatData.videoData != null) {
+                    statsItem.append("videoData", asyncPublishStatData.videoData.toJson().toString());
+                    statsItem.append("videoErrorCode", Integer.valueOf(asyncPublishStatData.videoErrorCode));
+                    statsItem.append("videoErrorMessage", asyncPublishStatData.videoErrorMessage);
+                    statsItem.append("videoUploadRate", Float.valueOf(asyncPublishStatData.videoUploadRate));
+                    statsItem.append("videoUploadDuration", Long.valueOf(asyncPublishStatData.videoUploadDuration));
+                }
+                if (asyncPublishStatData.videoFirstFrame != null) {
+                    statsItem.append("videoFirstFrame", asyncPublishStatData.videoFirstFrame.toJson().toString());
+                }
+                BdStatisticsManager.getInstance().performance("thread", statsItem);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void z(WriteData writeData) {
-        String draftString;
+    public static void m(WriteData writeData, ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, writeData) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.setWriteData = ");
-            if (writeData == null) {
-                draftString = StringUtil.NULL_STRING;
-            } else {
-                draftString = writeData.toDraftString();
-            }
-            sb.append(draftString);
-            mya.a(sb.toString());
-            this.a.setWriteData(writeData);
-            if (writeData != null && writeData.isWork() && WriteMsgHolder.getCurrentWriteActivityFromTag() == null) {
-                this.a.m0(this.c);
-            } else {
-                this.a.m0(this);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65548, null, writeData, imageFileInfo) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null) {
+            writeData.getAsyncPublishStatData().imagesData.imageInfo.put(Long.valueOf(imageFileInfo.startUploadTime), new AsyncPublishImageStatData(imageFileInfo));
+            b("多张图片开始上传(startAsyncPublishImage): path =" + imageFileInfo.getFilePath());
+        }
+    }
+
+    public static void p(WriteData writeData, VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, writeData, videoInfo) == null) && writeData != null && videoInfo != null && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVideoStatData asyncPublishVideoStatData = new AsyncPublishVideoStatData(videoInfo);
+            asyncPublishStatData.videoData = asyncPublishVideoStatData;
+            asyncPublishVideoStatData.size = FileHelper.getFileSize(videoInfo.getVideoPath());
+            b("开始上传视频（startAsyncPublishVideo）: id =" + videoInfo.getVideoPath());
+        }
+    }
+
+    public static void q(WriteData writeData, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65552, null, writeData, str) == null) && writeData != null && !TextUtils.isEmpty(str) && writeData.getAsyncPublishStatData() != null) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishImageStatData asyncPublishImageStatData = new AsyncPublishImageStatData(str);
+            asyncPublishStatData.videoFirstFrame = asyncPublishImageStatData;
+            asyncPublishImageStatData.originSize = FileHelper.getFileSize(str);
+            b("开始上传视频首帧（startAsyncPublishVideoFirstFrame): path =" + asyncPublishStatData.videoFirstFrame.originPath);
+        }
+    }
+
+    public static void r(WriteData writeData, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLJ(65553, null, writeData, j) == null) && writeData != null && writeData.getAsyncPublishStatData() != null && !TextUtils.isEmpty(writeData.getVoice())) {
+            AsyncPublishStatData asyncPublishStatData = writeData.getAsyncPublishStatData();
+            AsyncPublishVoiceStatData asyncPublishVoiceStatData = new AsyncPublishVoiceStatData(writeData.getVoice());
+            asyncPublishVoiceStatData.size = j;
+            asyncPublishStatData.voiceData = asyncPublishVoiceStatData;
+            b("开始上传声音（startAsyncPublishVoice）: id =" + asyncPublishVoiceStatData.id);
+        }
+    }
+
+    public static void s(WriteData writeData, ImageFileInfo imageFileInfo, String str, int[] iArr, long j, boolean z, boolean z2, boolean z3, String str2) {
+        AsyncPublishImageStatData asyncPublishImageStatData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{writeData, imageFileInfo, str, iArr, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str2}) == null) && writeData != null && imageFileInfo != null && writeData.getAsyncPublishStatData() != null && writeData.getAsyncPublishStatData().imagesData != null && (asyncPublishImageStatData = writeData.getAsyncPublishStatData().imagesData.imageInfo.get(Long.valueOf(imageFileInfo.startUploadTime))) != null) {
+            asyncPublishImageStatData.startCompressTime = System.currentTimeMillis();
+            asyncPublishImageStatData.originPath = str;
+            asyncPublishImageStatData.originWidth = iArr[0];
+            asyncPublishImageStatData.originHeight = iArr[1];
+            asyncPublishImageStatData.originSize = j;
+            asyncPublishImageStatData.isLongImage = z;
+            asyncPublishImageStatData.isHeifImage = z2;
+            asyncPublishImageStatData.hasActionsWithoutResize = z3;
+            asyncPublishImageStatData.uploadImageType = str2;
+            b("开始压缩（startCompressImage）: path =" + str + "\n   w =" + iArr[0] + " h =" + iArr[1] + "  size =" + (((float) j) / 1048576.0f) + "MB\n   isLongImage =" + z + "  isHeifImage =" + z2 + " resize =" + z3 + " uploadStrategy =" + str2);
         }
     }
 }

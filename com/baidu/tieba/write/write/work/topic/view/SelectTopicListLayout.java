@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mm8;
-import com.baidu.tieba.pm8;
+import com.baidu.tieba.nm8;
+import com.baidu.tieba.qm8;
 import com.baidu.tieba.write.write.work.topic.fragment.VideoTopicListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -207,12 +207,12 @@ public class SelectTopicListLayout extends LinearLayout {
         b();
     }
 
-    public void a(mm8 mm8Var, mm8 mm8Var2, mm8 mm8Var3) {
+    public void a(nm8 nm8Var, nm8 nm8Var2, nm8 nm8Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, mm8Var, mm8Var2, mm8Var3) == null) {
-            if (mm8Var != null && !ListUtils.isEmpty(mm8Var.b())) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, nm8Var, nm8Var2, nm8Var3) == null) {
+            if (nm8Var != null && !ListUtils.isEmpty(nm8Var.b())) {
                 this.a.setVisibility(0);
-                this.d.e(mm8Var.c());
+                this.d.e(nm8Var.c());
             } else {
                 this.a.setVisibility(8);
             }
@@ -221,14 +221,14 @@ public class SelectTopicListLayout extends LinearLayout {
                     int i = fragmentTabStructure.type;
                     if (i == 1) {
                         VideoTopicListFragment videoTopicListFragment = (VideoTopicListFragment) fragmentTabStructure.frag;
-                        if (mm8Var3 != null && mm8Var3.c() != null) {
-                            pm8 pm8Var = new pm8("", 0L, false);
-                            pm8Var.n(true);
-                            mm8Var3.c().add(0, pm8Var);
+                        if (nm8Var3 != null && nm8Var3.c() != null) {
+                            qm8 qm8Var = new qm8("", 0L, false);
+                            qm8Var.n(true);
+                            nm8Var3.c().add(0, qm8Var);
                         }
-                        videoTopicListFragment.J2(mm8Var3);
+                        videoTopicListFragment.J2(nm8Var3);
                     } else if (i == 2) {
-                        ((VideoTopicListFragment) fragmentTabStructure.frag).J2(mm8Var2);
+                        ((VideoTopicListFragment) fragmentTabStructure.frag).J2(nm8Var2);
                     }
                 }
             }

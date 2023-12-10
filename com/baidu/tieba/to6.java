@@ -41,7 +41,7 @@ public final class to6 implements j37.k {
         if (interceptable == null || interceptable.invokeLLL(65537, null, view2, state, view3) == null) {
             Intrinsics.checkNotNullParameter(view2, "$view");
             Intrinsics.checkNotNullParameter(state, "$state");
-            ya7.c(((VoteView) view2).getContext(), state.d().g());
+            za7.c(((VoteView) view2).getContext(), state.d().g());
         }
     }
 

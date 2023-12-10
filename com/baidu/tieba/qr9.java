@@ -1,375 +1,175 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.data.FaceData;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class qr9 extends BaseAdapter {
+public class qr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FaceData> a;
-    public Context b;
-    public jj5 c;
-    public int d;
-    public int e;
-    public c f;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void N();
-
-        void e0(FaceData faceData);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public ImageView b;
-        public final /* synthetic */ qr9 c;
-
-        /* loaded from: classes7.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c.f != null && view2.getTag(view2.getId()) != null && (view2.getTag(view2.getId()) instanceof FaceData) && ((FaceData) view2.getTag(view2.getId())).type == 4) {
-                    this.a.c.f.N();
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c.f != null && view2.getTag() != null && (view2.getTag() instanceof FaceData)) {
-                    this.a.c.f.e0((FaceData) view2.getTag());
-                }
-            }
-        }
-
-        public d(qr9 qr9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101585, "Lcom/baidu/tieba/qr9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = qr9Var;
-        }
-
-        public final void b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910fc);
-                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908c4);
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.width = this.c.d;
-                layoutParams.height = this.c.d;
-                SkinManager.setImageResource(this.b, R.drawable.icon_live_close_n);
-                this.a.setOnClickListener(new a(this));
-                this.b.setOnClickListener(new b(this));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BdResourceCallback<BdImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ d b;
-
-        public a(qr9 qr9Var, ViewGroup viewGroup, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qr9Var, viewGroup, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-            this.b = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
-            View findViewWithTag;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && bdImage != null && (findViewWithTag = this.a.findViewWithTag(str)) != null && (findViewWithTag instanceof TbImageView) && str != null) {
-                bdImage.drawImageTo(this.b.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements gj5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-
-        public b(qr9 qr9Var, ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qr9Var, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = viewGroup;
-        }
-
-        @Override // com.baidu.tieba.gj5
-        public void a(BdImage bdImage, String str, boolean z) {
-            TbImageView tbImageView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLZ(1048576, this, bdImage, str, z) == null) && (tbImageView = (TbImageView) this.a.findViewWithTag(str)) != null && bdImage != null) {
-                bdImage.drawImageTo(tbImageView);
-            }
-        }
-    }
-
-    public qr9(List<FaceData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101585, "Lcom/baidu/tieba/qr9;");
                 return;
             }
         }
-        this.b = BdBaseApplication.getInst().getApp();
-        this.a = list;
-        this.c = new jj5();
-        int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.b);
-        this.e = equipmentWidth;
-        this.d = (equipmentWidth - (BdUtilHelper.getDimens(this.b, R.dimen.obfuscated_res_0x7f070201) * 3)) / 4;
+        a = ir9.c + "draft/";
+        b = a + "upload_draft";
     }
 
-    public void f(c cVar) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<FaceData> list = this.a;
-            if (list != null && i < list.size()) {
-                return this.a.get(i);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists()) {
+                file.delete();
             }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    public final void c(ImageFileInfo imageFileInfo, ViewGroup viewGroup, d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, imageFileInfo, viewGroup, dVar) == null) && imageFileInfo != null) {
-            imageFileInfo.clearPageActions();
-            int i = this.d;
-            imageFileInfo.addPageAction(tj5.g(i, i));
-            BdImage c2 = this.c.c(imageFileInfo, false);
-            dVar.a.setTag(imageFileInfo.toCachedKey(false));
-            if (c2 != null) {
-                c2.drawImageTo(dVar.a);
-                dVar.a.setTag(null);
-            } else {
-                this.c.e(imageFileInfo, new b(this, viewGroup), false, false);
-            }
-            dVar.b.setVisibility(0);
         }
     }
 
-    public final void d(EmotionImageData emotionImageData, ViewGroup viewGroup, d dVar) {
-        BdImage bdImage;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionImageData, viewGroup, dVar) == null) && emotionImageData != null) {
-            Object loadResource = BdResourceLoader.getInstance().loadResource(emotionImageData.getThumbUrl(), 20, new a(this, viewGroup, dVar), 0, 0, null, null, emotionImageData.getThumbUrl(), Boolean.FALSE, null);
-            if (loadResource != null && (loadResource instanceof BdImage)) {
-                bdImage = (BdImage) loadResource;
-            } else {
-                bdImage = null;
-            }
-            if (bdImage != null) {
-                bdImage.drawImageTo(dVar.a);
-                dVar.a.setTag(null);
-            }
-            dVar.b.setVisibility(0);
-        }
-    }
-
-    public final void e(EmotionImageData emotionImageData, d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, emotionImageData, dVar) == null) && emotionImageData != null) {
-            dVar.a.setTag(emotionImageData.getThumbUrl());
-            dVar.a.startLoad(emotionImageData.getThumbUrl(), 10, false);
-            dVar.b.setVisibility(0);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
+    public static FaceGroupDraft b() {
         InterceptResult invokeV;
+        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<FaceData> list = this.a;
-            if (list != null) {
-                return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b);
+            ?? r2 = 0;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            r2 = null;
+            FaceGroupDraft faceGroupDraft2 = null;
+            r2 = null;
+            r2 = null;
+            ObjectInputStream objectInputStream = null;
+            try {
+                if (!file.exists()) {
+                    return null;
+                }
+                try {
+                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
+                    try {
+                        Object readObject = objectInputStream2.readObject();
+                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
+                            faceGroupDraft2 = (FaceGroupDraft) readObject;
+                        }
+                        objectInputStream2.close();
+                        BdCloseHelper.close((InputStream) objectInputStream2);
+                        return faceGroupDraft2;
+                    } catch (IOException e) {
+                        e = e;
+                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft3;
+                        e.printStackTrace();
+                        BdCloseHelper.close((InputStream) objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (ClassNotFoundException e2) {
+                        e = e2;
+                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft4;
+                        e.printStackTrace();
+                        BdCloseHelper.close((InputStream) objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    } catch (Throwable th) {
+                        th = th;
+                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
+                        objectInputStream = objectInputStream2;
+                        faceGroupDraft = faceGroupDraft5;
+                        th.printStackTrace();
+                        BdCloseHelper.close((InputStream) objectInputStream);
+                        r2 = faceGroupDraft;
+                        return r2;
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                    faceGroupDraft = null;
+                } catch (ClassNotFoundException e4) {
+                    e = e4;
+                    faceGroupDraft = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    faceGroupDraft = null;
+                }
+            } catch (Throwable th3) {
+                BdCloseHelper.close((InputStream) r2);
+                throw th3;
             }
-            return 0;
+        } else {
+            return (FaceGroupDraft) invokeV.objValue;
         }
-        return invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        d dVar;
+    public static void c(FaceGroupDraft faceGroupDraft) {
+        ObjectOutputStream objectOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                dVar = new d(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ed, (ViewGroup) null);
-                dVar.b(view3);
-                view3.setTag(dVar);
-            } else {
-                view3 = view2;
-                dVar = (d) view2.getTag();
-            }
-            FaceData faceData = this.a.get(i);
-            if (faceData != null) {
-                int i2 = faceData.type;
-                if (i2 == 4) {
-                    SkinManager.setImageResource(dVar.a, R.drawable.emotion_icon_add_pic);
-                    dVar.b.setVisibility(8);
-                } else if (i2 == 1) {
-                    dVar.a.setImageDrawable(null);
-                    d(faceData.emotionImageData, viewGroup, dVar);
-                } else if (i2 == 2) {
-                    dVar.a.setImageDrawable(null);
-                    e(faceData.emotionImageData, dVar);
-                } else {
-                    dVar.a.setImageDrawable(null);
-                    c(faceData.imageFileInfo, viewGroup, dVar);
+        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(a);
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    a();
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
+                } finally {
+                    BdCloseHelper.close((OutputStream) objectOutputStream2);
                 }
-                TbImageView tbImageView = dVar.a;
-                tbImageView.setTag(tbImageView.getId(), faceData);
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Throwable th) {
+                th = th;
             }
-            dVar.b.setTag(faceData);
-            return view3;
+            try {
+                objectOutputStream.writeObject(faceGroupDraft);
+                BdCloseHelper.close((OutputStream) objectOutputStream);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (IOException e4) {
+                e = e4;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                th.printStackTrace();
+            }
         }
-        return (View) invokeILL.objValue;
     }
 }

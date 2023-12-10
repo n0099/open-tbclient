@@ -27,12 +27,12 @@ public class da7 {
         }
         HashMap<String, Class> hashMap = new HashMap<>();
         a = hashMap;
-        hashMap.put("common_icon", ea7.class);
+        hashMap.put("text_with_bg", ia7.class);
+        a.put("common_text", fa7.class);
+        a.put("emoji", ga7.class);
+        a.put("common_icon", ea7.class);
         a.put("text_with_hollow_bg", ja7.class);
         a.put("tie_plus", ka7.class);
-        a.put("emoji", ga7.class);
-        a.put("text_with_bg", ia7.class);
-        a.put("common_text", fa7.class);
     }
 
     public static HashMap<String, Class> a() {

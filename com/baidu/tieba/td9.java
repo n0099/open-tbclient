@@ -1,137 +1,123 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.impersonal.data.Extra;
-import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class td9<SdkMsg extends ChatMsg, T> implements wd9<SdkMsg, ub9<T>> {
+public final class td9 extends rd9<VoiceMsgContent, ChatVoiceView, ob9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public abstract int c();
-
-    public abstract SdkMsg e(T t);
-
-    public abstract T g(SdkMsg sdkmsg);
-
-    public td9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public td9(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+    }
+
+    public static final boolean l(ob9 data, View it) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
+            Intrinsics.checkNotNullParameter(data, "$data");
+            Function2<View, vb9<VoiceMsgContent>, Unit> d = data.d();
+            if (d != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                d.invoke(it, data.c());
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rd9
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            int i = this.b;
+            int i2 = this.d;
+            container.setPadding(i, i2, this.c, i2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rd9
+    /* renamed from: k */
+    public void d(ChatVoiceView chatVoiceView, final ob9 data) {
+        VoiceData.VoiceModel d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (chatVoiceView != null) {
+                chatVoiceView.g(true, !data.c().e().e());
+                VoiceMsgContent f = data.c().f();
+                if (f != null && (d = f.d()) != null) {
+                    chatVoiceView.setData(d);
+                }
+                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.kd9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnLongClickListener
+                    public final boolean onLongClick(View view2) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? td9.l(ob9.this, view2) : invokeL.booleanValue;
+                    }
+                });
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wd9
-    /* renamed from: d */
-    public SdkMsg b(ub9<T> msg) {
+    @Override // com.baidu.tieba.rd9
+    /* renamed from: m */
+    public ChatVoiceView g(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            SdkMsg e = e(msg.f());
-            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.n.a())));
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("type", c());
-            jSONObject.put("from", "android");
-            e.setContentExtra(jSONObject.toString());
-            return e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
+            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090f2a);
+            chatVoiceView.setOnClickListener(chatVoiceView);
+            return chatVoiceView;
         }
-        return (SdkMsg) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wd9
-    /* renamed from: f */
-    public ub9<T> a(SdkMsg msg) {
-        InterceptResult invokeL;
-        Extra extra;
-        String jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            ub9<T> ub9Var = new ub9<>();
-            ub9Var.i(g(msg));
-            ub9Var.c(msg.getMsgId());
-            String msgKey = msg.getMsgKey();
-            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
-            ub9Var.d(msgKey);
-            ub9Var.e().m(msg.getContacterUk());
-            ub9Var.e().l(wwb.c(msg.getSenderUid(), 0L));
-            ub9Var.e().j(msg.getStatus());
-            ub9Var.j(msg);
-            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
-            ub9Var.e().i(isSelf);
-            if (!isSelf) {
-                ub9Var.e().h(TbSingleton.getInstance().getFunnySpriteAvatar());
-                ub9Var.e().g(TbSingleton.getInstance().getFunnySpriteName());
-            } else {
-                ub9Var.e().h(TbadkCoreApplication.getCurrentPortrait());
-                ub9Var.e().g(TbadkCoreApplication.getCurrentAccountNameShow());
-            }
-            if (!StringUtils.isNull(msg.getContentExtra())) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(msg.getContentExtra());
-                    ub9Var.e().k(jSONObject2.optInt("type"));
-                    ub9Var.e().f(jSONObject2.optString("from"));
-                } catch (JSONException e) {
-                    if (!TbadkApplication.getInst().isDebugMode()) {
-                        e.printStackTrace();
-                    } else {
-                        throw e;
-                    }
-                }
-            }
-            String msgContent = msg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
-            }
-            if (!rd.isEmpty(msgContent)) {
-                try {
-                    JSONObject jSONObject3 = new JSONObject(msgContent);
-                    tb9 g = ub9Var.g();
-                    String optString = jSONObject3.optString("origin_msg_key");
-                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
-                    g.d(optString);
-                    JSONObject optJSONObject = jSONObject3.optJSONObject("extra");
-                    tb9 g2 = ub9Var.g();
-                    if (optJSONObject != null && (jSONObject = optJSONObject.toString()) != null) {
-                        Intrinsics.checkNotNullExpressionValue(jSONObject, "toString()");
-                        extra = (Extra) DataExt.toEntityNullable(jSONObject, Extra.class);
-                    } else {
-                        extra = null;
-                    }
-                    g2.c(extra);
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            }
-            return ub9Var;
-        }
-        return (ub9) invokeL.objValue;
+        return (ChatVoiceView) invokeL.objValue;
     }
 }

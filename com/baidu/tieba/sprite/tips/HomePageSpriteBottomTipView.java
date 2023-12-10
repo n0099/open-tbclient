@@ -32,19 +32,19 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hsa;
+import com.baidu.tieba.a2b;
+import com.baidu.tieba.isa;
 import com.baidu.tieba.lk5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.nt5;
-import com.baidu.tieba.pma;
+import com.baidu.tieba.qma;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
 import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.tieba.sq6;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.x85;
-import com.baidu.tieba.y5b;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -225,7 +225,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
         this.e = (TextView) findViewById3;
         h();
         this.f = new b(this, this);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fsa
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gsa
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,7 +272,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
     public final void g(SpriteTipHttpResponseMessage spriteTipHttpResponseMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, spriteTipHttpResponseMessage) == null) && spriteTipHttpResponseMessage.getScene() == 4) {
-            z1b.j.a().k(true);
+            a2b.j.a().k(true);
         }
     }
 
@@ -347,7 +347,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
                 z2 = false;
                 if (z2) {
                     this.e.setText(StringHelper.cutChineseAndEnglishWithSuffix(spriteTipHttpResponseMessage.getButtonInfo().a, 8, (String) null));
-                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.esa
+                    this.e.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fsa
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -450,7 +450,7 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             }
             Context context = getContext();
             if (context != null) {
-                pma.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
+                qma.b(((TbPageContextSupport) context).getPageContext(), new String[]{b2});
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.TbPageContextSupport");
@@ -468,22 +468,22 @@ public final class HomePageSpriteBottomTipView extends LinearLayout {
             if (pureDrawable != null) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
                 pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
-                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new hsa(pureDrawable), (Drawable) null);
+                this.e.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, new isa(pureDrawable), (Drawable) null);
             }
             SpriteTipHttpResponseMessage spriteTipHttpResponseMessage = this.b;
             if (spriteTipHttpResponseMessage != null) {
                 ThemeColorInfo textColorTheme = spriteTipHttpResponseMessage.getTextColorTheme();
                 if (textColorTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(textColorTheme, "textColorTheme");
-                    int f = tua.f(y5b.e(textColorTheme));
-                    if (!tua.e(f)) {
+                    int f = uua.f(z5b.e(textColorTheme));
+                    if (!uua.e(f)) {
                         this.d.setTextColor(f);
                     }
                 }
                 ThemeColorInfo bgUrlTheme = spriteTipHttpResponseMessage.getBgUrlTheme();
                 if (bgUrlTheme != null) {
                     Intrinsics.checkNotNullExpressionValue(bgUrlTheme, "bgUrlTheme");
-                    str = y5b.g(bgUrlTheme);
+                    str = z5b.g(bgUrlTheme);
                 } else {
                     str = null;
                 }

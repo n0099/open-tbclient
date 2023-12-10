@@ -1,63 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b68 {
+public class b68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947597029, "Lcom/baidu/tieba/b68;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947597029, "Lcom/baidu/tieba/b68;");
-        }
-    }
-
-    @JvmStatic
-    public static final void a(TbPageContext<?> tbPageContext) {
-        FrsActivity frsActivity;
-        boolean z;
-        FrsFragment n1;
+    public static PackageInfo a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, tbPageContext) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
-        FrsActivity frsActivity2 = null;
-        if (pageActivity instanceof FrsActivity) {
-            frsActivity = (FrsActivity) pageActivity;
-        } else {
-            frsActivity = null;
-        }
-        if (frsActivity != null) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            frsActivity2 = frsActivity;
-        }
-        if (frsActivity2 != null && (n1 = frsActivity2.n1()) != null) {
-            fp5.a.h(n1.getUniqueId());
-        }
+        return (PackageInfo) invokeL.objValue;
     }
 }

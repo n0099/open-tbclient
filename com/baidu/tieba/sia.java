@@ -8,8 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
 public final class sia {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 2131099660;
-    public static int b = 2131099745;
+    public static int a = 2131099672;
+    public static int b = 2131167587;
+    public static int c = 2131167797;
+    public static int d = 2131167910;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

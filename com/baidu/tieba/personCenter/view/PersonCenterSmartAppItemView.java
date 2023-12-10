@@ -27,10 +27,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
-import com.baidu.tieba.c9a;
 import com.baidu.tieba.d9a;
-import com.baidu.tieba.r8a;
+import com.baidu.tieba.e9a;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.s8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public r8a d;
+    public s8a d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -117,30 +117,30 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         c();
     }
 
-    public void a(r8a r8aVar) {
+    public void a(s8a s8aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, r8aVar) != null) || r8aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, s8aVar) != null) || s8aVar == null) {
             return;
         }
-        this.d = r8aVar;
+        this.d = s8aVar;
         this.c.setVisibility(8);
-        if (r8aVar instanceof d9a) {
-            d9a d9aVar = (d9a) r8aVar;
-            this.a.startLoad(d9aVar.c(), 10, false, false);
-            String g = d9aVar.g();
+        if (s8aVar instanceof e9a) {
+            e9a e9aVar = (e9a) s8aVar;
+            this.a.startLoad(e9aVar.c(), 10, false, false);
+            String g = e9aVar.g();
             if (!rd.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
                 this.b.setText(R.string.intelligent_smart_app);
             }
-            if (r8aVar.getType() == 1) {
+            if (s8aVar.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (r8aVar instanceof c9a) {
+        } else if (s8aVar instanceof d9a) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
             this.b.setText(R.string.obfuscated_res_0x7f0f0cdf);
             setOnClickListener(this);
@@ -173,23 +173,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            r8a r8aVar = this.d;
-            if (r8aVar instanceof d9a) {
-                d9a d9aVar = (d9a) r8aVar;
-                if (!TbAiappsLaunchUtil.launch(d9aVar.b(), d9aVar.f(), "1191000600000000", d9aVar.e())) {
-                    if (rd.isEmpty(d9aVar.d())) {
+            s8a s8aVar = this.d;
+            if (s8aVar instanceof e9a) {
+                e9a e9aVar = (e9a) s8aVar;
+                if (!TbAiappsLaunchUtil.launch(e9aVar.b(), e9aVar.f(), "1191000600000000", e9aVar.e())) {
+                    if (rd.isEmpty(e9aVar.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{d9aVar.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{e9aVar.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", d9aVar.a().longValue());
-                statisticItem.param("obj_name", d9aVar.g());
-                statisticItem.param("obj_param1", d9aVar.e().intValue());
+                statisticItem.param("obj_id", e9aVar.a().longValue());
+                statisticItem.param("obj_name", e9aVar.g());
+                statisticItem.param("obj_param1", e9aVar.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (r8aVar instanceof c9a) {
+            } else if (s8aVar instanceof d9a) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());

@@ -82,12 +82,12 @@ public class i06 implements gg1<vl5> {
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void h(int i, @Nullable vl8 vl8Var) {
+        public void h(int i, @Nullable wl8 wl8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, vl8Var) == null) && this.c != null) {
-                if (vl8Var != null) {
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, wl8Var) == null) && this.c != null) {
+                if (wl8Var != null) {
                     ArrayList arrayList = new ArrayList();
-                    for (um6 um6Var : vl8Var.a) {
+                    for (um6 um6Var : wl8Var.a) {
                         if (um6Var instanceof um6) {
                             ThreadData threadData = um6Var.getThreadData();
                             if (!TextUtils.equals(threadData.getTid(), "0")) {
@@ -95,7 +95,7 @@ public class i06 implements gg1<vl5> {
                             }
                         }
                     }
-                    this.c.b(arrayList, vl8Var.e());
+                    this.c.b(arrayList, wl8Var.e());
                 }
                 this.c.a();
             }

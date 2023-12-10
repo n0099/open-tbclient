@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e3b;
-import com.baidu.tieba.h3b;
+import com.baidu.tieba.f3b;
 import com.baidu.tieba.i3b;
+import com.baidu.tieba.j3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,9 +24,9 @@ import tbclient.GetThemeList.ThemeList;
 public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i3b mRecommand;
-    public List<e3b> mThemeCarouselList;
-    public List<h3b> mThemeList;
+    public j3b mRecommand;
+    public List<f3b> mThemeCarouselList;
+    public List<i3b> mThemeList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupCenterSocketResponseMessage() {
@@ -46,16 +46,16 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public i3b getRecommand() {
+    public j3b getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mRecommand;
         }
-        return (i3b) invokeV.objValue;
+        return (j3b) invokeV.objValue;
     }
 
-    public List<e3b> getThemeCarouselList() {
+    public List<f3b> getThemeCarouselList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -64,7 +64,7 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<h3b> getThemeList() {
+    public List<i3b> getThemeList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -94,9 +94,9 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
                     this.mThemeCarouselList = new ArrayList();
                     for (ThemeCarousel themeCarousel : getThemeListResIdl.data.carousel) {
                         if (themeCarousel != null && (!StringUtils.isNull(themeCarousel.pic_url) || !StringUtils.isNull(themeCarousel.active_url))) {
-                            e3b e3bVar = new e3b();
-                            e3bVar.a(themeCarousel);
-                            this.mThemeCarouselList.add(e3bVar);
+                            f3b f3bVar = new f3b();
+                            f3bVar.a(themeCarousel);
+                            this.mThemeCarouselList.add(f3bVar);
                         }
                     }
                 }
@@ -104,16 +104,16 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
                     this.mThemeList = new ArrayList();
                     for (ThemeList themeList : getThemeListResIdl.data.theme_list) {
                         if (themeList != null && !StringUtils.isNull(themeList.name)) {
-                            h3b h3bVar = new h3b();
-                            h3bVar.e(themeList);
-                            this.mThemeList.add(h3bVar);
+                            i3b i3bVar = new i3b();
+                            i3bVar.e(themeList);
+                            this.mThemeList.add(i3bVar);
                         }
                     }
                 }
                 if (getThemeListResIdl.data.recommend != null) {
-                    i3b i3bVar = new i3b();
-                    this.mRecommand = i3bVar;
-                    i3bVar.d(getThemeListResIdl.data.recommend);
+                    j3b j3bVar = new j3b();
+                    this.mRecommand = j3bVar;
+                    j3bVar.d(getThemeListResIdl.data.recommend);
                 }
             }
             return getThemeListResIdl;
@@ -121,21 +121,21 @@ public class DressupCenterSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public void setRecommand(i3b i3bVar) {
+    public void setRecommand(j3b j3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i3bVar) == null) {
-            this.mRecommand = i3bVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j3bVar) == null) {
+            this.mRecommand = j3bVar;
         }
     }
 
-    public void setThemeCarouselList(List<e3b> list) {
+    public void setThemeCarouselList(List<f3b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.mThemeCarouselList = list;
         }
     }
 
-    public void setThemeList(List<h3b> list) {
+    public void setThemeList(List<i3b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             this.mThemeList = list;

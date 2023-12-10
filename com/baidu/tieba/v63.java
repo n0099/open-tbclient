@@ -31,11 +31,11 @@ public final class v63 {
 
         /* renamed from: com.baidu.tieba.v63$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0496a extends y63<a> {
+        public static class C0497a extends y63<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0496a() {
+            public C0497a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class v63 {
                     return;
                 }
             }
-            e = new C0496a();
+            e = new C0497a();
             f = new b();
         }
 

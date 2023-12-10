@@ -27,7 +27,7 @@ import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
 import com.baidu.tieba.i27;
 import com.baidu.tieba.k27;
 import com.baidu.tieba.p55;
-import com.baidu.tieba.rr9;
+import com.baidu.tieba.sr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -338,7 +338,7 @@ public class EmotionRecommendFragment extends BaseFragment implements i27 {
     public final void K2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (rr9.l().r()) {
+            if (sr9.l().r()) {
                 k27 k27Var = this.a;
                 if (k27Var != null) {
                     k27Var.t();

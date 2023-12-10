@@ -38,7 +38,7 @@ public final class hw6 extends m15 {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(data, "data");
-            if ((context instanceof Activity) && (context instanceof j0b)) {
+            if ((context instanceof Activity) && (context instanceof k0b)) {
                 EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
                 if (b != null) {
                     new EasterEggAdController((Activity) context).o(b);

@@ -35,7 +35,7 @@ public final class j51 extends h51 implements x51 {
 
         /* renamed from: com.baidu.tieba.j51$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class RunnableC0363a implements Runnable {
+        public static final class RunnableC0361a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -43,7 +43,7 @@ public final class j51 extends h51 implements x51 {
             public final /* synthetic */ String c;
             public final /* synthetic */ String d;
 
-            public RunnableC0363a(a aVar, AbsNadBrowserView absNadBrowserView, String str, String str2) {
+            public RunnableC0361a(a aVar, AbsNadBrowserView absNadBrowserView, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public final class j51 extends h51 implements x51 {
             AbsNadBrowserView m;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (m = this.a.e.m()) != null) {
-                m.post(new RunnableC0363a(this, m, str2, str));
+                m.post(new RunnableC0361a(this, m, str2, str));
             }
         }
     }

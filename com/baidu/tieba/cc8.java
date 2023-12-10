@@ -7,7 +7,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cc8 extends ci<ic8, ThreadCardViewHolder<ic8>> implements e26 {
+public class cc8 extends ci<rbb, ThreadCardViewHolder<rbb>> implements e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -64,21 +63,21 @@ public class cc8 extends ci<ic8, ThreadCardViewHolder<ic8>> implements e26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public ThreadCardViewHolder<ic8> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<rbb> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.a.getPageActivity(), false);
-            tc8 tc8Var = new tc8(this.a);
-            tc8Var.o(this.b);
-            bVar.n(tc8Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+            gbb gbbVar = new gbb(this.a);
+            gbbVar.s(2);
+            gbbVar.o(this.b);
+            bVar.n(gbbVar);
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
             bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<ic8> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<rbb> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
             return threadCardViewHolder;
         }
@@ -88,11 +87,12 @@ public class cc8 extends ci<ic8, ThreadCardViewHolder<ic8>> implements e26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ic8 ic8Var, ThreadCardViewHolder<ic8> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rbb rbbVar, ThreadCardViewHolder<rbb> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ic8Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(ic8Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rbbVar, threadCardViewHolder})) == null) {
+            rbbVar.o(i);
+            threadCardViewHolder.e(rbbVar);
             if (threadCardViewHolder.a() != null) {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.a().b(this.d);

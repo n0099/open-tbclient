@@ -14,8 +14,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m08;
 import com.baidu.tieba.n08;
+import com.baidu.tieba.o08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes6.dex */
-public class HeaderComponentMultiView extends FrameLayout implements n08 {
+public class HeaderComponentMultiView extends FrameLayout implements o08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements n08 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.n08
+    @Override // com.baidu.tieba.o08
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,13 +108,13 @@ public class HeaderComponentMultiView extends FrameLayout implements n08 {
         b();
     }
 
-    @Override // com.baidu.tieba.n08
-    public void a(List<LiveFuseForumData> list, m08 m08Var) {
+    @Override // com.baidu.tieba.o08
+    public void a(List<LiveFuseForumData> list, n08 n08Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, m08Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, n08Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.o(m08Var);
+        this.d.o(n08Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -137,7 +137,7 @@ public class HeaderComponentMultiView extends FrameLayout implements n08 {
         }
     }
 
-    @Override // com.baidu.tieba.n08
+    @Override // com.baidu.tieba.o08
     public void f() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;

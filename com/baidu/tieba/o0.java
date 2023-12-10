@@ -183,7 +183,7 @@ public class o0 extends j0 {
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             super.k(context, attributeSet);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ve7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, we7.DslTabLayout);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…R.styleable.DslTabLayout)");
             this.s = obtainStyledAttributes.getDimensionPixelOffset(48, this.s);
             this.t = obtainStyledAttributes.getDimensionPixelOffset(38, this.t);

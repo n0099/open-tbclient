@@ -14,15 +14,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qla implements yb7 {
+public final class qla implements zb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK : (String) invokeV.objValue;
     }
 
     public qla() {
@@ -35,11 +36,13 @@ public final class qla implements yb7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -77,8 +80,20 @@ public final class qla implements yb7 {
                 str2 = hdid;
             }
             linkedHashMap.put("hdid", str2);
+            linkedHashMap.put("obj_locate", this.a);
             return linkedHashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public final qla b(String objLocate) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objLocate)) == null) {
+            Intrinsics.checkNotNullParameter(objLocate, "objLocate");
+            this.a = objLocate;
+            return this;
+        }
+        return (qla) invokeL.objValue;
     }
 }

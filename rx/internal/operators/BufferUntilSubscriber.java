@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.doc;
 import com.baidu.tieba.eoc;
-import com.baidu.tieba.etc;
-import com.baidu.tieba.joc;
-import com.baidu.tieba.jtc;
-import com.baidu.tieba.qoc;
+import com.baidu.tieba.foc;
+import com.baidu.tieba.ftc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.ktc;
+import com.baidu.tieba.roc;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class BufferUntilSubscriber<T> extends etc<T, T> {
-    public static final eoc d = new a();
+public final class BufferUntilSubscriber<T> extends ftc<T, T> {
+    public static final foc d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes2.dex */
-    public static class a implements eoc {
-        @Override // com.baidu.tieba.eoc
+    public static class a implements foc {
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onNext(Object obj) {
         }
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements doc.a<T> {
+    public static final class b<T> implements eoc.a<T> {
         public final State<T> a;
 
         /* loaded from: classes2.dex */
-        public class a implements qoc {
+        public class a implements roc {
             public a() {
             }
 
-            @Override // com.baidu.tieba.qoc
+            @Override // com.baidu.tieba.roc
             public void call() {
                 b.this.a.set(BufferUntilSubscriber.d);
             }
@@ -49,12 +49,12 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super T> jocVar) {
+        public void call(koc<? super T> kocVar) {
             boolean z;
-            if (this.a.casObserverRef(null, jocVar)) {
-                jocVar.b(jtc.a(new a()));
+            if (this.a.casObserverRef(null, kocVar)) {
+                kocVar.b(ktc.a(new a()));
                 synchronized (this.a.guard) {
                     z = true;
                     if (!this.a.emitting) {
@@ -80,7 +80,7 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
                     }
                 }
             } else {
-                jocVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                kocVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -89,7 +89,7 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
         return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onCompleted() {
         if (this.c) {
             this.b.get().onCompleted();
@@ -99,14 +99,14 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicReference<eoc<? super T>> {
+    public static final class State<T> extends AtomicReference<foc<? super T>> {
         public static final long serialVersionUID = 8026705089538090368L;
         public boolean emitting;
         public final Object guard = new Object();
         public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
 
-        public boolean casObserverRef(eoc<? super T> eocVar, eoc<? super T> eocVar2) {
-            return compareAndSet(eocVar, eocVar2);
+        public boolean casObserverRef(foc<? super T> focVar, foc<? super T> focVar2) {
+            return compareAndSet(focVar, focVar2);
         }
     }
 
@@ -115,7 +115,7 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onError(Throwable th) {
         if (this.c) {
             this.b.get().onError(th);
@@ -124,7 +124,7 @@ public final class BufferUntilSubscriber<T> extends etc<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onNext(T t) {
         if (this.c) {
             this.b.get().onNext(t);

@@ -4,44 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
+import tbclient.RewardMaterial;
 /* loaded from: classes8.dex */
-public class t7d extends ktc {
+public class t7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RobotEntrance robotEntrance) {
+    public static JSONObject b(@NonNull RewardMaterial rewardMaterial) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, robotEntrance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rewardMaterial)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (robotEntrance.robot_skill_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RobotSkillInfo robotSkillInfo : robotEntrance.robot_skill_info) {
-                    jSONArray.put(v7d.b(robotSkillInfo));
-                }
-                ktc.a(jSONObject, "robot_skill_info", jSONArray);
-            }
-            if (robotEntrance.bottom_bar_robot_skill != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (RobotSkill robotSkill : robotEntrance.bottom_bar_robot_skill) {
-                    jSONArray2.put(u7d.b(robotSkill));
-                }
-                ktc.a(jSONObject, "bottom_bar_robot_skill", jSONArray2);
-            }
-            if (robotEntrance.first_floor_bar_robot_skill != null) {
-                JSONArray jSONArray3 = new JSONArray();
-                for (RobotSkill robotSkill2 : robotEntrance.first_floor_bar_robot_skill) {
-                    jSONArray3.put(u7d.b(robotSkill2));
-                }
-                ktc.a(jSONObject, "first_floor_bar_robot_skill", jSONArray3);
-            }
-            ktc.a(jSONObject, "bottom_bar_click_guide", robotEntrance.bottom_bar_click_guide);
+            ltc.a(jSONObject, "icon", rewardMaterial.icon);
+            ltc.a(jSONObject, "unlock_level", rewardMaterial.unlock_level);
+            ltc.a(jSONObject, "is_matched", rewardMaterial.is_matched);
+            ltc.a(jSONObject, "is_newest_matched_level", rewardMaterial.is_newest_matched_level);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

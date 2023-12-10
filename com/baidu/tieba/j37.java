@@ -164,7 +164,7 @@ public final class j37 {
     }
 
     /* loaded from: classes6.dex */
-    public interface r extends pda {
+    public interface r extends qda {
         void j(@NonNull b57 b57Var);
 
         void onBackground(boolean z);
@@ -201,7 +201,7 @@ public final class j37 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public int getCurrentPosition() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -211,7 +211,7 @@ public final class j37 {
                     return invokeV.intValue;
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public String getPlayUrl() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -221,7 +221,7 @@ public final class j37 {
                     return (String) invokeV.objValue;
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public View getVideoContainer() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -231,7 +231,7 @@ public final class j37 {
                     return (View) invokeV.objValue;
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public boolean isFullScreen() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public final class j37 {
                     return invokeV.booleanValue;
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public boolean isPlayStarted() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -251,7 +251,7 @@ public final class j37 {
                     return invokeV.booleanValue;
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public boolean isPlaying() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -289,14 +289,14 @@ public final class j37 {
                     }
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public void startPlay() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                     }
                 }
 
-                @Override // com.baidu.tieba.pda
+                @Override // com.baidu.tieba.qda
                 public void stopPlay() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
@@ -443,7 +443,7 @@ public final class j37 {
 
         /* renamed from: com.baidu.tieba.j37$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0361c implements h {
+        public class C0359c implements h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -454,7 +454,7 @@ public final class j37 {
                 }
             }
 
-            public C0361c(c cVar) {
+            public C0359c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -940,7 +940,7 @@ public final class j37 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0361c(this);
+                return new C0359c(this);
             }
             return (h) invokeV.objValue;
         }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.FragmentTabStructure;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt7;
+import com.baidu.tieba.ht7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,14 +69,14 @@ public class FrsGameStrategyFragmentDelegateStatic extends FragmentDelegate {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            gt7 gt7Var = (gt7) customResponsedMessage.getData();
+            ht7 ht7Var = (ht7) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            gt7Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (gt7Var.b() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
+            ht7Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (ht7Var.b() == null || (fragmentTabStructure = frsGameStrategyFragmentDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", gt7Var.e());
+            bundle.putString("name", ht7Var.e());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());

@@ -57,12 +57,12 @@ public class pb3 extends vb3<e> {
 
             /* renamed from: com.baidu.tieba.pb3$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0437a implements fb3 {
+            public class C0439a implements fb3 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0437a(a aVar) {
+                public C0439a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class pb3 extends vb3<e> {
                 if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing()) {
                     return;
                 }
-                ib3.u(this.a, this.c.c.N(), this.b, null, new C0437a(this));
+                ib3.u(this.a, this.c.c.N(), this.b, null, new C0439a(this));
             }
         }
 

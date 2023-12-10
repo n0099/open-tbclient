@@ -35,7 +35,7 @@ public class at5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements roc<String> {
+    public class a implements soc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -59,7 +59,7 @@ public class at5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(String str) {
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public class at5 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements roc<String> {
+    public class b implements soc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -106,7 +106,7 @@ public class at5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(String str) {
             Interceptable interceptable = $ic;
@@ -190,7 +190,7 @@ public class at5 {
     public static void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            doc.n("").s(Schedulers.io()).H(new a(str));
+            eoc.n("").s(Schedulers.io()).H(new a(str));
         }
     }
 
@@ -211,7 +211,7 @@ public class at5 {
     public static void p(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-            doc.n("").s(Schedulers.io()).H(new b(z));
+            eoc.n("").s(Schedulers.io()).H(new b(z));
         }
     }
 

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.BDLayoutMode;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.qoc;
+import com.baidu.tieba.roc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -228,14 +228,14 @@ public class GamePlayServiceView extends RelativeLayout {
         }
     }
 
-    public void g(boolean z, qoc qocVar) {
+    public void g(boolean z, roc rocVar) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048581, this, z, qocVar) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048581, this, z, rocVar) == null) {
             this.d = z;
             if (z && (linearLayout = this.h) != null) {
                 linearLayout.setVisibility(0);
-                qocVar.call();
+                rocVar.call();
             }
         }
     }

@@ -25,12 +25,12 @@ import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.lna;
+import com.baidu.tieba.mna;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdSocketResponseMessage;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public lna a;
+    public mna a;
     public int b;
     public BlueCircleProgressDialog c;
     public NetMessageListener d;
@@ -253,7 +253,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new lna(this);
+            this.a = new mna(this);
             M0();
             registerListener(this.d);
             initData();
@@ -276,8 +276,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vva.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            vva.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            wva.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            wva.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 

@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.dxa;
 import com.baidu.tieba.exa;
 import com.baidu.tieba.fxa;
-import com.baidu.tieba.hxa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.ixa;
 import com.baidu.tieba.qj6;
 import com.baidu.tieba.xs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class PaymentJsBridgePlugin_Proxy extends dxa {
+public class PaymentJsBridgePlugin_Proxy extends exa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xs4 mJsBridge;
@@ -51,33 +51,33 @@ public class PaymentJsBridgePlugin_Proxy extends dxa {
         hashSet.add(CommonTbJsBridge.OPEN_VIP_SUCCESS);
     }
 
-    @Override // com.baidu.tieba.dxa
-    public fxa dispatch(WebView webView, hxa hxaVar, fxa fxaVar) {
+    @Override // com.baidu.tieba.exa
+    public gxa dispatch(WebView webView, ixa ixaVar, gxa gxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, hxaVar, fxaVar)) == null) {
-            if (fxaVar == null) {
-                fxaVar = new fxa();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ixaVar, gxaVar)) == null) {
+            if (gxaVar == null) {
+                gxaVar = new gxa();
             }
-            String b = hxaVar.b();
-            JSONObject e = hxaVar.e();
+            String b = ixaVar.b();
+            JSONObject e = ixaVar.e();
             if (b.equals("payment/openMXDYab")) {
-                fxaVar.s(true);
-                fxa c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
+                gxaVar.s(true);
+                gxa c = this.mJsBridge.c(webView, e.optString(PushConstants.PARAMS));
                 if (c != null) {
-                    fxaVar.y(c.f());
-                    fxaVar.u(c.b());
-                    fxaVar.o(c.a());
-                    fxaVar.x(c.e());
+                    gxaVar.y(c.f());
+                    gxaVar.u(c.b());
+                    gxaVar.o(c.a());
+                    gxaVar.x(c.e());
                 }
-                fxaVar.z(0);
+                gxaVar.z(0);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.dxa
+    @Override // com.baidu.tieba.exa
     public qj6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,37 +87,37 @@ public class PaymentJsBridgePlugin_Proxy extends dxa {
         return (qj6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dxa
-    public List<fxa> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.exa
+    public List<gxa> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            fxa fxaVar = null;
+            gxa gxaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.OPEN_VIP_SUCCESS)) {
-                fxaVar = this.mJsBridge.d(webView, hashMap);
+                gxaVar = this.mJsBridge.d(webView, hashMap);
             }
-            if (fxaVar != null) {
-                fxaVar.z(0);
+            if (gxaVar != null) {
+                gxaVar.z(0);
             }
-            List<exa> list = this.mAsyncCallBackMethodList.get(str);
-            if (fxaVar != null && list != null) {
-                Iterator<exa> it = list.iterator();
-                if (!TextUtils.isEmpty(fxaVar.e())) {
+            List<fxa> list = this.mAsyncCallBackMethodList.get(str);
+            if (gxaVar != null && list != null) {
+                Iterator<fxa> it = list.iterator();
+                if (!TextUtils.isEmpty(gxaVar.e())) {
                     while (it.hasNext()) {
-                        exa next = it.next();
-                        if (next.b().equals(fxaVar.e())) {
-                            fxa fxaVar2 = new fxa();
-                            fxaVar2.w(next.a());
-                            fxaVar2.y(fxaVar.f());
-                            fxaVar2.u(fxaVar.b());
-                            fxaVar2.o(fxaVar.a());
-                            fxaVar2.j = fxaVar.j;
-                            fxaVar2.A(fxaVar.l());
-                            arrayList.add(fxaVar2);
+                        fxa next = it.next();
+                        if (next.b().equals(gxaVar.e())) {
+                            gxa gxaVar2 = new gxa();
+                            gxaVar2.w(next.a());
+                            gxaVar2.y(gxaVar.f());
+                            gxaVar2.u(gxaVar.b());
+                            gxaVar2.o(gxaVar.a());
+                            gxaVar2.j = gxaVar.j;
+                            gxaVar2.A(gxaVar.l());
+                            arrayList.add(gxaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -125,15 +125,15 @@ public class PaymentJsBridgePlugin_Proxy extends dxa {
                     }
                 } else {
                     while (it.hasNext()) {
-                        exa next2 = it.next();
-                        fxa fxaVar3 = new fxa();
-                        fxaVar3.w(next2.a());
-                        fxaVar3.y(fxaVar.f());
-                        fxaVar3.u(fxaVar.b());
-                        fxaVar3.o(fxaVar.a());
-                        fxaVar3.j = fxaVar.j;
-                        fxaVar3.A(fxaVar.l());
-                        arrayList.add(fxaVar3);
+                        fxa next2 = it.next();
+                        gxa gxaVar3 = new gxa();
+                        gxaVar3.w(next2.a());
+                        gxaVar3.y(gxaVar.f());
+                        gxaVar3.u(gxaVar.b());
+                        gxaVar3.o(gxaVar.a());
+                        gxaVar3.j = gxaVar.j;
+                        gxaVar3.A(gxaVar.l());
+                        arrayList.add(gxaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

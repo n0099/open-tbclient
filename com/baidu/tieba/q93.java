@@ -37,7 +37,7 @@ public class q93 extends kx1 {
 
         /* renamed from: com.baidu.tieba.q93$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0449a implements Runnable {
+        public class RunnableC0448a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -47,18 +47,18 @@ public class q93 extends kx1 {
 
             /* renamed from: com.baidu.tieba.q93$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class C0450a implements zd4 {
+            public class C0449a implements zd4 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0449a b;
+                public final /* synthetic */ RunnableC0448a b;
 
-                public C0450a(RunnableC0449a runnableC0449a, String str) {
+                public C0449a(RunnableC0448a runnableC0448a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0449a, str};
+                        Object[] objArr = {runnableC0448a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class q93 extends kx1 {
                             return;
                         }
                     }
-                    this.b = runnableC0449a;
+                    this.b = runnableC0448a;
                     this.a = str;
                 }
 
@@ -80,8 +80,8 @@ public class q93 extends kx1 {
                             k32.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0449a runnableC0449a = this.b;
-                        runnableC0449a.d.a.A(map.get(this.b.b), this.a, runnableC0449a.c);
+                        RunnableC0448a runnableC0448a = this.b;
+                        runnableC0448a.d.a.A(map.get(this.b.b), this.a, runnableC0448a.c);
                     }
                 }
 
@@ -94,7 +94,7 @@ public class q93 extends kx1 {
                 }
             }
 
-            public RunnableC0449a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0448a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,7 +122,7 @@ public class q93 extends kx1 {
                     boolean g = zi4.e().g(!ek3.G());
                     String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
                     if (g) {
-                        ud4.e(Collections.singletonList(this.b), q93.f.c(), new C0450a(this, optString));
+                        ud4.e(Collections.singletonList(this.b), q93.f.c(), new C0449a(this, optString));
                     } else {
                         this.d.a.A(this.b, optString, this.c);
                     }
@@ -160,7 +160,7 @@ public class q93 extends kx1 {
                 if (!q93.f.a(1)) {
                     return new ly1(402, "over single max limit");
                 }
-                ej3.h().execute(new RunnableC0449a(this, jSONObject, optString, str), "PreloadPackageApi");
+                ej3.h().execute(new RunnableC0448a(this, jSONObject, optString, str), "PreloadPackageApi");
                 return ly1.f();
             }
             return (ly1) invokeLLL.objValue;

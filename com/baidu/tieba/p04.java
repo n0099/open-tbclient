@@ -197,12 +197,12 @@ public class p04 implements o04 {
 
         /* renamed from: com.baidu.tieba.p04$e$e  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0419e implements ad4 {
+        public class C0421e implements ad4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0419e(e eVar) {
+            public C0421e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -261,7 +261,7 @@ public class p04 implements o04 {
                     this.b.a.setOnCompletionListener(this.b.e, new b(this));
                     this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
                     this.b.a.setOnErrorListener(this.b.e, new d(this));
-                    this.b.a.setOnPauseListener(this.b.e, new C0419e(this));
+                    this.b.a.setOnPauseListener(this.b.e, new C0421e(this));
                     this.b.a.prepare(this.b.e);
                 }
             }

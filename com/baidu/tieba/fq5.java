@@ -129,7 +129,7 @@ public class fq5 extends l6 {
             httpMessage.addParam("extra", SharedPrefHelper.getInstance().getString("key_sync_extra_field", ""));
             httpMessage.addParam("device_score", String.valueOf(ScheduleStrategy.getDeviceScore()));
             httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
-            if (rfa.b()) {
+            if (sfa.b()) {
                 if (TbadkCoreApplication.getInst().getImei() != null) {
                     httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 }
@@ -147,29 +147,29 @@ public class fq5 extends l6 {
                     httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 }
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, rfa.c());
-                String g = rfa.g(HttpRequest.PHONE_IMEI);
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, sfa.c());
+                String g = sfa.g(HttpRequest.PHONE_IMEI);
                 if (!TextUtils.isEmpty(g)) {
-                    httpMessage.addParam(g, rfa.f());
+                    httpMessage.addParam(g, sfa.f());
                 }
-                String g2 = rfa.g("oaid");
+                String g2 = sfa.g("oaid");
                 if (!TextUtils.isEmpty(g2)) {
-                    httpMessage.addParam(g2, rfa.i());
+                    httpMessage.addParam(g2, sfa.i());
                 }
-                String g3 = rfa.g("model");
+                String g3 = sfa.g("model");
                 if (!TextUtils.isEmpty(g3)) {
-                    httpMessage.addParam(g3, rfa.h());
+                    httpMessage.addParam(g3, sfa.h());
                 }
-                String g4 = rfa.g("brand");
+                String g4 = sfa.g("brand");
                 if (!TextUtils.isEmpty(g4)) {
-                    httpMessage.addParam(g4, rfa.e());
+                    httpMessage.addParam(g4, sfa.e());
                 }
-                String g5 = rfa.g(HttpRequest.ANDROID_ID);
+                String g5 = sfa.g(HttpRequest.ANDROID_ID);
                 if (!TextUtils.isEmpty(g5)) {
-                    httpMessage.addParam(g5, rfa.d());
+                    httpMessage.addParam(g5, sfa.d());
                 }
             }
-            if (qfa.b()) {
+            if (rfa.b()) {
                 if (ComplianceParmasHelper.isNeedChange(tbHttpMessageTask.getUrl())) {
                     httpMessage.addParam(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     return;
@@ -178,10 +178,10 @@ public class fq5 extends l6 {
                     return;
                 }
             }
-            httpMessage.addParam("need_cam_decrypt", qfa.c());
-            String d = qfa.d("mac");
+            httpMessage.addParam("need_cam_decrypt", rfa.c());
+            String d = rfa.d("mac");
             if (!TextUtils.isEmpty(d)) {
-                httpMessage.addParam(d, qfa.e());
+                httpMessage.addParam(d, rfa.e());
             }
         }
     }
@@ -205,13 +205,13 @@ public class fq5 extends l6 {
             httpMessage.addCookie("need_cookie_decrypt", "0");
             httpMessage.addCookie("TBBRAND", "");
             httpMessage.addCookie("DNARBBT", "");
-            if (pfa.b()) {
+            if (qfa.b()) {
                 httpMessage.addCookie("TBBRAND", DeviceInfoHelper.getModel());
             } else {
-                httpMessage.addCookie("need_cookie_decrypt", pfa.c());
-                String d = pfa.d("TBBRAND");
+                httpMessage.addCookie("need_cookie_decrypt", qfa.c());
+                String d = qfa.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    httpMessage.addCookie(d, pfa.e());
+                    httpMessage.addCookie(d, qfa.e());
                 }
             }
             httpMessage.addCookie("CUID", TbadkCoreApplication.getInst().getCuid());

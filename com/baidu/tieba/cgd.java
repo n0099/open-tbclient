@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.view.View;
+import android.view.Window;
+import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes5.dex */
-public interface cgd extends bgd {
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+public interface cgd {
+    void attachWindow(Window window);
+
+    View getContentView();
+
+    void refreshView();
+
+    void refreshWindow(WindowParams windowParams);
 }

@@ -1,28 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import java.util.List;
-import java.util.Map;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatMessageDispatchService.java */
 /* loaded from: classes7.dex */
-public interface o19 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatMessageDispatchService");
+public final /* synthetic */ class o19 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(@NonNull Map<Long, ChatRoomInfo> map);
+    @Nullable
+    public static p19 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (p19) ServiceManager.getService(p19.a);
+        }
+        return (p19) invokeV.objValue;
     }
-
-    void a(@NonNull bl5 bl5Var);
-
-    void b(@NonNull Context context, int i);
-
-    void c(long j, @NonNull List<ChatRoomInfo> list);
-
-    void d(@NonNull a aVar);
-
-    void onDestroy();
 }

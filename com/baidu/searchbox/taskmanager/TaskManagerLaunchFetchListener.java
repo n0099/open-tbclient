@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.idlehelp.IdleHandlerManager;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.iy9;
+import com.baidu.tieba.jy9;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.q35;
 import com.baidu.tieba.tblauncher.SchemaRouteActivity;
@@ -37,13 +37,13 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
             if (TextUtils.equals(str, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = iy9.a().b();
+                    z = jy9.a().b();
                     q35.a().a = z;
                 }
             }
             if (TextUtils.equals(str, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = iy9.a().b();
+                    z = jy9.a().b();
                     q35.a().a = z;
                 }
             }

@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.im.base.core.uilist.BaseItem;
-import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public interface u29 {
-    void a(int i, @Nullable BaseItem<? extends TbBaseMsg> baseItem, @Nullable Object obj);
+    void b(int i, @Nullable Map<String, Object> map);
 }

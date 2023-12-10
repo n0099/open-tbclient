@@ -19,7 +19,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class c57 extends z47 implements rb7<c57> {
+public final class c57 extends z47 implements sb7<c57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final c67 g;
@@ -33,7 +33,7 @@ public final class c57 extends z47 implements rb7<c57> {
     public final Function3<View, l67, c57, Unit> o;
     public final Function2<t67, View, Unit> p;
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -163,7 +163,7 @@ public final class c57 extends z47 implements rb7<c57> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public /* bridge */ /* synthetic */ c57 b() {
         m();
         return this;

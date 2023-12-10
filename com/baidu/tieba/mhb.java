@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
@@ -16,7 +17,7 @@ public final class mhb extends BaseDraftBiz {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mhb(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, ugb writePageState) {
+    public mhb(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, vgb writePageState) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,7 +29,7 @@ public final class mhb extends BaseDraftBiz {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,7 +46,11 @@ public final class mhb extends BaseDraftBiz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.s();
-            qva.D(t(), k(), true);
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                rva.v(t(), null);
+            } else {
+                rva.F(k().getTopicId(), null);
+            }
         }
     }
 
@@ -53,15 +58,23 @@ public final class mhb extends BaseDraftBiz {
     public void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qva.s(t(), this);
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                rva.l(t(), this);
+            } else {
+                rva.u(k().getTopicId(), this);
+            }
         }
     }
 
     @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
     public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            qva.D(t(), k(), false);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && 13 != k().getType() && 14 != k().getType() && 12 != k().getType()) {
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                rva.v(t(), k());
+            } else {
+                rva.F(k().getTopicId(), k());
+            }
         }
     }
 }

@@ -148,7 +148,7 @@ public class ia5 {
     public void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            oxa.r();
+            pxa.r();
         }
     }
 
@@ -295,7 +295,7 @@ public class ia5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
-            oxa.n();
+            pxa.n();
         }
     }
 

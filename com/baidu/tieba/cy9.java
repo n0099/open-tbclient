@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.widget.ImageView;
 /* loaded from: classes5.dex */
-public interface cy9 {
-    ViewGroup.LayoutParams getLayoutParams();
+public interface cy9 extends dy9 {
+    void setScaleType(ImageView.ScaleType scaleType);
 
-    void setVisibility(int i);
+    void startLoad(String str);
+
+    void startLoad(String str, int i, boolean z);
 }

@@ -1,129 +1,222 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.widget.TbClipImageView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.view.ImageOverlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ShortUserInfo;
 /* loaded from: classes9.dex */
-public class z28 {
+public class z28 implements y28, x28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public TbClipImageView e;
+    public uva f;
+    public ImageView g;
+    public ImageOverlayView h;
+    public FrsViewData i;
+    public View.OnClickListener j;
 
-    public static void a(StatisticItem statisticItem, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
+    /* loaded from: classes9.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z28 a;
 
-    public static void b(Context context, tva tvaVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, context, tvaVar) != null) || tvaVar == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        uva uvaVar = tvaVar.f;
-        if (uvaVar != null) {
-            TbAiappsLaunchUtil.launch(uvaVar.b, uvaVar.c, "1191003700000000", uvaVar.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(tvaVar.d)) {
-                str = tvaVar.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = tvaVar.d;
+        public a(z28 z28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+            this.a = z28Var;
         }
-        r68.a(tbPageContext, tvaVar.e);
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.f != null && "tiebaclient://accelerator".equals(this.a.f.d)) {
+                    CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new lu7(3));
+                    CustomMessage customMessage = new CustomMessage(2921662);
+                    customMessage.setTag(this.a.i.getFrsFragmentTag());
+                    customResponsedMessage.setOrginalMessage(customMessage);
+                    MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                }
+                if (TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a54), this.a.f.b) && this.a.i != null && this.a.i.getForum() != null && !TextUtils.isEmpty(this.a.i.getForum().getId())) {
+                    HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
+                    hotUserRankActivityConfig.setForumId(Long.valueOf(JavaTypesHelper.toLong(this.a.i.getForum().getId(), 0L)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
+                    StatisticItem statisticItem = new StatisticItem("c13666");
+                    statisticItem.param("fid", this.a.i.getForum().getId());
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                if (this.a.f != null && this.a.f.f != null) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.f.g).param("obj_source", "frs_card").param("obj_id", this.a.f.f.b).param("obj_name", this.a.f.f.a).param("obj_param1", this.a.f.f.d.intValue()));
+                }
+                if (this.a.f != null && !"tiebaclient://accelerator".equals(this.a.f.d)) {
+                    a38.b(view2.getContext(), this.a.f);
+                }
+                a38.c(this.a.f);
+            }
+        }
     }
 
-    public static void c(tva tvaVar) {
-        int i;
-        String str;
+    public z28(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, tvaVar) != null) || tvaVar == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", tvaVar.g);
-        if (tvaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
-        }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", tvaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        uva uvaVar = tvaVar.f;
-        if (uvaVar != null) {
-            str = uvaVar.c;
-        } else {
-            str = tvaVar.d;
-        }
-        uva uvaVar2 = tvaVar.f;
-        if (uvaVar2 != null) {
-            String str2 = uvaVar2.a;
-        } else {
-            String str3 = tvaVar.c;
-        }
-        statisticItem.param("obj_name", tvaVar.c);
-        statisticItem.param("obj_param1", tvaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(tvaVar.i, 1));
+        this.j = new a(this);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03b6, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090dcd);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090dcf);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090dd1);
+        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090dd0);
+        this.e = tbClipImageView;
+        tbClipImageView.setDrawerType(1);
+        this.e.setIsRound(true);
+        this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57);
+        int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
+        int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds15);
+        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f091108);
+        this.h = imageOverlayView;
+        imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
+        this.h.setStrokeStyle(1);
+        this.h.setLoadImageType(12);
+        this.a.setOnClickListener(this.j);
+        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090dce);
     }
 
-    public static void d(tva tvaVar) {
-        int i;
-        String str;
+    @Override // com.baidu.tieba.y28
+    public void a(tva tvaVar, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, tvaVar) != null) || tvaVar == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, tvaVar, frsViewData) == null) && tvaVar != null && !ListUtils.isEmpty(tvaVar.b)) {
+            this.i = frsViewData;
+            uva uvaVar = tvaVar.b.get(0);
+            if (uvaVar == null) {
+                return;
+            }
+            this.f = uvaVar;
+            if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a54), this.f.b)) {
+                this.c.setText(this.a.getContext().getString(R.string.forum_exclusive));
+            } else {
+                this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f088d));
+                this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0a27));
+            }
+            this.d.setText(StringHelper.cutStringWithEllipsisStrict(uvaVar.c, 20));
+            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a54), uvaVar.b)) {
+                this.h.setVisibility(0);
+                this.e.setVisibility(8);
+                f(frsViewData);
+            } else {
+                this.e.startLoad(uvaVar.b, 10, false);
+                this.e.setVisibility(0);
+                this.h.setVisibility(8);
+            }
+            a38.d(uvaVar);
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", tvaVar.g);
-        if (tvaVar.f == null) {
-            i = 1;
-        } else {
-            i = 2;
+    }
+
+    @Override // com.baidu.tieba.x28
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(BdUtilHelper.getDimens(getView().getContext(), R.dimen.tbds10)).defaultColorValue(i).into(this.b);
         }
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", tvaVar.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        uva uvaVar = tvaVar.f;
-        if (uvaVar != null) {
-            str = uvaVar.c;
-        } else {
-            str = tvaVar.d;
+    }
+
+    @Override // com.baidu.tieba.y28
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
+            WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.h.d();
         }
-        uva uvaVar2 = tvaVar.f;
-        if (uvaVar2 != null) {
-            String str2 = uvaVar2.a;
-        } else {
-            String str3 = tvaVar.c;
+    }
+
+    public final boolean f(FrsViewData frsViewData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, frsViewData)) == null) {
+            if (frsViewData.getHotUserRankData() != null && frsViewData.getHotUserRankData().hot_user != null && frsViewData.getHotUserRankData().hot_user.size() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (ShortUserInfo shortUserInfo : frsViewData.getHotUserRankData().hot_user) {
+                    if (shortUserInfo != null) {
+                        arrayList.add(shortUserInfo.portrait);
+                    }
+                }
+                this.h.setData(arrayList);
+                return false;
+            }
+            return true;
         }
-        statisticItem.param("obj_name", tvaVar.c);
-        statisticItem.param("obj_param1", tvaVar.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(tvaVar.i, 0));
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.y28
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (View) invokeV.objValue;
     }
 }

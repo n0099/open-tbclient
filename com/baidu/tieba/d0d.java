@@ -5,20 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Forum;
+import tbclient.FrsPage.ForumButton;
 /* loaded from: classes5.dex */
-public class d0d extends ktc {
+public class d0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Forum forum) {
+    public static JSONObject b(@NonNull ForumButton forumButton) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forum)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, forumButton)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "forum_id", forum.forum_id);
-            ktc.a(jSONObject, "level1_dir_name", forum.level1_dir_name);
+            ltc.a(jSONObject, "is_blueV", forumButton.is_blueV);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

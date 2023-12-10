@@ -27,7 +27,7 @@ public class w56 implements IAdDownloader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements oe7 {
+    public class a implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @NonNull
@@ -54,7 +54,7 @@ public class w56 implements IAdDownloader {
             this.b = sh0Var;
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) {
@@ -67,7 +67,7 @@ public class w56 implements IAdDownloader {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -76,7 +76,7 @@ public class w56 implements IAdDownloader {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData) == null) {
@@ -84,7 +84,7 @@ public class w56 implements IAdDownloader {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
@@ -97,7 +97,7 @@ public class w56 implements IAdDownloader {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
@@ -111,7 +111,7 @@ public class w56 implements IAdDownloader {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(@NonNull DownloadData downloadData, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, downloadData, i) == null) {

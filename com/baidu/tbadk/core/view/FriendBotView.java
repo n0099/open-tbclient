@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ax4;
-import com.baidu.tieba.bu9;
+import com.baidu.tieba.cu9;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -557,7 +557,7 @@ public class FriendBotView extends RelativeLayout {
         Map<String, Long> b2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = bu9.b()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = cu9.b()) == null) {
             return;
         }
         Iterator<Map.Entry<String, Long>> it = b2.entrySet().iterator();
@@ -579,7 +579,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map<String, Long> b2 = bu9.b();
+            Map<String, Long> b2 = cu9.b();
             if (b2 != null && b2.containsKey(str)) {
                 long currentTimeMillis = System.currentTimeMillis() - b2.get(str).longValue();
                 if (currentTimeMillis >= 0 && currentTimeMillis < 30000) {
@@ -597,7 +597,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map b2 = bu9.b();
+            Map b2 = cu9.b();
             if (b2 == null) {
                 b2 = new HashMap();
             }

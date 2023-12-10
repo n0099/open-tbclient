@@ -69,8 +69,8 @@ public class h06 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && vha.m().j() != null) {
-                vha.m().j().b();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && wha.m().j() != null) {
+                wha.m().j().b();
             }
         }
     }
@@ -228,8 +228,8 @@ public class h06 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (vha.m().j() != null) {
-            vha.m().j().c();
+        if (wha.m().j() != null) {
+            wha.m().j().c();
         }
     }
 
@@ -253,7 +253,7 @@ public class h06 {
                 BaseVM.m(7);
                 return false;
             }
-            pha j3 = vha.m().j();
+            qha j3 = wha.m().j();
             if (j3 != null) {
                 i = j3.a();
             } else {

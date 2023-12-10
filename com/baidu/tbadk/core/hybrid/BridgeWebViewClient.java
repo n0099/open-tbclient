@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
 import com.baidu.tieba.gs4;
 import com.baidu.tieba.ok6;
-import com.baidu.tieba.tga;
 import com.baidu.tieba.uga;
 import com.baidu.tieba.vga;
 import com.baidu.tieba.w35;
+import com.baidu.tieba.wga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -343,7 +343,7 @@ public class BridgeWebViewClient extends WebViewClient {
                 return super.shouldInterceptRequest(webView, webResourceRequest);
             } else if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
                 String uri = webResourceRequest.getUrl().toString();
-                if (tga.s(uri)) {
+                if (uga.s(uri)) {
                     WebViewClient webViewClient2 = this.a;
                     if (webViewClient2 != null) {
                         return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
@@ -352,7 +352,7 @@ public class BridgeWebViewClient extends WebViewClient {
                 }
                 try {
                     String path = new URL(uri).getPath();
-                    vga c = uga.a().c(path);
+                    wga c = vga.a().c(path);
                     if (c == null) {
                         if (this.a != null) {
                             return this.a.shouldInterceptRequest(webView, webResourceRequest);
@@ -369,7 +369,7 @@ public class BridgeWebViewClient extends WebViewClient {
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     } else {
-                        String str = (tga.n().m() + "/" + c.b + "/" + tga.n().p(c.b) + "/") + uga.a().e(path);
+                        String str = (uga.n().m() + "/" + c.b + "/" + uga.n().p(c.b) + "/") + vga.a().e(path);
                         File file = new File(str);
                         try {
                             BufferedSource buffer = Okio.buffer(Okio.source(file));

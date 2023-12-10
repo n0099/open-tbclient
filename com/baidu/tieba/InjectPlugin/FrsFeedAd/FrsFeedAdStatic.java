@@ -13,8 +13,8 @@ import com.baidu.tieba.n06;
 import com.baidu.tieba.o06;
 import com.baidu.tieba.p06;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.rha;
 import com.baidu.tieba.s06;
+import com.baidu.tieba.sha;
 import com.baidu.tieba.t06;
 import com.baidu.tieba.u06;
 import com.baidu.tieba.v06;
@@ -62,10 +62,10 @@ public class FrsFeedAdStatic {
             b16 b16Var;
             t06 c;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b16) || (c = (b16Var = (b16) customResponsedMessage.getData()).c()) == null || !(c instanceof rha)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b16) || (c = (b16Var = (b16) customResponsedMessage.getData()).c()) == null || !(c instanceof sha)) {
                 return;
             }
-            rha rhaVar = (rha) c;
+            sha shaVar = (sha) c;
             s06 T1 = c.T1(1);
             if (T1 == null) {
                 v06 a = w06.b().a(1);
@@ -74,7 +74,7 @@ public class FrsFeedAdStatic {
                 }
                 T1 = a.a();
                 c.f1(1, T1);
-                T1.f(new u06(rhaVar), b16Var.i());
+                T1.f(new u06(shaVar), b16Var.i());
             }
             if (!(T1 instanceof p06)) {
                 return;
@@ -84,8 +84,8 @@ public class FrsFeedAdStatic {
                 List list = (List) b16Var.f();
                 n06.b(p06Var.d());
                 for (BdUniqueId bdUniqueId : n06.c()) {
-                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(rhaVar, bdUniqueId);
-                    frsFeedAdAdapter.setPageContext(rhaVar.I());
+                    FrsFeedAdAdapter frsFeedAdAdapter = new FrsFeedAdAdapter(shaVar, bdUniqueId);
+                    frsFeedAdAdapter.setPageContext(shaVar.I());
                     list.add(frsFeedAdAdapter);
                 }
             } else if (b16Var.a() == 2) {

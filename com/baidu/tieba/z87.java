@@ -20,10 +20,10 @@ import tbclient.LayoutFactory;
 import tbclient.SidewayLayout;
 import tbclient.SidewayRecomComponent;
 /* loaded from: classes9.dex */
-public final class z87 implements a97<LayoutFactory>, xb7 {
+public final class z87 implements a97<LayoutFactory>, yb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends yb7> a;
+    public Map<String, ? extends zb7> a;
 
     public z87() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public final class z87 implements a97<LayoutFactory>, xb7 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.a97
     /* renamed from: a */
-    public rb7<?> b(LayoutFactory layoutFactory) {
+    public sb7<?> b(LayoutFactory layoutFactory) {
         InterceptResult invokeL;
         SidewayLayout sidewayLayout;
         boolean z;
@@ -80,17 +80,17 @@ public final class z87 implements a97<LayoutFactory>, xb7 {
                 }
                 if (!z) {
                     v57 v57Var = new v57();
-                    v57Var.b(va7.a.a(layoutFactory.sideway.business_info));
+                    v57Var.b(wa7.a.a(layoutFactory.sideway.business_info));
                     e87 c = c("concern_reco_show", v57Var);
                     t77 t77Var = new t77();
                     for (ComponentFactory componentFactory : layoutFactory.sideway.components) {
                         if (Intrinsics.areEqual("sideway_recom", componentFactory.component) && (sidewayRecomComponent = componentFactory.sideway_recom) != null && (num = sidewayRecomComponent.type) != null && num.intValue() == i2) {
                             v57 v57Var2 = new v57();
-                            v57Var2.b(va7.a.a(componentFactory.sideway_recom.business_info));
+                            v57Var2.b(wa7.a.a(componentFactory.sideway_recom.business_info));
                             e87 c2 = c("concern_reco_click_head", v57Var2);
                             e87 c3 = c("concern_reco_follow_btn", v57Var2);
                             e87 c4 = c("concern_reco_unfollow_btn", v57Var2);
-                            List<rb7<?>> list2 = t77Var.a;
+                            List<sb7<?>> list2 = t77Var.a;
                             String str6 = componentFactory.sideway_recom.img_url;
                             Intrinsics.checkNotNullExpressionValue(str6, "data.sideway_recom.img_url");
                             z57 z57Var = new z57(str6, 1, null, null, componentFactory.sideway_recom.corner_url, false, null);
@@ -133,7 +133,7 @@ public final class z87 implements a97<LayoutFactory>, xb7 {
                             } else {
                                 str5 = a;
                             }
-                            list2.add(new sb7(new i57(z57Var, g87Var, g87Var2, str7, new he7(new v77(areEqual, i, str4, str5, c3, c4), null, CardUiStateKt.b(), null, null, 24, null), c2, null, null, 192, null), "recommend_card_person_attention"));
+                            list2.add(new tb7(new i57(z57Var, g87Var, g87Var2, str7, new ie7(new v77(areEqual, i, str4, str5, c3, c4), null, CardUiStateKt.b(), null, null, 24, null), c2, null, null, 192, null), "recommend_card_person_attention"));
                             i2 = 1;
                         }
                     }
@@ -153,16 +153,16 @@ public final class z87 implements a97<LayoutFactory>, xb7 {
                     if (feedFeedback != null) {
                         t67Var = u97.a(feedFeedback, new r67());
                     }
-                    return new sb7(new h57(str2, R.color.CAM_X0105, t77Var, t67Var, null, 16, null), "sideway_card");
+                    return new tb7(new h57(str2, R.color.CAM_X0105, t77Var, t67Var, null, 16, null), "sideway_card");
                 }
             }
             return null;
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xb7
-    public void d(Map<String, ? extends yb7> map) {
+    @Override // com.baidu.tieba.yb7
+    public void d(Map<String, ? extends zb7> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
@@ -174,9 +174,9 @@ public final class z87 implements a97<LayoutFactory>, xb7 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, v57Var)) == null) {
-            yb7 yb7Var = this.a.get(str);
-            if (yb7Var != null) {
-                return new e87(yb7Var.getKey(), yb7Var.a(v57Var), new HashMap(), null, null, 24, null);
+            zb7 zb7Var = this.a.get(str);
+            if (zb7Var != null) {
+                return new e87(zb7Var.getKey(), zb7Var.a(v57Var), new HashMap(), null, null, 24, null);
             }
             return null;
         }

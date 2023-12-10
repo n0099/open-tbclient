@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.CarrierEnter;
+import tbclient.FrsPage.CardFreq;
 /* loaded from: classes7.dex */
-public class pzc extends ktc {
+public class pzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CarrierEnter carrierEnter) {
+    public static JSONObject b(@NonNull CardFreq cardFreq) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, carrierEnter)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cardFreq)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "title", carrierEnter.title);
-            ktc.a(jSONObject, "text", carrierEnter.text);
-            ktc.a(jSONObject, "headline_cover", carrierEnter.headline_cover);
-            ktc.a(jSONObject, "url", carrierEnter.url);
-            ktc.a(jSONObject, "obj_id", carrierEnter.obj_id);
+            ltc.a(jSONObject, "start_time", cardFreq.start_time);
+            ltc.a(jSONObject, "end_time", cardFreq.end_time);
+            ltc.a(jSONObject, "show_times", cardFreq.show_times);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -21,8 +21,8 @@ import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.tieba.m17;
-import com.baidu.tieba.sr9;
-import com.baidu.tieba.ur9;
+import com.baidu.tieba.tr9;
+import com.baidu.tieba.vr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,9 +39,9 @@ public class FaceCollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public ur9 b;
+    public vr9 b;
     public List<EmotionImageData> c;
-    public sr9 d;
+    public tr9 d;
     public NoDataView e;
     public Activity f;
     public a g;
@@ -51,16 +51,16 @@ public class FaceCollectFragment extends BaseFragment {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<BdListView> a;
-        public WeakReference<ur9> b;
+        public WeakReference<vr9> b;
         public WeakReference<List<EmotionImageData>> c;
         public WeakReference<NoDataView> d;
 
-        public a(BdListView bdListView, ur9 ur9Var, List<EmotionImageData> list, NoDataView noDataView) {
+        public a(BdListView bdListView, vr9 vr9Var, List<EmotionImageData> list, NoDataView noDataView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bdListView, ur9Var, list, noDataView};
+                Object[] objArr = {bdListView, vr9Var, list, noDataView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class FaceCollectFragment extends BaseFragment {
                 }
             }
             this.a = new WeakReference<>(bdListView);
-            this.b = new WeakReference<>(ur9Var);
+            this.b = new WeakReference<>(vr9Var);
             this.c = new WeakReference<>(list);
             this.d = new WeakReference<>(noDataView);
         }
@@ -116,9 +116,9 @@ public class FaceCollectFragment extends BaseFragment {
                     if (list2 != null) {
                         list2.addAll(list);
                     }
-                    ur9 ur9Var = this.b.get();
-                    if (ur9Var != null) {
-                        ur9Var.notifyDataSetChanged();
+                    vr9 vr9Var = this.b.get();
+                    if (vr9Var != null) {
+                        vr9Var.notifyDataSetChanged();
                         return;
                     }
                     return;
@@ -153,9 +153,9 @@ public class FaceCollectFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ur9 ur9Var = this.b;
-            if (ur9Var != null) {
-                return ur9Var.i();
+            vr9 vr9Var = this.b;
+            if (vr9Var != null) {
+                return vr9Var.i();
             }
             return null;
         }
@@ -178,13 +178,13 @@ public class FaceCollectFragment extends BaseFragment {
         }
     }
 
-    public void I2(sr9 sr9Var) {
+    public void I2(tr9 tr9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sr9Var) == null) {
-            this.d = sr9Var;
-            ur9 ur9Var = this.b;
-            if (ur9Var != null) {
-                ur9Var.l(sr9Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr9Var) == null) {
+            this.d = tr9Var;
+            vr9 vr9Var = this.b;
+            if (vr9Var != null) {
+                vr9Var.l(tr9Var);
             }
         }
     }
@@ -205,9 +205,9 @@ public class FaceCollectFragment extends BaseFragment {
             this.e.setVisibility(8);
             this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091620);
             this.c = new ArrayList();
-            ur9 ur9Var = new ur9(this.c, 20);
-            this.b = ur9Var;
-            ur9Var.l(this.d);
+            vr9 vr9Var = new vr9(this.c, 20);
+            this.b = vr9Var;
+            vr9Var.l(this.d);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();

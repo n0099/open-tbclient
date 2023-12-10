@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e18 extends os<l18> {
+public class e18 extends os<fw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
+    public CardItemHotVideoLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e18(Context context) {
@@ -34,7 +34,7 @@ public class e18 extends os<l18> {
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        this.f = new CardItemHotVideoLayout(context);
     }
 
     @Override // com.baidu.tieba.os
@@ -50,10 +50,10 @@ public class e18 extends os<l18> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.it
     /* renamed from: r */
-    public void onBindDataToView(l18 l18Var) {
+    public void onBindDataToView(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, l18Var) == null) {
-            this.f.setData(l18Var.c());
+        if (interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) {
+            this.f.setData((l18) fw4Var);
         }
     }
 

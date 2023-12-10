@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.mw4;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +154,7 @@ public final class AiBotChatCardView extends RelativeLayout implements View.OnCl
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0216);
             int color2 = SkinManager.getColor(R.color.CAM_X0302);
-            EMManager.from(this.a).setCorner(R.string.J_X05).setGradientColorValue(new int[]{tua.a(color, 0.17f), tua.a(color2, 0.15f)}, Direction.LEFT_TOP);
+            EMManager.from(this.a).setCorner(R.string.J_X05).setGradientColorValue(new int[]{uua.a(color, 0.17f), uua.a(color2, 0.15f)}, Direction.LEFT_TOP);
             this.b.setDrawCorner(true);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(15);

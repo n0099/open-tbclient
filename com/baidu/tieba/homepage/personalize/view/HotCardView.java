@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.t65;
 import com.baidu.tieba.x25;
 import com.baidu.tieba.zd;
@@ -208,7 +208,7 @@ public class HotCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLIL(1048579, this, threadData, i, themeColorInfo) == null) {
             this.e.removeAllViews();
             this.e.stopFlipping();
-            List<mwa> postList = threadData.getPostList();
+            List<nwa> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());

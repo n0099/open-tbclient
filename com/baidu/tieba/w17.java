@@ -635,7 +635,7 @@ public class w17 {
                     kj5Var.e = collectEmotionData.thumbnail;
                     kj5Var.b = collectEmotionData.width;
                     kj5Var.c = collectEmotionData.height;
-                    fr9.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + kj5Var.d);
+                    gr9.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + kj5Var.d);
                     new k(this.a, null).execute(kj5Var);
                 }
             }
@@ -868,7 +868,7 @@ public class w17 {
     public void h(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
-            if (ir9.o().p()) {
+            if (jr9.o().p()) {
                 BdUtilHelper.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.obfuscated_res_0x7f0f070a);
                 return;
             }
@@ -935,7 +935,7 @@ public class w17 {
             if (ListUtils.isEmpty(list) && lVar != null) {
                 lVar.onResult(4, 0, 0);
             }
-            if (ir9.o().p() && lVar != null) {
+            if (jr9.o().p() && lVar != null) {
                 BdUtilHelper.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.obfuscated_res_0x7f0f070a);
                 lVar.onResult(4, 0, 0);
                 return;
@@ -1004,7 +1004,7 @@ public class w17 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
             List<CollectEmotionData> q = q();
             if (q != null && !q.isEmpty()) {
-                fr9.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
+                gr9.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
                 if (z) {
                     x(q, false, new i(this));
                 }

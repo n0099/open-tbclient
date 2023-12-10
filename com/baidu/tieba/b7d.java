@@ -4,30 +4,19 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.PushStatus;
-import tbclient.PushType;
+import tbclient.PubHeadCardCover;
 /* loaded from: classes5.dex */
-public class b7d extends ktc {
+public class b7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PushStatus pushStatus) {
+    public static JSONObject b(@NonNull PubHeadCardCover pubHeadCardCover) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pushStatus)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "status", pushStatus.status);
-            if (pushStatus.types != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (PushType pushType : pushStatus.types) {
-                    jSONArray.put(c7d.b(pushType));
-                }
-                ktc.a(jSONObject, "types", jSONArray);
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pubHeadCardCover)) == null) {
+            return new JSONObject();
         }
         return (JSONObject) invokeL.objValue;
     }

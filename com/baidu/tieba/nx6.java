@@ -44,7 +44,7 @@ public class nx6 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        jSONObject.optString("pic");
+        jSONObject.optString(pic.f);
         this.a = jSONObject.optString("url");
         jSONObject.optInt("server_time");
         this.b = jSONObject.optInt("adid");

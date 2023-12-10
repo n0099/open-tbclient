@@ -30,7 +30,7 @@ public class wl5 {
     public int f;
     public int g;
     @Nullable
-    public mwa h;
+    public nwa h;
     @NonNull
     public HotTopicStat.Locate i;
     @Nullable
@@ -91,11 +91,11 @@ public class wl5 {
     }
 
     @NonNull
-    public wl5 c(@Nullable mwa mwaVar) {
+    public wl5 c(@Nullable nwa nwaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mwaVar)) == null) {
-            this.h = mwaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nwaVar)) == null) {
+            this.h = nwaVar;
             return this;
         }
         return (wl5) invokeL.objValue;
@@ -208,11 +208,11 @@ public class wl5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            mwa mwaVar = this.h;
-            if (mwaVar == null) {
+            nwa nwaVar = this.h;
+            if (nwaVar == null) {
                 return null;
             }
-            return mwaVar.U();
+            return nwaVar.U();
         }
         return (String) invokeV.objValue;
     }

@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pay.AliAuthResult;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.axa;
-import com.baidu.tieba.fxa;
+import com.baidu.tieba.bxa;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.rc5;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.video.VideoConvertUtil;
@@ -48,7 +48,7 @@ public final class AliAuthHttpProxy {
     public final WeakReference<WebView> a;
     public final BdUniqueId b;
     @Nullable
-    public axa c;
+    public bxa c;
     public final Handler d;
 
     /* loaded from: classes4.dex */
@@ -258,10 +258,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    public void m(axa axaVar) {
+    public void m(bxa bxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, axaVar) == null) {
-            this.c = axaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bxaVar) == null) {
+            this.c = bxaVar;
         }
     }
 
@@ -346,15 +346,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public fxa l() {
+    public gxa l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fxa fxaVar = new fxa();
-            fxaVar.y(0);
+            gxa gxaVar = new gxa();
+            gxaVar.y(0);
             Activity activityByView = TbPageExtraHelper.getActivityByView(this.a.get());
             if (activityByView == null) {
-                return fxaVar;
+                return gxaVar;
             }
             HashMap<String, String> hashMap = new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.4
                 public static /* synthetic */ Interceptable $ic;
@@ -386,8 +386,8 @@ public final class AliAuthHttpProxy {
             rc5Var.c = hashMap;
             rc5Var.d = this.b;
             MessageManager.getInstance().runTask(2921793, String.class, rc5Var);
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 }

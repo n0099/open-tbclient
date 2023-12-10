@@ -543,7 +543,7 @@ public class a27 {
                     kj5Var.e = diyEmotionData.getThumbnail();
                     kj5Var.b = diyEmotionData.getWidth();
                     kj5Var.c = diyEmotionData.getHeight();
-                    fr9.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + kj5Var.d);
+                    gr9.a("【表情云同步】：4 - 开始：重新下载数据库中有数据但是没文件的表情，" + kj5Var.d);
                     new j(this.a, null).execute(kj5Var);
                 }
             }
@@ -817,7 +817,7 @@ public class a27 {
     public void g(String str, String str2, k kVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kVar) == null) {
-            if (ir9.o().p()) {
+            if (jr9.o().p()) {
                 BdUtilHelper.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.obfuscated_res_0x7f0f070a);
                 return;
             }
@@ -904,7 +904,7 @@ public class a27 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             List<DiyEmotionData> o = o();
             if (o != null && !o.isEmpty()) {
-                fr9.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
+                gr9.a("【表情云同步】：4 - 收藏表情：检查数据库中表情文件是否存在");
                 if (z) {
                     t(o, false, new h(this));
                 }

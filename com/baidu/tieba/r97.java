@@ -50,7 +50,7 @@ public final class r97 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
                 Intrinsics.checkNotNullParameter(widget, "widget");
-                ya7.c(widget.getContext(), this.a.schema);
+                za7.c(widget.getContext(), this.a.schema);
             }
         }
     }
@@ -94,7 +94,7 @@ public final class r97 {
         return (SpannableString) invokeL.objValue;
     }
 
-    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<rb7<?>> dataList, m87 videoSchemaData, r67 feedExtraData) {
+    public static final void b(FeedVideoAdComponent feedVideoAdComponent, List<sb7<?>> dataList, m87 videoSchemaData, r67 feedExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, feedVideoAdComponent, dataList, videoSchemaData, feedExtraData) == null) {
             Intrinsics.checkNotNullParameter(feedVideoAdComponent, "<this>");
@@ -135,7 +135,7 @@ public final class r97 {
                     Intrinsics.checkNotNullExpressionValue(str7, "bar.schema");
                     k67Var = new k67(str3, str4, str5, str6, str7, feedExtraData.a());
                 }
-                dataList.add(new sb7(new a57(b, str, spannableString, k67Var), "video_ad"));
+                dataList.add(new tb7(new a57(b, str, spannableString, k67Var), "video_ad"));
             }
         }
     }

@@ -1,258 +1,111 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.VCenterTextSpan;
+import com.baidu.tieba.wallet.CurrencyHelper;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMyGift.DataRes;
-import tbclient.GetMyGift.presentMoneyTxt;
-import tbclient.PresentMyList;
 /* loaded from: classes9.dex */
 public class y98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public b c;
-    public c d;
-    public ArrayList<a> e;
-    public long f;
-    public ux4 g;
-    public int h;
 
-    /* loaded from: classes9.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public long e;
-        public long f;
-        public long g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static SpannableString a(long j, int i, int i2) {
+        InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i2)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i2, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i2);
+            String str = "[icon]" + formatOverBaiwanNum;
+            SpannableString spannableString = new SpannableString(str);
+            if (TbadkApplication.getInst().getSkinType() == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (z) {
+                moneyIcon.setAlpha(179);
+            } else {
+                moneyIcon.setAlpha(255);
             }
+            int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, dimens, dimens);
+            VCenterTextSpan vCenterTextSpan = new VCenterTextSpan(moneyIcon);
+            vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07035a));
+            vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07035a));
+            UtilHelper.setSpan(spannableString, str, "[icon]", vCenterTextSpan);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
+            return spannableString;
         }
+        return (SpannableString) invokeCommon.objValue;
     }
 
-    public y98() {
+    public static SpannableString b(long j, boolean z, int i) {
+        InterceptResult invokeCommon;
+        String formatOverBaiwanNum;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (CurrencySwitchUtil.isYyIsConvert(i)) {
+                formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(i, j);
+            } else {
+                formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(j);
             }
-        }
-    }
-
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public c d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public void f(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = dataRes.total_num.intValue();
-        this.b = dataRes.money.intValue();
-        dataRes.scene_id.intValue();
-        this.f = dataRes.blue_diamond.intValue();
-        if (dataRes.blue_diamond_txt != null) {
-            ux4 ux4Var = new ux4();
-            this.g = ux4Var;
-            String str = dataRes.blue_diamond_txt.txt;
-            if (str != null) {
-                ux4Var.a = str;
+            if (z) {
+                str = "=[icon]" + formatOverBaiwanNum;
+            } else {
+                str = "[icon]" + formatOverBaiwanNum;
             }
-            String str2 = dataRes.blue_diamond_txt.url;
-            if (str2 != null) {
-                this.g.b = str2;
+            SpannableString spannableString = new SpannableString(str);
+            Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon(i);
+            int dimens = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701e8);
+            moneyIcon.setBounds(0, 0, dimens, dimens);
+            VCenterTextSpan vCenterTextSpan = new VCenterTextSpan(moneyIcon);
+            vCenterTextSpan.setPaddingLeft(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07035a));
+            vCenterTextSpan.setPaddingRight(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07035a));
+            UtilHelper.setSpan(spannableString, str, "[icon]", vCenterTextSpan);
+            UtilHelper.setSpan(spannableString, str, formatOverBaiwanNum, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (z) {
+                UtilHelper.setSpan(spannableString, str, "=", new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0108)));
             }
+            return spannableString;
         }
-        if (dataRes.page != null) {
-            b bVar = new b();
-            this.c = bVar;
-            bVar.a = dataRes.page.cur_page.intValue();
-            this.c.b = dataRes.page.has_more.intValue();
-            this.c.c = dataRes.page.total.intValue();
-        }
-        if (dataRes.money_txt != null) {
-            c cVar = new c();
-            this.d = cVar;
-            presentMoneyTxt presentmoneytxt = dataRes.money_txt;
-            cVar.a = presentmoneytxt.txt;
-            cVar.b = presentmoneytxt.url;
-        }
-        List<PresentMyList> list = dataRes.gift_list;
-        if (list != null && list.size() > 0) {
-            this.e = new ArrayList<>();
-            for (int i = 0; i < dataRes.gift_list.size(); i++) {
-                PresentMyList presentMyList = dataRes.gift_list.get(i);
-                if (presentMyList != null) {
-                    a aVar = new a();
-                    aVar.h = i + 1;
-                    aVar.a = presentMyList.pay_userid.longValue();
-                    aVar.b = presentMyList.pay_username;
-                    aVar.c = presentMyList.portrait;
-                    presentMyList.gift_id.intValue();
-                    String str3 = presentMyList.gift_name;
-                    String str4 = presentMyList.play_url;
-                    aVar.d = presentMyList.thumbnail_url;
-                    aVar.e = presentMyList.create_time.intValue();
-                    aVar.f = presentMyList.num.intValue();
-                    presentMyList.currency_unit.intValue();
-                    String str5 = presentMyList.currency_type;
-                    aVar.g = presentMyList.present_scores.longValue();
-                    aVar.i = presentMyList.name_show;
-                    this.e.add(aVar);
-                }
+        return (SpannableString) invokeCommon.objValue;
+    }
+
+    public static SpannableString c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
             }
+            SpannableString spannableString = new SpannableString(str);
+            UtilHelper.setSpan(spannableString, str, str, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)));
+            UtilHelper.setSpan(spannableString, str, str2, new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
+            if (!StringUtils.isNull(str3)) {
+                UtilHelper.setSpan(spannableString, str, str3, new StrikethroughSpan());
+            }
+            return spannableString;
         }
-        this.h = dataRes.currency.intValue();
-    }
-
-    public void g(ArrayList<a> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.e = arrayList;
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.b = j;
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

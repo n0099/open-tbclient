@@ -49,14 +49,14 @@ public class nz6 {
     public BdTypeRecyclerView f;
     public PbListView g;
     public q55 h;
-    public eu7 i;
+    public fu7 i;
     public SmartBubbleAnimatedView j;
     public oz6 k;
     public boolean l;
     public TextView m;
     public RecommendForumLayout n;
     public boolean o;
-    public wda p;
+    public xda p;
     public vy6 q;
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
@@ -515,14 +515,14 @@ public class nz6 {
                 marginLayoutParams.topMargin = UtilHelper.getStatusBarHeight() + BdUtilHelper.getDimens(this.a.getPageContext().getPageActivity(), R.dimen.tbds219);
                 this.e.setLayoutParams(marginLayoutParams);
             }
-            this.i = new eu7();
+            this.i = new fu7();
             SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(this.a.getContext());
             this.j = smartBubbleAnimatedView;
             smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds83)));
             if (this.p == null) {
-                wda wdaVar = new wda(this.a.getPageContext(), this.f);
-                this.p = wdaVar;
-                wdaVar.p(2);
+                xda xdaVar = new xda(this.a.getPageContext(), this.f);
+                this.p = xdaVar;
+                xdaVar.p(2);
                 this.p.u(this.a.getUniqueId());
             }
             oz6 oz6Var = new oz6(this.a.getPageContext());
@@ -560,19 +560,19 @@ public class nz6 {
     }
 
     public void n() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (wdaVar = this.p) != null) {
-            wdaVar.z();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (xdaVar = this.p) != null) {
+            xdaVar.z();
             this.p.r(false);
         }
     }
 
     public void p() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (wdaVar = this.p) != null) {
-            wdaVar.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (xdaVar = this.p) != null) {
+            xdaVar.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.f;
             if (bdTypeRecyclerView != null) {
                 this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
@@ -658,9 +658,9 @@ public class nz6 {
                 if (lz6Var.h) {
                     s(lz6Var.f);
                 }
-                wda wdaVar = this.p;
-                if (wdaVar != null) {
-                    wdaVar.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
+                xda xdaVar = this.p;
+                if (xdaVar != null) {
+                    xdaVar.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
                 }
             }
         }

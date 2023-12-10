@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.s7a;
+import com.baidu.tieba.t7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,14 +52,14 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
 
     public void a(pi piVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, piVar) != null) || !(piVar instanceof s7a)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, piVar) != null) || !(piVar instanceof t7a)) {
             return;
         }
         this.e = piVar;
-        s7a s7aVar = (s7a) piVar;
+        t7a t7aVar = (t7a) piVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (s7aVar.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d9), Integer.valueOf(s7aVar.a())));
+        if (t7aVar.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d9), Integer.valueOf(t7aVar.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +13,16 @@ public class l1b extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final eza b;
+    public final tza b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l1b(MainTabActivity mainTabActivity, eza ezaVar) {
-        super(2001374);
+    public l1b(MainTabActivity mainTabActivity, fza fzaVar) {
+        super(2921532);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ezaVar};
+            Object[] objArr = {mainTabActivity, fzaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,16 +34,16 @@ public class l1b extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = ezaVar;
+        this.b = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        tza tzaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData) || ((PostWriteCallBackData) customResponsedMessage.getData()).isDyamicCallback()) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.B && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (tzaVar = this.b) != null && tzaVar.c() != null) {
+            this.b.c().d();
         }
-        this.b.U((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

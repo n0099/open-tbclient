@@ -1,67 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.fb7;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.collections.MapsKt__MapsKt;
+import java.net.URLEncoder;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class qm7 implements fb7.b {
+public final class qm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Bundle a;
 
-    public qm7(Bundle bundle) {
+    public static final void a(Context context, si7 forum, oi7 secondFloorData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, forum, secondFloorData) == null) {
+            Intrinsics.checkNotNullParameter(forum, "forum");
+            Intrinsics.checkNotNullParameter(secondFloorData, "secondFloorData");
+            String valueOf = String.valueOf(secondFloorData.e().b());
+            String d = secondFloorData.e().d();
+            String a = secondFloorData.e().a();
+            if (a == null) {
+                a = "";
             }
-        }
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = bundle;
-    }
-
-    @Override // com.baidu.tieba.fb7.b
-    public void a(rb7<?> data, int i) {
-        bb7 bb7Var;
-        Map<String, String> emptyMap;
-        Map<String, String> emptyMap2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (data instanceof bb7) {
-                bb7Var = (bb7) data;
-            } else {
-                bb7Var = null;
+            String a2 = secondFloorData.a();
+            if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(d)) {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject.put("page", "im/AISingleChat");
+                jSONObject.put(YunDialogManager.PAGE_PARAMS_KEY, jSONObject2);
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_REQUEST_CODE, 1111);
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_H5_URL, URLEncoder.encode(a2, "UTF-8"));
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL, URLEncoder.encode(a, "UTF-8"));
+                jSONObject2.put("paid", valueOf);
+                jSONObject2.put("uk", d);
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, 1);
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_CAN_SLIDE_BACK, 0);
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FROM, 1);
+                jSONObject2.put("fid", forum.f());
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FORUM_NAME, forum.g());
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_FORUM_PORTRAIT, URLEncoder.encode(forum.e(), "UTF-8"));
+                jSONObject2.put(AiBotChatDispatcher.AI_SINGLE_SHOW_BOT_LIST, 1);
+                qma.a(context, new String[]{"tiebaapp://router/portal?params=" + jSONObject});
             }
-            if (bb7Var == null) {
-                return;
-            }
-            n77 n77Var = bb7Var.a;
-            if (n77Var == null || (emptyMap = n77Var.a()) == null) {
-                emptyMap = MapsKt__MapsKt.emptyMap();
-            }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("get_position", String.valueOf(i + 1));
-            v57 v57Var = bb7Var.b;
-            if (v57Var == null || (emptyMap2 = v57Var.a()) == null) {
-                emptyMap2 = MapsKt__MapsKt.emptyMap();
-            }
-            ac7.a.d(new tb7("card_click_other", emptyMap, linkedHashMap, emptyMap2), new um7(this.a));
         }
     }
 }

@@ -40,9 +40,9 @@ import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
-import com.baidu.tieba.wt9;
 import com.baidu.tieba.xt9;
 import com.baidu.tieba.yt9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ import java.net.URLEncoder;
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wt9 a;
+    public xt9 a;
     public PaymentConfirmModel<PaymentConfirmActivity> b;
     public PaymentConfirmRequestData c;
     public PaymentConfirmInfoData d;
@@ -277,11 +277,11 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!this.a.g) {
                     if (this.a.e) {
-                        xt9.a("c10292");
+                        yt9.a("c10292");
                         this.a.u1();
                         return;
                     }
-                    xt9.a("c10293");
+                    yt9.a("c10293");
                     this.a.t1();
                     return;
                 }
@@ -396,7 +396,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     if (!responsePaymentPayMessage.hasError()) {
                         int error = responsePaymentPayMessage.getError();
                         if (error == 0) {
-                            xt9.a("c10294");
+                            yt9.a("c10294");
                             PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                             if (payRequestDataData != null && payRequestDataData.getDescribe() != null && payRequestDataData.getDescribe().getWord() != null) {
                                 string = payRequestDataData.getDescribe().getWord();
@@ -713,7 +713,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             } else {
                 z = false;
             }
-            this.a = new wt9(this, z, this.m);
+            this.a = new xt9(this, z, this.m);
             this.a.F().setChecked(!SharedPrefHelper.getInstance().getBoolean(s1("payment_confirm_show"), true));
             this.a.F().setOnCheckedChangeListener(new e(this));
             this.a.J().setOnClickListener(new f(this));
@@ -752,7 +752,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             z1();
             B1();
             A1();
-            xt9.a("c10291");
+            yt9.a("c10291");
         }
     }
 
@@ -939,7 +939,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             payRequestData.setOpenId(order_info.getOpen_id());
             payRequestData.setTbs(this.d.getTbs());
             if (!StringUtils.isNull(str2)) {
-                payRequestData.setPassword(URLEncoder.encode(yt9.a(str2, str)));
+                payRequestData.setPassword(URLEncoder.encode(zt9.a(str2, str)));
             }
             if (!StringUtils.isNull(str3)) {
                 payRequestData.setCaptchaVcodeStr(str3);

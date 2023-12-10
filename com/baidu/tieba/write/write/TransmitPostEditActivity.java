@@ -52,10 +52,10 @@ import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.cib;
+import com.baidu.tieba.dib;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.meb;
+import com.baidu.tieba.neb;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.so4;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
@@ -424,7 +424,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.V == null) {
-                this.V = new cib(getPageContext());
+                this.V = new dib(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -811,9 +811,9 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             arrayList.add(5);
             this.S.f(new we5(getActivity(), 2));
             if (this.U == null) {
-                meb mebVar = new meb(getActivity(), this.k);
-                this.U = mebVar;
-                mebVar.k();
+                neb nebVar = new neb(getActivity(), this.k);
+                this.U = nebVar;
+                nebVar.k();
                 this.U.l();
                 this.U.o("from_share_write");
                 this.U.m(this.p.getForumId(), this.j);

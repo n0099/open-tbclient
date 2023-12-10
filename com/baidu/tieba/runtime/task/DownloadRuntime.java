@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
-import com.baidu.tieba.jsa;
+import com.baidu.tieba.ksa;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.lsa;
+import com.baidu.tieba.msa;
 import com.baidu.tieba.nz0;
-import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.so4;
@@ -52,7 +52,7 @@ public final class DownloadRuntime {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a implements oe7 {
+    public static final class a implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -70,7 +70,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -79,7 +79,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -90,7 +90,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -99,7 +99,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -108,7 +108,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -117,7 +117,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
@@ -223,11 +223,11 @@ public final class DownloadRuntime {
                     String id = this.a.getId();
                     if (!((id == null || StringsKt__StringsJVMKt.isBlank(id)) ? true : true)) {
                         vu6 m = DownloadRuntime.a.h().m();
-                        nz0 title = lsa.q;
+                        nz0 title = msa.q;
                         Intrinsics.checkNotNullExpressionValue(title, "title");
                         String id2 = this.a.getId();
                         Intrinsics.checkNotNullExpressionValue(id2, "data.id");
-                        jsa h = m.h(title, id2);
+                        ksa h = m.h(title, id2);
                         if (h != null) {
                             str2 = h.h();
                         }
@@ -348,11 +348,11 @@ public final class DownloadRuntime {
                 return;
             }
             vu6 m = h().m();
-            nz0 title = lsa.q;
+            nz0 title = msa.q;
             Intrinsics.checkNotNullExpressionValue(title, "title");
             String id2 = downloadData.getId();
             Intrinsics.checkNotNullExpressionValue(id2, "data.id");
-            jsa h = m.h(title, id2);
+            ksa h = m.h(title, id2);
             if (h != null) {
                 String e = h.e();
                 if (e != null && !StringsKt__StringsJVMKt.isBlank(e)) {

@@ -21,11 +21,11 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.ku8;
+import com.baidu.tieba.lu8;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.rt8;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
+import com.baidu.tieba.st8;
 import com.baidu.tieba.z36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,14 +51,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ rt8 b;
+            public final /* synthetic */ st8 b;
 
-            public a(l lVar, long j, rt8 rt8Var) {
+            public a(l lVar, long j, st8 st8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {lVar, Long.valueOf(j), rt8Var};
+                    Object[] objArr = {lVar, Long.valueOf(j), st8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -69,7 +69,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = rt8Var;
+                this.b = st8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -125,14 +125,14 @@ public class NewFriendDbManagerStatic {
                 requestAddFriendMessage.setMessage(content);
                 requestAddFriendMessage.setSt_type(st_type);
                 MessageManager.getInstance().sendMessage(requestAddFriendMessage);
-                rt8 rt8Var = new rt8();
-                rt8Var.h(id);
-                rt8Var.j(name);
-                rt8Var.l(0);
-                rt8Var.k(portrait);
-                rt8Var.g(content);
-                rt8Var.i(0);
-                ru5.c(new a(this, id, rt8Var), null);
+                st8 st8Var = new st8();
+                st8Var.h(id);
+                st8Var.j(name);
+                st8Var.l(0);
+                st8Var.k(portrait);
+                st8Var.g(content);
+                st8Var.i(0);
+                ru5.c(new a(this, id, st8Var), null);
             }
         }
     }
@@ -147,14 +147,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ rt8 b;
+            public final /* synthetic */ st8 b;
 
-            public a(o oVar, long j, rt8 rt8Var) {
+            public a(o oVar, long j, st8 st8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {oVar, Long.valueOf(j), rt8Var};
+                    Object[] objArr = {oVar, Long.valueOf(j), st8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -165,7 +165,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = rt8Var;
+                this.b = st8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -175,7 +175,7 @@ public class NewFriendDbManagerStatic {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    rt8 e = z36.f().e(this.a);
+                    st8 e = z36.f().e(this.a);
                     if (e == null) {
                         return null;
                     }
@@ -259,11 +259,11 @@ public class NewFriendDbManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 != this.a && z36.f().n(this.a)) {
-                        rt8 rt8Var = new rt8();
-                        rt8Var.h(this.a);
-                        rt8Var.l(3);
-                        rt8Var.i(0);
-                        z36.f().q(rt8Var);
+                        st8 st8Var = new st8();
+                        st8Var.h(this.a);
+                        st8Var.l(3);
+                        st8Var.i(0);
+                        z36.f().q(st8Var);
                     }
                     return null;
                 }
@@ -336,13 +336,13 @@ public class NewFriendDbManagerStatic {
                 RequestAddFriendMessage requestAddFriendMessage = (RequestAddFriendMessage) responseAddFriendMessage.getOrginalMessage();
                 int error = responseAddFriendMessage.getError();
                 long friendId = responseAddFriendMessage.getFriendId();
-                rt8 rt8Var = new rt8();
-                rt8Var.h(friendId);
-                rt8Var.i(0);
-                rt8Var.g(requestAddFriendMessage.getMessage());
+                st8 st8Var = new st8();
+                st8Var.h(friendId);
+                st8Var.i(0);
+                st8Var.g(requestAddFriendMessage.getMessage());
                 if (error == 0) {
-                    rt8Var.l(3);
-                    ru5.c(new a(this, friendId, rt8Var), new b(this, friendId, requestAddFriendMessage));
+                    st8Var.l(3);
+                    ru5.c(new a(this, friendId, st8Var), new b(this, friendId, requestAddFriendMessage));
                 } else if (error == 3100097) {
                     Message<?> orginalMessage = responseAddFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestAddFriendMessage) {
@@ -394,7 +394,7 @@ public class NewFriendDbManagerStatic {
                         return null;
                     }
                     z36.f().b(this.a);
-                    ku8.w().p(String.valueOf(this.a));
+                    lu8.w().p(String.valueOf(this.a));
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -482,14 +482,14 @@ public class NewFriendDbManagerStatic {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-            public final /* synthetic */ rt8 b;
+            public final /* synthetic */ st8 b;
 
-            public a(q qVar, long j, rt8 rt8Var) {
+            public a(q qVar, long j, st8 st8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {qVar, Long.valueOf(j), rt8Var};
+                    Object[] objArr = {qVar, Long.valueOf(j), st8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -500,7 +500,7 @@ public class NewFriendDbManagerStatic {
                     }
                 }
                 this.a = j;
-                this.b = rt8Var;
+                this.b = st8Var;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -508,7 +508,7 @@ public class NewFriendDbManagerStatic {
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
-                rt8 e;
+                st8 e;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 == this.a || (e = z36.f().e(this.a)) == null) {
@@ -599,11 +599,11 @@ public class NewFriendDbManagerStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (0 != this.a && z36.f().n(this.a)) {
-                        rt8 rt8Var = new rt8();
-                        rt8Var.h(this.a);
-                        rt8Var.l(2);
-                        rt8Var.i(0);
-                        z36.f().q(rt8Var);
+                        st8 st8Var = new st8();
+                        st8Var.h(this.a);
+                        st8Var.l(2);
+                        st8Var.i(0);
+                        z36.f().q(st8Var);
                     }
                     return null;
                 }
@@ -679,12 +679,12 @@ public class NewFriendDbManagerStatic {
                 String portrait = responsePassFriendMessage.getPortrait();
                 String key = responsePassFriendMessage.getKey();
                 String quanpin = responsePassFriendMessage.getQuanpin();
-                rt8 rt8Var = new rt8();
-                rt8Var.h(friendId);
-                rt8Var.l(2);
-                rt8Var.i(0);
+                st8 st8Var = new st8();
+                st8Var.h(friendId);
+                st8Var.l(2);
+                st8Var.i(0);
                 if (error == 0) {
-                    ru5.c(new a(this, friendId, rt8Var), new b(this, friendId, portrait, name, key, quanpin));
+                    ru5.c(new a(this, friendId, st8Var), new b(this, friendId, portrait, name, key, quanpin));
                 } else if (error == 3100098) {
                     Message<?> orginalMessage = responsePassFriendMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestPassFriendMessage) {
@@ -810,14 +810,14 @@ public class NewFriendDbManagerStatic {
     public class a extends nu5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
 
-        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var) {
+        public a(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -827,7 +827,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -881,14 +881,14 @@ public class NewFriendDbManagerStatic {
     public class c extends nu5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
 
-        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var) {
+        public c(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -898,7 +898,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -920,16 +920,16 @@ public class NewFriendDbManagerStatic {
     public class d implements st5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
 
-        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var, String str, String str2) {
+        public d(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var, str, str2};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -939,7 +939,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
             this.b = str;
             this.c = str2;
         }
@@ -1028,14 +1028,14 @@ public class NewFriendDbManagerStatic {
     public class g extends nu5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
 
-        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var) {
+        public g(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1045,7 +1045,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1101,14 +1101,14 @@ public class NewFriendDbManagerStatic {
     public class i extends nu5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
 
-        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var) {
+        public i(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1118,7 +1118,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1218,14 +1218,14 @@ public class NewFriendDbManagerStatic {
     public class m extends nu5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rt8 a;
+        public final /* synthetic */ st8 a;
 
-        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, rt8 rt8Var) {
+        public m(NewFriendDbManagerStatic newFriendDbManagerStatic, st8 st8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFriendDbManagerStatic, rt8Var};
+                Object[] objArr = {newFriendDbManagerStatic, st8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -1235,7 +1235,7 @@ public class NewFriendDbManagerStatic {
                     return;
                 }
             }
-            this.a = rt8Var;
+            this.a = st8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -1400,7 +1400,7 @@ public class NewFriendDbManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<rt8> run(CustomMessage<Long> customMessage) {
+        public CustomResponsedMessage<st8> run(CustomMessage<Long> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -1477,18 +1477,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                rt8 rt8Var = new rt8();
+                st8 st8Var = new st8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                rt8Var.l(3);
-                rt8Var.g(optString3);
-                rt8Var.h(optLong);
-                rt8Var.i(1);
-                rt8Var.j(optString);
-                rt8Var.k(optString2);
-                ru5.c(new i(this, rt8Var), new j(this, optLong));
+                st8Var.l(3);
+                st8Var.g(optString3);
+                st8Var.h(optLong);
+                st8Var.i(1);
+                st8Var.j(optString);
+                st8Var.k(optString2);
+                ru5.c(new i(this, st8Var), new j(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1503,14 +1503,14 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                rt8 rt8Var = new rt8();
-                rt8Var.h(optJSONObject.optLong("user_id"));
-                rt8Var.j(optJSONObject.optString("user_name"));
-                rt8Var.k(optJSONObject.optString("portrait"));
-                rt8Var.g(optJSONObject.optString("message"));
-                rt8Var.i(0);
-                rt8Var.l(1);
-                ru5.c(new a(this, rt8Var), new b(this));
+                st8 st8Var = new st8();
+                st8Var.h(optJSONObject.optLong("user_id"));
+                st8Var.j(optJSONObject.optString("user_name"));
+                st8Var.k(optJSONObject.optString("portrait"));
+                st8Var.g(optJSONObject.optString("message"));
+                st8Var.i(0);
+                st8Var.l(1);
+                ru5.c(new a(this, st8Var), new b(this));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1525,18 +1525,18 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                rt8 rt8Var = new rt8();
+                st8 st8Var = new st8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
-                rt8Var.l(2);
-                rt8Var.g(optString3);
-                rt8Var.h(optLong);
-                rt8Var.i(1);
-                rt8Var.j(optString);
-                rt8Var.k(optString2);
-                ru5.c(new m(this, rt8Var), new n(this, optLong));
+                st8Var.l(2);
+                st8Var.g(optString3);
+                st8Var.h(optLong);
+                st8Var.i(1);
+                st8Var.j(optString);
+                st8Var.k(optString2);
+                ru5.c(new m(this, st8Var), new n(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1566,16 +1566,16 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                rt8 rt8Var = new rt8();
-                rt8Var.h(optJSONObject.optLong("user_id"));
-                rt8Var.j(optJSONObject.optString("user_name"));
-                rt8Var.k(optJSONObject.optString("portrait"));
-                rt8Var.g(optJSONObject.optString("message"));
+                st8 st8Var = new st8();
+                st8Var.h(optJSONObject.optLong("user_id"));
+                st8Var.j(optJSONObject.optString("user_name"));
+                st8Var.k(optJSONObject.optString("portrait"));
+                st8Var.g(optJSONObject.optString("message"));
                 String optString = optJSONObject.optString("key");
                 String optString2 = optJSONObject.optString("pinyin");
-                rt8Var.i(0);
-                rt8Var.l(4);
-                ru5.c(new c(this, rt8Var), new d(this, rt8Var, optString, optString2));
+                st8Var.i(0);
+                st8Var.l(4);
+                ru5.c(new c(this, st8Var), new d(this, st8Var, optString, optString2));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -1590,23 +1590,23 @@ public class NewFriendDbManagerStatic {
                 if (optJSONObject == null) {
                     return;
                 }
-                rt8 rt8Var = new rt8();
+                st8 st8Var = new st8();
                 long optLong = optJSONObject.optLong("user_id");
                 String optString = optJSONObject.optString("user_name");
                 String optString2 = optJSONObject.optString("portrait");
                 String optString3 = optJSONObject.optString("message");
                 int optInt = optJSONObject.optInt("type");
                 if (optInt == 1) {
-                    rt8Var.l(3);
+                    st8Var.l(3);
                 } else if (optInt == 2) {
-                    rt8Var.l(1);
+                    st8Var.l(1);
                 }
-                rt8Var.g(optString3);
-                rt8Var.h(optLong);
-                rt8Var.i(1);
-                rt8Var.j(optString);
-                rt8Var.k(optString2);
-                ru5.c(new g(this, rt8Var), new h(this, optLong));
+                st8Var.g(optString3);
+                st8Var.h(optLong);
+                st8Var.i(1);
+                st8Var.j(optString);
+                st8Var.k(optString2);
+                ru5.c(new g(this, st8Var), new h(this, optLong));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

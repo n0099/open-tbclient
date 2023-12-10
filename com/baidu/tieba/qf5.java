@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.rva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class qf5 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(ku8.w().j(this.a.a().a));
+                return Long.valueOf(lu8.w().j(this.a.a().a));
             }
             return invokeV.objValue;
         }
@@ -72,14 +72,14 @@ public class qf5 {
         this.a = of5Var;
     }
 
-    public void d(qva.i iVar) {
+    public void d(rva.i iVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, iVar) != null) || iVar == null) {
             return;
         }
         of5 of5Var = this.a;
         if (of5Var != null && of5Var.a() != null) {
-            qva.p(this.a.a().a, iVar);
+            rva.p(this.a.a().a, iVar);
         } else {
             iVar.a(null);
         }
@@ -89,7 +89,7 @@ public class qf5 {
         of5 of5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (of5Var = this.a) != null && of5Var.a() != null) {
-            qva.A(this.a.a().a, str);
+            rva.A(this.a.a().a, str);
         }
     }
 
@@ -105,7 +105,7 @@ public class qf5 {
             b.setCustomGroupType(2);
             b.setMsgType(1);
             b.setContent(str);
-            long b2 = uz8.b(j);
+            long b2 = vz8.b(j);
             b.setMsgId(b2);
             b.setRecordId(b2);
             b.setTime(System.currentTimeMillis() / 1000);
@@ -156,7 +156,7 @@ public class qf5 {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            xw8.k().t(a(str, ((Long) obj).longValue()));
+            yw8.k().t(a(str, ((Long) obj).longValue()));
             e("");
         }
     }

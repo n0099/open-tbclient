@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hcb;
+import com.baidu.tieba.icb;
 import com.baidu.tieba.s16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,7 +55,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public hcb y;
+    public icb y;
     public Paint z;
 
     /* loaded from: classes8.dex */
@@ -188,7 +188,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new hcb(context);
+        this.y = new icb(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;
@@ -203,18 +203,18 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                hcb hcbVar = this.y;
-                if (hcbVar != null) {
-                    hcbVar.setX(f);
+                icb icbVar = this.y;
+                if (icbVar != null) {
+                    icbVar.setX(f);
                     return;
                 }
                 return;
             }
-            hcb hcbVar2 = this.y;
-            if (hcbVar2 != null && (thumbView = this.f) != null) {
+            icb icbVar2 = this.y;
+            if (icbVar2 != null && (thumbView = this.f) != null) {
                 float f2 = this.g;
                 if (f <= f2) {
-                    hcbVar2.setX(f2);
+                    icbVar2.setX(f2);
                 } else if (f >= thumbView.getX()) {
                     this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
                 } else {
@@ -351,8 +351,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            hcb hcbVar = this.y;
-            if (hcbVar != null && !hcbVar.isPressed()) {
+            icb icbVar = this.y;
+            if (icbVar != null && !icbVar.isPressed()) {
                 setVideoPointerViewPosition(this.j);
             }
         }
@@ -495,7 +495,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        hcb hcbVar;
+        icb icbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -506,8 +506,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (hcbVar = this.y) != null) {
-                hcbVar.setX(f + this.p);
+            if (this.A == 1 && (icbVar = this.y) != null) {
+                icbVar.setX(f + this.p);
             }
             invalidate();
         }

@@ -123,7 +123,7 @@ public class j16 {
             if (m16Var != null) {
                 l16Var.z(z);
             }
-            AntiData c = xr7.f().c();
+            AntiData c = yr7.f().c();
             SparseArray<String> sparseArray = new SparseArray<>();
             if (c != null && c.getDelThreadInfoList() != null) {
                 List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
@@ -135,7 +135,7 @@ public class j16 {
             }
             JSONArray jSONArray = new JSONArray();
             JSONArray jSONArray2 = new JSONArray();
-            List<ThreadData> g = xr7.f().g();
+            List<ThreadData> g = yr7.f().g();
             for (int i2 = 0; i2 < g.size(); i2++) {
                 if (g.get(i2) != null) {
                     jSONArray.put(g.get(i2).getTid());
@@ -155,7 +155,7 @@ public class j16 {
             }
             negativeFeedBackData.setTidArray(jSONArray);
             negativeFeedBackData.setMaskTidArray(jSONArray2);
-            negativeFeedBackData.setFid(xr7.f().d());
+            negativeFeedBackData.setFid(yr7.f().d());
             l16Var.A(negativeFeedBackData);
             l16Var.B(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_reason_5)});
             l16Var.D("1");
@@ -176,7 +176,7 @@ public class j16 {
             if (m16Var != null) {
                 o16Var.G(z);
             }
-            AntiData c = xr7.f().c();
+            AntiData c = yr7.f().c();
             SparseArray<String> sparseArray = new SparseArray<>();
             if (c != null && c.getDelThreadInfoList() != null) {
                 List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
@@ -188,7 +188,7 @@ public class j16 {
             }
             JSONArray jSONArray = new JSONArray();
             JSONArray jSONArray2 = new JSONArray();
-            List<ThreadData> g = xr7.f().g();
+            List<ThreadData> g = yr7.f().g();
             for (int i2 = 0; i2 < g.size(); i2++) {
                 if (g.get(i2) != null) {
                     jSONArray.put(g.get(i2).getTid());
@@ -208,7 +208,7 @@ public class j16 {
             }
             negativeFeedBackData.setTidArray(jSONArray);
             negativeFeedBackData.setMaskTidArray(jSONArray2);
-            negativeFeedBackData.setFid(xr7.f().d());
+            negativeFeedBackData.setFid(yr7.f().d());
             o16Var.H(negativeFeedBackData);
             o16Var.I(new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_1), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_2), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_3), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_4), TbadkCoreApplication.getInst().getString(R.string.delete_thread_new_reason_5)});
             o16Var.K("1");

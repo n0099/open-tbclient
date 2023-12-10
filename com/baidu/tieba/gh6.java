@@ -120,15 +120,15 @@ public class gh6 implements oj6 {
             }
             if (webView != null) {
                 m(webView.getUrl(), str, str);
-                List<fxa> h = this.c.h(webView, str, hashMap);
+                List<gxa> h = this.c.h(webView, str, hashMap);
                 boolean f = this.c.f(webView, h);
                 boolean z2 = false;
                 if (!ListUtils.isEmpty(h)) {
                     loop0: while (true) {
                         z = false;
-                        for (fxa fxaVar : h) {
-                            if (fxaVar != null && fxaVar.k()) {
-                                if (fxaVar.j || z) {
+                        for (gxa gxaVar : h) {
+                            if (gxaVar != null && gxaVar.k()) {
+                                if (gxaVar.j || z) {
                                     z = true;
                                 }
                             }
@@ -200,15 +200,15 @@ public class gh6 implements oj6 {
         }
     }
 
-    public final boolean p(TbPageContext<?> tbPageContext, String str, fxa fxaVar) {
+    public final boolean p(TbPageContext<?> tbPageContext, String str, gxa gxaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, tbPageContext, str, fxaVar)) == null) {
-            if (fxaVar == null || fxaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, tbPageContext, str, gxaVar)) == null) {
+            if (gxaVar == null || gxaVar.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
                 return false;
             }
-            fxaVar.s(true);
-            fxaVar.z(0);
+            gxaVar.s(true);
+            gxaVar.z(0);
             return true;
         }
         return invokeLLL.booleanValue;
@@ -217,9 +217,9 @@ public class gh6 implements oj6 {
     @Override // com.baidu.tieba.oj6
     public void f(qj6 qj6Var, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, qj6Var, obj) == null) && (obj instanceof dxa)) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, qj6Var, obj) == null) && (obj instanceof exa)) {
             this.b.add(qj6Var);
-            this.c.a((dxa) obj);
+            this.c.a((exa) obj);
         }
     }
 
@@ -336,26 +336,26 @@ public class gh6 implements oj6 {
             long currentTimeMillis = System.currentTimeMillis();
             StringBuilder sb = new StringBuilder();
             sb.append("新版端能力");
-            hxa hxaVar = new hxa();
-            String a = jxa.a(str);
-            String d = jxa.d(str);
-            String b = jxa.b(str);
-            hxaVar.f(a);
-            hxaVar.h(d);
-            fxa fxaVar = new fxa();
-            fxaVar.w(b);
+            ixa ixaVar = new ixa();
+            String a = kxa.a(str);
+            String d = kxa.d(str);
+            String b = kxa.b(str);
+            ixaVar.f(a);
+            ixaVar.h(d);
+            gxa gxaVar = new gxa();
+            gxaVar.w(b);
             if (rd.isEmpty(a) || rd.isEmpty(d) || rd.isEmpty(b)) {
-                fxaVar.z(101);
+                gxaVar.z(101);
             }
             try {
-                hxaVar.j(jxa.f(str));
+                ixaVar.j(kxa.f(str));
             } catch (JSONException unused) {
-                hxaVar.j(new JSONObject());
-                fxaVar.z(101);
+                ixaVar.j(new JSONObject());
+                gxaVar.z(101);
             }
-            hxaVar.i(jxa.e(str));
-            hxaVar.g(jxa.c(str));
-            fxa d2 = this.c.d(webView, hxaVar, fxaVar);
+            ixaVar.i(kxa.e(str));
+            ixaVar.g(kxa.c(str));
+            gxa d2 = this.c.d(webView, ixaVar, gxaVar);
             long currentTimeMillis2 = System.currentTimeMillis();
             sb.append(" 执行耗时=");
             sb.append(currentTimeMillis2 - currentTimeMillis);
@@ -363,7 +363,7 @@ public class gh6 implements oj6 {
                 p = this.c.e(webView, d2);
                 sb.append(" 同步返回H5耗时=");
             } else {
-                p = p(rua.c(webView.getContext()), str, d2);
+                p = p(sua.c(webView.getContext()), str, d2);
                 sb.append(" 无返回，尝试作为通用scheme处理:");
             }
             sb.append(System.currentTimeMillis() - currentTimeMillis2);

@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DealAuthInfo;
+import tbclient.CustomState;
 /* loaded from: classes6.dex */
-public class gwc extends ktc {
+public class gwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DealAuthInfo dealAuthInfo) {
+    public static JSONObject b(@NonNull CustomState customState) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealAuthInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, customState)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "item_name", dealAuthInfo.item_name);
-            ktc.a(jSONObject, "item_content", dealAuthInfo.item_content);
-            ktc.a(jSONObject, "item_url", dealAuthInfo.item_url);
+            ltc.a(jSONObject, "icon", customState.icon);
+            ltc.a(jSONObject, "content", customState.content);
+            ltc.a(jSONObject, "icon_type", customState.icon_type);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

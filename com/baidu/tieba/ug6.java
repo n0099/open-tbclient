@@ -33,7 +33,7 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class ug6 {
     public static /* synthetic */ Interceptable $ic;
-    public static woc<String, Pair<Boolean, String>> a;
+    public static xoc<String, Pair<Boolean, String>> a;
     public static final List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -274,10 +274,10 @@ public class ug6 {
         }
     }
 
-    public static void d(woc<String, Pair<Boolean, String>> wocVar) {
+    public static void d(xoc<String, Pair<Boolean, String>> xocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, wocVar) == null) {
-            a = wocVar;
+        if (interceptable == null || interceptable.invokeL(65541, null, xocVar) == null) {
+            a = xocVar;
         }
     }
 
@@ -292,14 +292,14 @@ public class ug6 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            woc<String, Pair<Boolean, String>> wocVar = a;
-            if (wocVar == null) {
+            xoc<String, Pair<Boolean, String>> xocVar = a;
+            if (xocVar == null) {
                 if (!gj6.a()) {
                     return new Pair<>(Boolean.FALSE, null);
                 }
                 throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
-            return wocVar.call(str);
+            return xocVar.call(str);
         }
         return (Pair) invokeL.objValue;
     }

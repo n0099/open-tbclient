@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.da;
 import com.baidu.tieba.e05;
-import com.baidu.tieba.w9a;
+import com.baidu.tieba.x9a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public w9a a;
+    public x9a a;
     public boolean b;
     public String c;
     public int d;
@@ -99,17 +99,17 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new w9a();
+        this.a = new x9a();
         this.b = z;
     }
 
-    public w9a O() {
+    public x9a O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (w9a) invokeV.objValue;
+        return (x9a) invokeV.objValue;
     }
 
     public boolean P() {

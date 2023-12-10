@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class rc6 extends nl6<xua> implements km6 {
+public class rc6 extends nl6<yua> implements km6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForbidParentSwipeBackRelativeLayout i;
@@ -43,7 +43,7 @@ public class rc6 extends nl6<xua> implements km6 {
     public View n;
     public View o;
     public String p;
-    public xua q;
+    public yua q;
     public int r;
     public lc6 s;
     public mc6 t;
@@ -284,23 +284,23 @@ public class rc6 extends nl6<xua> implements km6 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.nl6
     /* renamed from: I */
-    public void j(xua xuaVar) {
+    public void j(yua yuaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, xuaVar) == null) && xuaVar != null && xuaVar.a != null) {
-            this.q = xuaVar;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, yuaVar) == null) && yuaVar != null && yuaVar.a != null) {
+            this.q = yuaVar;
             o(0);
             if (this.t == null) {
-                mc6 mc6Var = new mc6(xuaVar.a, this.u, this.v);
+                mc6 mc6Var = new mc6(yuaVar.a, this.u, this.v);
                 this.t = mc6Var;
                 mc6Var.i(2);
                 this.t.h(6);
                 this.t.g(1);
             }
-            this.t.j(xuaVar.a);
+            this.t.j(yuaVar.a);
             this.k.d(this.p);
             this.k.c(this.t.e(), this.z);
             this.j.setCurrentItem(this.t.d(), false);
-            if (xuaVar.a.size() >= 2) {
+            if (yuaVar.a.size() >= 2) {
                 this.l.setVisibility(0);
                 if (this.m.getCount() != this.t.b()) {
                     this.m.setCount(this.t.b());
@@ -310,8 +310,8 @@ public class rc6 extends nl6<xua> implements km6 {
             } else {
                 this.l.setVisibility(8);
             }
-            if (xuaVar.a.size() > 0) {
-                this.s.b(xuaVar.a.get(0), "ala_frs_stage_live_feed_back_type");
+            if (yuaVar.a.size() > 0) {
+                this.s.b(yuaVar.a.get(0), "ala_frs_stage_live_feed_back_type");
             }
             F();
             k(h(), TbadkCoreApplication.getInst().getSkinType());
@@ -360,10 +360,10 @@ public class rc6 extends nl6<xua> implements km6 {
     }
 
     public final void F() {
-        xua xuaVar;
+        yua yuaVar;
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xuaVar = this.q) != null && ListUtils.isEmpty(xuaVar.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (yuaVar = this.q) != null && ListUtils.isEmpty(yuaVar.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
             CustomMessage customMessage = new CustomMessage(2921017);
             List<ThreadData> list = this.q.a;
             if (list != null && list.get(c2) != null) {
@@ -420,8 +420,8 @@ public class rc6 extends nl6<xua> implements km6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            xua xuaVar = this.q;
-            if (xuaVar != null && !ListUtils.isEmpty(xuaVar.a)) {
+            yua yuaVar = this.q;
+            if (yuaVar != null && !ListUtils.isEmpty(yuaVar.a)) {
                 for (ThreadData threadData2 : this.q.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(J(threadData2));
                 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.sx8;
+import com.baidu.tieba.tx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,9 +101,9 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             a2.n0(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().setNightMode(false);
             this.a.getLayoutMode().onModeChanged(view2);
-            sx8.c().e(chatMessage, this.a.getPageActivity());
-            sx8.c().f(chatMessage, this.a.getPageActivity());
-            sx8.c().d(chatMessage);
+            tx8.c().e(chatMessage, this.a.getPageActivity());
+            tx8.c().f(chatMessage, this.a.getPageActivity());
+            tx8.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

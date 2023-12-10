@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a17;
-import com.baidu.tieba.hz8;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.SingleTextImageAdapter;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.iz8;
+import com.baidu.tieba.ps8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ public class TextGenImageView extends LinearLayout {
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                hz8.a(spannableStringBuilder, -1);
+                iz8.a(spannableStringBuilder, -1);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.b.setText(this.a.getCacheText());
             }
@@ -125,7 +125,7 @@ public class TextGenImageView extends LinearLayout {
     public void b(@NonNull SingleTextImageAdapter.Holder holder, @NonNull TbSingleTextImageMsg tbSingleTextImageMsg, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, holder, tbSingleTextImageMsg, i) == null) {
-            hz8.b(tbSingleTextImageMsg.getAtUserInfoList());
+            iz8.b(tbSingleTextImageMsg.getAtUserInfoList());
             CharSequence cacheText = tbSingleTextImageMsg.getCacheText();
             if (cacheText != null) {
                 this.b.setText(cacheText);
@@ -142,7 +142,7 @@ public class TextGenImageView extends LinearLayout {
             String thumbUrl = tbSingleTextImageMsg.getThumbUrl();
             String thumbSize = tbSingleTextImageMsg.getThumbSize();
             if (!StringUtils.isNull(thumbSize) && !StringUtils.isNull(thumbUrl)) {
-                tbSingleTextImageMsg.setThumbSize(os8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
+                tbSingleTextImageMsg.setThumbSize(ps8.d(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
             }
         }
     }

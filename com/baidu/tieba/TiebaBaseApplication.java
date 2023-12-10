@@ -197,14 +197,14 @@ public class TiebaBaseApplication extends TbadkApplication {
             super.attachBaseContext(context);
             AppRuntimeInit.onApplicationattachBaseContext(this);
             yf1.b(this);
-            boolean a2 = n3b.a(this, "NPS_DEBUG_MODE");
+            boolean a2 = o3b.a(this, "NPS_DEBUG_MODE");
             AppConfig.init(false, false, a2, false);
             if (a2) {
                 CloudControlUrlConfig.setDebugHost("http://showcase.baidu.com");
                 mh.b("http://showcase.baidu.com");
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
-            inb.b(this);
+            jnb.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);

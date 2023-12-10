@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class nw8 extends q6 {
+public class nw8 extends r6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,84 +34,34 @@ public class nw8 extends q6 {
         }
     }
 
-    public final void i(GroupMsgData groupMsgData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.adp.framework.controller.MessageRule
+    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketMessage socketMessage2 = socketMessage;
+        process2(socketMessage2, socketMessageTask);
+        return socketMessage2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n6
-    /* renamed from: j */
-    public SocketResponsedMessage g(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
-            MessageSyncMessage messageSyncMessage = null;
-            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
-            }
-            if (messageSyncMessage != null) {
-                Logger.addLog("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
-            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        i(groupMsgData);
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
+            StringBuilder sb = new StringBuilder(200);
+            if (socketMessage instanceof MessageSyncMessage) {
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) socketMessage;
+                LongSparseArray<Long> groupMids = messageSyncMessage.getGroupMids();
+                for (int i = 0; i < groupMids.size(); i++) {
+                    sb.append(groupMids.keyAt(i));
+                    sb.append("-");
+                    sb.append(groupMids.valueAt(i));
+                    sb.append("|");
                 }
+                Logger.addLog("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
             }
-            if (!k(responsePullMessage)) {
-                lw8.n().p();
-            }
-            return socketResponsedMessage;
+            return socketMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
-    }
-
-    public final boolean k(ResponsePullMessage responsePullMessage) {
-        InterceptResult invokeL;
-        Long l;
-        Long l2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
-            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    return false;
-                }
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
-                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    LongSparseArray<Long> q = ew8.n().q();
-                    boolean z = false;
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && fw8.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
-                            if (l.longValue() > l2.longValue()) {
-                                z = true;
-                            }
-                            if (groupMsgData.hasMore()) {
-                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
-                            }
-                        }
-                    }
-                    if (z && longSparseArray.size() > 0) {
-                        lw8.n().t(longSparseArray);
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (SocketMessage) invokeLL.objValue;
     }
 }

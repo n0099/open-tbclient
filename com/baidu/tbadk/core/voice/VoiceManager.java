@@ -40,8 +40,8 @@ import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
 import com.baidu.tieba.be;
 import com.baidu.tieba.de;
-import com.baidu.tieba.hya;
 import com.baidu.tieba.ie;
+import com.baidu.tieba.iya;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.o75;
@@ -94,7 +94,7 @@ public class VoiceManager extends BroadcastReceiver {
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public l mPlayCall;
-    public CustomResponsedMessage<hya> mRecorderManagerRespMsg;
+    public CustomResponsedMessage<iya> mRecorderManagerRespMsg;
     public BdResourceCallback<o75> mResourceCall;
     public m mSensorListener;
     public final BroadcastReceiver mVoicePlayerReceiver;
@@ -932,7 +932,7 @@ public class VoiceManager extends BroadcastReceiver {
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = !isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, hya.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, iya.class);
         this.mSensorListener = new m(this, null);
     }
 
@@ -1309,19 +1309,19 @@ public class VoiceManager extends BroadcastReceiver {
         return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public hya getRecorderManager() {
+    public iya getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage<hya> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<iya> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                hya data = this.mRecorderManagerRespMsg.getData();
+                iya data = this.mRecorderManagerRespMsg.getData();
                 data.a(this.context);
                 return data;
             }
             return null;
         }
-        return (hya) invokeV.objValue;
+        return (iya) invokeV.objValue;
     }
 
     public boolean isPlaying() {

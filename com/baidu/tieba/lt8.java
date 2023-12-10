@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.jt8;
+import com.baidu.tieba.kt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,9 +14,19 @@ public class lt8 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements jt8.c {
+    public class a implements kt8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.kt8.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -33,27 +41,12 @@ public class lt8 {
                 }
             }
         }
-
-        @Override // com.baidu.tieba.jt8.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                boolean isOpen = ChatStatusManager.getInst().getIsOpen(1);
-                String curId = ChatStatusManager.getInst().getCurId(1);
-                if (!TextUtils.isEmpty(str) && isOpen && str.equals(curId)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
     }
 
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, jt8.b bVar) {
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, kt8.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            jt8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(4));
+            kt8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 }

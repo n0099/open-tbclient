@@ -24,13 +24,13 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvider {
+public final class o47 extends z47 implements oa7, sb7<o47>, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final y57 g;
     public final t67 h;
-    public final he7 i;
-    public final ge7 j;
+    public final ie7 i;
+    public final he7 j;
     public final String k;
     public final Map<String, String> l;
     public final Map<String, String> m;
@@ -40,7 +40,7 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
     public final Function3<View, l67, o47, Unit> q;
     public final Function2<t67, View, Unit> r;
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,10 +72,10 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
             int hashCode = this.g.hashCode() * 31;
             t67 t67Var = this.h;
             int hashCode2 = (hashCode + (t67Var == null ? 0 : t67Var.hashCode())) * 31;
-            he7 he7Var = this.i;
-            int hashCode3 = (hashCode2 + (he7Var == null ? 0 : he7Var.hashCode())) * 31;
-            ge7 ge7Var = this.j;
-            int hashCode4 = (hashCode3 + (ge7Var == null ? 0 : ge7Var.hashCode())) * 31;
+            ie7 ie7Var = this.i;
+            int hashCode3 = (hashCode2 + (ie7Var == null ? 0 : ie7Var.hashCode())) * 31;
+            he7 he7Var = this.j;
+            int hashCode4 = (hashCode3 + (he7Var == null ? 0 : he7Var.hashCode())) * 31;
             String str = this.k;
             int hashCode5 = (((((((hashCode4 + (str != null ? str.hashCode() : 0)) * 31) + this.l.hashCode()) * 31) + this.m.hashCode()) * 31) + this.n.hashCode()) * 31;
             boolean z = this.o;
@@ -105,13 +105,13 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
-    public o47(y57 headData, t67 t67Var, he7 he7Var, ge7 ge7Var, String str, Map<String, String> businessInfoMap, Map<String, String> logInfoMap, List<e87> statDataList, boolean z, Function3<? super View, ? super String, ? super o47, Unit> onImageClick, Function3<? super View, ? super l67, ? super o47, Unit> onTagClick, Function2<? super t67, ? super View, Unit> onFeedBackClick) {
+    public o47(y57 headData, t67 t67Var, ie7 ie7Var, he7 he7Var, String str, Map<String, String> businessInfoMap, Map<String, String> logInfoMap, List<e87> statDataList, boolean z, Function3<? super View, ? super String, ? super o47, Unit> onImageClick, Function3<? super View, ? super l67, ? super o47, Unit> onTagClick, Function2<? super t67, ? super View, Unit> onFeedBackClick) {
         super(businessInfoMap, logInfoMap, null, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {headData, t67Var, he7Var, ge7Var, str, businessInfoMap, logInfoMap, statDataList, Boolean.valueOf(z), onImageClick, onTagClick, onFeedBackClick};
+            Object[] objArr = {headData, t67Var, ie7Var, he7Var, str, businessInfoMap, logInfoMap, statDataList, Boolean.valueOf(z), onImageClick, onTagClick, onFeedBackClick};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,8 +132,8 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
         Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
         this.g = headData;
         this.h = t67Var;
-        this.i = he7Var;
-        this.j = ge7Var;
+        this.i = ie7Var;
+        this.j = he7Var;
         this.k = str;
         this.l = businessInfoMap;
         this.m = logInfoMap;
@@ -148,8 +148,8 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ o47(y57 y57Var, t67 t67Var, he7 he7Var, ge7 ge7Var, String str, Map map, Map map2, List list, boolean z, Function3 function3, Function3 function32, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(y57Var, t67Var, he7Var, ge7Var, str, r8, r9, r10, r11, r12, r13, r14);
+    public /* synthetic */ o47(y57 y57Var, t67 t67Var, ie7 ie7Var, he7 he7Var, String str, Map map, Map map2, List list, boolean z, Function3 function3, Function3 function32, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(y57Var, t67Var, ie7Var, he7Var, str, r8, r9, r10, r11, r12, r13, r14);
         LinkedHashMap linkedHashMap;
         LinkedHashMap linkedHashMap2;
         ArrayList arrayList;
@@ -199,7 +199,7 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public /* bridge */ /* synthetic */ o47 b() {
         l();
         return this;
@@ -214,13 +214,13 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
         return (t67) invokeV.objValue;
     }
 
-    public final ge7 n() {
+    public final he7 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.j;
         }
-        return (ge7) invokeV.objValue;
+        return (he7) invokeV.objValue;
     }
 
     public final boolean o() {
@@ -268,13 +268,13 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
         return (Function3) invokeV.objValue;
     }
 
-    public final he7 t() {
+    public final ie7 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.i;
         }
-        return (he7) invokeV.objValue;
+        return (ie7) invokeV.objValue;
     }
 
     public final String u() {
@@ -300,13 +300,13 @@ public final class o47 extends z47 implements oa7, rb7<o47>, PreLoadImageProvide
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            he7 he7Var = this.i;
+            ie7 ie7Var = this.i;
+            if (ie7Var != null) {
+                ie7Var.d(event);
+            }
+            he7 he7Var = this.j;
             if (he7Var != null) {
                 he7Var.d(event);
-            }
-            ge7 ge7Var = this.j;
-            if (ge7Var != null) {
-                ge7Var.d(event);
             }
         }
     }

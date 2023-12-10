@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import com.baidu.android.imsdk.chatmessage.messages.TextImageMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbAiIntroduceMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.im.lib.socket.msg.TbTextToSpeechMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbSingleTextImageMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import kotlin.Triple;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jv8 extends dv8<TbTextMsg, TextMsg> {
+public final class jv8 extends ev8<TbSingleTextImageMsg, TextImageMsg> {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,11 +65,11 @@ public final class jv8 extends dv8<TbTextMsg, TextMsg> {
             }
         }
 
-        public final Triple<Class<TbTextMsg>, Class<TextMsg>, jv8> a() {
+        public final Triple<Class<TbSingleTextImageMsg>, Class<TextImageMsg>, jv8> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbTextMsg.class, TextMsg.class, new jv8(null));
+                return new Triple<>(TbSingleTextImageMsg.class, TextImageMsg.class, new jv8(null));
             }
             return (Triple) invokeV.objValue;
         }
@@ -89,41 +88,40 @@ public final class jv8 extends dv8<TbTextMsg, TextMsg> {
                 return;
             }
         }
-        j(1, TbTextMsg.class);
-        j(103, TbTextToSpeechMsg.class);
-        j(104, TbAiIntroduceMsg.class);
+        j(102, TbSingleTextImageMsg.class);
+        j(101, TbTextGenImageMsg.class);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
+    @Override // com.baidu.tieba.ev8
     /* renamed from: n */
-    public TextMsg g(TbTextMsg tbMsg) {
+    public TextImageMsg g(TbSingleTextImageMsg tbMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
             Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText(tbMsg.getText());
-            return textMsg;
+            TextImageMsg textImageMsg = new TextImageMsg();
+            textImageMsg.setText(tbMsg.getText());
+            fv8.f.a(textImageMsg, tbMsg);
+            return textImageMsg;
         }
-        return (TextMsg) invokeL.objValue;
+        return (TextImageMsg) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
+    @Override // com.baidu.tieba.ev8
     /* renamed from: o */
-    public TbTextMsg h(int i, TextMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+    public TbSingleTextImageMsg h(int i, TextImageMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
             Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbTextMsg tbTextMsg = (TbTextMsg) DataExt.toEntity(sdkMsgMap, l(i));
-            String str = sdkMsg.text;
-            Intrinsics.checkNotNullExpressionValue(str, "sdkMsg.text");
-            tbTextMsg.setText(str);
-            return tbTextMsg;
+            TbSingleTextImageMsg tbSingleTextImageMsg = (TbSingleTextImageMsg) DataExt.toEntity(sdkMsgMap, l(i));
+            fv8.f.b(tbSingleTextImageMsg, sdkMsg);
+            tbSingleTextImageMsg.setText(sdkMsg.getText());
+            return tbSingleTextImageMsg;
         }
-        return (TbTextMsg) invokeILL.objValue;
+        return (TbSingleTextImageMsg) invokeILL.objValue;
     }
 }

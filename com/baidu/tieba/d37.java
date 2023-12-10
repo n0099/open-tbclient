@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d37 implements qb7<DelegateNativeAdView, AdvertAppInfo> {
+public class d37 implements rb7<DelegateNativeAdView, AdvertAppInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ICardInfo a;
@@ -63,21 +63,21 @@ public class d37 implements qb7<DelegateNativeAdView, AdvertAppInfo> {
         this.c = i3;
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             DelegateNativeAdView delegateNativeAdView = new DelegateNativeAdView(viewGroup.getContext(), this.d, this.a, this.c, this.e);
-            jd7.i(delegateNativeAdView, Integer.valueOf(jd7.e() - du.r));
+            kd7.i(delegateNativeAdView, Integer.valueOf(kd7.e() - du.r));
             return delegateNativeAdView;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: d */
     public void b(@NonNull DelegateNativeAdView delegateNativeAdView, @NonNull AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class d37 implements qb7<DelegateNativeAdView, AdvertAppInfo> {
         }
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public String c() {
         InterceptResult invokeV;

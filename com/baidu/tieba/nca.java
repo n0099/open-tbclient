@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nca {
-    void d(qba qbaVar);
+    void a(int i, int i2, String str, int i3, String str2);
 }

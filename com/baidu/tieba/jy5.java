@@ -14,14 +14,14 @@ public class jy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, ova ovaVar) {
+    public static boolean a(Context context, pva pvaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ovaVar)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, pvaVar)) == null) {
             boolean z = false;
-            if (context != null && ovaVar != null && ovaVar.b()) {
+            if (context != null && pvaVar != null && pvaVar.b()) {
                 TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-                TiebaPlusInfo a = ovaVar.a();
+                TiebaPlusInfo a = pvaVar.a();
                 if (a == null) {
                     return false;
                 }

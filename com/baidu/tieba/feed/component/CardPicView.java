@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.e87;
 import com.baidu.tieba.k37;
-import com.baidu.tieba.kb7;
-import com.baidu.tieba.sa7;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.ta7;
 import com.baidu.tieba.u47;
 import com.baidu.tieba.w77;
 import com.baidu.tieba.x77;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class CardPicView extends CardFrameView<u47> implements kb7 {
+public class CardPicView extends CardFrameView<u47> implements lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final k37.e d;
@@ -227,7 +227,7 @@ public class CardPicView extends CardFrameView<u47> implements kb7 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.kb7
+    @Override // com.baidu.tieba.lb7
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -253,13 +253,13 @@ public class CardPicView extends CardFrameView<u47> implements kb7 {
                 return;
             }
             FrameLayout frameLayout = (FrameLayout) childAt;
-            sa7.a.b(frameLayout);
+            ta7.a.b(frameLayout);
             List<x77> list = w77Var.h;
             if (list == null) {
                 return;
             }
             for (x77 x77Var : list) {
-                sa7.a.a(getContext(), x77Var, frameLayout);
+                ta7.a.a(getContext(), x77Var, frameLayout);
             }
         }
     }

@@ -67,7 +67,7 @@ public final class z15 extends m15 {
         }
 
         @Override // com.baidu.tieba.us4
-        public fxa a(WebView webView, String nextPage, String source) {
+        public gxa a(WebView webView, String nextPage, String source) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, nextPage, source)) == null) {
@@ -75,13 +75,13 @@ public final class z15 extends m15 {
                 Intrinsics.checkNotNullParameter(nextPage, "nextPage");
                 Intrinsics.checkNotNullParameter(source, "source");
                 this.a.g();
-                return new fxa();
+                return new gxa();
             }
-            return (fxa) invokeLLL.objValue;
+            return (gxa) invokeLLL.objValue;
         }
 
         @Override // com.baidu.tieba.us4
-        public fxa b(WebView webView, String link, int i) {
+        public gxa b(WebView webView, String link, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, link, i)) == null) {
@@ -97,9 +97,9 @@ public final class z15 extends m15 {
                         this.a.g();
                     }
                 }
-                return new fxa();
+                return new gxa();
             }
-            return (fxa) invokeLLI.objValue;
+            return (gxa) invokeLLI.objValue;
         }
     }
 

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconHttpResponse;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,8 +67,8 @@ public class VideoPlayActivityStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            vva.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class);
-            vva.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
+            wva.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class);
+            wva.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
         }
     }
 

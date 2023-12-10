@@ -1,151 +1,81 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.fb7;
-import com.baidu.tieba.forum.statistic.ForumStatConstant$TabType;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.forum.data.ForumTabItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class sm7 implements fb7.c {
+public final class sm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BdUniqueId a;
-    public final Bundle b;
-    public final List<tb7> c;
-    public final ForumStatConstant$TabType d;
-    public final long e;
 
-    public sm7(BdUniqueId pageId, Bundle bundle) {
+    public static final void a(ForumTabItem tabItem, long j, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pageId, bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(pageId, "pageId");
-        Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.a = pageId;
-        this.b = bundle;
-        this.c = new ArrayList();
-        this.d = tm7.a(this.b);
-        this.e = this.b.getLong("forum_id");
-    }
-
-    @Override // com.baidu.tieba.fb7.c
-    public void a(rb7<?> data, qb7<?, ?> template, int i) {
-        bb7 bb7Var;
-        Map<String, String> emptyMap;
-        Map<String, String> emptyMap2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(template, "template");
-            if (data instanceof bb7) {
-                bb7Var = (bb7) data;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{tabItem, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            Intrinsics.checkNotNullParameter(tabItem, "tabItem");
+            StatisticItem statisticItem = new StatisticItem("c13008");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            int tabId = tabItem.getTabId();
+            if (tabId != 1) {
+                if (tabId != 49) {
+                    if (tabId != 301) {
+                        if (tabId != 404) {
+                            if (tabId != 1120) {
+                                if (tabId != 89) {
+                                    if (tabId != 90) {
+                                        if (tabId != 503) {
+                                            if (tabId != 504) {
+                                                i2 = 10;
+                                            } else {
+                                                i2 = 11;
+                                            }
+                                        } else {
+                                            i2 = 6;
+                                        }
+                                    } else {
+                                        i2 = 9;
+                                    }
+                                } else {
+                                    i2 = 1;
+                                }
+                            }
+                        } else {
+                            i2 = 2;
+                        }
+                    } else {
+                        i2 = 7;
+                    }
+                }
+                i2 = 15;
+            } else if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                i2 = 4;
             } else {
-                bb7Var = null;
+                i2 = 5;
             }
-            if (bb7Var == null) {
-                return;
-            }
-            n77 n77Var = bb7Var.a;
-            if (n77Var == null || (emptyMap = n77Var.a()) == null) {
-                emptyMap = MapsKt__MapsKt.emptyMap();
-            }
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("get_position", String.valueOf(i + 1));
-            linkedHashMap.put(LegoListActivityConfig.PAGE_ID, this.a.toString());
-            v57 v57Var = bb7Var.b;
-            if (v57Var == null || (emptyMap2 = v57Var.a()) == null) {
-                emptyMap2 = MapsKt__MapsKt.emptyMap();
-            }
-            this.c.add(new tb7("card_show", emptyMap, linkedHashMap, emptyMap2));
-            bb7 bb7Var2 = (bb7) data;
-            if (bb7Var2.b() instanceof w57) {
-                T b = bb7Var2.b();
-                if (b != 0) {
-                    Iterator<rb7<? extends Object>> it = ((w57) b).c().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
+            int tabType = tabItem.getTabType();
+            if (tabType != 1) {
+                if (tabType != 3) {
+                    if (tabType != 100) {
+                        if (tabType == 102) {
+                            i2 = 17;
                         }
-                        rb7<? extends Object> next = it.next();
-                        if (next instanceof o47) {
-                            o47 o47Var = (o47) next;
-                            c(o47Var.p().c(), linkedHashMap);
-                            c(o47Var.p().a(), linkedHashMap);
-                            break;
-                        } else if (next instanceof c57) {
-                            c57 c57Var = (c57) next;
-                            c(c57Var.p().d(), linkedHashMap);
-                            c(c57Var.p().b(), linkedHashMap);
-                            break;
-                        }
+                    } else {
+                        i2 = 16;
                     }
                 } else {
-                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.CardData<*>");
+                    i2 = 13;
                 }
+            } else {
+                i2 = 12;
             }
-            ym7.a.e(emptyMap2, this.d, String.valueOf(this.e), i);
-        }
-    }
-
-    @Override // com.baidu.tieba.fb7.c
-    public void b(RecyclerView rv) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
-            Intrinsics.checkNotNullParameter(rv, "rv");
-            e();
-        }
-    }
-
-    public final void c(List<? extends l67> list, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
-            for (l67 l67Var : list) {
-                if (!l67Var.E().isEmpty()) {
-                    this.c.add(new tb7("head_tag_show", l67Var.E(), map, MapsKt__MapsKt.emptyMap()));
-                }
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e();
-            ac7.a.a(this.a.toString());
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (tb7 tb7Var : this.c) {
-                ac7.a.c(tb7Var);
-            }
-            this.c.clear();
+            statisticItem.param("obj_locate", i);
+            statisticItem.param("obj_type", i2);
+            statisticItem.eventStat();
         }
     }
 }

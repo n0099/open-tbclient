@@ -200,8 +200,8 @@ public class bi5 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vva.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = vva.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
+            wva.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = wva.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
             this.b = c2;
             c2.setTimeOut(z6.d().b());
             this.b.setRetry(z6.d().a());

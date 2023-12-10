@@ -18,7 +18,7 @@ import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.tieba.r0;
 import com.baidu.tieba.t0;
 import com.baidu.tieba.u0;
-import com.baidu.tieba.ve7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -499,7 +499,7 @@ public class DslTabLayoutConfig extends DslSelectorConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, attributeSet) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ve7.DslTabLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, we7.DslTabLayout);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr…R.styleable.DslTabLayout)");
             this.l = obtainStyledAttributes.getColor(113, this.l);
             this.m = obtainStyledAttributes.getColor(36, this.m);

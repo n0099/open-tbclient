@@ -31,7 +31,7 @@ public class dd6 extends ci<td6, CardViewHolder<qe6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public t4b b;
+    public u4b b;
     public boolean c;
     public String d;
     public String e;
@@ -171,7 +171,7 @@ public class dd6 extends ci<td6, CardViewHolder<qe6>> {
                 f05Var.create(this.a).show();
             } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                 if (this.b == null) {
-                    this.b = new t4b(this.a);
+                    this.b = new u4b(this.a);
                 }
                 if (this.c) {
                     if (this.b.c()) {

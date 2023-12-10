@@ -44,7 +44,7 @@ public class r26 extends re0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ve0Var, map, ze0Var)) == null) {
             super.b(context, ve0Var, map, ze0Var);
-            return wha.d(context, ve0Var.d());
+            return xha.d(context, ve0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

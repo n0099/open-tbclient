@@ -69,7 +69,7 @@ public class kt extends ku implements View.OnClickListener {
             this.C = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.A = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            lea t = t();
+            mea t = t();
             this.l = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
             this.C.setOnClickListener(this);
@@ -115,15 +115,15 @@ public class kt extends ku implements View.OnClickListener {
     }
 
     @Override // com.baidu.tieba.ku
-    public lea t() {
+    public mea t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            mea meaVar = new mea(this.b, this.i);
-            meaVar.setStageType("2003");
-            return meaVar;
+            nea neaVar = new nea(this.b, this.i);
+            neaVar.setStageType("2003");
+            return neaVar;
         }
-        return (lea) invokeV.objValue;
+        return (mea) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ku, com.baidu.tieba.jt

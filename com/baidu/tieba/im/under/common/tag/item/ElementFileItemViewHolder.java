@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq8;
 import com.baidu.tieba.cq8;
-import com.baidu.tieba.hq8;
+import com.baidu.tieba.dq8;
 import com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
-import com.baidu.tieba.py8;
-import com.baidu.tieba.ry8;
+import com.baidu.tieba.iq8;
+import com.baidu.tieba.qy8;
+import com.baidu.tieba.sy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     public final ImageView d;
     public final ImageView e;
     @Nullable
-    public hq8 f;
+    public iq8 f;
     @Nullable
     public Context g;
 
@@ -49,15 +49,15 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cq8 a;
+        public final /* synthetic */ dq8 a;
         public final /* synthetic */ ElementFileItemViewHolder b;
 
-        public a(ElementFileItemViewHolder elementFileItemViewHolder, cq8 cq8Var) {
+        public a(ElementFileItemViewHolder elementFileItemViewHolder, dq8 dq8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {elementFileItemViewHolder, cq8Var};
+                Object[] objArr = {elementFileItemViewHolder, dq8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,7 +68,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = elementFileItemViewHolder;
-            this.a = cq8Var;
+            this.a = dq8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -95,7 +95,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements py8 {
+    public class b implements qy8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext a;
@@ -118,7 +118,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
             this.a = ext;
         }
 
-        @Override // com.baidu.tieba.py8
+        @Override // com.baidu.tieba.qy8
         public void onFinish(@NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -128,13 +128,13 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ElementFileItemViewHolder(@NonNull View view2, @Nullable cq8 cq8Var) {
+    public ElementFileItemViewHolder(@NonNull View view2, @Nullable dq8 dq8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, cq8Var};
+            Object[] objArr = {view2, dq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -148,7 +148,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a5);
         this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a4);
         this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924db);
-        view2.setOnClickListener(new a(this, cq8Var));
+        view2.setOnClickListener(new a(this, dq8Var));
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
@@ -161,17 +161,17 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.im.base.core.tag.core.BaseTagItemViewHolder
-    public void f(bq8 bq8Var, Context context, int i) {
+    public void f(cq8 cq8Var, Context context, int i) {
         String b2;
         BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, bq8Var, context, i) == null) {
-            super.f(bq8Var, context, i);
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, cq8Var, context, i) == null) {
+            super.f(cq8Var, context, i);
             this.g = context;
-            if (bq8Var instanceof hq8) {
-                hq8 hq8Var = (hq8) bq8Var;
-                this.f = hq8Var;
-                if (hq8Var.b != null && (optsDTO = hq8Var.c) != null && optsDTO.getExt() != null && this.f.p()) {
+            if (cq8Var instanceof iq8) {
+                iq8 iq8Var = (iq8) cq8Var;
+                this.f = iq8Var;
+                if (iq8Var.b != null && (optsDTO = iq8Var.c) != null && optsDTO.getExt() != null && this.f.p()) {
                     BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.f.c.getExt();
                     b2 = this.f.b.getName() + "：";
                     this.e.setVisibility(0);
@@ -182,7 +182,7 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
                         return;
                     }
                     this.e.setImageURI(Uri.parse(picPath));
-                    ry8.a(picPath, 1024, 1024, new b(this, ext));
+                    sy8.a(picPath, 1024, 1024, new b(this, ext));
                 } else {
                     b2 = this.f.b();
                     this.e.setVisibility(8);
@@ -234,10 +234,10 @@ public class ElementFileItemViewHolder extends BaseTagItemViewHolder {
     }
 
     public final void z() {
-        hq8 hq8Var;
+        iq8 iq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (hq8Var = this.f) != null) {
-            hq8Var.r(false);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (iq8Var = this.f) != null) {
+            iq8Var.r(false);
             this.e.setImageURI(null);
             BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.f.c;
             if (optsDTO != null && optsDTO.getExt() != null) {

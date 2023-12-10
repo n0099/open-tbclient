@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface jwb {
-    void a(dwb dwbVar, SurfaceTexture surfaceTexture);
+    void a(Bitmap bitmap);
 }

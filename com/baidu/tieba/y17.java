@@ -161,9 +161,9 @@ public class y17 {
             if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
                 if (i2 > 0) {
                     BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
-                    ir9.u(System.currentTimeMillis());
+                    jr9.u(System.currentTimeMillis());
                 }
-                ir9.o().x(false);
+                jr9.o().x(false);
             }
         }
     }
@@ -188,7 +188,7 @@ public class y17 {
     public final void g(List<CollectEmotionData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            fr9.a("【表情云同步】：5 - 收藏表情：根据云端数据进行排序");
+            gr9.a("【表情云同步】：5 - 收藏表情：根据云端数据进行排序");
             this.a.u(list, false, new c(this));
         }
     }
@@ -203,7 +203,7 @@ public class y17 {
                 }
             }
             if (!arrayList.isEmpty()) {
-                fr9.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
+                gr9.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
                 ArrayList arrayList2 = new ArrayList();
                 for (CollectEmotionData collectEmotionData2 : arrayList) {
                     kj5 kj5Var = new kj5();
@@ -234,7 +234,7 @@ public class y17 {
                 }
             }
             if (!arrayList.isEmpty()) {
-                fr9.a("【表情云同步】：4 - 收藏表情：删除云端没有的表情");
+                gr9.a("【表情云同步】：4 - 收藏表情：删除云端没有的表情");
                 this.a.x(arrayList, false, new a(this, list, h));
                 return;
             }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ecb;
+import com.baidu.tieba.fcb;
 import com.baidu.tieba.pf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class qf6 implements pf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ecb a;
+    public fcb a;
     public TextView b;
     public pf6.c c;
     public pf6.b d;
     public pf6.a e;
 
     /* loaded from: classes7.dex */
-    public class a implements ecb.a {
+    public class a implements fcb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qf6 a;
@@ -44,7 +44,7 @@ public class qf6 implements pf6 {
             this.a = qf6Var;
         }
 
-        @Override // com.baidu.tieba.ecb.a
+        @Override // com.baidu.tieba.fcb.a
         public void onProgress(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
@@ -52,7 +52,7 @@ public class qf6 implements pf6 {
             }
         }
 
-        @Override // com.baidu.tieba.ecb.a
+        @Override // com.baidu.tieba.fcb.a
         public void a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -65,7 +65,7 @@ public class qf6 implements pf6 {
             }
         }
 
-        @Override // com.baidu.tieba.ecb.a
+        @Override // com.baidu.tieba.fcb.a
         public float getSpeed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class qf6 implements pf6 {
             return invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.ecb.a
+        @Override // com.baidu.tieba.fcb.a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
@@ -87,12 +87,12 @@ public class qf6 implements pf6 {
         }
     }
 
-    public qf6(ecb ecbVar, TextView textView, pf6.c cVar, pf6.b bVar, pf6.a aVar) {
+    public qf6(fcb fcbVar, TextView textView, pf6.c cVar, pf6.b bVar, pf6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ecbVar, textView, cVar, bVar, aVar};
+            Object[] objArr = {fcbVar, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,7 +102,7 @@ public class qf6 implements pf6 {
                 return;
             }
         }
-        this.a = ecbVar;
+        this.a = fcbVar;
         this.b = textView;
         this.c = cVar;
         this.d = bVar;
@@ -115,9 +115,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.setMaxDuration(i);
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.setMaxDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -131,9 +131,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.setMinDuration(i);
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.setMinDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -147,9 +147,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.setProgress(j);
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.setProgress(j);
                 return true;
             }
             return false;
@@ -162,9 +162,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.setShowDeleteLastTip(z);
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.setShowDeleteLastTip(z);
                 return true;
             }
             return false;
@@ -177,9 +177,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.a();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.a();
                 return true;
             }
             return false;
@@ -192,9 +192,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                return ecbVar.b();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                return fcbVar.b();
             }
             return false;
         }
@@ -206,9 +206,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                return ecbVar.getMaxDuration();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                return fcbVar.getMaxDuration();
             }
             return 0;
         }
@@ -220,9 +220,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                return ecbVar.getProgress();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                return fcbVar.getProgress();
             }
             return 0.0f;
         }
@@ -234,9 +234,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                return ecbVar.getSlideNum();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                return fcbVar.getSlideNum();
             }
             return 0;
         }
@@ -247,11 +247,11 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar == null) {
+            fcb fcbVar = this.a;
+            if (fcbVar == null) {
                 return false;
             }
-            ecbVar.setOnProgressListener(new a(this));
+            fcbVar.setOnProgressListener(new a(this));
             return true;
         }
         return invokeV.booleanValue;
@@ -262,9 +262,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.stop();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.stop();
                 return true;
             }
             return false;
@@ -277,9 +277,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.reset();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.reset();
                 return true;
             }
             return false;
@@ -292,9 +292,9 @@ public class qf6 implements pf6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ecb ecbVar = this.a;
-            if (ecbVar != null) {
-                ecbVar.start();
+            fcb fcbVar = this.a;
+            if (fcbVar != null) {
+                fcbVar.start();
                 return true;
             }
             return false;

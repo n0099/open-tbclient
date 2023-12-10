@@ -189,9 +189,9 @@ public class dc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
             if (i == 0) {
-                i5b.d(this.d, i2);
+                j5b.d(this.d, i2);
             } else {
-                i5b.b(this.d, i2);
+                j5b.b(this.d, i2);
             }
         }
     }

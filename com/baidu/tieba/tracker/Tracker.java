@@ -5,12 +5,12 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t3b;
+import com.baidu.tieba.a4b;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.tieba.tracker.core.data.IEventNode;
 import com.baidu.tieba.u3b;
-import com.baidu.tieba.z3b;
+import com.baidu.tieba.v3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public final class Tracker {
     public static final a i;
     public static final Lazy<Tracker> j;
     public transient /* synthetic */ FieldHolder $fh;
-    public u3b a;
+    public v3b a;
     public final Map<String, List<IEventNode>> b;
     public final Handler c;
     public long d;
@@ -97,12 +97,12 @@ public final class Tracker {
             return (Tracker) invokeV.objValue;
         }
 
-        public final void c(u3b u3bVar) {
+        public final void c(v3b v3bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u3bVar) != null) || u3bVar == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v3bVar) != null) || v3bVar == null) {
                 return;
             }
-            Tracker.i.b().q(u3bVar);
+            Tracker.i.b().q(v3bVar);
         }
 
         public final void d(String ubcId, IEventNode iEventNode) {
@@ -169,7 +169,7 @@ public final class Tracker {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Handler handler = this.c;
             final Function0<Unit> function0 = this.h;
-            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.o3b
+            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.p3b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +183,7 @@ public final class Tracker {
             });
             Handler handler2 = this.c;
             final Function0<Unit> function02 = this.h;
-            handler2.post(new Runnable() { // from class: com.baidu.tieba.p3b
+            handler2.post(new Runnable() { // from class: com.baidu.tieba.q3b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public final class Tracker {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                u3b u3bVar;
+                v3b v3bVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                     return;
@@ -262,9 +262,9 @@ public final class Tracker {
                 synchronized (map) {
                     if (!tracker.b.isEmpty()) {
                         for (Map.Entry entry : tracker.b.entrySet()) {
-                            u3bVar = tracker.a;
-                            if (u3bVar != null) {
-                                u3bVar.b((String) entry.getKey(), (List) entry.getValue());
+                            v3bVar = tracker.a;
+                            if (v3bVar != null) {
+                                v3bVar.b((String) entry.getKey(), (List) entry.getValue());
                             }
                         }
                         tracker.b.clear();
@@ -315,12 +315,12 @@ public final class Tracker {
         }
     }
 
-    public final void q(u3b u3bVar) {
+    public final void q(v3b v3bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, u3bVar) == null) {
-            this.a = u3bVar;
-            if (u3bVar != null) {
-                u3bVar.a();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v3bVar) == null) {
+            this.a = v3bVar;
+            if (v3bVar != null) {
+                v3bVar.a();
             }
         }
     }
@@ -337,7 +337,7 @@ public final class Tracker {
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             Handler handler = this.c;
             final Function0<Unit> function0 = this.h;
-            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.s3b
+            handler.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.t3b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -351,7 +351,7 @@ public final class Tracker {
             });
             Handler handler2 = this.c;
             final Function0<Unit> function02 = this.h;
-            handler2.post(new Runnable() { // from class: com.baidu.tieba.r3b
+            handler2.post(new Runnable() { // from class: com.baidu.tieba.s3b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -368,18 +368,18 @@ public final class Tracker {
     }
 
     public final void f(String str, IEventNode iEventNode) {
-        u3b u3bVar;
+        v3b v3bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, iEventNode) == null) {
-            if (p(iEventNode) && t3b.a.a(iEventNode) && (u3bVar = this.a) != null) {
-                u3bVar.c(str, iEventNode);
+            if (p(iEventNode) && u3b.a.a(iEventNode) && (v3bVar = this.a) != null) {
+                v3bVar.c(str, iEventNode);
             }
             if (o(iEventNode)) {
                 if (this.b.get(str) == null) {
                     this.b.put(str, new ArrayList());
                     Handler handler = this.c;
                     final Function0<Unit> function0 = this.h;
-                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.q3b
+                    handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.r3b
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -453,7 +453,7 @@ public final class Tracker {
             if (next != null && (trackParams = next.getTrackParams()) != null) {
                 obj = trackParams.get("type");
             }
-            return Intrinsics.areEqual(obj, z3b.a.a.a());
+            return Intrinsics.areEqual(obj, a4b.a.a.a());
         }
         return invokeL.booleanValue;
     }

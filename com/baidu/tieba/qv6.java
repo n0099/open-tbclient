@@ -33,7 +33,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qv6 extends ov6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class qv6 extends ov6 implements NetModel.k {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
                 ArrayList arrayList = null;
                 vu6 m = this.b.r(null).m();
-                List<jsa> g = m.g();
+                List<ksa> g = m.g();
                 if (!ListUtils.isEmpty(g)) {
                     arrayList = new ArrayList(15);
                     if (this.b.b < g.size()) {
@@ -170,31 +170,31 @@ public class qv6 extends ov6 implements NetModel.k {
                             if (i >= g.size()) {
                                 break;
                             }
-                            jsa jsaVar = g.get(i);
-                            if (jsaVar != null) {
-                                if (!StringUtils.isNull(jsaVar.h()) && !StringUtils.isNull(jsaVar.c())) {
+                            ksa ksaVar = g.get(i);
+                            if (ksaVar != null) {
+                                if (!StringUtils.isNull(ksaVar.h()) && !StringUtils.isNull(ksaVar.c())) {
                                     wc5 wc5Var = new wc5();
-                                    wc5Var.a = jsaVar.h();
-                                    jsaVar.s();
-                                    wc5Var.d = jsaVar.r();
-                                    wc5Var.c = jsaVar.c();
-                                    ItemData d = d(jsaVar.c());
+                                    wc5Var.a = ksaVar.h();
+                                    ksaVar.s();
+                                    wc5Var.d = ksaVar.r();
+                                    wc5Var.c = ksaVar.c();
+                                    ItemData d = d(ksaVar.c());
                                     wc5Var.b = d;
                                     if (d != null && d.apkDetail != null) {
-                                        PackageInfo e = xj5.e(jsaVar.h());
+                                        PackageInfo e = xj5.e(ksaVar.h());
                                         if (e != null && e.versionCode >= wc5Var.b.apkDetail.version_code.intValue()) {
                                             DefaultLog.getInstance().e("DownloadingModel", "GetDownloadMultiInfoTask, 已安装数据不需要展示，删除数据库对应数据");
-                                            m.c(jsaVar);
+                                            m.c(ksaVar);
                                         } else {
                                             DownloadData downloadData = new DownloadData();
-                                            downloadData.setId(jsaVar.t());
+                                            downloadData.setId(ksaVar.t());
                                             if (d != null) {
                                                 downloadData.setName(d.mTitle);
                                                 downloadData.setItemData(d);
                                             }
                                             if (this.b.r(downloadData).q(downloadData) == 3 && !new File(this.b.r(downloadData).o(downloadData)).exists()) {
                                                 DefaultLog.getInstance().e("DownloadingModel", "GetDownloadMultiInfoTask, 已下载完成，但是没有安装包的，删除数据库对应数据");
-                                                m.c(jsaVar);
+                                                m.c(ksaVar);
                                             } else {
                                                 qv6.k(this.b);
                                                 arrayList.add(wc5Var);
@@ -208,11 +208,11 @@ public class qv6 extends ov6 implements NetModel.k {
                                         }
                                     } else {
                                         DefaultLog.getInstance().e("DownloadingModel", "GetDownloadMultiInfoTask, apkDetail为空，删除数据库对应数据");
-                                        m.c(jsaVar);
+                                        m.c(ksaVar);
                                     }
                                 } else {
                                     DefaultLog.getInstance().e("DownloadingModel", "GetDownloadMultiInfoTask, packageName或detailInfo为空，删除数据库对应数据");
-                                    m.c(jsaVar);
+                                    m.c(ksaVar);
                                 }
                             }
                             i++;

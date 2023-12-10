@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj8;
+import com.baidu.tieba.cj8;
 import com.baidu.tieba.jt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements jt {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                bj8.g();
+                cj8.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }

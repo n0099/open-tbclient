@@ -29,7 +29,7 @@ public class c37 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("card_type", i);
-                return rf9.h().b(jSONObject, i);
+                return sf9.h().b(jSONObject, i);
             } catch (CardParseException | JSONException e) {
                 e.printStackTrace();
                 return null;
@@ -70,7 +70,7 @@ public class c37 {
                 jSONObject2.put("card_type", i);
                 jSONObject.put("ad_common", jSONObject2);
                 jSONObject.put("card_type", i);
-                return rf9.h().b(jSONObject, i);
+                return sf9.h().b(jSONObject, i);
             } catch (CardParseException | JSONException e) {
                 e.printStackTrace();
                 return null;
@@ -88,18 +88,18 @@ public class c37 {
         return (String) invokeII.objValue;
     }
 
-    public static int f(@NonNull List<rb7<?>> list) {
+    public static int f(@NonNull List<sb7<?>> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             int i = 0;
-            if (dg9.e(list)) {
+            if (eg9.e(list)) {
                 return 0;
             }
-            for (int i2 = dg9.i(list) - 1; i2 >= 0; i2--) {
-                rb7 rb7Var = (rb7) dg9.d(list, i2);
-                if (rb7Var != null) {
-                    if (rb7Var.b() instanceof yx4) {
+            for (int i2 = eg9.i(list) - 1; i2 >= 0; i2--) {
+                sb7 sb7Var = (sb7) eg9.d(list, i2);
+                if (sb7Var != null) {
+                    if (sb7Var.b() instanceof yx4) {
                         break;
                     }
                     i++;
@@ -110,17 +110,17 @@ public class c37 {
         return invokeL.intValue;
     }
 
-    public static String g(List<rb7<?>> list, boolean z) {
+    public static String g(List<sb7<?>> list, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, list, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            if (!z && !dg9.e(list)) {
+            if (!z && !eg9.e(list)) {
                 int i = 0;
-                for (int i2 = dg9.i(list) - 1; i2 >= 0 && i < 6; i2--) {
-                    rb7 rb7Var = (rb7) dg9.d(list, i2);
-                    if (rb7Var != null && (rb7Var.b() instanceof yx4)) {
-                        yx4 yx4Var = (yx4) rb7Var.b();
+                for (int i2 = eg9.i(list) - 1; i2 >= 0 && i < 6; i2--) {
+                    sb7 sb7Var = (sb7) eg9.d(list, i2);
+                    if (sb7Var != null && (sb7Var.b() instanceof yx4)) {
+                        yx4 yx4Var = (yx4) sb7Var.b();
                         if (!h(yx4Var.w())) {
                             sb.append(yx4Var.m() + 1);
                             sb.append(",");

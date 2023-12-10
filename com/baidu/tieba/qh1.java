@@ -33,11 +33,11 @@ public class qh1 {
 
         /* renamed from: com.baidu.tieba.qh1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0451a implements Thread.UncaughtExceptionHandler {
+        public class C0450a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0451a(a aVar) {
+            public C0450a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class qh1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0451a(this));
+                thread.setUncaughtExceptionHandler(new C0450a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;

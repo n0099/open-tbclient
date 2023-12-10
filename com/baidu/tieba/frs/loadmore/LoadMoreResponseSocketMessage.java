@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.kja;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
 import com.baidu.tieba.zx4;
@@ -126,13 +126,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         this.threadList.add(zx4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = jja.b(threadInfo);
+                        JSONObject b = kja.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                jja.f().h("FRS", arrayList);
+                kja.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

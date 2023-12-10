@@ -28,7 +28,7 @@ public final class e97 {
         return (l47) invokeLLL.objValue;
     }
 
-    public static final void b(AbstractComponent abstractComponent, List<rb7<?>> dataList, SpannableStringBuilder titleBuilder, r67 feedExtraData) {
+    public static final void b(AbstractComponent abstractComponent, List<sb7<?>> dataList, SpannableStringBuilder titleBuilder, r67 feedExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
             Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
@@ -39,7 +39,7 @@ public final class e97 {
             Intrinsics.checkNotNullExpressionValue(data, "data");
             l47 a = a(titleBuilder, data, feedExtraData);
             if (a.k()) {
-                dataList.add(new sb7(a, "abstract"));
+                dataList.add(new tb7(a, "abstract"));
             }
         }
     }

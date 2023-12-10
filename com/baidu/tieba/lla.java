@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class lla extends mla {
+public final class lla extends nla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
     }
 
     public lla() {

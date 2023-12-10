@@ -4,35 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ActionControl;
-import tbclient.AdCloseInfo;
+import tbclient.ActivitySponsor;
 /* loaded from: classes8.dex */
-public class vtc extends ktc {
+public class vtc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AdCloseInfo adCloseInfo) {
+    public static JSONObject b(@NonNull ActivitySponsor activitySponsor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adCloseInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activitySponsor)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "support_close", adCloseInfo.support_close);
-            ktc.a(jSONObject, "title", adCloseInfo.title);
-            if (adCloseInfo.reasons != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (String str : adCloseInfo.reasons) {
-                    jSONArray.put(str);
-                }
-                ktc.a(jSONObject, "reasons", jSONArray);
-            }
-            ktc.a(jSONObject, "confirm_title", adCloseInfo.confirm_title);
-            ActionControl actionControl = adCloseInfo.action_control;
-            if (actionControl != null) {
-                ktc.a(jSONObject, "action_control", stc.b(actionControl));
-            }
+            ltc.a(jSONObject, "is_sponsor", activitySponsor.is_sponsor);
+            ltc.a(jSONObject, "sponsor_url", activitySponsor.sponsor_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

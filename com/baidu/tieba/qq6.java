@@ -34,7 +34,7 @@ public class qq6 extends sq6 {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1148T;
+    public int f1149T;
     public int U;
     public int V;
     public int W;
@@ -48,13 +48,13 @@ public class qq6 extends sq6 {
 
         /* renamed from: com.baidu.tieba.qq6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0452a implements View.OnClickListener {
+        public class View$OnClickListenerC0451a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0452a(a aVar, String str) {
+            public View$OnClickListenerC0451a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -172,7 +172,7 @@ public class qq6 extends sq6 {
                     int i = qq6Var.S;
                     layoutParams.width = i;
                     layoutParams.height = i;
-                    layoutParams.leftMargin = qq6Var.f1148T;
+                    layoutParams.leftMargin = qq6Var.f1149T;
                     imageView.setLayoutParams(layoutParams);
                     qq6 qq6Var2 = this.a;
                     textView.setPadding(qq6Var2.U, qq6Var2.W, qq6Var2.V, qq6Var2.X);
@@ -252,7 +252,7 @@ public class qq6 extends sq6 {
                 if (onClickListener != null) {
                     textView.setOnClickListener(onClickListener);
                 } else {
-                    textView.setOnClickListener(new View$OnClickListenerC0452a(this, qq6Var7.i.get("pop_params_key_link")));
+                    textView.setOnClickListener(new View$OnClickListenerC0451a(this, qq6Var7.i.get("pop_params_key_link")));
                 }
                 return inflate;
             }
@@ -281,7 +281,7 @@ public class qq6 extends sq6 {
         }
         this.R = false;
         this.S = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds130);
-        this.f1148T = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds132);
+        this.f1149T = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds132);
         this.U = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120);
         this.V = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds18);
         this.W = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds26);

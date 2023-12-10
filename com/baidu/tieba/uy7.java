@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-
-import java.util.List;
 /* loaded from: classes8.dex */
 public interface uy7 {
-    void a(int i, int i2, List<pi> list, List<xy7> list2, boolean z, boolean z2, int i3);
+    yy7 a(int i);
 
-    void b(int i, int i2, String str);
+    void b(int i, int i2);
+
+    void c(int i, int i2);
+
+    boolean d(int i, int i2);
+
+    String w();
 }

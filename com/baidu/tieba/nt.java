@@ -127,18 +127,18 @@ public class nt extends qs implements jt, it<ThreadData> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && this.a.h != null && this.a.g != null && !this.a.h.isTransportThread() && this.a.j) {
-                if (!this.a.h.isMarkToDel() && xr7.f().i()) {
-                    if (xr7.f().a(this.a.h)) {
+                if (!this.a.h.isMarkToDel() && yr7.f().i()) {
+                    if (yr7.f().a(this.a.h)) {
                         this.a.h.setMarkToDel(true);
                     }
-                } else if (!this.a.h.isMarkToMove() && wr7.h().j()) {
-                    if (wr7.h().a(this.a.h)) {
+                } else if (!this.a.h.isMarkToMove() && xr7.h().j()) {
+                    if (xr7.h().a(this.a.h)) {
                         this.a.h.setMarkToMove(true);
                     }
                 } else {
-                    xr7.f().l(this.a.h);
+                    yr7.f().l(this.a.h);
                     this.a.h.setMarkToDel(false);
-                    wr7.h().l(this.a.h);
+                    xr7.h().l(this.a.h);
                     this.a.h.setMarkToMove(false);
                 }
                 this.a.h();
@@ -209,7 +209,7 @@ public class nt extends qs implements jt, it<ThreadData> {
                 z = false;
             }
             this.j = z;
-            if (!xr7.f().i() && !wr7.h().j()) {
+            if (!yr7.f().i() && !xr7.h().j()) {
                 this.threadCard.q(new nu.a(4, Boolean.TRUE));
                 this.c.setVisibility(8);
                 return;

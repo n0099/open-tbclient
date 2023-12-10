@@ -12,10 +12,11 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cga;
+import com.baidu.tieba.aga;
 import com.baidu.tieba.da;
 import com.baidu.tieba.dga;
 import com.baidu.tieba.e05;
+import com.baidu.tieba.ega;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.push.PushGuideManager;
 import com.baidu.tieba.rd;
@@ -24,7 +25,6 @@ import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
 import com.baidu.tieba.tf1;
 import com.baidu.tieba.x45;
-import com.baidu.tieba.yfa;
 import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,8 +51,8 @@ public final class PushGuideManager {
     public static final PushGuideManager a;
     public static final String b;
     public static PushSceneConfig c;
-    public static final HashMap<String, cga> d;
-    public static yfa e;
+    public static final HashMap<String, dga> d;
+    public static zfa e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -60,14 +60,14 @@ public final class PushGuideManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Inject(force = false)
-        public final tf1<cga> a;
+        public final tf1<dga> a;
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 rf1 b = rf1.b();
                 this.a = b;
-                b.a(new dga());
+                b.a(new ega());
             }
         }
 
@@ -87,7 +87,7 @@ public final class PushGuideManager {
             b();
         }
 
-        public final tf1<cga> a() {
+        public final tf1<dga> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -98,7 +98,7 @@ public final class PushGuideManager {
     }
 
     /* loaded from: classes7.dex */
-    public static final class b extends nu5<yfa> {
+    public static final class b extends nu5<zfa> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public final class PushGuideManager {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.nu5
         /* renamed from: a */
-        public yfa doInBackground() {
+        public zfa doInBackground() {
             InterceptResult invokeV;
             String str;
             Interceptable interceptable = $ic;
@@ -130,9 +130,9 @@ public final class PushGuideManager {
                 } else {
                     str = null;
                 }
-                return yfa.c.b(str);
+                return zfa.c.b(str);
             }
-            return (yfa) invokeV.objValue;
+            return (zfa) invokeV.objValue;
         }
     }
 
@@ -211,7 +211,7 @@ public final class PushGuideManager {
 
     static {
         InterceptResult invokeClinit;
-        List<cga> list;
+        List<dga> list;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1248819255, "Lcom/baidu/tieba/push/PushGuideManager;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -228,12 +228,12 @@ public final class PushGuideManager {
         d = new HashMap<>();
         String dateStringDay = rd.getDateStringDay(new Date());
         Intrinsics.checkNotNullExpressionValue(dateStringDay, "getDateStringDay(Date())");
-        e = new yfa(dateStringDay, new ArrayList());
+        e = new zfa(dateStringDay, new ArrayList());
         x45.d("key_sp_push_strategy_new", null, AnonymousClass1.INSTANCE);
-        tf1<cga> a2 = new a().a();
+        tf1<dga> a2 = new a().a();
         if (a2 != null && (list = a2.getList()) != null) {
-            for (cga it : list) {
-                HashMap<String, cga> hashMap = d;
+            for (dga it : list) {
+                HashMap<String, dga> hashMap = d;
                 String h = it.h();
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 hashMap.put(h, it);
@@ -268,7 +268,7 @@ public final class PushGuideManager {
     public static final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            ru5.b(new b(), new st5() { // from class: com.baidu.tieba.ufa
+            ru5.b(new b(), new st5() { // from class: com.baidu.tieba.vfa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -276,7 +276,7 @@ public final class PushGuideManager {
                 public final void onReturnDataInUI(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        PushGuideManager.q((yfa) obj);
+                        PushGuideManager.q((zfa) obj);
                     }
                 }
             });
@@ -294,7 +294,7 @@ public final class PushGuideManager {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.sfa
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.tfa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -312,7 +312,7 @@ public final class PushGuideManager {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.tfa
+            UiUtils.runOnUiThread(new Runnable() { // from class: com.baidu.tieba.ufa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -335,14 +335,14 @@ public final class PushGuideManager {
     }
 
     @JvmStatic
-    public static final cga j(String scene) {
+    public static final dga j(String scene) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, scene)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             return d.get(scene);
         }
-        return (cga) invokeL.objValue;
+        return (dga) invokeL.objValue;
     }
 
     @JvmStatic
@@ -358,18 +358,18 @@ public final class PushGuideManager {
         }
     }
 
-    public final zfa h(int i) {
+    public final aga h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            for (zfa zfaVar : e.b()) {
-                if (zfaVar.a() == i) {
-                    return zfaVar;
+            for (aga agaVar : e.b()) {
+                if (agaVar.a() == i) {
+                    return agaVar;
                 }
             }
             return null;
         }
-        return (zfa) invokeI.objValue;
+        return (aga) invokeI.objValue;
     }
 
     public final long k(String scene) {
@@ -416,7 +416,7 @@ public final class PushGuideManager {
     @MainThread
     public static final boolean e(String scene) {
         InterceptResult invokeL;
-        zfa h;
+        aga h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scene)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
@@ -435,16 +435,16 @@ public final class PushGuideManager {
         return invokeL.booleanValue;
     }
 
-    public static final void q(yfa yfaVar) {
+    public static final void q(zfa zfaVar) {
         String dateStringDay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, yfaVar) == null) {
-            if (yfaVar != null && !yfaVar.c()) {
+        if (interceptable == null || interceptable.invokeL(65547, null, zfaVar) == null) {
+            if (zfaVar != null && !zfaVar.c()) {
                 a.r();
                 return;
             }
-            yfa yfaVar2 = e;
-            if (yfaVar == null || (dateStringDay = yfaVar.a()) == null) {
+            zfa zfaVar2 = e;
+            if (zfaVar == null || (dateStringDay = zfaVar.a()) == null) {
                 dateStringDay = rd.getDateStringDay(new Date());
                 if (dateStringDay == null) {
                     dateStringDay = "";
@@ -452,10 +452,10 @@ public final class PushGuideManager {
                     Intrinsics.checkNotNullExpressionValue(dateStringDay, "BdStringHelper.getDateStringDay(Date()) ?: \"\"");
                 }
             }
-            yfaVar2.f(dateStringDay);
-            yfaVar2.b().clear();
-            if (yfaVar != null) {
-                yfaVar2.b().addAll(yfaVar.b());
+            zfaVar2.f(dateStringDay);
+            zfaVar2.b().clear();
+            if (zfaVar != null) {
+                zfaVar2.b().addAll(zfaVar.b());
             }
         }
     }

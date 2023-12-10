@@ -17,11 +17,11 @@ import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.boc;
 import com.baidu.tieba.br2;
 import com.baidu.tieba.coc;
 import com.baidu.tieba.di3;
 import com.baidu.tieba.dl3;
+import com.baidu.tieba.doc;
 import com.baidu.tieba.ef2;
 import com.baidu.tieba.ek3;
 import com.baidu.tieba.er2;
@@ -36,15 +36,15 @@ import com.baidu.tieba.j23;
 import com.baidu.tieba.j33;
 import com.baidu.tieba.j63;
 import com.baidu.tieba.k32;
-import com.baidu.tieba.koc;
 import com.baidu.tieba.kr2;
 import com.baidu.tieba.l33;
 import com.baidu.tieba.li3;
+import com.baidu.tieba.loc;
 import com.baidu.tieba.mc2;
 import com.baidu.tieba.mm4;
-import com.baidu.tieba.noc;
 import com.baidu.tieba.ny1;
 import com.baidu.tieba.oc2;
+import com.baidu.tieba.ooc;
 import com.baidu.tieba.pf3;
 import com.baidu.tieba.rb2;
 import com.baidu.tieba.rf3;
@@ -115,10 +115,10 @@ public final class SwanLauncher {
 
         /* loaded from: classes4.dex */
         public class a implements dl3<Exception> {
-            public final /* synthetic */ coc a;
+            public final /* synthetic */ doc a;
 
-            public a(coc cocVar) {
-                this.a = cocVar;
+            public a(doc docVar) {
+                this.a = docVar;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -130,8 +130,8 @@ public final class SwanLauncher {
                     this.a.onCompleted();
                     return;
                 }
-                coc cocVar = this.a;
-                cocVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
+                doc docVar = this.a;
+                docVar.onError(new Exception("SwanJsUpdater fail frame type = " + h.this.b, exc));
             }
         }
 
@@ -141,13 +141,13 @@ public final class SwanLauncher {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: c */
-        public void call(coc cocVar) {
+        public void call(doc docVar) {
             if (a()) {
-                cocVar.onCompleted();
+                docVar.onCompleted();
             } else {
-                xg2.d().c(new a(cocVar), this.b);
+                xg2.d().c(new a(docVar), this.b);
             }
         }
     }
@@ -160,11 +160,11 @@ public final class SwanLauncher {
         /* loaded from: classes4.dex */
         public class a implements mc2 {
             public final /* synthetic */ oc2 a;
-            public final /* synthetic */ coc b;
+            public final /* synthetic */ doc b;
 
-            public a(oc2 oc2Var, coc cocVar) {
+            public a(oc2 oc2Var, doc docVar) {
                 this.a = oc2Var;
-                this.b = cocVar;
+                this.b = docVar;
             }
 
             @Override // com.baidu.tieba.mc2
@@ -219,26 +219,26 @@ public final class SwanLauncher {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: d */
-        public void call(coc cocVar) {
+        public void call(doc docVar) {
             rp2.G().c();
             if (a()) {
-                cocVar.onCompleted();
+                docVar.onCompleted();
             } else if (rp2.w0().c()) {
                 b();
-                cocVar.onCompleted();
+                docVar.onCompleted();
             } else {
                 e eVar = this.b;
                 if (eVar.b != 1) {
-                    cocVar.onError(new T7CheckException(null));
+                    docVar.onError(new T7CheckException(null));
                     return;
                 }
                 if (eVar.a == 0 && !BdZeusUtil.isZeusSupported()) {
                     b();
-                    cocVar.onCompleted();
+                    docVar.onCompleted();
                 }
-                f(cocVar);
+                f(docVar);
             }
         }
 
@@ -254,20 +254,20 @@ public final class SwanLauncher {
             return oc2Var;
         }
 
-        public final void f(coc cocVar) {
+        public final void f(doc docVar) {
             Bundle bundle = this.b.c;
             if (bundle == null) {
-                cocVar.onError(new T7CheckException(null));
+                docVar.onError(new T7CheckException(null));
                 return;
             }
             String string = bundle.getString("launchScheme");
             if (TextUtils.isEmpty(string)) {
-                cocVar.onError(new T7CheckException(null));
+                docVar.onError(new T7CheckException(null));
                 return;
             }
             Uri build = Uri.parse(string).buildUpon().build();
             if (build == null) {
-                cocVar.onError(new T7CheckException(null));
+                docVar.onError(new T7CheckException(null));
                 return;
             }
             boolean z = true;
@@ -276,11 +276,11 @@ public final class SwanLauncher {
             }
             if (!z) {
                 b();
-                cocVar.onCompleted();
+                docVar.onCompleted();
             }
             h();
             oc2 e = e(this.b, z);
-            rp2.w0().b(e, new a(e, cocVar));
+            rp2.w0().b(e, new a(e, docVar));
         }
     }
 
@@ -295,14 +295,14 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements coc {
+    public class a implements doc {
         public final /* synthetic */ j33 a;
         public final /* synthetic */ Bundle b;
         public final /* synthetic */ int c;
         public final /* synthetic */ String d;
 
-        @Override // com.baidu.tieba.coc
-        public void onSubscribe(koc kocVar) {
+        @Override // com.baidu.tieba.doc
+        public void onSubscribe(loc locVar) {
         }
 
         public a(j33 j33Var, Bundle bundle, int i, String str) {
@@ -312,13 +312,13 @@ public final class SwanLauncher {
             this.d = str;
         }
 
-        @Override // com.baidu.tieba.coc
+        @Override // com.baidu.tieba.doc
         public void onCompleted() {
             SwanLauncher.this.o(this.a, this.b, this.c);
             j63.K().p("event_launch_swan");
         }
 
-        @Override // com.baidu.tieba.coc
+        @Override // com.baidu.tieba.doc
         public void onError(Throwable th) {
             if (ek3.G() && (th instanceof T7CheckException)) {
                 return;
@@ -373,14 +373,14 @@ public final class SwanLauncher {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements coc {
+    public class d implements doc {
         public final /* synthetic */ dl3 a;
 
         public d(SwanLauncher swanLauncher, dl3 dl3Var) {
             this.a = dl3Var;
         }
 
-        @Override // com.baidu.tieba.coc
+        @Override // com.baidu.tieba.doc
         public void onCompleted() {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境完成");
             dl3 dl3Var = this.a;
@@ -389,7 +389,7 @@ public final class SwanLauncher {
             }
         }
 
-        @Override // com.baidu.tieba.coc
+        @Override // com.baidu.tieba.doc
         public void onError(Throwable th) {
             SwanLauncher.p("SwanLauncher", "#initEnv 初始化环境失败 " + Log.getStackTraceString(th));
             dl3 dl3Var = this.a;
@@ -398,16 +398,16 @@ public final class SwanLauncher {
             }
         }
 
-        @Override // com.baidu.tieba.coc
-        public void onSubscribe(koc kocVar) {
+        @Override // com.baidu.tieba.doc
+        public void onSubscribe(loc locVar) {
             if (SwanLauncher.a) {
-                Log.i("SwanLauncher", "init onSubscribe: " + kocVar);
+                Log.i("SwanLauncher", "init onSubscribe: " + locVar);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static abstract class f implements boc.f {
+    public static abstract class f implements coc.f {
         public boolean a;
 
         public f() {
@@ -499,7 +499,7 @@ public final class SwanLauncher {
         }
     }
 
-    public final void e(@NonNull coc cocVar, f... fVarArr) {
+    public final void e(@NonNull doc docVar, f... fVarArr) {
         if (a) {
             Log.i("SwanLauncher", "checkEnv: checkers=" + fVarArr);
         }
@@ -513,21 +513,21 @@ public final class SwanLauncher {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    arrayList.add(boc.b(fVar));
+                    arrayList.add(coc.b(fVar));
                 }
             }
             if (a) {
                 Log.i("SwanLauncher", "checkEnv: list=" + arrayList);
             }
             if (arrayList != null && !arrayList.isEmpty()) {
-                boc.a(arrayList).h(noc.b()).d(noc.b()).g(cocVar);
+                coc.a(arrayList).h(ooc.b()).d(ooc.b()).g(docVar);
                 return;
             } else {
-                cocVar.onCompleted();
+                docVar.onCompleted();
                 return;
             }
         }
-        cocVar.onCompleted();
+        docVar.onCompleted();
     }
 
     public final void k(Throwable th, int i2, String str, Bundle bundle) {

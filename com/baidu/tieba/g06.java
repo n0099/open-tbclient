@@ -71,10 +71,10 @@ public class g06 {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        iwa iwaVar = new iwa();
-                        iwaVar.a = this.a.d.getThreadId();
-                        iwaVar.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, iwaVar));
+                        jwa jwaVar = new jwa();
+                        jwaVar.a = this.a.d.getThreadId();
+                        jwaVar.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, jwaVar));
                         return;
                     }
                     return;

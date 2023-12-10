@@ -10,8 +10,8 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d79;
 import com.baidu.tieba.e79;
+import com.baidu.tieba.f79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ import kotlin.jvm.internal.Intrinsics;
 public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<e79> a;
-    public d79 b;
+    public final ArrayList<f79> a;
+    public e79 b;
     public int c;
 
     /* loaded from: classes6.dex */
@@ -62,13 +62,13 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
                 OptionAdapter optionAdapter = this.a;
                 Object tag = view2.getTag(R.id.item_data);
                 if (tag != null) {
-                    e79 e79Var = (e79) tag;
+                    f79 f79Var = (f79) tag;
                     Object tag2 = view2.getTag(R.id.obfuscated_res_0x7f091de4);
                     if (tag2 != null) {
                         int intValue = ((Integer) tag2).intValue();
-                        d79 d79Var = optionAdapter.b;
-                        if (d79Var != null) {
-                            d79Var.a(e79Var, intValue);
+                        e79 e79Var = optionAdapter.b;
+                        if (e79Var != null) {
+                            e79Var.a(f79Var, intValue);
                             return;
                         }
                         return;
@@ -107,7 +107,7 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public final void n(List<e79> options) {
+    public final void n(List<f79> options) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, options) == null) {
             Intrinsics.checkNotNullParameter(options, "options");
@@ -117,7 +117,7 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
         }
     }
 
-    public final void q(d79 callback) {
+    public final void q(e79 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -139,12 +139,12 @@ public final class OptionAdapter extends RecyclerView.Adapter<OptionItemVH> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, holder, i) == null) {
             Intrinsics.checkNotNullParameter(holder, "holder");
-            e79 e79Var = this.a.get(i);
-            Intrinsics.checkNotNullExpressionValue(e79Var, "options[position]");
-            e79 e79Var2 = e79Var;
-            holder.a().setTag(R.id.item_data, e79Var2);
+            f79 f79Var = this.a.get(i);
+            Intrinsics.checkNotNullExpressionValue(f79Var, "options[position]");
+            f79 f79Var2 = f79Var;
+            holder.a().setTag(R.id.item_data, f79Var2);
             holder.a().setTag(R.id.obfuscated_res_0x7f091de4, Integer.valueOf(i));
-            holder.a().setText(e79Var2.a());
+            holder.a().setText(f79Var2.a());
             if (i == this.c) {
                 EMManager.from(holder.itemView).setTextColor(R.color.CAM_X0306);
             } else {

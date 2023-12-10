@@ -81,29 +81,29 @@ public class os4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa c(WebView webView, long j) {
+    public gxa c(WebView webView, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, webView, j)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
             Activity a = fj6.a(webView.getContext());
             if (a != null) {
                 a.finish();
             }
-            fxaVar.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
-            return fxaVar;
+            gxaVar.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
+            return gxaVar;
         }
-        return (fxa) invokeLJ.objValue;
+        return (gxa) invokeLJ.objValue;
     }
 
-    public fxa e(WebView webView, HashMap hashMap) {
+    public gxa e(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (hashMap == null) {
-                return fxaVar;
+                return gxaVar;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -113,13 +113,13 @@ public class os4 implements qj6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.CHANGE_POST_WALL, jSONObject);
-            fxaVar.o(jSONObject.toString());
-            return fxaVar;
+            gxaVar.o(jSONObject.toString());
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa d(WebView webView, String str) {
+    public gxa d(WebView webView, String str) {
         int i;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -131,35 +131,35 @@ public class os4 implements qj6 {
                 i = -1;
             }
             iu4.b(i);
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa h(WebView webView, String str) {
+    public gxa h(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            xma.d().f(str);
-            return new fxa();
+            yma.d().f(str);
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa k(WebView webView, HashMap hashMap) {
+    public gxa k(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
-    public fxa f(WebView webView, String str, String str2) {
+    public gxa f(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             int i = 0;
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -177,21 +177,21 @@ public class os4 implements qj6 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
-                fxaVar.o(jSONObject2.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject2.toString());
+                return gxaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa j(WebView webView, String str, String str2) {
+    public gxa j(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 b06 b06Var = new b06();
                 try {
@@ -208,30 +208,30 @@ public class os4 implements qj6 {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921787, b06Var));
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLLL.objValue;
+        return (gxa) invokeLLL.objValue;
     }
 
-    public fxa g(WebView webView) {
+    public gxa g(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             vv4.c().h();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                fxaVar.o(jSONObject.toString());
+                gxaVar.o(jSONObject.toString());
             } catch (JSONException e) {
                 BdLog.e(e);
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
-    public fxa i(WebView webView, int i, String str) {
+    public gxa i(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         SmallTailThemeData smallTailThemeData;
         Interceptable interceptable = $ic;
@@ -243,8 +243,8 @@ public class os4 implements qj6 {
                 smallTailThemeData = null;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921748, smallTailThemeData));
-            return new fxa();
+            return new gxa();
         }
-        return (fxa) invokeLIL.objValue;
+        return (gxa) invokeLIL.objValue;
     }
 }

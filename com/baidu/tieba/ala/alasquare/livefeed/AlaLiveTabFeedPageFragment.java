@@ -29,7 +29,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.i70;
 import com.baidu.tieba.kk5;
 import com.baidu.tieba.lk5;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.w96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -107,7 +107,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
         this.h = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -115,7 +115,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -124,7 +124,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -136,7 +136,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

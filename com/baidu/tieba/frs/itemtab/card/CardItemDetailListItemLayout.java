@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.n18;
+import com.baidu.tieba.o18;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(n18 n18Var) {
+    public void setData(o18 o18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n18Var) == null) {
-            this.a.setText(n18Var.a);
-            this.b.setText(n18Var.b);
-            this.d = n18Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o18Var) == null) {
+            this.a.setText(o18Var.a);
+            this.b.setText(o18Var.b);
+            this.d = o18Var.c;
         }
     }
 

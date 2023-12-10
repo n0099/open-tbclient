@@ -115,7 +115,7 @@ public class ry6 implements pi {
             if (jSONObject == null) {
                 return null;
             }
-            return new ry6(jSONObject.optString("tid"), jSONObject.optString("title"), jSONObject.optString("pic"));
+            return new ry6(jSONObject.optString("tid"), jSONObject.optString("title"), jSONObject.optString(pic.f));
         }
         return (ry6) invokeL.objValue;
     }

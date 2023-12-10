@@ -5,21 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RealTime;
+import tbclient.FrsPage.RankInfo;
 /* loaded from: classes7.dex */
-public class q1d extends ktc {
+public class q1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RealTime realTime) {
+    public static JSONObject b(@NonNull RankInfo rankInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, realTime)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rankInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "task_id", realTime.task_id);
-            ktc.a(jSONObject, "icon", realTime.icon);
-            ktc.a(jSONObject, "url", realTime.url);
+            ltc.a(jSONObject, "sign_count", rankInfo.sign_count);
+            ltc.a(jSONObject, "sign_rank", rankInfo.sign_rank);
+            ltc.a(jSONObject, "member_count", rankInfo.member_count);
+            ltc.a(jSONObject, "dir_rate", rankInfo.dir_rate);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

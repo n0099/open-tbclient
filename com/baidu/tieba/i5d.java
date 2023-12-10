@@ -4,29 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.NaGuide;
-import tbclient.RecGuide;
+import tbclient.MyGroupInfo;
 /* loaded from: classes6.dex */
-public class i5d extends ktc {
+public class i5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NaGuide naGuide) {
+    public static JSONObject b(@NonNull MyGroupInfo myGroupInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, naGuide)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, myGroupInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "dwnl_url", naGuide.dwnl_url);
-            if (naGuide.rec_info != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecGuide recGuide : naGuide.rec_info) {
-                    jSONArray.put(j7d.b(recGuide));
-                }
-                ktc.a(jSONObject, "rec_info", jSONArray);
-            }
+            ltc.a(jSONObject, "group_id", myGroupInfo.group_id);
+            ltc.a(jSONObject, "group_name", myGroupInfo.group_name);
+            ltc.a(jSONObject, "portrait", myGroupInfo.portrait);
+            ltc.a(jSONObject, "member_num", myGroupInfo.member_num);
+            ltc.a(jSONObject, "max_member_num", myGroupInfo.max_member_num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

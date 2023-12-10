@@ -62,7 +62,7 @@ public class h66 implements nn3 {
 
         /* renamed from: com.baidu.tieba.h66$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class DialogInterface$OnClickListenerC0306b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0304b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -72,14 +72,14 @@ public class h66 implements nn3 {
             public class a implements xm1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0306b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0304b a;
 
-                public a(DialogInterface$OnClickListenerC0306b dialogInterface$OnClickListenerC0306b) {
+                public a(DialogInterface$OnClickListenerC0304b dialogInterface$OnClickListenerC0304b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0306b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0304b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class h66 implements nn3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0306b;
+                    this.a = dialogInterface$OnClickListenerC0304b;
                 }
 
                 @Override // com.baidu.tieba.xm1
@@ -105,7 +105,7 @@ public class h66 implements nn3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0306b(b bVar) {
+            public DialogInterface$OnClickListenerC0304b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -267,7 +267,7 @@ public class h66 implements nn3 {
                 o53.a aVar = new o53.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0092));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0306b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0304b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f008d), new a(this));
                 aVar.X();
             }

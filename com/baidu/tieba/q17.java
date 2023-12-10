@@ -120,7 +120,7 @@ public class q17 {
                     this.b.a(imageUploader.uploadInBackground(filePath, true, false));
                     return;
                 }
-                Bitmap b = or9.b(this.a);
+                Bitmap b = pr9.b(this.a);
                 if (b == null) {
                     this.b.a(null);
                     return;
@@ -169,7 +169,7 @@ public class q17 {
     public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
-            er9.b().a(new b(this, imageFileInfo, dVar));
+            fr9.b().a(new b(this, imageFileInfo, dVar));
         }
     }
 }

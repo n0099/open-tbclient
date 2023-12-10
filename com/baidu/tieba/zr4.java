@@ -113,14 +113,14 @@ public class zr4 {
             for (yr4 yr4Var : this.d) {
                 if (yr4Var.b() != null) {
                     if (yr4Var.b() instanceof TextView) {
-                        if (this.g && !tua.e(this.h)) {
+                        if (this.g && !uua.e(this.h)) {
                             ((TextView) yr4Var.b()).setTextColor(this.h);
                         } else {
                             SkinManager.setViewTextColor(yr4Var.b(), d());
                         }
                     } else if (yr4Var.b() instanceof ImageView) {
                         if (this.g) {
-                            if (!tua.e(this.h)) {
+                            if (!uua.e(this.h)) {
                                 ((ImageView) yr4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(yr4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
                             } else {
                                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) yr4Var.b(), yr4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -191,7 +191,7 @@ public class zr4 {
         if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
             this.f = true;
             this.e = 0.0f;
-            this.h = tua.f(i(str, "opacitybtnhex"));
+            this.h = uua.f(i(str, "opacitybtnhex"));
             NavigationBar navigationBar = this.b;
             if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
                 this.b.getBackground().mutate().setAlpha(0);

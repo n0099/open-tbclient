@@ -1,80 +1,204 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
+import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public final class ra9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ra9 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public /* synthetic */ class a {
+        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-467207614, "Lcom/baidu/tieba/ra9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-467207614, "Lcom/baidu/tieba/ra9$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NotifyType.values().length];
+            iArr[NotifyType.AT_ME.ordinal()] = 1;
+            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
+            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
+            iArr[NotifyType.FANS.ordinal()] = 4;
+            $EnumSwitchMapping$0 = iArr;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948115039, "Lcom/baidu/tieba/ra9;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115039, "Lcom/baidu/tieba/ra9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948115039, "Lcom/baidu/tieba/ra9;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a = new ra9();
+    }
+
+    public ra9() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948115039, "Lcom/baidu/tieba/ra9;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    public static final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, Context context, BdUniqueId uniqueId) {
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
+        }
+    }
+
+    public final void a(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            StatisticItem param = new StatisticItem("c12926").param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (i > 0) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
+        }
+    }
+
+    public final void b(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TiebaStatic.log("c12925");
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (i > 0) {
+                i2 = 1;
+            } else {
+                i2 = 2;
+            }
+            TiebaStatic.log(param.param("obj_type", i2).param("obj_param1", i));
+        }
+    }
+
+    public final void c() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, imMessageCenterShowItemData, context, uniqueId) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "1");
-            Intrinsics.checkNotNull(imMessageCenterShowItemData);
-            TiebaStatic.log(param.param("obj_param1", imMessageCenterShowItemData.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, imMessageCenterShowItemData.getFriendId()));
-            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                ga5.p0().i0(ga5.p0().x() - imMessageCenterShowItemData.getUnReadCount());
-                imMessageCenterShowItemData.setUnReadCount(0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int y = ga5.p0().y();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_FANS_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (y > 0) {
+                i = 1;
+            } else {
+                i = 2;
             }
-            try {
-                String friendId = imMessageCenterShowItemData.getFriendId();
-                Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
-                long parseLong = Long.parseLong(friendId);
-                TiebaStatic.log("tab_msg_personal_chat_click");
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-                if (imMessageCenterShowItemData.isAiBot()) {
-                    MessageCenterAIBotService.b.a().e(imMessageCenterShowItemData, context, uniqueId);
-                    return;
-                }
-                if (imMessageCenterShowItemData.getRelation() == 1) {
-                    i = 1;
+            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", y));
+        }
+    }
+
+    public final void e() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int B = ga5.p0().B();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_REPLY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (B > 0) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            TiebaStatic.log(param.param("obj_type", i).param("obj_param1", B));
+        }
+    }
+
+    public final void d(l79 l79Var) {
+        NotifyType notifyType;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, l79Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13720");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (l79Var != null) {
+                notifyType = l79Var.c();
+            } else {
+                notifyType = null;
+            }
+            if (notifyType == null) {
+                i = -1;
+            } else {
+                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
+            }
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
+                            statisticItem.param("obj_type", 4);
+                        }
+                    } else {
+                        statisticItem.param("obj_type", 3);
+                    }
                 } else {
-                    i = 0;
+                    statisticItem.param("obj_type", 2);
                 }
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, i);
-                personalChatActivityConfig.setFrom(3);
-                personalChatActivityConfig.setLastUniqueId(uniqueId.getId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else {
+                statisticItem.param("obj_type", 1);
             }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void f(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && context != null) {
+            TiebaStatic.eventStat(context, "msg_atme_tab_click", "click", 1, new Object[0]);
+        }
+    }
+
+    public final void h(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13616");
+            if (z) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

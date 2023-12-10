@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes6.dex */
-public final class glb extends cga {
+public final class glb extends dga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -24,11 +24,11 @@ public final class glb extends cga {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post_success" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post_question_success" : (String) invokeV.objValue;
     }
 
     public glb() {
@@ -45,7 +45,7 @@ public final class glb extends cga {
         }
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public final class glb extends cga {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public final class glb extends cga {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadAbstract() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public final class glb extends cga {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public final class glb extends cga {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cga, com.baidu.tieba.push.guide.DialogParamProvider
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
     public String provideThreadTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

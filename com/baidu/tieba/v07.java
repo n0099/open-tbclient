@@ -104,7 +104,7 @@ public class v07 {
                     this.c.b = null;
                 }
                 if (this.a != null) {
-                    this.c.a.put(downloadData.getPath().substring(f6b.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.c.a.put(downloadData.getPath().substring(g6b.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
                     this.a.c(this.b, downloadData.getPath());
                 }
             }
@@ -176,7 +176,7 @@ public class v07 {
             } else {
                 hashMap.clear();
             }
-            File file = new File(f6b.a);
+            File file = new File(g6b.a);
             if (!file.exists() || (listFiles = file.listFiles()) == null) {
                 return;
             }
@@ -201,7 +201,7 @@ public class v07 {
             }
             wd5.k().h(this.b.getUrl(), true);
         }
-        File file = new File(f6b.a);
+        File file = new File(g6b.a);
         if (!file.exists()) {
             file.mkdirs();
         }
@@ -209,7 +209,7 @@ public class v07 {
         downloadData2.setType(17);
         downloadData2.setId(str);
         downloadData2.setUrl(str2);
-        downloadData2.setPath(f6b.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setPath(g6b.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
         downloadData2.setCallback(new a(this, bVar, str2));
         this.b = downloadData2;
         wd5.k().l(downloadData2);

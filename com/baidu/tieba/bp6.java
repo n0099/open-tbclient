@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 /* loaded from: classes5.dex */
-public class bp6 implements ib7 {
+public class bp6 implements jb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class bp6 implements ib7 {
         }
     }
 
-    @Override // com.baidu.tieba.ib7
+    @Override // com.baidu.tieba.jb7
     @NonNull
-    public List<qb7<?, ?>> a() {
+    public List<rb7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

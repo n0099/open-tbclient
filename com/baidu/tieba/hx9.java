@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class hx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mwa a;
-    public final Function1<FeedbackButtonStateType, Unit> b;
-    public final Function0<Boolean> c;
+    public final nx9 a;
+    public final nx9 b;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof hx9) {
                 hx9 hx9Var = (hx9) obj;
-                return Intrinsics.areEqual(this.a, hx9Var.a) && Intrinsics.areEqual(this.b, hx9Var.b) && Intrinsics.areEqual(this.c, hx9Var.c);
+                return Intrinsics.areEqual(this.a, hx9Var.a) && Intrinsics.areEqual(this.b, hx9Var.b);
             }
             return false;
         }
@@ -38,31 +33,24 @@ public final class hx9 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            Function1<FeedbackButtonStateType, Unit> function1 = this.b;
-            int hashCode2 = (hashCode + (function1 == null ? 0 : function1.hashCode())) * 31;
-            Function0<Boolean> function0 = this.c;
-            return hashCode2 + (function0 != null ? function0.hashCode() : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "AigcFeedbackPostState(postData=" + this.a + ", onButtonClick=" + this.b + ", onInterceptClick=" + this.c + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "AigcFeedbackNumState(positive=" + this.a + ", negative=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public hx9(mwa postData, Function1<? super FeedbackButtonStateType, Unit> function1, Function0<Boolean> function0) {
+    public hx9(nx9 positive, nx9 negative) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postData, function1, function0};
+            Object[] objArr = {positive, negative};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,36 +60,27 @@ public final class hx9 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(postData, "postData");
-        this.a = postData;
-        this.b = function1;
-        this.c = function0;
+        Intrinsics.checkNotNullParameter(positive, "positive");
+        Intrinsics.checkNotNullParameter(negative, "negative");
+        this.a = positive;
+        this.b = negative;
     }
 
-    public final Function1<FeedbackButtonStateType, Unit> a() {
+    public final nx9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (Function1) invokeV.objValue;
+        return (nx9) invokeV.objValue;
     }
 
-    public final Function0<Boolean> b() {
+    public final nx9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Function0) invokeV.objValue;
-    }
-
-    public final mwa c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (mwa) invokeV.objValue;
+        return (nx9) invokeV.objValue;
     }
 }

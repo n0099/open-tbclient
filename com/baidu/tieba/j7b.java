@@ -3,24 +3,27 @@ package com.baidu.tieba;
 import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
-import android.media.MediaExtractor;
 import android.media.MediaFormat;
-import android.text.TextUtils;
 import android.view.Surface;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.k7b;
-import com.baidu.tieba.o7b;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.record.EncoderParams;
+import com.baidu.cyberplayer.sdk.mediainfo.MediaInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class j7b extends k7b {
+public class j7b extends m7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j7b(String str) {
@@ -40,171 +43,244 @@ public class j7b extends k7b {
                 return;
             }
         }
+        this.d = 88200L;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.m7b
     @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public k7b.b a(String str, boolean z, o7b.a aVar, o7b.a aVar2) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        double d;
+    public void b(String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
         int dequeueOutputBuffer;
-        byte[] bArr;
-        byte[] bArr2;
-        byte[] bArr3;
+        int dequeueInputBuffer;
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
-            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            j7b j7bVar = this;
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (j7bVar.b == 0) {
+                        j7bVar.b = OpusReader.SAMPLE_RATE;
+                    }
+                    if (j7bVar.c == 0) {
+                        j7bVar.c = 1;
+                    }
+                    j7bVar.d = (j7bVar.b * 16) / 8;
+                    FileInputStream fileInputStream2 = new FileInputStream(j7bVar.a);
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            MediaCodec f = f();
+                            f.start();
+                            ByteBuffer[] inputBuffers = f.getInputBuffers();
+                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
+                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                            byte[] bArr = new byte[4096];
+                            ByteBuffer[] byteBufferArr2 = outputBuffers;
+                            long j2 = 0;
+                            long j3 = 0;
+                            boolean z2 = false;
+                            int i2 = 0;
+                            boolean z3 = false;
+                            boolean z4 = false;
+                            int i3 = 0;
+                            while (!z3) {
+                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
+                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                    byteBuffer.clear();
+                                    int remaining = byteBuffer.remaining();
+                                    if (remaining != bArr.length) {
+                                        bArr = new byte[remaining];
+                                    }
+                                    byte[] bArr2 = bArr;
+                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
+                                        i = i2;
+                                        z = true;
+                                    } else {
+                                        z = z2;
+                                        i = i2;
+                                    }
+                                    if (z) {
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        byteBufferArr = inputBuffers;
+                                        i2 = i;
+                                        bArr = bArr2;
+                                        z2 = z;
+                                        j = 10000;
+                                        z4 = true;
+                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                        if (dequeueOutputBuffer < 0) {
+                                            if ((bufferInfo.flags & 2) != 0) {
+                                                BdLog.i("audio encoder: codec config buffer");
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            } else {
+                                                if (bufferInfo.size != 0) {
+                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
+                                                    byteBuffer2.position(bufferInfo.offset);
+                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                                    if (j2 < bufferInfo.presentationTimeUs) {
+                                                        long j4 = bufferInfo.presentationTimeUs;
+                                                        int i4 = bufferInfo.size;
+                                                        int i5 = i4 + 7;
+                                                        byteBuffer2.position(bufferInfo.offset);
+                                                        byteBuffer2.limit(bufferInfo.offset + i4);
+                                                        byte[] bArr3 = new byte[i5];
+                                                        j7bVar.e(bArr3, i5);
+                                                        byteBuffer2.get(bArr3, 7, i4);
+                                                        fileOutputStream.write(bArr3, 0, i5);
+                                                        BdLog.i(i5 + " bytes written.");
+                                                        j2 = j4;
+                                                    } else {
+                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
+                                                    }
+                                                }
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                                if ((bufferInfo.flags & 4) != 0) {
+                                                    j7bVar = this;
+                                                    inputBuffers = byteBufferArr;
+                                                    z3 = true;
+                                                }
+                                            }
+                                        } else if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr2 = f.getOutputBuffers();
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            BdLog.i("format change : " + f.getOutputFormat());
+                                        }
+                                        j7bVar = this;
+                                        inputBuffers = byteBufferArr;
+                                    } else {
+                                        int i6 = i;
+                                        byteBuffer.put(bArr2, 0, i6);
+                                        int i7 = i3 + i6;
+                                        byteBufferArr = inputBuffers;
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
+                                        i3 = i7;
+                                        i2 = i6;
+                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / j7bVar.d);
+                                        bArr = bArr2;
+                                        z2 = z;
+                                    }
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                j = 10000;
+                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                if (dequeueOutputBuffer < 0) {
+                                }
+                                j7bVar = this;
+                                inputBuffers = byteBufferArr;
+                            }
+                            BdLog.i("acc encode done");
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                        } catch (Exception e) {
+                            e = e;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileInputStream = fileInputStream2;
+                            if (fileInputStream != null) {
+                            }
+                            if (fileOutputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = this.a;
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str2);
-            boolean z2 = false;
-            int i = 0;
+        }
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
             while (true) {
-                if (i < mediaExtractor.getTrackCount()) {
-                    mediaFormat = mediaExtractor.getTrackFormat(i);
-                    if (mediaFormat.getString("mime").startsWith("audio/")) {
-                        mediaExtractor.selectTrack(i);
+                if (i2 < 13) {
+                    if (iArr[i2] == this.b) {
                         break;
                     }
-                    i++;
+                    i2++;
                 } else {
-                    mediaFormat = null;
+                    i2 = 4;
                     break;
                 }
             }
-            if (mediaFormat == null) {
-                BdLog.e("not a valid file with audio track..");
-                mediaExtractor.release();
-                return null;
-            }
-            BdLog.e("mediaFormat " + mediaFormat);
-            k7b.b bVar = new k7b.b();
-            int i2 = aVar2.b;
-            int i3 = aVar2.a;
-            int i4 = aVar2.c;
-            bVar.a = str;
-            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-            double d2 = mediaFormat.getLong("durationUs");
-            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            ByteBuffer[] byteBufferArr = outputBuffers;
-            boolean z3 = false;
-            boolean z4 = false;
-            while (!z3) {
-                long j = currentTimeMillis;
-                if (!z4) {
-                    try {
-                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                        if (dequeueInputBuffer >= 0) {
-                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
-                            if (readSampleData < 0) {
-                                BdLog.i("saw input EOS.");
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                z4 = true;
-                            } else {
-                                d = d2;
-                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                                mediaExtractor.advance();
-                            }
-                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                            if (dequeueOutputBuffer < 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    BdLog.i("audio encoder: codec config buffer");
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
-                                        byteBuffer.position(bufferInfo.offset);
-                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                        byte[] bArr4 = new byte[bufferInfo.size];
-                                        byteBuffer.get(bArr4);
-                                        if (!z) {
-                                            if (aVar2.a()) {
-                                                bArr2 = o7b.b(aVar2.c / 8, aVar.c / 8, bArr4);
-                                            } else {
-                                                bArr2 = null;
-                                            }
-                                            if (aVar2.b()) {
-                                                int i5 = aVar2.b;
-                                                int i6 = aVar.b;
-                                                int i7 = aVar.c / 8;
-                                                if (bArr2 == null) {
-                                                    bArr3 = bArr4;
-                                                } else {
-                                                    bArr3 = bArr2;
-                                                }
-                                                bArr = o7b.c(i5, i6, i7, bArr3);
-                                            } else {
-                                                bArr = null;
-                                            }
-                                        } else {
-                                            bArr = null;
-                                            bArr2 = null;
-                                        }
-                                        if (bArr == null) {
-                                            if (bArr2 == null) {
-                                                bArr = bArr4;
-                                            } else {
-                                                bArr = bArr2;
-                                            }
-                                        }
-                                        fileOutputStream.write(bArr);
-                                        if (this.b != null) {
-                                            this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
-                                        }
-                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                        z2 = false;
-                                    }
-                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                    if ((bufferInfo.flags & 4) != 0) {
-                                        BdLog.i("saw output EOS.");
-                                        z3 = true;
-                                    }
-                                }
-                            } else if (dequeueOutputBuffer == -3) {
-                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
-                                BdLog.i("output buffers have changed.");
-                                byteBufferArr = outputBuffers2;
-                            } else if (dequeueOutputBuffer == -2) {
-                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
-                            }
-                            currentTimeMillis = j;
-                            d2 = d;
-                        }
-                    } finally {
-                        fileOutputStream.close();
-                        createDecoderByType.stop();
-                        createDecoderByType.release();
-                        mediaExtractor.release();
-                    }
-                }
-                d = d2;
-                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
-                if (dequeueOutputBuffer < 0) {
-                }
-                currentTimeMillis = j;
-                d2 = d;
-            }
-            long j2 = currentTimeMillis;
-            if (this.b != null) {
-                this.b.a(null, 1.0d);
-            }
-            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
-            return bVar;
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
         }
-        return (k7b.b) invokeCommon.objValue;
+    }
+
+    @TargetApi(16)
+    public final MediaCodec f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger(MediaInfo.DPM_KEY_BITRATE, EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.c);
+            mediaFormat.setInteger("sample-rate", this.b);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
+        }
+        return (MediaCodec) invokeV.objValue;
     }
 }

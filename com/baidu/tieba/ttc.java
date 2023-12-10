@@ -4,26 +4,24 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.ActivityInfo;
+import tbclient.ActionControl;
 /* loaded from: classes8.dex */
-public class ttc extends ktc {
+public class ttc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ActivityInfo activityInfo) {
+    public static JSONObject b(@NonNull ActionControl actionControl) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activityInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, actionControl)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "activity_id", activityInfo.activity_id);
-            ktc.a(jSONObject, "main_title", activityInfo.main_title);
-            ktc.a(jSONObject, "sub_title", activityInfo.sub_title);
-            ktc.a(jSONObject, "back_pic", activityInfo.back_pic);
-            ktc.a(jSONObject, "back_pic_width", activityInfo.back_pic_width);
-            ktc.a(jSONObject, "back_pic_height", activityInfo.back_pic_height);
-            ktc.a(jSONObject, "subpage_link", activityInfo.subpage_link);
+            ltc.a(jSONObject, "url", actionControl.url);
+            ltc.a(jSONObject, "name", actionControl.name);
+            ltc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, actionControl.text_color);
+            ltc.a(jSONObject, "text_color_pressed", actionControl.text_color_pressed);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

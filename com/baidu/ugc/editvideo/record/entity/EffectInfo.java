@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
-import com.baidu.tieba.eub;
+import com.baidu.tieba.fub;
 import com.baidu.ugc.bean.MusicData;
 import java.io.File;
 import java.io.Serializable;
@@ -67,7 +67,7 @@ public class EffectInfo implements Serializable {
             return null;
         }
         try {
-            return (EffectInfo) new eub().b(str, EffectInfo.class);
+            return (EffectInfo) new fub().b(str, EffectInfo.class);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -92,7 +92,7 @@ public class EffectInfo implements Serializable {
             return null;
         }
         try {
-            return new eub().a(effectInfo);
+            return new fub().a(effectInfo);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

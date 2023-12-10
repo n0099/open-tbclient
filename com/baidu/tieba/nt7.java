@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface nt7 {
-    void J(int i, int i2, zt7 zt7Var);
+    void E0();
 
-    void N(rt7 rt7Var);
+    void L0();
 
-    void init();
+    void T();
 
-    void n();
+    void e0();
 }

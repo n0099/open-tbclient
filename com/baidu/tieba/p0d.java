@@ -4,33 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.CardFreq;
-import tbclient.FrsPage.HeadCardCover;
-import tbclient.FrsPage.MatchCardInfo;
-import tbclient.ThemeColorInfo;
+import tbclient.FrsPage.FeedGroupInfo;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes7.dex */
-public class p0d extends ktc {
+public class p0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HeadCardCover headCardCover) {
+    public static JSONObject b(@NonNull GroupFeedCard groupFeedCard) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headCardCover)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, groupFeedCard)) == null) {
             JSONObject jSONObject = new JSONObject();
-            CardFreq cardFreq = headCardCover.freq;
-            if (cardFreq != null) {
-                ktc.a(jSONObject, "freq", ozc.b(cardFreq));
-            }
-            ThemeColorInfo themeColorInfo = headCardCover.card_background;
-            if (themeColorInfo != null) {
-                ktc.a(jSONObject, "card_background", s9d.b(themeColorInfo));
-            }
-            MatchCardInfo matchCardInfo = headCardCover.match_info;
-            if (matchCardInfo != null) {
-                ktc.a(jSONObject, "match_info", y0d.b(matchCardInfo));
+            ltc.a(jSONObject, "card_title", groupFeedCard.card_title);
+            ltc.a(jSONObject, "index", groupFeedCard.index);
+            if (groupFeedCard.group_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedGroupInfo feedGroupInfo : groupFeedCard.group_list) {
+                    jSONArray.put(zzc.b(feedGroupInfo));
+                }
+                ltc.a(jSONObject, "group_list", jSONArray);
             }
             return jSONObject;
         }

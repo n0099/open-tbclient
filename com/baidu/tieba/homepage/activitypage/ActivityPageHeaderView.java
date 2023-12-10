@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.av4;
-import com.baidu.tieba.bj8;
+import com.baidu.tieba.cj8;
 import com.baidu.tieba.f35;
 import com.baidu.tieba.ms5;
 import com.baidu.tieba.nr5;
-import com.baidu.tieba.ta8;
 import com.baidu.tieba.tw4;
+import com.baidu.tieba.ua8;
 import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
+public class ActivityPageHeaderView extends LinearLayout implements ms5<ua8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -81,7 +81,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
         public void b(View view2, tw4 tw4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, tw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                bj8.a("c13751", tw4Var, i + 1, this.a.d);
+                cj8.a("c13751", tw4Var, i + 1, this.a.d);
             }
         }
     }
@@ -116,7 +116,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 tw4 tw4Var = new tw4();
                 tw4Var.e(str);
-                bj8.a("c13750", tw4Var, i, this.a.d);
+                cj8.a("c13750", tw4Var, i, this.a.d);
             }
         }
 
@@ -126,7 +126,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
         public void a(int i, tw4 tw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, tw4Var) == null) {
-                bj8.b("c13750", tw4Var, i, this.a.d);
+                cj8.b("c13750", tw4Var, i, this.a.d);
             }
         }
     }
@@ -192,7 +192,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                bj8.c("c13751", this.a.d);
+                cj8.c("c13751", this.a.d);
             }
         }
     }
@@ -257,11 +257,11 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ns5
     /* renamed from: d */
-    public nr5 onBindDataToView(ta8 ta8Var) {
+    public nr5 onBindDataToView(ua8 ua8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ta8Var)) == null) {
-            if (ta8Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua8Var)) == null) {
+            if (ua8Var == null) {
                 return null;
             }
             setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds44), 0, BdUtilHelper.getDimens(getContext(), R.dimen.tbds60));
@@ -276,7 +276,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
                 addView(this.b);
                 this.b.setIWindowChangedListener(new c(this));
             }
-            this.b.onBindDataToView(ta8Var.f);
+            this.b.onBindDataToView(ua8Var.f);
             if (this.c == null) {
                 GridIconLayout gridIconLayout = new GridIconLayout(getContext());
                 this.c = gridIconLayout;
@@ -287,7 +287,7 @@ public class ActivityPageHeaderView extends LinearLayout implements ms5<ta8> {
                 this.c.setVerticalSpace(BdUtilHelper.getDimens(getContext(), R.dimen.tbds61));
                 this.c.setMaxItem(10);
             }
-            this.c.onBindDataToView(ta8Var.g);
+            this.c.onBindDataToView(ua8Var.g);
             return new nr5();
         }
         return (nr5) invokeL.objValue;

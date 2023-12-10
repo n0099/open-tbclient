@@ -4,39 +4,25 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ItemPlot;
-import tbclient.ItemPoint;
-import tbclient.ItemTable;
+import tbclient.ItemService;
 /* loaded from: classes6.dex */
-public class h4d extends ktc {
+public class h4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ItemTable itemTable) {
+    public static JSONObject b(@NonNull ItemService itemService) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemTable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, itemService)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "is_commented", itemTable.is_commented);
-            ktc.a(jSONObject, "comment_star", itemTable.comment_star);
-            ktc.a(jSONObject, "total_point_num", itemTable.total_point_num);
-            if (itemTable.item_point != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ItemPoint itemPoint : itemTable.item_point) {
-                    jSONArray.put(f4d.b(itemPoint));
-                }
-                ktc.a(jSONObject, "item_point", jSONArray);
-            }
-            if (itemTable.item_plot != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (ItemPlot itemPlot : itemTable.item_plot) {
-                    jSONArray2.put(e4d.b(itemPlot));
-                }
-                ktc.a(jSONObject, "item_plot", jSONArray2);
-            }
+            ltc.a(jSONObject, "icon", itemService.icon);
+            ltc.a(jSONObject, "client_type", itemService.client_type);
+            ltc.a(jSONObject, "type", itemService.type);
+            ltc.a(jSONObject, "name", itemService.name);
+            ltc.a(jSONObject, "url", itemService.url);
+            ltc.a(jSONObject, "app_id", itemService.app_id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.ia5;
 import com.baidu.tieba.id;
 import com.baidu.tieba.qv4;
-import com.baidu.tieba.rfa;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.sfa;
 import com.baidu.tieba.y16;
+import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<String, Integer, xo9> {
+    public class b extends BdAsyncTask<String, Integer, yo9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -125,10 +125,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(xo9 xo9Var) {
+        public void onPostExecute(yo9 yo9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xo9Var) == null) {
-                super.onPostExecute(xo9Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yo9Var) == null) {
+                super.onPostExecute(yo9Var);
                 this.b.mSyncTask = null;
             }
         }
@@ -140,21 +140,21 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public xo9 doInBackground(String... strArr) {
+        public yo9 doInBackground(String... strArr) {
             InterceptResult invokeL;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                xo9 xo9Var = null;
+                yo9 yo9Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                    if (rfa.b()) {
+                    if (sfa.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, rfa.c());
-                        String g = rfa.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, sfa.c());
+                        String g = sfa.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, rfa.j());
+                            this.a.addPostData(g, sfa.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);
@@ -206,22 +206,22 @@ public class SyncLoginService extends BdBaseService {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    xo9 xo9Var2 = new xo9();
+                    yo9 yo9Var2 = new yo9();
                     try {
-                        xo9Var2.a(postNetData);
+                        yo9Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return xo9Var2;
+                        return yo9Var2;
                     } catch (Exception e) {
                         e = e;
-                        xo9Var = xo9Var2;
+                        yo9Var = yo9Var2;
                         BdLog.e(e.getMessage());
-                        return xo9Var;
+                        return yo9Var;
                     }
                 } catch (Exception e2) {
                     e = e2;
                 }
             } else {
-                return (xo9) invokeL.objValue;
+                return (yo9) invokeL.objValue;
             }
         }
 

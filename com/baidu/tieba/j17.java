@@ -46,12 +46,12 @@ public class j17 extends ye5 {
 
         /* renamed from: com.baidu.tieba.j17$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0360a implements Runnable {
+        public class RunnableC0358a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0360a(a aVar) {
+            public RunnableC0358a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class j17 extends ye5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 this.a.d();
-                pr6.a(new RunnableC0360a(this), "FaceShop", 1);
+                pr6.a(new RunnableC0358a(this), "FaceShop", 1);
             }
         }
     }

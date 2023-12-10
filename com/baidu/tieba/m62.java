@@ -70,12 +70,12 @@ public final class m62 {
 
         /* renamed from: com.baidu.tieba.m62$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0394b implements dl3<String> {
+        public class C0393b implements dl3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dl3 a;
 
-            public C0394b(b bVar, dl3 dl3Var) {
+            public C0393b(b bVar, dl3 dl3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public final class m62 {
         public void e(@NonNull dl3<String> dl3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dl3Var) == null) {
-                this.e.e(new C0394b(this, dl3Var));
+                this.e.e(new C0393b(this, dl3Var));
             }
         }
 

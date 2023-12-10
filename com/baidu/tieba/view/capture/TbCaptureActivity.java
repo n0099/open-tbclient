@@ -59,34 +59,34 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ecb;
 import com.baidu.tieba.external.filter.ResponseGetQmFiltersMessage;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.sticker.ResponseGetQmStickersMessage;
 import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.tieba.fp9;
+import com.baidu.tieba.fcb;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.gdb;
-import com.baidu.tieba.iab;
-import com.baidu.tieba.jp9;
+import com.baidu.tieba.gp9;
+import com.baidu.tieba.hdb;
+import com.baidu.tieba.jab;
+import com.baidu.tieba.kp9;
 import com.baidu.tieba.lr6;
-import com.baidu.tieba.m5b;
 import com.baidu.tieba.mr6;
 import com.baidu.tieba.n05;
+import com.baidu.tieba.n5b;
 import com.baidu.tieba.nr6;
 import com.baidu.tieba.or6;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.pf6;
 import com.baidu.tieba.q07;
-import com.baidu.tieba.q5b;
 import com.baidu.tieba.qf6;
 import com.baidu.tieba.r07;
+import com.baidu.tieba.r5b;
 import com.baidu.tieba.rf6;
-import com.baidu.tieba.rfa;
 import com.baidu.tieba.s07;
-import com.baidu.tieba.s5b;
 import com.baidu.tieba.sf6;
+import com.baidu.tieba.sfa;
+import com.baidu.tieba.t5b;
 import com.baidu.tieba.tf6;
 import com.baidu.tieba.u07;
 import com.baidu.tieba.uf6;
@@ -119,7 +119,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public RelativeLayout C;
     public LinearLayout D;
     public RecordPreviewContainer E;
-    public fp9 F;
+    public gp9 F;
     public nr6 G;
     public pf6 H;
     public vf6 I;
@@ -135,7 +135,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public ImageView S;
 
     /* renamed from: T  reason: collision with root package name */
-    public TextView f1165T;
+    public TextView f1167T;
     public TbMusicData U;
     public ArrayList<String> V;
     public boolean W;
@@ -711,7 +711,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                VideoFileInfo c = q5b.c(str);
+                VideoFileInfo c = r5b.c(str);
                 if (c == null) {
                     TbCaptureActivity tbCaptureActivity = this.a;
                     tbCaptureActivity.hideLoadingView(tbCaptureActivity.e);
@@ -824,7 +824,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void a(MotionEvent motionEvent, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, motionEvent, i) == null) && this.a.G != null) {
-                iab.E(this.a.getPageContext()).l(i);
+                jab.E(this.a.getPageContext()).l(i);
                 this.a.S1();
             }
         }
@@ -833,7 +833,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void b(MotionEvent motionEvent, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && this.a.G != null) {
-                iab.E(this.a.getPageContext()).c(i, i2, i3, i4);
+                jab.E(this.a.getPageContext()).c(i, i2, i3, i4);
             }
         }
     }
@@ -1062,15 +1062,15 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         }
 
         @Override // com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout.i
-        public void b(gdb gdbVar, Object obj) {
+        public void b(hdb hdbVar, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gdbVar, obj) != null) || gdbVar == null) {
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hdbVar, obj) != null) || hdbVar == null) {
                 return;
             }
-            int c = gdbVar.c();
+            int c = hdbVar.c();
             if (c != 2) {
-                if (c == 3 && (gdbVar.d() instanceof MusicData)) {
-                    MusicData musicData = (MusicData) gdbVar.d();
+                if (c == 3 && (hdbVar.d() instanceof MusicData)) {
+                    MusicData musicData = (MusicData) hdbVar.d();
                     TbMusicData tbMusicData = new TbMusicData();
                     tbMusicData.id = musicData.id;
                     tbMusicData.title = musicData.name;
@@ -1088,10 +1088,10 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                             this.a.b0.setMusicName(this.a.U.title, "");
                         }
                     }
-                    this.a.N.d((MusicData) gdbVar.d(), obj);
+                    this.a.N.d((MusicData) hdbVar.d(), obj);
                 }
-            } else if (this.a.K != null && (gdbVar.d() instanceof QmFilterItem)) {
-                QmFilterItem qmFilterItem = (QmFilterItem) gdbVar.d();
+            } else if (this.a.K != null && (hdbVar.d() instanceof QmFilterItem)) {
+                QmFilterItem qmFilterItem = (QmFilterItem) hdbVar.d();
                 String f = this.a.K.f(qmFilterItem.fileUrl);
                 if (StringUtils.isNull(f) && !"-1".equals(qmFilterItem.id)) {
                     if (this.a.b0 != null) {
@@ -1645,8 +1645,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             if (w07Var != null) {
                 w07Var.onDestroy();
             }
-            if (iab.D() == getPageContext()) {
-                iab.E(getPageContext()).release();
+            if (jab.D() == getPageContext()) {
+                jab.E(getPageContext()).release();
             }
         }
     }
@@ -1753,7 +1753,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     }
 
     public final void M1() {
-        jp9 jp9Var;
+        kp9 kp9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_QM_STICKERS, TbConfig.SERVER_ADDRESS + TbConfig.GET_QM_STICKERS);
@@ -1762,18 +1762,18 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_QM_FILTERS, TbConfig.SERVER_ADDRESS + TbConfig.GET_QM_FILTERS);
             tbHttpMessageTask2.setResponsedClass(ResponseGetQmFiltersMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jp9.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, kp9.class);
             if (runTask != null) {
-                jp9Var = (jp9) runTask.getData();
+                kp9Var = (kp9) runTask.getData();
             } else {
-                jp9Var = null;
+                kp9Var = null;
             }
-            if (jp9Var != null) {
-                this.F = jp9Var.get();
+            if (kp9Var != null) {
+                this.F = kp9Var.get();
             }
-            fp9 fp9Var = this.F;
-            if (fp9Var != null) {
-                fp9Var.g();
+            gp9 gp9Var = this.F;
+            if (gp9Var != null) {
+                gp9Var.g();
             }
         }
     }
@@ -1837,7 +1837,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             this.K = q07Var;
             q07Var.d(this.t0);
             this.K.h();
-            ecb recrodButton = this.b0.getRecrodButton();
+            fcb recrodButton = this.b0.getRecrodButton();
             TextView recordTimeView = this.b0.getRecordTimeView();
             this.B = recordTimeView;
             qf6 qf6Var = new qf6(recrodButton, recordTimeView, this.f0, this.g0, this.h0);
@@ -1861,18 +1861,18 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_QM_FILTERS);
-            if (rfa.b()) {
-                httpMessage.addParam(HttpRequest.UH, DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (s5b.b(this) ? 1 : 0));
-                httpMessage.addParam("ut", DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + s5b.a() + "_" + Build.BRAND.replace("_", ""));
+            if (sfa.b()) {
+                httpMessage.addParam(HttpRequest.UH, DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (t5b.b(this) ? 1 : 0));
+                httpMessage.addParam("ut", DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + t5b.a() + "_" + Build.BRAND.replace("_", ""));
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, rfa.c());
-                String g2 = rfa.g(HttpRequest.UH);
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, sfa.c());
+                String g2 = sfa.g(HttpRequest.UH);
                 if (!TextUtils.isEmpty(g2)) {
-                    httpMessage.addParam(g2, rfa.a(DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (s5b.b(this) ? 1 : 0)));
+                    httpMessage.addParam(g2, sfa.a(DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (t5b.b(this) ? 1 : 0)));
                 }
-                String g3 = rfa.g("ut");
+                String g3 = sfa.g("ut");
                 if (!TextUtils.isEmpty(g3)) {
-                    httpMessage.addParam(g3, rfa.a(DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + s5b.a() + "_" + Build.BRAND.replace("_", "")));
+                    httpMessage.addParam(g3, sfa.a(DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + t5b.a() + "_" + Build.BRAND.replace("_", "")));
                 }
             }
             httpMessage.addParam("sdk_version", xa0.i() + "");
@@ -1884,18 +1884,18 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_QM_STICKERS);
-            if (rfa.b()) {
-                httpMessage.addParam(HttpRequest.UH, DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (s5b.b(this) ? 1 : 0));
-                httpMessage.addParam("ut", DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + s5b.a() + "_" + Build.BRAND.replace("_", ""));
+            if (sfa.b()) {
+                httpMessage.addParam(HttpRequest.UH, DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (t5b.b(this) ? 1 : 0));
+                httpMessage.addParam("ut", DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + t5b.a() + "_" + Build.BRAND.replace("_", ""));
             } else {
-                httpMessage.addParam(HttpRequest.NEED_DECRYPT, rfa.c());
-                String g2 = rfa.g(HttpRequest.UH);
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, sfa.c());
+                String g2 = sfa.g(HttpRequest.UH);
                 if (!TextUtils.isEmpty(g2)) {
-                    httpMessage.addParam(g2, rfa.a(DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (s5b.b(this) ? 1 : 0)));
+                    httpMessage.addParam(g2, sfa.a(DeviceInfoHelper.getManufacturer() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (t5b.b(this) ? 1 : 0)));
                 }
-                String g3 = rfa.g("ut");
+                String g3 = sfa.g("ut");
                 if (!TextUtils.isEmpty(g3)) {
-                    httpMessage.addParam(g3, rfa.a(DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + s5b.a() + "_" + Build.BRAND.replace("_", "")));
+                    httpMessage.addParam(g3, sfa.a(DeviceInfoHelper.getModel() + "_" + DeviceInfoHelper.getOsVersion() + "_" + t5b.a() + "_" + Build.BRAND.replace("_", "")));
                 }
             }
             httpMessage.addParam("sdk_version", xa0.i() + "");
@@ -1920,7 +1920,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             this.v = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09059c);
             this.R = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09059e);
             this.S = (ImageView) findViewById(R.id.obfuscated_res_0x7f09059d);
-            this.f1165T = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a3);
+            this.f1167T = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a3);
             this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09058a);
             this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090589);
             this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f09058e);
@@ -2081,7 +2081,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             EMManager.from(this.n).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.o).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.p).setTextShadow(R.array.S_O_X001);
-            EMManager.from(this.f1165T).setTextShadow(R.array.S_O_X001);
+            EMManager.from(this.f1167T).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.q).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.s).setTextShadow(R.array.S_O_X001);
             EMManager.from(this.r).setTextShadow(R.array.S_O_X001);
@@ -2269,7 +2269,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0030);
             if (Build.VERSION.SDK_INT >= 28 && RomTypeUtil.isOPPO() && TbSingleton.getInstance().isCutoutScreen(this)) {
-                m5b.b(1, getWindow().getAttributes(), getWindow());
+                n5b.b(1, getWindow().getAttributes(), getWindow());
             }
             setSwipeBackEnabled(false);
             M1();

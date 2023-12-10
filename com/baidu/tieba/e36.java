@@ -44,13 +44,13 @@ public class e36 {
 
         /* renamed from: com.baidu.tieba.e36$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0255a extends BdRunnable {
+        public class C0256a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0255a(a aVar, JSONObject jSONObject) {
+            public C0256a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,7 +311,7 @@ public class e36 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (dg9.f(map)) {
+            if (eg9.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {

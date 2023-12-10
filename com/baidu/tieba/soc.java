@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface soc<T1, T2> {
-    void a(T1 t1, T2 t2);
+public interface soc<T> {
+    void call(T t);
 }

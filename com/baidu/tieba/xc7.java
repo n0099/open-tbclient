@@ -4,14 +4,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardPlayVoiceView;
+import com.baidu.tieba.feed.component.CardVirtualHeadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class xc7 extends ab7<CardPlayVoiceView, d57> {
+public class xc7 extends bb7<CardVirtualHeadView, c57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,26 +35,26 @@ public class xc7 extends ab7<CardPlayVoiceView, d57> {
         }
     }
 
-    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View a = super.a(viewGroup);
-            jd7.j(a);
+            kd7.k(a, 0);
             return a;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
-    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull d57 d57Var) {
+    public void b(@NonNull CardVirtualHeadView cardVirtualHeadView, @NonNull c57 c57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, d57Var) == null) {
-            cardPlayVoiceView.b(d57Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardVirtualHeadView, c57Var) == null) {
+            cardVirtualHeadView.v(c57Var);
         }
     }
 }

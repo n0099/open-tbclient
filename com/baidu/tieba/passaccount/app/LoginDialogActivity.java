@@ -31,9 +31,9 @@ import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cw4;
 import com.baidu.tieba.lq5;
-import com.baidu.tieba.nt9;
 import com.baidu.tieba.ot9;
 import com.baidu.tieba.pt9;
+import com.baidu.tieba.qt9;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.tieba.zb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class LoginDialogActivity extends SuspendedActivity implements lq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup k;
-    public nt9 l;
+    public ot9 l;
     public BdAsyncTask<?, ?, ?> m;
     public String n;
     public String o;
@@ -275,9 +275,9 @@ public class LoginDialogActivity extends SuspendedActivity implements lq5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            nt9 nt9Var = this.l;
-            if (nt9Var != null) {
-                return nt9Var.getResultIntent();
+            ot9 ot9Var = this.l;
+            if (ot9Var != null) {
+                return ot9Var.getResultIntent();
             }
             return null;
         }
@@ -297,9 +297,9 @@ public class LoginDialogActivity extends SuspendedActivity implements lq5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.k.setBackgroundResource(R.color.transparent);
-            nt9 nt9Var = this.l;
-            if (nt9Var != null) {
-                nt9Var.D(i);
+            ot9 ot9Var = this.l;
+            if (ot9Var != null) {
+                ot9Var.D(i);
             }
         }
     }
@@ -416,9 +416,9 @@ public class LoginDialogActivity extends SuspendedActivity implements lq5 {
             }
             H1();
             if (TextUtils.isEmpty(this.n)) {
-                this.l = new ot9(this.o, this.p, this.q);
+                this.l = new pt9(this.o, this.p, this.q);
             } else {
-                this.l = new pt9(this.n);
+                this.l = new qt9(this.n);
             }
             this.l.a(this, linearLayout);
             return this;

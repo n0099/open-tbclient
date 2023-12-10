@@ -28,8 +28,8 @@ import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av4;
 import com.baidu.tieba.du5;
-import com.baidu.tieba.re8;
 import com.baidu.tieba.se8;
+import com.baidu.tieba.te8;
 import com.baidu.tieba.util.TopicListUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,21 +59,21 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         public TextView g;
         public ImageView h;
         public TbPageContext i;
-        public av4<re8> j;
+        public av4<se8> j;
 
         /* loaded from: classes6.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ re8 a;
+            public final /* synthetic */ se8 a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, re8 re8Var) {
+            public a(b bVar, se8 se8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, re8Var};
+                    Object[] objArr = {bVar, se8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -84,7 +84,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     }
                 }
                 this.b = bVar;
-                this.a = re8Var;
+                this.a = se8Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -102,18 +102,18 @@ public class HotTopicTabRankListLayout extends RecyclerView {
 
         /* renamed from: com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0321b implements View.OnClickListener {
+        public class View$OnClickListenerC0307b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ re8 a;
+            public final /* synthetic */ se8 a;
             public final /* synthetic */ b b;
 
-            public View$OnClickListenerC0321b(b bVar, re8 re8Var) {
+            public View$OnClickListenerC0307b(b bVar, se8 se8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, re8Var};
+                    Object[] objArr = {bVar, se8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -124,7 +124,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     }
                 }
                 this.b = bVar;
-                this.a = re8Var;
+                this.a = se8Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -174,7 +174,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09185d);
         }
 
-        public void e(av4<re8> av4Var) {
+        public void e(av4<se8> av4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, av4Var) == null) {
                 this.j = av4Var;
@@ -188,27 +188,27 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             }
         }
 
-        public void b(re8 re8Var) {
+        public void b(se8 se8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, re8Var) == null) && re8Var != null) {
-                if (re8Var.e) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, se8Var) == null) && se8Var != null) {
+                if (se8Var.e) {
                     this.b.setVisibility(8);
                     this.f.setVisibility(0);
-                    this.f.setOnClickListener(new a(this, re8Var));
+                    this.f.setOnClickListener(new a(this, se8Var));
                     return;
                 }
                 this.b.setVisibility(0);
-                this.b.setOnClickListener(new View$OnClickListenerC0321b(this, re8Var));
+                this.b.setOnClickListener(new View$OnClickListenerC0307b(this, se8Var));
                 this.f.setVisibility(8);
-                int i = re8Var.d;
+                int i = se8Var.d;
                 if (i > 0) {
                     this.c.setText(String.valueOf(i));
                     this.c.setVisibility(0);
                 } else {
                     this.c.setVisibility(8);
                 }
-                this.d.setText(re8Var.b);
-                String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), re8Var.c);
+                this.d.setText(se8Var.b);
+                String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), se8Var.c);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.d.getLayoutParams();
                 if (TextUtils.isEmpty(hotTopicTagStr)) {
                     this.e.setVisibility(8);
@@ -220,8 +220,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                     this.e.setVisibility(0);
                     this.e.setText(hotTopicTagStr);
                 }
-                EMManager.from(this.c).setCorner(R.string.J_X04).setBackGroundColor(TagTextHelper.getIndexTextColorRes(re8Var.d));
-                EMManager.from(this.e).setCorner(R.string.J_X04).setAlpha(R.string.A_X12).setBackGroundColor(TagTextHelper.getHotTopicTagColorRes(re8Var.c));
+                EMManager.from(this.c).setCorner(R.string.J_X04).setBackGroundColor(TagTextHelper.getIndexTextColorRes(se8Var.d));
+                EMManager.from(this.e).setCorner(R.string.J_X04).setAlpha(R.string.A_X12).setBackGroundColor(TagTextHelper.getHotTopicTagColorRes(se8Var.c));
             }
         }
 
@@ -258,8 +258,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
     public static class a extends RecyclerView.Adapter<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<re8> a;
-        public av4<re8> b;
+        public List<se8> a;
+        public av4<se8> b;
         public TbPageContext c;
 
         public a() {
@@ -281,7 +281,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                List<re8> list = this.a;
+                List<se8> list = this.a;
                 if (list == null) {
                     return 0;
                 }
@@ -294,15 +294,15 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: l */
         public void onBindViewHolder(@NonNull b bVar, int i) {
-            List<re8> list;
+            List<se8> list;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i) == null) && (list = this.a) != null && list.size() > i) {
-                re8 re8Var = list.get(i);
-                bVar.b(re8Var);
+                se8 se8Var = list.get(i);
+                bVar.b(se8Var);
                 bVar.d(TbadkCoreApplication.getInst().getSkinType());
-                av4<re8> av4Var = this.b;
+                av4<se8> av4Var = this.b;
                 if (av4Var != null) {
-                    av4Var.d(bVar.itemView, re8Var, i, i);
+                    av4Var.d(bVar.itemView, se8Var, i, i);
                 }
             }
         }
@@ -324,14 +324,14 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             return (b) invokeLI.objValue;
         }
 
-        public void o(av4<re8> av4Var) {
+        public void o(av4<se8> av4Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, av4Var) == null) {
                 this.b = av4Var;
             }
         }
 
-        public void p(@NonNull List<re8> list) {
+        public void p(@NonNull List<se8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
                 this.a = list;
@@ -416,10 +416,10 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         b();
     }
 
-    public void a(se8 se8Var) {
+    public void a(te8 te8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, se8Var) == null) && se8Var != null && se8Var.c() != null) {
-            this.b.p(se8Var.c());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, te8Var) == null) && te8Var != null && te8Var.c() != null) {
+            this.b.p(te8Var.c());
         }
     }
 
@@ -431,7 +431,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
         }
     }
 
-    public void setOnItemCoverListener(av4<re8> av4Var) {
+    public void setOnItemCoverListener(av4<se8> av4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, av4Var) == null) {
             this.b.o(av4Var);

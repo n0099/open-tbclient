@@ -1,39 +1,39 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.foc;
-import com.baidu.tieba.joc;
-import com.baidu.tieba.poc;
+import com.baidu.tieba.goc;
+import com.baidu.tieba.koc;
+import com.baidu.tieba.qoc;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements foc {
+public final class SingleProducer<T> extends AtomicBoolean implements goc {
     public static final long serialVersionUID = -3353584923995471404L;
-    public final joc<? super T> child;
+    public final koc<? super T> child;
     public final T value;
 
-    public SingleProducer(joc<? super T> jocVar, T t) {
-        this.child = jocVar;
+    public SingleProducer(koc<? super T> kocVar, T t) {
+        this.child = kocVar;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.goc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0 && compareAndSet(false, true)) {
-                joc<? super T> jocVar = this.child;
-                if (jocVar.isUnsubscribed()) {
+                koc<? super T> kocVar = this.child;
+                if (kocVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    jocVar.onNext(obj);
-                    if (jocVar.isUnsubscribed()) {
+                    kocVar.onNext(obj);
+                    if (kocVar.isUnsubscribed()) {
                         return;
                     }
-                    jocVar.onCompleted();
+                    kocVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    poc.g(th, jocVar, obj);
+                    qoc.g(th, kocVar, obj);
                     return;
                 }
             }

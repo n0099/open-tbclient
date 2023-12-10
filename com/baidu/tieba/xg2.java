@@ -27,12 +27,12 @@ public class xg2 {
 
         /* renamed from: com.baidu.tieba.xg2$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0532a implements dl3<Exception> {
+        public class C0529a implements dl3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0532a(a aVar) {
+            public C0529a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class xg2 {
                     return;
                 }
                 k32.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                pf3.o(this.b, new C0532a(this));
+                pf3.o(this.b, new C0529a(this));
             }
         }
     }

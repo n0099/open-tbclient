@@ -38,7 +38,7 @@ public class rd5 implements vd5 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            kia n = kia.n();
+            lia n = lia.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class rd5 implements vd5 {
                 n.B(downloadData);
             }
             sd5.a(downloadData);
-            kia.n().y(downloadData);
+            lia.n().y(downloadData);
         }
     }
 
@@ -64,9 +64,9 @@ public class rd5 implements vd5 {
         }
         sd5.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        kia.n().y(downloadData);
+        lia.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
-            AdApkInstallHelper.a(mia.m(downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX), downloadData);
+            AdApkInstallHelper.a(nia.m(downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX), downloadData);
         }
     }
 
@@ -111,7 +111,7 @@ public class rd5 implements vd5 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        kia.n().C(downloadData);
-        kia.n().y(downloadData);
+        lia.n().C(downloadData);
+        lia.n().y(downloadData);
     }
 }

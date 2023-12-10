@@ -1,162 +1,22 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.TurbonetEngine;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.net.URL;
-import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.Headers;
-import okhttp3.Interceptor;
-import okhttp3.MediaType;
-import okhttp3.Protocol;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okhttp3.internal.Version;
-import okhttp3.internal.http.RealResponseBody;
-import okio.BufferedSink;
-import okio.BufferedSource;
-import okio.Okio;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class nob implements Interceptor {
+public final class nob {
     public static /* synthetic */ Interceptable $ic;
-    public static Field c;
-    public static boolean d;
-    public static Constructor<RealResponseBody> e;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieJar a;
-    public TurbonetEngine b;
-
-    /* loaded from: classes7.dex */
-    public class a implements qob {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uob a;
-
-        public a(nob nobVar, uob uobVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nobVar, uobVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uobVar;
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                this.a.disconnect();
-            }
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                this.a.disconnect();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements qob {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tnb a;
-        public final /* synthetic */ nob b;
-
-        public b(nob nobVar, tnb tnbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nobVar, tnbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nobVar;
-            this.a = tnbVar;
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                tnb tnbVar = this.a;
-                tnbVar.e = j;
-                tnbVar.c();
-                tnb tnbVar2 = this.a;
-                tnbVar2.c = -12;
-                tnbVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void onComplete(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                tnb tnbVar = this.a;
-                tnbVar.e = j;
-                tnbVar.c();
-                tnb tnbVar2 = this.a;
-                tnbVar2.c = 0;
-                tnbVar2.d(this.b.b);
-            }
-        }
-
-        @Override // com.baidu.tieba.qob
-        public void b(Exception exc, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                tnb tnbVar = this.a;
-                tnbVar.e = j;
-                tnbVar.c();
-                this.a.a(exc);
-                this.a.d(this.b.b);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -171,249 +31,64 @@ public class nob implements Interceptor {
                 return;
             }
         }
-        try {
-            Field declaredField = RealResponseBody.class.getDeclaredField("source");
-            c = declaredField;
-            declaredField.setAccessible(true);
-        } catch (NoSuchFieldException e2) {
-            Log.e("tn_OkHttp3Intercept", "Can not find source field from RealResponseBody.", e2);
-            c = null;
-        }
-        try {
-            boolean c2 = oob.c();
-            d = c2;
-            if (c2) {
-                e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
-                Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
-                return;
-            }
-            e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
-            Log.d("tn_OkHttp3Intercept", "found okhttp 3.8-");
-        } catch (IllegalArgumentException e3) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e3);
-            e = null;
-        } catch (NoSuchMethodException e4) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e4);
-            e = null;
-        } catch (NoSuchElementException e5) {
-            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e5);
-            e = null;
-        }
+        a = new Object();
     }
 
-    public nob(iob iobVar) {
+    public static void a(StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iobVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65537, null, sb) == null) {
+            sb.append(" TurboNet/");
+            sb.append(vnb.a());
         }
-        this.a = CookieJar.NO_COOKIES;
-        TurbonetEngine b2 = iobVar.b();
-        this.b = b2;
-        if (b2 != null) {
-            return;
-        }
-        throw new NullPointerException("TurbonetEngine is null.");
     }
 
-    public final String b(List<Cookie> list) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(c(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
             }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append(ParamableElem.DIVIDE_PARAM);
+            a(sb);
+            sb.append(')');
             return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public final Response c(Interceptor.Chain chain, Request request) throws IOException {
-        InterceptResult invokeLL;
-        RealResponseBody realResponseBody;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain, request)) == null) {
-            if (c == null) {
-                return chain.proceed(request);
-            }
-            tnb tnbVar = new tnb(request.url().toString());
-            tnbVar.b = request.method();
-            Request.Builder newBuilder = request.newBuilder();
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
-            }
-            if (request.header("User-Agent") == null) {
-                newBuilder.header("User-Agent", Version.userAgent());
-            }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            Response proceed = chain.proceed(newBuilder.build());
-            tnbVar.b();
-            tnbVar.d = proceed.code();
-            ResponseBody body2 = proceed.body();
-            if (body2 instanceof RealResponseBody) {
-                realResponseBody = (RealResponseBody) body2;
-            } else {
-                realResponseBody = null;
-            }
-            if (this.a != CookieJar.NO_COOKIES) {
-                List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
-                if (!parseAll.isEmpty()) {
-                    this.a.saveFromResponse(request.url(), parseAll);
-                }
-            }
-            if (realResponseBody != null) {
-                try {
-                    c.set(realResponseBody, Okio.buffer(Okio.source(new pob(body2.source().inputStream(), new b(this, tnbVar)))));
-                } catch (IllegalAccessException e2) {
-                    Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
-                }
-            }
-            return proceed;
-        }
-        return (Response) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public static int c(Context context) {
         InterceptResult invokeL;
-        Protocol protocol;
-        InputStream errorStream;
-        long j;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
-            Request request = chain.request();
-            if (e != null && !this.b.c() && (!d || chain.call() != null)) {
-                uob uobVar = new uob(new URL(request.url().toString()), this.b);
-                uobVar.q();
-                if (d && chain.call().isCanceled()) {
-                    uobVar.disconnect();
-                    return c(chain, request);
-                }
-                if (d) {
-                    uobVar.setReadTimeout(chain.readTimeoutMillis());
-                    uobVar.setConnectTimeout(chain.connectTimeoutMillis());
-                }
-                Headers headers = request.headers();
-                for (String str : headers.names()) {
-                    uobVar.addRequestProperty(str, headers.get(str));
-                }
-                List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-                if (loadForRequest != null && !loadForRequest.isEmpty()) {
-                    uobVar.addRequestProperty("Cookie", b(loadForRequest));
-                }
-                uobVar.setRequestMethod(request.method());
-                try {
-                    if (request.body() != null) {
-                        if (request.body().contentType() != null) {
-                            uobVar.setRequestProperty("Content-Type", request.body().contentType().toString());
-                        }
-                        uobVar.setDoOutput(true);
-                        OutputStream outputStream = uobVar.getOutputStream();
-                        BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
-                        request.body().writeTo(buffer);
-                        buffer.flush();
-                        outputStream.close();
-                    }
-                    int responseCode = uobVar.getResponseCode();
-                    if (d && chain.call().isCanceled()) {
-                        uobVar.disconnect();
-                        return c(chain, request);
-                    }
-                    String str2 = uobVar.z().d().toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
                     try {
-                        protocol = Protocol.get(str2);
-                    } catch (IOException unused) {
-                        Log.e("tn_OkHttp3Intercept", "Unexpected protocol: " + str2);
-                        protocol = Protocol.HTTP_1_1;
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException e) {
+                        throw new IllegalStateException("Cannot determine package version", e);
                     }
-                    Response.Builder builder = new Response.Builder();
-                    builder.request(request).protocol(protocol).code(responseCode).message(uobVar.getResponseMessage());
-                    Headers.Builder builder2 = new Headers.Builder();
-                    for (Map.Entry<String, List<String>> entry : uobVar.getHeaderFields().entrySet()) {
-                        for (String str3 : entry.getValue()) {
-                            if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
-                                builder.addHeader(entry.getKey(), str3);
-                                builder2.add(entry.getKey(), str3);
-                            }
-                        }
-                    }
-                    Headers build = builder2.build();
-                    if (this.a != CookieJar.NO_COOKIES) {
-                        List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
-                        if (!parseAll.isEmpty()) {
-                            this.a.saveFromResponse(request.url(), parseAll);
-                        }
-                    }
-                    if (responseCode >= 200 && responseCode < 400) {
-                        errorStream = uobVar.getInputStream();
-                    } else {
-                        errorStream = uobVar.getErrorStream();
-                    }
-                    BufferedSource buffer2 = Okio.buffer(Okio.source(new pob(errorStream, new a(this, uobVar))));
-                    if (builder2.get("Content-Length") == null) {
-                        j = -1L;
-                    } else {
-                        try {
-                            j = Long.valueOf(builder2.get("Content-Length"));
-                        } catch (NumberFormatException e2) {
-                            Log.e("tn_OkHttp3Intercept", "invalid content length: " + builder2.get("Content-Length").toString(), e2);
-                            j = 0L;
-                        }
-                    }
-                    try {
-                        if (d) {
-                            builder.body(e.newInstance(builder2.get("Content-Type"), j, buffer2));
-                        } else {
-                            builder.body(e.newInstance(builder2.build(), buffer2));
-                        }
-                    } catch (Exception e3) {
-                        Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
-                    }
-                    String responseMessage = uobVar.getResponseMessage();
-                    if (responseMessage == null) {
-                        responseMessage = "";
-                    }
-                    return builder.message(responseMessage).build();
-                } catch (IOException e4) {
-                    Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
-                    uobVar.disconnect();
-                    return c(chain, request);
                 }
+                i = b;
             }
-            return c(chain, request);
+            return i;
         }
-        return (Response) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

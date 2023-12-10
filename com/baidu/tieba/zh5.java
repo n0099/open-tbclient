@@ -400,7 +400,7 @@ public class zh5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = m5b.a(2002);
+            layoutParams.type = n5b.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = this.i;

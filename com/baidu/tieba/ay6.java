@@ -78,7 +78,7 @@ public class ay6 implements gj5, do5 {
     public qz6 b;
     public EnterForumModel c;
     public RecentlyVisitedForumModel d;
-    public t4b e;
+    public u4b e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -905,7 +905,7 @@ public class ay6 implements gj5, do5 {
         ViewEventCenter viewEventCenter = new ViewEventCenter();
         this.n = viewEventCenter;
         viewEventCenter.addEventDelegate(this);
-        t58.d();
+        u58.d();
         this.k = System.currentTimeMillis();
         this.f = true;
         this.g = false;
@@ -914,7 +914,7 @@ public class ay6 implements gj5, do5 {
         this.t = new uy6();
         this.d = new RecentlyVisitedForumModel();
         this.m = new LikeModel(this.j.getPageContext());
-        this.e = new t4b(this.j.getPageContext());
+        this.e = new u4b(this.j.getPageContext());
         this.m.setLoadDataCallBack(this.y);
         this.c.k0(this.z);
         SharedPrefHelper.getInstance().putBoolean("enter_forum_edit_mode", false);
@@ -970,7 +970,7 @@ public class ay6 implements gj5, do5 {
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount2 != null && currentAccount2.length() > 0) {
-                    oxa.g(currentAccount2);
+                    pxa.g(currentAccount2);
                 }
                 this.b.c0(this.c.X());
             }

@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.k8c;
+import com.baidu.tieba.l8c;
 import com.google.ar.core.Session;
 /* loaded from: classes10.dex */
 public enum ai extends Session.c {
@@ -9,7 +9,7 @@ public enum ai extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final k8c a(long j, Session session) {
+    public final l8c a(long j, Session session) {
         return session.b.a(j, session);
     }
 }

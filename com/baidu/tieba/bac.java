@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes5.dex */
-public class bac {
+public class bac implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
+    public final /* synthetic */ iac a;
+    public final /* synthetic */ dac b;
 
-    public bac(String str) {
+    public bac(dac dacVar, iac iacVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {dacVar, iacVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,49 +26,21 @@ public class bac {
                 return;
             }
         }
-        this.a = str;
-        this.b = a(str);
+        this.b = dacVar;
+        this.a = iacVar;
     }
 
-    public static int a(Object... objArr) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
-            return Arrays.hashCode(objArr);
-        }
-        return invokeL.intValue;
-    }
-
-    public static bac b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new bac(str);
-        }
-        return (bac) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                Object obj = this.b.a;
+                if (obj != null) {
+                    this.a.d();
+                    ((mac) obj).a.countDown();
+                }
             }
-            if (obj != null && bac.class == obj.getClass()) {
-                return TextUtils.equals(this.a, ((bac) obj).a);
-            }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
     }
 }

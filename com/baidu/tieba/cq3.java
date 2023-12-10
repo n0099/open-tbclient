@@ -27,13 +27,13 @@ public class cq3 {
 
         /* renamed from: com.baidu.tieba.cq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0244a implements Runnable {
+        public class RunnableC0243a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0244a(a aVar, byte[] bArr) {
+            public RunnableC0243a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class cq3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ej3.l(new RunnableC0244a(this, bArr), "HandshakeRequest");
+                ej3.l(new RunnableC0243a(this, bArr), "HandshakeRequest");
             }
         }
 

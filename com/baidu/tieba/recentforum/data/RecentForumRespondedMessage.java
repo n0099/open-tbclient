@@ -3,7 +3,7 @@ package com.baidu.tieba.recentforum.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ph8;
+import com.baidu.tieba.qh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ph8 data;
+    public qh8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecentForumRespondedMessage() {
@@ -36,13 +36,13 @@ public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public final ph8 getData() {
+    public final qh8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (ph8) invokeV.objValue;
+        return (qh8) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -51,19 +51,19 @@ public final class RecentForumRespondedMessage extends JsonHttpResponsedMessage 
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
-                ph8 ph8Var = new ph8();
-                this.data = ph8Var;
-                if (ph8Var != null) {
-                    ph8Var.n(jSONObject);
+                qh8 qh8Var = new qh8();
+                this.data = qh8Var;
+                if (qh8Var != null) {
+                    qh8Var.n(jSONObject);
                 }
             }
         }
     }
 
-    public final void setData(ph8 ph8Var) {
+    public final void setData(qh8 qh8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ph8Var) == null) {
-            this.data = ph8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qh8Var) == null) {
+            this.data = qh8Var;
         }
     }
 }

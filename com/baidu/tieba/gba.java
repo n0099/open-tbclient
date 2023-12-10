@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface gba {
-    jda b();
+    void a(boolean z);
 
-    void e();
-
-    void f(String str);
+    void b(int i);
 }

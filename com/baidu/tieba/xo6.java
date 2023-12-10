@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public class xo6 extends ab7<RecommendBannerCardView, i37> {
+public class xo6 extends bb7<RecommendBannerCardView, i37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public class xo6 extends ab7<RecommendBannerCardView, i37> {
         }
     }
 
-    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -41,22 +41,22 @@ public class xo6 extends ab7<RecommendBannerCardView, i37> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             RecommendBannerCardView recommendBannerCardView = new RecommendBannerCardView(viewGroup.getContext());
             recommendBannerCardView.a(viewGroup);
-            jd7.i(recommendBannerCardView, Integer.valueOf(jd7.e() * 2));
+            kd7.i(recommendBannerCardView, Integer.valueOf(kd7.e() * 2));
             return recommendBannerCardView;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
     public void b(@NonNull RecommendBannerCardView recommendBannerCardView, @NonNull i37 i37Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendBannerCardView, i37Var) == null) {
             Object obj = i37Var.a().a;
-            if (obj instanceof rh8) {
+            if (obj instanceof sh8) {
                 recommendBannerCardView.setVisibility(0);
-                recommendBannerCardView.c((rh8) obj);
+                recommendBannerCardView.c((sh8) obj);
                 return;
             }
             recommendBannerCardView.setVisibility(8);

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.rq8;
+import com.baidu.tieba.nq8;
+import com.baidu.tieba.sq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends mq8<ChildItemData, Holder<ChildViewHolder>> {
+public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends TbSysMsg>, ChildViewHolder extends BaseViewHolder> extends nq8<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,11 +80,11 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull rq8 rq8Var) {
+        public void d(@NonNull sq8 sq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
-                super.d(rq8Var);
-                this.a.d(rq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq8Var) == null) {
+                super.d(sq8Var);
+                this.a.d(sq8Var);
             }
         }
     }
@@ -147,7 +147,7 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseItem<? extends Tb
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mq8, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.nq8, com.baidu.tieba.ci
     /* renamed from: Q */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         Interceptable interceptable = $ic;

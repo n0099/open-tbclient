@@ -36,7 +36,7 @@ public class kx4 implements c35 {
     public String m;
     public float n;
     public List<String> o;
-    public ova p;
+    public pva p;
 
     /* loaded from: classes7.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -122,13 +122,13 @@ public class kx4 implements c35 {
         return (String) invokeV.objValue;
     }
 
-    public ova f() {
+    public pva f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (ova) invokeV.objValue;
+        return (pva) invokeV.objValue;
     }
 
     public String g() {
@@ -309,9 +309,9 @@ public class kx4 implements c35 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        ova ovaVar = new ova();
-        this.p = ovaVar;
-        ovaVar.d(headImgs);
+        pva pvaVar = new pva();
+        this.p = pvaVar;
+        pvaVar.d(headImgs);
     }
 
     public void p(String str) {

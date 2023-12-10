@@ -1,10 +1,24 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddLinkActivityConfig;
+import com.baidu.tbadk.core.dialog.WriteTipBubbleController;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.yva;
+import com.baidu.tieba.write.write.NewWriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +28,96 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class mkb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final EditorTools b;
+    @Nullable
+    public WriteTipBubbleController c;
+    public final CustomMessageListener d;
+    public final WriteTipBubbleController.b e;
 
     /* loaded from: classes7.dex */
-    public class a implements yva.f {
+    public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
+        public final /* synthetic */ mkb a;
 
-        public a(EditorTools editorTools) {
+        /* loaded from: classes7.dex */
+        public class a extends nu5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.nu5
+            public String doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                    return UtilHelper.getClipBoardContent();
+                }
+                return (String) invokeV.objValue;
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements st5<String> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.st5
+            /* renamed from: a */
+            public void onReturnDataInUI(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                    return;
+                }
+                this.a.a.h(str);
+            }
+        }
+
+        public c(mkb mkbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
+                Object[] objArr = {mkbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,30 +127,71 @@ public class mkb {
                     return;
                 }
             }
-            this.a = editorTools;
+            this.a = mkbVar;
         }
 
-        @Override // com.baidu.tieba.yva.f
-        public void onRefresh() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.K(new he5(2, 12, null));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a != null) {
+                if (TbadkCoreApplication.getInst().isMIUIRom()) {
+                    ru5.b(new a(this), new b(this));
+                    return;
+                }
+                this.a.h(UtilHelper.getClipBoardContent());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements yva.f {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditorTools a;
+        public final /* synthetic */ mkb a;
 
-        public b(EditorTools editorTools) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mkb mkbVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {editorTools};
+                Object[] objArr = {mkbVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mkbVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                this.a.e();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements WriteTipBubbleController.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mkb a;
+
+        public b(mkb mkbVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mkbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,185 +201,113 @@ public class mkb {
                     return;
                 }
             }
-            this.a = editorTools;
+            this.a = mkbVar;
         }
 
-        @Override // com.baidu.tieba.yva.f
-        public void onRefresh() {
+        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
+        public void a(View view2, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, str) != null) || this.a.c == null) {
+                return;
+            }
+            TiebaStatic.log("c13802");
+            this.a.c.c();
+            UtilHelper.clearClipBoard();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(this.a.a.getPageActivity(), 25049, str, false, null)));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mkb b;
+
+        public d(mkb mkbVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mkbVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mkbVar;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.K(new he5(2, 12, null));
+                View s = this.b.b.a.s(31);
+                WriteTipBubbleController writeTipBubbleController = this.b.c;
+                writeTipBubbleController.d(s, this.b.a.getString(R.string.find_new_link) + "\n" + this.a, this.a, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
             }
         }
     }
 
-    public static lib a(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public mkb(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return new lib(tbPageContext);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, editorTools};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (lib) invokeL.objValue;
+        this.d = new a(this, 2001011);
+        this.e = new b(this);
+        this.a = tbPageContext;
+        this.b = editorTools;
     }
 
-    public static nib b(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
-            return new nib(tbPageContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new c(this));
         }
-        return (nib) invokeL.objValue;
     }
 
-    public static pib d(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void f() {
+        WriteTipBubbleController writeTipBubbleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
-            return new pib(tbPageContext);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (writeTipBubbleController = this.c) != null) {
+            writeTipBubbleController.c();
         }
-        return (pib) invokeL.objValue;
     }
 
-    public static qib e(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            return new qib(tbPageContext);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.registerListener(this.d);
         }
-        return (qib) invokeL.objValue;
     }
 
-    public static rib f(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
+    public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
-            return new rib(tbPageContext);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && !rd.isEmpty(str) && UrlManager.getInstance().isUrlValid(str)) {
+            int i = 0;
+            if ((this.a.getPageActivity() instanceof NewWriteActivity) && ((NewWriteActivity) this.a.getPageActivity()).n1()) {
+                i = 5000;
+            }
+            if (this.c == null) {
+                this.c = new WriteTipBubbleController(this.a, this.e);
+            }
+            SafeHandler.getInst().postDelayed(new d(this, str), i);
         }
-        return (rib) invokeL.objValue;
-    }
-
-    public static sib g(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
-            return new sib(tbPageContext);
-        }
-        return (sib) invokeL.objValue;
-    }
-
-    public static uib i(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
-            return new uib(tbPageContext);
-        }
-        return (uib) invokeL.objValue;
-    }
-
-    public static vib j(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
-            return new vib(tbPageContext);
-        }
-        return (vib) invokeL.objValue;
-    }
-
-    public static wib k(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
-            return new wib(tbPageContext);
-        }
-        return (wib) invokeL.objValue;
-    }
-
-    public static xib l(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
-            return new xib(tbPageContext);
-        }
-        return (xib) invokeL.objValue;
-    }
-
-    public static ajb o(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
-            return new ajb(tbPageContext);
-        }
-        return (ajb) invokeL.objValue;
-    }
-
-    public static bjb p(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
-            return new bjb(tbPageContext);
-        }
-        return (bjb) invokeL.objValue;
-    }
-
-    public static cjb q(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
-            return new cjb(tbPageContext);
-        }
-        return (cjb) invokeL.objValue;
-    }
-
-    public static djb r(@NonNull TbPageContext<?> tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
-            return new djb(tbPageContext);
-        }
-        return (djb) invokeL.objValue;
-    }
-
-    public static oib c(@NonNull TbPageContext<?> tbPageContext, @NonNull fjb fjbVar, @NonNull EditorTools editorTools, @NonNull yhb yhbVar, @NonNull qkb qkbVar) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, fjbVar, editorTools, yhbVar, qkbVar)) == null) {
-            oib oibVar = new oib(tbPageContext, yhbVar, qkbVar);
-            oibVar.U(fjbVar);
-            oibVar.c0(new a(editorTools));
-            return oibVar;
-        }
-        return (oib) invokeLLLLL.objValue;
-    }
-
-    public static tib h(@NonNull TbPageContext<?> tbPageContext, @NonNull ukb ukbVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, ukbVar)) == null) {
-            return new tib(tbPageContext, ukbVar);
-        }
-        return (tib) invokeLL.objValue;
-    }
-
-    public static yib m(@NonNull TbPageContext<?> tbPageContext, @NonNull fjb fjbVar, @NonNull EditorTools editorTools, @NonNull ukb ukbVar, @NonNull yhb yhbVar, @NonNull qkb qkbVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, fjbVar, editorTools, ukbVar, yhbVar, qkbVar})) == null) {
-            yib yibVar = new yib(tbPageContext, ukbVar, yhbVar, qkbVar);
-            yibVar.W(fjbVar);
-            yibVar.Z(new b(editorTools));
-            return yibVar;
-        }
-        return (yib) invokeCommon.objValue;
-    }
-
-    public static zib n(@NonNull TbPageContext<?> tbPageContext, @NonNull fjb fjbVar, @NonNull yhb yhbVar, @NonNull qkb qkbVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, fjbVar, yhbVar, qkbVar)) == null) {
-            zib zibVar = new zib(tbPageContext, yhbVar, qkbVar);
-            zibVar.M(fjbVar);
-            return zibVar;
-        }
-        return (zib) invokeLLLL.objValue;
     }
 }

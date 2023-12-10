@@ -31,10 +31,10 @@ public class mu4 implements pf1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new mk7());
-            arrayList.add(new q98());
-            arrayList.add(new wh8());
-            arrayList.add(new vu8());
+            arrayList.add(new nk7());
+            arrayList.add(new r98());
+            arrayList.add(new xh8());
+            arrayList.add(new wu8());
             return arrayList;
         }
         return invokeV.objValue;

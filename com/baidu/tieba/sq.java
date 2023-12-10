@@ -46,14 +46,14 @@ public final class sq extends qo<pl> {
 
         /* renamed from: com.baidu.tieba.sq$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static final class C0471a implements tq.a {
+        public static final class C0470a implements tq.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0471a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0470a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public final class sq extends qo<pl> {
                 }
                 String backBtnSchema = taskToastViewData.getBackBtnSchema();
                 if (backBtnSchema != null) {
-                    this.a.a.c(new C0471a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                    this.a.a.c(new C0470a(backBtnSchema, taskToastViewData, this, taskToastViewData));
                 }
                 String backBtnTxt = taskToastViewData.getBackBtnTxt();
                 if (backBtnTxt != null) {

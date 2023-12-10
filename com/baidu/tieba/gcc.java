@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface gcc<TResult> {
-    void onSuccess(TResult tresult);
+public interface gcc {
+    void onFailure(Exception exc);
 }

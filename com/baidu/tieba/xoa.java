@@ -1,51 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.cloudcommand.processor.CloudCommandProcessor;
-import com.baidu.searchbox.cloudcontrol.processor.DataProcessors;
-import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.searchbox.pms.init.ApsCloudControlProcessor;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import android.util.ArrayMap;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.Map;
 /* loaded from: classes9.dex */
-public class xoa implements ICloudControlRegister {
+public class xoa {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xoa() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308479, "Lcom/baidu/tieba/xoa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308479, "Lcom/baidu/tieba/xoa;");
+                return;
             }
         }
+        a = new ArrayMap();
     }
 
-    @Override // com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister
-    public void registerAllProcessors(DataProcessors dataProcessors) {
+    public static void a(String str, boolean z) {
+        Long remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataProcessors) == null) {
-            dataProcessors.addProcessor("aps", new ApsCloudControlProcessor());
-            dataProcessors.addProcessor("ubc", new UBCCloudControlProcessor());
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921656, ICloudControlProcessor.class, "register");
-            if (runTask != null) {
-                dataProcessors.addProcessor("config", (ICloudControlProcessor) runTask.getData());
-            }
-            dataProcessors.addProcessor("command", new CloudCommandProcessor());
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
+            return;
+        }
+        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType()).addParam("obj_source", "true false");
+        TiebaStatic.log(addParam.addParam("obj_param1", z + "").addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 }

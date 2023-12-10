@@ -24,10 +24,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ak7;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.bg7;
-import com.baidu.tieba.bi7;
 import com.baidu.tieba.br6;
+import com.baidu.tieba.cg7;
+import com.baidu.tieba.ci7;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.f05;
@@ -42,24 +43,23 @@ import com.baidu.tieba.forum.view.FrsMultiMoveBottomView;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.tieba.g67;
 import com.baidu.tieba.h87;
-import com.baidu.tieba.hi7;
 import com.baidu.tieba.i67;
+import com.baidu.tieba.ii7;
 import com.baidu.tieba.k16;
 import com.baidu.tieba.k57;
-import com.baidu.tieba.ml7;
 import com.baidu.tieba.n16;
+import com.baidu.tieba.nl7;
 import com.baidu.tieba.o16;
 import com.baidu.tieba.p77;
 import com.baidu.tieba.r77;
 import com.baidu.tieba.r87;
-import com.baidu.tieba.rb7;
-import com.baidu.tieba.ri7;
 import com.baidu.tieba.s87;
+import com.baidu.tieba.sb7;
+import com.baidu.tieba.si7;
 import com.baidu.tieba.t87;
-import com.baidu.tieba.vm7;
 import com.baidu.tieba.w57;
-import com.baidu.tieba.wh7;
-import com.baidu.tieba.zj7;
+import com.baidu.tieba.wm7;
+import com.baidu.tieba.xh7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -82,8 +82,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000\u008a\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010#\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u0000 C2\u00020\u0001:\u0001CB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0016\u001a\u00020\u0017H\u0002J\b\u0010\u0018\u001a\u00020\fH\u0002J\u0018\u0010\u0019\u001a\u00020\u00172\u000e\u0010\u001a\u001a\n\u0012\u0004\u0012\u00020\u001c\u0018\u00010\u001bH\u0002J\b\u0010\u001d\u001a\u00020\u0017H\u0002J\u0012\u0010\u001e\u001a\u0004\u0018\u00010\u001f2\u0006\u0010 \u001a\u00020\u0015H\u0002J\u0012\u0010!\u001a\u0004\u0018\u00010\"2\u0006\u0010#\u001a\u00020\u0015H\u0002J\u001a\u0010$\u001a\u0004\u0018\u00010\u001f2\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\u001a\u0010'\u001a\u0004\u0018\u00010\"2\u000e\u0010%\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\u0018\u0010(\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001b2\u0006\u0010 \u001a\u00020\u0015H\u0002J\b\u0010)\u001a\u00020\u0017H\u0002J\u0018\u0010*\u001a\u00020\u00172\u0006\u0010+\u001a\u00020\f2\u0006\u0010,\u001a\u00020\fH\u0002J\b\u0010-\u001a\u00020\u0017H\u0002J\b\u0010.\u001a\u00020\u0017H\u0002J\u0010\u0010/\u001a\u00020\u00172\u0006\u0010 \u001a\u00020\u0015H\u0002J\b\u00100\u001a\u00020\fH\u0016J\u0010\u00101\u001a\u00020\u00172\u0006\u00102\u001a\u000203H\u0016J\u001a\u00104\u001a\u00020\u00172\b\u00105\u001a\u0004\u0018\u0001062\u0006\u00107\u001a\u000208H\u0016J\b\u00109\u001a\u00020\u0017H\u0016J\u0010\u0010:\u001a\u00020\u00172\u0006\u0010;\u001a\u000203H\u0002J\u0010\u0010<\u001a\u00020\u00172\u0006\u0010=\u001a\u000203H\u0002J \u0010>\u001a\u00020\u00172\u0006\u0010?\u001a\u00020@2\u000e\u0010A\u001a\n\u0012\u0004\u0012\u00020&\u0018\u00010\u001bH\u0002J\b\u0010B\u001a\u00020\u0017H\u0002R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00150\u0014X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006D"}, d2 = {"Lcom/baidu/tieba/forum/controller/MultiManageBottomController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "deleteManager", "Lcom/baidu/tieba/NEGFeedBack/UEGDeleteThreadManager;", "deleteViewController", "Lcom/baidu/tieba/NEGFeedBack/UEGNewDeleteThreadViewController;", "inDeleteThreadMode", "", "moveChooseView", "Lcom/baidu/tieba/forum/view/FrsMoveAreaChooseView;", "multiDeleteBottomView", "Lcom/baidu/tieba/forum/view/FrsMultiDeleteBottomView;", "multiMoveBottomView", "Lcom/baidu/tieba/forum/view/FrsMultiMoveBottomView;", "selectedThreadSet", "", "Lcom/baidu/tieba/feed/data/event/ThreadEditSelectEvent;", "cancelEditMode", "", "checkSelectedSize", "doDeleteThreadInList", "successItems", "", "", "doMoveThreadInList", "findDeleteThreadItemData", "Lcom/baidu/tieba/feed/data/DeleteThreadItemData;", "event", "findMoveThreadItemData", "Lcom/baidu/tieba/feed/data/MoveThreadItemData;", "data", "findMultiDeleteThreadItemData", "manageItemList", "Lcom/baidu/tieba/feed/data/ThreadManageItemData;", "findMultiMoveThreadItemData", "findSocialMeta", "handleDeleteThread", "handleEditModeEvent", "inEditMode", "formDeleteThread", "handleForbiddenAndDeleteThread", "handleMoveThread", "handleSelectEvent", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, "requestMove", "toId", "showDeleteThreadPopupWindow", "deleteType", "showThreadManageDialog", "context", "Landroid/content/Context;", "manageList", "updateMultiBottomLayout", "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class MultiManageBottomController extends wh7 {
+/* loaded from: classes6.dex */
+public final class MultiManageBottomController extends xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
@@ -110,7 +110,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends er6<s87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends er6<t87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class c extends er6<r87> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,11 +229,11 @@ public final class MultiManageBottomController extends wh7 {
                     return;
                 }
                 this.b.U(event.a(), event.b());
-                ri7 value = ((ForumViewModel) new ViewModelProvider(this.b.J()).get(ForumViewModel.class)).c().getValue();
-                vm7.a aVar = vm7.a;
+                si7 value = ((ForumViewModel) new ViewModelProvider(this.b.J()).get(ForumViewModel.class)).c().getValue();
+                wm7.a aVar = wm7.a;
                 String c = event.c();
                 if (value != null) {
-                    l = Long.valueOf(value.e());
+                    l = Long.valueOf(value.f());
                 } else {
                     l = null;
                 }
@@ -242,7 +242,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class d implements k16.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public final class MultiManageBottomController extends wh7 {
                 if (deleteThreadHttpResponseMessage.getRetType() == 1211066) {
                     f05 f05Var = new f05(this.a.J());
                     f05Var.setMessage(string);
-                    f05Var.setPositiveButton(R.string.dialog_known, new f05.e() { // from class: com.baidu.tieba.ih7
+                    f05Var.setPositiveButton(R.string.dialog_known, new f05.e() { // from class: com.baidu.tieba.jh7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -322,7 +322,7 @@ public final class MultiManageBottomController extends wh7 {
                 } else if (deleteThreadHttpResponseMessage.getRetType() == 1211067) {
                     f05 f05Var2 = new f05(this.a.J());
                     f05Var2.setMessage(string);
-                    f05Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0b86, new f05.e() { // from class: com.baidu.tieba.th7
+                    f05Var2.setPositiveButton(R.string.obfuscated_res_0x7f0f0b86, new f05.e() { // from class: com.baidu.tieba.uh7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -349,7 +349,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class e extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -420,15 +420,15 @@ public final class MultiManageBottomController extends wh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t87Var)) == null) {
             if (t87Var.a() instanceof w57) {
-                for (rb7<? extends Object> rb7Var : ((w57) t87Var.a()).c()) {
-                    Object b2 = rb7Var.b();
+                for (sb7<? extends Object> sb7Var : ((w57) t87Var.a()).c()) {
+                    Object b2 = sb7Var.b();
                     if (b2 instanceof k57) {
                         return ((k57) b2).m().m;
                     }
                 }
                 return null;
-            } else if (t87Var.a() instanceof bg7) {
-                return ((bg7) t87Var.a()).l().e();
+            } else if (t87Var.a() instanceof cg7) {
+                return ((cg7) t87Var.a()).l().e();
             } else {
                 return null;
             }
@@ -440,7 +440,7 @@ public final class MultiManageBottomController extends wh7 {
         boolean d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, t87Var) == null) {
-            d2 = hi7.d(t87Var);
+            d2 = ii7.d(t87Var);
             boolean z = !d2;
             if (z) {
                 if (this.f) {
@@ -453,10 +453,10 @@ public final class MultiManageBottomController extends wh7 {
                     return;
                 }
                 this.e.add(t87Var);
-                hi7.e(t87Var, z);
+                ii7.e(t87Var, z);
             } else {
                 this.e.remove(t87Var);
-                hi7.e(t87Var, z);
+                ii7.e(t87Var, z);
             }
             V();
         }
@@ -493,7 +493,7 @@ public final class MultiManageBottomController extends wh7 {
     public final void C(List<String> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null) {
-            br6.b().c(new zj7(this.b, list, 0));
+            br6.b().c(new ak7(this.b, list, 0));
         }
     }
 
@@ -515,7 +515,7 @@ public final class MultiManageBottomController extends wh7 {
         return (p77) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
@@ -568,7 +568,7 @@ public final class MultiManageBottomController extends wh7 {
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            vm7.a.c();
+            wm7.a.c();
             if (B()) {
                 return;
             }
@@ -579,7 +579,7 @@ public final class MultiManageBottomController extends wh7 {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            vm7.a.d();
+            wm7.a.d();
             if (B()) {
                 return;
             }
@@ -587,7 +587,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
@@ -601,12 +601,12 @@ public final class MultiManageBottomController extends wh7 {
         String f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ForumTabItem B = bi7.m(this.b).B();
+            ForumTabItem B = ci7.m(this.b).B();
             boolean z = true;
             if ((B == null || !B.isGeneralTab()) ? false : false) {
                 ArrayList arrayList = new ArrayList();
                 for (t87 t87Var : this.e) {
-                    f = hi7.f(t87Var);
+                    f = ii7.f(t87Var);
                     if (f != null) {
                         arrayList.add(f);
                     }
@@ -616,7 +616,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -754,7 +754,7 @@ public final class MultiManageBottomController extends wh7 {
             TbPageContext pageContext = ((TbPageContextSupport) fragmentActivity).getPageContext();
             if (this.i == null) {
                 final FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(pageContext);
-                frsMoveAreaChooseView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dh7
+                frsMoveAreaChooseView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.eh7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -774,7 +774,7 @@ public final class MultiManageBottomController extends wh7 {
                 ViewParent parent = frsMultiMoveBottomView.getParent();
                 if (parent != null) {
                     ((ViewGroup) parent).addView(frsMoveAreaChooseView, -1, -1);
-                    frsMoveAreaChooseView.setDoneListener(new FrsMoveAreaChooseView.a() { // from class: com.baidu.tieba.sh7
+                    frsMoveAreaChooseView.setDoneListener(new FrsMoveAreaChooseView.a() { // from class: com.baidu.tieba.th7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -786,7 +786,7 @@ public final class MultiManageBottomController extends wh7 {
                             }
                         }
                     });
-                    frsMoveAreaChooseView.setCancelListener(new View.OnClickListener() { // from class: com.baidu.tieba.dg7
+                    frsMoveAreaChooseView.setCancelListener(new View.OnClickListener() { // from class: com.baidu.tieba.eg7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -824,7 +824,7 @@ public final class MultiManageBottomController extends wh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             try {
-                ri7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+                si7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
                 JSONArray jSONArray = new JSONArray();
                 Iterator<t87> it = this.e.iterator();
@@ -834,7 +834,7 @@ public final class MultiManageBottomController extends wh7 {
                         break;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    f = hi7.f(it.next());
+                    f = ii7.f(it.next());
                     if (f != null) {
                         obj = f;
                     }
@@ -844,7 +844,7 @@ public final class MultiManageBottomController extends wh7 {
                 }
                 httpMessage.addParam("threads", jSONArray.toString());
                 if (value != null) {
-                    obj = Long.valueOf(value.e());
+                    obj = Long.valueOf(value.f());
                 }
                 httpMessage.addParam("forum_id", obj);
                 httpMessage.setTag(f());
@@ -863,8 +863,8 @@ public final class MultiManageBottomController extends wh7 {
             if (E == null) {
                 return;
             }
-            n16 k = ml7.k(E);
-            UserData l = ml7.l(E);
+            n16 k = nl7.k(E);
+            UserData l = nl7.l(E);
             SparseArray<String> sparseArray = new SparseArray<>();
             for (i67 i67Var : E.f()) {
                 sparseArray.put(i67Var.a(), i67Var.b());
@@ -962,7 +962,7 @@ public final class MultiManageBottomController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, bundle, binding) == null) {

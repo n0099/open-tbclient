@@ -5,24 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PopInfo;
+import tbclient.PollOption;
 /* loaded from: classes7.dex */
-public class o6d extends ktc {
+public class o6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PopInfo popInfo) {
+    public static JSONObject b(@NonNull PollOption pollOption) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, popInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pollOption)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "if_pop", popInfo.if_pop);
-            ktc.a(jSONObject, "title", popInfo.title);
-            ktc.a(jSONObject, "v_title", popInfo.v_title);
-            ktc.a(jSONObject, "ahead_info", popInfo.ahead_info);
-            ktc.a(jSONObject, "ahead_url", popInfo.ahead_url);
-            ktc.a(jSONObject, "ok_info", popInfo.ok_info);
+            ltc.a(jSONObject, "id", pollOption.id);
+            ltc.a(jSONObject, "num", pollOption.num);
+            ltc.a(jSONObject, "text", pollOption.text);
+            ltc.a(jSONObject, "image", pollOption.image);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -1,46 +1,42 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.MediaScannerClient;
-import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class hr9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hr9 b;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
 
     /* loaded from: classes6.dex */
-    public class b implements vd5 {
+    public class a implements vd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ kr9 b;
-        public final /* synthetic */ hr9 c;
+        public final /* synthetic */ lr9 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ mr9 c;
 
         @Override // com.baidu.tieba.vd5
         public boolean onFileDownloaded(DownloadData downloadData) {
@@ -53,13 +49,6 @@ public class hr9 {
         }
 
         @Override // com.baidu.tieba.vd5
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.vd5
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -69,19 +58,20 @@ public class hr9 {
             return invokeL.booleanValue;
         }
 
+        /* renamed from: com.baidu.tieba.hr9$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class a implements Runnable {
+        public class C0310a extends BdAsyncTask<Void, Void, Boolean> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
+            public final /* synthetic */ DownloadData a;
+            public final /* synthetic */ a b;
 
-            public a(b bVar, String str) {
+            public C0310a(a aVar, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
+                    Object[] objArr = {aVar, downloadData};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -91,92 +81,47 @@ public class hr9 {
                         return;
                     }
                 }
-                this.b = bVar;
-                this.a = str;
+                this.b = aVar;
+                this.a = downloadData;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Boolean doInBackground(Void... voidArr) {
+                InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.onSuccess(this.a);
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                    FileHelper.deleteFileOrDir(new File(this.b.b));
+                    if (hr9.g(this.a.getPath(), this.b.c)) {
+                        a aVar = this.b;
+                        return Boolean.valueOf(hr9.f(aVar.c, aVar.b));
+                    }
+                    return Boolean.FALSE;
                 }
+                return (Boolean) invokeL.objValue;
             }
-        }
 
-        /* renamed from: com.baidu.tieba.hr9$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0324b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0324b(b bVar) {
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Boolean bool) {
                 Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                    if (bool.booleanValue()) {
+                        a aVar = this.b;
+                        aVar.a.onSuccess(aVar.b);
                         return;
                     }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b.onFail("rename failed");
+                    this.b.a.onFail("fail to download");
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class c implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public c(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.b.onFail("download failed");
-                }
-            }
-        }
-
-        public b(hr9 hr9Var, String str, kr9 kr9Var) {
+        public a(lr9 lr9Var, String str, mr9 mr9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hr9Var, str, kr9Var};
+                Object[] objArr = {lr9Var, str, mr9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -186,310 +131,190 @@ public class hr9 {
                     return;
                 }
             }
-            this.c = hr9Var;
-            this.a = str;
-            this.b = kr9Var;
+            this.a = lr9Var;
+            this.b = str;
+            this.c = mr9Var;
         }
 
         @Override // com.baidu.tieba.vd5
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && this.b != null) {
-                this.c.a.post(new c(this));
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                gr9.a("【表情下载】 onFileDownloadFailed = " + str);
+                if (this.a != null) {
+                    String str2 = "faile to download:";
+                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
+                        str2 = "faile to download:" + downloadData.getUrl();
+                    }
+                    this.a.onFail(str2);
+                }
             }
         }
 
         @Override // com.baidu.tieba.vd5
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                if (FileHelper.isGif(null, this.a)) {
-                    str = ".gif";
-                } else {
-                    str = ".jpg";
+                gr9.a("【表情下载】 onFileDownloadSucceed = " + this.b);
+                new C0310a(this, downloadData).execute(new Void[0]);
+            }
+        }
+
+        @Override // com.baidu.tieba.vd5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+                lr9 lr9Var = this.a;
+                if (lr9Var != null) {
+                    lr9Var.onProgress(downloadData.getProcess());
                 }
-                String str2 = downloadData.getPath() + str;
-                if (FileHelper.renameTo(downloadData.getPath(), str2)) {
-                    new MediaScannerClient(TbadkApplication.getInst().getContext()).saveImage(str2);
-                    if (this.b != null) {
-                        this.c.a.post(new a(this, str2));
-                    }
-                } else if (this.b != null) {
-                    this.c.a.post(new RunnableC0324b(this));
-                }
+                gr9.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kr9 a;
-
-        public a(hr9 hr9Var, kr9 kr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr9Var, kr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kr9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFail("url null");
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<Void, Void, List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr9 a;
-
-        public c(hr9 hr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hr9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<String> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                return this.a.h();
-            }
-            return (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && !list.isEmpty()) {
-                NewFaceGroupDownloadModel newFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
-                for (String str : list) {
-                    newFaceGroupDownloadModel.O(str, Boolean.FALSE, null);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833466, "Lcom/baidu/tieba/hr9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833466, "Lcom/baidu/tieba/hr9;");
+    public static void c(mr9 mr9Var, lr9 lr9Var) {
+        List<nr9> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, mr9Var, lr9Var) == null) {
+            if (mr9Var != null && (list = mr9Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(mr9Var.d)) {
+                gr9.a("【表情下载】 url = " + mr9Var.d);
+                a aVar = new a(lr9Var, ir9.c + mr9Var.a + "/", mr9Var);
+                new File(ir9.c).mkdirs();
+                d(mr9Var, ir9.c, aVar);
                 return;
             }
+            if (lr9Var != null) {
+                lr9Var.onFail("group data null");
+            }
+            gr9.a("【表情下载】 fail = 参数异常");
         }
-        c = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/";
     }
 
-    public hr9() {
+    public static void d(mr9 mr9Var, String str, vd5 vd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, mr9Var, str, vd5Var) == null) {
+            if (mr9Var != null && !TextUtils.isEmpty(mr9Var.d)) {
+                String str2 = mr9Var.a + ".zip";
+                DownloadData downloadData = new DownloadData(mr9Var.a, str2, Uri.encode(mr9Var.d, "-![.:/,%?&=]"), vd5Var);
+                downloadData.setPath(str + str2);
+                wd5.k().l(downloadData);
+            } else if (vd5Var != null) {
+                vd5Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
     }
 
-    public static hr9 i() {
-        InterceptResult invokeV;
+    public static String e(String str, String str2, Bitmap bitmap, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (hr9.class) {
-                    if (b == null) {
-                        b = new hr9();
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
+            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File file = new File(str + str2);
+                try {
+                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                        return null;
                     }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    return file.getPath();
+                } catch (Exception unused) {
                 }
             }
-            return b;
+            return null;
         }
-        return (hr9) invokeV.objValue;
+        return (String) invokeLLLI.objValue;
     }
 
-    public void e() {
+    public static boolean f(mr9 mr9Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            new c(this).execute(new Void[0]);
-        }
-    }
-
-    public boolean b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            List<String> h = h();
-            if (h.size() > 0) {
-                if (z) {
-                    c(h, false);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, mr9Var, str)) == null) {
+            File file = new File(str + "panel.png");
+            File file2 = new File(str + "panel_momo.png");
+            if (file.exists() && file2.exists()) {
+                gr9.a("【表情下载】 savePanelImage");
+                return true;
+            }
+            if (!new File(str + mr9Var.c).exists()) {
                 return false;
             }
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeFile(str + mr9Var.c);
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
+                return false;
+            }
+            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
+                return false;
+            }
+            gr9.a("【表情下载】 savePanelImage = " + mr9Var.c);
             return true;
         }
-        return invokeZ.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public MyEmotionGroupData g(String str) {
-        InterceptResult invokeL;
+    public static boolean g(String str, mr9 mr9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return e17.c().d(TbadkCoreApplication.getCurrentAccount(), str);
-        }
-        return (MyEmotionGroupData) invokeL.objValue;
-    }
-
-    public boolean c(List<String> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, z)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                for (String str : list) {
-                    MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
-                    myEmotionGroupData.setGroupId(str);
-                    myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
-                    if (e17.c().b(myEmotionGroupData)) {
-                        FileHelper.deleteFileOrDir(new File(c + str));
-                        m17.o().k(str);
-                        i++;
-                    }
-                }
-                if (i > 0) {
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                    if (z) {
-                        ir9.o().z();
-                        return true;
-                    }
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void d(String str, kr9 kr9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, kr9Var) == null) {
-            if (TextUtils.isEmpty(str)) {
-                if (kr9Var != null) {
-                    this.a.post(new a(this, kr9Var));
-                    return;
-                }
-                return;
-            }
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            DownloadData downloadData = new DownloadData(nameMd5FromUrl, nameMd5FromUrl, str, new b(this, nameMd5FromUrl, kr9Var));
-            downloadData.setPath((FileHelper.EXTERNAL_STORAGE_PRIVATE_DIRECTORY + "/") + nameMd5FromUrl);
-            wd5.k().l(downloadData);
-        }
-    }
-
-    public List<MyEmotionGroupData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, mr9Var)) == null) {
+            ZipInputStream zipInputStream = null;
             try {
-                List<MyEmotionGroupData> h = e17.c().h(TbadkCoreApplication.getCurrentAccount());
-                Iterator<MyEmotionGroupData> it = h.iterator();
-                while (it.hasNext()) {
-                    MyEmotionGroupData next = it.next();
-                    if (next.getGroupId() != null && next.getGroupId().contains("collect_")) {
-                        it.remove();
-                    }
-                }
-                return h;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<String> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MyEmotionGroupData myEmotionGroupData : f()) {
-                File file = new File(c + myEmotionGroupData.getGroupId());
-                BdLog.e("getFileUnExistList Called:" + file.getName() + "   Exsists:" + file.exists());
-                if (!file.exists()) {
-                    arrayList.add(myEmotionGroupData.getGroupId());
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean j(List<String> list, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, list, z)) == null) {
-            if (list != null && !list.isEmpty()) {
                 try {
-                    m17.o().s(list, TbadkCoreApplication.getCurrentAccount());
-                    MessageManager.getInstance().runTask(2004603, (Class) null);
-                    if (z) {
-                        ir9.o().z();
-                        return true;
+                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
+                    while (true) {
+                        try {
+                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                            if (nextEntry != null) {
+                                if (!nextEntry.isDirectory()) {
+                                    String str2 = ".emotions/" + mr9Var.a;
+                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
+                                    FileHelper.saveFileByStream(str3, zipInputStream2);
+                                    gr9.a("【表情下载】 unZipEmotion = " + str3);
+                                }
+                            } else {
+                                zipInputStream2.close();
+                                FileHelper.deleteFile(new File(str));
+                                sd.e(zipInputStream2);
+                                return true;
+                            }
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            sd.e(zipInputStream);
+                            return false;
+                        } catch (IOException e2) {
+                            e = e2;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            sd.e(zipInputStream);
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            zipInputStream = zipInputStream2;
+                            sd.e(zipInputStream);
+                            throw th;
+                        }
                     }
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Throwable th2) {
+                    th = th2;
                 }
+            } catch (FileNotFoundException e3) {
+                e = e3;
+            } catch (IOException e4) {
+                e = e4;
             }
-            return false;
+        } else {
+            return invokeLL.booleanValue;
         }
-        return invokeLZ.booleanValue;
     }
 }

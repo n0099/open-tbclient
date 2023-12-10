@@ -2,12 +2,12 @@ package com.baidu.tieba.statemachine.base;
 
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hua;
 import com.baidu.tieba.iua;
 import com.baidu.tieba.jua;
 import com.baidu.tieba.kua;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.lua;
+import com.baidu.tieba.mua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,12 +27,12 @@ import kotlin.jvm.internal.Intrinsics;
 public class BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final iua a;
-    public lua b;
-    public List<kua> c;
-    public final Function1<List<hua>, Unit> d;
+    public final jua a;
+    public mua b;
+    public List<lua> c;
+    public final Function1<List<iua>, Unit> d;
 
-    public BaseStateMachine(iua baseStateMap) {
+    public BaseStateMachine(jua baseStateMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,7 +53,7 @@ public class BaseStateMachine {
         this.d = BaseStateMachine$doAction$1.INSTANCE;
     }
 
-    public final void a(kua listener) {
+    public final void a(lua listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -61,14 +61,14 @@ public class BaseStateMachine {
                 this.c = new ArrayList();
             }
             b();
-            List<kua> list = this.c;
+            List<lua> list = this.c;
             if (list != null) {
                 list.add(listener);
             }
         }
     }
 
-    public final void e(kua listener) {
+    public final void e(lua listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -77,10 +77,10 @@ public class BaseStateMachine {
     }
 
     public final void b() {
-        List<kua> list;
+        List<lua> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.c) != null) {
-            Iterator<kua> it = list.iterator();
+            Iterator<lua> it = list.iterator();
             while (it.hasNext()) {
                 if (!it.next().a()) {
                     it.remove();
@@ -89,13 +89,13 @@ public class BaseStateMachine {
         }
     }
 
-    public final lua c() {
+    public final mua c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (lua) invokeV.objValue;
+        return (mua) invokeV.objValue;
     }
 
     public final void d() {
@@ -107,32 +107,32 @@ public class BaseStateMachine {
         }
     }
 
-    public final void f(jua event) {
+    public final void f(kua event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            HashMap<jua, lua> hashMap = this.a.getMap().get(this.b);
+            HashMap<kua, mua> hashMap = this.a.getMap().get(this.b);
             if (hashMap == null) {
                 DefaultLog.getInstance().e("State Machine", "Illegal state!");
                 return;
             }
-            lua luaVar = hashMap.get(event);
-            if (luaVar == null) {
+            mua muaVar = hashMap.get(event);
+            if (muaVar == null) {
                 DefaultLog.getInstance().e("State Machine", "Illegal event!");
                 return;
             }
             TbLog defaultLog = DefaultLog.getInstance();
             defaultLog.e("State Machine", "Current State: " + this.b.getClass().getSimpleName() + "  Current Event: " + event.getClass().getSimpleName());
             this.d.invoke(event.a());
-            this.b = luaVar;
+            this.b = muaVar;
             TbLog defaultLog2 = DefaultLog.getInstance();
             defaultLog2.e("State Machine", "Next State: " + this.b.getClass().getSimpleName());
             this.d.invoke(this.b.b());
-            List<kua> list = this.c;
+            List<lua> list = this.c;
             if (list != null) {
-                for (kua kuaVar : list) {
-                    if (kuaVar.a()) {
-                        kuaVar.b(this.b);
+                for (lua luaVar : list) {
+                    if (luaVar.a()) {
+                        luaVar.b(this.b);
                     }
                 }
             }
@@ -143,11 +143,11 @@ public class BaseStateMachine {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.d.invoke(this.b.b());
-            List<kua> list = this.c;
+            List<lua> list = this.c;
             if (list != null) {
-                for (kua kuaVar : list) {
-                    if (kuaVar.a()) {
-                        kuaVar.b(this.b);
+                for (lua luaVar : list) {
+                    if (luaVar.a()) {
+                        luaVar.b(this.b);
                     }
                 }
             }

@@ -8,12 +8,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumRuleStatus;
 /* loaded from: classes6.dex */
 public class hva implements pi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumRuleStatus a;
+    public ForumData a;
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     @Override // com.baidu.tieba.pi
     public BdUniqueId getType() {
@@ -25,12 +33,12 @@ public class hva implements pi {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public hva(ForumData forumData, ForumRuleStatus forumRuleStatus) {
+    public hva(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumData, forumRuleStatus};
+            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,22 +48,15 @@ public class hva implements pi {
                 return;
             }
         }
-        this.a = forumRuleStatus;
+        this.a = forumData;
     }
 
-    public ForumRuleStatus a() {
+    public ForumData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ForumRuleStatus) invokeV.objValue;
-    }
-
-    public void b(ForumRuleStatus forumRuleStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
-            this.a = forumRuleStatus;
-        }
+        return (ForumData) invokeV.objValue;
     }
 }

@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class y27 implements g77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kwa a;
+    public final lwa a;
     public final View.OnClickListener b;
     public boolean c;
     public int d;
@@ -64,7 +64,7 @@ public final class y27 implements g77 {
     }
 
     @JvmOverloads
-    public y27(kwa funAdData, View.OnClickListener onClickListener, boolean z) {
+    public y27(lwa funAdData, View.OnClickListener onClickListener, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,8 +85,8 @@ public final class y27 implements g77 {
         this.c = z;
     }
 
-    public /* synthetic */ y27(kwa kwaVar, View.OnClickListener onClickListener, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(kwaVar, (i & 2) != 0 ? z27.d() : onClickListener, (i & 4) != 0 ? false : z);
+    public /* synthetic */ y27(lwa lwaVar, View.OnClickListener onClickListener, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(lwaVar, (i & 2) != 0 ? z27.d() : onClickListener, (i & 4) != 0 ? false : z);
     }
 
     public final int a() {
@@ -107,13 +107,13 @@ public final class y27 implements g77 {
         return (View.OnClickListener) invokeV.objValue;
     }
 
-    public final kwa c() {
+    public final lwa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (kwa) invokeV.objValue;
+        return (lwa) invokeV.objValue;
     }
 
     public final void d(boolean z) {

@@ -175,9 +175,9 @@ public class b85 {
             int i = SharedPrefHelper.getInstance().getInt("pref_key_fun_ad_first_floor_min", 2);
             int i2 = SharedPrefHelper.getInstance().getInt("pref_key_fun_ad_first_floor_max", 3);
             if (i < i2) {
-                a = gl8.a(i, i2);
+                a = hl8.a(i, i2);
             } else {
-                a = gl8.a(i2, i);
+                a = hl8.a(i2, i);
             }
             if (a < 0) {
                 a = 2;

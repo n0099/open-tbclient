@@ -25,9 +25,9 @@ import com.baidu.tieba.id;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.oa5;
 import com.baidu.tieba.qf;
-import com.baidu.tieba.rfa;
 import com.baidu.tieba.s95;
 import com.baidu.tieba.setting.more.AboutActivity;
+import com.baidu.tieba.sfa;
 import com.baidu.tieba.w4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -100,13 +100,13 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 oa5 oa5Var = null;
                 try {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/sync");
-                    if (rfa.b()) {
+                    if (sfa.b()) {
                         this.a.addPostData(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                     } else {
-                        this.a.addPostData(HttpRequest.NEED_DECRYPT, rfa.c());
-                        String g = rfa.g(HttpRequest.OS_VERSION);
+                        this.a.addPostData(HttpRequest.NEED_DECRYPT, sfa.c());
+                        String g = sfa.g(HttpRequest.OS_VERSION);
                         if (!TextUtils.isEmpty(g)) {
-                            this.a.addPostData(g, rfa.j());
+                            this.a.addPostData(g, sfa.j());
                         }
                     }
                     StringBuffer stringBuffer = new StringBuffer(15);

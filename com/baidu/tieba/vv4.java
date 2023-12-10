@@ -75,7 +75,7 @@ public class vv4 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    n5b.b(true);
+                    o5b.b(true);
                 }
             }
         }
@@ -151,7 +151,7 @@ public class vv4 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
                     ga5.p0().b0(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    qva.B("");
+                    rva.B("");
                     sv4.t().g(currentAccount, false);
                     BdCacheService.o().a(currentAccount);
                     SharedPrefHelper.getInstance().clearByAccount(currentAccount);

@@ -161,8 +161,8 @@ import com.baidu.tieba.t55;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.w55;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.wha;
 import com.baidu.tieba.xd;
+import com.baidu.tieba.xha;
 import com.baidu.tieba.z4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -2946,7 +2946,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z7 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            wha.a(TbadkCoreApplication.getInst(), string2, xd.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
+                            xha.a(TbadkCoreApplication.getInst(), string2, xd.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
                         } else {
                             z4 c = a5.c(context);
                             if (c instanceof BaseActivity) {

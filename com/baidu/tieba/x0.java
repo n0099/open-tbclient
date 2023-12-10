@@ -24,7 +24,7 @@ public class x0 {
     public c1 f;
     public boolean g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class x0 {
 
     public abstract y0 i();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements f1<y0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

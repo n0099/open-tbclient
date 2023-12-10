@@ -39,18 +39,18 @@ public class ov5 {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements cxa {
+    public class a implements dxa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ axa a;
+        public final /* synthetic */ bxa a;
         public final /* synthetic */ WebView b;
 
-        public a(ov5 ov5Var, axa axaVar, WebView webView) {
+        public a(ov5 ov5Var, bxa bxaVar, WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ov5Var, axaVar, webView};
+                Object[] objArr = {ov5Var, bxaVar, webView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,18 +60,18 @@ public class ov5 {
                     return;
                 }
             }
-            this.a = axaVar;
+            this.a = bxaVar;
             this.b = webView;
         }
 
-        @Override // com.baidu.tieba.cxa
+        @Override // com.baidu.tieba.dxa
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                axa axaVar = this.a;
-                if (axaVar != null) {
-                    return axaVar.c(this.b, str, jsPromptResult);
+                bxa bxaVar = this.a;
+                if (bxaVar != null) {
+                    return bxaVar.c(this.b, str, jsPromptResult);
                 }
                 return false;
             }
@@ -122,10 +122,10 @@ public class ov5 {
             BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
             bridgeWebView.setBackgroundColor(R.color.transparent);
             pv5.b(bridgeWebView);
-            axa axaVar = new axa();
-            axaVar.a(new CommonTbJsBridge(context, bridgeWebView));
+            bxa bxaVar = new bxa();
+            bxaVar.a(new CommonTbJsBridge(context, bridgeWebView));
             fs4 fs4Var = new fs4();
-            fs4Var.b(new a(this, axaVar, bridgeWebView));
+            fs4Var.b(new a(this, bxaVar, bridgeWebView));
             bridgeWebView.setWebChromeClient(fs4Var);
             nv5Var.a = bridgeWebView;
             nv5Var.b = str;

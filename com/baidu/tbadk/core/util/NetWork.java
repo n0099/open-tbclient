@@ -23,10 +23,11 @@ import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
 import com.baidu.tieba.cy4;
-import com.baidu.tieba.ea8;
+import com.baidu.tieba.fa8;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.mb;
+import com.baidu.tieba.pic;
 import com.baidu.tieba.sm5;
 import com.baidu.tieba.w75;
 import com.baidu.tieba.x75;
@@ -473,7 +474,7 @@ public class NetWork {
                     return null;
                 }
             }
-            ea8.b(this);
+            fa8.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;
@@ -799,7 +800,7 @@ public class NetWork {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            addPostData("pic", bArr);
+            addPostData(pic.f, bArr);
             return postMultiNetData();
         }
         return (String) invokeL.objValue;

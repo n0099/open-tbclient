@@ -20,7 +20,7 @@ public class w26 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseActivity<?> a;
-    public cxa b;
+    public dxa b;
 
     public w26(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class w26 extends WebChromeClient {
         this.a = baseActivity;
     }
 
-    public void a(cxa cxaVar) {
+    public void a(dxa dxaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cxaVar) == null) {
-            this.b = cxaVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dxaVar) == null) {
+            this.b = dxaVar;
         }
     }
 
@@ -115,8 +115,8 @@ public class w26 extends WebChromeClient {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            cxa cxaVar = this.b;
-            if (cxaVar != null && cxaVar.onJsPrompt(str2, jsPromptResult)) {
+            dxa dxaVar = this.b;
+            if (dxaVar != null && dxaVar.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);

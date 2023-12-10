@@ -47,13 +47,13 @@ public class yp2 implements td4 {
 
         /* renamed from: com.baidu.tieba.yp2$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0545a extends e92 {
+        public class C0540a extends e92 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0545a(a aVar, AtomicInteger atomicInteger) {
+            public C0540a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class yp2 implements td4 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                a52.b(arrayList, "3", new C0545a(this, atomicInteger));
+                a52.b(arrayList, "3", new C0540a(this, atomicInteger));
             }
         }
     }

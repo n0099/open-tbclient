@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,20 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class d28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ms7 a;
-    public final FrsFragment b;
-    public final r78 c;
-    public final l78 d;
-    public final FrsModelController e;
-    public final vt7 f;
-    public final w18 g;
 
-    public d28(FrsFragment frsFragment) {
+    public d28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,16 +29,35 @@ public class d28 {
                 return;
             }
         }
-        if (frsFragment != null) {
-            this.b = frsFragment;
-            this.d = frsFragment.c1();
-            this.a = this.b.u2();
-            this.c = this.b.V4();
-            this.e = this.b.J1();
-            this.f = this.b.O4();
-            this.g = this.b.f2();
-            return;
+        a();
+        b();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, wva.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        throw new NullPointerException("FrsActivity is NullPointerException");
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, wva.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

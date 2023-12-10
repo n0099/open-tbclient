@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a79;
+import com.baidu.tieba.b79;
 import com.baidu.tieba.immessagecenter.mention.ReplyMessageFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public VoiceManager c;
     public boolean d;
     @Nullable
-    public a79 e;
+    public b79 e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public VoiceManager.IPlayView V1(VoiceData.VoiceModel voiceModel) {
@@ -201,9 +201,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.finish();
-            a79 a79Var = this.e;
-            if (a79Var != null) {
-                a79Var.a(new a(this));
+            b79 b79Var = this.e;
+            if (b79Var != null) {
+                b79Var.a(new a(this));
             }
             if (this.d) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -294,7 +294,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             this.c = d1;
             d1.onCreate(getPageContext());
             l1();
-            this.e = new a79(this, 3);
+            this.e = new b79(this, 3);
         }
     }
 }

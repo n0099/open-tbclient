@@ -55,8 +55,8 @@ public final class ja7 implements aa7 {
             j55.a aVar = new j55.a();
             e67 b = richTextData.g().b();
             if (b != null) {
-                aVar.a = id7.a.d(b);
-                aVar.b = id7.a.c(b);
+                aVar.a = jd7.a.d(b);
+                aVar.b = jd7.a.c(b);
                 unit = Unit.INSTANCE;
             } else {
                 unit = null;
@@ -68,8 +68,8 @@ public final class ja7 implements aa7 {
             j55.a aVar2 = new j55.a();
             e67 a = richTextData.g().a();
             if (a != null) {
-                aVar2.a = id7.a.d(a);
-                aVar2.b = id7.a.c(a);
+                aVar2.a = jd7.a.d(a);
+                aVar2.b = jd7.a.c(a);
                 unit2 = Unit.INSTANCE;
             } else {
                 unit2 = null;

@@ -16,8 +16,8 @@ import com.baidu.adp.newwidget.ImageView.BDImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.bx5;
-import com.baidu.tieba.vya;
 import com.baidu.tieba.ww5;
+import com.baidu.tieba.wya;
 import com.baidu.tieba.xw5;
 import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -567,7 +567,7 @@ public final class TbImage extends SimpleDraweeView implements xw5 {
     public final void o(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, vya.TbFrescoImage);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, wya.TbFrescoImage);
             Intrinsics.checkNotNullExpressionValue(obtainStyledAttributes, "context.obtainStyledAttr….styleable.TbFrescoImage)");
             int resourceId = obtainStyledAttributes.getResourceId(3, 0);
             if (resourceId != 0) {

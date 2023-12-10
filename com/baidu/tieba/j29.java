@@ -1,102 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.HeadImageView;
 /* loaded from: classes6.dex */
-public class j29 implements l29 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public j29 e;
+public interface j29 {
+    void a(@NonNull e39 e39Var);
 
-    public j29() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    @NonNull
+    HeadImageView b();
 
-    @Override // com.baidu.tieba.l29
-    public RelativeLayout a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
+    @NonNull
+    TextView c();
 
-    @Override // com.baidu.tieba.l29
-    public RecyclerView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
-        }
-        return (RecyclerView) invokeV.objValue;
-    }
+    TextView d();
 
-    @Override // com.baidu.tieba.l29
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
+    @Nullable
+    TextView e();
 
-    @Override // com.baidu.tieba.l29
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
+    @NonNull
+    TextView f();
 
-    public static j29 f(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            j29 j29Var = new j29();
-            j29Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091999);
-            j29Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f17);
-            j29Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f31);
-            j29Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090f24);
-            j29Var.e = j29Var;
-            return j29Var;
-        }
-        return (j29) invokeL.objValue;
-    }
+    FrameLayout g();
 
-    @Override // com.baidu.tieba.l29
-    public void b(int i, @NonNull c39 c39Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, c39Var) == null) && !c39Var.e()) {
-            EMManager.from(this.e.b).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
-        }
-    }
+    void h(@NonNull e39 e39Var);
+
+    int i();
+
+    void j();
 }

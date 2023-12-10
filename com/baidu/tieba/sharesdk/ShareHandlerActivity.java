@@ -7,16 +7,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tieba.coa;
 import com.baidu.tieba.doa;
 import com.baidu.tieba.eoa;
 import com.baidu.tieba.foa;
 import com.baidu.tieba.goa;
 import com.baidu.tieba.hoa;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.joa;
-import com.baidu.tieba.moa;
+import com.baidu.tieba.ioa;
+import com.baidu.tieba.koa;
 import com.baidu.tieba.model.ShareReportModel;
+import com.baidu.tieba.noa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes8.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements koa, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public coa d;
-    public goa e;
+    public doa d;
+    public hoa e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -94,9 +94,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            coa coaVar = this.d;
-            if (coaVar != null) {
-                coaVar.r();
+            doa doaVar = this.d;
+            if (doaVar != null) {
+                doaVar.r();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -121,28 +121,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        goa goaVar;
+        hoa hoaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (goaVar = this.e) != null) {
-            goaVar.N();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (hoaVar = this.e) != null) {
+            hoaVar.N();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        goa goaVar;
+        hoa hoaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (goaVar = this.e) != null) {
-            goaVar.O();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (hoaVar = this.e) != null) {
+            hoaVar.O();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        goa goaVar;
+        hoa hoaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (goaVar = this.e) != null) {
-            goaVar.P();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (hoaVar = this.e) != null) {
+            hoaVar.P();
         }
     }
 
@@ -157,18 +157,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
         this.f.P(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 
-    @Override // com.baidu.tieba.joa
+    @Override // com.baidu.tieba.koa
     public void i0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             if (i2 == 1) {
-                moa.b(i, this.c);
+                noa.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    moa.a(i, this.c);
+                    noa.a(i, this.c);
                 } else {
-                    moa.b(i, this.c);
+                    noa.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -189,9 +189,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                coa coaVar = this.d;
-                if (coaVar != null) {
-                    coaVar.n(intent);
+                doa doaVar = this.d;
+                if (doaVar != null) {
+                    doaVar.n(intent);
                     return;
                 }
                 return;
@@ -219,14 +219,14 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
             }
             I0(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            coa coaVar = this.d;
-            if (coaVar != null) {
-                coaVar.r();
+            doa doaVar = this.d;
+            if (doaVar != null) {
+                doaVar.r();
                 this.d = null;
             }
-            goa goaVar = this.e;
-            if (goaVar != null) {
-                goaVar.r();
+            hoa hoaVar = this.e;
+            if (hoaVar != null) {
+                hoaVar.r();
                 this.e = null;
             }
             int i = this.b;
@@ -238,28 +238,28 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
                                 if (i != 4) {
                                     this.d = null;
                                 } else {
-                                    this.d = new eoa(this);
+                                    this.d = new foa(this);
                                 }
                             } else {
-                                this.d = new hoa(this, 3);
+                                this.d = new ioa(this, 3);
                             }
                         } else {
-                            this.d = new hoa(this, 2);
+                            this.d = new ioa(this, 2);
                         }
                     } else {
-                        this.d = new doa(this);
+                        this.d = new eoa(this);
                     }
                 } else {
-                    goa goaVar2 = new goa(this, this, this);
-                    this.e = goaVar2;
-                    this.d = goaVar2;
+                    hoa hoaVar2 = new hoa(this, this, this);
+                    this.e = hoaVar2;
+                    this.d = hoaVar2;
                 }
             } else {
-                this.d = new foa(this);
+                this.d = new goa(this);
             }
-            coa coaVar2 = this.d;
-            if (coaVar2 != null) {
-                coaVar2.A(this.c.getTid());
+            doa doaVar2 = this.d;
+            if (doaVar2 != null) {
+                doaVar2.A(this.c.getTid());
                 this.d.y(this.c.getExtLiveInfo());
                 if (!GroupInfoData.isValidGroup(this.c.groupData)) {
                     this.d.x(true);
@@ -276,9 +276,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
                     return;
                 }
             }
-            coa coaVar3 = this.d;
-            if (coaVar3 != null) {
-                coaVar3.s(getUniqueId());
+            doa doaVar3 = this.d;
+            if (doaVar3 != null) {
+                doaVar3.s(getUniqueId());
                 this.d.n(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -298,9 +298,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements joa, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            coa coaVar = this.d;
-            if (coaVar != null) {
-                coaVar.n(intent);
+            doa doaVar = this.d;
+            if (doaVar != null) {
+                doaVar.n(intent);
             }
         }
     }

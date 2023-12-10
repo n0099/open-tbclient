@@ -31,8 +31,8 @@ public class tl5 implements pf1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new gk8());
-            arrayList.add(new gma());
+            arrayList.add(new hk8());
+            arrayList.add(new hma());
             return arrayList;
         }
         return invokeV.objValue;

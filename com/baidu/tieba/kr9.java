@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
 /* loaded from: classes7.dex */
 public interface kr9 {
-    void onFail(String str);
-
-    void onProgress(int i);
-
-    void onSuccess(String str);
+    void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage);
 }

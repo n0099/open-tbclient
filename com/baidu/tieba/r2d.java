@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes8.dex */
-public class r2d extends ktc {
+public class r2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopNotice topNotice) {
+    public static JSONObject b(@NonNull TopNews topNews) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topNotice)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topNews)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "title", topNotice.title);
-            ktc.a(jSONObject, "title_link", topNotice.title_link);
-            ktc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, topNotice.author);
-            ktc.a(jSONObject, "id", topNotice.id);
+            ltc.a(jSONObject, "news_link", topNews.news_link);
+            ltc.a(jSONObject, "summary", topNews.summary);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

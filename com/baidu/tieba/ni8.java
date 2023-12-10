@@ -1,114 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class ni8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements ThirdStatisticHelper.ThirdStatisticCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static int a(int i, @NonNull List<pi> list, @NonNull String str) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, list, str)) == null) {
+            if (!ListUtils.isEmpty(list) && i >= 0 && i < list.size()) {
+                while (i < list.size()) {
+                    i++;
+                    if (i >= list.size()) {
+                        return list.size();
+                    }
+                    if (list.get(i) instanceof um6) {
+                        um6 um6Var = (um6) list.get(i);
+                        if (um6Var.getThreadData() == null || (!TextUtils.isEmpty(um6Var.getThreadData().getTid()) && str.equals(um6Var.getThreadData().getTid()))) {
+                        }
+                    }
+                    return i;
                 }
             }
+            return -1;
         }
-
-        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
-        public void onFailed(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                new StatisticItem("c12885").addParam("obj_param1", 1).eventStat();
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                new StatisticItem("c12885").addParam("obj_param1", 0).eventStat();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ThirdStatisticHelper.ThirdStatisticCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
-        public void onFailed(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                new StatisticItem("c12884").addParam("obj_param1", 1).eventStat();
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.ThirdStatisticHelper.ThirdStatisticCallback
-        public void onSuccess(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                new StatisticItem("c12884").addParam("obj_param1", 0).eventStat();
-            }
-        }
-    }
-
-    public static void a(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
-            if (ListUtils.isEmpty(list)) {
-                new StatisticItem("c12885").addParam("obj_param1", 2).eventStat();
-                return;
-            }
-            for (String str : list) {
-                ThirdStatisticHelper.sendReq(str, new a());
-            }
-        }
-    }
-
-    public static void b(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
-            if (ListUtils.isEmpty(list)) {
-                new StatisticItem("c12884").addParam("obj_param1", 2).eventStat();
-                return;
-            }
-            for (String str : list) {
-                ThirdStatisticHelper.sendReq(str, new b());
-            }
-        }
+        return invokeILL.intValue;
     }
 }

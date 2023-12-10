@@ -1,221 +1,257 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbCornersImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class h29 implements i29 {
+public class h29 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int n;
-    public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public FrameLayout b;
-    public FrameLayout c;
-    public HeadImageView d;
-    public TbCornersImageView e;
-    public BarImageView f;
-    public RelativeLayout g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public LinearLayout k;
-    public TextView l;
-    public h29 m;
+    public LinearLayoutManager a;
+    public l29 b;
+    public long c;
+    public z19 d;
+    public boolean e;
+    public int f;
+    public int g;
+    public int h;
+    public e39 i;
+    public d39 j;
+    public RecyclerView k;
+    public final RecyclerView.OnScrollListener l;
+    public Runnable m;
 
-    @Override // com.baidu.tieba.i29
-    public void a(@NonNull d39 d39Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d39Var) == null) {
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h29 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771962, "Lcom/baidu/tieba/h29;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(h29 h29Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947771962, "Lcom/baidu/tieba/h29;");
+            this.a = h29Var;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLII(1048576, this, recyclerView, i, i2) != null) || !this.a.e || this.a.b.n() == null) {
                 return;
             }
+            this.a.e = false;
+            if (this.a.a.findViewByPosition(this.a.g) != null) {
+                h29 h29Var = this.a;
+                h29Var.h = h29Var.a.findViewByPosition(this.a.g).getTop();
+            }
+            this.a.b.n().scrollBy(0, (this.a.p() - this.a.n()) + this.a.h);
+            this.a.h = 0;
+            this.a.q();
         }
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds4);
-        o = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds450);
     }
 
-    public h29() {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h29 a;
+
+        public b(h29 h29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h29Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.k != null && this.a.i != null && this.a.i.a() != null) {
+                this.a.i.a().setLocationScrolled(false);
+                this.a.k.getAdapter().notifyItemChanged(this.a.f);
+            }
+        }
+    }
+
+    public h29(@NonNull LinearLayoutManager linearLayoutManager, l29 l29Var, long j, z19 z19Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {linearLayoutManager, l29Var, Long.valueOf(j), z19Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = false;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.k = null;
+        this.l = new a(this);
+        this.m = new b(this);
+        this.a = linearLayoutManager;
+        this.b = l29Var;
+        this.c = j;
+        this.d = z19Var;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = -1L;
+            this.e = false;
         }
     }
 
-    @Override // com.baidu.tieba.i29
-    public HeadImageView b() {
+    public void r() {
+        Runnable runnable;
+        RecyclerView recyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (runnable = this.m) != null && (recyclerView = this.k) != null) {
+            recyclerView.removeCallbacks(runnable);
+        }
+    }
+
+    public final int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.m.d;
-        }
-        return (HeadImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public TextView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.m.l;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public TextView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m.i;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m.j;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public TextView f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.m.h;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public FrameLayout g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.m.c;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return o;
+            if (this.b.r() != null && this.b.n() != null) {
+                return (this.b.r().getHeight() / 2) - this.b.n().getTop();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public static h29 k(@NonNull View view2) {
-        InterceptResult invokeL;
+    public final int o() {
+        InterceptResult invokeV;
+        z19 z19Var;
+        e39 e39Var;
+        ChatRoomInfo a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            h29 h29Var = new h29();
-            h29Var.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f0c);
-            h29Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f09);
-            h29Var.b = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f2c);
-            h29Var.d = (HeadImageView) view2.findViewById(R.id.chat_head);
-            h29Var.e = (TbCornersImageView) view2.findViewById(R.id.svg_head);
-            h29Var.f = (BarImageView) view2.findViewById(R.id.forum_head);
-            h29Var.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efc);
-            h29Var.h = (TextView) view2.findViewById(R.id.chat_name);
-            h29Var.i = (TextView) view2.findViewById(R.id.last_chat_content);
-            h29Var.j = (TextView) view2.findViewById(R.id.new_message);
-            h29Var.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efe);
-            h29Var.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090701);
-            h29Var.m = h29Var;
-            return h29Var;
-        }
-        return (h29) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i29
-    public void h(@NonNull d39 d39Var) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, d39Var) == null) {
-            EMManager.from(this.m.h).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0105);
-            if (d39Var.a() != null && d39Var.a().isLocationScrolled()) {
-                i = R.color.CAM_X0313;
-                i2 = R.string.A_X03;
-            } else {
-                i = R.color.CAM_X0201;
-                i2 = R.string.A_X06;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c > 0 && (z19Var = this.d) != null && !ListUtils.isEmpty(z19Var.c())) {
+                List<gn8> c = this.d.c();
+                for (gn8 gn8Var : c) {
+                    if (gn8Var != null && (gn8Var instanceof d39)) {
+                        d39 d39Var = (d39) gn8Var;
+                        List<gn8> subItems = d39Var.getSubItems();
+                        if (ListUtils.isEmpty(subItems)) {
+                            continue;
+                        } else {
+                            for (gn8 gn8Var2 : subItems) {
+                                if (gn8Var2 != null && (gn8Var2 instanceof e39) && (a2 = (e39Var = (e39) gn8Var2).a()) != null && this.c == a2.getRoomId()) {
+                                    this.f = subItems.indexOf(gn8Var2);
+                                    this.g = c.indexOf(gn8Var);
+                                    this.i = e39Var;
+                                    this.j = d39Var;
+                                    d39Var.g(false);
+                                    return c.indexOf(gn8Var);
+                                }
+                            }
+                            continue;
+                        }
+                    }
+                }
             }
-            EMManager.from(this.m.a).setCorner(R.string.J_X06).setAlpha(i2).setBackGroundColor(i);
-            EMManager.from(this.m.j).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0108);
-            EMManager.from(this.m.i).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X08);
-            this.m.d.setBorderWidth(n);
-            this.m.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.m.d.setIsRound(true);
-            this.m.d.setDrawBorder(true);
-            this.m.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.m.d.setPlaceHolder(1);
-            this.m.d.setDrawBorder(true);
-            EMManager.from(this.m.l).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0301);
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int p() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
+        ViewGroup viewGroup2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d.getItemsCount() <= 0 || this.f <= 0 || this.b.n() == null || (viewGroup = (ViewGroup) this.b.n().getChildAt(0)) == null || viewGroup.findViewById(R.id.obfuscated_res_0x7f090f24) == null || (viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f090f24)) == null || viewGroup2.getChildAt(0) == null) {
+                return 0;
+            }
+            return viewGroup2.getChildAt(0).getHeight() * (this.f + 1);
+        }
+        return invokeV.intValue;
+    }
+
+    public final void q() {
+        ViewGroup viewGroup;
+        e39 e39Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (viewGroup = (ViewGroup) this.a.findViewByPosition(this.g)) != null) {
+            RecyclerView recyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090f24);
+            this.k = recyclerView;
+            if (recyclerView != null && recyclerView.getChildAt(this.f) != null && (e39Var = this.i) != null && e39Var.a() != null) {
+                this.i.a().setLocationScrolled(true);
+                this.k.getAdapter().notifyItemChanged(this.f);
+                this.k.postDelayed(this.m, 3000L);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.i29
-    public void j() {
+    public void s() {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.m.i.setMaxLines(1);
-            this.m.i.setEllipsize(TextUtils.TruncateAt.END);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(3, R.id.chat_name);
-            layoutParams.topMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.M_H_X001);
-            layoutParams.rightMargin = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds162);
-            this.m.k.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int o = o();
+            if (o >= 0 && this.b.n() != null) {
+                int findFirstVisibleItemPosition = this.a.findFirstVisibleItemPosition();
+                int findLastVisibleItemPosition = this.a.findLastVisibleItemPosition();
+                if (o >= findFirstVisibleItemPosition && o <= findLastVisibleItemPosition) {
+                    this.e = false;
+                    if (this.a.findViewByPosition(o) != null) {
+                        i = this.a.findViewByPosition(o).getTop();
+                    } else {
+                        i = 0;
+                    }
+                    this.b.n().scrollBy(0, (i - n()) + p());
+                    q();
+                    return;
+                }
+                this.e = true;
+                this.a.scrollToPosition(o);
+            } else if (this.a != null && this.b.n() != null) {
+                this.a.scrollToPosition(0);
+            }
         }
     }
 }

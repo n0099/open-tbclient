@@ -225,7 +225,7 @@ public final class InterviewLiveView extends ConstraintLayout {
         LayoutInterviewLiveViewBinding b = LayoutInterviewLiveViewBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b, "inflate(LayoutInflater.from(context), this)");
         this.f = b;
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.to7
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.uo7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

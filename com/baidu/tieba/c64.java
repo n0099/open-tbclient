@@ -32,7 +32,7 @@ public class c64 extends k23 implements h33 {
     public int f;
 
     /* loaded from: classes5.dex */
-    public class a implements roc<String> {
+    public class a implements soc<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class c64 extends k23 implements h33 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(String str) {
             Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class c64 extends k23 implements h33 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            doc.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
+            eoc.n("").s(Schedulers.io()).H(new a(this, checkProcessId, bundle));
         }
     }
 }

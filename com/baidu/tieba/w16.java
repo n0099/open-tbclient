@@ -34,7 +34,7 @@ public class w16 extends fg1<TbadkCore> {
 
         /* renamed from: com.baidu.tieba.w16$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0511a extends CustomMessageListener {
+        public class C0508a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -42,7 +42,7 @@ public class w16 extends fg1<TbadkCore> {
             public final /* synthetic */ HashMap c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0511a(a aVar, int i, String str, HashMap hashMap, HashMap hashMap2) {
+            public C0508a(a aVar, int i, String str, HashMap hashMap, HashMap hashMap2) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -165,7 +165,7 @@ public class w16 extends fg1<TbadkCore> {
         public void registerDbListener(String str, HashMap hashMap, HashMap hashMap2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048581, this, str, hashMap, hashMap2) == null) {
-                MessageManager.getInstance().registerListenerFromBackground(new C0511a(this, 2000998, str, hashMap, hashMap2));
+                MessageManager.getInstance().registerListenerFromBackground(new C0508a(this, 2000998, str, hashMap, hashMap2));
             }
         }
     }

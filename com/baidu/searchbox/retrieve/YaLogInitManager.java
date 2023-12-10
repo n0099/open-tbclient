@@ -8,7 +8,7 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.hzb;
+import com.baidu.tieba.izb;
 import com.baidu.tieba.k40;
 import com.baidu.tieba.uf1;
 import com.baidu.tieba.uw;
@@ -43,9 +43,9 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        hzb hzbVar;
-        if (z && (hzbVar = (hzb) ServiceManager.getService(hzb.a)) != null) {
-            hzbVar.retry();
+        izb izbVar;
+        if (z && (izbVar = (izb) ServiceManager.getService(izb.a)) != null) {
+            izbVar.retry();
         }
     }
 

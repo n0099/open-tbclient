@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class op6 implements yb7 {
+public final class op6 implements zb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final HashMap<String, String> a;
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public final class op6 implements yb7 {
         this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public Map<String, String> a(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

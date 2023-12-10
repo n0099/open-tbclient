@@ -1,49 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.BIMManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ChatUtil")
 /* loaded from: classes9.dex */
 public final class zv8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final zv8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            try {
-                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
-                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
-                return Long.parseLong(bdUidFromBdUK);
-            } catch (NumberFormatException unused) {
-                return 0L;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373517, "Lcom/baidu/tieba/zv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948373517, "Lcom/baidu/tieba/zv8;");
+                return;
             }
         }
-        return invokeL.longValue;
+        a = new zv8();
     }
 
-    public static final String b(long j) {
+    public zv8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @JvmStatic
+    public static final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return sv4.t().j();
+        }
+        return invokeV.longValue;
+    }
+
+    @JvmStatic
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String h = sv4.t().h();
+            if (h == null) {
+                return "";
+            }
+            return h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final boolean c(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            return c(String.valueOf(j));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j == a()) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeJ.objValue;
+        return invokeJ.booleanValue;
     }
 
-    public static final String c(String str) {
+    @JvmStatic
+    public static final boolean d(String uid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            return BIMManager.getBdUKFromBdUid(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uid)) == null) {
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            return c(JavaTypesHelper.toLong(uid, 0L));
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean e(String uk) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, uk)) == null) {
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            return c(aw8.a(uk));
+        }
+        return invokeL.booleanValue;
     }
 }

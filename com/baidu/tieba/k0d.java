@@ -5,25 +5,34 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.FrsSpriteBubble;
-import tbclient.SpriteBubble;
+import tbclient.FrsBottomActivityBase;
+import tbclient.FrsBottomChatroomBase;
+import tbclient.FrsBottomSmartBgColor;
+import tbclient.FrsPage.FrsBottom;
 /* loaded from: classes6.dex */
-public class k0d extends ktc {
+public class k0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsSpriteBubble frsSpriteBubble) {
+    public static JSONObject b(@NonNull FrsBottom frsBottom) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsSpriteBubble)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottom)) == null) {
             JSONObject jSONObject = new JSONObject();
-            SpriteBubble spriteBubble = frsSpriteBubble.bubble_text;
-            if (spriteBubble != null) {
-                ktc.a(jSONObject, "bubble_text", p8d.b(spriteBubble));
+            FrsBottomActivityBase frsBottomActivityBase = frsBottom.frs_activity;
+            if (frsBottomActivityBase != null) {
+                ltc.a(jSONObject, "frs_activity", ryc.b(frsBottomActivityBase));
             }
-            ktc.a(jSONObject, "bubble_uri", frsSpriteBubble.bubble_uri);
-            ktc.a(jSONObject, "bubble_seconds", frsSpriteBubble.bubble_seconds);
+            FrsBottomChatroomBase frsBottomChatroomBase = frsBottom.frs_chatroom;
+            if (frsBottomChatroomBase != null) {
+                ltc.a(jSONObject, "frs_chatroom", uyc.b(frsBottomChatroomBase));
+            }
+            FrsBottomSmartBgColor frsBottomSmartBgColor = frsBottom.frs_smart_bg_color;
+            if (frsBottomSmartBgColor != null) {
+                ltc.a(jSONObject, "frs_smart_bg_color", vyc.b(frsBottomSmartBgColor));
+            }
+            ltc.a(jSONObject, "has_more_module", frsBottom.has_more_module);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

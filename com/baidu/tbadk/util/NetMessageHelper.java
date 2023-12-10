@@ -21,9 +21,9 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.qfa;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.rfa;
+import com.baidu.tieba.sfa;
 import com.baidu.tieba.sm5;
 import com.baidu.tieba.tv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -130,7 +130,7 @@ public class NetMessageHelper {
             builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
             builder.sample_id = TbSingleton.getInstance().getSampleId();
             builder.is_teenager = 0;
-            if (rfa.b()) {
+            if (sfa.b()) {
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.model = DeviceInfoHelper.getModel();
                 builder._os_version = DeviceInfoHelper.getOsVersion();
@@ -138,53 +138,53 @@ public class NetMessageHelper {
                 builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
                 builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             } else {
-                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(rfa.c(), 0));
-                String g = rfa.g(HttpRequest.PHONE_IMEI);
+                builder.need_decrypt = Integer.valueOf(JavaTypesHelper.toInt(sfa.c(), 0));
+                String g = sfa.g(HttpRequest.PHONE_IMEI);
                 if (HttpRequest.PHONE_IMEI.equals(g)) {
-                    builder._phone_imei = rfa.f();
+                    builder._phone_imei = sfa.f();
                 } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                    builder.iemi = rfa.f();
+                    builder.iemi = sfa.f();
                 }
-                String g2 = rfa.g("model");
+                String g2 = sfa.g("model");
                 if ("model".equals(g2)) {
-                    builder.model = rfa.h();
+                    builder.model = sfa.h();
                 } else if ("ledom".equals(g2)) {
-                    builder.ledom = rfa.h();
+                    builder.ledom = sfa.h();
                 }
-                String g3 = rfa.g(HttpRequest.OS_VERSION);
+                String g3 = sfa.g(HttpRequest.OS_VERSION);
                 if (HttpRequest.OS_VERSION.equals(g3)) {
-                    builder._os_version = rfa.j();
+                    builder._os_version = sfa.j();
                 } else if ("noisrev_so".equals(g3)) {
-                    builder.noisrev_so = rfa.j();
+                    builder.noisrev_so = sfa.j();
                 }
-                String g4 = rfa.g("brand");
+                String g4 = sfa.g("brand");
                 if ("brand".equals(g4)) {
-                    builder.brand = rfa.e();
+                    builder.brand = sfa.e();
                 } else if ("dnarb".equals(g4)) {
-                    builder.dnarb = rfa.e();
+                    builder.dnarb = sfa.e();
                 }
-                String g5 = rfa.g("oaid");
+                String g5 = sfa.g("oaid");
                 if ("oaid".equals(g5)) {
-                    builder.oaid = rfa.i();
+                    builder.oaid = sfa.i();
                 } else if ("diao".equals(g5)) {
-                    builder.diao = rfa.i();
+                    builder.diao = sfa.i();
                 }
-                String g6 = rfa.g(HttpRequest.ANDROID_ID);
+                String g6 = sfa.g(HttpRequest.ANDROID_ID);
                 if (HttpRequest.ANDROID_ID.equals(g6)) {
-                    builder.android_id = rfa.d();
+                    builder.android_id = sfa.d();
                 } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                    builder.di_diordna = rfa.d();
+                    builder.di_diordna = sfa.d();
                 }
             }
-            if (qfa.b()) {
+            if (rfa.b()) {
                 builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
             } else {
-                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(qfa.c(), 0));
-                String d = qfa.d("mac");
+                builder.need_cam_decrypt = Integer.valueOf(JavaTypesHelper.toInt(rfa.c(), 0));
+                String d = rfa.d("mac");
                 if ("mac".equals(d)) {
-                    builder.mac = qfa.e();
+                    builder.mac = rfa.e();
                 } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
-                    builder.cam = qfa.e();
+                    builder.cam = rfa.e();
                 }
             }
             builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
@@ -274,7 +274,7 @@ public class NetMessageHelper {
                 jSONObject.put("net_type", BdNetTypeUtil.netType());
                 jSONObject.put(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
                 jSONObject.put("is_teenager", 0);
-                if (rfa.b()) {
+                if (sfa.b()) {
                     jSONObject.put(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                     jSONObject.put("model", DeviceInfoHelper.getModel());
                     jSONObject.put(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
@@ -284,55 +284,55 @@ public class NetMessageHelper {
                     str = HttpRequest.MAC_REVERSAL;
                 } else {
                     str = HttpRequest.MAC_REVERSAL;
-                    jSONObject.put(HttpRequest.NEED_DECRYPT, JavaTypesHelper.toInt(rfa.c(), 0));
-                    String g = rfa.g(HttpRequest.PHONE_IMEI);
+                    jSONObject.put(HttpRequest.NEED_DECRYPT, JavaTypesHelper.toInt(sfa.c(), 0));
+                    String g = sfa.g(HttpRequest.PHONE_IMEI);
                     if (HttpRequest.PHONE_IMEI.equals(g)) {
-                        jSONObject.put(HttpRequest.PHONE_IMEI, rfa.f());
+                        jSONObject.put(HttpRequest.PHONE_IMEI, sfa.f());
                     } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
-                        jSONObject.put(HttpRequest.PHONE_IMEI_REVERSAL, rfa.f());
+                        jSONObject.put(HttpRequest.PHONE_IMEI_REVERSAL, sfa.f());
                     }
-                    String g2 = rfa.g("model");
+                    String g2 = sfa.g("model");
                     if ("model".equals(g2)) {
-                        jSONObject.put("model", rfa.h());
+                        jSONObject.put("model", sfa.h());
                     } else if ("ledom".equals(g2)) {
-                        jSONObject.put("ledom", rfa.h());
+                        jSONObject.put("ledom", sfa.h());
                     }
-                    String g3 = rfa.g(HttpRequest.OS_VERSION);
+                    String g3 = sfa.g(HttpRequest.OS_VERSION);
                     if (HttpRequest.OS_VERSION.equals(g3)) {
-                        jSONObject.put(HttpRequest.OS_VERSION, rfa.j());
+                        jSONObject.put(HttpRequest.OS_VERSION, sfa.j());
                     } else if ("noisrev_so".equals(g3)) {
-                        jSONObject.put("noisrev_so", rfa.j());
+                        jSONObject.put("noisrev_so", sfa.j());
                     }
-                    String g4 = rfa.g("brand");
+                    String g4 = sfa.g("brand");
                     if ("brand".equals(g4)) {
-                        jSONObject.put("brand", rfa.e());
+                        jSONObject.put("brand", sfa.e());
                     } else if ("dnarb".equals(g4)) {
-                        jSONObject.put("dnarb", rfa.e());
+                        jSONObject.put("dnarb", sfa.e());
                     }
-                    String g5 = rfa.g("oaid");
+                    String g5 = sfa.g("oaid");
                     if ("oaid".equals(g5)) {
-                        jSONObject.put("oaid", rfa.i());
+                        jSONObject.put("oaid", sfa.i());
                     } else if ("diao".equals(g5)) {
-                        jSONObject.put("diao", rfa.i());
+                        jSONObject.put("diao", sfa.i());
                     }
-                    String g6 = rfa.g(HttpRequest.ANDROID_ID);
+                    String g6 = sfa.g(HttpRequest.ANDROID_ID);
                     if (HttpRequest.ANDROID_ID.equals(g6)) {
-                        jSONObject.put(HttpRequest.ANDROID_ID, rfa.d());
+                        jSONObject.put(HttpRequest.ANDROID_ID, sfa.d());
                     } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
-                        jSONObject.put(HttpRequest.ANDROID_ID_REVERSAL, rfa.d());
+                        jSONObject.put(HttpRequest.ANDROID_ID_REVERSAL, sfa.d());
                     }
                 }
-                if (qfa.b()) {
+                if (rfa.b()) {
                     jSONObject.put("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
                 } else {
-                    jSONObject.put("need_cam_decrypt", JavaTypesHelper.toInt(qfa.c(), 0));
-                    String d = qfa.d("mac");
+                    jSONObject.put("need_cam_decrypt", JavaTypesHelper.toInt(rfa.c(), 0));
+                    String d = rfa.d("mac");
                     if ("mac".equals(d)) {
-                        jSONObject.put("mac", qfa.e());
+                        jSONObject.put("mac", rfa.e());
                     } else {
                         String str2 = str;
                         if (str2.equals(d)) {
-                            jSONObject.put(str2, qfa.e());
+                            jSONObject.put(str2, rfa.e());
                         }
                     }
                 }

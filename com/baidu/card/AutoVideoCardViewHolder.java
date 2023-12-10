@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.fw4;
-import com.baidu.tieba.gea;
+import com.baidu.tieba.hea;
 import com.baidu.tieba.ku;
-import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder<T> implements pda {
+public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder<T> implements qda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ku k;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void startPlay() {
         ku kuVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void stopPlay() {
         ku kuVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends fw4> extends ThreadCardViewHolder
         return (ku) invokeV.objValue;
     }
 
-    public void z(gea geaVar) {
+    public void z(hea heaVar) {
         ku kuVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, geaVar) == null) && (kuVar = this.k) != null) {
-            kuVar.B(geaVar);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, heaVar) == null) && (kuVar = this.k) != null) {
+            kuVar.B(heaVar);
         }
     }
 }

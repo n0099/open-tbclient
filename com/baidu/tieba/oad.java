@@ -4,27 +4,22 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-import tbclient.UniversalLabel;
+import tbclient.TwZhiBoUser;
 /* loaded from: classes7.dex */
-public class oad extends ktc {
+public class oad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull UniversalLabel universalLabel) {
+    public static JSONObject b(@NonNull TwZhiBoUser twZhiBoUser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, universalLabel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, twZhiBoUser)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "label_id", universalLabel.label_id);
-            ktc.a(jSONObject, "label_text", universalLabel.label_text);
-            ktc.a(jSONObject, MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, universalLabel.text_color);
-            ktc.a(jSONObject, "text_color_black", universalLabel.text_color_black);
-            ktc.a(jSONObject, "background_color", universalLabel.background_color);
-            ktc.a(jSONObject, "background_color_black", universalLabel.background_color_black);
-            ktc.a(jSONObject, "round_radius", universalLabel.round_radius);
+            ltc.a(jSONObject, "anchor_level", twZhiBoUser.anchor_level);
+            ltc.a(jSONObject, "in_black_list", twZhiBoUser.in_black_list);
+            ltc.a(jSONObject, "field_ex", twZhiBoUser.field_ex);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

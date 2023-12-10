@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class dp6 implements ta7 {
+public class dp6 implements ua7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class dp6 implements ta7 {
         }
     }
 
-    @Override // com.baidu.tieba.ta7
+    @Override // com.baidu.tieba.ua7
     public void a(Context context, String str) {
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;

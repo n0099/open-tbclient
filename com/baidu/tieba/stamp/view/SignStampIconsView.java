@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hz4;
-import com.baidu.tieba.pta;
+import com.baidu.tieba.qta;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public pta b;
+    public qta b;
     public List<ImageView> c;
 
     /* loaded from: classes8.dex */
@@ -283,7 +283,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uta
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vta
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -319,9 +319,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        pta ptaVar = this.b;
-        if (ptaVar != null) {
-            ptaVar.a(aVar);
+        qta qtaVar = this.b;
+        if (qtaVar != null) {
+            qtaVar.a(aVar);
         }
     }
 
@@ -399,10 +399,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(pta ptaVar) {
+    public void setSignStampIconClickListener(qta qtaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ptaVar) == null) {
-            this.b = ptaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, qtaVar) == null) {
+            this.b = qtaVar;
         }
     }
 }

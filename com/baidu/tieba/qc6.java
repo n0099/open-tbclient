@@ -359,7 +359,7 @@ public class qc6 extends ml6<ThreadData> implements km6, d26 {
                 } else {
                     this.E.setVisibility(8);
                 }
-                this.J.setVisibility((xr7.f().i() || wr7.h().j()) ? 0 : 0);
+                this.J.setVisibility((yr7.f().i() || xr7.h().j()) ? 0 : 0);
                 H(this.w);
                 k(h(), TbadkCoreApplication.getInst().getSkinType());
                 O();
@@ -438,7 +438,7 @@ public class qc6 extends ml6<ThreadData> implements km6, d26 {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, view2) == null) && !xr7.f().i() && !wr7.h().j()) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, view2) == null) && !yr7.f().i() && !xr7.h().j()) {
             int i = 1;
             if (view2 != this.w && view2 != this.l.getCommentContainer() && this.v != view2 && view2 != this.F.b.getCommentContainer() && view2 != this.m.getCommentContainer()) {
                 if (view2.getId() == R.id.video_container) {

@@ -33,7 +33,7 @@ public abstract class ys4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @Nullable
-        public cga a;
+        public dga a;
 
         public abstract String a();
 
@@ -59,8 +59,8 @@ public abstract class ys4 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                cga cgaVar = this.a;
-                if (cgaVar != null && cgaVar.i()) {
+                dga dgaVar = this.a;
+                if (dgaVar != null && dgaVar.i()) {
                     return true;
                 }
                 return false;
@@ -134,10 +134,10 @@ public abstract class ys4 {
 
         @Override // com.baidu.tieba.ys4.a
         public void c(@NonNull TbPageContext<?> tbPageContext) {
-            cga cgaVar;
+            dga dgaVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && (cgaVar = this.a) != null) {
-                cgaVar.j(tbPageContext);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && (dgaVar = this.a) != null) {
+                dgaVar.j(tbPageContext);
             }
         }
     }
@@ -170,12 +170,12 @@ public abstract class ys4 {
         return invokeL.booleanValue;
     }
 
-    public static void b(@NonNull String str, @NonNull String str2, @NonNull fxa fxaVar) {
+    public static void b(@NonNull String str, @NonNull String str2, @NonNull gxa gxaVar) {
         a aVar;
         TbPageContext currentPageContext;
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65538, null, str, str2, fxaVar) != null) || (aVar = a.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, str, str2, gxaVar) != null) || (aVar = a.get(str)) == null) {
             return;
         }
         try {
@@ -188,7 +188,7 @@ public abstract class ys4 {
                     str3 = "0";
                 }
                 jSONObject.put("isOpen", str3);
-                fxaVar.o(jSONObject.toString());
+                gxaVar.o(jSONObject.toString());
             } else if (TextUtils.equals(optString, "set") && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
                 aVar.c(currentPageContext);
             }

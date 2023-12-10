@@ -54,7 +54,6 @@ import com.baidu.tieba.a45;
 import com.baidu.tieba.ad.download.view.ApkDownloadView;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
 import com.baidu.tieba.ah0;
-import com.baidu.tieba.axa;
 import com.baidu.tieba.b36;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.bxa;
@@ -62,6 +61,7 @@ import com.baidu.tieba.c36;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.cxa;
 import com.baidu.tieba.d45;
+import com.baidu.tieba.dxa;
 import com.baidu.tieba.dz0;
 import com.baidu.tieba.e06;
 import com.baidu.tieba.e36;
@@ -105,8 +105,8 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
     public b36 A;
     public wg0 B;
     public TbWebView t;
-    public axa u;
-    public final cxa v;
+    public bxa u;
+    public final dxa v;
     public c45 w;
     public boolean x;
     public boolean y;
@@ -413,7 +413,7 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements cxa {
+    public class b implements dxa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBrowserActivity a;
@@ -436,7 +436,7 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
             this.a = adBrowserActivity;
         }
 
-        @Override // com.baidu.tieba.cxa
+        @Override // com.baidu.tieba.dxa
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -849,9 +849,9 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            axa axaVar = this.u;
-            if (axaVar != null) {
-                axaVar.h();
+            bxa bxaVar = this.u;
+            if (bxaVar != null) {
+                bxaVar.h();
             }
             TbWebView tbWebView = this.t;
             if (tbWebView != null) {
@@ -1143,9 +1143,9 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
         if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            axa axaVar = new axa();
-            this.u = axaVar;
-            axaVar.a(new XiubaTbJsBridge(getPageContext()));
+            bxa bxaVar = new bxa();
+            this.u = bxaVar;
+            bxaVar.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1155,17 +1155,17 @@ public class AdBrowserActivity extends AdBaseWebViewActivity implements y26 {
         }
     }
 
-    public final bxa buildGameDownloadJSPrompt() {
+    public final cxa buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, bxa.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, cxa.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (bxa) runTask.getData();
+                return (cxa) runTask.getData();
             }
             return null;
         }
-        return (bxa) invokeV.objValue;
+        return (cxa) invokeV.objValue;
     }
 
     public final void i1() {

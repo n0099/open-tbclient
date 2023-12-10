@@ -22,18 +22,18 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b1a;
+import com.baidu.tieba.aw9;
+import com.baidu.tieba.c1a;
 import com.baidu.tieba.fp5;
-import com.baidu.tieba.l4b;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.n1a;
+import com.baidu.tieba.m4b;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.o1a;
 import com.baidu.tieba.oo4;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
 import com.baidu.tieba.po4;
 import com.baidu.tieba.q35;
 import com.baidu.tieba.si;
 import com.baidu.tieba.y05;
-import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import kotlin.Pair;
 /* loaded from: classes7.dex */
-public class PbActivity extends AbsPbActivity implements l4b {
+public class PbActivity extends AbsPbActivity implements m4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
@@ -71,7 +71,7 @@ public class PbActivity extends AbsPbActivity implements l4b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String l2() {
         InterceptResult invokeV;
@@ -86,7 +86,7 @@ public class PbActivity extends AbsPbActivity implements l4b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? R.layout.obfuscated_res_0x7f0d07d5 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String z2() {
         InterceptResult invokeV;
@@ -268,7 +268,7 @@ public class PbActivity extends AbsPbActivity implements l4b {
         return (PriorityOrganizer) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.l4b
+    @Override // com.baidu.tieba.m4b
     @NonNull
     public String getTraceId() {
         InterceptResult invokeV;
@@ -304,11 +304,11 @@ public class PbActivity extends AbsPbActivity implements l4b {
         }
     }
 
-    public final boolean Z1(zv9 zv9Var) {
+    public final boolean Z1(aw9 aw9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zv9Var)) == null) {
-            return "video_pb_fragment_tag".equals(z1(zv9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aw9Var)) == null) {
+            return "video_pb_fragment_tag".equals(z1(aw9Var));
         }
         return invokeL.booleanValue;
     }
@@ -336,27 +336,27 @@ public class PbActivity extends AbsPbActivity implements l4b {
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public void v1(zv9 zv9Var) {
+    public void v1(aw9 aw9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, zv9Var) == null) {
-            super.v1(zv9Var);
-            if (this.a != null && Z1(zv9Var)) {
-                this.a.p3(zv9Var);
-                this.b.setArguments(this.x.g(zv9Var));
+        if (interceptable == null || interceptable.invokeL(1048598, this, aw9Var) == null) {
+            super.v1(aw9Var);
+            if (this.a != null && Z1(aw9Var)) {
+                this.a.p3(aw9Var);
+                this.b.setArguments(this.x.g(aw9Var));
                 this.x.l();
             }
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
-    public String z1(zv9 zv9Var) {
+    public String z1(aw9 aw9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, zv9Var)) == null) {
-            if (zv9Var != null && zv9Var.y0()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, aw9Var)) == null) {
+            if (aw9Var != null && aw9Var.y0()) {
                 return "video_pb_fragment_tag";
             }
-            return super.z1(zv9Var);
+            return super.z1(aw9Var);
         }
         return (String) invokeL.objValue;
     }
@@ -402,9 +402,9 @@ public class PbActivity extends AbsPbActivity implements l4b {
         }
     }
 
-    public void c2(int i, n1a n1aVar) {
+    public void c2(int i, o1a o1aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048585, this, i, n1aVar) == null) && !this.u && B1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048585, this, i, o1aVar) == null) && !this.u && B1() != null) {
             int i2 = 1;
             this.u = true;
             if (B1() != null && B1().r1() == 7) {
@@ -415,7 +415,7 @@ public class PbActivity extends AbsPbActivity implements l4b {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            n1aVar.C2(new b(this, i, i2));
+            o1aVar.C2(new b(this, i, i2));
         }
     }
 
@@ -426,9 +426,9 @@ public class PbActivity extends AbsPbActivity implements l4b {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new b1a(this));
+            registerListener(new c1a(this));
             if (B1() != null && B1().isFromNewFrs && !TextUtils.isEmpty(B1().R0())) {
-                l68.a.b(B1().R0());
+                m68.a.b(B1().R0());
             }
             fp5.a.e(getUniqueId(), this);
             fp5.a.g(getUniqueId());

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.bx8;
+import com.baidu.tieba.cx8;
 import com.baidu.tieba.da;
 import com.baidu.tieba.e05;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class OfficialSettingCache extends bx8 {
+public class OfficialSettingCache extends cx8 {
     public static /* synthetic */ Interceptable $ic;
     public static OfficialSettingCache mInstance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class OfficialSettingCache extends bx8 {
         return (OfficialSettingCache) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bx8
+    @Override // com.baidu.tieba.cx8
     public da<String> getSettingCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -182,7 +182,7 @@ public class OfficialSettingCache extends bx8 {
         }
     }
 
-    @Override // com.baidu.tieba.bx8
+    @Override // com.baidu.tieba.cx8
     public void saveSetting(ChatSetting chatSetting) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {
@@ -205,7 +205,7 @@ public class OfficialSettingCache extends bx8 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bx8
+    @Override // com.baidu.tieba.cx8
     public OfficialSettingItemData getSetting(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -233,7 +233,7 @@ public class OfficialSettingCache extends bx8 {
         return (OfficialSettingItemData) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.bx8
+    @Override // com.baidu.tieba.cx8
     public void saveSettingAsync(ChatSetting chatSetting, st5<Void> st5Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, chatSetting, st5Var) == null) && chatSetting != null && (chatSetting instanceof OfficialSettingItemData)) {

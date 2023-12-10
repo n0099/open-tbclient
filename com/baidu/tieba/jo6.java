@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jo6 extends ab7<AlaLiveAttentionCardView, i37> {
+public class jo6 extends bb7<AlaLiveAttentionCardView, i37> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,21 +33,21 @@ public class jo6 extends ab7<AlaLiveAttentionCardView, i37> {
         }
     }
 
-    @Override // com.baidu.tieba.ab7, com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
-            jd7.i(alaLiveAttentionCardView, Integer.valueOf(jd7.e() * 2));
+            kd7.i(alaLiveAttentionCardView, Integer.valueOf(kd7.e() * 2));
             return alaLiveAttentionCardView;
         }
         return (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: e */
     public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull i37 i37Var) {
         Interceptable interceptable = $ic;

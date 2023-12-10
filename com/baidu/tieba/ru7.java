@@ -1,161 +1,104 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.frs.ad.FrsADFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class ru7 extends nl6<su7> {
+public class ru7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public TextView j;
-    public TextView k;
-    public View l;
-    public RelativeLayout m;
-    public ConstrainImageGroup n;
+    public FrsADFragment a;
+    public BdTypeRecyclerView b;
+    public uu7 c;
+    public os7 d;
+    public List<ci> e;
 
-    @Override // com.baidu.tieba.nl6
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0363 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ru7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public ru7(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View i3 = i();
-        this.i = (TbImageView) i3.findViewById(R.id.obfuscated_res_0x7f09010f);
-        this.j = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f090127);
-        this.k = (TextView) i3.findViewById(R.id.obfuscated_res_0x7f0900bf);
-        this.n = (ConstrainImageGroup) i3.findViewById(R.id.obfuscated_res_0x7f0900d7);
-        this.l = i3.findViewById(R.id.item_divider);
-        this.m = (RelativeLayout) i3.findViewById(R.id.obfuscated_res_0x7f090cb5);
-        i3.setOnClickListener(this);
+        this.e = new ArrayList();
+        this.a = frsADFragment;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    public void r(pb<TbImageView> pbVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, pbVar) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setImageViewPool(pbVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new uu7(this.a.getPageContext(), tu7.h, this.a.getUniqueId());
+            this.d = new os7(this.a.getPageContext(), ps7.b);
+            this.e.add(this.c);
+            this.e.add(this.d);
+            e();
+            this.b.addAdapters(this.e);
         }
     }
 
-    public void s(pb<ConstrainImageLayout> pbVar) {
-        ConstrainImageGroup constrainImageGroup;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, pbVar) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setConstrainLayoutPool(pbVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public void y(double d) {
-        ConstrainImageGroup constrainImageGroup;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) && (constrainImageGroup = this.n) != null) {
-            constrainImageGroup.setSingleImageRatio(d);
-        }
-    }
-
-    @Override // com.baidu.tieba.nl6
-    public void k(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.a != i) {
-            this.a = i;
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
-            this.n.b();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nl6
-    /* renamed from: p */
-    public void j(su7 su7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, su7Var) != null) || su7Var == null) {
-            return;
-        }
-        this.i.setPlaceHolder(1);
-        this.i.startLoad(su7Var.e(), 10, false);
-        this.i.setRadius(BdUtilHelper.getDimens(c(), R.dimen.tbds26));
-        this.i.setDrawerType(1);
-        this.i.setDrawBorder(true);
-        this.i.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.i.setBorderWidth(BdUtilHelper.getDimens(c(), R.dimen.tbds1));
-        this.i.setDefaultResource(R.drawable.transparent_bg);
-        this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.j.setText(su7Var.d());
-        this.k.setText(su7Var.c());
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        SkinManager.setBackgroundResource(this.m, R.drawable.ad_list_item_bg);
-        if (ListUtils.getCount(su7Var.h()) > 0) {
-            ox5 ox5Var = new ox5(3);
-            ox5Var.d(1.0d);
-            this.n.setVisibility(0);
-            this.n.setFromCDN(true);
-            this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
-            this.n.setImageProcessor(ox5Var);
-            this.n.setImageMediaList(su7Var.h());
-            if (!su7Var.g()) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(c(), R.dimen.tbds16));
-                layoutParams.addRule(12);
-                this.l.setLayoutParams(layoutParams);
-                SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-                this.l.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (ci ciVar : this.e) {
+                if (ciVar instanceof hs7) {
+                    ((hs7) ciVar).y();
+                }
             }
-            this.l.setVisibility(8);
+        }
+    }
+
+    public void d(ArrayList<pi> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
             return;
         }
-        this.n.setVisibility(8);
-        if (!su7Var.g()) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, BdUtilHelper.getDimens(c(), R.dimen.tbds1));
-            layoutParams2.addRule(12);
-            this.l.setLayoutParams(layoutParams2);
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-            this.l.setVisibility(0);
-            return;
+        for (ci ciVar : this.e) {
+            if (ciVar instanceof hs7) {
+                ((hs7) ciVar).F(this.a.getTbPageTag());
+            }
         }
-        this.l.setVisibility(8);
+    }
+
+    public void f(zi ziVar) {
+        List<ci> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, ziVar) == null) && (list = this.e) != null && list.size() != 0) {
+            for (ci ciVar : this.e) {
+                if (ciVar != null && (ciVar instanceof hs7)) {
+                    ciVar.setOnAdapterItemClickListener(ziVar);
+                }
+            }
+        }
     }
 }

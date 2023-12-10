@@ -126,14 +126,14 @@ public class yb5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                nta ntaVar = new nta();
+                ota otaVar = new ota();
                 PostWriteCallBackData postWriteCallBackData = this.a;
                 if (postWriteCallBackData != null) {
                     IconStampData iconStampData = postWriteCallBackData.getIconStampData();
-                    ntaVar.f(iconStampData.stampType);
-                    ntaVar.h(iconStampData.stampTitle);
+                    otaVar.f(iconStampData.stampType);
+                    otaVar.h(iconStampData.stampTitle);
                 }
-                new mta(this.b.getPageActivity(), ntaVar).a();
+                new nta(this.b.getPageActivity(), otaVar).a();
                 yb5.f();
             }
         }

@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes7.dex */
 public class nu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Long a;
     public String b;
-    public String c;
-    public int d;
-    public int e;
-    public long f;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
     public nu8() {
         Interceptable interceptable = $ic;
@@ -32,99 +42,59 @@ public class nu8 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static nu8 a(Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            nu8 nu8Var = new nu8();
+            nu8Var.a = item.itemId;
+            nu8Var.b = item.itemName;
+            nu8Var.c = item.iconSize;
+            nu8Var.d = item.iconUrl;
+            nu8Var.e = item.tags;
+            nu8Var.f = item.score;
+            nu8Var.g = item.star;
+            nu8Var.h = item.buttonName;
+            nu8Var.i = item.buttonLink;
+            nu8Var.j = item.itemAppid;
+            nu8Var.k = item.categoryId;
+            nu8Var.l = item.buttonLinkType;
+            nu8Var.m = item.apkName;
+            nu8Var.n = item.forumName;
+            nu8Var.o = ApkDetailPojo.O(item.apkDetail);
+            return nu8Var;
         }
-        return (String) invokeV.objValue;
+        return (nu8) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static nu8 b(tbclient.Item item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            nu8 nu8Var = new nu8();
+            nu8Var.a = item.item_id;
+            nu8Var.b = item.item_name;
+            nu8Var.c = item.icon_size;
+            nu8Var.d = item.icon_url;
+            nu8Var.e = item.tags;
+            nu8Var.f = item.score;
+            nu8Var.g = item.star;
+            nu8Var.h = item.button_name;
+            nu8Var.i = item.button_link;
+            nu8Var.j = item.item_appid;
+            nu8Var.k = item.category_id;
+            nu8Var.l = item.button_link_type;
+            nu8Var.m = item.apk_name;
+            nu8Var.n = item.forum_name;
+            nu8Var.o = ApkDetailPojo.P(item.apk_detail);
+            return nu8Var;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f = j;
-        }
+        return (nu8) invokeL.objValue;
     }
 }

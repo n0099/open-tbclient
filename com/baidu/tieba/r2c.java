@@ -1,105 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.sdk.api.NativeResponse;
+import com.baidu.mobads.sdk.api.ExpressInterstitialAd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeInfo;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class r2c implements FunNativeInfo {
+public class r2c extends ExpressInterstitialAd implements w3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NativeResponse a;
 
-    public r2c(NativeResponse nativeResponse) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r2c(Context context, String str) {
+        super(context, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeResponse};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = nativeResponse;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
+    @Override // com.baidu.tieba.w3c
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createBdFeed(this.a) : (ChannelNativeAds) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getECPMLevel() : (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w3c
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getDesc() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIconUrl() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String imageUrl = this.a.getImageUrl();
-            if (TextUtils.isEmpty(imageUrl)) {
-                List<String> multiPicUrls = this.a.getMultiPicUrls();
-                if (multiPicUrls != null && !multiPicUrls.isEmpty()) {
-                    arrayList.addAll(multiPicUrls);
-                }
-            } else {
-                arrayList.add(imageUrl);
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            biddingSuccess(str);
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w3c
+    public void a(String str, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j2c.f(this.a) ? FunNativeAd.InteractionType.TYPE_DOWNLOAD : FunNativeAd.InteractionType.TYPE_BROWSE : (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getTitle() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap) == null) {
+            biddingFail(str, hashMap);
         }
-        return (View) invokeV.objValue;
     }
 }

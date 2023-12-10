@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import com.baidu.tieba.axa;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.bxa;
+import com.baidu.tieba.cxa;
 import com.baidu.tieba.g26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,8 +34,8 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
     public NavigationBar a;
     public TbWebView b;
     public String c;
-    public axa d;
-    public bxa e;
+    public bxa d;
+    public cxa e;
 
     /* loaded from: classes5.dex */
     public class a extends WebChromeClient {
@@ -88,7 +88,7 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
                 return;
             }
         }
-        this.e = new bxa(this) { // from class: com.baidu.tieba.account.NewAccountRestoreActivity.1
+        this.e = new cxa(this) { // from class: com.baidu.tieba.account.NewAccountRestoreActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NewAccountRestoreActivity this$0;
@@ -111,7 +111,7 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.bxa
+            @Override // com.baidu.tieba.cxa
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -153,9 +153,9 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d072d);
-            axa axaVar = new axa();
-            this.d = axaVar;
-            axaVar.a(this.e);
+            bxa bxaVar = new bxa();
+            this.d = bxaVar;
+            bxaVar.a(this.e);
             this.c = getIntent().getStringExtra("page_type");
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;

@@ -9,13 +9,13 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.atomData.LoginDialogActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gt9;
 import com.baidu.tieba.ht9;
 import com.baidu.tieba.it9;
 import com.baidu.tieba.jt9;
 import com.baidu.tieba.kt9;
 import com.baidu.tieba.lt9;
 import com.baidu.tieba.mt9;
+import com.baidu.tieba.nt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,9 +25,9 @@ public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public it9 b;
-    public ht9 c;
-    public gt9 d;
+    public jt9 b;
+    public it9 c;
+    public ht9 d;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            it9 it9Var = new it9();
-            this.b = it9Var;
-            it9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            jt9 jt9Var = new jt9();
+            this.b = jt9Var;
+            jt9Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.b.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.b.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.b.d = this.a;
@@ -85,11 +85,11 @@ public class OneKeyLoginActivity extends BaseActivity {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f092083);
             initData();
             if (TextUtils.isEmpty(this.a)) {
-                this.c = new kt9(getPageContext(), findViewById);
-                this.d = new jt9(getPageContext(), this.c);
+                this.c = new lt9(getPageContext(), findViewById);
+                this.d = new kt9(getPageContext(), this.c);
             } else {
-                this.c = new mt9(getPageContext(), findViewById);
-                this.d = new lt9(getPageContext(), this.c);
+                this.c = new nt9(getPageContext(), findViewById);
+                this.d = new mt9(getPageContext(), this.c);
             }
             this.c.c(this.b);
             this.d.j(this.b);

@@ -18,8 +18,8 @@ import com.baidu.tieba.browser.log.HybridLog;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.wdb;
 import com.baidu.tieba.write.WriteWebViewCacheManager$skinChangeListener$2;
+import com.baidu.tieba.xdb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -333,7 +333,7 @@ public final class WriteWebViewCacheManager {
             this.a.remove(url);
             Context context2 = tbWebView.getContext();
             if (context2 instanceof MutableContextWrapper) {
-                ((MutableContextWrapper) context2).setBaseContext(wdb.a.b(context));
+                ((MutableContextWrapper) context2).setBaseContext(xdb.a.b(context));
             }
             return tbWebView;
         }
@@ -351,7 +351,7 @@ public final class WriteWebViewCacheManager {
         } else {
             mutableContextWrapper = new MutableContextWrapper(TbadkCoreApplication.getInst());
         }
-        TbWebView a2 = wdb.a.a(mutableContextWrapper);
+        TbWebView a2 = xdb.a.a(mutableContextWrapper);
         a2.loadUrl(str + "&page_lifecycle_type=preheat_enabled");
         a2.getPerfData().i = true;
         this.a.put(str, a2);

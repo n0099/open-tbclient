@@ -202,7 +202,7 @@ public final class ForumFullPushDialogController {
                 }
             }
         });
-        this.d.w(new View.OnClickListener() { // from class: com.baidu.tieba.ck7
+        this.d.w(new View.OnClickListener() { // from class: com.baidu.tieba.dk7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

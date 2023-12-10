@@ -1,48 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.hottopic.data.PostForumData;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.Hottopic.DataRes;
+import java.util.Map;
+import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.Hottopic.HotThread;
-import tbclient.Hottopic.PkModule;
-import tbclient.Hottopic.RelateForum;
-import tbclient.Hottopic.SpecialTopic;
-import tbclient.RecomTopicList;
 import tbclient.ThreadInfo;
 /* loaded from: classes8.dex */
-public class wl8 {
+public class wl8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pi> a;
-    public xl8 b;
-    public dm8 c;
-    public xy4 d;
-    public PostForumData e;
-    public am8 f;
-    public sl8 g;
-    public sl8 h;
-    public sl8 i;
-    public yl8 j;
-    public vl8 k;
-    public yl8 l;
-    public List<um6> m;
-    public List<pi> n;
-    public jy4 o;
-    public int p;
-    public RecomTopicList q;
+    public List<um6> a;
+    public jy4 b;
+    public long c;
+    public int d;
+    public List<pi> e;
+    @Nullable
+    public Map<String, Object> f;
 
     public wl8() {
         Interceptable interceptable = $ic;
@@ -57,277 +46,267 @@ public class wl8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.o = null;
-        this.a = new ArrayList<>();
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = 1;
     }
 
-    public sl8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (sl8) invokeV.objValue;
-    }
-
-    public sl8 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
-        }
-        return (sl8) invokeV.objValue;
-    }
-
-    public xy4 c() {
+    @Nullable
+    public Map<String, Object> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (xy4) invokeV.objValue;
-    }
-
-    public am8 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.f;
         }
-        return (am8) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public xl8 e() {
-        InterceptResult invokeV;
+    public wl8(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (xl8) invokeV.objValue;
+        this.d = 1;
+        this.e = new ArrayList();
+        this.d = i;
     }
 
-    public List<pi> f() {
-        InterceptResult invokeV;
+    public final void f(List<um6> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.n;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && !ListUtils.isEmpty(list)) {
+            um6 um6Var = list.get(list.size() - 1);
+            if (um6Var.getThreadData() != null) {
+                this.c = JavaTypesHelper.toLong(um6Var.getThreadData().getTid(), 0L);
+            }
         }
-        return (List) invokeV.objValue;
     }
 
-    public sl8 g() {
-        InterceptResult invokeV;
+    public final void c(@NonNull List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.insertItemToTitleOrAbstractText();
+                this.e.add(threadData);
+            }
         }
-        return (sl8) invokeV.objValue;
+    }
+
+    public ArrayList<pi> d(xy4 xy4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xy4Var)) == null) {
+            ArrayList<pi> arrayList = new ArrayList<>(this.e);
+            g(arrayList, xy4Var);
+            ArrayList<pi> arrayList2 = new ArrayList<>();
+            Iterator<pi> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                pi next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                        mz4 mz4Var = new mz4();
+                        mz4Var.t = threadData;
+                        mz4Var.position = i;
+                        mz4Var.a = true;
+                        arrayList2.add(mz4Var);
+                        mz4 mz4Var2 = new mz4();
+                        mz4Var2.t = threadData;
+                        mz4Var2.position = i;
+                        if (threadData.isBJHNormalThreadType()) {
+                            mz4Var2.f = true;
+                        } else if (threadData.picCount() == 1) {
+                            mz4Var2.d = true;
+                            mz4Var2.u = imageWidthAndHeight[0];
+                            mz4Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            mz4Var2.e = true;
+                        } else {
+                            mz4Var2.b = true;
+                        }
+                        arrayList2.add(mz4Var2);
+                        if (threadData.getItem() != null) {
+                            mz4 mz4Var3 = new mz4();
+                            mz4Var3.n = true;
+                            mz4Var3.t = threadData;
+                            mz4Var3.position = i;
+                            arrayList2.add(mz4Var3);
+                        }
+                        mz4 mz4Var4 = new mz4();
+                        mz4Var4.m = true;
+                        mz4Var4.t = threadData;
+                        mz4Var4.position = i;
+                        arrayList2.add(mz4Var4);
+                        mz4 mz4Var5 = new mz4();
+                        mz4Var5.g = true;
+                        mz4Var5.t = threadData;
+                        mz4Var5.position = i;
+                        arrayList2.add(mz4Var5);
+                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                        mz4 mz4Var6 = new mz4();
+                        mz4Var6.t = threadData;
+                        mz4Var6.position = i;
+                        mz4Var6.a = true;
+                        arrayList2.add(mz4Var6);
+                        mz4 mz4Var7 = new mz4();
+                        mz4Var7.t = threadData;
+                        mz4Var7.position = i;
+                        mz4Var7.i = true;
+                        arrayList2.add(mz4Var7);
+                        if (threadData.getItem() != null) {
+                            mz4 mz4Var8 = new mz4();
+                            mz4Var8.n = true;
+                            mz4Var8.t = threadData;
+                            mz4Var8.position = i;
+                            arrayList2.add(mz4Var8);
+                        }
+                        mz4 mz4Var9 = new mz4();
+                        mz4Var9.m = true;
+                        mz4Var9.t = threadData;
+                        mz4Var9.position = i;
+                        arrayList2.add(mz4Var9);
+                        mz4 mz4Var10 = new mz4();
+                        mz4Var10.g = true;
+                        mz4Var10.t = threadData;
+                        mz4Var10.position = i;
+                        arrayList2.add(mz4Var10);
+                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
+                        threadData.position = i;
+                        arrayList2.add(threadData);
+                    } else if (cn6.R(threadData)) {
+                        cn6 cn6Var = new cn6(threadData);
+                        cn6Var.g = threadData.getTid();
+                        arrayList2.add(cn6Var);
+                    } else {
+                        mz4 mz4Var11 = new mz4();
+                        mz4Var11.t = threadData;
+                        mz4Var11.position = i;
+                        arrayList2.add(mz4Var11);
+                    }
+                } else if (next instanceof BaseCardInfo) {
+                    ((BaseCardInfo) next).position = i;
+                    arrayList2.add(next);
+                } else {
+                    arrayList2.add(next);
+                }
+                i++;
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void g(ArrayList<pi> arrayList, xy4 xy4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, arrayList, xy4Var) == null) && xy4Var != null && !ListUtils.isEmpty(xy4Var.e())) {
+            int size = arrayList.size();
+            int i = 0;
+            int i2 = 0;
+            while (true) {
+                if (i >= size) {
+                    break;
+                }
+                if (arrayList.get(i) instanceof ThreadData) {
+                    if (xy4Var.floorPosition == i2) {
+                        ListUtils.add(arrayList, i, xy4Var);
+                        break;
+                    }
+                    i2++;
+                }
+                i++;
+            }
+            if (size == 2) {
+                ListUtils.add(arrayList, xy4Var);
+            }
+        }
     }
 
     public void h(DataRes dataRes) {
-        boolean z;
-        boolean z2;
-        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        dataRes.is_new_url.intValue();
-        if (dataRes.topic_info != null) {
-            xl8 xl8Var = new xl8();
-            this.b = xl8Var;
-            xl8Var.a(dataRes.topic_info);
-        }
-        HotThread hotThread = dataRes.good_threads;
-        if (hotThread != null && !StringUtils.isNull(hotThread.hot_title) && ListUtils.getCount(dataRes.good_threads.thread_list) != 0) {
-            yl8 yl8Var = new yl8();
-            this.l = yl8Var;
-            yl8Var.a(dataRes.good_threads);
-            this.m = new ArrayList();
-            for (ThreadInfo threadInfo : dataRes.good_threads.thread_list) {
-                ThreadData threadData = new ThreadData();
-                threadData.setResource(5);
-                threadData.parserProtobuf(threadInfo);
-                um6 um6Var = null;
-                if (threadData.isShareThread) {
-                    um6Var = new dn6();
-                    um6Var.a = threadData;
-                } else if (en6.L(threadData)) {
-                    um6Var = new en6(threadData);
-                    um6Var.s = true;
-                } else if (dn6.R(threadData)) {
-                    um6Var = new dn6();
-                    um6Var.a = threadData;
-                }
-                if (um6Var != null && um6Var.isValid()) {
-                    um6Var.E("c10814");
-                    this.m.add(um6Var);
-                }
-            }
-        }
-        List<RelateForum> list = dataRes.relate_forum;
-        if (list != null && list.size() != 0) {
-            dm8 dm8Var = new dm8();
-            this.c = dm8Var;
-            dm8Var.parserProtobuf(dataRes.relate_forum);
-            xy4 xy4Var = new xy4();
-            this.d = xy4Var;
-            xy4Var.floorPosition = 2;
-            if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a35);
-            } else {
-                this.d.d = dataRes.relate_forum_title;
-            }
-            xy4 xy4Var2 = this.d;
-            xy4Var2.e = R.color.CAM_X0108;
-            ArrayList<wy4> e = xy4Var2.e();
-            for (RelateForum relateForum : dataRes.relate_forum) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    wy4 wy4Var = new wy4();
-                    wy4Var.u(relateForum.forum_id.intValue());
-                    wy4Var.x(relateForum.forum_name);
-                    wy4Var.t(relateForum.avatar);
-                    wy4Var.q(relateForum.desc);
-                    wy4Var.s(relateForum.thread_num.intValue());
-                    wy4Var.p(relateForum.member_num.intValue());
-                    if (relateForum.is_liked.intValue() != 0) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
+        this.f = DataExt.toMap(dataRes);
+        if (dataRes.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    um6 um6Var = null;
+                    if (en6.L(threadData)) {
+                        um6Var = new en6(threadData);
+                    } else if (dn6.R(threadData)) {
+                        um6Var = new dn6();
+                        um6Var.a = threadData;
                     }
-                    wy4Var.o(z3);
-                    e.add(wy4Var);
-                }
-            }
-        }
-        List<RelateForum> list2 = dataRes.post_forum;
-        if (list2 != null && list2.size() != 0) {
-            PostForumData postForumData = new PostForumData();
-            this.e = postForumData;
-            postForumData.parserProtobuf(dataRes.post_forum);
-        }
-        PkModule pkModule = dataRes.pk_module;
-        if (pkModule != null && !StringUtils.isNull(pkModule.ques_desc)) {
-            am8 am8Var = new am8();
-            this.f = am8Var;
-            am8Var.a(dataRes.pk_module);
-        }
-        if (dataRes.bless_module != null) {
-            sl8 sl8Var = new sl8();
-            this.g = sl8Var;
-            sl8Var.a(dataRes.bless_module);
-        }
-        if (dataRes.candle_module != null) {
-            sl8 sl8Var2 = new sl8();
-            this.h = sl8Var2;
-            sl8Var2.a(dataRes.candle_module);
-        }
-        if (dataRes.weiguan_module != null) {
-            sl8 sl8Var3 = new sl8();
-            this.i = sl8Var3;
-            sl8Var3.a(dataRes.weiguan_module);
-        }
-        HotThread hotThread2 = dataRes.hot_thread;
-        if (hotThread2 != null && ListUtils.getCount(hotThread2.thread_list) != 0) {
-            yl8 yl8Var2 = new yl8();
-            this.j = yl8Var2;
-            yl8Var2.a(dataRes.hot_thread);
-            vl8 vl8Var = new vl8();
-            this.k = vl8Var;
-            vl8Var.k(dataRes.hot_thread);
-            if (dataRes.hot_thread.page != null) {
-                jy4 jy4Var = new jy4();
-                this.o = jy4Var;
-                jy4Var.j(dataRes.hot_thread.page);
-                this.o.b();
-            }
-            dataRes.is_global_block.intValue();
-        }
-        this.q = dataRes.next_topic;
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.n = new ArrayList();
-            if (this.f != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (!ListUtils.isEmpty(specialTopic.thread_list)) {
-                    if (!TextUtils.isEmpty(specialTopic.title)) {
-                        dr9 dr9Var = new dr9(specialTopic.title);
-                        if (!z) {
-                            dr9Var.b = false;
-                            z = true;
-                        }
-                        this.n.add(dr9Var);
-                    }
-                    int size = specialTopic.thread_list.size();
-                    int i = 0;
-                    while (i < size) {
-                        ThreadInfo threadInfo2 = specialTopic.thread_list.get(i);
-                        i++;
-                        if (i == size) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        cr9 cr9Var = new cr9(threadInfo2, z2);
-                        cr9Var.c(i);
-                        this.n.add(cr9Var);
+                    if (um6Var != null && um6Var.isValid()) {
+                        um6Var.E("c10816");
+                        this.a.add(um6Var);
                     }
                 }
             }
+            f(this.a);
+            c(dataRes.thread_list);
         }
-        i();
+        if (dataRes.page != null) {
+            jy4 jy4Var = new jy4();
+            this.b = jy4Var;
+            jy4Var.j(dataRes.page);
+        }
     }
 
-    public final ArrayList<pi> i() {
-        InterceptResult invokeV;
+    public void k(HotThread hotThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            am8 am8Var = this.f;
-            if (am8Var != null) {
-                this.a.add(am8Var);
-            }
-            if (ListUtils.getCount(this.m) > 0) {
-                this.a.add(this.l);
-                if (this.m.size() > 5) {
-                    this.m = this.m.subList(0, 5);
-                }
-                for (um6 um6Var : this.m) {
-                    this.a.add(um6Var);
-                }
-            }
-            dm8 dm8Var = this.c;
-            if (dm8Var != null && dm8Var.getCount() > 0 && this.p == 1) {
-                this.a.add(this.c);
-            }
-            vl8 vl8Var = this.k;
-            if (vl8Var != null && !ListUtils.isEmpty(vl8Var.a)) {
-                this.a.add(this.j);
-                for (int i = 0; i < this.k.a.size(); i++) {
-                    this.a.add((um6) ListUtils.getItem(this.k.a, i));
-                    dm8 dm8Var2 = this.c;
-                    if (dm8Var2 != null && dm8Var2.getCount() > 0 && i == 2 && this.p == 0) {
-                        this.a.add(this.c);
+        if ((interceptable != null && interceptable.invokeL(1048582, this, hotThread) != null) || hotThread == null) {
+            return;
+        }
+        String str = hotThread.hot_title;
+        if (hotThread.thread_list != null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : hotThread.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.setResource(5);
+                    um6 um6Var = null;
+                    if (threadData.isShareThread) {
+                        um6Var = new dn6();
+                        um6Var.a = threadData;
+                    } else if (en6.L(threadData)) {
+                        um6Var = new en6(threadData);
+                    } else if (dn6.R(threadData)) {
+                        um6Var = new dn6();
+                        um6Var.a = threadData;
+                    }
+                    if (um6Var != null && um6Var.isValid()) {
+                        um6Var.E("c10816");
+                        this.a.add(um6Var);
                     }
                 }
             }
-            return this.a;
+            f(this.a);
+            c(hotThread.thread_list);
         }
-        return (ArrayList) invokeV.objValue;
+        if (hotThread.page != null) {
+            jy4 jy4Var = new jy4();
+            this.b = jy4Var;
+            jy4Var.j(hotThread.page);
+        }
     }
 }

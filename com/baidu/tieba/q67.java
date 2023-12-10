@@ -11,7 +11,7 @@ import java.util.List;
 public class q67 implements oa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rb7<?>> a;
+    public List<sb7<?>> a;
     public int b;
     public boolean c;
     public int d;
@@ -38,9 +38,9 @@ public class q67 implements oa7 {
     public void d(@NonNull Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            for (rb7<?> rb7Var : this.a) {
-                if (rb7Var instanceof oa7) {
-                    ((oa7) rb7Var).d(obj);
+            for (sb7<?> sb7Var : this.a) {
+                if (sb7Var instanceof oa7) {
+                    ((oa7) sb7Var).d(obj);
                 }
             }
         }

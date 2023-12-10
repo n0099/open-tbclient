@@ -73,15 +73,15 @@ public class h26 implements View.OnClickListener {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    hna hnaVar = null;
+                    ina inaVar = null;
                     if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        hnaVar = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+                        inaVar = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
                     }
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        hnaVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                        inaVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
                     if (this.a.c != null) {
-                        this.a.c.U(hnaVar);
+                        this.a.c.U(inaVar);
                     }
                     if (this.a.b != null && this.a.c != null && this.a.c.P() != null) {
                         this.a.b.d(this.a.c.P().f());

@@ -44,10 +44,10 @@ import com.baidu.tieba.immessagecenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.immessagecenter.im.model.GamePlayCanSendCardModel;
 import com.baidu.tieba.immessagecenter.im.model.PersonalMsglistModel;
 import com.baidu.tieba.qe5;
-import com.baidu.tieba.qoc;
-import com.baidu.tieba.tz8;
+import com.baidu.tieba.roc;
+import com.baidu.tieba.uz8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.ww8;
+import com.baidu.tieba.xw8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -453,7 +453,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class i implements ww8.a {
+    public class i implements xw8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -476,7 +476,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.ww8.a
+        @Override // com.baidu.tieba.xw8.a
         public void a(String str, String str2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && "0".equals(str) && this.a.r != null && this.a.s != null) {
@@ -486,7 +486,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
     }
 
     /* loaded from: classes6.dex */
-    public class j implements qoc {
+    public class j implements roc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatView a;
@@ -509,7 +509,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.a = personalChatView;
         }
 
-        @Override // com.baidu.tieba.qoc
+        @Override // com.baidu.tieba.roc
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -613,7 +613,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         this.a.e(this.o);
         this.a.g(this.t, new j(this));
         this.a.f(this);
-        tz8.b(this.p);
+        uz8.b(this.p);
         ViewGroup viewGroup = this.mLayBottom;
         if (viewGroup instanceof BottomInputLayout) {
             ((BottomInputLayout) viewGroup).setOnInputLayoutChangeListener(this);
@@ -830,15 +830,15 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
             if (i2 == 0) {
                 UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-                tz8.a(this.p);
+                uz8.a(this.p);
             } else if (i2 == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SEND_POSTCARD_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.d.i3()));
                 if (!this.q) {
                     BdUtilHelper.showToast(((AbsMsglistView) this).mContext, this.u);
                 } else if (!StringUtils.isNull(this.d.i3())) {
-                    ww8 ww8Var = new ww8();
+                    xw8 xw8Var = new xw8();
                     this.d.f3().sendGameTeamMessage(this.d.b0);
-                    ww8Var.c(new i(this), this.d.h3().getUserId());
+                    xw8Var.c(new i(this), this.d.h3().getUserId());
                 }
             }
         }

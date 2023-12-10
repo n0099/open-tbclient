@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class fi9 extends di9<Boolean> {
+public final class fi9 extends ei9<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,53 +49,26 @@ public final class fi9 extends di9<Boolean> {
             }
         }
         Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_tips_disappear");
+        e(c() + "_match_last_text");
     }
 
-    public final boolean f() {
-        InterceptResult invokeV;
+    public final boolean f(String text) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return a(Boolean.FALSE).booleanValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            return !TextUtils.equals(text, a(""));
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final boolean h() {
-        InterceptResult invokeV;
+    public final void g(String text) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Boolean bool = Boolean.FALSE;
-            d(bool);
-            return bool.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            boolean booleanValue = a(Boolean.FALSE).booleanValue();
-            if (!booleanValue) {
-                Boolean bool = Boolean.TRUE;
-                d(bool);
-                return bool.booleanValue();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
+            Intrinsics.checkNotNullParameter(text, "text");
+            if (f(text)) {
+                d(text);
             }
-            return booleanValue;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            if (z) {
-                return h();
-            }
-            return f();
-        }
-        return invokeZ.booleanValue;
     }
 }

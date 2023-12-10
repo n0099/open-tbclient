@@ -100,7 +100,7 @@ public class cu4 {
             }
             this.d.setTextEllipsize(TextUtils.TruncateAt.END);
             this.d.setMinimumHeight(BdUtilHelper.getDimens(this.a, R.dimen.tbds516));
-            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains("pic")) {
+            if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains(pic.f)) {
                 this.f.setVisibility(0);
                 this.f.setDefaultBgResource(R.color.transparent);
                 this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);

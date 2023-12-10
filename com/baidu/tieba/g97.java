@@ -11,7 +11,7 @@ public final class g97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<rb7<? extends Object>> mutableList, e87 e87Var) {
+    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<sb7<? extends Object>> mutableList, e87 e87Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, e87Var) == null) {
             Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");

@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bq7;
+import com.baidu.tieba.cq7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +23,7 @@ import tbclient.PriManagerApplyInfo;
 public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bq7 mComplaintBarlordData;
+    public cq7 mComplaintBarlordData;
     public boolean mIsBawuShow;
     public boolean mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
@@ -92,9 +92,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                     DataRes dataRes3 = getMemberInfoResIdl.data;
                     this.mPrivateMgrApplyInfo = dataRes3.primanager_apply_info;
                     if (dataRes3.manager_complain_info != null) {
-                        bq7 bq7Var = new bq7();
-                        this.mComplaintBarlordData = bq7Var;
-                        bq7Var.c(getMemberInfoResIdl.data.manager_complain_info);
+                        cq7 cq7Var = new cq7();
+                        this.mComplaintBarlordData = cq7Var;
+                        cq7Var.c(getMemberInfoResIdl.data.manager_complain_info);
                         return;
                     }
                     this.mComplaintBarlordData = null;
@@ -103,13 +103,13 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         }
     }
 
-    public bq7 getComplaintBarlordData() {
+    public cq7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mComplaintBarlordData;
         }
-        return (bq7) invokeV.objValue;
+        return (cq7) invokeV.objValue;
     }
 
     public ManagerApplyInfo getManagerApplyInfo() {
@@ -175,10 +175,10 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return invokeV.booleanValue;
     }
 
-    public void setComplaintBarlordData(bq7 bq7Var) {
+    public void setComplaintBarlordData(cq7 cq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bq7Var) == null) {
-            this.mComplaintBarlordData = bq7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cq7Var) == null) {
+            this.mComplaintBarlordData = cq7Var;
         }
     }
 

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface hhc {
-    void onPlayerInfo(uhc uhcVar, int i, long j);
-
-    void onPlayerVideoSizeUpdate(uhc uhcVar, int i, int i2);
+    void onPlayerFirstVideoFrameShow(vhc vhcVar, int i, int i2, int i3);
 }

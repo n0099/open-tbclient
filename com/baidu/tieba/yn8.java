@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.im.base.core.inputtool.callback.uistate.ViewState;
+import com.baidu.tbadk.core.data.VoiceData;
 /* loaded from: classes9.dex */
 public interface yn8 {
-    void a(ViewState viewState);
+    void a();
 
-    void b(@NonNull String str, boolean z);
-
-    void c(ViewState viewState);
-
-    void d(boolean z);
+    void b(VoiceData.VoiceModel voiceModel);
 }

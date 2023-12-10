@@ -43,11 +43,11 @@ public class d82 extends sd2 {
 
         /* renamed from: com.baidu.tieba.d82$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0251a implements Runnable {
+        public class RunnableC0248a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0251a(a aVar) {
+            public RunnableC0248a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class d82 extends sd2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 k32.k("SwanAppV8DaemonEngine", "reload");
-                ek3.a0(new RunnableC0251a(this));
+                ek3.a0(new RunnableC0248a(this));
             }
         }
 

@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.ddb;
+import com.baidu.tieba.edb;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.music.model.SelectMusicModel;
 import com.baidu.tieba.v07;
@@ -34,17 +34,17 @@ public class u07 implements s07 {
     public boolean f;
     public TbPageContext g;
     public boolean h;
-    public fp9 i;
+    public gp9 i;
 
     /* loaded from: classes8.dex */
     public class a implements v07.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ddb.a a;
+        public final /* synthetic */ edb.a a;
         public final /* synthetic */ MusicData b;
         public final /* synthetic */ u07 c;
 
-        public a(u07 u07Var, ddb.a aVar, MusicData musicData) {
+        public a(u07 u07Var, edb.a aVar, MusicData musicData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,8 +227,8 @@ public class u07 implements s07 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
                 if (this.a.i != null) {
-                    fp9 fp9Var = this.a.i;
-                    fp9Var.b(4, "what-->" + i + "  extra-->" + i2);
+                    gp9 gp9Var = this.a.i;
+                    gp9Var.b(4, "what-->" + i + "  extra-->" + i2);
                     return false;
                 }
                 return false;
@@ -238,7 +238,7 @@ public class u07 implements s07 {
     }
 
     public u07(TbPageContext tbPageContext, t07 t07Var) {
-        jp9 jp9Var;
+        kp9 kp9Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -253,14 +253,14 @@ public class u07 implements s07 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, jp9.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, kp9.class);
         if (runTask != null) {
-            jp9Var = (jp9) runTask.getData();
+            kp9Var = (kp9) runTask.getData();
         } else {
-            jp9Var = null;
+            kp9Var = null;
         }
-        if (jp9Var != null) {
-            this.i = jp9Var.get();
+        if (kp9Var != null) {
+            this.i = kp9Var.get();
         }
         this.g = tbPageContext;
         this.a = new SelectMusicModel(tbPageContext, t07Var);
@@ -454,12 +454,12 @@ public class u07 implements s07 {
             this.h = false;
             String str = musicData.id;
             String g = v07.h().g(musicData.resource);
-            if (obj != null && (obj instanceof ddb.a)) {
-                this.c = ((ddb.a) obj).d;
+            if (obj != null && (obj instanceof edb.a)) {
+                this.c = ((edb.a) obj).d;
             }
             if (TextUtils.isEmpty(g)) {
-                if (obj instanceof ddb.a) {
-                    ddb.a aVar = (ddb.a) obj;
+                if (obj instanceof edb.a) {
+                    edb.a aVar = (edb.a) obj;
                     aVar.b.setVisibility(0);
                     aVar.a.setDrawBorder(false);
                     aVar.a.invalidate();

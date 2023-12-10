@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.iha;
+import com.baidu.tieba.jha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,23 +25,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class q26 implements iha {
+public final class q26 implements jha {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
     public static q26 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<iha.a> a;
-    public final ConcurrentHashMap<String, iha.b> b;
-    public iha.c c;
+    public final List<jha.a> a;
+    public final ConcurrentHashMap<String, jha.b> b;
+    public jha.c c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iha.a a;
+        public final /* synthetic */ jha.a a;
         public final /* synthetic */ q26 b;
 
-        public a(q26 q26Var, iha.a aVar) {
+        public a(q26 q26Var, jha.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class q26 implements iha {
         this.c = null;
     }
 
-    @Override // com.baidu.tieba.iha
+    @Override // com.baidu.tieba.jha
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public final class q26 implements iha {
         return invokeL.booleanValue;
     }
 
-    public void e(iha.a aVar) {
+    public void e(jha.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (BdUtilHelper.isMainThread()) {
@@ -138,7 +138,7 @@ public final class q26 implements iha {
         }
     }
 
-    public final void f(iha.a aVar) {
+    public final void f(jha.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
             this.a.add(aVar);
@@ -173,14 +173,14 @@ public final class q26 implements iha {
         return (String) invokeL.objValue;
     }
 
-    public void o(iha.c cVar) {
+    public void o(jha.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.c = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.iha
+    @Override // com.baidu.tieba.jha
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -188,7 +188,7 @@ public final class q26 implements iha {
         }
     }
 
-    @Override // com.baidu.tieba.iha
+    @Override // com.baidu.tieba.jha
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -198,7 +198,7 @@ public final class q26 implements iha {
         return invokeLLL.booleanValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, iha.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, jha.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -207,15 +207,15 @@ public final class q26 implements iha {
                 return false;
             }
             String str2 = strArr[0];
-            iha.b bVar = this.b.get(m(str2));
+            jha.b bVar = this.b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<iha.a> it = this.a.iterator();
+            Iterator<jha.a> it = this.a.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    iha.a next = it.next();
+                    jha.a next = it.next();
                     if (next != null && next.a(context, strArr) != 3) {
                         z3 = true;
                         break;
@@ -236,7 +236,7 @@ public final class q26 implements iha {
         return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, iha.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, jha.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -251,7 +251,7 @@ public final class q26 implements iha {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (iha.a aVar : this.a) {
+                for (jha.a aVar : this.a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -286,7 +286,7 @@ public final class q26 implements iha {
         return (Map) invokeL.objValue;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, iha.d dVar, boolean z2, Bundle bundle) {
+    public final void n(Context context, String str, String str2, boolean z, jha.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
             this.c.a(context, str, str2, z, dVar, z2, bundle);

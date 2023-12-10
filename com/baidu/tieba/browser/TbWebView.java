@@ -34,9 +34,9 @@ import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
 import com.baidu.tieba.browser.webview.lifecycle.SimpleWebViewLifeCycle;
 import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.tieba.browser.webview.scroll.NestedScrollingWebView;
-import com.baidu.tieba.btc;
 import com.baidu.tieba.ck6;
 import com.baidu.tieba.cl6;
+import com.baidu.tieba.ctc;
 import com.baidu.tieba.dk6;
 import com.baidu.tieba.dl6;
 import com.baidu.tieba.fl6;
@@ -44,23 +44,23 @@ import com.baidu.tieba.gj6;
 import com.baidu.tieba.jl6;
 import com.baidu.tieba.kg6;
 import com.baidu.tieba.kl6;
-import com.baidu.tieba.koc;
 import com.baidu.tieba.lg6;
 import com.baidu.tieba.lj6;
+import com.baidu.tieba.loc;
 import com.baidu.tieba.mg6;
 import com.baidu.tieba.ng6;
 import com.baidu.tieba.rk6;
-import com.baidu.tieba.roc;
 import com.baidu.tieba.sk6;
+import com.baidu.tieba.soc;
 import com.baidu.tieba.vj6;
 import com.baidu.tieba.vk6;
 import com.baidu.tieba.wj6;
-import com.baidu.tieba.woc;
 import com.baidu.tieba.xj6;
 import com.baidu.tieba.xk6;
 import com.baidu.tieba.xoc;
 import com.baidu.tieba.yj6;
 import com.baidu.tieba.yk6;
+import com.baidu.tieba.yoc;
 import com.baidu.tieba.zj6;
 import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -80,7 +80,7 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
     public vk6 B;
     @Nullable
     public fl6 C;
-    public koc D;
+    public loc D;
     public mg6<Object> E;
     public final al6 F;
     public final jl6 a;
@@ -101,7 +101,7 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
     public vj6 o;
     public final Map<String, String> p;
     public final Map<String, mg6<Object>> q;
-    public final btc<Lifecycle.Event> r;
+    public final ctc<Lifecycle.Event> r;
     public View s;
     public ck6 t;
     public ng6 u;
@@ -312,7 +312,7 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
         this.n = false;
         this.p = new HashMap();
         this.q = new HashMap();
-        this.r = btc.R(Lifecycle.Event.ON_RESUME);
+        this.r = ctc.R(Lifecycle.Event.ON_RESUME);
         this.t = null;
         this.u = null;
         this.v = null;
@@ -367,7 +367,7 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
         this.n = false;
         this.p = new HashMap();
         this.q = new HashMap();
-        this.r = btc.R(Lifecycle.Event.ON_RESUME);
+        this.r = ctc.R(Lifecycle.Event.ON_RESUME);
         this.t = null;
         this.u = null;
         this.v = null;
@@ -422,7 +422,7 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
         this.n = false;
         this.p = new HashMap();
         this.q = new HashMap();
-        this.r = btc.R(Lifecycle.Event.ON_RESUME);
+        this.r = ctc.R(Lifecycle.Event.ON_RESUME);
         this.t = null;
         this.u = null;
         this.v = null;
@@ -806,8 +806,8 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
     public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            koc kocVar = this.D;
-            if (kocVar != null && kocVar.isUnsubscribed()) {
+            loc locVar = this.D;
+            if (locVar != null && locVar.isUnsubscribed()) {
                 this.D.unsubscribe();
             }
             this.D = null;
@@ -1188,11 +1188,11 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
             if (context instanceof AppCompatActivity) {
                 ((AppCompatActivity) context).getLifecycle().addObserver(simpleWebViewLifeCycle);
             } else {
-                this.r.H(new roc() { // from class: com.baidu.tieba.ig6
+                this.r.H(new soc() { // from class: com.baidu.tieba.ig6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.roc
+                    @Override // com.baidu.tieba.soc
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -1224,21 +1224,21 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
                 kg6Var3.call(this.c);
             }
             b0();
-            this.D = this.c.getViewHeightBs().k(new woc() { // from class: com.baidu.tieba.fg6
+            this.D = this.c.getViewHeightBs().k(new xoc() { // from class: com.baidu.tieba.fg6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.woc
+                @Override // com.baidu.tieba.xoc
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? TbWebView.this.M((Pair) obj) : invokeL.objValue;
                 }
-            }).h(new xoc() { // from class: com.baidu.tieba.eg6
+            }).h(new yoc() { // from class: com.baidu.tieba.eg6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.xoc
+                @Override // com.baidu.tieba.yoc
                 public final Object a(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Boolean valueOf;
@@ -1249,11 +1249,11 @@ public class TbWebView extends FrameLayout implements ng6, WebViewLifeCycle, ck6
                     }
                     return invokeLL.objValue;
                 }
-            }).H(new roc() { // from class: com.baidu.tieba.ag6
+            }).H(new soc() { // from class: com.baidu.tieba.ag6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.roc
+                @Override // com.baidu.tieba.soc
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {

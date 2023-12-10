@@ -41,7 +41,7 @@ public class sg5 implements pg5 {
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, vya.KPSwitchPanelLayout);
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, wya.KPSwitchPanelLayout);
                 this.c = typedArray.getBoolean(0, false);
             } finally {
                 if (typedArray != null) {

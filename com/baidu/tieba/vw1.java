@@ -33,13 +33,13 @@ public class vw1 extends rw1 {
 
         /* renamed from: com.baidu.tieba.vw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0508a implements jg3.c {
+        public class C0506a implements jg3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dx1 a;
             public final /* synthetic */ a b;
 
-            public C0508a(a aVar, dx1 dx1Var) {
+            public C0506a(a aVar, dx1 dx1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class vw1 extends rw1 {
                 dx1 dx1Var = new dx1("compassChange", jSONObject, str);
                 jg3 i = jg3.i();
                 i.l(this.a.i());
-                i.o(new C0508a(this, dx1Var));
+                i.o(new C0506a(this, dx1Var));
                 k32.i("CompassApi", "start listen compass");
                 i.p();
                 dx1Var.b(this.a);

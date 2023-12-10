@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
-/* loaded from: classes7.dex */
+import java.util.TreeSet;
+/* loaded from: classes8.dex */
 public interface qv8 {
-    void a(int i, String str, TbBaseMsg tbBaseMsg);
+    void a(int i, TreeSet<TbBaseMsg> treeSet);
 }

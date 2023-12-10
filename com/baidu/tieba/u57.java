@@ -12,7 +12,7 @@ public abstract class u57 extends n57 {
     public transient /* synthetic */ FieldHolder $fh;
     public q87 d;
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     @NonNull
     public String a() {
         InterceptResult invokeV;

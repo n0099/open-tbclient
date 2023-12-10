@@ -37,7 +37,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdBrowserActivity;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.du5;
-import com.baidu.tieba.iha;
+import com.baidu.tieba.jha;
 import com.baidu.tieba.oa;
 import com.baidu.tieba.q26;
 import com.baidu.tieba.v26;
@@ -106,7 +106,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements iha.c {
+    public class b implements jha.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -124,8 +124,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.iha.c
-        public int a(Context context, String str, String str2, boolean z, iha.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.baidu.tieba.jha.c
+        public int a(Context context, String str, String str2, boolean z, jha.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -141,7 +141,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements iha.a {
+    public class c implements jha.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,7 +159,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.iha.a
+        @Override // com.baidu.tieba.jha.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             String str;
@@ -254,7 +254,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements iha.a {
+    public class d implements jha.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,7 +272,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.iha.a
+        @Override // com.baidu.tieba.jha.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -363,7 +363,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements iha.a {
+    public class e implements jha.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -381,7 +381,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.iha.a
+        @Override // com.baidu.tieba.jha.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

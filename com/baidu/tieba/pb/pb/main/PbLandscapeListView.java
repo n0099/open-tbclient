@@ -36,7 +36,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public boolean f1137T;
+    public boolean f1135T;
     @NonNull
     public zz5 U;
     public boolean V;
@@ -151,7 +151,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1137T = false;
+        this.f1135T = false;
         this.U = new zz5(this);
         H();
     }
@@ -175,7 +175,7 @@ public class PbLandscapeListView extends BdTypeListView {
                         int abs = Math.abs(i);
                         if (abs > this.J && abs > Math.abs(i2) && !this.V) {
                             L(i, i2, this.M, this.N, rawX, rawY);
-                            this.f1137T = true;
+                            this.f1135T = true;
                             return false;
                         }
                     }
@@ -186,7 +186,7 @@ public class PbLandscapeListView extends BdTypeListView {
                 this.M = motionEvent.getRawX();
                 this.N = motionEvent.getRawY();
                 this.S = false;
-                this.f1137T = false;
+                this.f1135T = false;
             }
             if (motionEvent.getAction() == 2 && !this.V) {
                 return true;
@@ -221,7 +221,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1137T = false;
+        this.f1135T = false;
         this.U = new zz5(this);
         H();
     }
@@ -251,7 +251,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
-        this.f1137T = false;
+        this.f1135T = false;
         this.U = new zz5(this);
         H();
     }
@@ -267,7 +267,7 @@ public class PbLandscapeListView extends BdTypeListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f1137T;
+            return this.f1135T;
         }
         return invokeV.booleanValue;
     }

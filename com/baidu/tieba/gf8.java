@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gf8 extends bf8<mz4, ThreadCardViewHolder<ThreadData>> {
+public class gf8 extends cf8<mz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public mm6<ThreadData> e;
@@ -100,7 +100,7 @@ public class gf8 extends bf8<mz4, ThreadCardViewHolder<ThreadData>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gf8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
+        super(tbPageContext, ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,10 @@ public class gf8 extends bf8<mz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
-            bVar.n(qt.s(this.b.getPageActivity(), "hot_topic", u()));
+            ot otVar = new ot(this.b.getPageActivity());
+            otVar.setFrom("hot_topic");
+            otVar.x(this.a);
+            bVar.n(otVar);
             cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.c);
             k.t(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -140,7 +143,7 @@ public class gf8 extends bf8<mz4, ThreadCardViewHolder<ThreadData>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bf8, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.cf8, com.baidu.tieba.ci
     /* renamed from: C */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
@@ -153,7 +156,6 @@ public class gf8 extends bf8<mz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(mz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.e);
-                gm6.a(threadCardViewHolder.a().g(), mz4Var.u, mz4Var.v);
                 z(threadCardViewHolder.getView(), mz4Var.t, i, i);
                 return threadCardViewHolder.getView();
             }

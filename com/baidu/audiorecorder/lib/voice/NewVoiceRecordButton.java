@@ -27,7 +27,7 @@ import com.baidu.tieba.ee;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.ge;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.hya;
+import com.baidu.tieba.iya;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -339,7 +339,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ge, ve5 {
         }
     }
 
-    public hya getRecorderManager() {
+    public iya getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -349,7 +349,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ge, ve5 {
             }
             return null;
         }
-        return (hya) invokeV.objValue;
+        return (iya) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ve5
@@ -394,7 +394,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ge, ve5 {
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092800);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092891);
             this.a.setOnTouchListener(new a(this));
-            hya recorderManager = getRecorderManager();
+            iya recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(this);
                 recorderManager.d(ee.a);
@@ -432,7 +432,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ge, ve5 {
             if (voiceModel != null) {
                 n75.a(n75.b(voiceModel.getVoiceId()));
             }
-            hya recorderManager = getRecorderManager();
+            iya recorderManager = getRecorderManager();
             if (recorderManager != null && recorderManager.f()) {
                 this.i = recorderManager.c(this, -1);
                 this.d.setVisibility(0);
@@ -465,7 +465,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ge, ve5 {
             this.c.setVisibility(4);
             this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1884));
             this.d.setVisibility(4);
-            hya recorderManager = getRecorderManager();
+            iya recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }

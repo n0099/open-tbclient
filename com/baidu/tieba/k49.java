@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.im.lib.socket.msg.data.Reaction;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiDetailUserInfo;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface k49 {
-    void a(@NonNull Reaction reaction);
+    void a(boolean z, @Nullable List<EmojiDetailUserInfo> list);
+
+    void onFailure(int i, String str);
 }

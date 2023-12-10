@@ -52,14 +52,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a06;
 import com.baidu.tieba.d65;
 import com.baidu.tieba.di5;
-import com.baidu.tieba.e9b;
+import com.baidu.tieba.f9b;
 import com.baidu.tieba.jt5;
-import com.baidu.tieba.m9b;
 import com.baidu.tieba.n9b;
+import com.baidu.tieba.o9b;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoView;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.tda;
+import com.baidu.tieba.uda;
 import com.baidu.tieba.video.LiveConfig;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -77,7 +77,7 @@ import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 /* loaded from: classes8.dex */
-public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
+public class VideoLiveFragment extends BaseFragment implements a06.b, n9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoPlayFragment.g1 A;
@@ -92,7 +92,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
     public final View.OnTouchListener J;
     public final GestureDetectorCompat K;
     public View.OnClickListener L;
-    public final tda M;
+    public final uda M;
     public LinearLayout a;
     public RelativeLayout b;
     public TbVideoView c;
@@ -116,11 +116,11 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
     public LiveConfig u;
     public AttentionModel v;
     public BdUniqueId w;
-    public n9b x;
+    public o9b x;
     public String y;
     public int z;
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
         }
     }
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public void b1(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
@@ -151,7 +151,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
         }
     }
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public VideoItemModel z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -407,7 +407,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
     }
 
     /* loaded from: classes8.dex */
-    public class g implements tda {
+    public class g implements uda {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoLiveFragment a;
@@ -430,7 +430,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
             this.a = videoLiveFragment;
         }
 
-        @Override // com.baidu.tieba.tda
+        @Override // com.baidu.tieba.uda
         public void onVideoSizeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.u != null && this.a.u.getCutList() != null) {
@@ -850,7 +850,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
     public final void g3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.x = new n9b(this.f, this.u);
+            this.x = new o9b(this.f, this.u);
         }
     }
 
@@ -903,7 +903,7 @@ public class VideoLiveFragment extends BaseFragment implements a06.b, m9b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && this.B && (videoItemData = this.f) != null && videoItemData.getLivePageData() != null && this.f.getLivePageData().mYyExtData != null) {
             YyExtData yyExtData = this.f.getLivePageData().mYyExtData;
-            e9b.g("sp_live_into_id_", this.f.thread_id);
+            f9b.g("sp_live_into_id_", this.f.thread_id);
             YYLiveUtil.jumpToYYLiveRoom(getPageContext(), yyExtData.mSid, yyExtData.mSsid, yyExtData.mTemplateId, "", null, "video_immersion", str, false);
         }
     }

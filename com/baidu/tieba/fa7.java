@@ -42,7 +42,7 @@ public final class fa7 implements aa7 {
             SpannableString spannableString = new SpannableString(g.c());
             if (g.b() != null) {
                 if ((clickableSpan instanceof ba7) && (b = g.b()) != null) {
-                    ((ba7) clickableSpan).a(id7.a.a(b));
+                    ((ba7) clickableSpan).a(jd7.a.a(b));
                 }
                 int length = g.c().length();
                 if (StringsKt__StringsJVMKt.endsWith$default(g.c(), " ", false, 2, null)) {

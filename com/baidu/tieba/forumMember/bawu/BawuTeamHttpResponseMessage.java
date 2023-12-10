@@ -3,8 +3,8 @@ package com.baidu.tieba.forumMember.bawu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bq7;
-import com.baidu.tieba.qp7;
+import com.baidu.tieba.cq7;
+import com.baidu.tieba.rp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
     public String cacheKey;
     public boolean isNeedUpdateCache;
     public BawuTeam mBawuTeamInfo;
-    public bq7 mComplaintBarlordData;
+    public cq7 mComplaintBarlordData;
     public int mIsPrivateForum;
     public ManagerApplyInfo mManagerApplyInfo;
 
@@ -61,7 +61,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
         if (bawuTeamRequestMessage != null) {
             this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
         }
-        new qp7().c(this.cacheKey, bArr);
+        new rp7().c(this.cacheKey, bArr);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,9 +79,9 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
                 DataRes dataRes2 = getBawuInfoResIdl.data;
                 this.mManagerApplyInfo = dataRes2.manager_apply_info;
                 if (dataRes2.manager_complain_info != null) {
-                    bq7 bq7Var = new bq7();
-                    this.mComplaintBarlordData = bq7Var;
-                    bq7Var.c(getBawuInfoResIdl.data.manager_complain_info);
+                    cq7 cq7Var = new cq7();
+                    this.mComplaintBarlordData = cq7Var;
+                    cq7Var.c(getBawuInfoResIdl.data.manager_complain_info);
                 } else {
                     this.mComplaintBarlordData = null;
                 }
@@ -99,13 +99,13 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
         return (BawuTeam) invokeV.objValue;
     }
 
-    public bq7 getComplaintBarlordData() {
+    public cq7 getComplaintBarlordData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mComplaintBarlordData;
         }
-        return (bq7) invokeV.objValue;
+        return (cq7) invokeV.objValue;
     }
 
     public ManagerApplyInfo getManagerApplyInfo() {

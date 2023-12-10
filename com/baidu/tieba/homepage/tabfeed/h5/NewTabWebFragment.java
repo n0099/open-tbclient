@@ -44,15 +44,15 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.bs4;
-import com.baidu.tieba.dk8;
-import com.baidu.tieba.gd8;
+import com.baidu.tieba.ek8;
 import com.baidu.tieba.gs4;
 import com.baidu.tieba.hd8;
+import com.baidu.tieba.id8;
 import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.tieba.iq4;
 import com.baidu.tieba.jq5;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
+public class NewTabWebFragment extends BaseWebViewFragment implements nt7, zt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -81,20 +81,20 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
     public boolean n;
     public boolean o;
     public boolean p;
-    public dk8 q;
-    public gd8 r;
+    public ek8 q;
+    public hd8 r;
     public CustomMessageListener s;
     public final CustomMessageListener t;
     public final View.OnClickListener u;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -509,7 +509,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
         this.u = new d(this);
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -566,10 +566,10 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
         }
     }
 
-    public void m3(gd8 gd8Var) {
+    public void m3(hd8 hd8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, gd8Var) == null) {
-            this.r = gd8Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, hd8Var) == null) {
+            this.r = hd8Var;
         }
     }
 
@@ -618,7 +618,7 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -698,9 +698,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onDestroy();
             kk5.e().b();
-            dk8 dk8Var = this.q;
-            if (dk8Var != null) {
-                dk8Var.c();
+            ek8 ek8Var = this.q;
+            if (ek8Var != null) {
+                ek8Var.c();
             }
             o3();
         }
@@ -727,9 +727,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
             if (tbWebView != null) {
                 tbWebView.onPause();
             }
-            dk8 dk8Var = this.q;
-            if (dk8Var != null) {
-                dk8Var.f();
+            ek8 ek8Var = this.q;
+            if (ek8Var != null) {
+                ek8Var.f();
             }
         }
     }
@@ -799,9 +799,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
             } else {
                 MessageManager.getInstance().unRegisterTask(2016568);
             }
-            dk8 dk8Var = this.q;
-            if (dk8Var != null) {
-                dk8Var.g();
+            ek8 ek8Var = this.q;
+            if (ek8Var != null) {
+                ek8Var.g();
             }
         }
     }
@@ -832,9 +832,9 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
                 this.g = bundle.getString("tab_url");
             }
             this.a = this.g;
-            dk8 dk8Var = new dk8(this);
-            this.q = dk8Var;
-            dk8Var.b(bundle);
+            ek8 ek8Var = new ek8(this);
+            this.q = ek8Var;
+            ek8Var.b(bundle);
             h3();
             k3();
         }
@@ -868,14 +868,14 @@ public class NewTabWebFragment extends BaseWebViewFragment implements mt7, zt4 {
             TbWebView tbWebView3 = this.j;
             if (tbWebView3 != null) {
                 tbWebView3.k("webviewType", "tab");
-                gd8 gd8Var = this.r;
-                if (gd8Var instanceof hd8) {
-                    ((hd8) gd8Var).f(this.j);
+                hd8 hd8Var = this.r;
+                if (hd8Var instanceof id8) {
+                    ((id8) hd8Var).f(this.j);
                 }
             }
-            dk8 dk8Var = this.q;
-            if (dk8Var != null && (tbWebView = this.j) != null) {
-                dk8Var.h(tbWebView);
+            ek8 ek8Var = this.q;
+            if (ek8Var != null && (tbWebView = this.j) != null) {
+                ek8Var.h(tbWebView);
             }
             if (TbadkCoreApplication.getInst().isUseBottomBarDynamicStyleHeight()) {
                 this.i.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);

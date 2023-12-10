@@ -74,7 +74,7 @@ public class z82 implements h33 {
 
         /* renamed from: com.baidu.tieba.z82$c$c  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0549c extends k82 {
+        public class C0547c extends k82 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -84,16 +84,16 @@ public class z82 implements h33 {
             public class a extends j82 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0549c e;
+                public final /* synthetic */ C0547c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0549c c0549c, String str, String str2) {
+                public a(C0547c c0547c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0549c, str, str2};
+                        Object[] objArr = {c0547c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class z82 implements h33 {
                             return;
                         }
                     }
-                    this.e = c0549c;
+                    this.e = c0547c;
                 }
 
                 @Override // com.baidu.tieba.j82
@@ -123,7 +123,7 @@ public class z82 implements h33 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0549c(c cVar, Context context) {
+            public C0547c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -282,7 +282,7 @@ public class z82 implements h33 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0549c(this, AppRuntime.getAppContext());
+                return new C0547c(this, AppRuntime.getAppContext());
             }
             return (g82) invokeV.objValue;
         }

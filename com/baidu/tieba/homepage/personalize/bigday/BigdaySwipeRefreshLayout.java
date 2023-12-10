@@ -25,7 +25,7 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gh8;
+import com.baidu.tieba.hh8;
 import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1240,8 +1240,8 @@ public class BigdaySwipeRefreshLayout extends ViewGroup implements NestedScrolli
             this.s = kVar;
             kVar.getView().setVisibility(8);
             addView(this.s.getView(), 0);
-            if (kVar instanceof gh8) {
-                ((gh8) kVar).P(new c(this, kVar));
+            if (kVar instanceof hh8) {
+                ((hh8) kVar).P(new c(this, kVar));
             }
         }
     }

@@ -21,10 +21,10 @@ import com.baidu.tieba.feed.widget.HeadImageView;
 import com.baidu.tieba.feed.widget.PersonAttentionView;
 import com.baidu.tieba.g87;
 import com.baidu.tieba.i57;
-import com.baidu.tieba.id7;
+import com.baidu.tieba.jd7;
 import com.baidu.tieba.k37;
-import com.baidu.tieba.kb7;
 import com.baidu.tieba.lb7;
+import com.baidu.tieba.mb7;
 import com.baidu.tieba.z57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u00012\u00020\u0002B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\u000e\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016J\u0010\u0010\u0017\u001a\u00020\u00132\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0012\u0010\u001a\u001a\u00020\u00132\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0002J\u0012\u0010\u001d\u001a\u00020\u00132\b\u0010\u001e\u001a\u0004\u0018\u00010\u001cH\u0002R\u000e\u0010\b\u001a\u00020\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/feed/component/RecommendPersonAttentionCardView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "itemView", "Landroid/view/View;", "mContainer", "mLikeButton", "Lcom/baidu/tieba/feed/widget/PersonAttentionView;", "mUserDesc", "Landroid/widget/TextView;", "mUserImage", "Lcom/baidu/tieba/feed/widget/HeadImageView;", "mUserName", "onChangeSkin", "", StickerDataChangeType.UPDATE, "state", "Lcom/baidu/tieba/feed/component/uistate/RecommendPersonAttentionCardUiState;", "updateAvatar", "imageData", "Lcom/baidu/tieba/feed/data/CardHeadImageData;", "updateDesc", "desc", "Lcom/baidu/tieba/feed/data/TextData;", "updateName", "name", "lib-templates_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class RecommendPersonAttentionCardView extends LinearLayout implements kb7 {
+public final class RecommendPersonAttentionCardView extends LinearLayout implements lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;
@@ -232,7 +232,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
             this.e.setText((g87Var == null || (r1 = g87Var.c()) == null) ? "" : "");
             if (g87Var != null && (b = g87Var.b()) != null) {
                 this.e.setTag(R.id.obfuscated_res_0x7f092a48, b);
-                this.e.setTextColor(id7.a.a(b));
+                this.e.setTextColor(jd7.a.a(b));
                 unit = Unit.INSTANCE;
             } else {
                 unit = null;
@@ -251,7 +251,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
             this.d.setText((g87Var == null || (r1 = g87Var.c()) == null) ? "" : "");
             if (g87Var != null && (b = g87Var.b()) != null) {
                 this.d.setTag(R.id.obfuscated_res_0x7f092a48, b);
-                this.d.setTextColor(id7.a.a(b));
+                this.d.setTextColor(jd7.a.a(b));
                 unit = Unit.INSTANCE;
             } else {
                 unit = null;
@@ -286,7 +286,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0083, code lost:
         if (r0 == null) goto L22;
      */
-    @Override // com.baidu.tieba.kb7
+    @Override // com.baidu.tieba.lb7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -294,7 +294,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         Object textColor;
         Object textColor2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || lb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || mb7.a(this)) {
             return;
         }
         EMManager.from(this.c).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
@@ -302,7 +302,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         Object tag = this.d.getTag(R.id.obfuscated_res_0x7f092a48);
         if (tag != null) {
             if (tag instanceof e67) {
-                this.d.setTextColor(id7.a.a((e67) tag));
+                this.d.setTextColor(jd7.a.a((e67) tag));
                 textColor2 = Unit.INSTANCE;
             } else {
                 textColor2 = EMManager.from(this.d).setTextColor(R.color.CAM_X0105);
@@ -312,7 +312,7 @@ public final class RecommendPersonAttentionCardView extends LinearLayout impleme
         Object tag2 = this.e.getTag(R.id.obfuscated_res_0x7f092a48);
         if (tag2 != null) {
             if (tag2 instanceof e67) {
-                this.e.setTextColor(id7.a.a((e67) tag2));
+                this.e.setTextColor(jd7.a.a((e67) tag2));
                 textColor = Unit.INSTANCE;
             } else {
                 textColor = EMManager.from(this.e).setTextColor(R.color.CAM_X0109);

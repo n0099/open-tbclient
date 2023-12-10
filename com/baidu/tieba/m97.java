@@ -10,7 +10,7 @@ public final class m97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedRoomComponent feedRoomComponent, List<rb7<?>> dataList, r67 feedExtraData) {
+    public static final void a(FeedRoomComponent feedRoomComponent, List<sb7<?>> dataList, r67 feedExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, feedRoomComponent, dataList, feedExtraData) == null) {
             Intrinsics.checkNotNullParameter(feedRoomComponent, "<this>");
@@ -23,7 +23,7 @@ public final class m97 {
             in6Var.s(feedRoomComponent.scheme);
             in6Var.x(feedRoomComponent.voice);
             in6Var.t(feedRoomComponent.bottom_labels);
-            dataList.add(new sb7(new t47(in6Var, s67.e(feedExtraData, "card_pei_wan_click", null, 2, null), s67.e(feedExtraData, "voice_pei_wan_click", null, 2, null), s67.e(feedExtraData, "card_pei_wan_show", null, 2, null), feedExtraData.a().a(), feedExtraData.c().a()), "pei_wan"));
+            dataList.add(new tb7(new t47(in6Var, s67.e(feedExtraData, "card_pei_wan_click", null, 2, null), s67.e(feedExtraData, "voice_pei_wan_click", null, 2, null), s67.e(feedExtraData, "card_pei_wan_show", null, 2, null), feedExtraData.a().a(), feedExtraData.c().a()), "pei_wan"));
         }
     }
 }

@@ -7,17 +7,17 @@ import com.baidu.android.ext.manage.PopItemMethodConstant;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.agb;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.cgb;
+import com.baidu.tieba.dgb;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.igb;
-import com.baidu.tieba.ogb;
+import com.baidu.tieba.jgb;
+import com.baidu.tieba.pgb;
 import com.baidu.tieba.rj6;
-import com.baidu.tieba.sdb;
-import com.baidu.tieba.ugb;
+import com.baidu.tieba.tdb;
+import com.baidu.tieba.vgb;
 import com.baidu.tieba.write.webwrite.data.BizBase$makeWrapListener$1;
-import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,18 +32,18 @@ import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000x\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b&\u0018\u00002\u00020\u0001B)\u0012\n\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0006\u0010\"\u001a\u00020#JF\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020'26\u0010(\u001a2\u0012\u0013\u0012\u00110'¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b()\u0012\u0013\u0012\u00110*¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(+\u0012\u0004\u0012\u00020\u00130\fJ$\u0010,\u001a\u00020-2\u0006\u0010&\u001a\u00020'2\u0014\u0010.\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010/\u0012\u0004\u0012\u00020\u00130\u0017J*\u0010,\u001a\u00020-2\u0006\u0010&\u001a\u00020'2\u001a\u0010.\u001a\u0016\u0012\u0004\u0012\u00020'\u0012\u0006\u0012\u0004\u0018\u00010/\u0012\u0004\u0012\u00020\u00130\fJ\u0006\u00100\u001a\u00020\u0013J\u000e\u00101\u001a\u00020\u00132\u0006\u00102\u001a\u00020\rRA\u0010\u000b\u001a2\u0012\u0013\u0012\u00110\r¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0010\u0012\u0013\u0012\u00110\u0011¢\u0006\f\b\u000e\u0012\b\b\u000f\u0012\u0004\b\b(\u0012\u0012\u0004\u0012\u00020\u00130\f¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u0015R/\u0010\u0016\u001a \u0012\u0004\u0012\u00020\r\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u00130\u0017\u0012\u0004\u0012\u00020\u00180\f¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0015R\u0015\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u001bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u001fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b \u0010!¨\u00063"}, d2 = {"Lcom/baidu/tieba/write/webwrite/data/BizBase;", "Lcom/baidu/tieba/write/webwrite/data/Biz;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "webView", "Lcom/baidu/tieba/browser/TbWebView;", "writeData", "Lcom/baidu/tbadk/coreExtra/data/WriteData;", "writePageState", "Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/tieba/browser/TbWebView;Lcom/baidu/tbadk/coreExtra/data/WriteData;Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;)V", "dispatchToH5", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "eventName", "Lorg/json/JSONObject;", "r", "", "getDispatchToH5", "()Lkotlin/jvm/functions/Function2;", "makeWrapListener", "Lkotlin/Function1;", "Lcom/baidu/tieba/write/webwrite/data/WrapListener;", "getMakeWrapListener", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "getWebView", "()Lcom/baidu/tieba/browser/TbWebView;", "getWriteData", "()Lcom/baidu/tbadk/coreExtra/data/WriteData;", "getWritePageState", "()Lcom/baidu/tieba/write/webwrite/fragment/WritePageState;", "isTextFull", "", "makeActionHandler", "Lcom/baidu/tieba/write/webwrite/data/ActionHandler;", "code", "", "onAction", "id", "", "obj", "makeCodeHandler", "Lcom/baidu/tieba/write/webwrite/data/SimpleRequestCodeHandler;", "onResult", "Landroid/content/Intent;", "refreshPostStatus", PopItemMethodConstant.showToast, "toast", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public abstract class BizBase implements cgb {
+public abstract class BizBase implements dgb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> a;
     public final TbWebView b;
     public final WriteData c;
-    public final ugb d;
+    public final vgb d;
     public final Function2<String, Function1<? super String, Unit>, WrapListener> e;
     public final Function2<String, JSONObject, Unit> f;
 
     /* loaded from: classes8.dex */
-    public static final class a implements zfb {
+    public static final class a implements agb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function2<Integer, Object, Unit> a;
@@ -68,14 +68,14 @@ public abstract class BizBase implements cgb {
             this.b = i;
         }
 
-        @Override // com.baidu.tieba.zfb
+        @Override // com.baidu.tieba.agb
         public Integer[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Integer[]{Integer.valueOf(this.b)} : (Integer[]) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.zfb
+        @Override // com.baidu.tieba.agb
         public void b(he5 action) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
@@ -92,7 +92,7 @@ public abstract class BizBase implements cgb {
     }
 
     /* JADX DEBUG: Type inference failed for r6v1. Raw type applied. Possible types: kotlin.jvm.functions.Function2<java.lang.String, kotlin.jvm.functions.Function1<? super java.lang.String, ? extends kotlin.Unit>, com.baidu.tieba.write.webwrite.data.BizBase$makeWrapListener$1$a>, kotlin.jvm.functions.Function2<java.lang.String, kotlin.jvm.functions.Function1<? super java.lang.String, kotlin.Unit>, com.baidu.tieba.write.webwrite.data.WrapListener> */
-    public BizBase(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, ugb writePageState) {
+    public BizBase(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, vgb writePageState) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,12 +244,12 @@ public abstract class BizBase implements cgb {
         };
     }
 
-    @Override // com.baidu.tieba.cgb
+    @Override // com.baidu.tieba.dgb
     public Function1<JSONObject, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return cgb.a.a(this);
+            return dgb.a.a(this);
         }
         return (Function1) invokeV.objValue;
     }
@@ -299,13 +299,13 @@ public abstract class BizBase implements cgb {
         return (WriteData) invokeV.objValue;
     }
 
-    public final ugb l() {
+    public final vgb l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.d;
         }
-        return (ugb) invokeV.objValue;
+        return (vgb) invokeV.objValue;
     }
 
     public final boolean m() {
@@ -317,7 +317,7 @@ public abstract class BizBase implements cgb {
             }
             String content = this.c.getContent();
             Intrinsics.checkNotNullExpressionValue(content, "writeData.content");
-            if (StringsKt__StringsKt.contains$default((CharSequence) content, (CharSequence) sdb.c, false, 2, (Object) null) || this.c.getContent().length() < 5000) {
+            if (StringsKt__StringsKt.contains$default((CharSequence) content, (CharSequence) tdb.c, false, 2, (Object) null) || this.c.getContent().length() < 5000) {
                 return false;
             }
             return true;
@@ -325,22 +325,22 @@ public abstract class BizBase implements cgb {
         return invokeV.booleanValue;
     }
 
-    public final zfb n(int i, Function2<? super Integer, Object, Unit> onAction) {
+    public final agb n(int i, Function2<? super Integer, Object, Unit> onAction) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, onAction)) == null) {
             Intrinsics.checkNotNullParameter(onAction, "onAction");
             return new a(onAction, i);
         }
-        return (zfb) invokeIL.objValue;
+        return (agb) invokeIL.objValue;
     }
 
-    public final igb o(int i, final Function1<? super Intent, Unit> onResult) {
+    public final jgb o(int i, final Function1<? super Intent, Unit> onResult) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, onResult)) == null) {
             Intrinsics.checkNotNullParameter(onResult, "onResult");
-            return new igb(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.write.webwrite.data.BizBase$makeCodeHandler$1
+            return new jgb(new Integer[]{Integer.valueOf(i)}, new Function2<Integer, Intent, Unit>(onResult) { // from class: com.baidu.tieba.write.webwrite.data.BizBase$makeCodeHandler$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Function1<Intent, Unit> $onResult;
@@ -382,17 +382,17 @@ public abstract class BizBase implements cgb {
                 }
             });
         }
-        return (igb) invokeIL.objValue;
+        return (jgb) invokeIL.objValue;
     }
 
-    public final igb p(int i, Function2<? super Integer, ? super Intent, Unit> onResult) {
+    public final jgb p(int i, Function2<? super Integer, ? super Intent, Unit> onResult) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, onResult)) == null) {
             Intrinsics.checkNotNullParameter(onResult, "onResult");
-            return new igb(new Integer[]{Integer.valueOf(i)}, onResult);
+            return new jgb(new Integer[]{Integer.valueOf(i)}, onResult);
         }
-        return (igb) invokeIL.objValue;
+        return (jgb) invokeIL.objValue;
     }
 
     public final void q() {
@@ -401,13 +401,13 @@ public abstract class BizBase implements cgb {
         if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !this.d.q()) {
             return;
         }
-        ugb ugbVar = this.d;
-        if (!ugbVar.f() && ((this.c.getWriteImagesInfo() == null || this.c.getWriteImagesInfo().getChosedFiles() == null || this.c.getWriteImagesInfo().size() <= 0) && this.c.getVoiceModel() == null && this.c.getWriteVoteData() == null)) {
+        vgb vgbVar = this.d;
+        if (!vgbVar.f() && ((this.c.getWriteImagesInfo() == null || this.c.getWriteImagesInfo().getChosedFiles() == null || this.c.getWriteImagesInfo().size() <= 0) && this.c.getVoiceModel() == null && this.c.getWriteVoteData() == null)) {
             z = false;
         } else {
             z = true;
         }
-        ugbVar.s(z);
-        br6.b().c(new ogb(this.d.e()));
+        vgbVar.s(z);
+        br6.b().c(new pgb(this.d.e()));
     }
 }

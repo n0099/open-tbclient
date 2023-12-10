@@ -1,79 +1,40 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class lu9 extends er6<ku9> {
+public final class lu9 extends cr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a b;
+    public final String a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, String str2, String str3);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lu9(a aVar) {
-        super(ku9.class);
+    public lu9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = aVar;
+        this.a = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.er6
-    public void onEvent(ku9 event) {
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (!TextUtils.isEmpty(event.a())) {
-                try {
-                    String a2 = event.a();
-                    if (a2 != null) {
-                        JSONObject optJSONObject = new JSONObject(a2).optJSONObject("robot_reply_info");
-                        if (optJSONObject != null) {
-                            String token = optJSONObject.optString("loading_post_token");
-                            String content = optJSONObject.optString("content");
-                            String postId = optJSONObject.optString("post_id");
-                            a aVar = this.b;
-                            if (aVar != null) {
-                                Intrinsics.checkNotNullExpressionValue(token, "token");
-                                Intrinsics.checkNotNullExpressionValue(content, "content");
-                                Intrinsics.checkNotNullExpressionValue(postId, "postId");
-                                aVar.a(token, content, postId);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type kotlin.String");
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 }

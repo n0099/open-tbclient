@@ -12,30 +12,30 @@ public class oi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static vga a(aj6 aj6Var) {
+    public static wga a(aj6 aj6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aj6Var)) == null) {
-            vga vgaVar = new vga();
+            wga wgaVar = new wga();
             if (aj6Var != null) {
-                vgaVar.b = aj6Var.c;
-                vgaVar.e = aj6Var.g;
-                vgaVar.f = aj6Var.i;
-                vgaVar.c = aj6Var.d;
+                wgaVar.b = aj6Var.c;
+                wgaVar.e = aj6Var.g;
+                wgaVar.f = aj6Var.i;
+                wgaVar.c = aj6Var.d;
                 if (!jk6.a(aj6Var.b)) {
                     ArrayList<String> arrayList = new ArrayList<>();
-                    vgaVar.a = arrayList;
+                    wgaVar.a = arrayList;
                     arrayList.addAll(aj6Var.b);
                 }
                 if (!jk6.a(aj6Var.f)) {
                     ArrayList<String> arrayList2 = new ArrayList<>();
-                    vgaVar.d = arrayList2;
+                    wgaVar.d = arrayList2;
                     arrayList2.addAll(aj6Var.f);
                 }
             }
-            return vgaVar;
+            return wgaVar;
         }
-        return (vga) invokeL.objValue;
+        return (wga) invokeL.objValue;
     }
 
     public static void b(vi6 vi6Var, String str) {
@@ -43,21 +43,21 @@ public class oi6 {
         if (interceptable == null || interceptable.invokeLL(65537, null, vi6Var, str) == null) {
             try {
                 if (vi6Var != null) {
-                    tga.n().z(str, vi6Var.b());
-                    tga.n().x();
+                    uga.n().z(str, vi6Var.b());
+                    uga.n().x();
                     if (!jk6.b(vi6Var.a())) {
-                        HashMap<String, vga> hashMap = new HashMap<>();
+                        HashMap<String, wga> hashMap = new HashMap<>();
                         for (Map.Entry<String, aj6> entry : vi6Var.a().entrySet()) {
                             hashMap.put(entry.getKey(), a(entry.getValue()));
                         }
-                        uga.a().l(str, hashMap);
+                        vga.a().l(str, hashMap);
                     }
-                    uga.a().h(true, str);
+                    vga.a().h(true, str);
                     return;
                 }
-                tga.n().h(str);
-                tga.n().x();
-                uga.a().f(str);
+                uga.n().h(str);
+                uga.n().x();
+                vga.a().f(str);
             } catch (Exception e) {
                 BdLog.e(e);
             }

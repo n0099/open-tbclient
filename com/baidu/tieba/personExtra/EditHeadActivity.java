@@ -73,7 +73,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public static String S = "pic_info";
 
     /* renamed from: T  reason: collision with root package name */
-    public static String f1143T = "file_name";
+    public static String f1142T = "file_name";
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public int B;
@@ -1661,7 +1661,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     S1(1, 1);
                 }
             }
-            String stringExtra2 = intent.getStringExtra(f1143T);
+            String stringExtra2 = intent.getStringExtra(f1142T);
             String stringExtra3 = intent.getStringExtra(EditHeadActivityConfig.IMAGE_URL);
             int i2 = this.C;
             if (i2 != 12002 && i2 != 12001) {

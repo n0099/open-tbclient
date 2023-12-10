@@ -11,7 +11,7 @@ import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.play.AutoPlayController;
-import com.baidu.tieba.wda;
+import com.baidu.tieba.xda;
 import com.baidu.tieba.zv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class AutoPlayController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wda a;
+    public final xda a;
     public int b;
     public int c;
     public boolean d;
@@ -117,7 +117,7 @@ public final class AutoPlayController {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(recyclerView, "recyclerView");
-        this.a = new wda(context, recyclerView);
+        this.a = new xda(context, recyclerView);
         this.e = true;
         this.g = new zv6();
         this.i = new RecyclerView.OnScrollListener(this) { // from class: com.baidu.tieba.play.AutoPlayController$onScrollListener$1
@@ -145,8 +145,8 @@ public final class AutoPlayController {
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView2, int i3) {
-                wda wdaVar;
-                wda wdaVar2;
+                xda xdaVar;
+                xda xdaVar2;
                 int i4;
                 int i5;
                 boolean z;
@@ -154,13 +154,13 @@ public final class AutoPlayController {
                 if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView2, i3) == null) {
                     Intrinsics.checkNotNullParameter(recyclerView2, "recyclerView");
                     if (i3 == 0) {
-                        wdaVar = this.a.a;
-                        if (wdaVar != null && this.a.j() && !this.a.i()) {
-                            wdaVar2 = this.a.a;
+                        xdaVar = this.a.a;
+                        if (xdaVar != null && this.a.j() && !this.a.i()) {
+                            xdaVar2 = this.a.a;
                             i4 = this.a.b;
                             i5 = this.a.c;
                             z = this.a.f;
-                            wdaVar2.m(i4, i5, z, 1);
+                            xdaVar2.m(i4, i5, z, 1);
                         }
                     }
                 }
@@ -180,7 +180,7 @@ public final class AutoPlayController {
             }
         };
         this.j = new b(this);
-        this.k = new View.OnTouchListener() { // from class: com.baidu.tieba.kda
+        this.k = new View.OnTouchListener() { // from class: com.baidu.tieba.lda
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -272,10 +272,10 @@ public final class AutoPlayController {
     }
 
     public final void r() {
-        wda wdaVar;
+        xda xdaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (wdaVar = this.a) != null && !this.d && this.e) {
-            wdaVar.n(this.b, this.c, this.f, true);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (xdaVar = this.a) != null && !this.d && this.e) {
+            xdaVar.n(this.b, this.c, this.f, true);
         }
     }
 

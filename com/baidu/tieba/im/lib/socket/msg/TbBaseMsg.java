@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tieba.aw8;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityEffectItem;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.im.lib.socket.msg.data.BubbleInfo;
@@ -16,8 +17,7 @@ import com.baidu.tieba.im.lib.socket.msg.data.ExcellentInfo;
 import com.baidu.tieba.im.lib.socket.msg.data.UserExtraInfo;
 import com.baidu.tieba.immessagecenter.im.dispatcher.PersonalMsgSettingDispatcher;
 import com.baidu.tieba.ot5;
-import com.baidu.tieba.sv8;
-import com.baidu.tieba.yv8;
+import com.baidu.tieba.tv8;
 import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -53,11 +53,11 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     @SerializedName("sug_list")
     @ot5(serialize = false)
     public List<AbilityItem> abilityItems;
+    @tv8
     @SerializedName("at_user_info_list")
-    @sv8
     public List<TbAtUserInfo> atUserInfoList;
+    @tv8
     @SerializedName("uk")
-    @sv8
     public String bdUk;
     @SerializedName("bubble_info")
     public BubbleInfo bubbleInfo;
@@ -79,11 +79,11 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public int isSysMsgInt;
     @SerializedName("version")
     public String limitVersion;
+    @tv8
     @SerializedName("msg_id")
-    @sv8
     public long msgId;
+    @tv8
     @SerializedName("msg_key")
-    @sv8
     public String msgKey;
     @SerializedName("origin_msg_key")
     public String originMsgKey;
@@ -94,8 +94,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public TbBaseMsg preTimestampMsg;
     @SerializedName("quick_operate")
     public List<AbilityItem> quickOperate;
+    @tv8
     @SerializedName("re_msg_info")
-    @sv8
     public TbReMsgInfo reMsgInfo;
     @SerializedName(PersonalMsgSettingDispatcher.PERSONAL_ROBOT_ROLE)
     public int robotRole;
@@ -112,8 +112,8 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public long sessionId;
     @SerializedName("struct_data")
     public List<? extends Map<String, ? extends Object>> structData;
+    @tv8
     @SerializedName("task_info")
-    @sv8
     public TbTaskInfo taskInfo;
     @SerializedName("type")
     public int type;
@@ -621,7 +621,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return zv8.a(this.bdUk);
+            return aw8.a(this.bdUk);
         }
         return invokeV.longValue;
     }
@@ -667,7 +667,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return yv8.c(getUserId());
+            return zv8.c(getUserId());
         }
         return invokeV.booleanValue;
     }
@@ -974,7 +974,7 @@ public abstract class TbBaseMsg implements Serializable, Object<TbBaseMsg> {
     public final void setUserId(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048652, this, j) == null) {
-            String b2 = zv8.b(j);
+            String b2 = aw8.b(j);
             Intrinsics.checkNotNullExpressionValue(b2, "value.toUk()");
             this.bdUk = b2;
         }

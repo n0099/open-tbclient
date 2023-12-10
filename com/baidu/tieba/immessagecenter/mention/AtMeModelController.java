@@ -23,12 +23,12 @@ import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.c69;
+import com.baidu.tieba.d69;
 import com.baidu.tieba.ga5;
-import com.baidu.tieba.m69;
+import com.baidu.tieba.n69;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.x59;
 import com.baidu.tieba.y59;
+import com.baidu.tieba.z59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,15 +38,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<y59>, NetModel.k<x59, y59> {
+public class AtMeModelController extends BdBaseModel implements CacheModel.CacheModelCallback<z59>, NetModel.k<y59, z59> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMessageFragment a;
-    public x59 b;
+    public y59 b;
     public AtMeNetModel c;
     public AtMeCacheModel d;
     public FeedData e;
-    public c69 f;
+    public d69 f;
     public final CustomMessageListener g;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -70,7 +70,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataWrite(WriteCacheRespMsg<List<y59>> writeCacheRespMsg, WriteCacheMessage<y59> writeCacheMessage) {
+    public void onCacheDataWrite(WriteCacheRespMsg<List<z59>> writeCacheRespMsg, WriteCacheMessage<z59> writeCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, writeCacheRespMsg, writeCacheMessage) == null) {
         }
@@ -133,24 +133,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void I(MvcHttpResponsedMessage<y59> mvcHttpResponsedMessage, MvcHttpMessage<x59, y59> mvcHttpMessage, MvcNetMessage<x59, y59> mvcNetMessage) {
-        y59 y59Var;
+    public void I(MvcHttpResponsedMessage<z59> mvcHttpResponsedMessage, MvcHttpMessage<y59, z59> mvcHttpMessage, MvcNetMessage<y59, z59> mvcNetMessage) {
+        z59 z59Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
-            x59 x59Var = null;
+            y59 y59Var = null;
             if (mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                y59Var = mvcHttpResponsedMessage.getData();
+                z59Var = mvcHttpResponsedMessage.getData();
                 if (mvcHttpMessage != null) {
-                    x59Var = mvcHttpMessage.getRequestData();
+                    y59Var = mvcHttpMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    x59Var = mvcNetMessage.getRequestData();
+                    y59Var = mvcNetMessage.getRequestData();
                 }
             } else {
                 ga5.p0().g0(0);
-                y59Var = null;
+                z59Var = null;
             }
-            if (x59Var != null && y59Var != null && T(x59Var, y59Var, Boolean.FALSE)) {
+            if (y59Var != null && z59Var != null && T(y59Var, z59Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcHttpResponsedMessage != null) {
@@ -167,24 +167,24 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void u(MvcSocketResponsedMessage<y59, ?> mvcSocketResponsedMessage, MvcSocketMessage<x59, y59> mvcSocketMessage, MvcNetMessage<x59, y59> mvcNetMessage) {
-        y59 y59Var;
+    public void u(MvcSocketResponsedMessage<z59, ?> mvcSocketResponsedMessage, MvcSocketMessage<y59, z59> mvcSocketMessage, MvcNetMessage<y59, z59> mvcNetMessage) {
+        z59 z59Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
-            x59 x59Var = null;
+            y59 y59Var = null;
             if (mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                y59Var = mvcSocketResponsedMessage.getData();
+                z59Var = mvcSocketResponsedMessage.getData();
                 if (mvcSocketMessage != null) {
-                    x59Var = mvcSocketMessage.getRequestData();
+                    y59Var = mvcSocketMessage.getRequestData();
                 }
                 if (mvcNetMessage != null) {
-                    x59Var = mvcNetMessage.getRequestData();
+                    y59Var = mvcNetMessage.getRequestData();
                 }
             } else {
                 ga5.p0().g0(0);
-                y59Var = null;
+                z59Var = null;
             }
-            if (x59Var != null && y59Var != null && T(x59Var, y59Var, Boolean.FALSE)) {
+            if (y59Var != null && z59Var != null && T(y59Var, z59Var, Boolean.FALSE)) {
                 return;
             }
             if (mvcSocketResponsedMessage != null) {
@@ -206,8 +206,8 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TbadkCoreApplication.isLogin()) {
-                c69 c69Var = this.f;
-                if (c69Var != null && (arrayList = c69Var.a) != null) {
+                d69 d69Var = this.f;
+                if (d69Var != null && (arrayList = d69Var.a) != null) {
                     arrayList.clear();
                     AtMessageFragment atMessageFragment = this.a;
                     if (atMessageFragment != null) {
@@ -254,9 +254,9 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     public void P(int i) {
-        c69 c69Var;
+        d69 d69Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (c69Var = this.f) != null && c69Var.a() != null && i < this.f.a().size()) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (d69Var = this.f) != null && d69Var.a() != null && i < this.f.a().size()) {
             this.f.a().remove(i);
         }
     }
@@ -295,7 +295,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     public void R(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.b = new x59();
+            this.b = new y59();
             AtMeNetModel atMeNetModel = new AtMeNetModel((TbPageContext) a5.a(this.a.getPageContext().getPageActivity()), this.b);
             this.c = atMeNetModel;
             atMeNetModel.q0(this);
@@ -311,29 +311,29 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
                 atMeCacheModel.setCallback(this);
                 this.d.setUniqueId(this.a.getUniqueId());
             }
-            this.f = new c69();
+            this.f = new d69();
         }
     }
 
-    public boolean T(x59 x59Var, y59 y59Var, Boolean bool) {
+    public boolean T(y59 y59Var, z59 z59Var, Boolean bool) {
         InterceptResult invokeLLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, x59Var, y59Var, bool)) == null) {
-            if (x59Var.a() != 4) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, y59Var, z59Var, bool)) == null) {
+            if (y59Var.a() != 4) {
                 this.f.a().clear();
             }
-            this.f.c(y59Var);
+            this.f.c(z59Var);
             boolean z2 = true;
-            if (y59Var != null && y59Var.a() != null && y59Var.a().size() > 0) {
-                this.e = y59Var.a().get(y59Var.a().size() - 1);
+            if (z59Var != null && z59Var.a() != null && z59Var.a().size() > 0) {
+                this.e = z59Var.a().get(z59Var.a().size() - 1);
                 if (this.f.b() != null && this.f.b().b() != 1) {
                     z = false;
                 } else {
                     z = true;
                 }
-                if (x59Var != null) {
-                    x59Var.i();
+                if (y59Var != null) {
+                    y59Var.i();
                 }
             } else {
                 this.e = null;
@@ -347,12 +347,12 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
             ArrayList<pi> arrayList = new ArrayList<>();
             Iterator<FeedData> it = this.f.a.iterator();
             while (it.hasNext()) {
-                m69 m69Var = new m69();
-                m69Var.C(it.next());
+                n69 n69Var = new n69();
+                n69Var.C(it.next());
                 if (bool.booleanValue()) {
-                    m69Var.E(false);
+                    n69Var.E(false);
                 }
-                arrayList.add(m69Var);
+                arrayList.add(n69Var);
             }
             this.a.b3(z, arrayList);
             return z2;
@@ -361,7 +361,7 @@ public class AtMeModelController extends BdBaseModel implements CacheModel.Cache
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-    public void onCacheDataGet(ReadCacheRespMsg<List<y59>> readCacheRespMsg, ReadCacheMessage<y59> readCacheMessage) {
+    public void onCacheDataGet(ReadCacheRespMsg<List<z59>> readCacheRespMsg, ReadCacheMessage<z59> readCacheMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, readCacheRespMsg, readCacheMessage) == null) {
             if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {

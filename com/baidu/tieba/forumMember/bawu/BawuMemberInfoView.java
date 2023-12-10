@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy9;
 import com.baidu.tieba.ey9;
+import com.baidu.tieba.fy9;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -73,7 +73,7 @@ public class BawuMemberInfoView extends RelativeLayout {
                 return;
             }
             String str = this.a.h.target_scheme;
-            if (ey9.a(str)) {
+            if (fy9.a(str)) {
                 TbLog defaultLog = DefaultLog.getInstance();
                 defaultLog.i("TargetSchemeInterceptHelper", "jump targetScheme: " + str);
                 return;
@@ -163,7 +163,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         this.h = bawuRoleInfoPub;
-        dy9.a(this.c, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
+        ey9.a(this.c, bawuRoleInfoPub.avatar_url, bawuRoleInfoPub.portrait, 12);
         TextView textView = this.d;
         if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
             str = bawuRoleInfoPub.user_name;

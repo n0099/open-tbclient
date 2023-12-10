@@ -39,14 +39,14 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.fj9;
-import com.baidu.tieba.hi9;
+import com.baidu.tieba.gj9;
 import com.baidu.tieba.ii9;
-import com.baidu.tieba.ij9;
+import com.baidu.tieba.ji9;
+import com.baidu.tieba.jj9;
 import com.baidu.tieba.mainentrance.HotForumModel;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListHttpResMessage;
 import com.baidu.tieba.mainentrance.searchsuggestlist.SearchListNetMessage;
-import com.baidu.tieba.pi9;
+import com.baidu.tieba.qi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,7 +64,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     public boolean b;
     public boolean c;
     public HotForumModel d;
-    public fj9 e;
+    public gj9 e;
     public boolean f;
     public final NetMessageListener g;
     public CustomMessageListener h;
@@ -342,9 +342,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
-            fj9 fj9Var = this.e;
-            if (fj9Var != null) {
-                fj9Var.onDestroy();
+            gj9 gj9Var = this.e;
+            if (gj9Var != null) {
+                gj9Var.onDestroy();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921504, null));
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
@@ -449,7 +449,7 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
     }
 
     @Override // com.baidu.tieba.mainentrance.HotForumModel.b
-    public void j(List<hi9> list, List<ii9> list2, HotSearchInfoData hotSearchInfoData, String str) {
+    public void j(List<ii9> list, List<ji9> list2, HotSearchInfoData hotSearchInfoData, String str) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2, hotSearchInfoData, str) == null) {
@@ -479,9 +479,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
             registerListener(this.g);
             registerListener(this.h);
             if (BrowserHelper.allowedUseNewWebContainer("https://tieba.baidu.com/mo/q/hybrid/search?keyword=")) {
-                this.e = new pi9(this, this.c);
+                this.e = new qi9(this, this.c);
             } else {
-                this.e = new ij9(this, this.c);
+                this.e = new jj9(this, this.c);
             }
             O0();
             this.d = new HotForumModel(getPageContext(), this);
@@ -517,9 +517,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPause();
-            fj9 fj9Var = this.e;
-            if (fj9Var != null) {
-                fj9Var.onPause();
+            gj9 gj9Var = this.e;
+            if (gj9Var != null) {
+                gj9Var.onPause();
             }
             MessageManager.getInstance().unRegisterTask(2016568);
         }
@@ -530,9 +530,9 @@ public class NewSquareSearchActivity extends BaseActivity<NewSquareSearchActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            fj9 fj9Var = this.e;
-            if (fj9Var != null) {
-                fj9Var.onResume();
+            gj9 gj9Var = this.e;
+            if (gj9Var != null) {
+                gj9Var.onResume();
             }
             registerGetShareContentTask();
             TbSingleton.getInstance().setFromWhichSearchSource("");

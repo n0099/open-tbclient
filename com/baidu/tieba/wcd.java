@@ -1,34 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.model.PayFlowModel;
 /* loaded from: classes8.dex */
 public interface wcd {
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(CancelType cancelType);
-    }
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(CancelType cancelType);
-
-        void b();
-    }
-
-    GiftBagsInfo a();
-
-    boolean b(Activity activity, b bVar, ycd ycdVar, AbsViewEventHandler absViewEventHandler);
-
-    void c(ViewGroup viewGroup, Activity activity);
-
-    void d(GiftBagsInfo giftBagsInfo);
-
-    boolean e(Activity activity, a aVar, ycd ycdVar, AbsViewEventHandler absViewEventHandler);
-
-    void f(GiftBagsInfo giftBagsInfo);
+    PayFlowModel j(PayFlowType payFlowType);
 }

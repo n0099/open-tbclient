@@ -19,7 +19,7 @@ import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.coreExtra.model.ResponseToastLogic;
 import com.baidu.tbadk.coreExtra.util.PushPermissionController;
-import com.baidu.tieba.d5b;
+import com.baidu.tieba.e5b;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.w4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -214,7 +214,7 @@ public class AttentionModel {
                         updateAttentionData.blockData = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.g(), serverErrorCode, updateAttentionData.blockUrl) || d5b.b(this.m.g(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.g(), serverErrorCode, updateAttentionData.blockUrl) || e5b.b(this.m.g(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);

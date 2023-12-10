@@ -39,9 +39,9 @@ import com.baidu.browser.sailor.BdSailorWebViewClientExt;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tieba.a4b;
 import com.baidu.tieba.bs;
 import com.baidu.tieba.ks;
-import com.baidu.tieba.z3b;
 import com.baidu.tieba.zr;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1957,7 +1957,7 @@ public class BdSailorWebView extends FrameLayout implements INoProGuard {
                 if (this.b.mWebViewExt != null && this.b.mWebViewExt.getWebViewClientExt() != null) {
                     this.b.mWebViewExt.getWebViewClientExt().onFirstPaintDidExt(this.b, str);
                 }
-                this.b.perfLog(webView, "onFirstPaintDid", z3b.b.b);
+                this.b.perfLog(webView, "onFirstPaintDid", a4b.b.b);
                 this.b.perfLog(ETAG.KEY_FIRST_PAINT, str);
                 SessionMonitorEngine.getInstance().onPageKeySectionTimeCost(webView, str, MonitorConstant.KeySectionType.DID_FIRST_PAINT.ordinal(), System.currentTimeMillis() - currentTimeMillis);
             }

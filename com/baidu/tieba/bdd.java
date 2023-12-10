@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.tieba.igd;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
 /* loaded from: classes5.dex */
 public interface bdd {
-    void a(Activity activity, qed qedVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    ted b();
-
-    void c(ted tedVar);
-
-    void release();
+    void a(Activity activity, red redVar, ved vedVar, Dialog dialog, bgd bgdVar, AppCustomExpand appCustomExpand, igd.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 }

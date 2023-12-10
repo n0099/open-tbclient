@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.qb;
-import com.baidu.tieba.sba;
-import com.baidu.tieba.vba;
+import com.baidu.tieba.tba;
+import com.baidu.tieba.wba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public sba b;
+    public tba b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<vba> e = this.a.e(i);
+                List<wba> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<vba> e(int i) {
+    public final List<wba> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            sba sbaVar = this.b;
-            if (sbaVar != null && !ListUtils.isEmpty(sbaVar.a)) {
+            tba tbaVar = this.b;
+            if (tbaVar != null && !ListUtils.isEmpty(tbaVar.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    vba vbaVar = (vba) ListUtils.getItem(this.b.a, i3);
-                    if (vbaVar != null) {
-                        arrayList.add(vbaVar);
+                    wba wbaVar = (wba) ListUtils.getItem(this.b.a, i3);
+                    if (wbaVar != null) {
+                        arrayList.add(wbaVar);
                     }
                 }
                 return arrayList;

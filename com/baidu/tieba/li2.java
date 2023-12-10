@@ -40,13 +40,13 @@ public class li2 {
 
         /* renamed from: com.baidu.tieba.li2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0386a implements Runnable {
+        public class RunnableC0387a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ji2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0386a(a aVar, ji2 ji2Var) {
+            public RunnableC0387a(a aVar, ji2 ji2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class li2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0386a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0387a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

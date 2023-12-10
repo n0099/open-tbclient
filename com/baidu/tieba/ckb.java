@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ckb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WriteVoteData a;
+    public VoiceData.VoiceModel a;
 
     public ckb() {
         Interceptable interceptable = $ic;

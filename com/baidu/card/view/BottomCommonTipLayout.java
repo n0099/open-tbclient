@@ -46,9 +46,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.e65;
-import com.baidu.tieba.i5b;
+import com.baidu.tieba.j5b;
 import com.baidu.tieba.tb5;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -208,14 +208,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        i5b.b(bottomCommonTipLayout, this.b);
+                        j5b.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                i5b.d(bottomCommonTipLayout2, this.b);
+                j5b.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
@@ -413,7 +413,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             }
             e65 e65Var = new e65();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                e65Var.r(tua.f(memberBroadcastData.getBtnBackgroundColor()), tua.f(memberBroadcastData.getBtnTextColor()));
+                e65Var.r(uua.f(memberBroadcastData.getBtnBackgroundColor()), uua.f(memberBroadcastData.getBtnTextColor()));
             } else {
                 e65Var.w(R.color.CAM_X0108);
             }
@@ -431,7 +431,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(tua.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(uua.f(memberBroadcastData.getTextColor()));
             }
             n(memberBroadcastData.getTbRichText());
         }

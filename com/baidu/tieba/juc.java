@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.AlaShareInfo;
+import tbclient.AlaLiveNotify;
 /* loaded from: classes6.dex */
-public class juc extends ktc {
+public class juc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AlaShareInfo alaShareInfo) {
+    public static JSONObject b(@NonNull AlaLiveNotify alaLiveNotify) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaShareInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveNotify)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "content", alaShareInfo.content);
-            ktc.a(jSONObject, "share_user_count", alaShareInfo.share_user_count);
-            ktc.a(jSONObject, "share_count", alaShareInfo.share_count);
-            ktc.a(jSONObject, "record_tid", alaShareInfo.record_tid);
+            ltc.a(jSONObject, "noti_content", alaLiveNotify.noti_content);
+            ltc.a(jSONObject, "noti_url", alaLiveNotify.noti_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

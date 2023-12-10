@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.feedback;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.jx9;
+import com.baidu.tieba.hx9;
 import com.baidu.tieba.kx9;
 import com.baidu.tieba.lx9;
 import com.baidu.tieba.mx9;
+import com.baidu.tieba.nx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -92,7 +92,7 @@ public final class AigcFeedbackViewState {
         this.f = j;
         this.g = j2;
         this.h = tid;
-        this.i = LazyKt__LazyJVMKt.lazy(new Function0<gx9>(this) { // from class: com.baidu.tieba.pb.feedback.AigcFeedbackViewState$feedbackNumState$2
+        this.i = LazyKt__LazyJVMKt.lazy(new Function0<hx9>(this) { // from class: com.baidu.tieba.pb.feedback.AigcFeedbackViewState$feedbackNumState$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AigcFeedbackViewState this$0;
@@ -121,18 +121,18 @@ public final class AigcFeedbackViewState {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final gx9 invoke() {
+            public final hx9 invoke() {
                 InterceptResult invokeV;
-                gx9 e;
+                hx9 e;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (gx9) invokeV.objValue;
+                    return (hx9) invokeV.objValue;
                 }
                 e = this.this$0.e();
                 return e;
             }
         });
-        this.j = LazyKt__LazyJVMKt.lazy(new Function0<jx9>(this) { // from class: com.baidu.tieba.pb.feedback.AigcFeedbackViewState$feedbackButtonTypes$2
+        this.j = LazyKt__LazyJVMKt.lazy(new Function0<kx9>(this) { // from class: com.baidu.tieba.pb.feedback.AigcFeedbackViewState$feedbackButtonTypes$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AigcFeedbackViewState this$0;
@@ -161,57 +161,57 @@ public final class AigcFeedbackViewState {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final jx9 invoke() {
+            public final kx9 invoke() {
                 InterceptResult invokeV;
-                gx9 h;
+                hx9 h;
                 String d;
-                gx9 h2;
+                hx9 h2;
                 String d2;
-                gx9 h3;
+                hx9 h3;
                 String d3;
-                gx9 h4;
+                hx9 h4;
                 String d4;
-                gx9 h5;
+                hx9 h5;
                 String d5;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    lx9.a aVar = lx9.a;
+                    mx9.a aVar = mx9.a;
                     FeedbackButtonStateType feedbackButtonStateType = FeedbackButtonStateType.SELECT_POSITIVE_STATE;
                     AigcFeedbackViewState aigcFeedbackViewState = this.this$0;
                     String j3 = aigcFeedbackViewState.j();
                     h = this.this$0.h();
                     d = aigcFeedbackViewState.d(j3, h.b().a());
-                    kx9 b = lx9.a.b(aVar, feedbackButtonStateType, d, null, null, 12, null);
-                    lx9.a aVar2 = lx9.a;
+                    lx9 b = mx9.a.b(aVar, feedbackButtonStateType, d, null, null, 12, null);
+                    mx9.a aVar2 = mx9.a;
                     FeedbackButtonStateType feedbackButtonStateType2 = FeedbackButtonStateType.SELECTING_POSITIVE_STATE;
                     AigcFeedbackViewState aigcFeedbackViewState2 = this.this$0;
                     String j4 = aigcFeedbackViewState2.j();
                     h2 = this.this$0.h();
                     d2 = aigcFeedbackViewState2.d(j4, h2.b().a());
-                    kx9 b2 = lx9.a.b(aVar2, feedbackButtonStateType2, d2, null, null, 12, null);
-                    lx9.a aVar3 = lx9.a;
+                    lx9 b2 = mx9.a.b(aVar2, feedbackButtonStateType2, d2, null, null, 12, null);
+                    mx9.a aVar3 = mx9.a;
                     FeedbackButtonStateType feedbackButtonStateType3 = FeedbackButtonStateType.SELECT_NEGATIVE_STATE;
                     AigcFeedbackViewState aigcFeedbackViewState3 = this.this$0;
                     String i3 = aigcFeedbackViewState3.i();
                     h3 = this.this$0.h();
                     d3 = aigcFeedbackViewState3.d(i3, h3.a().a());
-                    kx9 b3 = lx9.a.b(aVar3, feedbackButtonStateType3, d3, null, null, 12, null);
-                    lx9.a aVar4 = lx9.a;
+                    lx9 b3 = mx9.a.b(aVar3, feedbackButtonStateType3, d3, null, null, 12, null);
+                    mx9.a aVar4 = mx9.a;
                     FeedbackButtonStateType feedbackButtonStateType4 = FeedbackButtonStateType.UNSELECT_POSITIVE_STATE;
                     AigcFeedbackViewState aigcFeedbackViewState4 = this.this$0;
                     String j5 = aigcFeedbackViewState4.j();
                     h4 = this.this$0.h();
                     d4 = aigcFeedbackViewState4.d(j5, h4.b().b());
-                    kx9 b4 = lx9.a.b(aVar4, feedbackButtonStateType4, d4, null, null, 12, null);
-                    lx9.a aVar5 = lx9.a;
+                    lx9 b4 = mx9.a.b(aVar4, feedbackButtonStateType4, d4, null, null, 12, null);
+                    mx9.a aVar5 = mx9.a;
                     FeedbackButtonStateType feedbackButtonStateType5 = FeedbackButtonStateType.UNSELECT_NEGATIVE_STATE;
                     AigcFeedbackViewState aigcFeedbackViewState5 = this.this$0;
                     String i4 = aigcFeedbackViewState5.i();
                     h5 = this.this$0.h();
                     d5 = aigcFeedbackViewState5.d(i4, h5.a().b());
-                    return new jx9(b, b2, b3, b4, lx9.a.b(aVar5, feedbackButtonStateType5, d5, null, null, 12, null));
+                    return new kx9(b, b2, b3, b4, mx9.a.b(aVar5, feedbackButtonStateType5, d5, null, null, 12, null));
                 }
-                return (jx9) invokeV.objValue;
+                return (kx9) invokeV.objValue;
             }
         });
     }
@@ -239,7 +239,7 @@ public final class AigcFeedbackViewState {
         return (String) invokeLJ.objValue;
     }
 
-    public final gx9 e() {
+    public final hx9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -248,23 +248,23 @@ public final class AigcFeedbackViewState {
                 if (i != 2) {
                     if (i == 3) {
                         long j = this.f;
-                        mx9 mx9Var = new mx9(j + 1, j);
+                        nx9 nx9Var = new nx9(j + 1, j);
                         long j2 = this.g;
-                        return new gx9(mx9Var, new mx9(1 + j2, j2));
+                        return new hx9(nx9Var, new nx9(1 + j2, j2));
                     }
                     throw new NoWhenBranchMatchedException();
                 }
                 long j3 = this.f;
-                mx9 mx9Var2 = new mx9(j3 + 1, j3);
+                nx9 nx9Var2 = new nx9(j3 + 1, j3);
                 long j4 = this.g;
-                return new gx9(mx9Var2, new mx9(j4, j4 - 1));
+                return new hx9(nx9Var2, new nx9(j4, j4 - 1));
             }
             long j5 = this.f;
-            mx9 mx9Var3 = new mx9(j5, j5 - 1);
+            nx9 nx9Var3 = new nx9(j5, j5 - 1);
             long j6 = this.g;
-            return new gx9(mx9Var3, new mx9(1 + j6, j6));
+            return new hx9(nx9Var3, new nx9(1 + j6, j6));
         }
-        return (gx9) invokeV.objValue;
+        return (hx9) invokeV.objValue;
     }
 
     public final AigcFeedbackType f() {
@@ -282,22 +282,22 @@ public final class AigcFeedbackViewState {
         return (AigcFeedbackType) invokeV.objValue;
     }
 
-    public final jx9 g() {
+    public final kx9 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (jx9) this.j.getValue();
+            return (kx9) this.j.getValue();
         }
-        return (jx9) invokeV.objValue;
+        return (kx9) invokeV.objValue;
     }
 
-    public final gx9 h() {
+    public final hx9 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (gx9) this.i.getValue();
+            return (hx9) this.i.getValue();
         }
-        return (gx9) invokeV.objValue;
+        return (hx9) invokeV.objValue;
     }
 
     public final String i() {

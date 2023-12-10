@@ -1,45 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nf7 implements ib7 {
+public final class nf7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final nf7 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948000618, "Lcom/baidu/tieba/nf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948000618, "Lcom/baidu/tieba/nf7;");
+                return;
+            }
+        }
+        a = new nf7();
+    }
 
     public nf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ib7
-    @NonNull
-    public List<qb7<?, ?>> a() {
-        InterceptResult invokeV;
+    public final void a(mf7 stat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new bo7());
-            arrayList.add(new co7());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, stat) == null) {
+            Intrinsics.checkNotNullParameter(stat, "stat");
+            new StatisticItem("c15552").param("fid", stat.a()).param("fname", stat.b()).param("obj_type", stat.c()).eventStat();
         }
-        return (List) invokeV.objValue;
+    }
+
+    public final void b(mf7 stat) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, stat) == null) {
+            Intrinsics.checkNotNullParameter(stat, "stat");
+            new StatisticItem("c15551").param("fid", stat.a()).param("fname", stat.b()).param("obj_type", stat.c()).eventStat();
+        }
     }
 }

@@ -29,14 +29,14 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.afa;
+import com.baidu.tieba.bfa;
 import com.baidu.tieba.fk5;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.q55;
-import com.baidu.tieba.wea;
 import com.baidu.tieba.xea;
-import com.baidu.tieba.zea;
+import com.baidu.tieba.yea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes7.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, wea {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, xea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public afa d;
+    public bfa d;
     public boolean e;
     public NoDataView f;
     public fk5 g;
@@ -62,7 +62,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public int l;
     public int m;
     public boolean n;
-    public xea o;
+    public yea o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -287,15 +287,15 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             S2(false);
-            zea.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e70), true);
+            afa.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0e70), true);
             this.b.setVisibility(8);
         }
     }
 
-    public void X2(xea xeaVar) {
+    public void X2(yea yeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xeaVar) == null) {
-            this.o = xeaVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yeaVar) == null) {
+            this.o = yeaVar;
         }
     }
 
@@ -356,12 +356,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tieba.wea
+    @Override // com.baidu.tieba.xea
     public void A1() {
-        afa afaVar;
+        bfa bfaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (afaVar = this.d) != null) {
-            afaVar.f(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bfaVar = this.d) != null) {
+            bfaVar.f(true);
         }
     }
 
@@ -380,9 +380,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            afa afaVar = this.d;
-            if (afaVar != null) {
-                afaVar.e();
+            bfa bfaVar = this.d;
+            if (bfaVar != null) {
+                bfaVar.e();
                 this.d.i(null);
             }
         }
@@ -426,9 +426,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public final void V2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            afa afaVar = new afa(getPageContext(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"), getUniqueId());
-            this.d = afaVar;
-            afaVar.i(this.q);
+            bfa bfaVar = new bfa(getPageContext(), getArguments().getString("key_uid"), getArguments().getString("key_portrait_url"), getUniqueId());
+            this.d = bfaVar;
+            bfaVar.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }
@@ -456,9 +456,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             this.h.D(i);
             SkinManager.setBackgroundColor(this.a, this.m, i);
-            afa afaVar = this.d;
-            if (afaVar != null) {
-                afaVar.notifyDataSetChanged();
+            bfa bfaVar = this.d;
+            if (bfaVar != null) {
+                bfaVar.notifyDataSetChanged();
             }
         }
     }

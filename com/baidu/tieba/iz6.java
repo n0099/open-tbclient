@@ -234,41 +234,41 @@ public class iz6 extends ci<mz4, AutoVideoCardViewHolder<ThreadData>> {
         return (View) invokeCommon.objValue;
     }
 
-    public final gea z(ThreadData threadData) {
+    public final hea z(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, threadData)) == null) {
             if (threadData != null) {
-                gea geaVar = new gea();
-                geaVar.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
-                geaVar.c = threadData.tid;
-                geaVar.f = threadData.mRecomSource;
-                geaVar.g = threadData.mRecomAbTag;
-                geaVar.h = threadData.mRecomWeight;
-                geaVar.i = "14";
-                geaVar.s = this.b;
-                geaVar.q = String.valueOf(threadData.statFloor);
+                hea heaVar = new hea();
+                heaVar.a = PayUVEventType.PAY_WALLET_BANNER_SHOW;
+                heaVar.c = threadData.tid;
+                heaVar.f = threadData.mRecomSource;
+                heaVar.g = threadData.mRecomAbTag;
+                heaVar.h = threadData.mRecomWeight;
+                heaVar.i = "14";
+                heaVar.s = this.b;
+                heaVar.q = String.valueOf(threadData.statFloor);
                 if (threadData.getThreadVideoChannelInfo() != null) {
-                    geaVar.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
+                    heaVar.k = String.valueOf(threadData.getThreadVideoChannelInfo().a);
                 }
                 if (threadData.getThreadData() != null) {
-                    geaVar.d = String.valueOf(threadData.getThreadData().getFid());
-                    geaVar.v = threadData.getThreadData().getNid();
+                    heaVar.d = String.valueOf(threadData.getThreadData().getFid());
+                    heaVar.v = threadData.getThreadData().getNid();
                     if (threadData.getThreadData().getThreadVideoInfo() != null) {
-                        geaVar.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
-                        geaVar.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
+                        heaVar.m = threadData.getThreadData().getThreadVideoInfo().video_md5;
+                        heaVar.p = String.valueOf(threadData.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                geaVar.e = TbadkCoreApplication.getCurrentAccount();
+                heaVar.e = TbadkCoreApplication.getCurrentAccount();
                 if (threadData.getThreadData() != null && threadData.getThreadData().getBaijiahaoData() != null) {
-                    geaVar.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
-                    geaVar.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
-                    return geaVar;
+                    heaVar.t = threadData.getThreadData().getBaijiahaoData().oriUgcNid;
+                    heaVar.u = threadData.getThreadData().getBaijiahaoData().oriUgcVid;
+                    return heaVar;
                 }
-                return geaVar;
+                return heaVar;
             }
             return null;
         }
-        return (gea) invokeL.objValue;
+        return (hea) invokeL.objValue;
     }
 }

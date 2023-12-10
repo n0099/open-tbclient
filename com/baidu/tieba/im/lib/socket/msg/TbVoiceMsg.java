@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.n75;
 import com.baidu.tieba.ot5;
-import com.baidu.tieba.sv8;
+import com.baidu.tieba.tv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,8 +27,8 @@ public class TbVoiceMsg extends TbNormalMsg {
     public static final String VOICE_THUMBNAIL_TEXT;
     public static final long serialVersionUID = -8477601556340635939L;
     public transient /* synthetic */ FieldHolder $fh;
+    @tv8
     @SerializedName("during_time")
-    @sv8
     public String during;
     public boolean isLocal;
     @ot5(deserialize = false, serialize = false)
@@ -38,8 +38,8 @@ public class TbVoiceMsg extends TbNormalMsg {
     @ot5(deserialize = false, serialize = false)
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
+    @tv8
     @SerializedName("voice_url")
-    @sv8
     public String voiceUrl;
 
     static {

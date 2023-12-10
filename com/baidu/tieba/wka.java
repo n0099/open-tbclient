@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.zb7;
+import com.baidu.tieba.ac7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class wka implements zb7 {
+public final class wka implements ac7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,22 +29,22 @@ public final class wka implements zb7 {
         }
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return zb7.a.b(this);
+            return ac7.a.b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public Map<String, String> a(v57 v57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
-            return zb7.a.a(this, v57Var);
+            return ac7.a.a(this, v57Var);
         }
         return (Map) invokeL.objValue;
     }
@@ -62,7 +62,7 @@ public final class wka implements zb7 {
         if (r5.equals("common_forum") == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-        return "enter_forum_btn_click";
+        return "common_click_for_forum_head";
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
         if (r5.equals("video_user") == false) goto L23;
@@ -71,9 +71,9 @@ public final class wka implements zb7 {
         if (r5.equals("common_user") == false) goto L23;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
-        return "user_head_click";
+        return "common_click_for_user_head";
      */
-    @Override // com.baidu.tieba.zb7
+    @Override // com.baidu.tieba.ac7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

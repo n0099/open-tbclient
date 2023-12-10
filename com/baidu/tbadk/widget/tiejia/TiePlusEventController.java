@@ -35,7 +35,7 @@ import com.baidu.tieba.az5;
 import com.baidu.tieba.bz5;
 import com.baidu.tieba.filedownloader.TbDownloadManager;
 import com.baidu.tieba.pq4;
-import com.baidu.tieba.wha;
+import com.baidu.tieba.xha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -461,7 +461,7 @@ public class TiePlusEventController implements LifecycleObserver {
     public final void k(bz5 bz5Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bz5Var) == null) && bz5Var != null && bz5Var.n() != null) {
-            if (wha.i(bz5Var.n().app_package)) {
+            if (xha.i(bz5Var.n().app_package)) {
                 UtilHelper.startAppByPkgName(bz5Var.n().app_package);
                 return;
             }

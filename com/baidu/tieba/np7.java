@@ -1,36 +1,38 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.tieba.forum.widget.TbNestedScrollView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class np7 implements vp7 {
+public final class np7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vp7
-    public int a() {
-        InterceptResult invokeV;
+    public static final boolean a(TbNestedScrollView tbNestedScrollView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public np7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbNestedScrollView)) == null) {
+            Intrinsics.checkNotNullParameter(tbNestedScrollView, "<this>");
+            View nestedScrollChild = tbNestedScrollView.getNestedScrollChild();
+            if (nestedScrollChild == null) {
+                return true;
             }
+            int nestedScrollAxes = tbNestedScrollView.getNestedScrollAxes();
+            if (nestedScrollAxes != 1) {
+                if (nestedScrollAxes != 2) {
+                    return true;
+                }
+                if (nestedScrollChild.getY() - tbNestedScrollView.getScrollY() >= 0.0f && (nestedScrollChild.getY() + nestedScrollChild.getHeight()) - tbNestedScrollView.getScrollY() <= tbNestedScrollView.getHeight()) {
+                    return true;
+                }
+            } else if (nestedScrollChild.getX() - tbNestedScrollView.getScrollX() >= 0.0f && (nestedScrollChild.getX() + nestedScrollChild.getWidth()) - tbNestedScrollView.getScrollX() <= tbNestedScrollView.getWidth()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

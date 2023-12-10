@@ -1,32 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.FrsBottomActivity;
-import tbclient.FrsBottomActivityTime;
+import tbclient.FrsBottomActivityBase;
 /* loaded from: classes8.dex */
-public class ryc extends ktc {
+public class ryc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FrsBottomActivity frsBottomActivity) {
+    public static JSONObject b(@NonNull FrsBottomActivityBase frsBottomActivityBase) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsBottomActivityBase)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "title", frsBottomActivity.title);
-            ktc.a(jSONObject, "abstract", frsBottomActivity._abstract);
-            ktc.a(jSONObject, "image", frsBottomActivity.image);
-            ktc.a(jSONObject, "icon", frsBottomActivity.icon);
-            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, frsBottomActivity.jump_url);
-            FrsBottomActivityTime frsBottomActivityTime = frsBottomActivity.activity_time;
-            if (frsBottomActivityTime != null) {
-                ktc.a(jSONObject, "activity_time", syc.b(frsBottomActivityTime));
+            if (frsBottomActivityBase.activity_list != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FrsBottomActivity frsBottomActivity : frsBottomActivityBase.activity_list) {
+                    jSONArray.put(syc.b(frsBottomActivity));
+                }
+                ltc.a(jSONObject, "activity_list", jSONArray);
             }
             return jSONObject;
         }

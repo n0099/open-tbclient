@@ -12,13 +12,13 @@ public final class x97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<rb7<? extends Object>> mutableList, r67 feedExtraData) {
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<sb7<? extends Object>> mutableList, r67 feedExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65536, null, threadRecommendInfo, mutableList, feedExtraData) == null) {
             Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
             Intrinsics.checkNotNullParameter(mutableList, "mutableList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            mutableList.add(new sb7(new v47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
+            mutableList.add(new tb7(new v47(b(threadRecommendInfo), feedExtraData.a().a(), feedExtraData.c().a(), null, 8, null), "recommend_info"));
         }
     }
 

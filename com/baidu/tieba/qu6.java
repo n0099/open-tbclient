@@ -15,7 +15,7 @@ public class qu6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public nz7 a;
+    public oz7 a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,13 +47,13 @@ public class qu6 extends BaseCardInfo {
         }
     }
 
-    public nz7 c() {
+    public oz7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (nz7) invokeV.objValue;
+        return (oz7) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
@@ -66,10 +66,10 @@ public class qu6 extends BaseCardInfo {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(nz7 nz7Var) {
+    public void d(oz7 oz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nz7Var) == null) {
-            this.a = nz7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oz7Var) == null) {
+            this.a = oz7Var;
         }
     }
 }

@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gy8;
+import com.baidu.tieba.hy8;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.tieba.im.lib.socket.msg.TbTextGenImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.adapter.SingleTextImageAdapter;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.TextGenImageItem;
-import com.baidu.tieba.yp8;
-import com.baidu.tieba.yy8;
+import com.baidu.tieba.zp8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final yp8 a;
+        public final zp8 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public Holder(RecyclerView recyclerView) {
@@ -71,7 +71,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
                 }
             }
             Context context = recyclerView.getContext();
-            this.a = gy8.e(context, recyclerView, BdUtilHelper.getDimens(context, R.dimen.M_W_X004));
+            this.a = hy8.e(context, recyclerView, BdUtilHelper.getDimens(context, R.dimen.M_W_X004));
         }
     }
 
@@ -155,7 +155,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
             super.N(viewGroup);
-            return new Holder(yy8.g(this.mContext));
+            return new Holder(zy8.g(this.mContext));
         }
         return (Holder) invokeL.objValue;
     }
@@ -183,7 +183,7 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
-            return new Holder(yy8.g(this.mContext));
+            return new Holder(zy8.g(this.mContext));
         }
         return (Holder) invokeL.objValue;
     }
@@ -210,12 +210,12 @@ public class TextGenImageAdapter extends BaseStyleNormalAdapter<TextGenImageItem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), viewGroup, textGenImageItem, holder, list, Integer.valueOf(i2)}) == null) {
             super.U(i, viewGroup, textGenImageItem, holder, list, i2);
-            yp8 yp8Var = holder.a;
-            if (yp8Var != null && textGenImageItem.getTbMsg().getSubSkillConfig() != null && !((List) Objects.requireNonNull(textGenImageItem.getTbMsg().getSubSkillConfig().a)).isEmpty()) {
+            zp8 zp8Var = holder.a;
+            if (zp8Var != null && textGenImageItem.getTbMsg().getSubSkillConfig() != null && !((List) Objects.requireNonNull(textGenImageItem.getTbMsg().getSubSkillConfig().a)).isEmpty()) {
                 viewGroup.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(textGenImageItem.getTbMsg());
-                yp8Var.d(arrayList);
+                zp8Var.d(arrayList);
                 return;
             }
             viewGroup.setVisibility(8);

@@ -231,7 +231,7 @@ public class ih5 extends je5 {
                 u.l = 1;
             }
             if (!this.c) {
-                if (jya.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), ue5.class)) != null && (ue5Var = (ue5) runTask.getData()) != null) {
+                if (kya.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), ue5.class)) != null && (ue5Var = (ue5) runTask.getData()) != null) {
                     ue5Var.l = 2;
                     a2.f(ue5Var);
                 }

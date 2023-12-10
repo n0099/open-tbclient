@@ -1,13 +1,13 @@
 package com.baidu.tieba.forum.data.protobuf;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ag7;
+import com.baidu.tieba.bg7;
 import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.kz4;
 import com.baidu.tieba.r67;
-import com.baidu.tieba.rb7;
 import com.baidu.tieba.sb7;
-import com.baidu.tieba.va7;
+import com.baidu.tieba.tb7;
+import com.baidu.tieba.wa7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public final class FrsHeadlinesExtensionKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedToutiao feedToutiao, final List<rb7<?>> dataList, final r67 feedExtraData, final String schema) {
+    public static final void a(FeedToutiao feedToutiao, final List<sb7<?>> dataList, final r67 feedExtraData, final String schema) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65536, null, feedToutiao, dataList, feedExtraData, schema) == null) {
@@ -34,13 +34,13 @@ public final class FrsHeadlinesExtensionKt {
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
             Intrinsics.checkNotNullParameter(schema, "schema");
-            HashMap<String, String> a = va7.a.a(feedToutiao.business_info);
+            HashMap<String, String> a = wa7.a.a(feedToutiao.business_info);
             if (a.isEmpty() || (str = a.get("task_info")) == null) {
                 return;
             }
             JSONKt.a(str, new Function1<JSONObject, Unit>(feedExtraData, schema, dataList) { // from class: com.baidu.tieba.forum.data.protobuf.FrsHeadlinesExtensionKt$insertTemplateList$1
                 public static /* synthetic */ Interceptable $ic;
-                public final /* synthetic */ List<rb7<?>> $dataList;
+                public final /* synthetic */ List<sb7<?>> $dataList;
                 public final /* synthetic */ r67 $feedExtraData;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String $schema;
@@ -87,7 +87,7 @@ public final class FrsHeadlinesExtensionKt {
                         if (str2 == null) {
                             str2 = "";
                         }
-                        this.$dataList.add(new sb7(new ag7(str2, kz4Var, this.$schema, this.$feedExtraData.a().a(), this.$feedExtraData.c().a(), null, 32, null), "head_lines"));
+                        this.$dataList.add(new tb7(new bg7(str2, kz4Var, this.$schema, this.$feedExtraData.a().a(), this.$feedExtraData.c().a(), null, 32, null), "head_lines"));
                     }
                 }
             });

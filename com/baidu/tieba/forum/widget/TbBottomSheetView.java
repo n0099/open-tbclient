@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.launch.stats.FirstFrameSpeedStats;
 import com.baidu.tieba.forum.widget.TbBottomSheetView;
-import com.baidu.tieba.gp7;
-import com.baidu.tieba.ko7;
-import com.baidu.tieba.lp7;
-import com.baidu.tieba.tk7;
+import com.baidu.tieba.hp7;
+import com.baidu.tieba.lo7;
+import com.baidu.tieba.mp7;
+import com.baidu.tieba.uk7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,9 +50,9 @@ public final class TbBottomSheetView extends TbNestedScrollView {
     public boolean I;
     public boolean J;
     public ValueAnimator K;
-    public final ArrayList<gp7> L;
+    public final ArrayList<hp7> L;
     public AnimatorListenerAdapter M;
-    public lp7 N;
+    public mp7 N;
     public boolean z;
 
     static {
@@ -240,7 +240,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         new LinkedHashMap();
         this.A = 1000L;
         this.B = 1000L;
-        this.C = ko7.a(10);
+        this.C = lo7.a(10);
         this.D = true;
         this.F = 3;
         this.L = new ArrayList<>();
@@ -348,13 +348,13 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         }
     }
 
-    public final lp7 getBottomSheetStateListener() {
+    public final mp7 getBottomSheetStateListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.N;
         }
-        return (lp7) invokeV.objValue;
+        return (mp7) invokeV.objValue;
     }
 
     public final AnimatorListenerAdapter getBounceAnimatorListener() {
@@ -394,7 +394,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         }
     }
 
-    public final void I(gp7 listener) {
+    public final void I(hp7 listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
@@ -417,10 +417,10 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         return invokeI.booleanValue;
     }
 
-    public final void setBottomSheetStateListener(lp7 lp7Var) {
+    public final void setBottomSheetStateListener(mp7 mp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, lp7Var) == null) {
-            this.N = lp7Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, mp7Var) == null) {
+            this.N = mp7Var;
         }
     }
 
@@ -445,8 +445,8 @@ public final class TbBottomSheetView extends TbNestedScrollView {
             final int scrollY = getScrollY();
             final int i2 = i - scrollY;
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat.setInterpolator(new tk7(0.55f));
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.dp7
+            ofFloat.setInterpolator(new uk7(0.55f));
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ep7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -489,7 +489,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
             ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
             ofFloat.setRepeatCount(-1);
             ofFloat.setRepeatMode(1);
-            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.cp7
+            ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.dp7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -540,8 +540,8 @@ public final class TbBottomSheetView extends TbNestedScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, e)) == null) {
             Intrinsics.checkNotNullParameter(e, "e");
-            for (gp7 gp7Var : this.L) {
-                gp7Var.a(e);
+            for (hp7 hp7Var : this.L) {
+                hp7Var.a(e);
             }
             if (e.getAction() == 0) {
                 L();
@@ -604,7 +604,7 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
                                     Intrinsics.checkNotNullParameter(it, "it");
                                     this.this$0.J = false;
-                                    lp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
+                                    mp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
                                     if (bottomSheetStateListener != null) {
                                         bottomSheetStateListener.a();
                                     }
@@ -659,14 +659,14 @@ public final class TbBottomSheetView extends TbNestedScrollView {
                                 Intrinsics.checkNotNullParameter(it, "it");
                                 this.this$0.J = false;
                                 if (this.$desScrollY == this.this$0.getMaxScroll()) {
-                                    lp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
+                                    mp7 bottomSheetStateListener = this.this$0.getBottomSheetStateListener();
                                     if (bottomSheetStateListener != null) {
                                         bottomSheetStateListener.a();
                                         return;
                                     }
                                     return;
                                 }
-                                lp7 bottomSheetStateListener2 = this.this$0.getBottomSheetStateListener();
+                                mp7 bottomSheetStateListener2 = this.this$0.getBottomSheetStateListener();
                                 if (bottomSheetStateListener2 != null) {
                                     bottomSheetStateListener2.b();
                                 }

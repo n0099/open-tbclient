@@ -61,38 +61,38 @@ public class BridgeConfig_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ps4 ps4Var = new ps4();
-            rj6.a().f(ps4Var, new ClipperJsBridgePlugin_Proxy(ps4Var));
-            xs4 xs4Var = new xs4();
-            rj6.a().f(xs4Var, new PaymentJsBridgePlugin_Proxy(xs4Var));
-            ss4 ss4Var = new ss4();
-            rj6.a().f(ss4Var, new HybridDebugJsBridgePlugin_Proxy(ss4Var));
-            zs4 zs4Var = new zs4();
-            rj6.a().f(zs4Var, new RouterJsBridgePlugin_Proxy(zs4Var));
-            os4 os4Var = new os4();
-            rj6.a().f(os4Var, new ActivityJsBridgePlugin_Proxy(os4Var));
-            qs4 qs4Var = new qs4();
-            rj6.a().f(qs4Var, new DeviceJsBridgePlugin_Proxy(qs4Var));
-            rs4 rs4Var = new rs4();
-            rj6.a().f(rs4Var, new HostJsBridgePlugin_Proxy(rs4Var));
-            ws4 ws4Var = new ws4();
-            rj6.a().f(ws4Var, new NavigationBarJsBridgePlugin_Proxy(ws4Var));
+            at4 at4Var = new at4();
+            rj6.a().f(at4Var, new ShareJsBridgePlugin_Proxy(at4Var));
             vs4 vs4Var = new vs4();
             rj6.a().f(vs4Var, new LogJsBridgePlugin_Proxy(vs4Var));
             ts4 ts4Var = new ts4();
             rj6.a().f(ts4Var, new HybridJsBridgePlugin_Proxy(ts4Var));
-            ct4 ct4Var = new ct4();
-            rj6.a().f(ct4Var, new SystemJsBridgePlugin_Proxy(ct4Var));
-            at4 at4Var = new at4();
-            rj6.a().f(at4Var, new ShareJsBridgePlugin_Proxy(at4Var));
-            et4 et4Var = new et4();
-            rj6.a().f(et4Var, new YabmentJsBridgePlugin_Proxy(et4Var));
-            bt4 bt4Var = new bt4();
-            rj6.a().f(bt4Var, new SubscriptionJsBridgePlugin_Proxy(bt4Var));
-            ns4 ns4Var = new ns4();
-            rj6.a().f(ns4Var, new AccountJsBridgePlugin_Proxy(ns4Var));
+            rs4 rs4Var = new rs4();
+            rj6.a().f(rs4Var, new HostJsBridgePlugin_Proxy(rs4Var));
+            ws4 ws4Var = new ws4();
+            rj6.a().f(ws4Var, new NavigationBarJsBridgePlugin_Proxy(ws4Var));
+            qs4 qs4Var = new qs4();
+            rj6.a().f(qs4Var, new DeviceJsBridgePlugin_Proxy(qs4Var));
             dt4 dt4Var = new dt4();
             rj6.a().f(dt4Var, new ToastJsBridgePlugin_Proxy(dt4Var));
+            ss4 ss4Var = new ss4();
+            rj6.a().f(ss4Var, new HybridDebugJsBridgePlugin_Proxy(ss4Var));
+            bt4 bt4Var = new bt4();
+            rj6.a().f(bt4Var, new SubscriptionJsBridgePlugin_Proxy(bt4Var));
+            et4 et4Var = new et4();
+            rj6.a().f(et4Var, new YabmentJsBridgePlugin_Proxy(et4Var));
+            os4 os4Var = new os4();
+            rj6.a().f(os4Var, new ActivityJsBridgePlugin_Proxy(os4Var));
+            ns4 ns4Var = new ns4();
+            rj6.a().f(ns4Var, new AccountJsBridgePlugin_Proxy(ns4Var));
+            xs4 xs4Var = new xs4();
+            rj6.a().f(xs4Var, new PaymentJsBridgePlugin_Proxy(xs4Var));
+            zs4 zs4Var = new zs4();
+            rj6.a().f(zs4Var, new RouterJsBridgePlugin_Proxy(zs4Var));
+            ct4 ct4Var = new ct4();
+            rj6.a().f(ct4Var, new SystemJsBridgePlugin_Proxy(ct4Var));
+            ps4 ps4Var = new ps4();
+            rj6.a().f(ps4Var, new ClipperJsBridgePlugin_Proxy(ps4Var));
         }
     }
 }

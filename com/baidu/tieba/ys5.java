@@ -50,13 +50,13 @@ public class ys5 {
 
         /* renamed from: com.baidu.tieba.ys5$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class RunnableC0546a implements Runnable {
+        public class RunnableC0542a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ApkDownloadInfoData a;
             public final /* synthetic */ a b;
 
-            public RunnableC0546a(a aVar, ApkDownloadInfoData apkDownloadInfoData) {
+            public RunnableC0542a(a aVar, ApkDownloadInfoData apkDownloadInfoData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class ys5 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if ((this.b.a.b instanceof wya) && ((wya) this.b.a.b).a0().hasDialog()) {
+                    if ((this.b.a.b instanceof xya) && ((xya) this.b.a.b).a0().hasDialog()) {
                         return;
                     }
                     this.b.a.q(this.a);
@@ -119,7 +119,7 @@ public class ys5 {
                 if (TbSingleton.getExceptInsertAdDiaShow()) {
                     return null;
                 }
-                if ((this.a.b instanceof wya) && ((wya) this.a.b).a0().hasDialog()) {
+                if ((this.a.b instanceof xya) && ((xya) this.a.b).a0().hasDialog()) {
                     return null;
                 }
                 Iterator it = this.a.a.iterator();
@@ -129,7 +129,7 @@ public class ys5 {
                     }
                     ApkDownloadInfoData apkDownloadInfoData = (ApkDownloadInfoData) it.next();
                     if (apkDownloadInfoData != null && apkDownloadInfoData.getStatus() == AdDownloadStatus.COMPLETED && this.a.l(apkDownloadInfoData)) {
-                        SafeHandler.getInst().post(new RunnableC0546a(this, apkDownloadInfoData));
+                        SafeHandler.getInst().post(new RunnableC0542a(this, apkDownloadInfoData));
                         break;
                     }
                 }

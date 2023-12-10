@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.TelephonyManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,63 +18,69 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
 public class pic {
-    public static /* synthetic */ Interceptable $ic;
-    public static int u;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String f = "pic";
+    public static ConnectivityManager g;
+    public static NetworkInfo h;
+    public static final Handler i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public int b;
-    public AtomicInteger c;
-    public WeakReference<lic> d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public AtomicLong q;
-    public AtomicLong r;
-    public AtomicLong s;
-    public AtomicBoolean t;
+    public Context a;
+    public ExecutorService b;
+    public sic c;
+    public AtomicBoolean d;
+    public BroadcastReceiver e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948064447, "Lcom/baidu/tieba/pic;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pic this$0;
+
+        public a(pic picVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {picVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = picVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948064447, "Lcom/baidu/tieba/pic;");
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                TLog.h("[tinyvideo]", "[netrecv] NetworkStateService onReceive pid " + Thread.currentThread().getId());
+                if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
+                    TLog.h("[tinyvideo]", "[netrecv]  current network connectivity action begin");
+                    this.this$0.j();
+                    TLog.h("[tinyvideo]", "[netrecv] current network connectivity action end");
+                }
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class a extends TimerTask {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pic a;
 
-        public a(pic picVar) {
+        public b(pic picVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,261 +98,214 @@ public class pic {
             this.a = picVar;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
+        @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.e) {
-                    pic.k(this.a);
-                    int i = ((System.currentTimeMillis() - this.a.r.get()) > 600L ? 1 : ((System.currentTimeMillis() - this.a.r.get()) == 600L ? 0 : -1));
-                    if (i <= 0 || this.a.f || this.a.g == -1 || this.a.r.get() == 0) {
-                        if (i < 0 && this.a.f) {
-                            this.a.g = -1;
-                            this.a.f = false;
-                            this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                        }
-                    } else {
-                        this.a.f = true;
-                        this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6000);
-                        this.a.k = 0;
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6001);
-                        this.a.l = 0;
-                    }
-                    if (this.a.b % 30 == 0 && this.a.t.get()) {
-                        long currentTimeMillis = System.currentTimeMillis() - this.a.q.get();
-                        if (currentTimeMillis > 2000 && this.a.q.get() >= this.a.r.get() && this.a.r.get() > 0) {
-                            TLog.g(this, "[draw] may block, elapse " + currentTimeMillis + "ms after drawStart");
-                            this.a.t.set(false);
-                        }
-                    }
-                    if (this.a.b % 50 == 0 && this.a.s.get() > 1500) {
-                        TLog.g(this, "[draw] max cost: " + this.a.s.get());
-                        this.a.s.set(0L);
-                    }
-                    if (this.a.b % 50 != 0) {
-                        return;
-                    }
-                    this.a.v(AuthCode.StatusCode.PERMISSION_NOT_EXIST);
-                    this.a.m = 0L;
-                    this.a.n = 0L;
-                    this.a.b = 0;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.a.d) {
+                if (!this.a.d.get()) {
                     return;
                 }
-                this.a.e = false;
-                this.a.m = 0L;
-                this.a.n = 0L;
-                this.a.l = 0;
+                pic.g(this.a.a, this.a.c);
             }
         }
     }
 
-    public pic() {
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pic a;
+
+        public c(pic picVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {picVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = picVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.shutdownNow();
+                this.a.b = null;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948064447, "Lcom/baidu/tieba/pic;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948064447, "Lcom/baidu/tieba/pic;");
+                return;
+            }
+        }
+        i = new Handler(Looper.getMainLooper());
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv]  updateNetInfo");
+            ExecutorService executorService = this.b;
+            if (executorService != null) {
+                executorService.submit(new b(this));
+            }
+        }
+    }
+
+    public pic(Context context, sic sicVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, sicVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = new AtomicInteger(0);
-        this.d = new WeakReference<>(null);
-        this.e = true;
-        this.f = false;
-        this.g = -1;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0L;
-        this.n = 0L;
-        this.o = 0L;
-        this.p = 0L;
-        this.q = new AtomicLong(0L);
-        this.r = new AtomicLong(0L);
-        this.s = new AtomicLong(0L);
-        this.t = new AtomicBoolean(false);
+        this.b = null;
+        this.c = null;
+        this.d = new AtomicBoolean(false);
+        this.e = new a(this);
+        this.a = context;
+        this.c = sicVar;
     }
 
-    public static /* synthetic */ int k(pic picVar) {
-        int i = picVar.b;
-        picVar.b = i + 1;
-        return i;
-    }
-
-    public void A(long j) {
+    public static void g(Context context, sic sicVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.r.set(j);
-            long j2 = this.r.get() - this.q.get();
-            if (j2 >= this.s.get()) {
-                this.s.set(j2);
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, sicVar) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo");
+            if (context == null) {
+                return;
+            }
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo begin");
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            g = connectivityManager;
+            h = connectivityManager.getActiveNetworkInfo();
+            TLog.h("[tinyvideo]", "[netrecv] doUpdateNetInfo, getActiveNetworkInfo end");
+            NetworkInfo networkInfo = h;
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                int type = h.getType();
+                if (type == 0) {
+                    byte h2 = h(context);
+                    sicVar.e(h2);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName() + ", mobileNetType:" + ((int) h2));
+                    return;
+                } else if (type == 1) {
+                    sicVar.e(0);
+                    TLog.h("[tinyvideo]", "[netrecv] current network: " + h.getTypeName());
+                    return;
+                } else {
+                    String str = f;
+                    TLog.h(str, "[netrecv] current network: " + h.getTypeName());
+                    return;
+                }
+            }
+            TLog.h("[tinyvideo]", "[netrecv] current network No usable network!!");
+            sicVar.e(2);
+        }
+    }
+
+    public static byte h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            try {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                    case 1:
+                    case 2:
+                        return (byte) 3;
+                    case 3:
+                        return (byte) 4;
+                    case 4:
+                        return (byte) 3;
+                    case 5:
+                    case 6:
+                        return (byte) 4;
+                    case 7:
+                        return (byte) 3;
+                    case 8:
+                    case 9:
+                    case 10:
+                        return (byte) 4;
+                    case 11:
+                        return (byte) 3;
+                    case 12:
+                        return (byte) 4;
+                    case 13:
+                        return (byte) 5;
+                    case 14:
+                    case 15:
+                        return (byte) 4;
+                    default:
+                        return (byte) 1;
+                }
+            } catch (SecurityException e) {
+                e.printStackTrace();
+                return (byte) 1;
+            }
+        }
+        return invokeL.byteValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager deInit ");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (this.d.get()) {
+                        this.d.set(false);
+                        this.a.unregisterReceiver(this.e);
+                    }
+                }
+                i.post(new c(this));
             }
         }
     }
 
-    public void B(long j) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.q.set(j);
-            this.t.set(true);
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.n += i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m += i;
-        }
-    }
-
-    public void x(lic licVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, licVar) == null) {
-            this.d = new WeakReference<>(licVar);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-            v(6002);
-        }
-    }
-
-    public void y(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.i = i;
-            this.j = i2;
-            v(AuthCode.StatusCode.CERT_FINGERPRINT_ERROR);
-        }
-    }
-
-    public static int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return u;
-        }
-        return invokeV.intValue;
-    }
-
-    public void F() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
-            this.e = true;
-            this.p = 0L;
-            this.o = 0L;
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.l++;
-        }
-    }
-
-    public void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.set(i);
-            TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor playTaskId %d", Integer.valueOf(this.c.get())));
-            TLog.g(this, "QualityMonitor start");
-            if (this.a == null) {
-                Timer timer = new Timer();
-                this.a = timer;
-                timer.schedule(new a(this), 1000L, 100L);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup");
+            if (this.a != null) {
+                synchronized (this.d) {
+                    if (!this.d.get()) {
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                        this.a.registerReceiver(this.e, intentFilter);
+                        this.b = Executors.newSingleThreadExecutor();
+                        this.d.set(true);
+                        TLog.h("[tinyvideo]", "[netrecv] NetStatManager.setup done");
+                    }
+                }
             }
-            TLog.g(this, "QualityMonitor start");
         }
-    }
-
-    public final void v(int i) {
-        lic licVar;
-        float currentTimeMillis;
-        float currentTimeMillis2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || (licVar = this.d.get()) == null) {
-            return;
-        }
-        Message message = null;
-        switch (i) {
-            case 6000:
-                message = Message.obtain(null, 6000, this.k, 0);
-                break;
-            case 6001:
-                if (this.p == 0) {
-                    currentTimeMillis = 2.0f;
-                } else {
-                    currentTimeMillis = (float) ((System.currentTimeMillis() - this.p) / 1000);
-                }
-                int i2 = (int) (this.l / currentTimeMillis);
-                u = i2;
-                message = Message.obtain(null, 6001, i2, 0);
-                this.p = System.currentTimeMillis();
-                break;
-            case 6002:
-                message = Message.obtain(null, 6002, this.h, 0);
-                break;
-            case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
-                message = Message.obtain(null, AuthCode.StatusCode.CERT_FINGERPRINT_ERROR, this.i, this.j);
-                TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor output size %d * %d  , taskId %d", Integer.valueOf(this.i), Integer.valueOf(this.j), Integer.valueOf(this.c.get())));
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
-                if (this.o == 0) {
-                    currentTimeMillis2 = 5.0f;
-                } else {
-                    currentTimeMillis2 = (float) ((System.currentTimeMillis() - this.o) / 1000);
-                }
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_EXIST, (int) (((float) (this.m * 8)) / currentTimeMillis2), (int) (((float) (this.n * 8)) / currentTimeMillis2));
-                this.o = System.currentTimeMillis();
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED, this.f ? 1 : 0, this.g);
-                break;
-            case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_EXPIRED, 1, this.g);
-                break;
-        }
-        licVar.a(message, this.c.get());
     }
 }

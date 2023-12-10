@@ -1,18 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
-import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
-import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tbadk.data.JSONLikeSerializable;
+import com.baidu.tieba.immessagecenter.arch.utils.IMLog;
+import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
+import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,37 +15,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
 public final class r89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-505071975, "Lcom/baidu/tieba/r89$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-505071975, "Lcom/baidu/tieba/r89$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NotifyType.values().length];
-            iArr[NotifyType.AT_ME.ordinal()] = 1;
-            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
-            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
-            iArr[NotifyType.FANS.ordinal()] = 4;
-            $EnumSwitchMapping$0 = iArr;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948075638, "Lcom/baidu/tieba/r89;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948075638, "Lcom/baidu/tieba/r89;");
         }
     }
 
@@ -58,117 +46,87 @@ public final class r89 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void a(k79 k79Var) {
-        NotifyType notifyType;
+    public final HashMap<String, Serializable> a(List<m79> list) {
+        InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, k79Var) == null) {
-            if (k79Var != null) {
-                notifyType = k79Var.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            TbLog iMLog = IMLog.getInstance();
+            StringBuilder sb = new StringBuilder();
+            sb.append("NavigationData Size = ");
+            if (list != null) {
+                i = list.size();
             } else {
-                notifyType = null;
+                i = 0;
             }
-            if (notifyType == null) {
-                i = -1;
-            } else {
-                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
-            }
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            zt8.b().g(4, 0);
-                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
-                            ga5.p0().l();
-                            ga5.p0().j0(0);
-                            DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [粉丝] 重置(内存/缓存)消息未读数为0，清理粉丝通知");
-                            return;
-                        }
-                        return;
-                    }
-                    zt8.b().g(2, 0);
-                    ga5.p0().o();
-                    ga5.p0().m0(0);
-                    DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [回复] 重置(内存/缓存)消息未读数为0，清理回复通知");
-                    return;
+            sb.append(i);
+            iMLog.i("im", sb.toString());
+            List<MsgTabForumData> b = b(list);
+            TbLog iMLog2 = IMLog.getInstance();
+            iMLog2.i("im", "ForumListData Size = " + b.size());
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            ArrayList arrayList = new ArrayList();
+            for (MsgTabForumData msgTabForumData : b) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("forum_id", String.valueOf(msgTabForumData.getForumId()));
+                linkedHashMap.put("forum_name", msgTabForumData.getForumName());
+                linkedHashMap.put("avatar", msgTabForumData.getIcon());
+                String hotNumsText = msgTabForumData.getHotNumsText();
+                if (hotNumsText == null) {
+                    hotNumsText = "";
                 }
-                zt8.b().g(1, 0);
-                ga5.p0().h();
-                ga5.p0().f0(0);
-                DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [点赞] 重置(内存/缓存)消息未读数为0，清理点赞通知");
-                return;
+                linkedHashMap.put("hot_num_value", hotNumsText);
+                arrayList.add(linkedHashMap);
             }
-            zt8.b().g(3, 0);
-            ga5.p0().j();
-            ga5.p0().g0(0);
-            DefaultLog.getInstance().i("MsgTabNotifyRemind", "clearNotifyRemind: [@我] 重置(内存/缓存)消息未读数为0，清理@我通知");
+            JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
+            jSONLikeSerializable.parseJsonArray(new JSONArray((Collection) arrayList));
+            hashMap.put("often_forum_list", jSONLikeSerializable);
+            hashMap.put("checkLength", Integer.valueOf(b.size()));
+            TbLog iMLog3 = IMLog.getInstance();
+            iMLog3.i("im", "OftenForumListString = " + jSONLikeSerializable.getJsonString());
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    public final void b(BaseFragment frag, int i) {
+    public final List<MsgTabForumData> b(List<m79> list) {
+        InterceptResult invokeL;
+        MsgTabForumData d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null) {
+                for (m79 m79Var : list) {
+                    if (m79Var.b() == 3 && (d = ForumChannelDataObs.b.a().d(m79Var.a())) != null) {
+                        arrayList.add(d);
+                    }
+                }
             }
-            agreeMeActivityConfig.setAgreeNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void c(BaseFragment frag, int i) {
+    public final long c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            if (m.getNotificationCount() + m.getMsgCount() > 0) {
+                return -1L;
             }
-            atMeActivityConfig.setAtNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
+            return j;
         }
-    }
-
-    public final void d(BaseFragment frag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                personListActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            personListActivityConfig.setFansNumber(ga5.p0().y());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
-        }
-    }
-
-    public final void e(BaseFragment frag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
-            replyMeActivityConfig.setFrom(1);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            replyMeActivityConfig.setReplyNumber(ga5.p0().B());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
-        }
+        return invokeJ.longValue;
     }
 }

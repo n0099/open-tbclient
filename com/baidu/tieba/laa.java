@@ -13,11 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class laa extends ci<eca, CardViewHolder<hda>> {
+public class laa extends ci<xba, CardViewHolder<zca>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public View.OnClickListener b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public laa(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,34 +43,24 @@ public class laa extends ci<eca, CardViewHolder<hda>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public CardViewHolder<hda> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<zca> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new hda(this.a));
+            return new CardViewHolder<>(new zca(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void x(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, eca ecaVar, CardViewHolder<hda> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xba xbaVar, CardViewHolder<zca> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ecaVar, cardViewHolder})) == null) {
-            if (ecaVar != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().j(ecaVar);
-                if (cardViewHolder.a().i() != null) {
-                    cardViewHolder.a().i().setOnClickListener(this.b);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xbaVar, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.a() != null && xbaVar != null) {
+                cardViewHolder.a().j(xbaVar);
                 return cardViewHolder.a().i();
             }
             return null;

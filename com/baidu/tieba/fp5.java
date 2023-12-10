@@ -39,17 +39,17 @@ public final class fp5 {
 
         /* renamed from: com.baidu.tieba.fp5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0278a implements dp5 {
+        public static final class C0274a implements dp5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ l4b a;
+            public final /* synthetic */ m4b a;
 
-            public C0278a(l4b l4bVar) {
+            public C0274a(m4b m4bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {l4bVar};
+                    Object[] objArr = {m4bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -59,18 +59,18 @@ public final class fp5 {
                         return;
                     }
                 }
-                this.a = l4bVar;
+                this.a = m4bVar;
             }
 
             @Override // com.baidu.tieba.dp5
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    l4b l4bVar = this.a;
-                    if (l4bVar instanceof Fragment) {
-                        FragmentExtKt.b((Fragment) l4bVar, new Pair[0]);
-                    } else if (l4bVar instanceof FragmentActivity) {
-                        k4b.b((FragmentActivity) l4bVar);
+                    m4b m4bVar = this.a;
+                    if (m4bVar instanceof Fragment) {
+                        FragmentExtKt.b((Fragment) m4bVar, new Pair[0]);
+                    } else if (m4bVar instanceof FragmentActivity) {
+                        l4b.b((FragmentActivity) m4bVar);
                     }
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.i("PageLoadEvent", "start: " + this.a.getClass());
@@ -81,11 +81,11 @@ public final class fp5 {
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    l4b l4bVar = this.a;
-                    if (l4bVar instanceof Fragment) {
-                        FragmentExtKt.c((Fragment) l4bVar, new Pair[0]);
-                    } else if (l4bVar instanceof FragmentActivity) {
-                        k4b.c((FragmentActivity) l4bVar, new Pair[0]);
+                    m4b m4bVar = this.a;
+                    if (m4bVar instanceof Fragment) {
+                        FragmentExtKt.c((Fragment) m4bVar, new Pair[0]);
+                    } else if (m4bVar instanceof FragmentActivity) {
+                        l4b.c((FragmentActivity) m4bVar, new Pair[0]);
                     }
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.i("PageLoadEvent", "finish: " + this.a.getClass());
@@ -97,11 +97,11 @@ public final class fp5 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, info) == null) {
                     Intrinsics.checkNotNullParameter(info, "info");
-                    l4b l4bVar = this.a;
-                    if (l4bVar instanceof Fragment) {
-                        FragmentExtKt.a((Fragment) l4bVar, (Pair[]) Arrays.copyOf(info, info.length));
-                    } else if (l4bVar instanceof FragmentActivity) {
-                        k4b.a((FragmentActivity) l4bVar, (Pair[]) Arrays.copyOf(info, info.length));
+                    m4b m4bVar = this.a;
+                    if (m4bVar instanceof Fragment) {
+                        FragmentExtKt.a((Fragment) m4bVar, (Pair[]) Arrays.copyOf(info, info.length));
+                    } else if (m4bVar instanceof FragmentActivity) {
+                        l4b.a((FragmentActivity) m4bVar, (Pair[]) Arrays.copyOf(info, info.length));
                     }
                     StringBuilder sb = new StringBuilder();
                     for (Pair<String, String> pair : info) {
@@ -252,7 +252,7 @@ public final class fp5 {
             }
         }
 
-        public final void e(BdUniqueId uniqueId, l4b traceable) {
+        public final void e(BdUniqueId uniqueId, m4b traceable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, uniqueId, traceable) == null) {
                 Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
@@ -269,11 +269,11 @@ public final class fp5 {
             }
         }
 
-        public final dp5 d(l4b l4bVar) {
+        public final dp5 d(m4b m4bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, l4bVar)) == null) {
-                return new C0278a(l4bVar);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, m4bVar)) == null) {
+                return new C0274a(m4bVar);
             }
             return (dp5) invokeL.objValue;
         }

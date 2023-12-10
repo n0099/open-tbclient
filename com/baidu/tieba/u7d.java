@@ -6,26 +6,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.RobotEntrance;
 import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes8.dex */
-public class u7d extends ktc {
+public class u7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RobotSkill robotSkill) {
+    public static JSONObject b(@NonNull RobotEntrance robotEntrance) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, robotSkill)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, robotEntrance)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "robot_uk", robotSkill.robot_uk);
-            if (robotSkill.skill_ids != null) {
+            if (robotEntrance.robot_skill_info != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (Integer num : robotSkill.skill_ids) {
-                    jSONArray.put(num.intValue());
+                for (RobotSkillInfo robotSkillInfo : robotEntrance.robot_skill_info) {
+                    jSONArray.put(w7d.b(robotSkillInfo));
                 }
-                ktc.a(jSONObject, "skill_ids", jSONArray);
+                ltc.a(jSONObject, "robot_skill_info", jSONArray);
             }
+            if (robotEntrance.bottom_bar_robot_skill != null) {
+                JSONArray jSONArray2 = new JSONArray();
+                for (RobotSkill robotSkill : robotEntrance.bottom_bar_robot_skill) {
+                    jSONArray2.put(v7d.b(robotSkill));
+                }
+                ltc.a(jSONObject, "bottom_bar_robot_skill", jSONArray2);
+            }
+            if (robotEntrance.first_floor_bar_robot_skill != null) {
+                JSONArray jSONArray3 = new JSONArray();
+                for (RobotSkill robotSkill2 : robotEntrance.first_floor_bar_robot_skill) {
+                    jSONArray3.put(v7d.b(robotSkill2));
+                }
+                ltc.a(jSONObject, "first_floor_bar_robot_skill", jSONArray3);
+            }
+            ltc.a(jSONObject, "bottom_bar_click_guide", robotEntrance.bottom_bar_click_guide);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

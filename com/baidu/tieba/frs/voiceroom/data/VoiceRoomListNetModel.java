@@ -8,15 +8,15 @@ import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.j88;
 import com.baidu.tieba.k88;
+import com.baidu.tieba.l88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<j88, k88, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<k88, l88, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -84,19 +84,19 @@ public class VoiceRoomListNetModel extends NetAutoModel<j88, k88, BaseFragment> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<k88> getResponseDataClass() {
+    public Class<l88> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return k88.class;
+            return l88.class;
         }
         return (Class) invokeV.objValue;
     }
 
-    public void r0(j88 j88Var) {
+    public void r0(k88 k88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, j88Var) == null) {
-            this.c = j88Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, k88Var) == null) {
+            this.c = k88Var;
         }
     }
 }

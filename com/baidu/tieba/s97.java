@@ -26,7 +26,7 @@ public final class s97 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
             Intrinsics.checkNotNullParameter(schema, "schema");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String a = ya7.a(ya7.b(schema, feedExtraData.d()), "author_is_living", feedExtraData.a().a().get("author_is_living"));
+            String a = za7.a(za7.b(schema, feedExtraData.d()), "author_is_living", feedExtraData.a().a().get("author_is_living"));
             String str = feedExtraData.a().a().get("yy_ext");
             if (str != null && str.length() != 0) {
                 z = false;
@@ -37,7 +37,7 @@ public final class s97 {
                 Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
                 return a;
             }
-            String a2 = ya7.a(a, "yy_ext", str);
+            String a2 = za7.a(a, "yy_ext", str);
             Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
             return a2;
         }
@@ -96,14 +96,14 @@ public final class s97 {
             Map<String, String> a2 = feedExtraData.a().a();
             l87Var.j = a2;
             Intrinsics.checkNotNullExpressionValue(a2, "videoData.businessInfo");
-            yb7 yb7Var = feedExtraData.e().get(PageInfo.KEY);
-            a2.put("page_from", (yb7Var == null || (a = yb7Var.a(new v57())) == null || (r0 = a.get("page_from")) == null) ? "" : "");
+            zb7 zb7Var = feedExtraData.e().get(PageInfo.KEY);
+            a2.put("page_from", (zb7Var == null || (a = zb7Var.a(new v57())) == null || (r0 = a.get("page_from")) == null) ? "" : "");
             return new b57(l87Var, videoSchemaData, CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "video_click", null, 2, null), s67.e(feedExtraData, "video_click2", null, 2, null)}), feedExtraData.a().a(), feedExtraData.c().a(), null, 32, null);
         }
         return (b57) invokeLLL.objValue;
     }
 
-    public static final void c(FeedVideoComponent feedVideoComponent, List<rb7<?>> dataList, m87 videoSchemaData, r67 feedExtraData) {
+    public static final void c(FeedVideoComponent feedVideoComponent, List<sb7<?>> dataList, m87 videoSchemaData, r67 feedExtraData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
             Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
@@ -112,7 +112,7 @@ public final class s97 {
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
             VideoField videoField = feedVideoComponent.video_info;
             if (videoField != null) {
-                dataList.add(new sb7(b(videoField, videoSchemaData, feedExtraData), "video"));
+                dataList.add(new tb7(b(videoField, videoSchemaData, feedExtraData), "video"));
             }
         }
     }

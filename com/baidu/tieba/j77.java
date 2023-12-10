@@ -29,8 +29,8 @@ public class j77 {
         a = hashMap;
         hashMap.put("feed", new x87());
         a.put("browse_location", new v87());
-        a.put("sideway", new z87());
         a.put("frs_top_thread_card", new y87());
+        a.put("sideway", new z87());
     }
 
     public static HashMap<String, a97> a() {

@@ -1,52 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.ArrayMap;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
 /* loaded from: classes8.dex */
 public class woa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Long> a;
+    public static volatile voa a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278688, "Lcom/baidu/tieba/woa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278688, "Lcom/baidu/tieba/woa;");
-                return;
-            }
-        }
-        a = new ArrayMap();
-    }
-
-    public static void a(String str, boolean z) {
-        Long remove;
+    public static synchronized voa a() {
+        InterceptResult invokeV;
+        voa voaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (woa.class) {
+                if (a == null) {
+                    a = new voa();
+                }
+                voaVar = a;
+            }
+            return voaVar;
         }
-        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType()).addParam("obj_source", "true false");
-        TiebaStatic.log(addParam.addParam("obj_param1", z + "").addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.put(str, Long.valueOf(System.currentTimeMillis()));
-        }
+        return (voa) invokeV.objValue;
     }
 }

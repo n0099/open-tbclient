@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.aw9;
+import com.baidu.tieba.kja;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.wz9;
-import com.baidu.tieba.yv9;
+import com.baidu.tieba.xz9;
 import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,8 +26,8 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public yv9 mAppealInfo;
-    public zv9 pbData;
+    public zv9 mAppealInfo;
+    public aw9 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,12 +72,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
             int i2 = this.updateType;
             if (i2 != 3) {
                 if (i2 == 4) {
-                    wz9.b().f(this.cacheKey, bArr);
+                    xz9.b().f(this.cacheKey, bArr);
                     return;
                 }
                 return;
             }
-            wz9.b().e(this.cacheKey, this.isFromMark, bArr);
+            xz9.b().e(this.cacheKey, this.isFromMark, bArr);
         }
     }
 
@@ -94,12 +94,12 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                yv9 yv9Var = new yv9();
-                this.mAppealInfo = yv9Var;
+                zv9 zv9Var = new zv9();
+                this.mAppealInfo = zv9Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    yv9Var.a = appealInfo.source;
-                    yv9Var.c = appealInfo.appeal_url;
+                    zv9Var.a = appealInfo.source;
+                    zv9Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -108,9 +108,9 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 }
                 return;
             }
-            zv9 zv9Var = new zv9();
-            this.pbData = zv9Var;
-            zv9Var.G0(2);
+            aw9 aw9Var = new aw9();
+            this.pbData = aw9Var;
+            aw9Var.G0(2);
             this.pbData.F0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
@@ -120,33 +120,33 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 } else {
                     str = "";
                 }
-                JSONObject c = jja.c(pbPageResIdl.data.thread, str);
+                JSONObject c = kja.c(pbPageResIdl.data.thread, str);
                 ArrayList arrayList = new ArrayList();
                 if (c != null) {
                     arrayList.add(c);
                 }
-                jja.f().h("PB", arrayList);
+                kja.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }
     }
 
-    public yv9 getAppealInfo() {
+    public zv9 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mAppealInfo;
         }
-        return (yv9) invokeV.objValue;
+        return (zv9) invokeV.objValue;
     }
 
-    public zv9 getPbData() {
+    public aw9 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.pbData;
         }
-        return (zv9) invokeV.objValue;
+        return (aw9) invokeV.objValue;
     }
 
     public int getUpdateType() {

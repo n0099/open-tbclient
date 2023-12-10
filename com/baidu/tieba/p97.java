@@ -5,7 +5,7 @@ import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.view.View;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.xa7;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -62,28 +62,26 @@ public final class p97 {
                 Function2<Context, String, Unit> f = this.b.f();
                 Context context = widget.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "widget.context");
-                String b = ya7.b(this.c.e(), this.d.d());
+                String b = za7.b(this.c.e(), this.d.d());
                 Intrinsics.checkNotNullExpressionValue(b, "appendParams(richTextDat…xtraData.schemaLocalInfo)");
                 f.invoke(context, b);
                 e87 f2 = this.c.f();
                 if (f2 != null) {
                     this.b.g().invoke(f2);
                 }
-                ac7.a.c(new tb7("rich_text_click", this.c.d(), MapsKt__MapsKt.emptyMap(), this.c.a().a()));
+                bc7.a.c(new ub7("rich_text_click", this.c.d(), MapsKt__MapsKt.emptyMap(), this.c.a().a()));
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x008e A[Catch: Exception -> 0x00f4, TryCatch #0 {Exception -> 0x00f4, blocks: (B:11:0x0031, B:13:0x0059, B:14:0x0064, B:16:0x0082, B:22:0x008e, B:24:0x009f, B:30:0x00d6, B:25:0x00b3, B:27:0x00bd, B:29:0x00c5, B:31:0x00dd), top: B:41:0x0031 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00fa A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0025 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0090 A[Catch: Exception -> 0x00fe, TryCatch #0 {Exception -> 0x00fe, blocks: (B:11:0x0031, B:13:0x0055, B:15:0x005b, B:16:0x0066, B:18:0x0084, B:24:0x0090, B:26:0x00a1, B:32:0x00d8, B:27:0x00b5, B:29:0x00bf, B:31:0x00c7, B:33:0x00df, B:34:0x00f6, B:35:0x00fd), top: B:44:0x0031 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0104 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0025 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static final void a(List<FeedContentResource> list, SpannableStringBuilder stringBuilder, r67 feedExtraData, final j57 uiState) {
-        aa7 aa7Var;
-        b87 c;
-        String c2;
+        Object newInstance;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65536, null, list, stringBuilder, feedExtraData, uiState) == null) {
@@ -98,12 +96,17 @@ public final class p97 {
             for (FeedContentResource feedContentResource : list) {
                 try {
                     HashMap<String, Class> a2 = da7.a();
-                    xa7.a aVar = xa7.a;
+                    ya7.a aVar = ya7.a;
                     Integer num = feedContentResource.type;
                     Intrinsics.checkNotNullExpressionValue(num, "content.type");
                     Class cls = a2.get(aVar.a(num.intValue()));
                     Intrinsics.checkNotNull(cls);
-                    aa7Var = (aa7) cls.newInstance();
+                    newInstance = cls.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (newInstance != null) {
+                    aa7 aa7Var = (aa7) newInstance;
                     if (aa7Var instanceof ha7) {
                         ((ha7) aa7Var).a(new la7() { // from class: com.baidu.tieba.d97
                             public static /* synthetic */ Interceptable $ic;
@@ -118,34 +121,35 @@ public final class p97 {
                             }
                         });
                     }
-                    c = xa7.a.c(feedContentResource, feedExtraData.a(), feedExtraData.c(), feedExtraData.e());
-                    c2 = c.g().c();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (c2 != null && c2.length() != 0) {
-                    z = false;
-                    if (!z) {
-                        String c3 = c.g().c();
-                        if (StringsKt__StringsJVMKt.endsWith$default(c3, "\n", false, 2, null)) {
-                            c3 = StringsKt__StringsKt.replaceRange((CharSequence) c3, c3.length() - 1, c3.length(), (CharSequence) " \n").toString();
-                        } else if (Intrinsics.areEqual(feedContentResource, CollectionsKt___CollectionsKt.last((List<? extends Object>) list)) && !StringsKt__StringsJVMKt.endsWith$default(c3, " ", false, 2, null)) {
-                            c3 = c3 + WebvttCueParser.CHAR_SPACE;
+                    b87 c = ya7.a.c(feedContentResource, feedExtraData.a(), feedExtraData.c(), feedExtraData.e());
+                    String c2 = c.g().c();
+                    if (c2 != null && c2.length() != 0) {
+                        z = false;
+                        if (!z) {
+                            String c3 = c.g().c();
+                            if (StringsKt__StringsJVMKt.endsWith$default(c3, "\n", false, 2, null)) {
+                                c3 = StringsKt__StringsKt.replaceRange((CharSequence) c3, c3.length() - 1, c3.length(), (CharSequence) " \n").toString();
+                            } else if (Intrinsics.areEqual(feedContentResource, CollectionsKt___CollectionsKt.last((List<? extends Object>) list)) && !StringsKt__StringsJVMKt.endsWith$default(c3, " ", false, 2, null)) {
+                                c3 = c3 + WebvttCueParser.CHAR_SPACE;
+                            }
+                            c.g().d(c3);
                         }
-                        c.g().d(c3);
+                        spannableString = aa7Var.b(v27.a, c, new a(uiState, c, feedExtraData));
+                        uiState.h().add(c.a());
+                        if (spannableString == null) {
+                            stringBuilder.append((CharSequence) spannableString);
+                        }
+                    }
+                    z = true;
+                    if (!z) {
                     }
                     spannableString = aa7Var.b(v27.a, c, new a(uiState, c, feedExtraData));
                     uiState.h().add(c.a());
                     if (spannableString == null) {
-                        stringBuilder.append((CharSequence) spannableString);
                     }
-                }
-                z = true;
-                if (!z) {
-                }
-                spannableString = aa7Var.b(v27.a, c, new a(uiState, c, feedExtraData));
-                uiState.h().add(c.a());
-                if (spannableString == null) {
+                } else {
+                    throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.feed.data.richtext.BaseRichText");
+                    break;
                 }
             }
         }

@@ -71,7 +71,7 @@ public class zq6 implements xq6 {
     public boolean n;
     public boolean o;
     public List<MultiMediaData> p;
-    public List<icb> q;
+    public List<jcb> q;
     public vf6 r;
     public sf6 s;
     public boolean t;
@@ -162,7 +162,7 @@ public class zq6 implements xq6 {
                     }
                     layoutParams.height = (int) (layoutParams.width * this.a.a.i);
                     this.a.a.d.requestLayout();
-                    w5b.h(this.a.a.a.getPageActivity().getIntent(), this.a.a.d);
+                    x5b.h(this.a.a.a.getPageActivity().getIntent(), this.a.a.d);
                     ofFloat.start();
                 }
             }
@@ -324,54 +324,54 @@ public class zq6 implements xq6 {
     }
 
     /* loaded from: classes9.dex */
-    public class g implements gcb {
+    public class g implements hcb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zq6 a;
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void b(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void d(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void f(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
-        public void j(int i, icb icbVar) {
+        @Override // com.baidu.tieba.hcb
+        public void j(int i, jcb jcbVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048585, this, i, icbVar) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048585, this, i, jcbVar) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -478,7 +478,7 @@ public class zq6 implements xq6 {
             this.a = zq6Var;
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void c(double d) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) && this.a.b != null) {
@@ -486,7 +486,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void l(double d) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d)}) == null) && this.a.b != null) {
@@ -494,7 +494,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void e(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && this.a.b != null && !ListUtils.isEmpty(this.a.p)) {
@@ -507,7 +507,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void g(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && this.a.b != null) {
@@ -518,7 +518,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -530,7 +530,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void k() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.a.s == null) {
@@ -551,7 +551,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void m() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.a.r == null) {
@@ -573,7 +573,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void n(long j, long j2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.a.b != null) {
@@ -581,7 +581,7 @@ public class zq6 implements xq6 {
             }
         }
 
-        @Override // com.baidu.tieba.gcb
+        @Override // com.baidu.tieba.hcb
         public void o(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -939,22 +939,22 @@ public class zq6 implements xq6 {
     }
 
     /* loaded from: classes9.dex */
-    public class k implements wsb {
+    public class k implements xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zq6 a;
 
-        @Override // com.baidu.tieba.wsb
-        public dub c() {
+        @Override // com.baidu.tieba.xsb
+        public eub c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (dub) invokeV.objValue;
+            return (eub) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -979,25 +979,25 @@ public class zq6 implements xq6 {
             this.a = zq6Var;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new fcb(this.a.a.getPageActivity());
+                return new gcb(this.a.a.getPageActivity());
             }
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.a.t) {
-                    return f6b.c;
+                    return g6b.c;
                 }
-                return f6b.d;
+                return g6b.d;
             }
             return (String) invokeV.objValue;
         }
@@ -1116,7 +1116,7 @@ public class zq6 implements xq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!o5b.a()) {
+            if (!p5b.a()) {
                 this.a.getPageActivity().finish();
                 return false;
             }
@@ -1131,9 +1131,9 @@ public class zq6 implements xq6 {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vsb.d().i(TbadkCoreApplication.getInst());
-            vsb.d().k(FileHelper.getCacheDir());
-            vsb.d().l(new k(this));
+            wsb.d().i(TbadkCoreApplication.getInst());
+            wsb.d().k(FileHelper.getCacheDir());
+            wsb.d().l(new k(this));
         }
     }
 
@@ -1151,7 +1151,7 @@ public class zq6 implements xq6 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            vsb.d().l(null);
+            wsb.d().l(null);
         }
     }
 

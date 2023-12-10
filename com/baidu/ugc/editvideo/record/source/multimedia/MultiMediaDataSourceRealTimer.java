@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia;
 import android.animation.Animator;
 import android.os.Handler;
 import android.os.Message;
-import com.baidu.tieba.ywb;
+import com.baidu.tieba.zwb;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -114,7 +114,7 @@ public class MultiMediaDataSourceRealTimer {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (MultiMediaDataSourceRealTimer.this.mBeginTime == 0) {
                     String str = MultiMediaDataSourceRealTimer.TAG;
-                    ywb.a(str, "TimerTask thread : " + Thread.currentThread().getName());
+                    zwb.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                     MultiMediaDataSourceRealTimer.this.mBeginTime = currentTimeMillis;
                 }
                 long j = currentTimeMillis + MultiMediaDataSourceRealTimer.this.mCurrentPlayTime;

@@ -26,7 +26,7 @@ public class lp6 implements a97<Object> {
     }
 
     @Override // com.baidu.tieba.a97
-    public rb7<?> b(Object obj) {
+    public sb7<?> b(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
@@ -35,8 +35,8 @@ public class lp6 implements a97<Object> {
             }
             u77 u77Var = new u77();
             u77Var.a = obj;
-            return new sb7(new i37(u77Var), "fake_wall");
+            return new tb7(new i37(u77Var), "fake_wall");
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 }

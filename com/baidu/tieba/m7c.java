@@ -2,16 +2,10 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.annotation.GuardedBy;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e2c;
-import com.baidu.tieba.m7c;
-import com.baidu.tieba.t1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,983 +14,322 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdFactory;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.ReadyCacheStatistic;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.flavor.CallBackAware;
-import com.fun.ad.sdk.internal.api.flavor.Flavors;
-import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
-import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 /* loaded from: classes7.dex */
-public final class m7c extends e2c<b> {
+public final class m7c implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ int l = 0;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Random d;
-    public final t1c e;
-    public final Map<Ssp.Pid, PidLoader> f;
-    public final List<PidLoader> g;
-    public final List<PidLoader> h;
-    public FunAdInteractionListener i;
-    public final boolean j;
-    public final Handler k;
-
-    public m7c(t1c t1cVar, q7c q7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t1cVar, q7cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = new Random();
-        this.k = new a(this, Looper.getMainLooper());
-        this.e = t1cVar;
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        ArrayList arrayList2 = new ArrayList();
-        for (t1c.c cVar : t1cVar.e) {
-            for (t1c.b bVar : cVar.b) {
-                PidLoader a2 = q7cVar.a(bVar.c);
-                if (a2 != null) {
-                    if (bVar.c.isBidding) {
-                        arrayList2.add(a2);
-                    } else {
-                        arrayList.add(a2);
-                    }
-                    a2.addListener(new c(this, bVar, a2));
-                    hashMap.put(bVar.c, a2);
-                }
-            }
-        }
-        this.f = Collections.unmodifiableMap(hashMap);
-        this.g = Collections.unmodifiableList(arrayList);
-        List<PidLoader> unmodifiableList = Collections.unmodifiableList(arrayList2);
-        this.h = unmodifiableList;
-        this.j = !unmodifiableList.isEmpty();
-    }
-
-    public static /* synthetic */ Object a(m1c m1cVar, PidLoader pidLoader, String str) {
-        Object a2 = m1cVar.a(pidLoader);
-        if (a2 == null || !m1cVar.a((m1c) a2)) {
-            return null;
-        }
-        return a2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void h(FunAdInteractionListener funAdInteractionListener) {
-        funAdInteractionListener.onAdError(this.e.a);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ boolean i(List list, t1c.b bVar) {
-        PidLoader pidLoader = this.f.get(bVar.c);
-        if (pidLoader != null) {
-            if (list == null || !list.contains(pidLoader)) {
-                return pidLoader.isLoaded();
-            }
-            return false;
-        }
-        return false;
-    }
-
-    public final <Result> Result a(final FunAdInteractionListener funAdInteractionListener, final m1c<Result> m1cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funAdInteractionListener, m1cVar)) == null) {
-            this.i = funAdInteractionListener;
-            Result result = (Result) a(new s7c() { // from class: com.baidu.tieba.x0c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.s7c
-                public final Object a(PidLoader pidLoader, String str) {
-                    InterceptResult invokeLL2;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL2 = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) ? m7c.a(m1c.this, pidLoader, str) : invokeLL2.objValue;
-                }
-            });
-            if (result == null) {
-                LogPrinter.e("showFailed for sid:%s with No ready pidLoader found or all pidLoader showFailed", this.e.a);
-                this.k.post(new Runnable() { // from class: com.baidu.tieba.a1c
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            m7c.this.h(funAdInteractionListener);
-                        }
-                    }
-                });
-            }
-            return result;
-        }
-        return (Result) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e2c
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            for (PidLoader pidLoader : this.h) {
-                if (!pidLoader.getPid().pid.equals(str) && pidLoader.isLoaded()) {
-                    LogPrinter.d("destroy bid : %s ", pidLoader.getPid().pid);
-                    pidLoader.destroy(true);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e2c, com.fun.ad.sdk.FunAdLoader
-    public synchronized void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                super.destroy();
-                this.i = null;
-                for (PidLoader pidLoader : this.f.values()) {
-                    pidLoader.destroy();
-                }
-            }
-        }
-    }
-
-    public final PidLoader e(t1c.c cVar, final List<PidLoader> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cVar, list)) == null) {
-            t1c.b bVar = (t1c.b) k1c.a(this.d, cVar.b, new l1c() { // from class: com.baidu.tieba.b1c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.l1c
-                public final boolean a(Object obj) {
-                    InterceptResult invokeL;
-                    boolean i;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
-                        i = m7c.this.i(list, (t1c.b) obj);
-                        return i;
-                    }
-                    return invokeL.booleanValue;
-                }
-            });
-            if (bVar == null) {
-                return null;
-            }
-            return this.f.get(bVar.c);
-        }
-        return (PidLoader) invokeLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public ReadyCacheStatistic getCacheStatistic(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? a(this.h, this.g) : (ReadyCacheStatistic) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public FunNativeAd2 getNativeAd2(final Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) a(new s7c() { // from class: com.baidu.tieba.m0c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.s7c
-                public final Object a(PidLoader pidLoader, String str) {
-                    InterceptResult invokeLL;
-                    FunNativeAd2 nativeAd2;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, pidLoader, str)) == null) {
-                        nativeAd2 = pidLoader.getNativeAd2(context, str);
-                        return nativeAd2;
-                    }
-                    return invokeLL.objValue;
-                }
-            });
-            if (funNativeAd2 == null) {
-                LogPrinter.e("getNativeAd for sid:%s with No ready pidLoader found", this.e.a);
-            }
-            return funNativeAd2;
-        }
-        return (FunNativeAd2) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public boolean isReady() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            for (PidLoader pidLoader : this.f.values()) {
-                if (pidLoader.isLoaded()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.e2c, com.fun.ad.sdk.FunAdLoader
-    public void recycleListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            super.recycleListener();
-            this.i = null;
-        }
-    }
+    public final Map<String, LinkedHashMap<y1c, FunAdLoader>> a;
+    public final Object b;
+    @GuardedBy("mInitializeLock")
+    public final LinkedList<a> c;
+    @GuardedBy("mInitializeLock")
+    public int d;
+    @GuardedBy("mInitializeLock")
+    public r7c e;
 
     /* loaded from: classes7.dex */
-    public class b extends e2c.a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ boolean i;
         public transient /* synthetic */ FieldHolder $fh;
-        public final LinkedHashMap<t1c.c, Integer> d;
-        public long e;
-        public double f;
-        public final List<Double> g;
-        public final /* synthetic */ m7c h;
+        public final Context a;
+        public final FunAdSlot b;
+        public final FunAdLoadListener c;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647889998, "Lcom/baidu/tieba/m7c$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-647889998, "Lcom/baidu/tieba/m7c$b;");
-                    return;
-                }
-            }
-            i = !m7c.class.desiredAssertionStatus();
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(m7c m7cVar) {
-            super(m7cVar.e.a, m7cVar.e.d, "p");
+        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m7cVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.h = m7cVar;
-            this.d = new LinkedHashMap<>();
-            this.f = 0.0d;
-            this.g = new ArrayList();
-        }
-
-        public static /* synthetic */ int d(Double d, Double d2) {
-            return -Double.compare(d.doubleValue(), d2.doubleValue());
-        }
-
-        /* loaded from: classes7.dex */
-        public class a implements m1c<Boolean> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ ViewGroup b;
-            public final /* synthetic */ b c;
-
-            public a(b bVar, Activity activity, ViewGroup viewGroup) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, activity, viewGroup};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = activity;
-                this.b = viewGroup;
-            }
-
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-            /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, java.lang.Object] */
-            @Override // com.baidu.tieba.m1c
-            public Boolean a(PidLoader pidLoader) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) {
-                    b bVar = this.c;
-                    return Boolean.valueOf(pidLoader.show(this.a, this.b, bVar.h.e.a, bVar.a));
-                }
-                return invokeL.objValue;
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.m1c
-            public boolean a(Boolean bool) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool)) == null) {
-                    return bool.booleanValue();
-                }
-                return invokeL.booleanValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.m7c$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0395b implements m1c<FunSplashAd> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ ViewGroup b;
-            public final /* synthetic */ b c;
-
-            public C0395b(b bVar, Activity activity, ViewGroup viewGroup) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, activity, viewGroup};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = activity;
-                this.b = viewGroup;
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.baidu.tieba.m1c
-            public boolean a(FunSplashAd funSplashAd) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, funSplashAd)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-            /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.FunSplashAd, java.lang.Object] */
-            @Override // com.baidu.tieba.m1c
-            public FunSplashAd a(PidLoader pidLoader) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pidLoader)) == null) {
-                    b bVar = this.c;
-                    return pidLoader.showSplash(this.a, this.b, bVar.h.e.a, bVar.a);
-                }
-                return invokeL.objValue;
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:50:0x0123  */
-        /* JADX WARN: Removed duplicated region for block: B:60:0x0141  */
-        /* JADX WARN: Removed duplicated region for block: B:76:0x0146 A[SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:77:0x013f A[EDGE_INSN: B:77:0x013f->B:59:0x013f ?: BREAK  , SYNTHETIC] */
-        @Override // com.baidu.tieba.e2c.a
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-            boolean z;
-            Iterator<t1c.b> it;
-            PidLoader f;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, funAdSlot, funAdLoadListener) == null) {
-                this.h.k.removeMessages(101);
-                this.h.k.removeMessages(100);
-                m7c m7cVar = this.h;
-                m7cVar.getClass();
-                ArrayList arrayList = new ArrayList();
-                for (t1c.c cVar : m7cVar.e.e) {
-                    t1c.b bVar = (t1c.b) k1c.a(m7cVar.d, cVar.b, null);
-                    if (bVar != null) {
-                        arrayList.add(bVar);
-                    }
-                }
-                if (arrayList.isEmpty()) {
-                    a("g_empty");
-                    return;
-                }
-                Iterator it2 = arrayList.iterator();
-                while (it2.hasNext()) {
-                    this.d.put(((t1c.b) it2.next()).d, 0);
-                }
-                this.e = System.currentTimeMillis();
-                Message obtainMessage = this.h.k.obtainMessage(100);
-                obtainMessage.obj = this;
-                m7c m7cVar2 = this.h;
-                m7cVar2.k.sendMessageDelayed(obtainMessage, m7cVar2.e.c);
-                m7c m7cVar3 = this.h;
-                if (m7cVar3.e.b > 0) {
-                    Message obtainMessage2 = m7cVar3.k.obtainMessage(101);
-                    obtainMessage2.obj = this;
-                    m7c m7cVar4 = this.h;
-                    m7cVar4.k.sendMessageDelayed(obtainMessage2, m7cVar4.e.b);
-                }
-                LogPrinter.d("Start load for sid:%s", this.h.e.a);
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    t1c.b bVar2 = (t1c.b) arrayList.get(i2);
-                    PidLoader f2 = m7c.f(this.h, bVar2);
-                    if (f2 != null) {
-                        if (!i && bVar2.c == null) {
-                            throw new AssertionError();
-                        }
-                        if (bVar2.c.isBidding && f2.isLoaded()) {
-                            f2.destroy(true);
-                        }
-                        if (f2.isLoaded()) {
-                            e(bVar2);
-                        } else {
-                            RCInterceptor shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(f2.getPid().pid, f2.getAdType());
-                            if (shouldIntercept == null || !shouldIntercept.shouldInterceptLoad()) {
-                                f2.load(context, funAdSlot, this.a);
-                                z = false;
-                                it = bVar2.d.b.iterator();
-                                while (true) {
-                                    if (!it.hasNext()) {
-                                        break;
-                                    }
-                                    t1c.b next = it.next();
-                                    if (next != bVar2 && (f = m7c.f(this.h, next)) != null && f.isLoaded()) {
-                                        e(next);
-                                        z = false;
-                                        break;
-                                    }
-                                }
-                                if (!z) {
-                                    f(bVar2, 0, "F1:No ready loader found");
-                                }
-                            }
-                        }
-                    }
-                    z = true;
-                    it = bVar2.d.b.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                        }
-                    }
-                    if (!z) {
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.e2c.a
-        public boolean a(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, funAdInteractionListener)) == null) {
-                m7c m7cVar = this.h;
-                a aVar = new a(this, activity, viewGroup);
-                int i2 = m7c.l;
-                Boolean bool = (Boolean) m7cVar.a(funAdInteractionListener, aVar);
-                if (bool != null && bool.booleanValue()) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.e2c.a
-        public FunSplashAd b(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, funAdInteractionListener)) == null) {
-                m7c m7cVar = this.h;
-                C0395b c0395b = new C0395b(this, activity, viewGroup);
-                int i2 = m7c.l;
-                return (FunSplashAd) m7cVar.a(funAdInteractionListener, c0395b);
-            }
-            return (FunSplashAd) invokeLLL.objValue;
-        }
-
-        @Override // com.baidu.tieba.e2c.a
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.c = null;
-                this.h.k.removeMessages(100, this);
-                this.h.k.removeMessages(101, this);
-            }
-        }
-
-        public synchronized void e(t1c.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-                synchronized (this) {
-                    Ssp.Pid pid = bVar.c;
-                    LogPrinter.d("onAdLoaded group.weight:%d type:%s pid:%s", Integer.valueOf(bVar.d.a), pid.type, pid.pid);
-                    if (a()) {
-                        return;
-                    }
-                    t1c.c cVar = bVar.d;
-                    if (!this.d.containsKey(cVar)) {
-                        return;
-                    }
-                    this.d.put(cVar, 1);
-                    PidLoader f = m7c.f(this.h, bVar);
-                    if (f != null) {
-                        double biddingOrBasePrices = f.getBiddingOrBasePrices();
-                        if (this.f < biddingOrBasePrices) {
-                            this.f = biddingOrBasePrices;
-                        }
-                        if (this.h.j) {
-                            this.g.add(Double.valueOf(biddingOrBasePrices));
-                        }
-                    }
-                    if (this.h.e.b > 0 && System.currentTimeMillis() - this.e < this.h.e.b) {
-                        j();
-                        return;
-                    }
-                    f();
-                }
-            }
-        }
-
-        public synchronized void f() {
-            boolean z;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                synchronized (this) {
-                    synchronized (this) {
-                        Iterator<Map.Entry<t1c.c, Integer>> it = this.d.entrySet().iterator();
-                        while (true) {
-                            if (it.hasNext()) {
-                                if (it.next().getValue().intValue() == 1) {
-                                    z = true;
-                                    break;
-                                }
-                            } else {
-                                z = false;
-                                break;
-                            }
-                        }
-                    }
-                }
-                if (z) {
-                    if (this.h.j) {
-                        double i3 = i();
-                        for (Map.Entry<t1c.c, Integer> entry : this.d.entrySet()) {
-                            int intValue = entry.getValue().intValue();
-                            for (t1c.b bVar : entry.getKey().b) {
-                                PidLoader f = m7c.f(this.h, bVar);
-                                if (f != null) {
-                                    if (intValue == 1) {
-                                        if (f.getBiddingOrBasePrices() == this.f) {
-                                            i2 = 1;
-                                        } else {
-                                            i2 = 2;
-                                        }
-                                    } else if (intValue == -1) {
-                                        i2 = 5;
-                                    } else {
-                                        i2 = 3;
-                                    }
-                                    if (i2 != 1 || i3 != 0.0d) {
-                                        f.setBiddingResult("", this.f, i3, i2);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    b();
-                }
-            }
-        }
-
-        public final synchronized void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                synchronized (this) {
-                    if (a()) {
-                        return;
-                    }
-                    boolean z = true;
-                    int i2 = -1;
-                    for (Map.Entry<t1c.c, Integer> entry : this.d.entrySet()) {
-                        int intValue = entry.getValue().intValue();
-                        if (intValue != -1) {
-                            t1c.c key = entry.getKey();
-                            if (i2 < 0) {
-                                i2 = key.a;
-                            } else if (i2 != key.a) {
-                                return;
-                            }
-                            if (intValue == 0) {
-                                z = false;
-                            } else if (intValue == 1) {
-                                LogPrinter.d("callback onAdLoaded(%s) because max priority adId is loaded", this.h.e.a);
-                                f();
-                                return;
-                            } else {
-                                throw new IllegalStateException("Unknown value:" + intValue);
-                            }
-                        }
-                    }
-                    if (z) {
-                        LogPrinter.e("callback onError(%s) as all group failed to load", this.h.e.a);
-                        a("af");
-                    }
-                }
-            }
-        }
-
-        public synchronized void f(t1c.b bVar, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048582, this, bVar, i2, str) == null) {
-                synchronized (this) {
-                    Ssp.Pid pid = bVar.c;
-                    LogPrinter.d("onError code:%d message:%s group.weight:%d type:%s pid:%s", Integer.valueOf(i2), str, Integer.valueOf(bVar.d.a), pid.type, pid.pid);
-                    if (!this.d.containsKey(bVar.d)) {
-                        return;
-                    }
-                    this.d.put(bVar.d, -1);
-                    j();
-                }
-            }
-        }
-
-        public final double i() {
-            InterceptResult invokeV;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                if (this.h.j && this.g.size() != 0) {
-                    Collections.sort(this.g, new Comparator() { // from class: com.baidu.tieba.z0c
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        @Override // java.util.Comparator
-                        public final int compare(Object obj, Object obj2) {
-                            InterceptResult invokeLL;
-                            Interceptable interceptable2 = $ic;
-                            return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? m7c.b.d((Double) obj, (Double) obj2) : invokeLL.intValue;
-                        }
-                    });
-                    int indexOf = this.g.indexOf(Double.valueOf(this.f));
-                    if (indexOf >= 0 && this.g.size() > (i2 = indexOf + 1)) {
-                        return this.g.get(i2).doubleValue();
-                    }
-                }
-                return 0.0d;
-            }
-            return invokeV.doubleValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(m7c m7cVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m7cVar, looper};
+                Object[] objArr = {context, funAdSlot, funAdLoadListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i == 100) {
-                    b bVar = (b) message.obj;
-                    if (!bVar.a()) {
-                        t1c t1cVar = bVar.h.e;
-                        LogPrinter.e("callback onError(%s) because of timeout(%d)", t1cVar.a, Long.valueOf(t1cVar.c));
-                        bVar.a("tm_out");
-                    }
-                } else if (i == 101) {
-                    ((b) message.obj).f();
-                }
-            }
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements p7c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ boolean d;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final t1c.b a;
-        public final PidLoader b;
-        public final /* synthetic */ m7c c;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-647889967, "Lcom/baidu/tieba/m7c$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-647889967, "Lcom/baidu/tieba/m7c$c;");
-                    return;
-                }
-            }
-            d = !m7c.class.desiredAssertionStatus();
-        }
-
-        public c(m7c m7cVar, t1c.b bVar, PidLoader pidLoader) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927024, "Lcom/baidu/tieba/m7c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m7cVar, bVar, pidLoader};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927024, "Lcom/baidu/tieba/m7c;");
+                return;
+            }
+        }
+        f = !m7c.class.desiredAssertionStatus();
+    }
+
+    public m7c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        this.b = new Object();
+        this.c = new LinkedList<>();
+        this.d = 0;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            synchronized (this.b) {
+                this.c.clear();
+            }
+            synchronized (this.a) {
+                y1c b = p1c.b(str);
+                if (b == null) {
+                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
                     return;
                 }
-            }
-            this.c = m7cVar;
-            this.a = bVar;
-            this.b = pidLoader;
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void a() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (b) this.c.c) != null) {
-                bVar.e(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void a(int i, String str) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && (bVar = (b) this.c.c) != null) {
-                bVar.f(this.a, i, str);
-                IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
-                Ssp.Pid pid = this.a.c;
-                iAdForbidStrategyManager.setErrInfo(pid.ssp.type, pid.pid, i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void b(int i, String str) {
-            m7c m7cVar;
-            FunAdInteractionListener funAdInteractionListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) && (funAdInteractionListener = (m7cVar = this.c).i) != null) {
-                funAdInteractionListener.onAdError(m7cVar.e.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void a(RippedAd rippedAd, Map<String, String> map) {
-            FunAdInteractionListener funAdInteractionListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rippedAd, map) == null) && (funAdInteractionListener = this.c.i) != null) {
-                if (!d && this.a.c == null) {
-                    throw new AssertionError();
+                LinkedHashMap<y1c, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                    return;
                 }
-                RCInterceptor shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(this.a.c.pid, this.b.getAdType());
-                if (shouldIntercept != null) {
-                    shouldIntercept.onAdClick(rippedAd);
+                HashSet hashSet = new HashSet();
+                for (Map.Entry<y1c, FunAdLoader> entry : linkedHashMap.entrySet()) {
+                    y1c key = entry.getKey();
+                    entry.getValue().destroy();
+                    if (!b.equals(key)) {
+                        LogPrinter.d("Remove redundant loader for sid:%s", str);
+                        hashSet.add(key);
+                    }
                 }
-                CallBackAware callBackAware = Flavors.CALL_BACK_AWARE;
-                String str = this.c.e.a;
-                Ssp.Pid pid = this.a.c;
-                callBackAware.onAdClicked(funAdInteractionListener, str, pid.ssp.type, pid.pid, rippedAd, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void b(RippedAd rippedAd, Map<String, String> map) {
-            FunAdInteractionListener funAdInteractionListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048583, this, rippedAd, map) == null) && (funAdInteractionListener = this.c.i) != null) {
-                if (!d && this.a.c == null) {
-                    throw new AssertionError();
+                Iterator it = hashSet.iterator();
+                while (it.hasNext()) {
+                    linkedHashMap.remove((y1c) it.next());
                 }
-                RCInterceptor shouldIntercept = Flavors.PLUGIN_RC.shouldIntercept(this.a.c.pid, this.b.getAdType());
-                if (shouldIntercept != null) {
-                    shouldIntercept.onAdShow(rippedAd);
-                }
-                CallBackAware callBackAware = Flavors.CALL_BACK_AWARE;
-                String str = this.c.e.a;
-                Ssp.Pid pid = this.a.c;
-                callBackAware.show(funAdInteractionListener, str, pid.ssp.type, pid.pid, rippedAd, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void a(Map<String, String> map) {
-            m7c m7cVar;
-            FunAdInteractionListener funAdInteractionListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, map) == null) && (funAdInteractionListener = (m7cVar = this.c).i) != null) {
-                CallBackAware callBackAware = Flavors.CALL_BACK_AWARE;
-                String str = m7cVar.e.a;
-                Ssp.Pid pid = this.a.c;
-                callBackAware.onAdClose(funAdInteractionListener, str, pid.ssp.type, pid.pid, map);
-            }
-        }
-
-        @Override // com.baidu.tieba.p7c
-        public void a(boolean z, int i, Map<String, String> map) {
-            m7c m7cVar;
-            FunAdInteractionListener funAdInteractionListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), map}) == null) && (funAdInteractionListener = (m7cVar = this.c).i) != null) {
-                CallBackAware callBackAware = Flavors.CALL_BACK_AWARE;
-                String str = m7cVar.e.a;
-                Ssp.Pid pid = this.a.c;
-                callBackAware.onRewardedVideo(funAdInteractionListener, str, z, pid.ssp.type, i, pid.pid, map);
             }
         }
     }
 
-    public static PidLoader f(m7c m7cVar, t1c.b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, m7cVar, bVar)) == null) {
-            m7cVar.getClass();
-            if (bVar == null) {
-                return null;
-            }
-            return m7cVar.f.get(bVar.c);
-        }
-        return (PidLoader) invokeLL.objValue;
-    }
-
-    public final <N> N a(s7c<N> s7cVar) {
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public List<CacheStatistic> getCacheStatistics(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s7cVar)) == null) {
-            if (this.j) {
-                return (N) a(this.h, this.g, s7cVar, this.e.a);
-            }
-            for (t1c.c cVar : this.e.e) {
-                ArrayList arrayList = new ArrayList();
-                while (true) {
-                    PidLoader e = e(cVar, arrayList);
-                    if (e != null) {
-                        N a2 = s7cVar.a(e, this.e.a);
-                        if (a2 == null) {
-                            arrayList.add(e);
-                        } else {
-                            return a2;
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                for (FunAdLoader funAdLoader : a2) {
+                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
+                    if (!cacheStatistics.isEmpty()) {
+                        return cacheStatistics;
                     }
+                }
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunNativeAd2 getNativeAd2(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
+                if (nativeAd2 != null) {
+                    return nativeAd2;
                 }
             }
             return null;
         }
-        return (N) invokeL.objValue;
+        return (FunNativeAd2) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.e2c$a' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.m7c$b, com.baidu.tieba.e2c$a] */
-    @Override // com.baidu.tieba.e2c
-    public b b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new b(this);
-        }
-        return (e2c.a) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public synchronized List<CacheStatistic> getCacheStatistics(String str) {
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public ReadyCacheStatistic getReadyCacheStatistic(String str) {
         InterceptResult invokeL;
-        ArrayList arrayList;
-        PidLoader pidLoader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (t1c.c cVar : this.e.e) {
-                    for (t1c.b bVar : cVar.b) {
-                        if (bVar != null && (pidLoader = this.f.get(bVar.c)) != null && pidLoader.isLoaded()) {
-                            arrayList.add(new CacheStatistic(pidLoader.getAdType(), pidLoader.getPid().pid, pidLoader.getAdCount(), pidLoader.getBiddingOrBasePrices()));
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                for (FunAdLoader funAdLoader : a2) {
+                    ReadyCacheStatistic cacheStatistic = funAdLoader.getCacheStatistic(str);
+                    if (cacheStatistic != null) {
+                        return cacheStatistic;
                     }
                 }
+                return null;
             }
-            return arrayList;
+            return null;
+        }
+        return (ReadyCacheStatistic) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return false;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                if (funAdLoader.isReady()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.b) {
+                i = this.d;
+            }
+            if (i == -1) {
+                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
+                funAdLoadListener.onError(funAdSlot.getSid());
+            } else if (i == 0) {
+                synchronized (this.b) {
+                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
+                }
+            } else if (i != 1) {
+                throw new RuntimeException("Unknown st:" + i);
+            } else {
+                List<FunAdLoader> a2 = a(funAdSlot.getSid());
+                if (a2 == null) {
+                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
+                    funAdLoadListener.onError(funAdSlot.getSid());
+                    return;
+                }
+                Iterator<FunAdLoader> it = a2.iterator();
+                FunAdLoader next = it.next();
+                while (it.hasNext()) {
+                    it.next().recycleListener();
+                }
+                next.load(context, funAdSlot, funAdLoadListener);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048583, this, activity, viewGroup, str, funAdInteractionListener) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            Iterator<FunAdLoader> it = a2.iterator();
+            while (it.hasNext()) {
+                FunAdLoader next = it.next();
+                if (!it.hasNext()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                } else if (next.isReady()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener);
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
+                if (showSplash != null) {
+                    return showSplash;
+                }
+            }
+            return null;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
+    }
+
+    public final List<FunAdLoader> a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                if (this.e == null) {
+                    return null;
+                }
+                y1c b = p1c.b(str);
+                if (b == null) {
+                    return null;
+                }
+                LinkedHashMap<y1c, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    linkedHashMap = new LinkedHashMap<>();
+                    this.a.put(str, linkedHashMap);
+                }
+                if (linkedHashMap.get(b) == null) {
+                    linkedHashMap.put(b, b.a.a(this.e));
+                }
+                ArrayList arrayList = new ArrayList(linkedHashMap.values());
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
         }
         return (List) invokeL.objValue;
     }

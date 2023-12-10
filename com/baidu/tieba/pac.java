@@ -1,47 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes7.dex */
-public class pac implements Handler.Callback {
+public class pac extends sac<PushTokenResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ qac a;
 
-    public pac(qac qacVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pac(String str, IMessageEntity iMessageEntity) {
+        super(str, iMessageEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qacVar};
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qacVar;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sac
+    public void a(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message != null && message.what == 1001) {
-                this.a.b(8002003);
-                return true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
+            if (apiException == null) {
+                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
             }
-            return false;
+            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
+                if (obj instanceof PushTokenResult) {
+                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
+                    try {
+                        u9c.b.b(w9c.e.a(), pushTokenResult.getPushToken());
+                    } catch (Exception unused) {
+                    }
+                    this.e.b(pushTokenResult);
+                    return;
+                }
+                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
+            }
+            String str = "task execute failed. error:" + apiException.getErrorCode();
+            this.e.a(apiException);
         }
-        return invokeL.booleanValue;
     }
 }

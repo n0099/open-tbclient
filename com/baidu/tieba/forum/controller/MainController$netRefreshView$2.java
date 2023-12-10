@@ -7,7 +7,7 @@ import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.searchbox.ui.state.StateManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi7;
+import com.baidu.tieba.ci7;
 import com.baidu.tieba.fk5;
 import com.baidu.tieba.forum.ForumLog;
 import com.baidu.tieba.forum.controller.MainController;
@@ -23,7 +23,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tbadk/loading/NetRefreshView;", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class MainController$netRefreshView$2 extends Lambda implements Function0<fk5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
             TbLog b = ForumLog.b.b();
             String str = this$0.c;
             b.i(str, "forum " + this$0.g + " network refresh view retry clicked");
-            bi7.c(this$0.G()).B();
+            ci7.c(this$0.G()).B();
             this$0.E();
             bundle = this$0.f;
             if (bundle == null) {
@@ -79,7 +79,7 @@ public final class MainController$netRefreshView$2 extends Lambda implements Fun
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FragmentActivity G = this.this$0.G();
             final MainController mainController = this.this$0;
-            fk5 fk5Var = new fk5(G, new View.OnClickListener() { // from class: com.baidu.tieba.mg7
+            fk5 fk5Var = new fk5(G, new View.OnClickListener() { // from class: com.baidu.tieba.ng7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,291 +1,359 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData;
-import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
 import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.adapter.underlayer.StatOnceSet;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.SpriteMemeInfo;
 /* loaded from: classes5.dex */
 public final class c4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements SpriteMemeReplyData.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View.OnClickListener a;
-        public final /* synthetic */ PbCommenFloorItemViewHolder b;
-        public final /* synthetic */ SpriteMemeInfo c;
-        public final /* synthetic */ mwa d;
-
-        public a(View.OnClickListener onClickListener, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, SpriteMemeInfo spriteMemeInfo, mwa mwaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onClickListener, pbCommenFloorItemViewHolder, spriteMemeInfo, mwaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static final void a(List<? extends pi> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (list.get(i) instanceof cw9) {
+                    int i2 = i + 1;
+                    if (i2 < list.size() && l(list.get(i2))) {
+                        ((pw9) list.get(i2)).l(-BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds28));
+                        return;
+                    }
                     return;
                 }
             }
-            this.a = onClickListener;
-            this.b = pbCommenFloorItemViewHolder;
-            this.c = spriteMemeInfo;
-            this.d = mwaVar;
-        }
-
-        @Override // com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData.a
-        public void a() {
-            View.OnClickListener onClickListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (onClickListener = this.a) != null) {
-                onClickListener.onClick(this.b.I0);
-                String str = this.c.use_same_guide;
-                mwa mwaVar = this.d;
-                c4a.i(2, str, mwaVar.C0, String.valueOf(mwaVar.q0()));
-            }
-        }
-
-        @Override // com.baidu.tbadk.editortools.meme.model.SpriteMemeReplyData.a
-        public void b() {
-            View.OnClickListener onClickListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onClickListener = this.a) != null) {
-                onClickListener.onClick(this.b.I0);
-                String str = this.c.use_same_text;
-                mwa mwaVar = this.d;
-                c4a.i(2, str, mwaVar.C0, String.valueOf(mwaVar.q0()));
-            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626169, "Lcom/baidu/tieba/c4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626169, "Lcom/baidu/tieba/c4a;");
-                return;
-            }
-        }
-        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-    }
-
-    public static final void a(ImageView tagView, boolean z, boolean z2, boolean z3) {
+    public static final int g(BdTypeListView bdTypeListView) {
+        InterceptResult invokeL;
+        List<pi> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tagView, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            Intrinsics.checkNotNullParameter(tagView, "tagView");
-            if (z) {
-                tagView.setImageResource(R.drawable.pic_frs_headlines_n);
-                tagView.setVisibility(0);
-            } else if (z2 && z3) {
-                tagView.setImageResource(R.drawable.obfuscated_res_0x7f081277);
-                tagView.setVisibility(0);
-            } else if (z2) {
-                tagView.setImageResource(R.drawable.obfuscated_res_0x7f081275);
-                tagView.setVisibility(0);
-            } else if (z3) {
-                tagView.setImageResource(R.drawable.obfuscated_res_0x7f081276);
-                tagView.setVisibility(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bdTypeListView)) == null) {
+            if (bdTypeListView != null) {
+                list = bdTypeListView.getData();
             } else {
-                tagView.setVisibility(8);
+                list = null;
             }
-            if (tagView.getVisibility() == 0 && tagView.getLayoutParams() != null) {
-                tagView.getLayoutParams().height = m1a.n() - m1a.o();
-            }
-        }
-    }
-
-    public static final void d(PbCommenFloorItemViewHolder holder, final mwa postData, View.OnClickListener onClickListener, StatOnceSet<String> statOnceSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, holder, postData, onClickListener, statOnceSet) == null) {
-            Intrinsics.checkNotNullParameter(holder, "holder");
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(statOnceSet, "statOnceSet");
-            if (holder.I0 == null) {
-                return;
-            }
-            if (!postData.K0() && ig5.a.a()) {
-                holder.I0.setVisibility(8);
-                return;
-            }
-            final SpriteMemeInfo j0 = postData.j0();
-            if (j0 == null) {
-                return;
-            }
-            String str = j0.use_same_guide;
-            Intrinsics.checkNotNullExpressionValue(str, "spriteMemeInfo.use_same_guide");
-            holder.I0.a(new SpriteMemeReplyData(str, j0.use_same_text, SpriteMemeReplyData.SPRITE_SCENE.SCENE_PB, false, new a(onClickListener, holder, j0, postData), false, 32, null));
-            holder.I0.setTag(j0);
-            holder.I0.setVisibility(0);
-            statOnceSet.c(postData.U(), new Runnable() { // from class: com.baidu.tieba.u3a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        c4a.e(SpriteMemeInfo.this, postData);
+            if (list != null) {
+                int size = bdTypeListView.getData().size();
+                for (int i = 0; i < size; i++) {
+                    pi piVar = bdTypeListView.getData().get(i);
+                    Intrinsics.checkNotNullExpressionValue(piVar, "mListView.data[i]");
+                    if (Intrinsics.areEqual(piVar.getType(), ow9.g)) {
+                        return i;
                     }
                 }
-            });
+                return -1;
+            }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    public static final void b(List<pi> dataList) {
+    @Nullable
+    public static final nwa b(ArrayList<pi> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, dataList) == null) {
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            if (ListUtils.isEmpty(dataList)) {
-                return;
-            }
-            Iterator<pi> it = dataList.iterator();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Iterator<pi> it = list.iterator();
             while (it.hasNext()) {
                 pi next = it.next();
-                if (next instanceof ThreadData) {
-                    if (((ThreadData) next).funAdData != null) {
-                        it.remove();
+                if (next instanceof nwa) {
+                    nwa nwaVar = (nwa) next;
+                    if (nwaVar.L() == 1) {
+                        return nwaVar;
                     }
-                } else if (!(next instanceof lwa) && !(next instanceof l36)) {
-                    if ((next instanceof mwa) && ((mwa) next).A0 != null) {
-                        it.remove();
-                    }
+                }
+            }
+            return null;
+        }
+        return (nwa) invokeL.objValue;
+    }
+
+    public static final boolean c(nwa nwaVar, ArrayList<pi> list, boolean z, nwa nwaVar2, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{nwaVar, list, Boolean.valueOf(z), nwaVar2, Boolean.valueOf(z2)})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (nwaVar == null) {
+                if (nwaVar2 != null && !z2) {
+                    ListUtils.add(list, 0, nwaVar2);
                 } else {
-                    it.remove();
+                    nwa nwaVar3 = new nwa();
+                    nwaVar3.Z0(1);
+                    ListUtils.add(list, 0, nwaVar3);
                 }
+                return true;
+            } else if (!z) {
+                return false;
+            } else {
+                ListUtils.add(list, 0, nwaVar);
+                return true;
             }
         }
+        return invokeCommon.booleanValue;
     }
 
-    public static final void c(List<pi> dataList, lwa lwaVar) {
+    public static final int d(aw9 data, ArrayList<pi> list, boolean z, boolean z2, PbFragment mPbFragment) {
+        InterceptResult invokeCommon;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, dataList, lwaVar) == null) {
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            if (ListUtils.isEmpty(dataList)) {
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{data, list, Boolean.valueOf(z), Boolean.valueOf(z2), mPbFragment})) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(mPbFragment, "mPbFragment");
+            if (!z && !ListUtils.isEmpty(data.I()) && list.size() > 0) {
+                if (mPbFragment.l0() != null && mPbFragment.l0().b1()) {
+                    return -1;
+                }
+                if (mPbFragment.i7() != null && mPbFragment.i7().X0()) {
+                    return -1;
+                }
+                int size = list.size();
+                int i = 0;
+                while (true) {
+                    if (i < size) {
+                        pi piVar = list.get(i);
+                        Intrinsics.checkNotNullExpressionValue(piVar, "list[i]");
+                        pi piVar2 = piVar;
+                        if (piVar2 instanceof nwa) {
+                            nwa nwaVar = (nwa) piVar2;
+                            if (nwaVar.L() == 1 && nwaVar.O == 0) {
+                                z3 = true;
+                                break;
+                            }
+                        }
+                        i++;
+                    } else {
+                        z3 = false;
+                        i = -1;
+                        break;
+                    }
+                }
+                if (!z3) {
+                    if (data.y0()) {
+                        return 0;
+                    }
+                    return -1;
+                }
+                return i + 1;
+            } else if (data.y0() && z2) {
+                return 0;
+            } else {
+                return -1;
             }
-            Iterator<pi> it = dataList.iterator();
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Nullable
+    public static final List<pi> e(aw9 data) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data.W() == null || ListUtils.isEmpty(data.W().a)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            List<nwa> list = data.W().a;
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            int min = Math.min(2, list.size());
+            for (int i = 0; i < min; i++) {
+                nwa nwaVar = list.get(i);
+                if (nwaVar != null) {
+                    nwaVar.g0 = true;
+                    nwaVar.P = true;
+                    arrayList.add(nwaVar);
+                }
+            }
+            if (ListUtils.getCount(data.W().b) > 2) {
+                pi piVar = (pi) ListUtils.getItem(arrayList, arrayList.size() - 1);
+                if (piVar instanceof nwa) {
+                    ((nwa) piVar).P = false;
+                }
+                arrayList.add(new g6a());
+            } else {
+                pi piVar2 = (pi) ListUtils.getItem(arrayList, arrayList.size() - 1);
+                if (piVar2 instanceof nwa) {
+                    ((nwa) piVar2).P = true;
+                }
+            }
+            arrayList.add(0, new ow9(ow9.h));
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static final int f(aw9 data, ArrayList<pi> list) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, data, list)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (ListUtils.isEmpty(data.I()) || ListUtils.isEmpty(list) || ListUtils.getItem(data.I(), 0) == null) {
+                return 0;
+            }
+            int size = list.size();
             int i = 0;
-            int i2 = 0;
-            int i3 = 0;
-            while (it.hasNext()) {
-                i++;
-                pi next = it.next();
-                kwa kwaVar = null;
-                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof l36)) {
-                    it.remove();
-                }
-                if (next instanceof ThreadData) {
-                    kwaVar = ((ThreadData) next).funAdData;
-                } else if (next instanceof mwa) {
-                    kwaVar = ((mwa) next).A0;
-                }
-                if (kwaVar != null && kwaVar.i()) {
-                    i2 = i;
-                }
-                if (lwaVar != null && next == lwaVar) {
-                    it.remove();
-                    i3 = i;
-                }
-            }
-        }
-    }
-
-    public static final void e(SpriteMemeInfo spriteMemeInfo, mwa postData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, spriteMemeInfo, postData) == null) {
-            Intrinsics.checkNotNullParameter(spriteMemeInfo, "$spriteMemeInfo");
-            Intrinsics.checkNotNullParameter(postData, "$postData");
-            i(1, spriteMemeInfo.use_same_guide, postData.C0, String.valueOf(postData.q0()));
-        }
-    }
-
-    public static final void f(final PbFragment pbFragment, final int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, pbFragment, i) == null) {
-            Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
-            if (m1a.z(pbFragment)) {
-                pbFragment.w0 = true;
-                SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.tieba.w3a
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // java.lang.Runnable
-                    public final void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            c4a.g(PbFragment.this, i);
+            while (true) {
+                if (i < size) {
+                    pi piVar = list.get(i);
+                    Intrinsics.checkNotNullExpressionValue(piVar, "list[i]");
+                    pi piVar2 = piVar;
+                    if (piVar2 instanceof nwa) {
+                        nwa nwaVar = (nwa) piVar2;
+                        if (nwaVar.L() == 1 && nwaVar.O == 0) {
+                            z = true;
+                            break;
                         }
                     }
-                });
-                return;
+                    i++;
+                } else {
+                    z = false;
+                    i = 0;
+                    break;
+                }
             }
-            h(pbFragment, i);
+            if (!z) {
+                return 0;
+            }
+            return i + 1;
         }
+        return invokeLL.intValue;
     }
 
-    public static final void g(PbFragment pbFragment, int i) {
+    public static final int h(aw9 data, ArrayList<pi> arrayList, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, pbFragment, i) == null) {
-            Intrinsics.checkNotNullParameter(pbFragment, "$pbFragment");
-            h(pbFragment, i);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, data, arrayList, z)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (data.I() == null || data.F() == null || data.I().size() == 0 || data.R() == null || arrayList == null || !data.F().H1()) {
+                return -1;
+            }
+            int size = arrayList.size();
+            if (z && data.I().get(0) != null && data.I().get(0).L() == 1) {
+                return 1;
+            }
+            if ((z || size != 0) && (z || data.B() == null || data.B().a() != data.B().h())) {
+                return -1;
+            }
+            return 0;
         }
+        return invokeLLZ.intValue;
     }
 
-    public static final void h(PbFragment pbFragment, int i) {
+    public static final int i(aw9 data, ArrayList<pi> list, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, pbFragment, i) == null) {
-            if (i > 0) {
-                t2a.i(pbFragment.getListView(), i);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, data, list, z)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (data.I() == null || data.G() == null || data.I().size() == 0 || data.R() == null || !data.G().H1()) {
+                return -1;
+            }
+            int size = list.size();
+            if (z && data.I().get(0) != null && data.I().get(0).L() == 1) {
+                return 1;
+            }
+            if ((z || size != 0) && (z || data.B() == null || data.B().a() != data.B().h())) {
+                return -1;
+            }
+            return 0;
+        }
+        return invokeLLZ.intValue;
+    }
+
+    public static final int j(aw9 data, ArrayList<pi> list, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, data, list, z)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (!ListUtils.isEmpty(data.I()) && list.size() > 0) {
+                if (z && data.I().get(0) != null && data.I().get(0).L() == 1) {
+                    return 1;
+                }
+                if ((!z || data.l() == null) && z) {
+                    return -1;
+                }
+                return 0;
+            } else if (!data.y0()) {
+                return -1;
             } else {
-                t2a.g(pbFragment.getListView());
+                return 0;
             }
         }
+        return invokeLLZ.intValue;
     }
 
-    public static final void i(int i, String str, String str2, String str3) {
+    public static final int k(aw9 data, ArrayList<pi> list, boolean z) {
+        InterceptResult invokeLLZ;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            ag5 ag5Var = new ag5();
-            ag5Var.l(i);
-            Intrinsics.checkNotNull(str);
-            ag5Var.i(str);
-            Intrinsics.checkNotNull(str2);
-            ag5Var.g(str2);
-            Intrinsics.checkNotNull(str3);
-            ag5Var.k(str3);
-            zf5.a.a(ag5Var);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, data, list, z)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(list, "list");
+            int i = -1;
+            if (data.B() == null) {
+                return -1;
+            }
+            int i2 = 0;
+            if (data.B().c() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            int size = list.size();
+            if (!z2 || !z) {
+                return -1;
+            }
+            while (true) {
+                if (i2 >= size) {
+                    break;
+                }
+                pi piVar = list.get(i2);
+                Intrinsics.checkNotNullExpressionValue(piVar, "list[i]");
+                if (piVar instanceof ow9) {
+                    i = i2 + 1;
+                    break;
+                }
+                i2++;
+            }
+            if (data.M() == 4) {
+                return i + 1;
+            }
+            return i;
         }
+        return invokeLLZ.intValue;
+    }
+
+    public static final boolean l(pi piVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, piVar)) == null) {
+            if (piVar instanceof pw9) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

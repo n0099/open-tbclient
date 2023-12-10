@@ -1,16 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.component.uistate.CardStaggeredVideoUiStateKt;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
+import com.baidu.tieba.forum.component.uistate.CardHeadlinesUiStateKt;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.List;
 import java.util.Map;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -18,277 +23,138 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bg7 extends z47 implements oa7 {
+public final class bg7 extends z47 implements sb7<bg7>, f57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b57 g;
-    public final y47 h;
-    public final aj7 i;
-    public final boolean j;
-    public final boolean k;
-    public final String l;
-    public final Function2<Context, bg7, Unit> m;
-    public final Function2<Context, l67, Unit> n;
-    public final Function2<Context, bg7, Unit> o;
-    public final Function2<Context, bg7, Unit> p;
-    public boolean q;
-    public boolean r;
-    public WeakReference<cg7> s;
+    public final String g;
+    public final kz4 h;
+    public final String i;
+    public final Function2<Context, bg7, Unit> j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947644087, "Lcom/baidu/tieba/bg7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947644087, "Lcom/baidu/tieba/bg7;");
+        }
+    }
+
+    @Override // com.baidu.tieba.sb7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "head_lines" : (String) invokeV.objValue;
+    }
+
+    public bg7 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (bg7) invokeV.objValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bg7(b57 videoUiState, y47 y47Var, aj7 authorData, boolean z, boolean z2, String str, String str2, Function2<? super Context, ? super bg7, Unit> onCommentClick, Function2<? super Context, ? super l67, Unit> onTagClick, Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super bg7, Unit> onManageClick, Function2<? super Context, ? super bg7, Unit> onSelectClick) {
+    public bg7(String tid, kz4 taskInfoData, String schema, Map<String, String> businessInfo, Map<String, String> logInfo, Function2<? super Context, ? super bg7, Unit> onRootClick) {
         super(businessInfo, logInfo, null, null, 12, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {videoUiState, y47Var, authorData, Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, onCommentClick, onTagClick, businessInfo, logInfo, onManageClick, onSelectClick};
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r3;
+            Object[] objArr = {tid, taskInfoData, schema, businessInfo, logInfo, onRootClick};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Map) objArr2[0], (Map) objArr2[1], (Function2) objArr2[2], (Function1) objArr2[3], ((Integer) objArr2[4]).intValue(), (DefaultConstructorMarker) objArr2[5]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(videoUiState, "videoUiState");
-        Intrinsics.checkNotNullParameter(authorData, "authorData");
-        Intrinsics.checkNotNullParameter(onCommentClick, "onCommentClick");
-        Intrinsics.checkNotNullParameter(onTagClick, "onTagClick");
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        Intrinsics.checkNotNullParameter(taskInfoData, "taskInfoData");
+        Intrinsics.checkNotNullParameter(schema, "schema");
         Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
         Intrinsics.checkNotNullParameter(logInfo, "logInfo");
-        Intrinsics.checkNotNullParameter(onManageClick, "onManageClick");
-        Intrinsics.checkNotNullParameter(onSelectClick, "onSelectClick");
-        this.g = videoUiState;
-        this.h = y47Var;
-        this.i = authorData;
-        this.j = z;
-        this.k = z2;
-        this.l = str;
-        this.m = onCommentClick;
-        this.n = onTagClick;
-        this.o = onManageClick;
-        this.p = onSelectClick;
+        Intrinsics.checkNotNullParameter(onRootClick, "onRootClick");
+        this.g = tid;
+        this.h = taskInfoData;
+        this.i = schema;
+        this.j = onRootClick;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ bg7(b57 b57Var, y47 y47Var, aj7 aj7Var, boolean z, boolean z2, String str, String str2, Function2 function2, Function2 function22, Map map, Map map2, Function2 function23, Function2 function24, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(b57Var, y47Var, aj7Var, r7, r8, str, str2, r11, r12, map, map2, r15, r16);
-        boolean z3;
-        boolean z4;
-        Function2 function25;
-        Function2 function26;
-        Function2 function27;
-        Function2 function28;
-        Function2 function29;
-        Function2 function210;
-        Function2 function211;
-        Function2 function212;
-        if ((i & 8) != 0) {
-            z3 = false;
-        } else {
-            z3 = z;
-        }
-        if ((i & 16) != 0) {
-            z4 = false;
-        } else {
-            z4 = z2;
-        }
-        if ((i & 128) != 0) {
-            function212 = CardStaggeredVideoUiStateKt.c;
-            function25 = function212;
-        } else {
-            function25 = function2;
-        }
-        if ((i & 256) != 0) {
-            function211 = CardStaggeredVideoUiStateKt.d;
-            function26 = function211;
-        } else {
-            function26 = function22;
-        }
-        if ((i & 2048) != 0) {
-            function210 = CardStaggeredVideoUiStateKt.a;
-            function27 = function210;
-        } else {
-            function27 = function23;
-        }
-        if ((i & 4096) != 0) {
-            function29 = CardStaggeredVideoUiStateKt.b;
-            function28 = function29;
-        } else {
-            function28 = function24;
-        }
+    public /* synthetic */ bg7(String str, kz4 kz4Var, String str2, Map map, Map map2, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, kz4Var, str2, map, map2, (i & 32) != 0 ? CardHeadlinesUiStateKt.a : function2);
     }
 
-    @Override // com.baidu.tieba.oa7
-    public void d(Object event) {
-        WeakReference<cg7> weakReference;
-        cg7 cg7Var;
-        cg7 cg7Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (event instanceof x57) {
-                x57 x57Var = (x57) event;
-                if (this.q != x57Var.a()) {
-                    boolean a = x57Var.a();
-                    this.q = a;
-                    if (!a) {
-                        this.r = false;
-                    }
-                    WeakReference<cg7> weakReference2 = this.s;
-                    if (weakReference2 != null && (cg7Var2 = weakReference2.get()) != null) {
-                        cg7Var2.a(this);
-                    }
-                }
-            }
-            if ((event instanceof tj7) && (weakReference = this.s) != null && (cg7Var = weakReference.get()) != null) {
-                cg7Var.a(this);
-            }
-        }
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.sb7
+    public /* bridge */ /* synthetic */ bg7 b() {
+        l();
+        return this;
     }
 
-    public final aj7 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (aj7) invokeV.objValue;
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Function2<Context, bg7, Unit> n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function2<Context, bg7, Unit> o() {
+    public final Function2<Context, bg7, Unit> m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.o;
+            return this.j;
         }
         return (Function2) invokeV.objValue;
     }
 
-    public final Function2<Context, bg7, Unit> p() {
+    public final String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.p;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final Function2<Context, l67, Unit> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.n;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.l;
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public final y47 s() {
+    public final kz4 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.h;
         }
-        return (y47) invokeV.objValue;
+        return (kz4) invokeV.objValue;
     }
 
-    public final b57 t() {
+    public final String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.g;
         }
-        return (b57) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean u() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.f57
+    public boolean c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.q;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.r;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean z() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            List<h87> e = this.i.e();
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (this.h.j() == 4) {
+                String r = this.h.r();
+                if (HeadlinesPrefetchSwitch.isOn() && !UbsABTestHelper.isExistSid(ThreadCardUtils.KEY_TOUTIAO_PREFETCH_A) && StringUtils.isNotNull(r)) {
+                    TbLog defaultLog = DefaultLog.getInstance();
+                    defaultLog.i("CardHeadlinesUiState", "头条卡，点击frs卡片区域预取, url: " + r);
+                    kj6.c(r);
+                    return false;
+                }
+                return false;
             }
-            return !z;
+            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.r = z;
-        }
-    }
-
-    public final void y(WeakReference<cg7> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, weakReference) == null) {
-            this.s = weakReference;
-        }
+        return invokeL.booleanValue;
     }
 }

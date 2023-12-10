@@ -1,78 +1,35 @@
 package com.baidu.tieba;
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Rect;
-import android.util.TypedValue;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ViewConstructor"})
 /* loaded from: classes6.dex */
-public class hcb extends View {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public boolean b;
+public interface hcb {
+    void a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hcb(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f08159d);
-    }
+    void b(long j);
 
-    public boolean a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            Rect rect = new Rect();
-            getHitRect(rect);
-            int i3 = rect.left;
-            int i4 = this.a;
-            rect.left = i3 - i4;
-            rect.right += i4;
-            rect.top -= i4;
-            rect.bottom += i4;
-            return rect.contains(i, i2);
-        }
-        return invokeII.booleanValue;
-    }
+    void c(double d);
 
-    @Override // android.view.View
-    public boolean isPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
+    void d(int i);
 
-    @Override // android.view.View
-    public void setPressed(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
+    void e(int i, int i2);
+
+    void f(int i, int i2);
+
+    void g(int i, int i2, int i3);
+
+    void h();
+
+    void i();
+
+    void j(int i, jcb jcbVar);
+
+    void k();
+
+    void l(double d);
+
+    void m();
+
+    void n(long j, long j2);
+
+    void o(long j, long j2);
+
+    void onClick();
 }

@@ -1,5 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
-public interface kkb {
-    boolean a(int i);
+public interface kkb extends ie5 {
 }

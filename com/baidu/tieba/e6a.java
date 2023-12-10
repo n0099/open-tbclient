@@ -1,93 +1,95 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e6a extends zz9<f6a, GodReplyMoreViewHolder> {
+public final class e6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e6a(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public static final boolean a(AdverSegmentData adverSegmentData, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((h6a) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, adverSegmentData, i)) == null) {
+            if (adverSegmentData == null || StringHelper.isTaday(SharedPrefHelper.getInstance().getLong("key_pb_falling_ad_feedback_click_time", 0L))) {
+                return false;
             }
+            try {
+                if (i == 2) {
+                    int i2 = SharedPrefHelper.getInstance().getInt("key_pb_commont_egg_limlit_a", 0);
+                    if (TbSingleton.getInstance().getAdVertiSementData() != null && i2 < TbSingleton.getInstance().getAdVertiSementData().a()) {
+                        SharedPrefHelper.getInstance().putInt("key_pb_commont_egg_limlit_a", i2 + 1);
+                        return true;
+                    }
+                } else {
+                    String string = SharedPrefHelper.getInstance().getString("key_pb_commont_egg_limlit_bc", new JSONObject().toString());
+                    if (TextUtils.isEmpty(adverSegmentData.getAdSegmentId())) {
+                        return false;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    JSONArray jSONArray = new JSONArray();
+                    JSONArray optJSONArray = jSONObject.optJSONArray(adverSegmentData.getAdSegmentId());
+                    if (optJSONArray != null) {
+                        int length = optJSONArray.length();
+                        for (int i3 = 0; i3 < length; i3++) {
+                            long optLong = optJSONArray.optLong(i3);
+                            if (StringHelper.isTaday(optLong)) {
+                                jSONArray.put(optLong);
+                            }
+                        }
+                    }
+                    if (TbSingleton.getInstance().getAdVertiSementData() != null && jSONArray.length() < TbSingleton.getInstance().getAdVertiSementData().b()) {
+                        jSONArray.put(System.currentTimeMillis());
+                        jSONObject.remove(adverSegmentData.getAdSegmentId());
+                        jSONObject.put(adverSegmentData.getAdSegmentId(), jSONArray);
+                        SharedPrefHelper.getInstance().putString("key_pb_commont_egg_limlit_bc", jSONObject.toString());
+                        return true;
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+            return false;
         }
+        return invokeLI.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: x */
-    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static final int b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07cb, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            view2.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return view2.getMeasuredWidth();
         }
-        return (GodReplyMoreViewHolder) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public void z(View.OnClickListener onClickListener) {
+    public static final int c(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.zz9, com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (f6a) obj, (GodReplyMoreViewHolder) viewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, f6a f6aVar, GodReplyMoreViewHolder godReplyMoreViewHolder) {
-        InterceptResult invokeCommon;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f6aVar, godReplyMoreViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) f6aVar, (f6a) godReplyMoreViewHolder);
-            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
-                View.OnClickListener onClickListener = this.g;
-                if (onClickListener != null) {
-                    textView.setOnClickListener(onClickListener);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
+            if (mode != Integer.MIN_VALUE) {
+                if (mode == 1073741824) {
+                    return size;
                 }
-                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
-                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
-                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
-                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
-                }
+                return i;
             }
-            return view2;
+            return Math.min(i, size);
         }
-        return (View) invokeCommon.objValue;
+        return invokeII.intValue;
     }
 }

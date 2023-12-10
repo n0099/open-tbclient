@@ -112,11 +112,11 @@ public final class ed2 implements zr2 {
 
         /* renamed from: com.baidu.tieba.ed2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0259a implements Runnable {
+        public class RunnableC0260a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0259a(a aVar) {
+            public RunnableC0260a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -163,7 +163,7 @@ public final class ed2 implements zr2 {
                 k32.k("SwanAppCoreRuntime", "sReleaseCallback:isSwanAppRunning" + z);
                 if (!z) {
                     j63.K().y().Y(15);
-                    ek3.e0(new RunnableC0259a(this));
+                    ek3.e0(new RunnableC0260a(this));
                 }
             }
         }

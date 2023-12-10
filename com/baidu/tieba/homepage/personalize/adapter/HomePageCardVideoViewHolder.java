@@ -4,17 +4,17 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.pda;
+import com.baidu.tieba.qda;
 import com.baidu.tieba.wl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T> implements pda {
+public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T> implements qda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class HomePageCardVideoViewHolder<T extends wl6> extends CardViewHolder<T
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;

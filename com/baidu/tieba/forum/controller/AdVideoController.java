@@ -13,30 +13,30 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.ak7;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.bi7;
+import com.baidu.tieba.bk7;
 import com.baidu.tieba.br6;
+import com.baidu.tieba.ci7;
 import com.baidu.tieba.er6;
-import com.baidu.tieba.fk7;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.forum.view.BottomWebView;
 import com.baidu.tieba.forum.viewmodel.BottomViewModel;
 import com.baidu.tieba.gk7;
-import com.baidu.tieba.hu7;
-import com.baidu.tieba.io7;
+import com.baidu.tieba.hk7;
+import com.baidu.tieba.iu7;
 import com.baidu.tieba.jo7;
-import com.baidu.tieba.oi7;
+import com.baidu.tieba.ko7;
 import com.baidu.tieba.oj6;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.sf1;
-import com.baidu.tieba.sj7;
-import com.baidu.tieba.tt7;
-import com.baidu.tieba.we7;
-import com.baidu.tieba.wh7;
+import com.baidu.tieba.tj7;
+import com.baidu.tieba.ut7;
+import com.baidu.tieba.xe7;
+import com.baidu.tieba.xh7;
 import com.baidu.tieba.y05;
-import com.baidu.tieba.ye7;
-import com.baidu.tieba.yua;
+import com.baidu.tieba.ze7;
+import com.baidu.tieba.zua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,16 +50,16 @@ import kotlin.jvm.internal.Reflection;
 import org.json.JSONObject;
 import tbclient.FrsPage.BusinessPromot;
 @Metadata(d1 = {"\u0000`\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\t\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0006\u0010\u001c\u001a\u00020\u0010J\u0006\u0010\u001d\u001a\u00020\u0012J\u0006\u0010\u001e\u001a\u00020\u0010J\u0006\u0010\u001f\u001a\u00020\u0010J\u001a\u0010 \u001a\u00020!2\b\u0010\"\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020%H\u0016J\b\u0010&\u001a\u00020!H\u0016J\b\u0010'\u001a\u00020!H\u0016J\b\u0010(\u001a\u00020!H\u0016J\u0010\u0010)\u001a\u00020!2\u0006\u0010*\u001a\u00020+H\u0002J\b\u0010,\u001a\u00020!H\u0002J\b\u0010-\u001a\u00020!H\u0002J\b\u0010.\u001a\u00020!H\u0002J\u0010\u0010/\u001a\u00020!2\u0006\u0010*\u001a\u00020+H\u0002J\u000e\u00100\u001a\u00020!2\u0006\u00101\u001a\u00020\u0010J\b\u00102\u001a\u00020\u0010H\u0002J\u001a\u00103\u001a\u00020\u00102\b\u0010\t\u001a\u0004\u0018\u00010\n2\b\u0010\r\u001a\u0004\u0018\u00010\u000eR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\r\u001a\u0004\u0018\u00010\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/tieba/forum/controller/AdVideoController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "bottomWebView", "Lcom/baidu/tieba/forum/view/BottomWebView;", "businessPromot", "Lcom/baidu/tieba/tbadkCore/FrsBusinessPromot;", "forumAdVideoController", "Lcom/baidu/tieba/forum/ad/ForumAdVideoController;", "forumData", "Lcom/baidu/tbadk/core/data/ForumData;", "isLighthouseComplete", "", "lastVisitTime", "", "mFrsDialogADController", "Lcom/baidu/tieba/forum/ad/ForumDialogADController;", "mFrsLighthouseCompleteListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mIsDialogHadShow", "mIsFrsADDialogShowed", "mIsFrsAdVideoDialogShowed", "mIsNeedStartVideo", "mNetWorkChangedListener", "getIsDialogHadShow", "getLastVisitTime", "isDialogVideoHadShow", "isFrsADDialogShowed", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "prepareYunDialogLogic", "fid", "", "registerAdDataEvent", "registerAdLocationEvent", "registerMessageListener", "runFrsYunDialogAfterGetLastVisitTime", "setIsDialogHadShow", "hadShow", "shouldAutoPlayHeadVideo", "showAdDialog", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class AdVideoController extends wh7 {
+/* loaded from: classes6.dex */
+public final class AdVideoController extends xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
-    public we7 c;
-    public yua d;
+    public xe7 c;
+    public zua d;
     public ForumData e;
     public BottomWebView f;
-    public ye7 g;
+    public ze7 g;
     public boolean h;
     public boolean i;
     public boolean j;
@@ -69,7 +69,7 @@ public final class AdVideoController extends wh7 {
     public final CustomMessageListener n;
     public CustomMessageListener o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class AdVideoController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public final class AdVideoController extends wh7 {
                     if (customResponsedMessage2 != null) {
                         AdVideoController adVideoController = this.a;
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("networkStatus", io7.a());
+                        jSONObject.put("networkStatus", jo7.a());
                         oj6 a = rj6.a();
                         BottomWebView bottomWebView2 = adVideoController.f;
                         if (bottomWebView2 == null) {
@@ -186,14 +186,14 @@ public final class AdVideoController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c extends er6<ak7> {
+    /* loaded from: classes6.dex */
+    public static final class c extends er6<bk7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(AdVideoController adVideoController, Class<ak7> cls) {
+        public c(AdVideoController adVideoController, Class<bk7> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -215,21 +215,21 @@ public final class AdVideoController extends wh7 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(ak7 event) {
-            oi7 value;
+        public void onEvent(bk7 event) {
+            pi7 value;
             ForumData forumData;
             String id;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                if (Intrinsics.areEqual(bi7.a(this.b.A()), event.a()) && (value = ((BottomViewModel) new ViewModelProvider(this.b.A()).get(BottomViewModel.class)).a().getValue()) != null) {
+                if (Intrinsics.areEqual(ci7.a(this.b.A()), event.a()) && (value = ((BottomViewModel) new ViewModelProvider(this.b.A()).get(BottomViewModel.class)).a().getValue()) != null) {
                     AdVideoController adVideoController = this.b;
                     BusinessPromot b = value.b();
                     if (b != null) {
-                        adVideoController.d = new yua();
-                        yua yuaVar = adVideoController.d;
-                        Intrinsics.checkNotNull(yuaVar);
-                        yuaVar.t(b);
+                        adVideoController.d = new zua();
+                        zua zuaVar = adVideoController.d;
+                        Intrinsics.checkNotNull(zuaVar);
+                        zuaVar.t(b);
                     }
                     adVideoController.e = new ForumData();
                     ForumData forumData2 = adVideoController.e;
@@ -244,14 +244,14 @@ public final class AdVideoController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class d extends er6<sj7> {
+    /* loaded from: classes6.dex */
+    public static final class d extends er6<tj7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdVideoController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(AdVideoController adVideoController, Class<sj7> cls) {
+        public d(AdVideoController adVideoController, Class<tj7> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -273,28 +273,28 @@ public final class AdVideoController extends wh7 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(sj7 event) {
-            we7 we7Var;
+        public void onEvent(tj7 event) {
+            xe7 xe7Var;
             String str;
             String str2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
-                we7 we7Var2 = this.b.c;
-                we7 we7Var3 = null;
-                if (we7Var2 == null) {
+                xe7 xe7Var2 = this.b.c;
+                xe7 xe7Var3 = null;
+                if (xe7Var2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("forumAdVideoController");
-                    we7Var = null;
+                    xe7Var = null;
                 } else {
-                    we7Var = we7Var2;
+                    xe7Var = xe7Var2;
                 }
-                we7Var.n(event.a().b(), event.a().c(), event.a().d(), event.a().a());
-                we7 we7Var4 = this.b.c;
-                if (we7Var4 == null) {
+                xe7Var.n(event.a().b(), event.a().c(), event.a().d(), event.a().a());
+                xe7 xe7Var4 = this.b.c;
+                if (xe7Var4 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("forumAdVideoController");
-                    we7Var4 = null;
+                    xe7Var4 = null;
                 }
-                yua yuaVar = this.b.d;
+                zua zuaVar = this.b.d;
                 ForumData forumData = this.b.e;
                 ForumData forumData2 = this.b.e;
                 if (forumData2 != null) {
@@ -302,22 +302,22 @@ public final class AdVideoController extends wh7 {
                 } else {
                     str = null;
                 }
-                we7Var4.o(yuaVar, forumData, JavaTypesHelper.toLong(str, 0L));
-                yua yuaVar2 = this.b.d;
+                xe7Var4.o(zuaVar, forumData, JavaTypesHelper.toLong(str, 0L));
+                zua zuaVar2 = this.b.d;
                 ForumData forumData3 = this.b.e;
                 if (forumData3 != null) {
                     str2 = forumData3.getId();
                 } else {
                     str2 = null;
                 }
-                if (fk7.e(yuaVar2, str2)) {
-                    we7 we7Var5 = this.b.c;
-                    if (we7Var5 == null) {
+                if (gk7.e(zuaVar2, str2)) {
+                    xe7 xe7Var5 = this.b.c;
+                    if (xe7Var5 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("forumAdVideoController");
                     } else {
-                        we7Var3 = we7Var5;
+                        xe7Var3 = xe7Var5;
                     }
-                    we7Var3.q();
+                    xe7Var3.q();
                 }
             }
         }
@@ -348,7 +348,7 @@ public final class AdVideoController extends wh7 {
     public final void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            long a2 = gk7.b.a().a(str);
+            long a2 = hk7.b.a().a(str);
             this.m = a2;
             if (a2 > 0) {
                 YunDialogManager.onShow(this.b, y05.q);
@@ -359,11 +359,11 @@ public final class AdVideoController extends wh7 {
     }
 
     public final void H(final String str) {
-        sf1<tt7> a2;
-        tt7 tt7Var;
+        sf1<ut7> a2;
+        ut7 ut7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (a2 = new hu7().a()) != null && (tt7Var = a2.get()) != null) {
-            tt7Var.a(str, new Function1<Long, Unit>(this, str) { // from class: com.baidu.tieba.forum.controller.AdVideoController$runFrsYunDialogAfterGetLastVisitTime$1
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (a2 = new iu7().a()) != null && (ut7Var = a2.get()) != null) {
+            ut7Var.a(str, new Function1<Long, Unit>(this, str) { // from class: com.baidu.tieba.forum.controller.AdVideoController$runFrsYunDialogAfterGetLastVisitTime$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String $fid;
@@ -413,7 +413,7 @@ public final class AdVideoController extends wh7 {
                             a3.i(bottomWebView, "frsPage.bannerPromptEnd", new JSONObject());
                         }
                         this.this$0.m = j;
-                        gk7.b.a().b(this.$fid, j);
+                        hk7.b.a().b(this.$fid, j);
                     }
                 }
             });
@@ -458,14 +458,14 @@ public final class AdVideoController extends wh7 {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(ak7.class)), new c(this, ak7.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(bk7.class)), new c(this, bk7.class));
         }
     }
 
     public final void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(sj7.class)), new d(this, sj7.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(tj7.class)), new d(this, tj7.class));
         }
     }
 
@@ -510,7 +510,7 @@ public final class AdVideoController extends wh7 {
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -518,52 +518,52 @@ public final class AdVideoController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.m();
-            we7 we7Var = this.c;
-            if (we7Var == null) {
+            xe7 xe7Var = this.c;
+            if (xe7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("forumAdVideoController");
-                we7Var = null;
+                xe7Var = null;
             }
-            we7Var.l();
+            xe7Var.l();
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.n();
-            we7 we7Var = this.c;
-            if (we7Var == null) {
+            xe7 xe7Var = this.c;
+            if (xe7Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("forumAdVideoController");
-                we7Var = null;
+                xe7Var = null;
             }
-            we7Var.m();
+            xe7Var.m();
         }
     }
 
-    public final boolean K(yua yuaVar, ForumData forumData) {
+    public final boolean K(zua zuaVar, ForumData forumData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, yuaVar, forumData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, zuaVar, forumData)) == null) {
             if (!B()) {
-                if (yuaVar != null && !StringUtils.isNull(yuaVar.r()) && forumData != null) {
-                    boolean e = fk7.e(yuaVar, forumData.getId());
+                if (zuaVar != null && !StringUtils.isNull(zuaVar.r()) && forumData != null) {
+                    boolean e = gk7.e(zuaVar, forumData.getId());
                     this.j = e;
                     I(e);
                     return this.j;
                 }
-                ye7 ye7Var = new ye7(jo7.a(this.b));
-                this.g = ye7Var;
-                if (ye7Var == null) {
+                ze7 ze7Var = new ze7(ko7.a(this.b));
+                this.g = ze7Var;
+                if (ze7Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mFrsDialogADController");
-                    ye7Var = null;
+                    ze7Var = null;
                 }
-                boolean j = ye7Var.j(yuaVar, forumData);
+                boolean j = ze7Var.j(zuaVar, forumData);
                 this.i = j;
                 I(j);
                 return this.i;
@@ -573,7 +573,7 @@ public final class AdVideoController extends wh7 {
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, bundle, binding) == null) {
@@ -582,7 +582,7 @@ public final class AdVideoController extends wh7 {
             BottomWebView bottomWebView = binding.d;
             Intrinsics.checkNotNullExpressionValue(bottomWebView, "binding.bottomWeb");
             this.f = bottomWebView;
-            this.c = new we7(this.b);
+            this.c = new xe7(this.b);
             F();
             E();
             G();

@@ -10,9 +10,9 @@ import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.tieba.faceshop.DiyEmotionData;
-import com.baidu.tieba.fr9;
+import com.baidu.tieba.gr9;
 import com.baidu.tieba.hj5;
-import com.baidu.tieba.ir9;
+import com.baidu.tieba.jr9;
 import com.baidu.tieba.xd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,11 +63,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                fr9.a("【表情云同步】：2 - 开始：解析请求返回数据");
+                gr9.a("【表情云同步】：2 - 开始：解析请求返回数据");
                 parseData(jSONObject.optJSONObject("data"));
                 return;
             }
-            fr9.a("【表情云同步】：2 - 失败：返回数据异常，网络异常");
+            gr9.a("【表情云同步】：2 - 失败：返回数据异常，网络异常");
         }
     }
 
@@ -129,10 +129,10 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, jSONArray) == null) {
             if (jSONArray == null) {
-                fr9.a("【表情云同步】：2 - 开始：解析收藏表情数据为null");
+                gr9.a("【表情云同步】：2 - 开始：解析收藏表情数据为null");
                 return;
             }
-            fr9.a("【表情云同步】：2 - 开始：解析收藏表情");
+            gr9.a("【表情云同步】：2 - 开始：解析收藏表情");
             this.mCollectEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
@@ -162,7 +162,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         sb.append(",");
                         String lowerCase = xd.c(sb.toString().replace("collect_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
                         collectEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-                        fr9.a("【表情云同步】：2 - 开始：解析收藏表情：" + i + "-" + collectEmotionData.picUrl);
+                        gr9.a("【表情云同步】：2 - 开始：解析收藏表情：" + i + "-" + collectEmotionData.picUrl);
                         this.mCollectEmotionList.add(collectEmotionData);
                     }
                 } catch (JSONException e) {
@@ -176,27 +176,27 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
             if (jSONObject == null) {
-                fr9.a("【表情云同步】：2 - 失败：返回数据异常，数据为null");
+                gr9.a("【表情云同步】：2 - 失败：返回数据异常，数据为null");
                 return;
             }
             this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
             this.mDiyUpdateTime = jSONObject.optLong("diy_pic_update_time");
-            if (ir9.l() < this.mCollectUpdateTime) {
+            if (jr9.l() < this.mCollectUpdateTime) {
                 parseCollectData(jSONObject.optJSONArray("pic_ids"));
             } else {
-                fr9.a("【表情云同步】：2 - 开始：不需要解析收藏表情，" + this.mCollectUpdateTime);
+                gr9.a("【表情云同步】：2 - 开始：不需要解析收藏表情，" + this.mCollectUpdateTime);
             }
-            if (ir9.m() < this.mDiyUpdateTime) {
+            if (jr9.m() < this.mDiyUpdateTime) {
                 parseDiyData(jSONObject.optJSONArray("diy_pic_ids"));
             } else {
-                fr9.a("【表情云同步】：2 - 开始：不需要解析diy表情，" + this.mCollectUpdateTime);
+                gr9.a("【表情云同步】：2 - 开始：不需要解析diy表情，" + this.mCollectUpdateTime);
             }
             this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-            if (ir9.n() < this.mFaceGroupUpdateTime) {
+            if (jr9.n() < this.mFaceGroupUpdateTime) {
                 parseFaceGroupData(jSONObject.optString("package_ids"));
                 return;
             }
-            fr9.a("【表情云同步】：2 - 开始：不需要解析表情包组，" + this.mFaceGroupUpdateTime);
+            gr9.a("【表情云同步】：2 - 开始：不需要解析表情包组，" + this.mFaceGroupUpdateTime);
         }
     }
 
@@ -204,10 +204,10 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jSONArray) == null) {
             if (jSONArray == null) {
-                fr9.a("【表情云同步】：2 - 开始：解析DIY表情数据为null");
+                gr9.a("【表情云同步】：2 - 开始：解析DIY表情数据为null");
                 return;
             }
-            fr9.a("【表情云同步】：2 - 开始：解析DIY表情");
+            gr9.a("【表情云同步】：2 - 开始：解析DIY表情");
             this.mDiyEmotionList = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
@@ -237,7 +237,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
                         sb.append(",");
                         String lowerCase = xd.c(sb.toString().replace("diy_", "") + UploadedImageInfo.MD5_KEY).toLowerCase();
                         diyEmotionData.setSharpText(SmallTailInfo.EMOTION_PREFIX + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-                        fr9.a("【表情云同步】：2 - 开始：解析DIY表情：" + i + "-" + diyEmotionData.getPicUrl());
+                        gr9.a("【表情云同步】：2 - 开始：解析DIY表情：" + i + "-" + diyEmotionData.getPicUrl());
                         this.mDiyEmotionList.add(diyEmotionData);
                     }
                 } catch (JSONException e) {
@@ -250,7 +250,7 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
     public void parseFaceGroupData(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            fr9.a("【表情云同步】：2 - 开始：解析表情包组，" + str);
+            gr9.a("【表情云同步】：2 - 开始：解析表情包组，" + str);
             this.mFaceGroupData = Arrays.asList(str.split("_"));
         }
     }

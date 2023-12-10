@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.view.PushPermissionDialogViewV2;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f05;
-import com.baidu.tieba.fga;
+import com.baidu.tieba.gga;
 import com.baidu.tieba.push.PushGuideManager;
 import com.baidu.tieba.push.PushSceneItem;
 import com.baidu.tieba.vb5;
@@ -232,7 +232,7 @@ public class PushOpenUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
-            int a2 = fga.a(str);
+            int a2 = gga.a(str);
             StatisticItem statisticItem = new StatisticItem("c13673");
             if (z) {
                 i = 1;
@@ -246,7 +246,7 @@ public class PushOpenUtil {
     public static void logShow(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", fga.a(str)));
+            TiebaStatic.log(new StatisticItem("c13674").param("obj_source", gga.a(str)));
         }
     }
 

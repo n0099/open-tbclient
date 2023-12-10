@@ -1,54 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetRecommendGodList.DataRes;
-import tbclient.User;
 /* loaded from: classes6.dex */
-public class gca {
+public class gca extends rba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<User> b;
 
-    public gca() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gca(boolean z) {
+        super(z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public bz4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rba
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bz4 bz4Var = new bz4();
-            bz4Var.d = false;
-            bz4Var.d(this.b);
-            return bz4Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.q.clear();
+            zba zbaVar = this.o;
+            if (zbaVar != null) {
+                this.q.add(zbaVar);
+            }
+            if (!ListUtils.isEmpty(this.p)) {
+                this.q.addAll(this.p);
+            }
         }
-        return (bz4) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.b = dataRes.recom_user_list;
-        dataRes.has_more.intValue();
-        this.a = dataRes.current_page.intValue();
     }
 }

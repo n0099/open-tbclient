@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lu4;
-import com.baidu.tieba.oi7;
-import com.baidu.tieba.pk7;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.qk7;
 import com.baidu.tieba.rk7;
+import com.baidu.tieba.sk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -27,7 +27,7 @@ public final class InteractLayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<lu4.d> a;
-    public final ArrayList<qk7> b;
+    public final ArrayList<rk7> b;
     public final HashMap<Integer, ArrayList<Function2<Integer, Intent, Unit>>> c;
 
     public InteractLayer() {
@@ -48,12 +48,12 @@ public final class InteractLayer {
         this.c = new HashMap<>();
     }
 
-    public final void a(qk7 qk7Var) {
-        pk7[] b;
+    public final void a(rk7 rk7Var) {
+        qk7[] b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, qk7Var) == null) && (b = qk7Var.b()) != null) {
-            for (pk7 pk7Var : b) {
-                for (Integer num : pk7Var.b()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, rk7Var) == null) && (b = rk7Var.b()) != null) {
+            for (qk7 qk7Var : b) {
+                for (Integer num : qk7Var.b()) {
                     int intValue = num.intValue();
                     ArrayList<Function2<Integer, Intent, Unit>> arrayList = this.c.get(Integer.valueOf(intValue));
                     if (arrayList == null) {
@@ -61,17 +61,17 @@ public final class InteractLayer {
                     } else {
                         Intrinsics.checkNotNullExpressionValue(arrayList, "activityRequestHandlers[code] ?: ArrayList()");
                     }
-                    arrayList.add(new InteractLayer$addActivityResultHandler$1$1(pk7Var));
+                    arrayList.add(new InteractLayer$addActivityResultHandler$1$1(qk7Var));
                     this.c.put(Integer.valueOf(intValue), arrayList);
                 }
             }
         }
     }
 
-    public final void b(qk7 qk7Var) {
+    public final void b(rk7 rk7Var) {
         WrapListener[] a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qk7Var) == null) && (a = qk7Var.a()) != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rk7Var) == null) && (a = rk7Var.a()) != null) {
             for (WrapListener wrapListener : a) {
                 this.a.add(wrapListener);
                 lu4.b.a().c(wrapListener);
@@ -79,7 +79,7 @@ public final class InteractLayer {
         }
     }
 
-    public final void f(qk7 biz) {
+    public final void f(rk7 biz) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, biz) == null) {
             Intrinsics.checkNotNullParameter(biz, "biz");
@@ -101,49 +101,49 @@ public final class InteractLayer {
     }
 
     public final void d() {
-        rk7 rk7Var;
+        sk7 sk7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Iterator<lu4.d> it = this.a.iterator();
             while (true) {
-                rk7 rk7Var2 = null;
+                sk7 sk7Var2 = null;
                 if (!it.hasNext()) {
                     break;
                 }
                 lu4.d next = it.next();
                 lu4.b.a().e(next);
-                if (next instanceof rk7) {
-                    rk7Var2 = (rk7) next;
+                if (next instanceof sk7) {
+                    sk7Var2 = (sk7) next;
                 }
-                if (rk7Var2 != null) {
-                    rk7Var2.onDestroy();
+                if (sk7Var2 != null) {
+                    sk7Var2.onDestroy();
                 }
             }
             this.a.clear();
-            Iterator<qk7> it2 = this.b.iterator();
+            Iterator<rk7> it2 = this.b.iterator();
             while (it2.hasNext()) {
-                qk7 next2 = it2.next();
-                if (next2 instanceof rk7) {
-                    rk7Var = (rk7) next2;
+                rk7 next2 = it2.next();
+                if (next2 instanceof sk7) {
+                    sk7Var = (sk7) next2;
                 } else {
-                    rk7Var = null;
+                    sk7Var = null;
                 }
-                if (rk7Var != null) {
-                    rk7Var.onDestroy();
+                if (sk7Var != null) {
+                    sk7Var.onDestroy();
                 }
             }
             this.b.clear();
         }
     }
 
-    public final void e(oi7 bottomData) {
+    public final void e(pi7 bottomData) {
         BizBase bizBase;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bottomData) == null) {
             Intrinsics.checkNotNullParameter(bottomData, "bottomData");
-            Iterator<qk7> it = this.b.iterator();
+            Iterator<rk7> it = this.b.iterator();
             while (it.hasNext()) {
-                qk7 next = it.next();
+                rk7 next = it.next();
                 boolean z = next instanceof BizBase;
                 BizBase bizBase2 = null;
                 if (z) {

@@ -121,7 +121,7 @@ public class sv4 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oxa.a("", 7);
+                pxa.a("", 7);
             }
         }
     }
@@ -579,7 +579,7 @@ public class sv4 {
     public void G(AccountData accountData, Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, accountData, application) == null) {
-            rz8.a("onAccountChanged()");
+            sz8.a("onAccountChanged()");
             BdLog.e("账号切换");
             SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
             String string = sharedPrefHelper.getString("current_used_theme_" + h(), null);
@@ -595,7 +595,7 @@ public class sv4 {
             }
             f();
             MessageManager.getInstance().sendMessageFromBackground(new CustomMessage(2005006, accountData));
-            rz8.a("send METHOD_ACCOUNT_CHANGE");
+            sz8.a("send METHOD_ACCOUNT_CHANGE");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005016, accountData));
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2005019, accountData);
             MessageManager.getInstance().registerStickyMode(2005019);
@@ -653,20 +653,20 @@ public class sv4 {
             if (!this.b) {
                 if (accountData == null && this.a != null) {
                     this.b = true;
-                    rz8.a("account == null && mAccount != null");
+                    sz8.a("account == null && mAccount != null");
                 } else if (this.a == null && accountData != null) {
                     this.b = true;
-                    rz8.a("mAccount == null && account != null 初始化");
+                    sz8.a("mAccount == null && account != null 初始化");
                 } else {
                     AccountData accountData2 = this.a;
                     if (accountData2 != null && accountData != null && !TextUtils.equals(accountData2.getAccount(), accountData.getAccount())) {
                         this.b = true;
-                        rz8.a("mAccount != null && account != null");
+                        sz8.a("mAccount != null && account != null");
                     }
                 }
             }
             this.a = accountData;
-            oxa.n();
+            pxa.n();
             IdleHandlerManager.getInstance().addOrRunTask("setCurrentAccountInUI", new a(this, accountData, context));
         }
     }

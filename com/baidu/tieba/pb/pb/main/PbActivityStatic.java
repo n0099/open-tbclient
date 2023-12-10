@@ -51,11 +51,11 @@ import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fv5;
-import com.baidu.tieba.h5a;
 import com.baidu.tieba.hd5;
-import com.baidu.tieba.jy9;
+import com.baidu.tieba.i5a;
 import com.baidu.tieba.kd5;
 import com.baidu.tieba.ky9;
+import com.baidu.tieba.ly9;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 import com.baidu.tieba.pb.data.PbFloorAgreeResponseMessage;
@@ -63,16 +63,16 @@ import com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 import com.baidu.tieba.pb.pb.sub.SubPbHttpResponseMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
-import com.baidu.tieba.q4b;
-import com.baidu.tieba.r1a;
+import com.baidu.tieba.r4b;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.s1a;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.vq4;
-import com.baidu.tieba.vva;
 import com.baidu.tieba.wq4;
+import com.baidu.tieba.wva;
 import com.baidu.tieba.xq4;
 import com.baidu.tieba.xt5;
-import com.baidu.tieba.y3a;
+import com.baidu.tieba.z3a;
 import com.baidu.tieba.z6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -569,7 +569,7 @@ public class PbActivityStatic {
                         String str6 = "push";
                         if (!Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1").matcher(lowerCase).find() && !lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_BAIJIAHAO_PB)) {
                             if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(PbModel.UNIDISPATCH_PB)) {
-                                return y3a.d(tbPageContext, lowerCase);
+                                return z3a.d(tbPageContext, lowerCase);
                             }
                             if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains(UrlSchemaHelper.SCHEMA_TYPE_SUB_PB)) {
                                 String paramStr = UrlManager.getParamStr(lowerCase);
@@ -588,7 +588,7 @@ public class PbActivityStatic {
                                 }
                             }
                             if (!TextUtils.isEmpty(lowerCase) && lowerCase.contains("bookcover:")) {
-                                return y3a.a(lowerCase, tbPageContext);
+                                return z3a.a(lowerCase, tbPageContext);
                             }
                             String str9 = "allthread";
                             if (matcher.find()) {
@@ -733,10 +733,10 @@ public class PbActivityStatic {
                                 z7 = false;
                             }
                             if (!StringUtils.isNull(matchStringFromURL, z6) && tbPageContext != null) {
-                                return y3a.b(z3, z4, matchStringFromURL, tbPageContext, lowerCase, str, str2, str6, z5, str3, "from=threadcard2", z);
+                                return z3a.b(z3, z4, matchStringFromURL, tbPageContext, lowerCase, str, str2, str6, z5, str3, "from=threadcard2", z);
                             }
                             if (z7 && !TextUtils.isEmpty(matchStringFromURL)) {
-                                return y3a.c(lowerCase, matchStringFromURL);
+                                return z3a.c(lowerCase, matchStringFromURL);
                             }
                             if (z2) {
                                 tbPageContext.showToast((int) R.string.page_not_found);
@@ -775,12 +775,12 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<q4b> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<r4b> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
-                    return new CustomResponsedMessage<>(2921343, new h5a(customMessage.getData()));
+                    return new CustomResponsedMessage<>(2921343, new i5a(customMessage.getData()));
                 }
                 return null;
             }
@@ -881,7 +881,7 @@ public class PbActivityStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            vva.b(2004003, r1a.class);
+            wva.b(2004003, s1a.class);
         }
     }
 
@@ -929,8 +929,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            TbSocketMessageTask h2 = vva.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = vva.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            TbSocketMessageTask h2 = wva.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = wva.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }
@@ -977,10 +977,10 @@ public class PbActivityStatic {
     public static void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, null) == null) {
-            vva.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, vva.a("c/f/pb/page", 302001));
-            ky9.g = tbHttpMessageTask;
-            jy9.i = tbHttpMessageTask;
+            wva.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, wva.a("c/f/pb/page", 302001));
+            ly9.g = tbHttpMessageTask;
+            ky9.i = tbHttpMessageTask;
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setTimeOut(z6.d().b());

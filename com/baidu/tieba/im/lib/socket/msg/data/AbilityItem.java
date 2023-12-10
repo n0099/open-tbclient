@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.yv8;
+import com.baidu.tieba.zv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -735,7 +735,7 @@ public final class AbilityItem implements Serializable {
                     return false;
                 }
                 try {
-                    e = yv8.e(this.toUk);
+                    e = zv8.e(this.toUk);
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }

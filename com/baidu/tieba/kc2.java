@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class kc2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;

@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.Focus;
+import tbclient.FrsPage.FeedGroupInfo;
 /* loaded from: classes9.dex */
-public class zzc extends ktc {
+public class zzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Focus focus) {
+    public static JSONObject b(@NonNull FeedGroupInfo feedGroupInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, focus)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedGroupInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "time", focus.time);
-            ktc.a(jSONObject, "title", focus.title);
-            ktc.a(jSONObject, "link", focus.link);
+            ltc.a(jSONObject, "name", feedGroupInfo.name);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, feedGroupInfo.jump_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

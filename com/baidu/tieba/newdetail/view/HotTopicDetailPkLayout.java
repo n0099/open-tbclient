@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.am8;
+import com.baidu.tieba.bm8;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +56,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public TextView o;
     public TextView p;
     public TextView q;
-    public am8 r;
+    public bm8 r;
     public ColorStateList s;
     public ColorStateList t;
     public Runnable u;
@@ -380,10 +380,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    public void i(@NonNull am8 am8Var) {
+    public void i(@NonNull bm8 bm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, am8Var) == null) {
-            this.r = am8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bm8Var) == null) {
+            this.r = bm8Var;
             r(false);
             n(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -499,27 +499,27 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            am8 am8Var = this.r;
-            if (am8Var.f == 1) {
+            bm8 bm8Var = this.r;
+            if (bm8Var.f == 1) {
                 i = 1;
             } else {
                 i = 0;
             }
-            if (am8Var.f == 2) {
+            if (bm8Var.f == 2) {
                 i2 = 1;
             } else {
                 i2 = 0;
             }
             long j2 = i2;
-            long j3 = am8Var.i + am8Var.j + i + j2;
+            long j3 = bm8Var.i + bm8Var.j + i + j2;
             this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0a42), StringHelper.numberUniformFormatExtra(j3)));
-            this.e.setText(am8Var.a);
-            this.f.setText(am8Var.b);
-            this.g.setText(am8Var.d);
-            this.n.setText("" + (am8Var.i + j));
-            this.p.setText("" + (am8Var.j + j2));
+            this.e.setText(bm8Var.a);
+            this.f.setText(bm8Var.b);
+            this.g.setText(bm8Var.d);
+            this.n.setText("" + (bm8Var.i + j));
+            this.p.setText("" + (bm8Var.j + j2));
             if (j3 > 0) {
-                int i3 = am8Var.f;
+                int i3 = bm8Var.f;
                 float f = 0.02f;
                 if (i3 == 1) {
                     if (j3 > 1) {
@@ -528,7 +528,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f3 >= 0.02f) {
                             f = f3;
                         }
-                        this.m.setProcess(((((float) am8Var.i) * 1.0f) / f2) + f, z);
+                        this.m.setProcess(((((float) bm8Var.i) * 1.0f) / f2) + f, z);
                     } else {
                         this.m.setProcess(1.0f, z);
                     }
@@ -539,18 +539,18 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                         if (f5 >= 0.02f) {
                             f = f5;
                         }
-                        this.m.setProcess(((((float) am8Var.i) * 1.0f) / f4) - f, z);
+                        this.m.setProcess(((((float) bm8Var.i) * 1.0f) / f4) - f, z);
                     } else {
                         this.m.setProcess(0.0f, z);
                     }
                 } else {
-                    this.m.setProcess((((float) am8Var.i) * 1.0f) / ((float) j3), z);
+                    this.m.setProcess((((float) bm8Var.i) * 1.0f) / ((float) j3), z);
                 }
             } else {
                 this.m.setProcess(0.5f, z);
             }
             if (this.h.getVisibility() != 0) {
-                if (am8Var.f != 0) {
+                if (bm8Var.f != 0) {
                     this.k = this.j;
                     ViewGroup.LayoutParams layoutParams = this.h.getLayoutParams();
                     this.i = layoutParams;
@@ -572,12 +572,12 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     }
 
     public final void s() {
-        am8 am8Var;
+        bm8 bm8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (am8Var = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (bm8Var = this.r) == null) {
             return;
         }
-        int i = am8Var.f;
+        int i = bm8Var.f;
         if (i == 1) {
             this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08034c);
             this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08034d);

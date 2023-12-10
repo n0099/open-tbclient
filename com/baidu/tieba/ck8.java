@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes5.dex */
-public class ck8 {
+public class ck8 extends te8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pi> a;
-    public int b;
-    public boolean c;
-    public int d;
-    public uw4 e;
-    public vx4 f;
+    public String b;
 
     public ck8() {
         Interceptable interceptable = $ic;
@@ -29,8 +30,28 @@ public class ck8 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = true;
-        this.d = 1;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1251);
+    }
+
+    public void e(HotTopic hotTopic) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hotTopic) != null) || hotTopic == null) {
+            return;
+        }
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
+    }
+
+    public void parserProtobuf(List<RecomTopicList> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new se8(list.get(i), i));
+        }
+        d(arrayList);
     }
 }

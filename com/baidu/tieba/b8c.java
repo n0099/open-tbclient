@@ -1,159 +1,147 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class b8c implements Printer {
+public class b8c {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ b8c e;
 
-        public a(b8c b8cVar, long j, long j2, long j3, long j4) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b8cVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = b8cVar;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] g = y7c.g();
+                if (g != null && g.length > 0) {
+                    synchronized (b8c.a) {
+                        for (File file : g) {
+                            if (currentTimeMillis - file.lastModified() > com.baidu.mobads.sdk.internal.bj.e) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    public b8c(b bVar, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947600284, "Lcom/baidu/tieba/b8c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947600284, "Lcom/baidu/tieba/b8c;");
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j - this.b > this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            z7c.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a8c.b().post(new a());
         }
     }
 
-    public final void d() {
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (x7c.f().b != null) {
-                x7c.f().b.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
             }
-            if (x7c.f().c != null) {
-                x7c.f().c.c();
-            }
+            return d;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void e() {
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (x7c.f().b != null) {
-                x7c.f().b.d();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = y7c.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
-            if (x7c.f().c != null) {
-                x7c.f().c.d();
-            }
+            return str3;
         }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
-        }
+        return (String) invokeLL.objValue;
     }
 }

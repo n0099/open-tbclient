@@ -1,21 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tieba.p55;
 /* loaded from: classes5.dex */
-public interface ej8 {
-    void B(String str, String str2, int i);
+public interface ej8 extends p55.g {
+    void X0(dk8 dk8Var);
 
-    void b();
+    void i(ErrorData errorData);
 
-    boolean d();
-
-    void destory();
-
-    void f(BdUniqueId bdUniqueId);
-
-    List<ThreadData> q();
-
-    void refresh();
+    void o();
 }

@@ -52,34 +52,34 @@ public class fx4 implements Comparable<fx4> {
         this.b = i2;
     }
 
-    public static fx4 b(TbLinkSpanGroup tbLinkSpanGroup, ca8 ca8Var) {
+    public static fx4 b(TbLinkSpanGroup tbLinkSpanGroup, da8 da8Var) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, ca8Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, da8Var)) == null) {
             if (tbLinkSpanGroup == null) {
                 return null;
             }
             fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 2);
-            if (ca8Var == null) {
+            if (da8Var == null) {
                 return fx4Var;
             }
-            if (TextUtils.isEmpty(ca8Var.f())) {
+            if (TextUtils.isEmpty(da8Var.f())) {
                 str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
             } else {
-                str = ca8Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+                str = da8Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
             }
             fx4Var.d = str;
-            fx4Var.c = ca8Var.c();
-            fx4Var.m = ca8Var.a();
-            if (!ListUtils.isEmpty(ca8Var.b()) && ca8Var.b().get(0) != null) {
-                fx4Var.e = ca8Var.b().get(0).a();
+            fx4Var.c = da8Var.c();
+            fx4Var.m = da8Var.a();
+            if (!ListUtils.isEmpty(da8Var.b()) && da8Var.b().get(0) != null) {
+                fx4Var.e = da8Var.b().get(0).a();
             }
-            fx4Var.l = ca8Var.f();
-            fx4Var.f = ca8Var.d();
-            if (ca8Var.e() != null) {
-                fx4Var.j = ca8Var.e().a();
-                fx4Var.k = ca8Var.e().b();
+            fx4Var.l = da8Var.f();
+            fx4Var.f = da8Var.d();
+            if (da8Var.e() != null) {
+                fx4Var.j = da8Var.e().a();
+                fx4Var.k = da8Var.e().b();
             }
             tbLinkSpanGroup.B(fx4Var);
             return fx4Var;

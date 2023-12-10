@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cva;
+import com.baidu.tieba.dva;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -64,28 +64,28 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(cva cvaVar) {
+    public void a(dva dvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cvaVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, dvaVar) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.startLoad(cvaVar.b, 10, false);
+                barImageView.startLoad(dvaVar.b, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(cvaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f078f));
+                symbolEMTextView.setText(dvaVar.c + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f078f));
             }
             TextView textView = this.e;
             if (textView != null) {
-                textView.setText(cvaVar.e);
+                textView.setText(dvaVar.e);
             }
             TextView textView2 = this.d;
             if (textView2 != null) {
-                textView2.setText(cvaVar.d);
+                textView2.setText(dvaVar.d);
             }
             TextView textView3 = this.f;
             if (textView3 != null) {
-                if (cvaVar.f) {
+                if (dvaVar.f) {
                     textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f077a));
                 } else {
                     textView3.setText(textView3.getContext().getString(R.string.obfuscated_res_0x7f0f085f));

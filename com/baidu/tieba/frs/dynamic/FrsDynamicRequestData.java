@@ -20,7 +20,7 @@ public class FrsDynamicRequestData extends OrmObject implements INetRequestData,
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1096common;
+    public CommonReq f1095common;
     public long forumId;
     public long lastThreadId;
     public int qType;

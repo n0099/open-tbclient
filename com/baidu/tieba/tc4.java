@@ -33,7 +33,7 @@ public class tc4 extends PopupWindow implements View.OnClickListener {
     public Context S;
 
     /* renamed from: T  reason: collision with root package name */
-    public View f1157T;
+    public View f1159T;
     public MainMenuView U;
     public FrameLayout V;
     public lc4 W;
@@ -103,7 +103,7 @@ public class tc4 extends PopupWindow implements View.OnClickListener {
         this.X = true;
         this.Y = 0;
         this.S = context;
-        this.f1157T = view2;
+        this.f1159T = view2;
         this.W = lc4Var;
         F(false);
         H(true);
@@ -242,7 +242,7 @@ public class tc4 extends PopupWindow implements View.OnClickListener {
         }
         Activity activity = (Activity) this.S;
         if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
-            P(this.f1157T, 81, 0, 0);
+            P(this.f1159T, 81, 0, 0);
             if (this.X) {
                 x().setSystemUiVisibility(this.Y | 1024 | 4096);
                 H(true);

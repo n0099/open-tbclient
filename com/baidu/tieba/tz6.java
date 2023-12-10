@@ -267,7 +267,7 @@ public class tz6 extends lo5<gx4, ox6> {
         return (Rect) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lva
+    @Override // com.baidu.tieba.mva
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

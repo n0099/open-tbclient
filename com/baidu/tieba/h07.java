@@ -33,7 +33,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerListener, f07 {
+public class h07 implements e07, PreViewPickCoverView.c, bdb, OnChangeStickerListener, f07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -45,7 +45,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
     public float g;
     public TbMultiMediaData h;
     public List<MultiMediaData> i;
-    public x5b j;
+    public y5b j;
     public MultiMediaData k;
     public MultiMediaData l;
     public TextWordsEntity m;
@@ -56,7 +56,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
     @Nullable
     public List<MultiMediaData> r;
 
-    @Override // com.baidu.tieba.adb
+    @Override // com.baidu.tieba.bdb
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -167,10 +167,10 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && this.a.b.isPaused()) {
                 if (this.a.l != null) {
-                    kxb.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
+                    lxb.a().post(new a(this, BitmapFactory.decodeFile(this.a.l.path)));
                     return;
                 }
-                kxb.a().post(new b(this));
+                lxb.a().post(new b(this));
             }
         }
     }
@@ -385,9 +385,9 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
             if (vlogEditManager != null) {
                 vlogEditManager.deleteCoverStickerData(multiMediaData);
             }
-            x5b x5bVar = this.j;
-            if (x5bVar != null) {
-                x5bVar.b(multiMediaData);
+            y5b y5bVar = this.j;
+            if (y5bVar != null) {
+                y5bVar.b(multiMediaData);
             }
         }
     }
@@ -429,7 +429,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
         }
     }
 
-    @Override // com.baidu.tieba.adb
+    @Override // com.baidu.tieba.bdb
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
@@ -517,7 +517,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
         }
     }
 
-    @Override // com.baidu.tieba.adb
+    @Override // com.baidu.tieba.bdb
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -546,9 +546,9 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
             if (preViewPickCoverView != null) {
                 preViewPickCoverView.o();
             }
-            x5b x5bVar = this.j;
-            if (x5bVar != null) {
-                x5bVar.e();
+            y5b y5bVar = this.j;
+            if (y5bVar != null) {
+                y5bVar.e();
             }
         }
     }
@@ -589,14 +589,14 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b == null) {
             return;
         }
-        int j = jxb.j(R.dimen.tbds32);
+        int j = kxb.j(R.dimen.tbds32);
         if (this.d.getWidth() > this.d.getHeight()) {
-            j = jxb.j(R.dimen.tbds28);
+            j = kxb.j(R.dimen.tbds28);
         }
-        t5b.e().l((int) (j * 1.0f));
-        x5b x5bVar = new x5b(this.a.getPageActivity(), this.b);
-        this.j = x5bVar;
-        x5bVar.i("cover_sticker");
+        u5b.e().l((int) (j * 1.0f));
+        y5b y5bVar = new y5b(this.a.getPageActivity(), this.b);
+        this.j = y5bVar;
+        y5bVar.i("cover_sticker");
         TbGLMediaPreviewView tbGLMediaPreviewView = this.d;
         if (tbGLMediaPreviewView != null) {
             tbGLMediaPreviewView.post(new b(this));
@@ -685,7 +685,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", jxb.l(R.string.obfuscated_res_0x7f0f1799));
+                multiMediaData.setExt("text", kxb.l(R.string.obfuscated_res_0x7f0f1799));
                 this.i.add(this.k);
                 this.j.f(-1);
             } else {
@@ -730,9 +730,9 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
             }
             this.k = (MultiMediaData) arrayList.get(arrayList.size() - 1);
             this.i.addAll(arrayList);
-            x5b x5bVar = this.j;
-            if (x5bVar != null) {
-                x5bVar.c(arrayList);
+            y5b y5bVar = this.j;
+            if (y5bVar != null) {
+                y5bVar.c(arrayList);
             } else {
                 this.d.post(new c(this, arrayList));
             }
@@ -770,7 +770,7 @@ public class h07 implements e07, PreViewPickCoverView.c, adb, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", jxb.l(R.string.obfuscated_res_0x7f0f1799));
+                multiMediaData2.setExt("text", kxb.l(R.string.obfuscated_res_0x7f0f1799));
             }
             this.k = null;
             this.e.h();

@@ -39,8 +39,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
 import com.baidu.tieba.d07;
-import com.baidu.tieba.hca;
-import com.baidu.tieba.lba;
+import com.baidu.tieba.ica;
+import com.baidu.tieba.mba;
 import com.baidu.tieba.nd5;
 import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes7.dex */
-public class PersonPolymericEventController extends hca {
+public class PersonPolymericEventController extends ica {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lba e;
+    public mba e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, lba lbaVar) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, mba mbaVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, lbaVar};
+            Object[] objArr = {tbPageContext, mbaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,10 +80,10 @@ public class PersonPolymericEventController extends hca {
                 return;
             }
         }
-        this.e = lbaVar;
+        this.e = mbaVar;
     }
 
-    @Override // com.baidu.tieba.hca, com.baidu.tieba.z9b
+    @Override // com.baidu.tieba.ica, com.baidu.tieba.aab
     public void a(View view2, d07 d07Var) {
         UserData userData;
         String str;
@@ -141,8 +141,8 @@ public class PersonPolymericEventController extends hca {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    lba lbaVar = this.e;
-                    if (lbaVar != null && lbaVar.l() != null) {
+                    mba mbaVar = this.e;
+                    if (mbaVar != null && mbaVar.l() != null) {
                         TiebaStatic.log("c12207");
                         this.e.l().e();
                         return;

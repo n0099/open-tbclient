@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ic6 extends gs7<mz4, FrsPageAlaVideoHolder> implements km6, e26 {
+public class ic6 extends hs7<mz4, FrsPageAlaVideoHolder> implements km6, e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sc6 l;
@@ -141,7 +141,7 @@ public class ic6 extends gs7<mz4, FrsPageAlaVideoHolder> implements km6, e26 {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     /* renamed from: K */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
         InterceptResult invokeCommon;
@@ -176,7 +176,7 @@ public class ic6 extends gs7<mz4, FrsPageAlaVideoHolder> implements km6, e26 {
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.gs7
+    @Override // com.baidu.tieba.hs7
     public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {

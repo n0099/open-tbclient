@@ -98,7 +98,7 @@ public final class h97 {
         return (q47) invokeCommon.objValue;
     }
 
-    public static final void c(FeedItem feedItem, List<rb7<?>> dataList, r67 feedExtraData) {
+    public static final void c(FeedItem feedItem, List<sb7<?>> dataList, r67 feedExtraData) {
         String str;
         String str2;
         String str3;
@@ -109,7 +109,7 @@ public final class h97 {
             Intrinsics.checkNotNullParameter(feedItem, "<this>");
             Intrinsics.checkNotNullParameter(dataList, "dataList");
             Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            HashMap<String, String> a2 = va7.a.a(feedItem.business_info);
+            HashMap<String, String> a2 = wa7.a.a(feedItem.business_info);
             String str5 = a2.get("apk_detail");
             String str6 = feedExtraData.a().a().get("thread_id");
             if (str6 == null) {
@@ -124,16 +124,16 @@ public final class h97 {
             } else {
                 str2 = str7;
             }
-            yb7 yb7Var = feedExtraData.e().get(PageInfo.KEY);
-            if (yb7Var == null || (a = yb7Var.a(new v57())) == null || (str4 = a.get("page_from")) == null) {
+            zb7 zb7Var = feedExtraData.e().get(PageInfo.KEY);
+            if (zb7Var == null || (a = zb7Var.a(new v57())) == null || (str4 = a.get("page_from")) == null) {
                 str3 = "";
             } else {
                 str3 = str4;
             }
             if (str5 == null) {
-                dataList.add(new sb7(b(feedItem, j, str, str2, str3), "mount"));
+                dataList.add(new tb7(b(feedItem, j, str, str2, str3), "mount"));
             } else {
-                dataList.add(new sb7(a(feedItem, str5, j, str, str2, str3), "mount_app"));
+                dataList.add(new tb7(a(feedItem, str5, j, str, str2, str3), "mount_app"));
             }
         }
     }

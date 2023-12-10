@@ -131,7 +131,7 @@ public class eu4 {
                         str4 = offlineWebViewHttpResMsg.getError() + "";
                         str5 = "\"\"";
                     }
-                    p = tga.n().p(str);
+                    p = uga.n().p(str);
                     if (p == null) {
                         p = "0.0.0.0";
                     }
@@ -193,7 +193,7 @@ public class eu4 {
             }
             str4 = offlineWebViewHttpResMsg.getError() + "";
             str5 = "\"\"";
-            p = tga.n().p(str);
+            p = uga.n().p(str);
             if (p == null) {
             }
             sb = new StringBuilder();
@@ -412,7 +412,7 @@ public class eu4 {
                 }
             }
             offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
-            offlineWebViewHttpReqMsg.addCookie("cache_version", tga.n().p(offlineBridgeData.module));
+            offlineWebViewHttpReqMsg.addCookie("cache_version", uga.n().p(offlineBridgeData.module));
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
             tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

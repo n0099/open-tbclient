@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.recommendcard.RecommendCardView;
 import com.baidu.tieba.frs.headercomponent.HeaderComponentNoHeaderController;
-import com.baidu.tieba.m08;
+import com.baidu.tieba.n08;
 import com.baidu.tieba.vr6;
 import com.baidu.tieba.wr6;
 import com.baidu.tieba.xr6;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,21 +33,21 @@ import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.ThemeColorInfo;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\u0018\u00002\u00020\u0001B\u0019\u0012\n\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0006\u0010\t\u001a\u00020\rJ\u0006\u0010\u000e\u001a\u00020\u000fJ\"\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u00052\u0006\u0010\u0014\u001a\u00020\u0012H\u0016J\u001a\u0010\u0015\u001a\u00020\u000f2\u0006\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u0005H\u0016J\u001a\u0010\u0016\u001a\u00020\u000f2\u0006\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u0005H\u0016J\u0006\u0010\u0017\u001a\u00020\u000fR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0012\u0010\u0002\u001a\u0006\u0012\u0002\b\u00030\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u0007\u001a\u00020\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\n¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/frs/headercomponent/HeaderComponentNoHeaderController;", "Lcom/baidu/tieba/frs/headercomponent/IHeaderCompListener;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "data", "Ltbclient/FrsPage/LiveFuseForumData;", "(Lcom/baidu/tbadk/TbPageContext;Ltbclient/FrsPage/LiveFuseForumData;)V", "recommendCardView", "Lcom/baidu/tieba/core/widget/recommendcard/RecommendCardView;", "getRecommendCardView", "()Lcom/baidu/tieba/core/widget/recommendcard/RecommendCardView;", "recommendCardView$delegate", "Lkotlin/Lazy;", "Landroid/view/View;", "onChangeSkin", "", "onHeaderClicked", "compType", "", "itemData", "headPos", GameAssistConstKt.TYPE_CALLBACK_ITEMCLICKED, "onItemShow", "parseDataAndBind", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class HeaderComponentNoHeaderController implements m08 {
+public final class HeaderComponentNoHeaderController implements n08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<?> a;
     public final LiveFuseForumData b;
     public final Lazy c;
 
-    @Override // com.baidu.tieba.m08
+    @Override // com.baidu.tieba.n08
     public void a(int i, LiveFuseForumData liveFuseForumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, liveFuseForumData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.m08
+    @Override // com.baidu.tieba.n08
     public void b(int i, LiveFuseForumData liveFuseForumData, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), liveFuseForumData, Integer.valueOf(i2)}) == null) {
@@ -125,7 +125,7 @@ public final class HeaderComponentNoHeaderController implements m08 {
         }
     }
 
-    @Override // com.baidu.tieba.m08
+    @Override // com.baidu.tieba.n08
     public void c(int i, LiveFuseForumData liveFuseForumData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, liveFuseForumData) == null) && liveFuseForumData != null && !TextUtils.isEmpty(liveFuseForumData.schema)) {
@@ -173,14 +173,14 @@ public final class HeaderComponentNoHeaderController implements m08 {
             xr6 xr6Var = new xr6(str2, list, false, 4, null);
             ThemeColorInfo themeColorInfo = this.b.novel.chapter_bg_color;
             Intrinsics.checkNotNullExpressionValue(themeColorInfo, "data.novel.chapter_bg_color");
-            String c = y5b.c(themeColorInfo);
+            String c = z5b.c(themeColorInfo);
             int dimens3 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
             ThemeColorInfo themeColorInfo2 = this.b.novel.new_labels;
             Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "data.novel.new_labels");
-            wr6 a = y5b.a(themeColorInfo2);
+            wr6 a = z5b.a(themeColorInfo2);
             ThemeColorInfo themeColorInfo3 = this.b.novel.chapter_name_color;
             Intrinsics.checkNotNullExpressionValue(themeColorInfo3, "data.novel.chapter_name_color");
-            String c2 = y5b.c(themeColorInfo3);
+            String c2 = z5b.c(themeColorInfo3);
             String str3 = this.b.online_users;
             Intrinsics.checkNotNullExpressionValue(str3, "data.online_users");
             vr6 vr6Var = new vr6(R.color.CAM_X0201, wr6Var, xr6Var, c, dimens3, a, c2, str3);
@@ -190,7 +190,7 @@ public final class HeaderComponentNoHeaderController implements m08 {
             vr6Var.f(str4);
             ThemeColorInfo themeColorInfo4 = this.b.novel.chapter_time_color;
             Intrinsics.checkNotNullExpressionValue(themeColorInfo4, "data.novel.chapter_time_color");
-            vr6Var.C(y5b.c(themeColorInfo4));
+            vr6Var.C(z5b.c(themeColorInfo4));
             String string = this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0890, new Object[]{formatTimeForJustNowAndDate});
             Intrinsics.checkNotNullExpressionValue(string, "pageContext.pageActivity…le_view_time_update, day)");
             vr6Var.B(string);
@@ -207,7 +207,7 @@ public final class HeaderComponentNoHeaderController implements m08 {
             Intrinsics.checkNotNullExpressionValue(str7, "data.bjimg_light_big");
             vr6Var.E(str7);
             f().a(vr6Var);
-            f().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j08
+            f().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.k08
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

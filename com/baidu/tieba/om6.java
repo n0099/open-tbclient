@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.card.ala.AlaVideoContainer;
-import com.baidu.tieba.sda;
+import com.baidu.tieba.tda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class om6 implements pda {
+public class om6 implements qda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaVideoContainer a;
     public ThreadData b;
     public AlaInfoData c;
     public boolean d;
-    public sda e;
-    public sda.b f;
+    public tda e;
+    public tda.b f;
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class om6 implements pda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class om6 implements pda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -53,7 +53,7 @@ public class om6 implements pda {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements sda.b {
+    public class a implements tda.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ om6 a;
@@ -76,7 +76,7 @@ public class om6 implements pda {
             this.a = om6Var;
         }
 
-        @Override // com.baidu.tieba.sda.b
+        @Override // com.baidu.tieba.tda.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -104,9 +104,9 @@ public class om6 implements pda {
         this.f = new a(this);
         this.a = alaVideoContainer;
         if (alaVideoContainer != null) {
-            sda sdaVar = new sda();
-            this.e = sdaVar;
-            sdaVar.l(this.a.getVideoView());
+            tda tdaVar = new tda();
+            this.e = tdaVar;
+            tdaVar.l(this.a.getVideoView());
             this.e.i(this.f);
         }
     }
@@ -126,7 +126,7 @@ public class om6 implements pda {
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class om6 implements pda {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class om6 implements pda {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class om6 implements pda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class om6 implements pda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -186,9 +186,9 @@ public class om6 implements pda {
             if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
                 this.a.getVideoView().stopPlayback();
                 this.a.p();
-                sda sdaVar = this.e;
-                if (sdaVar != null) {
-                    sdaVar.n();
+                tda tdaVar = this.e;
+                if (tdaVar != null) {
+                    tdaVar.n();
                 }
             }
             this.d = false;

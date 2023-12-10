@@ -16,7 +16,7 @@ public class bn6 extends sm6 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nl8> a;
+    public List<ol8> a;
     public String b;
     public String c;
 
@@ -70,7 +70,7 @@ public class bn6 extends sm6 {
         return (String) invokeV.objValue;
     }
 
-    public List<nl8> getDataList() {
+    public List<ol8> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -89,10 +89,10 @@ public class bn6 extends sm6 {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(nl8 nl8Var) {
+    public void c(ol8 ol8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nl8Var) == null) {
-            this.a.add(nl8Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ol8Var) == null) {
+            this.a.add(ol8Var);
         }
     }
 

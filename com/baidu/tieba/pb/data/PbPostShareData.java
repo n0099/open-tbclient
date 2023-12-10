@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.py5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ public class PbPostShareData {
     public String c;
     public String d;
     public TbRichText e;
-    public mwa f;
+    public nwa f;
     public int g;
     public py5 h;
 
@@ -129,13 +129,13 @@ public class PbPostShareData {
         return (String) invokeV.objValue;
     }
 
-    public mwa c() {
+    public nwa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (mwa) invokeV.objValue;
+        return (nwa) invokeV.objValue;
     }
 
     public Bitmap d() {
@@ -212,10 +212,10 @@ public class PbPostShareData {
         }
     }
 
-    public void l(mwa mwaVar) {
+    public void l(nwa nwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mwaVar) == null) {
-            this.f = mwaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, nwaVar) == null) {
+            this.f = nwaVar;
         }
     }
 

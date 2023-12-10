@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.xf9;
+import com.baidu.tieba.yf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d85 implements xf9 {
+public class d85 implements yf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -38,7 +38,7 @@ public class d85 implements xf9 {
     public String m;
     public int n;
     public String o;
-    public xf9.a p;
+    public yf9.a p;
     public int q;
     public String r;
     public String s;
@@ -85,14 +85,14 @@ public class d85 implements xf9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xf9
-    public xf9.a getParallelCharge() {
+    @Override // com.baidu.tieba.yf9
+    public yf9.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.p;
         }
-        return (xf9.a) invokeV.objValue;
+        return (yf9.a) invokeV.objValue;
     }
 
     public boolean a() {
@@ -151,7 +151,7 @@ public class d85 implements xf9 {
         this.r = jSONObject.optString("display_ad_icon");
         this.s = jSONObject.optString("hide_close_icon");
         this.t = jSONObject.optString("activity_id");
-        xf9.a aVar = new xf9.a();
+        yf9.a aVar = new yf9.a();
         this.p = aVar;
         aVar.a = jSONObject.optString("parallel_charge_url");
         this.p.c = g(e(jSONObject, "show_urls"));

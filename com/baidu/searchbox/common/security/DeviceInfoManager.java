@@ -14,7 +14,7 @@ import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.epa;
+import com.baidu.tieba.fpa;
 import com.baidu.tieba.uf1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -271,7 +271,7 @@ public final class DeviceInfoManager {
 
     @Inject(force = false)
     private final IDeviceInfoAppHost getAppHost() {
-        return epa.a();
+        return fpa.a();
     }
 
     public final Context getContext$lib_security_framework_release() {

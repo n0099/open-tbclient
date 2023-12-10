@@ -1,58 +1,27 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.UUID;
 /* loaded from: classes5.dex */
-public class dfa implements fp9 {
+public class dfa implements ep9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public HashMap<String, dp9> c;
+    public ffa b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fp9 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-862206452, "Lcom/baidu/tieba/dfa$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-862206452, "Lcom/baidu/tieba/dfa$b;");
-                    return;
-                }
-            }
-            a = new dfa(null);
-        }
-    }
-
-    public dfa() {
+    public dfa(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,175 +31,148 @@ public class dfa implements fp9 {
                 return;
             }
         }
-        this.c = new HashMap<>();
+        this.a = str;
+        this.b = new ffa(str);
     }
 
-    public static fp9 m() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ep9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (fp9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n().k(this.a);
-            q(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = this.a;
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = UUID.randomUUID().toString();
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n().j(this.a);
-        }
-    }
-
-    public final dp9 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            cfa cfaVar = new cfa(this.a);
-            this.c.put(this.a, cfaVar);
-            return cfaVar;
-        }
-        return (dp9) invokeV.objValue;
-    }
-
-    public final dp9 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            dp9 dp9Var = this.c.get(this.a);
-            if (dp9Var == null) {
-                return l();
-            }
-            return dp9Var;
-        }
-        return (dp9) invokeV.objValue;
-    }
-
-    public /* synthetic */ dfa(a aVar) {
-        this();
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            return n().d(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return n().e(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(String str) {
-        dp9 dp9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || (dp9Var = this.c.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
             return;
         }
-        dp9Var.a(str);
-        this.c.remove(str);
+        a5b.d().j(this.a, a5b.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
     }
 
-    @Override // com.baidu.tieba.fp9
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            n().c(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void b(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            n().f(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void h(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
-            n().g(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void i(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            n().l(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !StringUtils.isNull(this.b)) {
-            if (!o(this.b) && !p(this.b)) {
-                cp9.b(this.b);
-                this.c.remove(this.a);
-            } else {
-                q(this.b);
-            }
-            g();
-            n().h(this.b, str);
-            this.b = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
-    public void f(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            n().b(this.a, i, i2, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.fp9
+    @Override // com.baidu.tieba.ep9
     public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            n().i(this.a, str);
-            if (!o(this.a) && !p(this.a)) {
-                cp9.b(this.a);
-                this.c.remove(this.a);
-            } else {
-                q(this.a);
-            }
-            this.a = null;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
+            return;
         }
+        this.b.k();
+        this.b.j();
+        this.b.a(new uea(401, "write", -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void b(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new uea(i, "write", i2, str2));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void c(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new uea(i, StatKey.EDITADDR_TAG_STAGE_EDIT, i, str2));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void f(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new uea(i, "record", i, str2));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!m(str)) {
+                return false;
+            }
+            return this.b.g();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.b.h();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
+            return;
+        }
+        this.b.k();
+        this.b.a(new uea(301, "write", -4399, ""));
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void g(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new uea(402, "write", i, str2));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new uea(503, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new uea(501, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.ep9
+    public void l(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
+            this.b.a(new uea(i, str2, -4399, ""));
+            return;
+        }
+        this.b.f();
+        this.b.a(new uea(i, str2, i, VideoPlatformStatic.g(i)));
     }
 }

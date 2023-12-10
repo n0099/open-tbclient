@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.UserTaskInfo;
+import tbclient.UserStory;
 /* loaded from: classes8.dex */
-public class uad extends ktc {
+public class uad extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull UserTaskInfo userTaskInfo) {
+    public static JSONObject b(@NonNull UserStory userStory) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userTaskInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userStory)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "id", userTaskInfo.id);
-            ktc.a(jSONObject, "name", userTaskInfo.name);
-            ktc.a(jSONObject, DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, userTaskInfo.brief);
-            ktc.a(jSONObject, "task_icon_url", userTaskInfo.task_icon_url);
-            ktc.a(jSONObject, "status", userTaskInfo.status);
-            ktc.a(jSONObject, "target_num", userTaskInfo.target_num);
-            ktc.a(jSONObject, "curr_num", userTaskInfo.curr_num);
-            ktc.a(jSONObject, "task_type", userTaskInfo.task_type);
-            ktc.a(jSONObject, "weight", userTaskInfo.weight);
-            ktc.a(jSONObject, "act_type", userTaskInfo.act_type);
-            ktc.a(jSONObject, "target_scheme", userTaskInfo.target_scheme);
+            ltc.a(jSONObject, "user_id", userStory.user_id);
+            ltc.a(jSONObject, "user_name", userStory.user_name);
+            ltc.a(jSONObject, "portrait", userStory.portrait);
+            ltc.a(jSONObject, "has_read", userStory.has_read);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

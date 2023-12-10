@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.lib.socket.msg.TbVoiceMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbAiIntroduceMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
+import com.baidu.tieba.im.lib.socket.msg.TbTextToSpeechMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +18,7 @@ import kotlin.Triple;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class kv8 extends dv8<TbVoiceMsg, AudioMsg> {
+public final class kv8 extends ev8<TbTextMsg, TextMsg> {
     public static /* synthetic */ Interceptable $ic;
     public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,11 +66,11 @@ public final class kv8 extends dv8<TbVoiceMsg, AudioMsg> {
             }
         }
 
-        public final Triple<Class<TbVoiceMsg>, Class<AudioMsg>, kv8> a() {
+        public final Triple<Class<TbTextMsg>, Class<TextMsg>, kv8> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new Triple<>(TbVoiceMsg.class, AudioMsg.class, new kv8(null));
+                return new Triple<>(TbTextMsg.class, TextMsg.class, new kv8(null));
             }
             return (Triple) invokeV.objValue;
         }
@@ -87,38 +89,41 @@ public final class kv8 extends dv8<TbVoiceMsg, AudioMsg> {
                 return;
             }
         }
-        j(3, TbVoiceMsg.class);
+        j(1, TbTextMsg.class);
+        j(103, TbTextToSpeechMsg.class);
+        j(104, TbAiIntroduceMsg.class);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
+    @Override // com.baidu.tieba.ev8
     /* renamed from: n */
-    public AudioMsg g(TbVoiceMsg tbMsg) {
+    public TextMsg g(TbTextMsg tbMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
             Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
-            AudioMsg audioMsg = new AudioMsg();
-            audioMsg.setContent(tbMsg.getVoiceUrl(), 2, tbMsg.getIntDuring());
-            return audioMsg;
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText(tbMsg.getText());
+            return textMsg;
         }
-        return (AudioMsg) invokeL.objValue;
+        return (TextMsg) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dv8
+    @Override // com.baidu.tieba.ev8
     /* renamed from: o */
-    public TbVoiceMsg h(int i, AudioMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
+    public TbTextMsg h(int i, TextMsg sdkMsg, Map<String, ? extends Object> sdkMsgMap) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, sdkMsg, sdkMsgMap)) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
             Intrinsics.checkNotNullParameter(sdkMsgMap, "sdkMsgMap");
-            TbVoiceMsg tbVoiceMsg = (TbVoiceMsg) DataExt.toEntity(sdkMsgMap, TbVoiceMsg.class);
-            tbVoiceMsg.setVoiceUrl(sdkMsg.getRemoteUrl());
-            tbVoiceMsg.setDuring(String.valueOf(sdkMsg.getDuration()));
-            return tbVoiceMsg;
+            TbTextMsg tbTextMsg = (TbTextMsg) DataExt.toEntity(sdkMsgMap, l(i));
+            String str = sdkMsg.text;
+            Intrinsics.checkNotNullExpressionValue(str, "sdkMsg.text");
+            tbTextMsg.setText(str);
+            return tbTextMsg;
         }
-        return (TbVoiceMsg) invokeILL.objValue;
+        return (TbTextMsg) invokeILL.objValue;
     }
 }

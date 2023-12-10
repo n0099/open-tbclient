@@ -40,7 +40,7 @@ public class ub6 {
     public transient /* synthetic */ FieldHolder $fh;
     public yb6 A;
     public kb6 B;
-    public vz7 C;
+    public wz7 C;
     public NavigationBar D;
     public TbPageContext a;
     public int b;
@@ -609,7 +609,7 @@ public class ub6 {
             this.B = new kb6(this.a, this.j);
             this.i.setOnClickListener(new b(this));
             if (this.d) {
-                this.C = new vz7(this.a.getPageActivity(), this.e, this.d);
+                this.C = new wz7(this.a.getPageActivity(), this.e, this.d);
                 this.j.setOnTouchListener(new c(this));
             }
         }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.lxa;
+import com.baidu.tieba.mxa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +66,7 @@ public class LocationCacheData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (sInstance == null) {
-                synchronized (lxa.class) {
+                synchronized (mxa.class) {
                     if (sInstance == null) {
                         sInstance = new LocationCacheData();
                     }

@@ -33,7 +33,7 @@ public final class v97 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsTopThreadComponent)) == null) {
             Intrinsics.checkNotNullParameter(frsTopThreadComponent, "<this>");
             i87 i87Var = new i87();
-            HashMap<String, String> a = va7.a.a(frsTopThreadComponent.business_info);
+            HashMap<String, String> a = wa7.a.a(frsTopThreadComponent.business_info);
             String str = a.get("top_time");
             String str2 = "";
             if (str == null) {
@@ -57,7 +57,7 @@ public final class v97 {
                     z3 = false;
                 }
                 if (z3) {
-                    if ((System.currentTimeMillis() / 1000) - wwb.c(str, 0L) > wwb.c(str3, 432001L)) {
+                    if ((System.currentTimeMillis() / 1000) - xwb.c(str, 0L) > xwb.c(str3, 432001L)) {
                         z4 = true;
                     } else {
                         z4 = false;

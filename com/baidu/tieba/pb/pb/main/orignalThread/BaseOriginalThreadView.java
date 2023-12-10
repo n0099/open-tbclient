@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.ItemCardView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d3a;
+import com.baidu.tieba.e3a;
 import com.baidu.tieba.fw4;
 import com.baidu.tieba.os;
 import com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView;
@@ -30,7 +30,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\u0013\u0012\f\u0010\u0002\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004J\u000e\u0010\u0013\u001a\u00020\u00122\u0006\u0010!\u001a\u00020\"J\u0006\u0010#\u001a\u00020\u0018J\b\u0010$\u001a\u00020%H\u0016J\u001e\u0010&\u001a\u00020'2\f\u0010\u0002\u001a\b\u0012\u0002\b\u0003\u0018\u00010\u00032\u0006\u0010(\u001a\u00020)H\u0016J\u0012\u0010*\u001a\u00020'2\b\u0010+\u001a\u0004\u0018\u00010,H\u0016J\u0006\u0010-\u001a\u00020'R\u001c\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\u001c\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R\u001b\u0010\u0011\u001a\u00020\u00128BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0013\u0010\u0014R\u001b\u0010\u0017\u001a\u00020\u00188BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u0016\u001a\u0004\b\u0019\u0010\u001aR\u001b\u0010\u001c\u001a\u00020\u001d8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0016\u001a\u0004\b\u001e\u0010\u001f¨\u0006."}, d2 = {"Lcom/baidu/tieba/pb/pb/main/orignalThread/BaseOriginalThreadView;", "Lcom/baidu/tieba/pb/pb/main/orignalThread/AbstractOriginalThreadView;", "context", "Lcom/baidu/tbadk/TbPageContext;", "(Lcom/baidu/tbadk/TbPageContext;)V", "absThreadDataSupport", "Lcom/baidu/tbadk/core/data/AbsThreadDataSupport;", "getAbsThreadDataSupport", "()Lcom/baidu/tbadk/core/data/AbsThreadDataSupport;", "setAbsThreadDataSupport", "(Lcom/baidu/tbadk/core/data/AbsThreadDataSupport;)V", "convertThreadData", "Lcom/baidu/tbadk/core/data/ThreadData;", "getConvertThreadData", "()Lcom/baidu/tbadk/core/data/ThreadData;", "setConvertThreadData", "(Lcom/baidu/tbadk/core/data/ThreadData;)V", "itemCardView", "Lcom/baidu/tbadk/core/view/ItemCardView;", "getItemCardView", "()Lcom/baidu/tbadk/core/view/ItemCardView;", "itemCardView$delegate", "Lkotlin/Lazy;", "richTextSegment", "Lcom/baidu/card/RichTextSegment;", "getRichTextSegment", "()Lcom/baidu/card/RichTextSegment;", "richTextSegment$delegate", "rootView", "Landroid/widget/LinearLayout;", "getRootView", "()Landroid/widget/LinearLayout;", "rootView$delegate", "showRightBtn", "", "getRichTextSegmentView", "getView", "Landroid/view/View;", "onChangeSkinType", "", WriteMulitImageActivityConfig.SKIN_TYPE, "", "setData", "data", "Lcom/baidu/tbadk/core/data/OriginalThreadInfo;", "setRootViewJumpToPbListener", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes7.dex */
-public class BaseOriginalThreadView extends d3a {
+public class BaseOriginalThreadView extends e3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy f;
@@ -239,7 +239,7 @@ public class BaseOriginalThreadView extends d3a {
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void b(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
@@ -252,7 +252,7 @@ public class BaseOriginalThreadView extends d3a {
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -283,7 +283,7 @@ public class BaseOriginalThreadView extends d3a {
         return (xt) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void c(OriginalThreadInfo originalThreadInfo) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
@@ -350,7 +350,7 @@ public class BaseOriginalThreadView extends d3a {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            l().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.c3a
+            l().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d3a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

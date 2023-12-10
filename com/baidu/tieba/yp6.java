@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zb7;
+import com.baidu.tieba.ac7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class yp6 implements zb7 {
+public final class yp6 implements ac7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +28,27 @@ public final class yp6 implements zb7 {
         }
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return zb7.a.b(this);
+            return ac7.a.b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public Map<String, String> a(v57 v57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
-            return zb7.a.a(this, v57Var);
+            return ac7.a.a(this, v57Var);
         }
         return (Map) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zb7
+    @Override // com.baidu.tieba.ac7
     public String c(v57 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

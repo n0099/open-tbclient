@@ -3,7 +3,7 @@ package com.baidu.tieba.livesdk.share.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rh9;
+import com.baidu.tieba.sh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rh9 data;
+    public sh9 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -34,13 +34,13 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public rh9 getShareInBarData() {
+    public sh9 getShareInBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (rh9) invokeV.objValue;
+        return (sh9) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -49,9 +49,9 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getStatusCode() == 200 && jSONObject != null) {
-                rh9 rh9Var = new rh9();
-                this.data = rh9Var;
-                rh9Var.a(jSONObject);
+                sh9 sh9Var = new sh9();
+                this.data = sh9Var;
+                sh9Var.a(jSONObject);
             }
         }
     }

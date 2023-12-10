@@ -43,12 +43,12 @@ public class ul6 extends ol6<bn6> {
     public CustomMessageListener F;
     public CustomMessageListener G;
     public HListView t;
-    public ml8 u;
+    public nl8 u;
     public CardExtendForumItemHolder v;
     public View w;
     public View.OnClickListener x;
     public LikeModel y;
-    public List<nl8> z;
+    public List<ol8> z;
 
     /* loaded from: classes8.dex */
     public class a extends w4 {
@@ -262,9 +262,9 @@ public class ul6 extends ol6<bn6> {
             for (int i3 = 0; i3 < 10; i3++) {
                 arrayList.add(String.valueOf(i3));
             }
-            ml8 ml8Var = new ml8(c(), R.layout.extend_forum_item, this.v);
-            this.u = ml8Var;
-            ml8Var.d(this.x);
+            nl8 nl8Var = new nl8(c(), R.layout.extend_forum_item, this.v);
+            this.u = nl8Var;
+            nl8Var.d(this.x);
             this.t.setAdapter((ListAdapter) this.u);
         }
         this.i.setOnClickListener(this);
@@ -303,22 +303,22 @@ public class ul6 extends ol6<bn6> {
                         return;
                     }
                     i().setVisibility(0);
-                    ml8 ml8Var = this.u;
-                    if (ml8Var != null) {
+                    nl8 nl8Var = this.u;
+                    if (nl8Var != null) {
                         if (z) {
                             ArrayList arrayList2 = new ArrayList();
                             for (int i = 0; i < this.z.size(); i++) {
                                 arrayList2.add(String.valueOf(i));
                             }
-                            ml8 ml8Var2 = new ml8(c(), R.layout.extend_forum_item, this.v);
-                            this.u = ml8Var2;
-                            ml8Var2.c(this.z);
+                            nl8 nl8Var2 = new nl8(c(), R.layout.extend_forum_item, this.v);
+                            this.u = nl8Var2;
+                            nl8Var2.c(this.z);
                             this.u.d(this.x);
                             this.t.setAdapter((ListAdapter) this.u);
                             k(h(), TbadkCoreApplication.getInst().getSkinType());
                             return;
                         }
-                        ml8Var.c(this.z);
+                        nl8Var.c(this.z);
                         this.u.notifyDataSetChanged();
                         return;
                     }
@@ -343,9 +343,9 @@ public class ul6 extends ol6<bn6> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (ListUtils.getCount(this.z) > 0) {
-                for (nl8 nl8Var : this.z) {
-                    if (nl8Var != null && (nl8Var instanceof an6)) {
-                        an6 an6Var = (an6) nl8Var;
+                for (ol8 ol8Var : this.z) {
+                    if (ol8Var != null && (ol8Var instanceof an6)) {
+                        an6 an6Var = (an6) ol8Var;
                         if (String.valueOf(an6Var.d).equals(str)) {
                             return an6Var;
                         }
@@ -376,7 +376,7 @@ public class ul6 extends ol6<bn6> {
         }
     }
 
-    public final boolean H(List<nl8> list, List<nl8> list2) {
+    public final boolean H(List<ol8> list, List<ol8> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, list2)) == null) {
@@ -385,11 +385,11 @@ public class ul6 extends ol6<bn6> {
             }
             boolean z = true;
             for (int i = 0; i < ListUtils.getCount(list); i++) {
-                nl8 nl8Var = (nl8) ListUtils.getItem(list, i);
-                nl8 nl8Var2 = (nl8) ListUtils.getItem(list2, i);
-                if (nl8Var != null && (nl8Var instanceof an6) && nl8Var2 != null && (nl8Var2 instanceof an6)) {
-                    an6 an6Var = (an6) nl8Var;
-                    an6 an6Var2 = (an6) nl8Var2;
+                ol8 ol8Var = (ol8) ListUtils.getItem(list, i);
+                ol8 ol8Var2 = (ol8) ListUtils.getItem(list2, i);
+                if (ol8Var != null && (ol8Var instanceof an6) && ol8Var2 != null && (ol8Var2 instanceof an6)) {
+                    an6 an6Var = (an6) ol8Var;
+                    an6 an6Var2 = (an6) ol8Var2;
                     if (an6Var.d != an6Var2.d) {
                         z = false;
                     }
@@ -422,9 +422,9 @@ public class ul6 extends ol6<bn6> {
             if (F != null) {
                 F.e = z;
             }
-            ml8 ml8Var = this.u;
-            if (ml8Var != null) {
-                ml8Var.c(this.z);
+            nl8 nl8Var = this.u;
+            if (nl8Var != null) {
+                nl8Var.c(this.z);
                 this.u.notifyDataSetChanged();
             }
         }
@@ -432,12 +432,12 @@ public class ul6 extends ol6<bn6> {
 
     @Override // com.baidu.tieba.ol6, com.baidu.tieba.nl6
     public void k(TbPageContext<?> tbPageContext, int i) {
-        ml8 ml8Var;
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, i) == null) {
             super.k(tbPageContext, i);
-            if (this.t != null && (ml8Var = this.u) != null) {
-                ml8Var.b(i);
+            if (this.t != null && (nl8Var = this.u) != null) {
+                nl8Var.b(i);
             }
         }
     }

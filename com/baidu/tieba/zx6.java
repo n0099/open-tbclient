@@ -574,7 +574,7 @@ public class zx6 {
         u();
         E();
         o().s();
-        e0a.a().d(visitedForumData.getForumId());
+        f0a.a().d(visitedForumData.getForumId());
     }
 
     public final void D(LinkedList<VisitedForumData> linkedList, boolean z) {

@@ -18,8 +18,8 @@ import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationStat;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu8;
 import com.baidu.tieba.cy6;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.jv4;
 import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -396,7 +396,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements jv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            cu8.l().c();
+            du8.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
             cy6 cy6Var = this.g;
             if (cy6Var != null) {

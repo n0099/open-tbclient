@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class rs extends os<fw4> implements idb {
+public class rs extends os<fw4> implements jdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
@@ -177,7 +177,7 @@ public class rs extends os<fw4> implements idb {
         }
     }
 
-    @Override // com.baidu.tieba.idb
+    @Override // com.baidu.tieba.jdb
     public void a() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -197,7 +197,7 @@ public class rs extends os<fw4> implements idb {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.idb
+    @Override // com.baidu.tieba.jdb
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

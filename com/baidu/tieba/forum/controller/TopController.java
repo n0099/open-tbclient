@@ -33,9 +33,10 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ak7;
 import com.baidu.tieba.ar6;
-import com.baidu.tieba.bi7;
 import com.baidu.tieba.br6;
+import com.baidu.tieba.ci7;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.forum.ForumLog;
 import com.baidu.tieba.forum.controller.TopController;
@@ -50,24 +51,23 @@ import com.baidu.tieba.forum.view.FrsPicTabView;
 import com.baidu.tieba.forum.view.FrsTabView;
 import com.baidu.tieba.forum.viewmodel.BottomViewModel;
 import com.baidu.tieba.forum.viewmodel.ForumViewModel;
-import com.baidu.tieba.ho7;
-import com.baidu.tieba.jk7;
-import com.baidu.tieba.kb7;
-import com.baidu.tieba.ki7;
+import com.baidu.tieba.io7;
+import com.baidu.tieba.kk7;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.li7;
 import com.baidu.tieba.ll5;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.mj6;
 import com.baidu.tieba.ml5;
-import com.baidu.tieba.oi7;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.r0;
-import com.baidu.tieba.ri7;
-import com.baidu.tieba.rm7;
 import com.baidu.tieba.s87;
+import com.baidu.tieba.si7;
+import com.baidu.tieba.sm7;
 import com.baidu.tieba.th5;
-import com.baidu.tieba.tua;
-import com.baidu.tieba.wh7;
-import com.baidu.tieba.yn7;
-import com.baidu.tieba.zj7;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.xh7;
+import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +87,7 @@ import tbclient.FrsBottomSmartBgColor;
 import tbclient.FrsPage.FrsBottom;
 @Metadata(d1 = {"\u0000\u009f\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001\u0016\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u001e\u0010+\u001a\u00020\u00102\f\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001e0,2\u0006\u0010-\u001a\u00020\u0010H\u0002J\u0010\u0010.\u001a\u0004\u0018\u00010\u001e2\u0006\u0010/\u001a\u00020\u0010J\b\u00100\u001a\u0004\u0018\u000101J\b\u00102\u001a\u0004\u0018\u000103J\u0006\u00104\u001a\u00020\u0010J\u0010\u00105\u001a\u0002062\u0006\u00107\u001a\u00020\u0014H\u0002J\u000e\u00108\u001a\u0002062\u0006\u0010\u0011\u001a\u00020\u0012J \u00109\u001a\u0002062\u0006\u0010:\u001a\u00020;2\u0006\u0010<\u001a\u0002032\u0006\u0010\u0002\u001a\u00020\u0003H\u0002J\u0006\u0010=\u001a\u00020\u0014J\u0010\u0010>\u001a\u0002062\u0006\u0010?\u001a\u00020\u0010H\u0016J\u001a\u0010@\u001a\u0002062\b\u0010A\u001a\u0004\u0018\u00010;2\u0006\u0010B\u001a\u00020CH\u0016J\b\u0010D\u001a\u000206H\u0016J\b\u0010E\u001a\u000206H\u0002J\u000e\u0010F\u001a\u0002062\u0006\u0010/\u001a\u00020\u0010J\u0006\u0010G\u001a\u000206R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u00020\u0016X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0017R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001e0\u001dX\u0082\u000e¢\u0006\u0002\n\u0000R\u0011\u0010\u001f\u001a\u00020 ¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\"R\u001a\u0010#\u001a\u00020$X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010&\"\u0004\b'\u0010(R\u000e\u0010)\u001a\u00020*X\u0082.¢\u0006\u0002\n\u0000¨\u0006H"}, d2 = {"Lcom/baidu/tieba/forum/controller/TopController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "TAG", "", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "adapter", "Lcom/baidu/tieba/forum/tab/FrsTabPageAdapter;", "arrowIcon", "Landroid/widget/ImageView;", "containerLayout", "Landroid/view/View;", "defaultTabIndex", "", "forumData", "Lcom/baidu/tieba/forum/data/ForumData;", "isTabSelected", "", "onPageChangeListener", "com/baidu/tieba/forum/controller/TopController$onPageChangeListener$1", "Lcom/baidu/tieba/forum/controller/TopController$onPageChangeListener$1;", "publishProgressView", "Lcom/baidu/tbadk/core/view/PublishProgressView;", "tabLayout", "Lcom/angcyo/tablayout/DslTabLayout;", "tabList", "", "Lcom/baidu/tieba/forum/tab/FrsTabFragmentData;", "tiePlusController", "Lcom/baidu/tbadk/widget/tiejia/TiePlusEventController;", "getTiePlusController", "()Lcom/baidu/tbadk/widget/tiejia/TiePlusEventController;", "topCardViewController", "Lcom/baidu/tieba/forum/controller/TopCardViewController;", "getTopCardViewController", "()Lcom/baidu/tieba/forum/controller/TopCardViewController;", "setTopCardViewController", "(Lcom/baidu/tieba/forum/controller/TopCardViewController;)V", "viewPager", "Lcom/baidu/tbadk/widget/CustomViewPager;", "generateJumpTabIndex", "", "defaultTabId", "generateTabFragmentData", "tabId", "getCurFragment", "Landroidx/fragment/app/Fragment;", "getCurTabInfo", "Lcom/baidu/tieba/forum/data/ForumTabItem;", "getFirstNewOrHotTabId", "handleEditModeEvent", "", "inEditMode", "initData", "initFragmentBundle", StateManager.KEY_STATE, "Landroid/os/Bundle;", "tabItem", "isDefaultTabSelected", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "savedInstanceState", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", MissionEvent.MESSAGE_DESTROY, "populateFromPagerAdapter", "setCurrentTab", "startPageRefresh", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class TopController extends wh7 {
+public final class TopController extends xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
@@ -98,10 +98,10 @@ public final class TopController extends wh7 {
     public CustomViewPager g;
     public PublishProgressView h;
     public FrsTabPageAdapter i;
-    public List<yn7> j;
-    public ki7 k;
+    public List<zn7> j;
+    public li7 k;
     public final TiePlusEventController l;
-    public ri7 m;
+    public si7 m;
     public int n;
     public boolean o;
     public final TopController$onPageChangeListener$1 p;
@@ -199,7 +199,7 @@ public final class TopController extends wh7 {
                 } else {
                     frsTabPageAdapter = frsTabPageAdapter2;
                 }
-                List<yn7> b = frsTabPageAdapter.b();
+                List<zn7> b = frsTabPageAdapter.b();
                 if (b != null && !b.isEmpty()) {
                     z = false;
                 } else {
@@ -217,13 +217,13 @@ public final class TopController extends wh7 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class c extends er6<zj7> {
+    public static final class c extends er6<ak7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopController b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(TopController topController, Class<zj7> cls) {
+        public c(TopController topController, Class<ak7> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -245,10 +245,10 @@ public final class TopController extends wh7 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(zj7 event) {
+        public void onEvent(ak7 event) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 if (!Intrinsics.areEqual(event.a(), this.b.z())) {
                     return;
@@ -266,7 +266,7 @@ public final class TopController extends wh7 {
                 } else {
                     frsTabPageAdapter = frsTabPageAdapter2;
                 }
-                List<yn7> b = frsTabPageAdapter.b();
+                List<zn7> b = frsTabPageAdapter.b();
                 if (b != null && !b.isEmpty()) {
                     z = false;
                 } else {
@@ -316,12 +316,12 @@ public final class TopController extends wh7 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
                 Intrinsics.checkNotNullParameter(event, "event");
                 String a = event.a();
-                ri7 ri7Var = this.b.m;
-                if (ri7Var == null) {
+                si7 si7Var = this.b.m;
+                if (si7Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("forumData");
-                    ri7Var = null;
+                    si7Var = null;
                 }
-                if (Intrinsics.areEqual(a, Long.valueOf(ri7Var.e()).toString())) {
+                if (Intrinsics.areEqual(a, Long.valueOf(si7Var.f()).toString())) {
                     this.b.M();
                 }
             }
@@ -348,7 +348,7 @@ public final class TopController extends wh7 {
         this.b = activity;
         this.c = "TopController";
         this.j = new ArrayList();
-        this.k = new ki7(this.b);
+        this.k = new li7(this.b);
         this.l = new TiePlusEventController(this.b, TiePlusStat.Locate.FRS);
         this.p = new ViewPager.OnPageChangeListener(this) { // from class: com.baidu.tieba.forum.controller.TopController$onPageChangeListener$1
             public static /* synthetic */ Interceptable $ic;
@@ -397,16 +397,16 @@ public final class TopController extends wh7 {
                 }
                 this.a.o = true;
                 list = this.a.j;
-                yn7 yn7Var = (yn7) ListUtils.getItem(list, i3);
-                if (yn7Var == null || (b2 = yn7Var.b()) == null) {
+                zn7 zn7Var = (zn7) ListUtils.getItem(list, i3);
+                if (zn7Var == null || (b2 = zn7Var.b()) == null) {
                     return;
                 }
-                ri7 ri7Var = this.a.m;
-                if (ri7Var == null) {
+                si7 si7Var = this.a.m;
+                if (si7Var == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("forumData");
-                    ri7Var = null;
+                    si7Var = null;
                 }
-                rm7.a(b2, ri7Var.e(), 2);
+                sm7.a(b2, si7Var.f(), 2);
             }
         };
     }
@@ -427,7 +427,7 @@ public final class TopController extends wh7 {
                 if (i2 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                if (((yn7) obj).b().getTabId() == i) {
+                if (((zn7) obj).b().getTabId() == i) {
                     currentItem = i2;
                 }
                 i2 = i3;
@@ -449,14 +449,14 @@ public final class TopController extends wh7 {
         }
     }
 
-    public static final void G(ri7 forumData, TopController this$0) {
+    public static final void G(si7 forumData, TopController this$0) {
         ForumTabItem b2;
         Fragment frsTabWebFragment;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, forumData, this$0) == null) {
             Intrinsics.checkNotNullParameter(forumData, "$forumData");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Iterator<ForumTabItem> it = forumData.m().iterator();
+            Iterator<ForumTabItem> it = forumData.o().iterator();
             while (true) {
                 boolean z = true;
                 if (!it.hasNext()) {
@@ -464,29 +464,32 @@ public final class TopController extends wh7 {
                 }
                 ForumTabItem next = it.next();
                 Bundle bundle = new Bundle();
+                bundle.putString("frs_fid", String.valueOf(forumData.f()));
+                bundle.putString("frs_first_class", forumData.d());
+                bundle.putString("frs_second_class", forumData.m());
                 this$0.H(bundle, next, this$0.b);
-                String i = forumData.i();
-                if (i == null) {
-                    i = "";
+                String j = forumData.j();
+                if (j == null) {
+                    j = "";
                 }
-                bundle.putString("forum_common_info", i);
+                bundle.putString("forum_common_info", j);
                 int netType = next.getNetType();
                 if (netType != 1 && netType != 2 && netType != 3) {
                     if (netType != 4) {
                         if (netType != 5) {
-                            ho7.a("Unknown netType!!!");
+                            io7.a("Unknown netType!!!");
                         } else {
                             ml5 a2 = ll5.a();
                             if (a2 != null) {
-                                List<yn7> list = this$0.j;
-                                Fragment a3 = a2.a(String.valueOf(forumData.e()), forumData.f());
+                                List<zn7> list = this$0.j;
+                                Fragment a3 = a2.a(String.valueOf(forumData.f()), forumData.g());
                                 Intrinsics.checkNotNullExpressionValue(a3, "liveTabService.createFra…                        )");
-                                list.add(new yn7(next, a3));
+                                list.add(new zn7(next, a3));
                             }
                         }
                     } else {
-                        bundle.putString("forum_id", String.valueOf(forumData.e()));
-                        bundle.putString("name", forumData.f());
+                        bundle.putString("forum_id", String.valueOf(forumData.f()));
+                        bundle.putString("name", forumData.g());
                         if (mj6.e(next.getTabUrl())) {
                             frsTabWebFragment = new NewFrsTabWebFragment();
                             frsTabWebFragment.setArguments(bundle);
@@ -494,11 +497,11 @@ public final class TopController extends wh7 {
                             frsTabWebFragment = new FrsTabWebFragment();
                             frsTabWebFragment.setArguments(bundle);
                         }
-                        this$0.j.add(new yn7(next, frsTabWebFragment));
+                        this$0.j.add(new zn7(next, frsTabWebFragment));
                     }
                 } else {
-                    bundle.putLong("forum_id", forumData.e());
-                    List<yn7> list2 = this$0.j;
+                    bundle.putLong("forum_id", forumData.f());
+                    List<zn7> list2 = this$0.j;
                     FrsFeedFragment frsFeedFragment = new FrsFeedFragment();
                     if (next.getTabId() != forumData.b()) {
                         z = false;
@@ -506,7 +509,7 @@ public final class TopController extends wh7 {
                     bundle.putBoolean("forum_tab_current_list", z);
                     frsFeedFragment.setArguments(bundle);
                     Unit unit = Unit.INSTANCE;
-                    list2.add(new yn7(next, frsFeedFragment));
+                    list2.add(new zn7(next, frsFeedFragment));
                 }
             }
             int x = this$0.x(this$0.j, forumData.b());
@@ -548,15 +551,15 @@ public final class TopController extends wh7 {
                 customViewPager2 = customViewPager4;
             }
             customViewPager2.setCurrentItem(x);
-            yn7 yn7Var = (yn7) ListUtils.getItem(this$0.j, x);
-            if (yn7Var != null && (b2 = yn7Var.b()) != null) {
-                rm7.a(b2, forumData.e(), 1);
+            zn7 zn7Var = (zn7) ListUtils.getItem(this$0.j, x);
+            if (zn7Var != null && (b2 = zn7Var.b()) != null) {
+                sm7.a(b2, forumData.f(), 1);
             }
-            jk7.d(this$0.b);
+            kk7.d(this$0.b);
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, bundle, binding) == null) {
@@ -692,7 +695,7 @@ public final class TopController extends wh7 {
                                             customViewPager4 = customViewPager5;
                                         }
                                         DslTabLayout.setCurrentItem$default(dslTabLayout3, customViewPager4.getCurrentItem(), false, false, 6, null);
-                                    } else if (!z2 || bi7.g(this.this$0.z()).M()) {
+                                    } else if (!z2 || ci7.g(this.this$0.z()).M()) {
                                         CustomViewPager customViewPager6 = this.this$0.g;
                                         if (customViewPager6 == null) {
                                             Intrinsics.throwUninitializedPropertyAccessException("viewPager");
@@ -710,8 +713,8 @@ public final class TopController extends wh7 {
                                         customViewPager4.setCurrentItem(selectList.get(0).intValue(), false);
                                     }
                                     if (z2) {
-                                        if (bi7.g(this.this$0.z()).V()) {
-                                            bi7.h(this.this$0.z()).u();
+                                        if (ci7.g(this.this$0.z()).V()) {
+                                            ci7.h(this.this$0.z()).u();
                                         }
                                         if (z) {
                                             this.this$0.M();
@@ -719,7 +722,7 @@ public final class TopController extends wh7 {
                                         }
                                         return;
                                     }
-                                    jk7.c(this.this$0.z(), selectList.get(0).intValue());
+                                    kk7.c(this.this$0.z(), selectList.get(0).intValue());
                                 }
                             }
                         });
@@ -765,7 +768,7 @@ public final class TopController extends wh7 {
                                         z3 = true;
                                     } else {
                                         if (z && z2) {
-                                            jk7.c(this.this$0.z(), i);
+                                            kk7.c(this.this$0.z(), i);
                                         }
                                         z3 = false;
                                     }
@@ -817,7 +820,7 @@ public final class TopController extends wh7 {
                 imageView2 = imageView3;
             }
             imageView2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b66, SkinManager.getColor(R.color.CAM_X0624), WebPManager.ResourceStateType.NORMAL));
-            ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.rg7
+            ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.sg7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -825,17 +828,17 @@ public final class TopController extends wh7 {
                 public final void onChanged(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        TopController.J(TopController.this, (ri7) obj);
+                        TopController.J(TopController.this, (si7) obj);
                     }
                 }
             });
             br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(s87.class)), new b(this, s87.class));
-            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(zj7.class)), new c(this, zj7.class));
+            br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(ak7.class)), new c(this, ak7.class));
             br6.b().b(new ar6(f(), Reflection.getOrCreateKotlinClass(th5.class)), new d(this, th5.class));
         }
     }
 
-    public final int x(List<yn7> list, int i) {
+    public final int x(List<zn7> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, list, i)) == null) {
@@ -843,25 +846,25 @@ public final class TopController extends wh7 {
             Iterator<T> it = list.iterator();
             int i2 = 0;
             while (true) {
-                ri7 ri7Var = null;
+                si7 si7Var = null;
                 if (it.hasNext()) {
                     Object next = it.next();
                     int i3 = i2 + 1;
                     if (i2 < 0) {
                         CollectionsKt__CollectionsKt.throwIndexOverflow();
                     }
-                    if (((yn7) next).b().getTabId() == intExtra) {
+                    if (((zn7) next).b().getTabId() == intExtra) {
                         TbLog b2 = ForumLog.b.b();
                         String str = this.c;
                         StringBuilder sb = new StringBuilder();
                         sb.append("forum ");
-                        ri7 ri7Var2 = this.m;
-                        if (ri7Var2 == null) {
+                        si7 si7Var2 = this.m;
+                        if (si7Var2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("forumData");
                         } else {
-                            ri7Var = ri7Var2;
+                            si7Var = si7Var2;
                         }
-                        sb.append(ri7Var.f());
+                        sb.append(si7Var.g());
                         sb.append(" found target jump tab : ");
                         sb.append(intExtra);
                         b2.i(str, sb.toString());
@@ -875,18 +878,18 @@ public final class TopController extends wh7 {
                         if (i4 < 0) {
                             CollectionsKt__CollectionsKt.throwIndexOverflow();
                         }
-                        if (((yn7) obj).b().getTabId() == i) {
+                        if (((zn7) obj).b().getTabId() == i) {
                             TbLog b3 = ForumLog.b.b();
                             String str2 = this.c;
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append("forum ");
-                            ri7 ri7Var3 = this.m;
-                            if (ri7Var3 == null) {
+                            si7 si7Var3 = this.m;
+                            if (si7Var3 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("forumData");
                             } else {
-                                ri7Var = ri7Var3;
+                                si7Var = si7Var3;
                             }
-                            sb2.append(ri7Var.f());
+                            sb2.append(si7Var.g());
                             sb2.append(" found server default tab : ");
                             sb2.append(i);
                             b3.i(str2, sb2.toString());
@@ -900,18 +903,18 @@ public final class TopController extends wh7 {
                         if (i6 < 0) {
                             CollectionsKt__CollectionsKt.throwIndexOverflow();
                         }
-                        if (((yn7) obj2).b().getTabId() == 503) {
+                        if (((zn7) obj2).b().getTabId() == 503) {
                             TbLog b4 = ForumLog.b.b();
                             String str3 = this.c;
                             StringBuilder sb3 = new StringBuilder();
                             sb3.append("forum ");
-                            ri7 ri7Var4 = this.m;
-                            if (ri7Var4 == null) {
+                            si7 si7Var4 = this.m;
+                            if (si7Var4 == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("forumData");
                             } else {
-                                ri7Var = ri7Var4;
+                                si7Var = si7Var4;
                             }
-                            sb3.append(ri7Var.f());
+                            sb3.append(si7Var.g());
                             sb3.append(" return reveal new area tab: ");
                             sb3.append(i6);
                             b4.i(str3, sb3.toString());
@@ -923,13 +926,13 @@ public final class TopController extends wh7 {
                     String str4 = this.c;
                     StringBuilder sb4 = new StringBuilder();
                     sb4.append("forum ");
-                    ri7 ri7Var5 = this.m;
-                    if (ri7Var5 == null) {
+                    si7 si7Var5 = this.m;
+                    if (si7Var5 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("forumData");
                     } else {
-                        ri7Var = ri7Var5;
+                        si7Var = si7Var5;
                     }
-                    sb4.append(ri7Var.f());
+                    sb4.append(si7Var.g());
                     sb4.append(" return first tab");
                     b5.i(str4, sb4.toString());
                     return 0;
@@ -940,7 +943,7 @@ public final class TopController extends wh7 {
         }
     }
 
-    public static final void J(TopController this$0, ri7 forumData) {
+    public static final void J(TopController this$0, si7 forumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, forumData) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -949,7 +952,7 @@ public final class TopController extends wh7 {
         }
     }
 
-    public final void F(final ri7 forumData) {
+    public final void F(final si7 forumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, forumData) == null) {
             Intrinsics.checkNotNullParameter(forumData, "forumData");
@@ -959,7 +962,7 @@ public final class TopController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("viewPager");
                 customViewPager = null;
             }
-            customViewPager.post(new Runnable() { // from class: com.baidu.tieba.mh7
+            customViewPager.post(new Runnable() { // from class: com.baidu.tieba.nh7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -967,7 +970,7 @@ public final class TopController extends wh7 {
                 public final void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TopController.G(ri7.this, this);
+                        TopController.G(si7.this, this);
                     }
                 }
             });
@@ -976,7 +979,7 @@ public final class TopController extends wh7 {
 
     public final Fragment A() {
         InterceptResult invokeV;
-        yn7 yn7Var;
+        zn7 zn7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             CustomViewPager customViewPager = this.g;
@@ -990,17 +993,17 @@ public final class TopController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
                 frsTabPageAdapter = null;
             }
-            List<yn7> b2 = frsTabPageAdapter.b();
-            if (b2 == null || (yn7Var = b2.get(currentItem)) == null) {
+            List<zn7> b2 = frsTabPageAdapter.b();
+            if (b2 == null || (zn7Var = b2.get(currentItem)) == null) {
                 return null;
             }
-            return yn7Var.a();
+            return zn7Var.a();
         }
         return (Fragment) invokeV.objValue;
     }
 
     public final void M() {
-        yn7 yn7Var;
+        zn7 zn7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             CustomViewPager customViewPager = this.g;
@@ -1015,9 +1018,9 @@ public final class TopController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
                 frsTabPageAdapter = null;
             }
-            List<yn7> b2 = frsTabPageAdapter.b();
-            if (b2 != null && (yn7Var = b2.get(currentItem)) != null) {
-                fragment = yn7Var.a();
+            List<zn7> b2 = frsTabPageAdapter.b();
+            if (b2 != null && (zn7Var = b2.get(currentItem)) != null) {
+                fragment = zn7Var.a();
             }
             if (fragment instanceof FrsFeedFragment) {
                 ((FrsFeedFragment) fragment).o3();
@@ -1027,7 +1030,7 @@ public final class TopController extends wh7 {
 
     public final ForumTabItem B() {
         InterceptResult invokeV;
-        List<ForumTabItem> m;
+        List<ForumTabItem> o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             CustomViewPager customViewPager = this.g;
@@ -1036,11 +1039,11 @@ public final class TopController extends wh7 {
                 customViewPager = null;
             }
             int currentItem = customViewPager.getCurrentItem();
-            ri7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
-            if (value == null || (m = value.m()) == null || m.size() <= currentItem || currentItem < 0) {
+            si7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
+            if (value == null || (o = value.o()) == null || o.size() <= currentItem || currentItem < 0) {
                 return null;
             }
-            return m.get(currentItem);
+            return o.get(currentItem);
         }
         return (ForumTabItem) invokeV.objValue;
     }
@@ -1055,11 +1058,11 @@ public final class TopController extends wh7 {
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                yn7 yn7Var = (yn7) obj;
-                if (yn7Var.b().getTabId() != 1 && yn7Var.b().getTabId() != 503) {
+                zn7 zn7Var = (zn7) obj;
+                if (zn7Var.b().getTabId() != 1 && zn7Var.b().getTabId() != 503) {
                     i = i2;
                 } else {
-                    return yn7Var.b().getTabId();
+                    return zn7Var.b().getTabId();
                 }
             }
             return 0;
@@ -1067,13 +1070,13 @@ public final class TopController extends wh7 {
         return invokeV.intValue;
     }
 
-    public final ki7 D() {
+    public final li7 D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.k;
         }
-        return (ki7) invokeV.objValue;
+        return (li7) invokeV.objValue;
     }
 
     public final boolean I() {
@@ -1089,7 +1092,7 @@ public final class TopController extends wh7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -1121,7 +1124,7 @@ public final class TopController extends wh7 {
         }
     }
 
-    public final yn7 y(int i) {
+    public final zn7 y(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
@@ -1131,15 +1134,15 @@ public final class TopController extends wh7 {
                 if (i2 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                yn7 yn7Var = (yn7) obj;
-                if (yn7Var.b().getTabId() == i) {
-                    return yn7Var;
+                zn7 zn7Var = (zn7) obj;
+                if (zn7Var.b().getTabId() == i) {
+                    return zn7Var;
                 }
                 i2 = i3;
             }
             return null;
         }
-        return (yn7) invokeI.objValue;
+        return (zn7) invokeI.objValue;
     }
 
     public final void H(Bundle bundle, ForumTabItem forumTabItem, FragmentActivity fragmentActivity) {
@@ -1180,13 +1183,13 @@ public final class TopController extends wh7 {
         FrsBottomSmartBgColor frsBottomSmartBgColor;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            oi7 value = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().getValue();
+            pi7 value = ((BottomViewModel) new ViewModelProvider(this.b).get(BottomViewModel.class)).a().getValue();
             if (value != null && (e = value.e()) != null && (frsBottomSmartBgColor = e.frs_smart_bg_color) != null) {
                 str = frsBottomSmartBgColor.tab_line_color;
             } else {
                 str = null;
             }
-            int f = tua.f(str);
+            int f = uua.f(str);
             DslTabLayout dslTabLayout = this.f;
             if (dslTabLayout == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("tabLayout");
@@ -1198,10 +1201,10 @@ public final class TopController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
                 frsTabPageAdapter = null;
             }
-            List<yn7> b2 = frsTabPageAdapter.b();
+            List<zn7> b2 = frsTabPageAdapter.b();
             if (b2 != null) {
-                for (yn7 yn7Var : b2) {
-                    if (yn7Var.b().hasTabPic()) {
+                for (zn7 zn7Var : b2) {
+                    if (zn7Var.b().hasTabPic()) {
                         DslTabLayout dslTabLayout2 = this.f;
                         if (dslTabLayout2 == null) {
                             Intrinsics.throwUninitializedPropertyAccessException("tabLayout");
@@ -1210,20 +1213,20 @@ public final class TopController extends wh7 {
                         Context context = dslTabLayout2.getContext();
                         Intrinsics.checkNotNullExpressionValue(context, "tabLayout.context");
                         FrsPicTabView frsPicTabView = new FrsPicTabView(context, null, 0, 6, null);
-                        if (yn7Var.b().getTabType() == 102) {
-                            ri7 ri7Var = this.m;
-                            if (ri7Var == null) {
+                        if (zn7Var.b().getTabType() == 102) {
+                            si7 si7Var = this.m;
+                            if (si7Var == null) {
                                 Intrinsics.throwUninitializedPropertyAccessException("forumData");
-                                ri7Var = null;
+                                si7Var = null;
                             }
-                            frsPicTabView.setIntelligentColorInfo(ri7Var.o());
+                            frsPicTabView.setIntelligentColorInfo(si7Var.q());
                         }
-                        ForumTabPic tabNormalPic = yn7Var.b().getTabNormalPic();
+                        ForumTabPic tabNormalPic = zn7Var.b().getTabNormalPic();
                         Intrinsics.checkNotNull(tabNormalPic);
-                        ForumTabPic tabDarkPic = yn7Var.b().getTabDarkPic();
+                        ForumTabPic tabDarkPic = zn7Var.b().getTabDarkPic();
                         Intrinsics.checkNotNull(tabDarkPic);
                         frsPicTabView.g(tabNormalPic, tabDarkPic);
-                        if (!tua.e(f)) {
+                        if (!uua.e(f)) {
                             frsPicTabView.setIndicatorColor(f);
                             frsTabView = frsPicTabView;
                         } else {
@@ -1239,8 +1242,8 @@ public final class TopController extends wh7 {
                         Context context2 = dslTabLayout3.getContext();
                         Intrinsics.checkNotNullExpressionValue(context2, "tabLayout.context");
                         FrsTabView frsTabView2 = new FrsTabView(context2, null, 0, 6, null);
-                        frsTabView2.setText(yn7Var.b().getTabName());
-                        if (!tua.e(f)) {
+                        frsTabView2.setText(zn7Var.b().getTabName());
+                        if (!uua.e(f)) {
                             frsTabView2.setIndicatorColor(f);
                             frsTabView = frsTabView2;
                         } else {
@@ -1265,7 +1268,7 @@ public final class TopController extends wh7 {
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
@@ -1276,11 +1279,11 @@ public final class TopController extends wh7 {
                 Intrinsics.throwUninitializedPropertyAccessException("adapter");
                 frsTabPageAdapter = null;
             }
-            List<yn7> b2 = frsTabPageAdapter.b();
+            List<zn7> b2 = frsTabPageAdapter.b();
             if (b2 != null) {
-                for (yn7 yn7Var : b2) {
-                    if (yn7Var.a() instanceof kb7) {
-                        ((kb7) yn7Var.a()).f();
+                for (zn7 zn7Var : b2) {
+                    if (zn7Var.a() instanceof lb7) {
+                        ((lb7) zn7Var.a()).f();
                     }
                 }
             }

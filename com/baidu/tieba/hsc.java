@@ -8,10 +8,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class hsc<E> extends isc<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public E[] d;
 
     public hsc() {
         Interceptable interceptable = $ic;

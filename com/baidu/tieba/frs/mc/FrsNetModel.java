@@ -16,7 +16,7 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.dva;
+import com.baidu.tieba.eva;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dva, T> implements NetModel.k<FrsRequestData, dva> {
+public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, eva, T> implements NetModel.k<FrsRequestData, eva> {
     public static /* synthetic */ Interceptable $ic = null;
     public static int s = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dva, T> impleme
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void I(MvcHttpResponsedMessage<dva> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, dva> mvcHttpMessage, MvcNetMessage<FrsRequestData, dva> mvcNetMessage) {
+    public void I(MvcHttpResponsedMessage<eva> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, eva> mvcHttpMessage, MvcNetMessage<FrsRequestData, eva> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
             this.p = mvcHttpResponsedMessage;
@@ -108,7 +108,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dva, T> impleme
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void u(MvcSocketResponsedMessage<dva, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, dva> mvcSocketMessage, MvcNetMessage<FrsRequestData, dva> mvcNetMessage) {
+    public void u(MvcSocketResponsedMessage<eva, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, eva> mvcSocketMessage, MvcNetMessage<FrsRequestData, eva> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
             this.p = mvcSocketResponsedMessage;
@@ -138,11 +138,11 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, dva, T> impleme
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<dva> getResponseDataClass() {
+    public Class<eva> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return dva.class;
+            return eva.class;
         }
         return (Class) invokeV.objValue;
     }

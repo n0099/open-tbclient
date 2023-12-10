@@ -14,7 +14,7 @@ public class si6 {
 
     /* loaded from: classes8.dex */
     public interface a {
-        xga getData();
+        yga getData();
 
         String getKey();
     }

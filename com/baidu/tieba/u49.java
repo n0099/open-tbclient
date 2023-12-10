@@ -1,59 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u49 extends c55<List<? extends ChatMsg>> {
+public final class u49 implements e55<List<? extends ChatMsg>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<BaseFragmentActivity> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u49(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull b55<List<? extends ChatMsg>> b55Var) {
-        super(b55Var);
+    public u49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, b55Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b55) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c55
+    @Override // com.baidu.tieba.e55
     /* renamed from: b */
-    public void a(@NonNull List<? extends ChatMsg> list) {
+    public List<ChatMsg> a(List<a55<List<ChatMsg>>> tasks) {
+        InterceptResult invokeL;
+        boolean z;
+        JSONObject jSONObject;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a.b(new w49(this.b));
-            v49 v49Var = null;
-            for (ChatMsg chatMsg : list) {
-                if (v49Var == null || v49Var.d().size() >= 10) {
-                    v49Var = new v49(this.b);
-                    this.a.b(v49Var);
-                }
-                if (chatMsg.hasReaction()) {
-                    v49Var.d().add(chatMsg);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tasks)) == null) {
+            Intrinsics.checkNotNullParameter(tasks, "tasks");
+            List<ChatMsg> list = tasks.get(0).a;
+            if (list == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            for (ChatMsg chatMsg : list) {
+                for (a55<List<ChatMsg>> a55Var : tasks) {
+                    List<ChatMsg> list2 = a55Var.a;
+                    if (list2 != null) {
+                        for (ChatMsg chatMsg2 : list2) {
+                            if (chatMsg.getMsgId() == chatMsg2.getMsgId()) {
+                                String chatRoomContentExt = chatMsg.getChatRoomContentExt();
+                                if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
+                                    z = false;
+                                } else {
+                                    z = true;
+                                }
+                                if (z) {
+                                    jSONObject = new JSONObject();
+                                } else {
+                                    jSONObject = new JSONObject(chatMsg.getChatRoomContentExt());
+                                }
+                                String chatRoomContentExt2 = chatMsg2.getChatRoomContentExt();
+                                if (chatRoomContentExt2 != null && chatRoomContentExt2.length() != 0) {
+                                    z2 = false;
+                                } else {
+                                    z2 = true;
+                                }
+                                if (!z2) {
+                                    JSONObject b = MsgContentMergeUtil.a.b(jSONObject, new JSONObject(chatMsg2.getChatRoomContentExt()));
+                                    if (b.length() > 0) {
+                                        chatMsg.setChatRoomContentExt(b.toString());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                arrayList.add(chatMsg);
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

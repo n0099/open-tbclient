@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ot5;
-import com.baidu.tieba.rv8;
 import com.baidu.tieba.sv8;
+import com.baidu.tieba.tv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,18 +19,18 @@ public abstract class TbBaseImageMsg extends TbNormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("big_size")
-    @rv8
-    public String bigSize;
-    @SerializedName("big_src")
     @sv8
+    public String bigSize;
+    @tv8
+    @SerializedName("big_src")
     public String bigSrc;
     @ot5(deserialize = false, serialize = false)
     public final String imgThumbnailText;
     @SerializedName("bsize")
-    @rv8
-    public String thumbSize;
-    @SerializedName("src")
     @sv8
+    public String thumbSize;
+    @tv8
+    @SerializedName("src")
     public String thumbUrl;
 
     public void onUploadImageSuccess() {

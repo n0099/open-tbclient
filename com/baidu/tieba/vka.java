@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.GlobalBuildConfig;
-import com.baidu.tieba.zb7;
+import com.baidu.tieba.ac7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class vka implements zb7 {
+public final class vka implements ac7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,51 +29,41 @@ public final class vka implements zb7 {
         }
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return zb7.a.b(this);
+            return ac7.a.b(this);
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yb7
+    @Override // com.baidu.tieba.zb7
     public Map<String, String> a(v57 v57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v57Var)) == null) {
-            return zb7.a.a(this, v57Var);
+            return ac7.a.a(this, v57Var);
         }
         return (Map) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0028, code lost:
-        if (r5.equals("video_forum") == false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x002a, code lost:
+        if (r5.equals("video_forum") == false) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
-        if (r5.equals("live_forum") == false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0033, code lost:
+        if (r5.equals("live_forum") == false) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003a, code lost:
-        if (r5.equals("live_user") == false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0048, code lost:
+        if (r5.equals("common_forum") == false) goto L25;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0043, code lost:
-        if (r5.equals("common_forum") == false) goto L23;
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x004b, code lost:
+        return "forum_head_click";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
-        return "common_click_for_forum_head";
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x004f, code lost:
-        if (r5.equals("video_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0056, code lost:
-        if (r5.equals("common_user") == false) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0059, code lost:
-        return "common_click_for_user_head";
-     */
-    @Override // com.baidu.tieba.zb7
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.ac7
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -88,22 +78,37 @@ public final class vka implements zb7 {
             }
             switch (str.hashCode()) {
                 case -1924729441:
-                    break;
+                    if (str.equals("common_user")) {
+                        return "";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                        return "";
+                    }
+                    throw new IllegalStateException("unknown card_head_type :" + str);
                 case -1617812209:
+                    if (str.equals("video_user")) {
+                        return "video_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
                     break;
                 case 448970189:
                     break;
                 case 1009035070:
+                    if (str.equals("live_user")) {
+                        return "live_user_head_click";
+                    }
+                    if (GlobalBuildConfig.isDebug()) {
+                    }
                     break;
                 case 1201356814:
                     break;
                 case 1373469789:
                     break;
                 default:
-                    if (!GlobalBuildConfig.isDebug()) {
-                        return "";
+                    if (GlobalBuildConfig.isDebug()) {
                     }
-                    throw new IllegalStateException("unknown card_head_type :" + str);
+                    break;
             }
         } else {
             return (String) invokeL.objValue;

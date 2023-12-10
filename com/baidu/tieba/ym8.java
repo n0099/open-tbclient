@@ -1,152 +1,206 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.client.HttpClient;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.http.message.JsonResponsedMessage;
 import com.baidu.tieba.http.message.ProtoResponseMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.Arrays;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public final class ym8<T> extends tm8<T> {
+public final class ym8<T> extends HttpClient.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final long e;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm8<T> a;
-    public HttpMessage b;
-    public TbHttpMessageTask c;
-    public xm8<T> d;
+    public final zm8<T> e;
+    public final sm8<T> f;
+    public T g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335077, "Lcom/baidu/tieba/ym8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes9.dex */
+    public static final class a extends wm8<T> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(T t) {
+            super(t);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948335077, "Lcom/baidu/tieba/ym8;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        e = mc.b().a();
-    }
-
-    public final qm8<T> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (qm8) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ym8(qm8<T> builder) {
-        super(builder);
+    public ym8(HttpMessage msg, HttpMessageTask task, zm8<T> request, sm8<T> sm8Var) {
+        super(msg, task);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {builder};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {msg, task, request, sm8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((um8) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(builder, "builder");
-        this.a = builder;
-        this.b = new HttpMessage(CmdConfigHttp.THE_COMMON_HTTP_CMD_FOR_ALL);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.THE_COMMON_HTTP_CMD_FOR_ALL, "");
-        this.c = tbHttpMessageTask;
-        tbHttpMessageTask.setIsNeedAddCommenParam(this.a.h());
-        this.c.setIsNeedTbs(this.a.j());
-        this.c.setIsNeedLogin(this.a.u());
-        this.c.setIsNeedCookie(this.a.i());
-        this.c.setPriority(this.a.l());
-        this.c.setIsUseCurrentBDUSS(this.a.g());
-        this.c.setIsBDImage(this.a.p());
-        this.c.setIsFromCDN(this.a.r());
-        this.c.setIsNeedAddStatisticsParam(this.a.s());
-        this.c.setmIsNBaiduServer(this.a.q());
-        this.c.setIsNeedToast(this.a.v());
-        this.c.setIsNeedDialog(this.a.t());
+        Intrinsics.checkNotNullParameter(msg, "msg");
+        Intrinsics.checkNotNullParameter(task, "task");
+        Intrinsics.checkNotNullParameter(request, "request");
+        this.e = request;
+        this.f = sm8Var;
     }
 
-    @Override // com.baidu.tieba.sm8
-    public void a(rm8<T> rm8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.client.HttpClient.a, com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public HttpResponsedMessage doInBackground(HttpMessage... params) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rm8Var) == null) {
-            c(rm8Var, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, params)) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            return super.doInBackground((HttpMessage[]) Arrays.copyOf(params, params.length));
+        }
+        return (HttpResponsedMessage) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.client.HttpClient.a, com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onProgressUpdate(ResponsedMessage<?>... values) {
+        boolean z;
+        String str;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, values) == null) {
+            Intrinsics.checkNotNullParameter(values, "values");
+            boolean z2 = true;
+            if (values.length == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ((!z) && values[0] != null) {
+                ResponsedMessage<?> responsedMessage = values[0];
+                if (((responsedMessage == null || responsedMessage.getError() != 0) ? false : false) && (t = this.g) != null) {
+                    sm8<T> sm8Var = this.f;
+                    if (sm8Var != null) {
+                        sm8Var.b(this.e, new a(t));
+                        return;
+                    }
+                    return;
+                }
+                sm8<T> sm8Var2 = this.f;
+                if (sm8Var2 != null) {
+                    zm8<T> zm8Var = this.e;
+                    ResponsedMessage<?> responsedMessage2 = values[0];
+                    if (responsedMessage2 != null) {
+                        str = responsedMessage2.getErrorString();
+                    } else {
+                        str = null;
+                    }
+                    if (str == null) {
+                        str = "unknown error";
+                    }
+                    sm8Var2.a(zm8Var, new Throwable(str));
+                    return;
+                }
+                return;
+            }
+            sm8<T> sm8Var3 = this.f;
+            if (sm8Var3 != null) {
+                sm8Var3.a(this.e, new Throwable("no response error"));
+            }
         }
     }
 
-    public final void c(rm8<T> rm8Var, boolean z) {
-        HttpResponsedMessage httpResponsedMessage;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public void publishProgress(ResponsedMessage<?>... values) {
+        boolean z;
+        ProtoResponseMessage protoResponseMessage;
+        byte[] bArr;
+        String str;
+        JsonResponsedMessage jsonResponsedMessage;
+        JsonResponsedMessage jsonResponsedMessage2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, rm8Var, z) == null) {
-            TbHttpMessageTask tbHttpMessageTask = this.c;
-            tbHttpMessageTask.setUrl(this.a.f() + this.a.o());
-            if (this.a.n() == 2) {
-                this.c.setResponsedClass(JsonResponsedMessage.class);
+        if (interceptable == null || interceptable.invokeL(1048579, this, values) == null) {
+            Intrinsics.checkNotNullParameter(values, "values");
+            if (values.length == 0) {
+                z = true;
             } else {
-                this.c.setResponsedClass(ProtoResponseMessage.class);
+                z = false;
             }
-            this.c.setTimeOut(z6.d().b());
-            this.c.setRetry(z6.d().a());
-            this.c.setConnectTimeOut(z6.d().c());
-            for (Map.Entry<String, Object> entry : this.a.k().entrySet()) {
-                Object value = entry.getValue();
-                this.b.addParam(entry.getKey(), value);
-            }
-            for (Map.Entry<String, String> entry2 : this.a.e().entrySet()) {
-                this.b.addHeader(entry2.getKey(), entry2.getValue());
-            }
-            if (this.a.n() == 1) {
-                this.b.addHeader(NetMessage.HTTP_HEADER_KEY, "protobuf");
-            } else {
-                this.b.removeHeader(NetMessage.HTTP_HEADER_KEY);
-            }
-            if (this.a.m() == 1) {
-                this.c.setMethod(HttpMessageTask.HTTP_METHOD.GET);
-            } else {
-                this.c.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-            }
-            this.b.setClientLogID(e);
-            xm8<T> xm8Var = new xm8<>(this.b, this.c, this, rm8Var);
-            this.d = xm8Var;
-            if (z) {
-                if (xm8Var != null) {
-                    xm8Var.execute(new HttpMessage[0]);
-                }
-            } else if (xm8Var != null) {
-                ResponsedMessage<?>[] responsedMessageArr = new ResponsedMessage[1];
-                if (xm8Var != null) {
-                    httpResponsedMessage = xm8Var.doInBackground(new HttpMessage[0]);
+            if ((!z) && values[0] != null) {
+                ResponsedMessage<?> responsedMessage = values[0];
+                T t = null;
+                if (this.e.b().n() == 2) {
+                    boolean z2 = responsedMessage instanceof JsonResponsedMessage;
+                    if (z2) {
+                        jsonResponsedMessage = (JsonResponsedMessage) responsedMessage;
+                    } else {
+                        jsonResponsedMessage = null;
+                    }
+                    if (jsonResponsedMessage != null) {
+                        bArr = jsonResponsedMessage.getData();
+                    } else {
+                        bArr = null;
+                    }
+                    if (z2) {
+                        jsonResponsedMessage2 = (JsonResponsedMessage) responsedMessage;
+                    } else {
+                        jsonResponsedMessage2 = null;
+                    }
+                    if (jsonResponsedMessage2 != null) {
+                        str = jsonResponsedMessage2.getCharset();
+                    } else {
+                        str = null;
+                    }
                 } else {
-                    httpResponsedMessage = null;
+                    if (responsedMessage instanceof ProtoResponseMessage) {
+                        protoResponseMessage = (ProtoResponseMessage) responsedMessage;
+                    } else {
+                        protoResponseMessage = null;
+                    }
+                    if (protoResponseMessage != null) {
+                        bArr = protoResponseMessage.getData();
+                    } else {
+                        bArr = null;
+                    }
+                    str = "uft-8";
                 }
-                responsedMessageArr[0] = httpResponsedMessage;
-                xm8Var.onProgressUpdate(responsedMessageArr);
+                xm8<T> d = this.e.b().d();
+                if (d != null) {
+                    t = d.a(bArr, str);
+                }
+                this.g = t;
             }
+            super.publishProgress(Arrays.copyOf(values, values.length));
         }
     }
 }

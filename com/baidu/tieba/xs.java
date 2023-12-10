@@ -23,7 +23,7 @@ import com.baidu.tieba.p05;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
-import com.baidu.tieba.xva;
+import com.baidu.tieba.yva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,7 +35,7 @@ public class xs extends qs implements it<ThreadData>, jt {
     public transient /* synthetic */ FieldHolder $fh;
     public FollowForumDecorView a;
     public LikeModel b;
-    public xva c;
+    public yva c;
     public ThreadData d;
     public TbPageContext e;
     public n05 f;
@@ -199,7 +199,7 @@ public class xs extends qs implements it<ThreadData>, jt {
     }
 
     /* loaded from: classes9.dex */
-    public class d implements xva.a {
+    public class d implements yva.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xs a;
@@ -222,7 +222,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             this.a = xsVar;
         }
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -230,7 +230,7 @@ public class xs extends qs implements it<ThreadData>, jt {
             }
         }
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -429,9 +429,9 @@ public class xs extends qs implements it<ThreadData>, jt {
                 return;
             }
             if (this.c == null) {
-                xva xvaVar = new xva();
-                this.c = xvaVar;
-                xvaVar.b(new d(this));
+                yva yvaVar = new yva();
+                this.c = yvaVar;
+                yvaVar.b(new d(this));
             }
             this.c.c(this.d.getForumData().d(), Integer.parseInt(this.d.getForumData().b()));
         }

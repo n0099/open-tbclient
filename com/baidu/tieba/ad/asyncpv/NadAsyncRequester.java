@@ -22,8 +22,8 @@ import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.at5;
 import com.baidu.tieba.bt5;
 import com.baidu.tieba.cp0;
-import com.baidu.tieba.dg9;
 import com.baidu.tieba.dp0;
+import com.baidu.tieba.eg9;
 import com.baidu.tieba.hf0;
 import com.baidu.tieba.jp0;
 import com.baidu.tieba.kp0;
@@ -280,7 +280,7 @@ public class NadAsyncRequester {
                 }
             }
             jSONArray.put(e(AdExtParam.KEY_NAD_CORE_VERSION, "6.1.0.1"));
-            if (!dg9.f(map)) {
+            if (!eg9.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(e(entry.getKey(), entry.getValue()));
                 }

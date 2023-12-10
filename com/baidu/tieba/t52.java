@@ -98,12 +98,12 @@ public final class t52 {
 
         /* renamed from: com.baidu.tieba.t52$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class RunnableC0479b implements Runnable {
+        public class RunnableC0480b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ q52 a;
 
-            public RunnableC0479b(b bVar, q52 q52Var) {
+            public RunnableC0480b(b bVar, q52 q52Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class t52 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0479b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0480b(this, this.c.m()));
             }
         }
 

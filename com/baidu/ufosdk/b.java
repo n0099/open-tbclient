@@ -560,17 +560,17 @@ public class b {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:69|70|(2:72|73)(1:104)|74|75|(2:77|(7:86|87|88|(2:90|(1:95)(1:94))|96|(1:92)|95)(2:81|(1:85)))|100|(1:79)|86|87|88|(0)|96|(0)|95) */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x0202, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0204, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x0203, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0205, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:147:0x027c A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01d3 A[Catch: all -> 0x02af, Exception -> 0x02b3, TryCatch #10 {Exception -> 0x02b3, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0186, B:30:0x018c, B:32:0x01a2, B:71:0x0253, B:73:0x0268, B:75:0x0272, B:78:0x0279, B:79:0x027c, B:50:0x01d3, B:52:0x01d9, B:54:0x01e5, B:56:0x01eb, B:57:0x01ef, B:66:0x0209, B:68:0x020f, B:69:0x0222, B:63:0x0203, B:47:0x01cd, B:70:0x0239, B:80:0x028e), top: B:136:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x01fd A[Catch: Exception -> 0x0202, all -> 0x02af, TRY_LEAVE, TryCatch #11 {all -> 0x02af, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0186, B:30:0x018c, B:32:0x01a2, B:71:0x0253, B:73:0x0268, B:75:0x0272, B:78:0x0279, B:79:0x027c, B:34:0x01af, B:36:0x01b5, B:39:0x01be, B:41:0x01c4, B:50:0x01d3, B:52:0x01d9, B:54:0x01e5, B:56:0x01eb, B:57:0x01ef, B:58:0x01f7, B:60:0x01fd, B:66:0x0209, B:68:0x020f, B:69:0x0222, B:63:0x0203, B:47:0x01cd, B:70:0x0239, B:80:0x028e), top: B:136:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0209 A[Catch: all -> 0x02af, Exception -> 0x02b3, TryCatch #10 {Exception -> 0x02b3, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0186, B:30:0x018c, B:32:0x01a2, B:71:0x0253, B:73:0x0268, B:75:0x0272, B:78:0x0279, B:79:0x027c, B:50:0x01d3, B:52:0x01d9, B:54:0x01e5, B:56:0x01eb, B:57:0x01ef, B:66:0x0209, B:68:0x020f, B:69:0x0222, B:63:0x0203, B:47:0x01cd, B:70:0x0239, B:80:0x028e), top: B:136:0x0119 }] */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x0268 A[Catch: all -> 0x02af, Exception -> 0x02b3, TryCatch #10 {Exception -> 0x02b3, blocks: (B:14:0x0119, B:15:0x0139, B:17:0x013f, B:20:0x0156, B:21:0x0165, B:23:0x016f, B:28:0x0186, B:30:0x018c, B:32:0x01a2, B:71:0x0253, B:73:0x0268, B:75:0x0272, B:78:0x0279, B:79:0x027c, B:50:0x01d3, B:52:0x01d9, B:54:0x01e5, B:56:0x01eb, B:57:0x01ef, B:66:0x0209, B:68:0x020f, B:69:0x0222, B:63:0x0203, B:47:0x01cd, B:70:0x0239, B:80:0x028e), top: B:136:0x0119 }] */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x027e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01d5 A[Catch: all -> 0x02b1, Exception -> 0x02b5, TryCatch #9 {Exception -> 0x02b5, blocks: (B:14:0x011b, B:15:0x013b, B:17:0x0141, B:20:0x0158, B:21:0x0167, B:23:0x0171, B:28:0x0188, B:30:0x018e, B:32:0x01a4, B:71:0x0255, B:73:0x026a, B:75:0x0274, B:78:0x027b, B:79:0x027e, B:50:0x01d5, B:52:0x01db, B:54:0x01e7, B:56:0x01ed, B:57:0x01f1, B:66:0x020b, B:68:0x0211, B:69:0x0224, B:63:0x0205, B:47:0x01cf, B:70:0x023b, B:80:0x0290), top: B:136:0x011b }] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x01ff A[Catch: Exception -> 0x0204, all -> 0x02b1, TRY_LEAVE, TryCatch #12 {all -> 0x02b1, blocks: (B:14:0x011b, B:15:0x013b, B:17:0x0141, B:20:0x0158, B:21:0x0167, B:23:0x0171, B:28:0x0188, B:30:0x018e, B:32:0x01a4, B:71:0x0255, B:73:0x026a, B:75:0x0274, B:78:0x027b, B:79:0x027e, B:34:0x01b1, B:36:0x01b7, B:39:0x01c0, B:41:0x01c6, B:50:0x01d5, B:52:0x01db, B:54:0x01e7, B:56:0x01ed, B:57:0x01f1, B:58:0x01f9, B:60:0x01ff, B:66:0x020b, B:68:0x0211, B:69:0x0224, B:63:0x0205, B:47:0x01cf, B:70:0x023b, B:80:0x0290), top: B:136:0x011b }] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x020b A[Catch: all -> 0x02b1, Exception -> 0x02b5, TryCatch #9 {Exception -> 0x02b5, blocks: (B:14:0x011b, B:15:0x013b, B:17:0x0141, B:20:0x0158, B:21:0x0167, B:23:0x0171, B:28:0x0188, B:30:0x018e, B:32:0x01a4, B:71:0x0255, B:73:0x026a, B:75:0x0274, B:78:0x027b, B:79:0x027e, B:50:0x01d5, B:52:0x01db, B:54:0x01e7, B:56:0x01ed, B:57:0x01f1, B:66:0x020b, B:68:0x0211, B:69:0x0224, B:63:0x0205, B:47:0x01cf, B:70:0x023b, B:80:0x0290), top: B:136:0x011b }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x026a A[Catch: all -> 0x02b1, Exception -> 0x02b5, TryCatch #9 {Exception -> 0x02b5, blocks: (B:14:0x011b, B:15:0x013b, B:17:0x0141, B:20:0x0158, B:21:0x0167, B:23:0x0171, B:28:0x0188, B:30:0x018e, B:32:0x01a4, B:71:0x0255, B:73:0x026a, B:75:0x0274, B:78:0x027b, B:79:0x027e, B:50:0x01d5, B:52:0x01db, B:54:0x01e7, B:56:0x01ed, B:57:0x01f1, B:66:0x020b, B:68:0x0211, B:69:0x0224, B:63:0x0205, B:47:0x01cf, B:70:0x023b, B:80:0x0290), top: B:136:0x011b }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -835,22 +835,22 @@ public class b {
                                             context2.sendBroadcast(intent8);
                                         } catch (Exception unused5) {
                                         }
-                                    } catch (Throwable th4) {
-                                        th = th4;
-                                        Intent intent62 = new Intent(str3);
-                                        intent62.setPackage(c.a());
-                                        context2.sendBroadcast(intent62);
-                                        throw th;
+                                    } catch (Exception unused6) {
                                     }
-                                } catch (Exception unused6) {
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    Intent intent62 = new Intent(str3);
+                                    intent62.setPackage(c.a());
+                                    context2.sendBroadcast(intent62);
+                                    throw th;
                                 }
                             }
                         }
-                    } catch (Throwable th5) {
-                        th = th5;
+                    } catch (Exception unused7) {
                         context2 = context;
                     }
-                } catch (Exception unused7) {
+                } catch (Throwable th5) {
+                    th = th5;
                     context2 = context;
                 }
                 str4 = "com.baidu.ufosdk.reload";
@@ -879,7 +879,7 @@ public class b {
     /* JADX WARN: Code restructure failed: missing block: B:57:0x01a3, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x019d A[Catch: Exception -> 0x01a2, all -> 0x027c, TRY_LEAVE, TryCatch #7 {all -> 0x027c, blocks: (B:19:0x00e3, B:20:0x00f3, B:22:0x00f9, B:24:0x0112, B:26:0x011d, B:29:0x012b, B:34:0x0143, B:36:0x0149, B:38:0x015f, B:64:0x01f2, B:40:0x016c, B:42:0x0172, B:48:0x0181, B:50:0x0187, B:51:0x018f, B:52:0x0197, B:54:0x019d, B:59:0x01a8, B:61:0x01ae, B:62:0x01c4, B:57:0x01a3, B:45:0x017a, B:63:0x01d8, B:65:0x0222, B:69:0x024a, B:73:0x025d), top: B:108:0x00e3 }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x019d A[Catch: Exception -> 0x01a2, all -> 0x027d, TRY_LEAVE, TryCatch #7 {all -> 0x027d, blocks: (B:19:0x00e3, B:20:0x00f3, B:22:0x00f9, B:24:0x0112, B:26:0x011d, B:29:0x012b, B:34:0x0143, B:36:0x0149, B:38:0x015f, B:64:0x01f2, B:40:0x016c, B:42:0x0172, B:48:0x0181, B:50:0x0187, B:51:0x018f, B:52:0x0197, B:54:0x019d, B:59:0x01a8, B:61:0x01ae, B:62:0x01c4, B:57:0x01a3, B:45:0x017a, B:63:0x01d8, B:65:0x0222, B:69:0x024a, B:73:0x025e), top: B:109:0x00e3 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -947,22 +947,22 @@ public class b {
                                         context.sendBroadcast(intent3);
                                         return false;
                                     }
-                                } catch (Exception unused2) {
-                                    str4 = "com.baidu.ufosdk.reload";
-                                    Intent intent22 = new Intent(str4);
-                                    intent22.setPackage(c.a());
-                                    context.sendBroadcast(intent22);
-                                    Intent intent32 = new Intent(str3);
-                                    intent32.setPackage(c.a());
-                                    context.sendBroadcast(intent32);
-                                    return false;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    Intent intent4 = new Intent(str3);
+                                    intent4.setPackage(c.a());
+                                    context.sendBroadcast(intent4);
+                                    throw th;
                                 }
-                            } catch (Throwable th) {
-                                th = th;
-                                Intent intent4 = new Intent(str3);
-                                intent4.setPackage(c.a());
-                                context.sendBroadcast(intent4);
-                                throw th;
+                            } catch (Exception unused2) {
+                                str4 = "com.baidu.ufosdk.reload";
+                                Intent intent22 = new Intent(str4);
+                                intent22.setPackage(c.a());
+                                context.sendBroadcast(intent22);
+                                Intent intent32 = new Intent(str3);
+                                intent32.setPackage(c.a());
+                                context.sendBroadcast(intent32);
+                                return false;
                             }
                         }
                     } else {
@@ -1927,9 +1927,9 @@ public class b {
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01d7 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x00ca */
-    /* JADX WARN: Can't wrap try/catch for region: R(3:(3:40|41|(2:50|51)(3:43|(2:45|46)(2:48|49)|47))|37|38) */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x01d9 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:76:0x00cc */
+    /* JADX WARN: Can't wrap try/catch for region: R(3:(3:42|43|(2:52|53)(3:45|(2:47|48)(2:50|51)|49))|39|40) */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r17v0 */
     /* JADX WARN: Type inference failed for: r17v2 */
@@ -1976,6 +1976,7 @@ public class b {
                     a2 = d0.a(str5, d0.a(hashMap2));
                 } catch (Throwable th) {
                     th = th;
+                    str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
                 }
             } catch (Exception unused) {
                 str4 = "com.baidu.ufosdk.reload";
@@ -2115,7 +2116,6 @@ public class b {
             return false;
         } catch (Throwable th4) {
             th = th4;
-            str3 = "com.baidu.ufosdk.deletemsg_dialogdismiss";
         }
     }
 

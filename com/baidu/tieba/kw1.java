@@ -51,12 +51,12 @@ public class kw1 extends iw1 {
 
         /* renamed from: com.baidu.tieba.kw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0382a implements dl3<nb3<JSONObject>> {
+        public class C0383a implements dl3<nb3<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ nu1.b a;
 
-            public C0382a(a aVar, nu1.b bVar) {
+            public C0383a(a aVar, nu1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class kw1 extends iw1 {
                     return new ly1(10002, "network_error");
                 }
                 sb3 e = j63.K().x().a().b().e(this.e.i());
-                e.p(new C0382a(this, bVar));
+                e.p(new C0383a(this, bVar));
                 e.a();
                 return new ly1(0);
             }

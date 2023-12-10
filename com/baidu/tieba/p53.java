@@ -36,13 +36,13 @@ public class p53 extends j53 {
 
         /* renamed from: com.baidu.tieba.p53$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0421a implements View.OnClickListener {
+        public class View$OnClickListenerC0423a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0421a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0423a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +226,7 @@ public class p53 extends j53 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0421a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0423a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

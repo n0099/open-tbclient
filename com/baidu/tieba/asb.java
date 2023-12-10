@@ -2,41 +2,29 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.bsb;
+import com.baidu.tieba.yrb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-import java.util.Stack;
 /* loaded from: classes5.dex */
-public final class asb {
+public final class asb implements yrb.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<WeakReference<Activity>> a;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final asb a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.yrb.a
+    public final void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-936058372, "Lcom/baidu/tieba/asb$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-936058372, "Lcom/baidu/tieba/asb$a;");
-                    return;
-                }
-            }
-            a = new asb((byte) 0);
+    @Override // com.baidu.tieba.yrb.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
@@ -50,64 +38,27 @@ public final class asb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yrb.a
+    public final void a(Activity activity) {
+        bsb bsbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Stack) invokeV.objValue;
-    }
-
-    public /* synthetic */ asb(byte b) {
-        this();
-    }
-
-    public final void c(WeakReference<Activity> weakReference) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
-            this.a.add(weakReference);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            bsbVar = bsb.a.a;
+            bsbVar.c(new WeakReference<>(activity));
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.a.size(); i++) {
-                Activity activity = this.a.get(i).get();
-                if (activity != null) {
-                    sb.append(activity.getClass().getSimpleName());
-                    sb.append("->");
-                }
-            }
-            if (sb.length() > 0) {
-                return sb.substring(0, sb.length() - 2);
-            }
-            return "没有路径了";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(Activity activity) {
+    @Override // com.baidu.tieba.yrb.a
+    public final void onActivityDestroyed(Activity activity) {
+        bsb bsbVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (this.a != null) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (this.a.get(i).get() == activity) {
-                        Stack<WeakReference<Activity>> stack = this.a;
-                        stack.remove(stack.get(i));
-                    }
-                }
-            }
-            b();
+            bsbVar = bsb.a.a;
+            bsbVar.d(activity);
         }
     }
 }

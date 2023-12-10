@@ -1,53 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.IMUserExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.BusinessMix;
+import tbclient.BusinessAccountInfo;
 /* loaded from: classes7.dex */
-public class nvc extends ktc {
+public class nvc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static BusinessMix b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull BusinessAccountInfo businessAccountInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            BusinessMix.Builder builder = new BusinessMix.Builder();
-            if (jSONObject.has("mix_type")) {
-                builder.mix_type = Integer.valueOf(jSONObject.optInt("mix_type"));
-            }
-            if (jSONObject.has("url")) {
-                builder.url = jSONObject.optString("url");
-            }
-            if (jSONObject.has("scheme")) {
-                builder.scheme = jSONObject.optString("scheme");
-            }
-            if (jSONObject.has("jump_type")) {
-                builder.jump_type = Integer.valueOf(jSONObject.optInt("jump_type"));
-            }
-            if (jSONObject.has("package_name")) {
-                builder.package_name = jSONObject.optString("package_name");
-            }
-            return builder.build(true);
-        }
-        return (BusinessMix) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull BusinessMix businessMix) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, businessMix)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, businessAccountInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "mix_type", businessMix.mix_type);
-            ktc.a(jSONObject, "url", businessMix.url);
-            ktc.a(jSONObject, "scheme", businessMix.scheme);
-            ktc.a(jSONObject, "jump_type", businessMix.jump_type);
-            ktc.a(jSONObject, "package_name", businessMix.package_name);
+            ltc.a(jSONObject, IMUserExtraData.KEY_IS_BUSINESS_ACCOUNT, businessAccountInfo.is_business_account);
+            ltc.a(jSONObject, "is_forum_business_account", businessAccountInfo.is_forum_business_account);
+            ltc.a(jSONObject, "business_name", businessAccountInfo.business_name);
+            ltc.a(jSONObject, "identifi_explain", businessAccountInfo.identifi_explain);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

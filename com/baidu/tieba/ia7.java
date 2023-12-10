@@ -50,13 +50,13 @@ public final class ia7 implements aa7 {
             int dimens6 = BdUtilHelper.getDimens(v27.a, R.dimen.tbds42);
             e67 a = richTextData.g().a();
             if (a != null) {
-                i = id7.a.b(a);
+                i = jd7.a.b(a);
             } else {
                 i = R.color.CAM_X0302;
             }
             e67 b = richTextData.g().b();
             if (b != null) {
-                i2 = id7.a.b(b);
+                i2 = jd7.a.b(b);
             } else {
                 i2 = R.color.CAM_X0101;
             }

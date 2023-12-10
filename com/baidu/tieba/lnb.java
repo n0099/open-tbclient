@@ -1,37 +1,37 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.impl.CronetBidirectionalStream;
-import java.nio.ByteBuffer;
-import org.chromium.base.NativeLibraryLoadedStatus;
-import org.chromium.base.annotations.CheckDiscard;
-import org.chromium.base.natives.GEN_JNI;
-@CheckDiscard("crbug.com/993421")
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class lnb implements CronetBidirectionalStream.f {
+public class lnb {
     public static /* synthetic */ Interceptable $ic;
-    public static CronetBidirectionalStream.f a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947950057, "Lcom/baidu/tieba/lnb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947950057, "Lcom/baidu/tieba/lnb;");
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
@@ -39,50 +39,46 @@ public final class lnb implements CronetBidirectionalStream.f {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    public final void a(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) && jSONArray != null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    if (this.a == null) {
+                        this.a = new ArrayList();
+                    }
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        a aVar = new a();
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                        optJSONObject.optInt("tab_id");
+                        optJSONObject.optString("tab_name");
+                        optJSONObject.optInt("obj_type");
+                        this.a.add(aVar);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static CronetBidirectionalStream.f c() {
-        InterceptResult invokeV;
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (GEN_JNI.TESTING_ENABLED) {
-                CronetBidirectionalStream.f fVar = a;
-                if (fVar != null) {
-                    return fVar;
-                }
-                if (GEN_JNI.REQUIRE_MOCK) {
-                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetBidirectionalStream.Natives. The current configuration requires all native implementations to have a mock instance.");
-                }
-            }
-            NativeLibraryLoadedStatus.checkLoaded(false);
-            return new lnb();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray != null) {
+            a(jSONArray);
         }
-        return (CronetBidirectionalStream.f) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public void a(long j, CronetBidirectionalStream cronetBidirectionalStream, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, Boolean.valueOf(z)}) == null) {
-            GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_destroy(j, cronetBidirectionalStream, z);
-        }
-    }
-
-    @Override // com.baidu.turbonet.net.impl.CronetBidirectionalStream.f
-    public boolean b(long j, CronetBidirectionalStream cronetBidirectionalStream, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), cronetBidirectionalStream, byteBufferArr, iArr, iArr2, Boolean.valueOf(z)})) == null) {
-            return GEN_JNI.com_baidu_turbonet_net_impl_CronetBidirectionalStream_writevData(j, cronetBidirectionalStream, byteBufferArr, iArr, iArr2, z);
-        }
-        return invokeCommon.booleanValue;
     }
 }

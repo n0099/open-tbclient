@@ -1,53 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.im.lib.socket.msg.data.BotsDTO;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class bw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Map<String, Object> map, @NonNull BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
-        BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext;
-        List<AtSelectData> atUserInfos;
+    @Nullable
+    public static Object a(@NonNull vv8 vv8Var, @NonNull wv8 wv8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, map, itemsDTO) == null) {
-            Map map2 = (Map) map.get("opts");
-            if (map2 == null) {
-                map2 = new HashMap();
-                map.put("opts", map2);
-            }
-            List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO> opts = itemsDTO.getOpts();
-            if (opts != null && !opts.isEmpty()) {
-                String str = null;
-                if (itemsDTO.isNormalType()) {
-                    str = opts.get(0).getName();
-                } else if (itemsDTO.isFileType()) {
-                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext2 = opts.get(0).getExt();
-                    if (ext2 != null) {
-                        str = ext2.getPicPath();
-                    }
-                } else if (itemsDTO.isAtType() && (ext = opts.get(0).getExt()) != null && (atUserInfos = ext.getAtUserInfos()) != null && !atUserInfos.isEmpty()) {
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < atUserInfos.size(); i++) {
-                        sb.append(BIMManager.getBdUKFromBdUid(atUserInfos.get(i).getUid()));
-                        if (i < atUserInfos.size() - 1) {
-                            sb.append(",");
-                        }
-                    }
-                    str = sb.toString();
-                }
-                if (str != null && !str.isEmpty()) {
-                    map2.put(itemsDTO.getValue(), str);
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, vv8Var, wv8Var, obj)) == null) {
+            try {
+                return vv8Var.b(wv8Var, obj);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
+        return invokeLLL.objValue;
+    }
+
+    @Nullable
+    public static Object b(@NonNull vv8 vv8Var, @NonNull wv8 wv8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, vv8Var, wv8Var, obj)) == null) {
+            try {
+                return vv8Var.a(wv8Var, obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return invokeLLL.objValue;
     }
 }

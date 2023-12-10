@@ -1,274 +1,198 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import com.kwad.sdk.api.KsAdSDK;
-import com.kwad.sdk.api.KsDrawAd;
-import com.kwad.sdk.api.KsLoadManager;
-import com.kwad.sdk.api.KsScene;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.AdReporter;
+import com.kwad.sdk.api.KsVideoPlayConfig;
+import com.kwad.sdk.api.model.AdnName;
 /* loaded from: classes8.dex */
-public class w5c extends v5c<s5c> {
+public abstract class w5c<A extends c7c> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ModuleConfigKs e;
 
-    /* loaded from: classes8.dex */
-    public class a implements KsLoadManager.DrawAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w5c a;
-
-        public a(w5c w5cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w5cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w5cVar;
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
-        public void onDrawAdLoad(@Nullable List<KsDrawAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
-                    onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (KsDrawAd ksDrawAd : list) {
-                    if (ksDrawAd != null) {
-                        arrayList.add(new s5c(ksDrawAd));
-                    }
-                }
-                if (!arrayList.isEmpty()) {
-                    this.a.onAdLoaded(arrayList);
-                    return;
-                }
-                LogPrinter.e("onDrawAdLoad error: adList is null or empty", new Object[0]);
-                onError(0, "NoFill");
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsLoadManager.DrawAdListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements KsDrawAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final String c;
-        public final s5c d;
-        public FunAdInteractionListener e;
-        public final /* synthetic */ w5c f;
-
-        public b(w5c w5cVar, s5c s5cVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w5cVar, s5cVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = w5cVar;
-            this.d = s5cVar;
-            this.c = str;
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onAdClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.f.onAdClicked((w5c) this.d, this.b, new String[0]);
-                this.b = true;
-                FunAdInteractionListener funAdInteractionListener = this.e;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdClicked(this.c, this.f.mPid.ssp.type, this.f.mPid.pid);
-                }
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onAdShow() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.f.onAdShow((w5c) this.d, this.a, new String[0]);
-                this.a = true;
-                FunAdInteractionListener funAdInteractionListener = this.e;
-                if (funAdInteractionListener != null) {
-                    funAdInteractionListener.onAdShow(this.c, this.f.mPid.ssp.type, this.f.mPid.pid);
-                }
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onVideoPlayEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onVideoPlayError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.e();
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onVideoPlayPause() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onVideoPlayResume() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
-        public void onVideoPlayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w5c(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid, true, true);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w5c(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        this(funAdType, pid, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {funAdType, pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = moduleConfigKs;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w5c(FunAdType funAdType, Ssp.Pid pid, boolean z) {
+        this(funAdType, pid, z, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w5c(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2) {
+        this(funAdType, pid, z, z2, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w5c(FunAdType funAdType, Ssp.Pid pid, boolean z, boolean z2, boolean z3) {
+        super(funAdType, pid, z, z2, z3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ReporterPidLoader
+    public AdReporter<A> createAdReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new d7c(this.mPid) : (AdReporter) invokeV.objValue;
+    }
+
+    public KsVideoPlayConfig e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            KsVideoPlayConfig.Builder showLandscape = new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal);
+            ModuleConfigKs moduleConfigKs = this.e;
+            return showLandscape.videoSoundEnable(moduleConfigKs == null || moduleConfigKs.ksVideoSoundEnable).build();
+        }
+        return (KsVideoPlayConfig) invokeV.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    public double getAdBiddingPrices(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new j6c(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            s5c s5cVar = (s5c) obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((c7c) obj).a() / 100.0d;
         }
+        return invokeL.doubleValue;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x005e, code lost:
+        if (r6.equals(com.fun.ad.sdk.FunAdSdk.PLATFORM_CSJ) == false) goto L31;
+     */
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void setAdBiddingResult(Object obj, String str, double d, double d2, boolean z, int i) {
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 5)).build();
-            onLoadStart(funAdSlot);
-            KsLoadManager loadManager = KsAdSDK.getLoadManager();
-            if (loadManager == null) {
-                onError(FunAdSdk.PLATFORM_KS);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            c7c c7cVar = (c7c) obj;
+            double d3 = d * 100.0d;
+            double d4 = d2 * 100.0d;
+            if (z) {
+                c7cVar.c((long) d3, (long) d4);
+                return;
+            }
+            int i4 = (int) (d3 + 100.0d);
+            char c = 0;
+            if (i == 5) {
+                i2 = 0;
             } else {
-                loadManager.loadDrawAd(build, new a(this));
+                i2 = 2;
             }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
-            s5c s5cVar = (s5c) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, s5cVar, new z5c(this, this, s5cVar, str, context));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            s5c s5cVar = (s5c) obj;
-            onShowStart(s5cVar);
-            ((KsDrawAd) s5cVar.a).setAdInteractionListener(new b(this, s5cVar, str));
-            View drawView = ((KsDrawAd) s5cVar.a).getDrawView(viewGroup.getContext());
-            if (drawView == null) {
-                LogPrinter.e("drawView is null", new Object[0]);
-                return false;
+            if (FunAdSdk.PLATFORM_KS.equals(str)) {
+                i3 = 1;
+            } else {
+                i3 = 2;
             }
-            if (drawView.getParent() != null) {
-                ((ViewGroup) drawView.getParent()).removeView(drawView);
+            str.hashCode();
+            int hashCode = str.hashCode();
+            String str2 = "baidu";
+            if (hashCode != 98810) {
+                if (hashCode != 102199) {
+                    if (hashCode == 93498907 && str.equals("baidu")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals(FunAdSdk.PLATFORM_GDT)) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(drawView);
-            return true;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        str2 = "other";
+                    }
+                } else {
+                    str2 = AdnName.GUANGDIANTONG;
+                }
+            } else {
+                str2 = AdnName.CHUANSHANJIA;
+            }
+            c7cVar.b(i4, i2, i3, str2);
         }
-        return invokeLLLL.booleanValue;
     }
 }

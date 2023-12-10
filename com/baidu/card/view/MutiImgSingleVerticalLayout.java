@@ -37,7 +37,7 @@ import com.baidu.tieba.fw4;
 import com.baidu.tieba.it;
 import com.baidu.tieba.mm6;
 import com.baidu.tieba.mx5;
-import com.baidu.tieba.nxa;
+import com.baidu.tieba.oxa;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.s36;
@@ -421,7 +421,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements it<fw4>
     public final void g(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) && threadData != null && this.i != null && this.a != null) {
-            AbsDownloadGuide c2 = nxa.c(getContext(), threadData, this.a, this.b);
+            AbsDownloadGuide c2 = oxa.c(getContext(), threadData, this.a, this.b);
             this.b = c2;
             if (c2 == null) {
                 this.i.setConrers(15);
@@ -533,7 +533,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements it<fw4>
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65549, this, threadData) == null) && (textView = this.d) != null && threadData != null) {
-            nxa.a(textView, getContext(), threadData);
+            oxa.a(textView, getContext(), threadData);
         }
     }
 

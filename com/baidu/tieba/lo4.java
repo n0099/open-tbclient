@@ -40,12 +40,12 @@ public final class lo4 implements jj4 {
 
         /* renamed from: com.baidu.tieba.lo4$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0389a implements Runnable {
+        public class RunnableC0390a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0389a(a aVar) {
+            public RunnableC0390a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public final class lo4 implements jj4 {
                             z = false;
                         }
                     }
-                    if (z && j63.M().postDelayed(new RunnableC0389a(this), 1000L)) {
+                    if (z && j63.M().postDelayed(new RunnableC0390a(this), 1000L)) {
                         return;
                     }
                 }

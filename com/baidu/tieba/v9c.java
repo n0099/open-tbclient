@@ -1,147 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.Executor;
 /* loaded from: classes8.dex */
-public class v9c {
+public final class v9c<TResult> implements wac<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static final v9c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public x9c d;
+    public xac<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197065, "Lcom/baidu/tieba/v9c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948197065, "Lcom/baidu/tieba/v9c;");
-                return;
-            }
-        }
-        e = new v9c();
-    }
-
-    public v9c() {
+    public v9c(Executor executor, xac<TResult> xacVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, xacVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
+        this.c = new Object();
+        this.a = xacVar;
+        this.b = executor;
     }
 
-    public Context a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wac
+    public final void a(iac<TResult> iacVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void e(k9c k9cVar, boolean z) {
-        this.d.d(k9cVar, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void g(Runnable runnable, k9c k9cVar) {
-        if (this.b) {
-            runnable.run();
-        } else if (k9cVar != null) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_NOT_INITIALIZED;
-            k9cVar.onFailure(honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public void b(final k9c<String> k9cVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k9cVar, z) == null) {
-            d(new Runnable() { // from class: com.baidu.tieba.g9c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        v9c.this.e(k9cVar, z);
-                    }
-                }
-            }, k9cVar);
-        }
-    }
-
-    public final void d(final Runnable runnable, final k9c<?> k9cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, runnable, k9cVar) == null) {
-            iac.b(new Runnable() { // from class: com.baidu.tieba.f9c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        v9c.this.g(runnable, k9cVar);
-                    }
-                }
-            });
-        }
-    }
-
-    public void c(final z9c z9cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z9cVar) == null) {
-            iac.b(new Runnable() { // from class: com.baidu.tieba.e9c
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        v9c.this.f(z9cVar);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void f(z9c z9cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, z9cVar) == null) && !this.b) {
-            this.b = true;
-            this.a = new WeakReference<>(z9cVar.a);
-            this.c = z9cVar.b;
-            this.d = new x9c(z9cVar.a);
-            if (this.c) {
-                b(null, true);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, iacVar) == null) {
+            this.b.execute(new t9c(this, iacVar));
         }
     }
 }

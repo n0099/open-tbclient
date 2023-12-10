@@ -2,25 +2,22 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.AbilityConf;
 /* loaded from: classes7.dex */
-public class ltc extends ktc {
+public abstract class ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONObject b(@NonNull AbilityConf abilityConf) {
-        InterceptResult invokeL;
+    public static <T> void a(@NonNull JSONObject jSONObject, @NonNull String str, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, abilityConf)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "bot_uk", abilityConf.bot_uk);
-            ktc.a(jSONObject, "skill_id", abilityConf.skill_id);
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, jSONObject, str, t) == null) {
+            try {
+                jSONObject.put(str, t);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

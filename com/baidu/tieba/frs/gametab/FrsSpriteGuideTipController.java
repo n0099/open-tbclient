@@ -151,7 +151,7 @@ public final class FrsSpriteGuideTipController {
         this.c.A(4000L);
         this.c.t(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
         this.c.u(c());
-        this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.rz7
+        this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.sz7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

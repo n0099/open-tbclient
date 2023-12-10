@@ -33,9 +33,9 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            tj6.a().c(BaseWebView.TB_NA_CHANNEL, wt4.class);
-            tj6.a().c("local_obj", vt4.class);
             tj6.a().c("_TieBa_Native_Invoke", xt4.class);
+            tj6.a().c("local_obj", vt4.class);
+            tj6.a().c(BaseWebView.TB_NA_CHANNEL, wt4.class);
         }
     }
 }

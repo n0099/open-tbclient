@@ -4,23 +4,29 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.NativeApp;
+import tbclient.NaGuide;
+import tbclient.RecGuide;
 /* loaded from: classes6.dex */
-public class j5d extends ktc {
+public class j5d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull NativeApp nativeApp) {
+    public static JSONObject b(@NonNull NaGuide naGuide) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nativeApp)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, naGuide)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "jump_and", nativeApp.jump_and);
-            ktc.a(jSONObject, "jump_ios", nativeApp.jump_ios);
-            ktc.a(jSONObject, "download_and", nativeApp.download_and);
-            ktc.a(jSONObject, "download_ios", nativeApp.download_ios);
+            ltc.a(jSONObject, "dwnl_url", naGuide.dwnl_url);
+            if (naGuide.rec_info != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (RecGuide recGuide : naGuide.rec_info) {
+                    jSONArray.put(k7d.b(recGuide));
+                }
+                ltc.a(jSONObject, "rec_info", jSONArray);
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

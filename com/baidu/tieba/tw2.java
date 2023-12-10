@@ -45,12 +45,12 @@ public class tw2 {
 
         /* renamed from: com.baidu.tieba.tw2$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0488a implements zq1.a {
+        public class C0485a implements zq1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0488a(a aVar, File[] fileArr) {
+            public C0485a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class tw2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0488a(this, fileArr));
+                    u.d(p, null, fileArr, new C0485a(this, fileArr));
                 }
             }
         }

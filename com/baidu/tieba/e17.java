@@ -197,34 +197,34 @@ public class e17 {
         return (MyEmotionGroupData) invokeL.objValue;
     }
 
-    public int f(lr9 lr9Var) {
+    public int f(mr9 mr9Var) {
         InterceptResult invokeL;
-        List<mr9> list;
+        List<nr9> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lr9Var)) == null) {
-            if (lr9Var == null || (list = lr9Var.e) == null || list.size() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, mr9Var)) == null) {
+            if (mr9Var == null || (list = mr9Var.e) == null || list.size() == 0) {
                 return 0;
             }
-            String str = ".emotions/" + lr9Var.a;
+            String str = ".emotions/" + mr9Var.a;
             m17 o = m17.o();
-            List<mr9> list2 = lr9Var.e;
+            List<nr9> list2 = mr9Var.e;
             int i = 0;
             for (int i2 = 0; i2 < list2.size(); i2++) {
-                mr9 mr9Var = list2.get(i2);
-                if (a(str + "/" + mr9Var.c)) {
-                    if (a(str + "/" + mr9Var.d)) {
+                nr9 nr9Var = list2.get(i2);
+                if (a(str + "/" + nr9Var.c)) {
+                    if (a(str + "/" + nr9Var.d)) {
                         StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
-                        sb.append(lr9Var.a + "_" + mr9Var.b);
+                        sb.append(mr9Var.a + "_" + nr9Var.b);
                         sb.append(",");
-                        sb.append(mr9Var.f);
+                        sb.append(nr9Var.f);
                         sb.append(",");
-                        sb.append(mr9Var.e);
+                        sb.append(nr9Var.e);
                         sb.append(",");
                         String str2 = SmallTailInfo.EMOTION_PREFIX + sb.toString() + xd.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
-                        boolean isGifImage = FileHelper.isGifImage(pl5.b.e(lr9Var.a, mr9Var.c));
-                        f17.g(lr9Var.a, mr9Var.d, f17.c(str2, true, false));
-                        f17.g(lr9Var.a, mr9Var.c, f17.c(str2, false, isGifImage));
-                        if (o.f(str2, lr9Var.a, i2 + 1)) {
+                        boolean isGifImage = FileHelper.isGifImage(pl5.b.e(mr9Var.a, nr9Var.c));
+                        f17.g(mr9Var.a, nr9Var.d, f17.c(str2, true, false));
+                        f17.g(mr9Var.a, nr9Var.c, f17.c(str2, false, isGifImage));
+                        if (o.f(str2, mr9Var.a, i2 + 1)) {
                             i++;
                         }
                     }

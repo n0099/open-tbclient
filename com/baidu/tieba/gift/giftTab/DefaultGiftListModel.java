@@ -7,11 +7,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.r98;
+import com.baidu.tieba.s98;
 import com.baidu.tieba.tx4;
 import com.baidu.tieba.ux4;
-import com.baidu.tieba.v98;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.w98;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<r98> a;
+    public ArrayList<s98> a;
     public ArrayList<tx4> b;
-    public ArrayList<v98> c;
+    public ArrayList<w98> c;
     public String d;
     public int e;
     public b f;
@@ -32,7 +32,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, ux4 ux4Var, ArrayList<r98> arrayList, ArrayList<tx4> arrayList2, ArrayList<v98> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, ux4 ux4Var, ArrayList<s98> arrayList, ArrayList<tx4> arrayList2, ArrayList<w98> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            vva.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            vva.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            wva.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            wva.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

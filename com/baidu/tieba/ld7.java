@@ -1,87 +1,119 @@
 package com.baidu.tieba;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.net.Uri;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.util.media.WebpUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.k37;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
 public final class ld7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int a(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939114, "Lcom/baidu/tieba/ld7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (z) {
-                return 0;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939114, "Lcom/baidu/tieba/ld7;");
+                return;
             }
-            return BdUtilHelper.getDimens(v27.a, v27.a.getResources().getIdentifier(str, EMABTest.TYPE_DIMEN, v27.a.getPackageName()));
         }
-        return invokeL.intValue;
+        a = new a(null);
     }
 
-    public static final void b(View imageView, String iconUrl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, imageView, iconUrl) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-            k37.e a = k37.a().a();
-            boolean z = false;
-            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                if (!(imageView instanceof ImageView)) {
-                    return;
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                Uri parse = Uri.parse(iconUrl);
-                List<String> pathSegments = parse.getPathSegments();
-                if (pathSegments.size() > 0) {
-                    int identifier = v27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, v27.a.getPackageName());
-                    String queryParameter = parse.getQueryParameter("type");
-                    String queryParameter2 = parse.getQueryParameter("color");
-                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                        return;
-                    }
-                    int identifier2 = v27.a.getResources().getIdentifier(queryParameter2, "color", v27.a.getPackageName());
-                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
-                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
-                        if (imageView instanceof TbImageView) {
-                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
-                        }
-                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
-                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
-                        if (imageView instanceof TbImageView) {
-                            ((TbImageView) imageView).setContentColorFilter(new PorterDuffColorFilter(SkinManager.getColor(identifier2), PorterDuff.Mode.SRC_ATOP));
-                        }
-                    } else {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                    }
-                }
-            } else if (a != null) {
-                a.f(imageView, iconUrl);
             }
+        }
+
+        public final m77 a(String iconUrl) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (!TextUtils.isEmpty(iconUrl) && StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = v27.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, v27.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        String str = queryParameter;
+                        String queryParameter2 = parse.getQueryParameter("color");
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = v27.a.getResources().getIdentifier(queryParameter2, "color", v27.a.getPackageName());
+                        } else {
+                            i = 0;
+                        }
+                        if (identifier > 0) {
+                            return new m77(identifier, str, i, md7.a(parse.getQueryParameter(CriusAttrConstants.PADDING)), md7.a(parse.getQueryParameter("left_margin")), md7.a(parse.getQueryParameter("right_margin")), md7.a(parse.getQueryParameter("width")), md7.a(parse.getQueryParameter("height")), md7.a(parse.getQueryParameter("offsetY")));
+                        }
+                    }
+                }
+                return null;
+            }
+            return (m77) invokeL.objValue;
+        }
+
+        public final String b(i77 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
+            }
+            return (String) invokeL.objValue;
         }
     }
 }

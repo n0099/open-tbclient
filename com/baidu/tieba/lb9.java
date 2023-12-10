@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class lb9 extends jb9<rb9> implements rb7<lb9> {
+public final class lb9 extends kb9<rb9> implements sb7<lb9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
@@ -20,7 +20,7 @@ public final class lb9 extends jb9<rb9> implements rb7<lb9> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lb9(ub9<rb9> data, String templateName) {
+    public lb9(vb9<rb9> data, String templateName) {
         super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -31,7 +31,7 @@ public final class lb9 extends jb9<rb9> implements rb7<lb9> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ub9) newInitContext.callArgs[0]);
+                super((vb9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +42,7 @@ public final class lb9 extends jb9<rb9> implements rb7<lb9> {
         this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public final class lb9 extends jb9<rb9> implements rb7<lb9> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public /* bridge */ /* synthetic */ lb9 b() {
         i();
         return this;

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import com.baidu.tieba.bn8;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.u36;
 import com.baidu.tieba.v36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -69,7 +69,7 @@ public class TaskRegisterStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
-        bn8.b(304101, ResponsePassFriendMessage.class, false);
+        cn8.b(304101, ResponsePassFriendMessage.class, false);
         MessageManager.getInstance().addResponsedMessageRule(new v36());
         CustomMessageTask customMessageTask = new CustomMessageTask(2001322, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

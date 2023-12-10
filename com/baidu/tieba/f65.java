@@ -119,7 +119,7 @@ public class f65 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setStroke(dimens, tua.a(i, x25.b(this.x)));
+                gradientDrawable.setStroke(dimens, uua.a(i, x25.b(this.x)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

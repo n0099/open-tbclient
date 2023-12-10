@@ -10,12 +10,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aja;
-import com.baidu.tieba.cja;
-import com.baidu.tieba.kha;
+import com.baidu.tieba.bja;
+import com.baidu.tieba.dja;
 import com.baidu.tieba.kw4;
-import com.baidu.tieba.oha;
+import com.baidu.tieba.lha;
 import com.baidu.tieba.p16;
+import com.baidu.tieba.pha;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class AdCardVideoView extends AdCardBaseView implements oha {
+public class AdCardVideoView extends AdCardBaseView implements pha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView f0;
@@ -104,10 +104,10 @@ public class AdCardVideoView extends AdCardBaseView implements oha {
 
     public boolean C0(AdCard adCard) {
         InterceptResult invokeL;
-        aja ajaVar;
+        bja bjaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (ajaVar = adCard.verticalVideoStyle) == null || !ajaVar.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (bjaVar = adCard.verticalVideoStyle) == null || !bjaVar.a()) {
                 return false;
             }
             return true;
@@ -160,14 +160,14 @@ public class AdCardVideoView extends AdCardBaseView implements oha {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.oha
-    public kha getVideoOrVrView() {
+    @Override // com.baidu.tieba.pha
+    public lha getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.f0;
         }
-        return (kha) invokeV.objValue;
+        return (lha) invokeV.objValue;
     }
 
     public final void D0(AdCard adCard) {
@@ -181,12 +181,12 @@ public class AdCardVideoView extends AdCardBaseView implements oha {
                 } else {
                     int i2 = this.x / 2;
                     this.h0 = i2;
-                    this.i0 = cja.b(i2);
+                    this.i0 = dja.b(i2);
                 }
             } else {
                 int i3 = this.x;
                 this.h0 = i3;
-                this.i0 = cja.a(i3);
+                this.i0 = dja.a(i3);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f0.getLayoutParams();
             layoutParams.height = this.i0;
@@ -198,12 +198,12 @@ public class AdCardVideoView extends AdCardBaseView implements oha {
                 } else {
                     int i4 = this.x / 2;
                     this.j0 = i4;
-                    this.r0 = cja.b(i4);
+                    this.r0 = dja.b(i4);
                 }
             } else {
                 int i5 = this.x;
                 this.j0 = i5;
-                this.r0 = cja.a(i5);
+                this.r0 = dja.a(i5);
             }
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09193e);
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();

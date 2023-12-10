@@ -123,10 +123,10 @@ public class am6 implements View.OnClickListener {
                 if (!StringUtils.isNull(TbSingleton.getInstance().getLFUserTaskId())) {
                     str = TbSingleton.getInstance().getLFUserTaskId();
                 }
-                nf8.a("c14080", str, "1");
+                of8.a("c14080", str, "1");
             } else {
                 hashMap.put(LowFlowsActivityConfig.LF_USER, "1");
-                nf8.a("c14080", "0", "2");
+                of8.a("c14080", "0", "2");
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "TreasureTrovePage", hashMap)));
         }

@@ -32,11 +32,11 @@ import com.baidu.tbadk.widget.VCenterTextSpan;
 import com.baidu.tieba.R;
 import com.baidu.tieba.fj5;
 import com.baidu.tieba.ld5;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.sv5;
 import com.baidu.tieba.sy5;
-import com.baidu.tieba.tua;
 import com.baidu.tieba.ty5;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.uy5;
 import com.baidu.tieba.vy5;
 import com.baidu.tieba.wy5;
@@ -588,10 +588,10 @@ public class TbRichTextItem extends OrmObject {
         return (SpannableString) invokeV.objValue;
     }
 
-    public CharSequence f0(ArrayList<sy5> arrayList, String str, @Nullable ThreadData threadData, mwa mwaVar) {
+    public CharSequence f0(ArrayList<sy5> arrayList, String str, @Nullable ThreadData threadData, nwa nwaVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, arrayList, str, threadData, mwaVar)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, arrayList, str, threadData, nwaVar)) == null) {
             int i = this.a;
             if (i != 1) {
                 if (i != 2) {
@@ -607,7 +607,7 @@ public class TbRichTextItem extends OrmObject {
                                                     if (i != 40) {
                                                         return null;
                                                     }
-                                                    return ty5.k(this.b.getText(), this.b.T(), this.b.getLink(), threadData, (mwaVar == null || mwaVar.L() == 1) ? 3 : 3);
+                                                    return ty5.k(this.b.getText(), this.b.T(), this.b.getLink(), threadData, (nwaVar == null || nwaVar.L() == 1) ? 3 : 3);
                                                 }
                                                 return c0(str);
                                             }
@@ -681,7 +681,7 @@ public class TbRichTextItem extends OrmObject {
                 uy5Var.l(this.b.P());
                 uy5Var.k(this.b.O());
                 if (this.a == 2 && (tbRichTextCommInfo2 = this.b) != null && !TextUtils.isEmpty(tbRichTextCommInfo2.S())) {
-                    uy5Var.s(tua.d(TbadkCoreApplication.getInst(), this.b.S()));
+                    uy5Var.s(uua.d(TbadkCoreApplication.getInst(), this.b.S()));
                 } else if (i2 == 1) {
                     uy5Var.s(R.color.CAM_X0109);
                 } else {

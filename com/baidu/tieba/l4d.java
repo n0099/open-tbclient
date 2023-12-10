@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.LabelInfo;
+import tbclient.JNews;
 /* loaded from: classes7.dex */
-public class l4d extends ktc {
+public class l4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LabelInfo labelInfo) {
+    public static JSONObject b(@NonNull JNews jNews) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, labelInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jNews)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "labelHot", labelInfo.labelHot);
-            ktc.a(jSONObject, "labelContent", labelInfo.labelContent);
-            ktc.a(jSONObject, "labelId", labelInfo.labelId);
+            ltc.a(jSONObject, "jid", jNews.jid);
+            ltc.a(jSONObject, "url", jNews.url);
+            ltc.a(jSONObject, "from", jNews.from);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

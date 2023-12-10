@@ -3,7 +3,7 @@ package com.baidu.tieba.filedownloader;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public abstract class TbDownloadManagerWrapper {
     public abstract void c(DownloadData downloadData);
 
     /* loaded from: classes5.dex */
-    public static final class a implements oe7 {
+    public static final class a implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbDownloadManagerWrapper a;
@@ -50,10 +50,10 @@ public abstract class TbDownloadManagerWrapper {
             this.a = tbDownloadManagerWrapper;
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(DownloadData data) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -63,16 +63,16 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.a(data);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.a(data);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(DownloadData data) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -82,16 +82,16 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.b(data);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.b(data);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(DownloadData data) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -101,16 +101,16 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.c(data);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.c(data);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(DownloadData data) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -120,16 +120,16 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.d(data);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.d(data);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(DownloadData data) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -139,16 +139,16 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.e(data);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.e(data);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(DownloadData data, int i) {
             boolean z;
-            oe7 oe7Var;
+            pe7 pe7Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -158,8 +158,8 @@ public abstract class TbDownloadManagerWrapper {
                 } else {
                     z = true;
                 }
-                if (!z && (oe7Var = (oe7) this.a.d().get(data.getId())) != null) {
-                    oe7Var.f(data, i);
+                if (!z && (pe7Var = (pe7) this.a.d().get(data.getId())) != null) {
+                    pe7Var.f(data, i);
                 }
             }
         }
@@ -204,7 +204,7 @@ public abstract class TbDownloadManagerWrapper {
         }
     }
 
-    public final Map<String, oe7> d() {
+    public final Map<String, pe7> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -222,7 +222,7 @@ public abstract class TbDownloadManagerWrapper {
         return (TbDownloadManager) invokeV.objValue;
     }
 
-    public final boolean g(DownloadData downloadData, oe7 callback) {
+    public final boolean g(DownloadData downloadData, pe7 callback) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -238,7 +238,7 @@ public abstract class TbDownloadManagerWrapper {
             }
             if (!z) {
                 d().remove(downloadData.getId());
-                Map<String, oe7> d = d();
+                Map<String, pe7> d = d();
                 String id2 = downloadData.getId();
                 Intrinsics.checkNotNullExpressionValue(id2, "downloadData.id");
                 d.put(id2, callback);

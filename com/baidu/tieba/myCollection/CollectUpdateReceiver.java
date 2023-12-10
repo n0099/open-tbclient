@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sp9;
+import com.baidu.tieba.tp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +42,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        sp9.b().g();
+        tp9.b().g();
         if (!SharedPrefHelper.getInstance().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }

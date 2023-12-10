@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.impersonal.data.BehaviorExt;
+import com.baidu.tieba.p05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
 public final class ie9 {
     public static /* synthetic */ Interceptable $ic;
@@ -52,62 +51,48 @@ public final class ie9 {
         }
     }
 
-    @JvmStatic
-    public static final void a(String key, String uid, String str) {
+    public static final void b(Function1 switchVoiceMode, n05 builder, p05 p05Var, int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, key, uid, str) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            StatisticItem.make(key).param("uid", uid).param("content", str).eventStat();
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{switchVoiceMode, builder, p05Var, Integer.valueOf(i), view2}) == null) {
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "$switchVoiceMode");
+            Intrinsics.checkNotNullParameter(builder, "$builder");
+            switchVoiceMode.invoke(Integer.valueOf(i));
+            builder.dismiss();
         }
     }
 
-    @JvmStatic
-    public static final void b(String str, String objType, BehaviorExt behaviorExt) {
-        boolean z;
-        String str2;
-        String sceneFrom;
-        String sceneFrom2;
+    public final void a(TbPageContext<?> context, final Function1<? super Integer, Unit> switchVoiceMode) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, objType, behaviorExt) == null) {
-            Intrinsics.checkNotNullParameter(objType, "objType");
-            StatisticItem statisticItem = new StatisticItem("c15273");
-            statisticItem.param("uid", str);
-            statisticItem.param("obj_type", objType);
-            boolean z2 = true;
-            if (behaviorExt != null && (sceneFrom2 = behaviorExt.getSceneFrom()) != null && StringsKt__StringsJVMKt.startsWith$default(sceneFrom2, "catchphrase", false, 2, null)) {
-                z = true;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, switchVoiceMode) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(switchVoiceMode, "switchVoiceMode");
+            ArrayList arrayList = new ArrayList();
+            if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
+                string = TbadkCoreApplication.getInst().getString(R.string.group_close_receiver);
             } else {
-                z = false;
+                string = TbadkCoreApplication.getInst().getString(R.string.group_open_receiver);
             }
-            if (z) {
-                str2 = "1";
-            } else {
-                if ((behaviorExt == null || (sceneFrom = behaviorExt.getSceneFrom()) == null || !StringsKt__StringsJVMKt.startsWith$default(sceneFrom, "search_summary", false, 2, null)) ? false : false) {
-                    str2 = "2";
-                } else {
-                    str2 = "";
-                }
-            }
-            if (StringUtils.isNotNull(str2)) {
-                statisticItem.param("obj_source", str2);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
+            arrayList.add(string);
+            final n05 n05Var = new n05(context);
+            Object[] array = arrayList.toArray(new String[0]);
+            if (array != null) {
+                n05Var.i(null, (String[]) array, new p05.f() { // from class: com.baidu.tieba.ee9
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    @JvmStatic
-    public static final void c(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
-            StatisticItem param = new StatisticItem("c15227").param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (z) {
-                i = 2;
-            } else {
-                i = 1;
+                    @Override // com.baidu.tieba.p05.f
+                    public final void E0(p05 p05Var, int i, View view2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, p05Var, i, view2) == null) {
+                            ie9.b(Function1.this, n05Var, p05Var, i, view2);
+                        }
+                    }
+                });
+                n05Var.l();
+                return;
             }
-            param.param("obj_type", i).eventStat();
+            throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
         }
     }
 }

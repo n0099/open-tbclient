@@ -31,7 +31,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ak6;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.fi9;
+import com.baidu.tieba.gi9;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.wj6;
 import com.baidu.tieba.xj6;
@@ -354,7 +354,7 @@ public class NewMemberCenterFragment extends BaseFragment {
             if (arguments != null) {
                 this.f = arguments.getString("key_url", "");
             }
-            new fi9("my_tab_vip_banner_bubble").i();
+            new gi9("my_tab_vip_banner_bubble").i();
         }
     }
 

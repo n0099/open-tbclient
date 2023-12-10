@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class f37 implements ib7 {
+public class f37 implements jb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
@@ -39,9 +39,9 @@ public class f37 implements ib7 {
         this.d = str4;
     }
 
-    @Override // com.baidu.tieba.ib7
+    @Override // com.baidu.tieba.jb7
     @NonNull
-    public List<qb7<?, ?>> a() {
+    public List<rb7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

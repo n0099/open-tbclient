@@ -5,20 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.GconAccount;
+import tbclient.FrsPage.FrsSpriteBubble;
+import tbclient.SpriteBubble;
 /* loaded from: classes7.dex */
-public class l0d extends ktc {
+public class l0d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull GconAccount gconAccount) {
+    public static JSONObject b(@NonNull FrsSpriteBubble frsSpriteBubble) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gconAccount)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, frsSpriteBubble)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "has_account", gconAccount.has_account);
-            ktc.a(jSONObject, "menu_name", gconAccount.menu_name);
+            SpriteBubble spriteBubble = frsSpriteBubble.bubble_text;
+            if (spriteBubble != null) {
+                ltc.a(jSONObject, "bubble_text", q8d.b(spriteBubble));
+            }
+            ltc.a(jSONObject, "bubble_uri", frsSpriteBubble.bubble_uri);
+            ltc.a(jSONObject, "bubble_seconds", frsSpriteBubble.bubble_seconds);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

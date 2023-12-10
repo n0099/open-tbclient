@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a17;
+import com.baidu.tieba.av8;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.ot5;
-import com.baidu.tieba.rv8;
 import com.baidu.tieba.sv8;
-import com.baidu.tieba.zu8;
+import com.baidu.tieba.tv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,10 +35,10 @@ public class TbTextMsg extends TbNormalMsg {
     public static final int MSG_TYPE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     @SerializedName("robot_params")
-    @rv8
-    public Map<String, ? extends Object> robotParams;
     @sv8
-    @rv8
+    public Map<String, ? extends Object> robotParams;
+    @tv8
+    @sv8
     public String text;
     @ot5(serialize = false)
     public SpannableStringBuilder thumbnailText;
@@ -91,12 +91,12 @@ public class TbTextMsg extends TbNormalMsg {
 
         /* renamed from: com.baidu.tieba.im.lib.socket.msg.TbTextMsg$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0338a implements a17.i {
+        public static final class C0337a implements a17.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpannableStringBuilder a;
 
-            public C0338a(SpannableStringBuilder spannableStringBuilder) {
+            public C0337a(SpannableStringBuilder spannableStringBuilder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -199,7 +199,7 @@ public class TbTextMsg extends TbNormalMsg {
                     return spannableStringBuilder;
                 }
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
-                a17.e(zu8.a.e(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0338a(spannableStringBuilder2));
+                a17.e(av8.a.e(), str, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new C0337a(spannableStringBuilder2));
                 if (spannableStringBuilder2.length() == 0) {
                     z2 = true;
                 }

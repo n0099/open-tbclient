@@ -10,6 +10,7 @@ import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.nu;
@@ -143,10 +144,7 @@ public class ry9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            rt rtVar = new rt(this.b.getPageActivity());
-            rtVar.setFrom("pb");
-            rtVar.u(this.c);
-            bVar.n(rtVar);
+            bVar.n(qt.s(this.b.getPageActivity(), "pb", this.c));
             cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.t(0);
             ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
@@ -170,7 +168,8 @@ public class ry9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
                 threadCardViewHolder.e(dn6Var);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.e);
-                b6a.q(dn6Var, this.b);
+                gm6.a(threadCardViewHolder.a().g(), dn6Var.j, dn6Var.k);
+                c6a.q(dn6Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -181,7 +180,13 @@ public class ry9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public final void z(View view2, dn6 dn6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, dn6Var) == null) {
-            b6a.o(dn6Var, 1, this.b);
+            if (view2.getId() == R.id.thread_card_root) {
+                c6a.o(dn6Var, 1, this.b);
+            } else if (view2 instanceof TbImageView) {
+                c6a.o(dn6Var, 3, this.b);
+            } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
+                c6a.o(dn6Var, 1, this.b);
+            }
         }
     }
 }

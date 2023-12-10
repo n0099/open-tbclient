@@ -1,36 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.Surface;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class dgc extends cgc {
+public abstract class dgc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public void d(Context context) {
+    public abstract void a(String str);
+
+    public final boolean b(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                bgc.b.f("sendBitmap2MainProcess channelId is null");
+                return false;
+            }
+            tfc a = tfc.c.a();
+            String str = this.a;
+            if (str == null) {
+                Intrinsics.throwNpe();
+            }
+            return a.g(str, bitmap);
         }
+        return invokeL.booleanValue;
     }
 
-    public void e(Context context, Surface surface, int i, int i2, int i3) {
+    public final boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, surface, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                bgc.b.f("sendData2MainProcess: error channelId is empty or null");
+                return false;
+            }
+            tfc a = tfc.c.a();
+            String str2 = this.a;
+            if (str2 == null) {
+                Intrinsics.throwNpe();
+            }
+            return a.h(str2, str);
         }
-    }
-
-    public void f(Context context, Surface surface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, surface) == null) {
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
+        return invokeL.booleanValue;
     }
 }

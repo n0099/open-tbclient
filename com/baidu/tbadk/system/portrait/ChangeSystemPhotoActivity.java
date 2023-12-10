@@ -41,6 +41,7 @@ import com.baidu.tieba.f05;
 import com.baidu.tieba.l55;
 import com.baidu.tieba.mq5;
 import com.baidu.tieba.nq5;
+import com.baidu.tieba.pic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -438,7 +439,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.PROFILE_HEAD_MODIFY);
                 this.a = netWork;
                 try {
-                    netWork.addPostData("pic", this.b.j.getImageByte());
+                    netWork.addPostData(pic.f, this.b.j.getImageByte());
                     str = this.a.postMultiNetData();
                 } catch (Exception e2) {
                     e = e2;

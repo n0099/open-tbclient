@@ -38,13 +38,13 @@ public class m53 extends o53 {
 
         /* renamed from: com.baidu.tieba.m53$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class DialogInterface$OnKeyListenerC0393a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0392a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0393a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0392a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public class m53 extends o53 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0393a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0392a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

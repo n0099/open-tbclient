@@ -15,7 +15,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.ab1;
-import com.baidu.tieba.oyb;
+import com.baidu.tieba.pyb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -162,7 +162,7 @@ public class ValidationWebView extends WebView {
             settings.setAllowFileAccess(false);
             settings.setDomStorageEnabled(true);
             settings.setAllowContentAccess(false);
-            settings.setUserAgentString(oyb.c(context, settings.getUserAgentString()));
+            settings.setUserAgentString(pyb.c(context, settings.getUserAgentString()));
             if (Build.VERSION.SDK_INT >= 29) {
                 settings.setForceDark(0);
             }

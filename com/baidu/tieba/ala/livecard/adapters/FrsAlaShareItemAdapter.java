@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d26;
 import com.baidu.tieba.e26;
-import com.baidu.tieba.fs7;
 import com.baidu.tieba.gs7;
+import com.baidu.tieba.hs7;
 import com.baidu.tieba.km6;
 import com.baidu.tieba.mm6;
 import com.baidu.tieba.qc6;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsAlaShareItemAdapter extends gs7<ThreadData, FrsPageAlaShareHolder> implements km6, e26 {
+public class FrsAlaShareItemAdapter extends hs7<ThreadData, FrsPageAlaShareHolder> implements km6, e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -176,7 +176,7 @@ public class FrsAlaShareItemAdapter extends gs7<ThreadData, FrsPageAlaShareHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     /* renamed from: K */
     public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
@@ -199,8 +199,8 @@ public class FrsAlaShareItemAdapter extends gs7<ThreadData, FrsPageAlaShareHolde
                     qc6Var.b(this.n);
                 }
                 frsPageAlaShareHolder.a.a(this.l);
-                fs7.k(frsPageAlaShareHolder.a.P(), this.b);
-                fs7.k(frsPageAlaShareHolder.a.R(), this.b);
+                gs7.k(frsPageAlaShareHolder.a.P(), this.b);
+                gs7.k(frsPageAlaShareHolder.a.R(), this.b);
                 frsPageAlaShareHolder.a.j(threadData);
                 threadData.updateShowStatus();
             }

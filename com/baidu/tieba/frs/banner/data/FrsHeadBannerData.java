@@ -6,7 +6,7 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tieba.c35;
 import com.baidu.tieba.frs.FrsBountyTaskData;
-import com.baidu.tieba.yua;
+import com.baidu.tieba.zua;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public final class FrsHeadBannerData implements c35 {
     public transient /* synthetic */ FieldHolder $fh;
     public BannerType a;
     public ForumData b;
-    public yua c;
+    public zua c;
     public boolean d;
     public FrsBountyTaskData e;
 
@@ -39,7 +39,7 @@ public final class FrsHeadBannerData implements c35 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((BannerType) objArr[0], (ForumData) objArr[1], (yua) objArr[2], ((Boolean) objArr[3]).booleanValue(), (FrsBountyTaskData) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
+                this((BannerType) objArr[0], (ForumData) objArr[1], (zua) objArr[2], ((Boolean) objArr[3]).booleanValue(), (FrsBountyTaskData) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,8 +86,8 @@ public final class FrsHeadBannerData implements c35 {
             int hashCode = this.a.hashCode() * 31;
             ForumData forumData = this.b;
             int hashCode2 = (hashCode + (forumData == null ? 0 : forumData.hashCode())) * 31;
-            yua yuaVar = this.c;
-            int hashCode3 = (hashCode2 + (yuaVar == null ? 0 : yuaVar.hashCode())) * 31;
+            zua zuaVar = this.c;
+            int hashCode3 = (hashCode2 + (zuaVar == null ? 0 : zuaVar.hashCode())) * 31;
             boolean z = this.d;
             int i = z;
             if (z != 0) {
@@ -175,12 +175,12 @@ public final class FrsHeadBannerData implements c35 {
         }
     }
 
-    public FrsHeadBannerData(BannerType type, ForumData forumData, yua yuaVar, boolean z, FrsBountyTaskData frsBountyTaskData) {
+    public FrsHeadBannerData(BannerType type, ForumData forumData, zua zuaVar, boolean z, FrsBountyTaskData frsBountyTaskData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, forumData, yuaVar, Boolean.valueOf(z), frsBountyTaskData};
+            Object[] objArr = {type, forumData, zuaVar, Boolean.valueOf(z), frsBountyTaskData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,7 +193,7 @@ public final class FrsHeadBannerData implements c35 {
         Intrinsics.checkNotNullParameter(type, "type");
         this.a = type;
         this.b = forumData;
-        this.c = yuaVar;
+        this.c = zuaVar;
         this.d = z;
         this.e = frsBountyTaskData;
     }
@@ -202,10 +202,10 @@ public final class FrsHeadBannerData implements c35 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ FrsHeadBannerData(BannerType bannerType, ForumData forumData, yua yuaVar, boolean z, FrsBountyTaskData frsBountyTaskData, int i, DefaultConstructorMarker defaultConstructorMarker) {
+    public /* synthetic */ FrsHeadBannerData(BannerType bannerType, ForumData forumData, zua zuaVar, boolean z, FrsBountyTaskData frsBountyTaskData, int i, DefaultConstructorMarker defaultConstructorMarker) {
         this(bannerType, r10, r1, r2, (i & 16) == 0 ? frsBountyTaskData : null);
         ForumData forumData2;
-        yua yuaVar2;
+        zua zuaVar2;
         boolean z2;
         bannerType = (i & 1) != 0 ? BannerType.DEFAULT : bannerType;
         if ((i & 2) != 0) {
@@ -214,9 +214,9 @@ public final class FrsHeadBannerData implements c35 {
             forumData2 = forumData;
         }
         if ((i & 4) != 0) {
-            yuaVar2 = null;
+            zuaVar2 = null;
         } else {
-            yuaVar2 = yuaVar;
+            zuaVar2 = zuaVar;
         }
         if ((i & 8) != 0) {
             z2 = false;
@@ -234,13 +234,13 @@ public final class FrsHeadBannerData implements c35 {
         return (FrsBountyTaskData) invokeV.objValue;
     }
 
-    public final yua b() {
+    public final zua b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return (yua) invokeV.objValue;
+        return (zua) invokeV.objValue;
     }
 
     public final ForumData c() {
@@ -277,10 +277,10 @@ public final class FrsHeadBannerData implements c35 {
         }
     }
 
-    public final void g(yua yuaVar) {
+    public final void g(zua zuaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, yuaVar) == null) {
-            this.c = yuaVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, zuaVar) == null) {
+            this.c = zuaVar;
         }
     }
 

@@ -1,27 +1,17 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes7.dex */
-public interface pub extends Runnable {
+public interface pub {
 
     /* loaded from: classes7.dex */
     public interface a {
-        void b(DownloadException downloadException);
-
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
+        void a(String str, pub pubVar);
     }
 
     void cancel();
 
-    boolean isCanceled();
-
-    boolean isPaused();
+    boolean isRunning();
 
     void pause();
+
+    void start();
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.il7;
+import com.baidu.tieba.jl7;
 import com.baidu.tieba.r77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -139,7 +139,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                     r77 n = this.f.n();
                     if (n != null) {
                         if (z) {
-                            il7.a(this.a, this.j, this.k, n, this.h);
+                            jl7.a(this.a, this.j, this.k, n, this.h);
                         } else if (this.h != null) {
                             view2.setTag("choose_done");
                             this.h.a(n);

@@ -1,41 +1,41 @@
 package rx.subjects;
 
-import com.baidu.tieba.cpc;
-import com.baidu.tieba.foc;
-import com.baidu.tieba.joc;
+import com.baidu.tieba.dpc;
+import com.baidu.tieba.goc;
 import com.baidu.tieba.koc;
+import com.baidu.tieba.loc;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes2.dex */
-public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements foc, koc {
+public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements goc, loc {
     public static final long serialVersionUID = -5006209596735204567L;
-    public final joc<? super T> actual;
+    public final koc<? super T> actual;
     public int index;
     public Object node;
     public final AtomicLong requested = new AtomicLong();
     public final ReplaySubject$ReplayState<T> state;
     public int tailIndex;
 
-    public ReplaySubject$ReplayProducer(joc<? super T> jocVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
-        this.actual = jocVar;
+    public ReplaySubject$ReplayProducer(koc<? super T> kocVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
+        this.actual = kocVar;
         this.state = replaySubject$ReplayState;
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public boolean isUnsubscribed() {
         return this.actual.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public void unsubscribe() {
         this.state.remove(this);
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.goc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i > 0) {
-            cpc.b(this.requested, j);
+            dpc.b(this.requested, j);
             this.state.buffer.a(this);
         } else if (i >= 0) {
         } else {

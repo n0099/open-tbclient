@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
-import com.baidu.tieba.i3b;
+import com.baidu.tieba.j3b;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public i3b f;
+    public j3b f;
     public int g;
 
     /* loaded from: classes8.dex */
@@ -222,13 +222,13 @@ public class MemberRecommendView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void e(i3b i3bVar) {
+    public void e(j3b j3bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3bVar) != null) || i3bVar == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j3bVar) != null) || j3bVar == null) {
             return;
         }
-        this.f = i3bVar;
-        this.c.startLoad(i3bVar.b(), 10, false);
+        this.f = j3bVar;
+        this.c.startLoad(j3bVar.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);

@@ -31,7 +31,7 @@ public class ta5 implements pf1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new lq9());
+            arrayList.add(new mq9());
             return arrayList;
         }
         return invokeV.objValue;

@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.dva;
-import com.baidu.tieba.uua;
+import com.baidu.tieba.eva;
+import com.baidu.tieba.vua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Error;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes8.dex */
-public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<dva, FrsPageResIdl> {
+public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<eva, FrsPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCategoryId;
     public int mIsGood;
     public boolean needCache;
-    public dva responseData;
+    public eva responseData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,16 +51,16 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        dva dvaVar;
+        eva evaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (dvaVar = this.responseData) != null && this.needCache && dvaVar.getForum() != null) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (evaVar = this.responseData) != null && this.needCache && evaVar.getForum() != null) {
             int sortType = this.responseData.getSortType();
-            uua i2 = uua.i();
+            vua i2 = vua.i();
             String g = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
             if (sortType == 3) {
-                uua.i().m(g, bArr);
+                vua.i().m(g, bArr);
             } else {
-                uua.i().a(g, bArr, true);
+                vua.i().a(g, bArr, true);
             }
         }
     }
@@ -85,9 +85,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
-            dva dvaVar = new dva();
-            this.responseData = dvaVar;
-            FrsPageResIdl parserProtobuf = dvaVar.parserProtobuf(bArr, true);
+            eva evaVar = new eva();
+            this.responseData = evaVar;
+            FrsPageResIdl parserProtobuf = evaVar.parserProtobuf(bArr, true);
             if (parserProtobuf != null && (error = parserProtobuf.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -96,9 +96,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 }
                 setErrorString(parserProtobuf.error.usermsg);
             }
-            dva dvaVar2 = this.responseData;
-            dvaVar2.isFromCache = false;
-            setData(dvaVar2);
+            eva evaVar2 = this.responseData;
+            evaVar2.isFromCache = false;
+            setData(evaVar2);
         }
     }
 
@@ -112,13 +112,13 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         return (Class) invokeV.objValue;
     }
 
-    public dva getResponseData() {
+    public eva getResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.responseData;
         }
-        return (dva) invokeV.objValue;
+        return (eva) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -153,10 +153,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         }
     }
 
-    public void setResponseData(dva dvaVar) {
+    public void setResponseData(eva evaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, dvaVar) == null) {
-            this.responseData = dvaVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, evaVar) == null) {
+            this.responseData = evaVar;
         }
     }
 

@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class kc6 implements nt7 {
+public class kc6 implements ot7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public int b;
-    public du7 c;
+    public eu7 c;
     public ArrayList<pi> d;
-    public rt7 e;
+    public st7 e;
     public NetMessageListener f;
     public HttpMessageListener g;
 
@@ -131,17 +131,17 @@ public class kc6 implements nt7 {
                     if (frsPageAlaTabResponseMessage.errCode == 0) {
                         ArrayList<pi> arrayList = frsPageAlaTabResponseMessage.mThreadList;
                         ArrayList<pi> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
-                        du7 du7Var = frsPageAlaTabResponseMessage.pageInfo;
+                        eu7 eu7Var = frsPageAlaTabResponseMessage.pageInfo;
                         int i = frsPageAlaTabResponseMessage.alaLiveCount;
-                        this.a.c = du7Var;
-                        if (du7Var.c == 1) {
+                        this.a.c = eu7Var;
+                        if (eu7Var.c == 1) {
                             this.a.d.clear();
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i)));
                         if (this.a.e != null) {
                             if (arrayList != null && arrayList.size() > 0) {
                                 this.a.d.addAll(arrayList);
-                                this.a.e.a(49, this.a.b, du7Var, this.a.d);
+                                this.a.e.a(49, this.a.b, eu7Var, this.a.d);
                                 return;
                             }
                             ThreadData threadData = new ThreadData();
@@ -156,7 +156,7 @@ public class kc6 implements nt7 {
                                 }
                                 this.a.d.addAll(arrayList2);
                             }
-                            this.a.e.a(49, this.a.b, du7Var, this.a.d);
+                            this.a.e.a(49, this.a.b, eu7Var, this.a.d);
                             return;
                         }
                         return;
@@ -190,7 +190,7 @@ public class kc6 implements nt7 {
         this.g = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
     }
 
-    @Override // com.baidu.tieba.nt7
+    @Override // com.baidu.tieba.ot7
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -201,11 +201,11 @@ public class kc6 implements nt7 {
         }
     }
 
-    @Override // com.baidu.tieba.nt7
-    public void N(rt7 rt7Var) {
+    @Override // com.baidu.tieba.ot7
+    public void N(st7 st7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rt7Var) == null) {
-            this.e = rt7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, st7Var) == null) {
+            this.e = st7Var;
         }
     }
 
@@ -217,16 +217,16 @@ public class kc6 implements nt7 {
         this.a = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.nt7
-    public void J(int i, int i2, zt7 zt7Var) {
+    @Override // com.baidu.tieba.ot7
+    public void J(int i, int i2, au7 au7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, zt7Var) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, au7Var) == null) {
             this.b = i2;
-            if (zt7Var != null && !TextUtils.isEmpty(zt7Var.a) && !TextUtils.isEmpty(zt7Var.b)) {
-                if (zt7Var.c <= 0) {
-                    zt7Var.c = 1;
+            if (au7Var != null && !TextUtils.isEmpty(au7Var.a) && !TextUtils.isEmpty(au7Var.b)) {
+                if (au7Var.c <= 0) {
+                    au7Var.c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, zt7Var.a, zt7Var.b, zt7Var.c));
+                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, au7Var.a, au7Var.b, au7Var.c));
                 return;
             }
             this.e.a(49, this.b, null, null);
@@ -254,7 +254,7 @@ public class kc6 implements nt7 {
         }
     }
 
-    @Override // com.baidu.tieba.nt7
+    @Override // com.baidu.tieba.ot7
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

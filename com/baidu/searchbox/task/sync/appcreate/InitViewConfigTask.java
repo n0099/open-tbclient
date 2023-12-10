@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k6b;
+import com.baidu.tieba.l6b;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.vp5;
 /* loaded from: classes4.dex */
@@ -73,7 +73,7 @@ public class InitViewConfigTask extends LaunchTask {
         TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
         TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
         TbDimenManager.getInstance().init(AppRuntime.getApplication());
-        k6b.c();
+        l6b.c();
         initCustomToastView();
     }
 }

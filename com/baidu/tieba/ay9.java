@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import com.baidu.tieba.by9;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 /* loaded from: classes5.dex */
-public interface ay9<D extends IBaseDialogData> {
+public interface ay9<V extends by9, D extends IBaseDialogData> {
     int a();
 
-    void b();
+    boolean b();
 
-    void c(D d);
+    boolean c();
 
-    ViewGroup getViewGroup();
+    void dismiss();
+
+    void show();
 }

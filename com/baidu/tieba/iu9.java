@@ -3,10 +3,13 @@ package com.baidu.tieba;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.pb.account.forbid.ForbidTplData;
+import com.baidu.tieba.pb.account.forbid.ForbidResultData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class iu9 {
     public static /* synthetic */ Interceptable $ic;
@@ -22,25 +26,35 @@ public class iu9 {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(ForbidTplData forbidTplData);
+        void a(ForbidResultData forbidResultData);
 
-        void b(ForbidTplData forbidTplData);
+        void b(ForbidResultData forbidResultData);
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
+    public static class a extends BdAsyncTask<String, Object, ForbidResultData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public b c;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public String j;
+        public String k;
+        public String l;
+        public WeakReference<b> m;
 
-        public a(String str, String str2, b bVar) {
+        public a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, bVar};
+                newInitContext.initArgs = r3;
+                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,52 +66,83 @@ public class iu9 {
             }
             this.a = str;
             this.b = str2;
-            this.c = bVar;
+            this.c = str3;
+            this.d = str4;
+            this.g = str6;
+            this.e = str8;
+            this.f = str9;
+            this.h = str7;
+            this.i = str5;
+            this.j = str10;
+            this.k = str11;
+            this.l = str12;
+            this.m = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ForbidTplData doInBackground(String... strArr) {
+        public ForbidResultData doInBackground(String... strArr) {
             InterceptResult invokeL;
+            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 NetWork netWork = new NetWork(iu9.a);
-                netWork.addPostData("forum_id", this.a);
-                netWork.addPostData("user_id", this.b);
+                netWork.addPostData("day", this.g);
+                netWork.addPostData("un", this.d);
+                netWork.addPostData("fid", this.a);
+                netWork.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.b);
+                netWork.addPostData("z", this.c);
+                netWork.addPostData("reason", this.h);
+                if (StringUtils.isNotNull(this.j)) {
+                    str = this.j;
+                } else {
+                    str = "banid";
+                }
+                netWork.addPostData("ntn", str);
+                netWork.addPostData("post_id", this.i);
+                netWork.addPostData("nick_name", this.e);
+                netWork.addPostData("portrait", this.f);
+                if (StringUtils.isNotNull(this.k)) {
+                    netWork.addPostData("chatroom_id", this.k);
+                }
+                if (StringUtils.isNotNull(this.l)) {
+                    netWork.addPostData(ForbidActivityConfig.CHAT_MSG_ID, this.l);
+                }
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = netWork.postNetData();
                 if (netWork.getNetContext().getResponse().isRequestSuccess()) {
                     try {
-                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                        return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
                     } catch (Exception e) {
                         BdLog.detailException(e);
-                        ForbidTplData forbidTplData = new ForbidTplData();
-                        forbidTplData.error.errno = -1000;
-                        return forbidTplData;
+                        ForbidResultData forbidResultData = new ForbidResultData();
+                        forbidResultData.error_code = -1000;
+                        return forbidResultData;
                     }
                 }
-                ForbidTplData forbidTplData2 = new ForbidTplData();
-                forbidTplData2.error.errno = netWork.getServerErrorCode();
-                forbidTplData2.error.errMsg = netWork.getErrorString();
-                return forbidTplData2;
+                ForbidResultData forbidResultData2 = new ForbidResultData();
+                forbidResultData2.error_code = netWork.getServerErrorCode();
+                forbidResultData2.error_msg = netWork.getErrorString();
+                return forbidResultData2;
             }
-            return (ForbidTplData) invokeL.objValue;
+            return (ForbidResultData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ForbidTplData forbidTplData) {
+        public void onPostExecute(ForbidResultData forbidResultData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
-                super.onPostExecute(forbidTplData);
-                if (this.c != null) {
-                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
-                    if (errorInfo.errno == 0 && rd.isEmpty(errorInfo.errMsg)) {
-                        this.c.b(forbidTplData);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
+                super.onPostExecute(forbidResultData);
+                b bVar = this.m.get();
+                if (bVar != null) {
+                    if (forbidResultData.error_code == 0 && rd.isEmpty(forbidResultData.error_msg)) {
+                        bVar.a(forbidResultData);
                     } else {
-                        this.c.a(forbidTplData);
+                        bVar.b(forbidResultData);
                     }
                 }
             }
@@ -117,13 +162,13 @@ public class iu9 {
                 return;
             }
         }
-        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+        a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
     }
 
-    public static void b(String str, String str2, b bVar) {
+    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
-            new a(str, str2, bVar).execute(new String[0]);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar}) == null) {
+            new a(str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, bVar).execute(new String[0]);
         }
     }
 }

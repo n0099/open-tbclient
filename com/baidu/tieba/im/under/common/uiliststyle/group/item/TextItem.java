@@ -7,7 +7,7 @@ import com.baidu.tieba.im.base.core.uilist.Action;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbTaskInfo;
 import com.baidu.tieba.im.lib.socket.msg.TbTextMsg;
-import com.baidu.tieba.jz8;
+import com.baidu.tieba.kz8;
 import com.baidu.tieba.ot5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -157,7 +157,7 @@ public final class TextItem extends BaseItem<TbTextMsg> {
                 return null;
             }
             String originMsgKey = taskInfo.getOriginMsgKey();
-            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !tbMsg.compareVersion() || !jz8.a.a(taskInfo.getTaskType())) {
+            if (TextUtils.isEmpty(originMsgKey) || !taskInfo.isComplete() || !tbMsg.compareVersion() || !kz8.a.a(taskInfo.getTaskType())) {
                 return null;
             }
             return Action.a(taskInfo.getOriginMsgId(), originMsgKey, Action.Op.DELETE, null);

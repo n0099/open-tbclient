@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface rpb {
-    void a(boolean z, lpb lpbVar);
+    void setUBCConfigStatisticData(JSONObject jSONObject);
 }

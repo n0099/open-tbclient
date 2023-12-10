@@ -1,106 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes7.dex */
-public final class msc implements coc, koc {
+public final class msc {
     public static /* synthetic */ Interceptable $ic;
+    public static final foc<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final coc a;
-    public koc b;
-    public boolean c;
 
-    public msc(coc cocVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cocVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements foc<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.foc
+        public final void onCompleted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.foc
+        public final void onNext(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.foc
+        public final void onError(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+                throw new OnErrorNotImplementedException(th);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947984684, "Lcom/baidu/tieba/msc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947984684, "Lcom/baidu/tieba/msc;");
                 return;
             }
         }
-        this.a = cocVar;
+        a = new a();
     }
 
-    @Override // com.baidu.tieba.coc
-    public void onSubscribe(koc kocVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kocVar) == null) {
-            this.b = kocVar;
-            try {
-                this.a.onSubscribe(this);
-            } catch (Throwable th) {
-                poc.e(th);
-                kocVar.unsubscribe();
-                onError(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.koc
-    public boolean isUnsubscribed() {
+    public static <T> foc<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.c && !this.b.isUnsubscribed()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (foc<T>) a;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.coc
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c) {
-            return;
-        }
-        this.c = true;
-        try {
-            this.a.onCompleted();
-        } catch (Throwable th) {
-            poc.e(th);
-            throw new OnCompletedFailedException(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.koc
-    public void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.unsubscribe();
-        }
-    }
-
-    @Override // com.baidu.tieba.coc
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            tsc.j(th);
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            try {
-                this.a.onError(th);
-            } catch (Throwable th2) {
-                poc.e(th2);
-                throw new OnErrorFailedException(new CompositeException(th, th2));
-            }
-        }
+        return (foc) invokeV.objValue;
     }
 }

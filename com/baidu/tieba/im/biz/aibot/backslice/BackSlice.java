@@ -27,7 +27,7 @@ import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.BackSliceBinding;
-import com.baidu.tieba.yq8;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class BackSlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yq8 j;
+    public final zq8 j;
     public final AibotArgs k;
     public BackSliceBinding l;
 
@@ -79,7 +79,7 @@ public final class BackSlice extends Slice {
         }
     }
 
-    public BackSlice(yq8 wrapper, AibotArgs aibotArgs) {
+    public BackSlice(zq8 wrapper, AibotArgs aibotArgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -190,14 +190,14 @@ public final class BackSlice extends Slice {
                 backSliceBinding = null;
             }
             backSliceBinding.getRoot().setVisibility(8);
-            yq8 yq8Var = this.j;
+            zq8 zq8Var = this.j;
             BackSliceBinding backSliceBinding3 = this.l;
             if (backSliceBinding3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("rootView");
             } else {
                 backSliceBinding2 = backSliceBinding3;
             }
-            yq8Var.R1(backSliceBinding2.getRoot().getHeight());
+            zq8Var.R1(backSliceBinding2.getRoot().getHeight());
         }
     }
 

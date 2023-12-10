@@ -29,9 +29,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.NestedNoScrollViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd8;
+import com.baidu.tieba.a2b;
+import com.baidu.tieba.ad8;
+import com.baidu.tieba.aza;
 import com.baidu.tieba.cd8;
-import com.baidu.tieba.e0b;
+import com.baidu.tieba.dd8;
+import com.baidu.tieba.f0b;
 import com.baidu.tieba.homepage.HomePageStatic;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.NewScrollFragmentAdapter;
@@ -40,9 +43,6 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.pu5;
 import com.baidu.tieba.sq6;
 import com.baidu.tieba.uc5;
-import com.baidu.tieba.z1b;
-import com.baidu.tieba.zc8;
-import com.baidu.tieba.zya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
-public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 {
+public class PersonalizeWrapperTabHost extends CoordinatorLayout implements dd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -82,7 +82,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
     public sq6 v;
     public CustomMessageListener w;
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
@@ -121,8 +121,8 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.i != null) {
-                if ((customResponsedMessage.getData() instanceof zc8) && ((zc8) customResponsedMessage.getData()).a != null) {
-                    View view2 = ((zc8) customResponsedMessage.getData()).a;
+                if ((customResponsedMessage.getData() instanceof ad8) && ((ad8) customResponsedMessage.getData()).a != null) {
+                    View view2 = ((ad8) customResponsedMessage.getData()).a;
                     if (view2.getParent() != null) {
                         if (view2.getParent() != this.a.i) {
                             ((ViewGroup) view2.getParent()).removeView(view2);
@@ -569,7 +569,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
     public final void K(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            e0b c2 = z1b.b().c().c();
+            f0b c2 = a2b.b().c().c();
             c2.a = w(i);
             c2.c = d(i);
             c2.d = v(i);
@@ -577,7 +577,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         }
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void b(ScrollFragmentTabHost.s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, sVar) == null) {
@@ -588,7 +588,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         }
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public int d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -598,7 +598,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void e(ScrollFragmentTabHost.s sVar) {
         List<ScrollFragmentTabHost.s> list;
         Interceptable interceptable = $ic;
@@ -634,7 +634,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         setCurrentTab(newScrollFragmentAdapter.t(i), true);
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void setOnTabSelectedListener(ScrollFragmentTabHost.t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, tVar) == null) {
@@ -722,22 +722,22 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.b != null && (newScrollFragmentAdapter = this.m) != null && (nestedNoScrollViewPager = this.g) != null) {
             String u = newScrollFragmentAdapter.u(nestedNoScrollViewPager.getCurrentItem());
-            zc8 zc8Var = new zc8();
-            zc8Var.b = u;
-            zc8Var.c = i;
+            ad8 ad8Var = new ad8();
+            ad8Var.b = u;
+            ad8Var.c = i;
             CustomMessage customMessage = new CustomMessage(2921652);
             customMessage.setTag(this.b.getUniqueId());
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921652, zc8Var);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921652, ad8Var);
             customResponsedMessage.setOrginalMessage(customMessage);
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
-    public void B(FragmentManager fragmentManager, bd8 bd8Var, ConcernPageView.t tVar) {
+    public void B(FragmentManager fragmentManager, cd8 cd8Var, ConcernPageView.t tVar) {
         AppBarLayout appBarLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, bd8Var, tVar) == null) {
-            NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.a, fragmentManager, true, bd8Var, tVar);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager, cd8Var, tVar) == null) {
+            NewScrollFragmentAdapter newScrollFragmentAdapter = new NewScrollFragmentAdapter(this.a, fragmentManager, true, cd8Var, tVar);
             this.m = newScrollFragmentAdapter;
             newScrollFragmentAdapter.Q(this);
             this.g.setOffscreenPageLimit(1);
@@ -808,7 +808,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -822,7 +822,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public FrameLayout getFrameLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -887,7 +887,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         }
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.j || C()) {
@@ -903,7 +903,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
         this.h.startAnimation(this.k);
     }
 
-    @Override // com.baidu.tieba.cd8
+    @Override // com.baidu.tieba.dd8
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || !this.j || !C()) {
@@ -997,7 +997,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements cd8 
             this.d.setBackResId(R.color.transparent);
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ff7);
             this.f = frameLayout;
-            zya.c(frameLayout, 4);
+            aza.c(frameLayout, 4);
             this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f092235);
             this.h = findViewById(R.id.obfuscated_res_0x7f090966);
             this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09049a);

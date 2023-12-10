@@ -293,7 +293,7 @@ public class ty5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (ey9.a(this.n)) {
+                if (fy9.a(this.n)) {
                     TbLog defaultLog = DefaultLog.getInstance();
                     defaultLog.i("TargetSchemeInterceptHelper", "jump targetScheme: " + this.n);
                     return;
@@ -432,7 +432,7 @@ public class ty5 {
                 defaultLog.i("TbRichTextHelper", "heat infarction jump Scheme=" + this.n);
                 if (!rd.isEmpty(this.n)) {
                     UrlManager.getInstance().dealOneLink(this.n);
-                    mua.w(this.o, 2, this.p, this.q);
+                    nua.w(this.o, 2, this.p, this.q);
                 }
             }
         }
@@ -977,7 +977,7 @@ public class ty5 {
             }
             spannableString.setSpan(eMRichTextAnyIconSpan, str4.length() - 1, str4.length() + 1, 33);
             spannableString.setSpan(hVar, 0, str4.length() - 1, 33);
-            mua.w(str, 1, threadData, i2);
+            nua.w(str, 1, threadData, i2);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
@@ -1382,12 +1382,12 @@ public class ty5 {
         return invokeL.booleanValue;
     }
 
-    public static boolean y(mwa mwaVar) {
+    public static boolean y(nwa nwaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, mwaVar)) == null) {
-            if (mwaVar != null && mwaVar.f0() != null) {
-                ArrayList<TbRichTextData> Q = mwaVar.f0().Q();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65573, null, nwaVar)) == null) {
+            if (nwaVar != null && nwaVar.f0() != null) {
+                ArrayList<TbRichTextData> Q = nwaVar.f0().Q();
                 if (!ListUtils.isEmpty(Q)) {
                     for (int count = ListUtils.getCount(Q) - 1; count >= 0; count--) {
                         if (Q.get(count).getType() == 37) {

@@ -131,7 +131,7 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
                 final fs6 fs6Var = this.$danmakuItemData;
-                a17.f(inst, d, new a17.i() { // from class: com.baidu.tieba.i8b
+                a17.f(inst, d, new a17.i() { // from class: com.baidu.tieba.j8b
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

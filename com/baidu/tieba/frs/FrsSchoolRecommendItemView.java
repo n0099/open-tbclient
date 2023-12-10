@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bu7;
+import com.baidu.tieba.cu7;
 import com.baidu.tieba.g75;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.nl8;
+import com.baidu.tieba.ol8;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public EntelechyUserLikeButton e;
     public g75 f;
     public BdUniqueId g;
-    public bu7 h;
+    public cu7 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(nl8 nl8Var) {
+    public void a(ol8 ol8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, nl8Var) != null) || !(nl8Var instanceof bu7)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ol8Var) != null) || !(ol8Var instanceof cu7)) {
             return;
         }
-        bu7 bu7Var = (bu7) nl8Var;
-        this.h = bu7Var;
-        if (StringUtils.isNull(bu7Var.a.getUserId())) {
+        cu7 cu7Var = (cu7) ol8Var;
+        this.h = cu7Var;
+        if (StringUtils.isNull(cu7Var.a.getUserId())) {
             return;
         }
         this.b.startLoad(this.h.a.getPortrait(), 28, false);

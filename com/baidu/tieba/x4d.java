@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.LotteryRegular;
+import tbclient.LiveRoomInfo;
 /* loaded from: classes9.dex */
-public class x4d extends ktc {
+public class x4d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull LotteryRegular lotteryRegular) {
+    public static JSONObject b(@NonNull LiveRoomInfo liveRoomInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lotteryRegular)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, liveRoomInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "regular", lotteryRegular.regular);
-            if (lotteryRegular.chance != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (Integer num : lotteryRegular.chance) {
-                    jSONArray.put(num.intValue());
-                }
-                ktc.a(jSONObject, "chance", jSONArray);
-            }
+            ltc.a(jSONObject, "btn_title", liveRoomInfo.btn_title);
+            ltc.a(jSONObject, "own_room_count", liveRoomInfo.own_room_count);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, liveRoomInfo.jump_url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

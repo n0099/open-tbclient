@@ -1,10 +1,10 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import android.view.View;
-import com.baidu.tieba.ac7;
+import com.baidu.tieba.bc7;
 import com.baidu.tieba.l67;
 import com.baidu.tieba.o47;
-import com.baidu.tieba.tb7;
+import com.baidu.tieba.ub7;
 import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -51,7 +51,7 @@ public final class CardHeadUiStateKt {
             linkedHashMap.putAll(data.E());
             LinkedHashMap linkedHashMap2 = new LinkedHashMap();
             linkedHashMap2.put("get_position", String.valueOf(uiState.k() + 1));
-            ac7.a.c(new tb7("head_tag_click", linkedHashMap, linkedHashMap2, uiState.f()));
+            bc7.a.c(new ub7("head_tag_click", linkedHashMap, linkedHashMap2, uiState.f()));
         }
     }
 }

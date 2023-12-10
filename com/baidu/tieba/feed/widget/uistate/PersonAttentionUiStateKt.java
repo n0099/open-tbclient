@@ -2,7 +2,7 @@ package com.baidu.tieba.feed.widget.uistate;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.e87;
-import com.baidu.tieba.he7;
+import com.baidu.tieba.ie7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,8 +17,8 @@ import kotlin.jvm.functions.Function3;
 /* loaded from: classes5.dex */
 public final class PersonAttentionUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<he7, TbPageContext<?>, Unit> a;
-    public static final Function3<he7, TbPageContext<?>, Object, Unit> b;
+    public static final Function2<ie7, TbPageContext<?>, Unit> a;
+    public static final Function3<ie7, TbPageContext<?>, Object, Unit> b;
     public static final Function1<e87, Unit> c;
     public transient /* synthetic */ FieldHolder $fh;
 

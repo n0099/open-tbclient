@@ -138,13 +138,13 @@ public abstract class eh3 implements fh3, gh3 {
 
         /* renamed from: com.baidu.tieba.eh3$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0260c implements Runnable {
+        public class RunnableC0261c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dl3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0260c(c cVar, dl3 dl3Var) {
+            public RunnableC0261c(c cVar, dl3 dl3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -269,7 +269,7 @@ public abstract class eh3 implements fh3, gh3 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dl3Var) != null) || dl3Var == null) {
                 return;
             }
-            ej3.k(new RunnableC0260c(this, dl3Var), "wifiScan");
+            ej3.k(new RunnableC0261c(this, dl3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.gh3

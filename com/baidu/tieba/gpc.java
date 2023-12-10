@@ -1,103 +1,105 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
 /* loaded from: classes6.dex */
-public final class gpc<T> implements doc.a<T> {
+public class gpc<T> implements eoc.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final doc<T> a;
-    public final woc<? super T, Boolean> b;
+    public final foc<? super T> a;
+    public final eoc<T> b;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> extends joc<T> {
+    public static final class a<T> extends koc<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final joc<? super T> e;
-        public final woc<? super T, Boolean> f;
+        public final koc<? super T> e;
+        public final foc<? super T> f;
         public boolean g;
 
-        public a(joc<? super T> jocVar, woc<? super T, Boolean> wocVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(koc<? super T> kocVar, foc<? super T> focVar) {
+            super(kocVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jocVar, wocVar};
+                Object[] objArr = {kocVar, focVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((koc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = jocVar;
-            this.f = wocVar;
-            e(0L);
+            this.e = kocVar;
+            this.f = focVar;
         }
 
-        @Override // com.baidu.tieba.joc
-        public void f(foc focVar) {
+        @Override // com.baidu.tieba.foc
+        public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, focVar) == null) {
-                super.f(focVar);
-                this.e.f(focVar);
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onCompleted();
+                this.g = true;
+                this.e.onCompleted();
+            } catch (Throwable th) {
+                qoc.f(th, this);
             }
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 if (this.g) {
-                    tsc.j(th);
+                    usc.j(th);
                     return;
                 }
                 this.g = true;
-                this.e.onError(th);
+                try {
+                    this.f.onError(th);
+                    this.e.onError(th);
+                } catch (Throwable th2) {
+                    qoc.e(th2);
+                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
+                }
             }
         }
 
-        @Override // com.baidu.tieba.eoc
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    if (this.f.call(t).booleanValue()) {
-                        this.e.onNext(t);
-                    } else {
-                        e(1L);
-                    }
-                } catch (Throwable th) {
-                    poc.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.g) {
+                return;
+            }
+            try {
+                this.f.onNext(t);
+                this.e.onNext(t);
+            } catch (Throwable th) {
+                qoc.g(th, this, t);
             }
         }
     }
 
-    public gpc(doc<T> docVar, woc<? super T, Boolean> wocVar) {
+    public gpc(eoc<T> eocVar, foc<? super T> focVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {docVar, wocVar};
+            Object[] objArr = {eocVar, focVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,19 +109,17 @@ public final class gpc<T> implements doc.a<T> {
                 return;
             }
         }
-        this.a = docVar;
-        this.b = wocVar;
+        this.b = eocVar;
+        this.a = focVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.roc
+    @Override // com.baidu.tieba.soc
     /* renamed from: a */
-    public void call(joc<? super T> jocVar) {
+    public void call(koc<? super T> kocVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jocVar) == null) {
-            a aVar = new a(jocVar, this.b);
-            jocVar.b(aVar);
-            this.a.O(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
+            this.b.O(new a(kocVar, this.a));
         }
     }
 }

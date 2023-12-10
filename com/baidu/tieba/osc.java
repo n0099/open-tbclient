@@ -5,187 +5,126 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes7.dex */
-public class osc<T> implements eoc<T> {
+public class osc<T> extends koc<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eoc<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public final koc<? super T> e;
+    public boolean f;
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
-                }
-                objArr[i] = obj;
-                this.b = i + 1;
-            }
-        }
-    }
-
-    public osc(eoc<? super T> eocVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public osc(koc<? super T> kocVar) {
+        super(kocVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eocVar};
+            Object[] objArr = {kocVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((koc) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = eocVar;
+        this.e = kocVar;
     }
 
-    @Override // com.baidu.tieba.eoc
-    public void onCompleted() {
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void g(Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            xsc.c().b().a(th);
+            try {
+                this.e.onError(th);
+                try {
+                    unsubscribe();
+                } catch (Throwable th2) {
+                    usc.j(th2);
+                    throw new OnErrorFailedException(th2);
                 }
-                aVar.a(NotificationLite.b());
-                return;
+            } catch (OnErrorNotImplementedException e) {
+                try {
+                    unsubscribe();
+                    throw e;
+                } catch (Throwable th3) {
+                    usc.j(th3);
+                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
+                }
+            } catch (Throwable th4) {
+                usc.j(th4);
+                try {
+                    unsubscribe();
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
+                } catch (Throwable th5) {
+                    usc.j(th5);
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
+                }
             }
-            this.b = true;
-            this.a.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.eoc
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+    @Override // com.baidu.tieba.foc
+    public void onCompleted() {
+        UnsubscribeFailedException unsubscribeFailedException;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
+            this.f = true;
+            try {
+                this.e.onCompleted();
+                try {
+                    unsubscribe();
+                } finally {
+                }
+            } catch (Throwable th) {
+                try {
+                    qoc.e(th);
+                    usc.j(th);
+                    throw new OnCompletedFailedException(th.getMessage(), th);
+                } catch (Throwable th2) {
+                    try {
+                        unsubscribe();
+                        throw th2;
+                    } finally {
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.foc
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            poc.e(th);
-            if (this.c) {
-                return;
-            }
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
-                this.a.onError(th);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            qoc.e(th);
+            if (!this.f) {
+                this.f = true;
+                g(th);
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
-    @Override // com.baidu.tieba.eoc
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    @Override // com.baidu.tieba.foc
     public void onNext(T t) {
-        Object[] objArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
-                return;
-            }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.i(t));
-                return;
-            }
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
             try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                poc.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
+                if (!this.f) {
+                    this.e.onNext(t);
                 }
-            } catch (Throwable th2) {
-                this.c = true;
-                poc.g(th2, this.a, t);
+            } catch (Throwable th) {
+                qoc.f(th, this);
             }
         }
     }

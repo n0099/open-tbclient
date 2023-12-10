@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.coreExtra.model.CloudControlData;
 import com.baidu.tbadk.coreExtra.model.ResponseToastLogic;
+import com.baidu.tieba.aq9;
 import com.baidu.tieba.jr4;
-import com.baidu.tieba.xp9;
-import com.baidu.tieba.zp9;
+import com.baidu.tieba.yp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +96,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public zp9 c;
+        public aq9 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -126,7 +126,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new zp9();
+            this.c = new aq9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,10 +141,10 @@ public class MarkModel extends BdBaseModel {
                 boolean z2 = true;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    xp9 xp9Var = new xp9();
+                    yp9 yp9Var = new yp9();
                     this.a.setNeedShowSeverToast(false);
-                    xp9Var.j(this.d.b);
-                    this.a.addPostData("data", xp9Var.E(0, 1));
+                    yp9Var.j(this.d.b);
+                    this.a.addPostData("data", yp9Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;

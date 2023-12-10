@@ -1,118 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
+import android.util.SparseIntArray;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb.pb.main.ApplyCopyThreadResponseMessage;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a0a {
+public abstract class a0a<T, V extends TypeAdapter.ViewHolder> extends ci<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbModel a;
-    public BaseFragmentActivity b;
-    public b c;
-    public final HttpMessageListener d;
+    public i6a a;
+    public PbFragment b;
+    public AbsVideoPbFragment c;
+    public int d;
+    public boolean e;
+    public SparseIntArray f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str, String str2);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a0a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a0a a0aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a0aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a0aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
-                if (httpResponsedMessage.getStatusCode() == 200) {
-                    ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
-                    String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
-                    int errorCode = applyCopyThreadResponseMessage.getErrorCode();
-                    String tid = applyCopyThreadResponseMessage.getTid();
-                    if (errorCode == 0) {
-                        errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
-                    }
-                    this.a.c.a(errorCode, errorMessage, tid);
-                    return;
-                }
-                this.a.c.a(-1, null, null);
-            }
-        }
-    }
-
-    public a0a(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public a0a(i6a i6aVar, BdUniqueId bdUniqueId) {
+        super(r0, bdUniqueId);
+        AbsPbActivity u0;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbModel, baseFragmentActivity};
+            Object[] objArr = {i6aVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        a aVar = new a(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        this.d = aVar;
-        this.a = pbModel;
-        this.b = baseFragmentActivity;
-        baseFragmentActivity.registerListener(aVar);
+        if (i6aVar == null) {
+            u0 = null;
+        } else {
+            u0 = i6aVar.u0();
+        }
+        this.d = 3;
+        this.e = false;
+        this.f = new SparseIntArray();
+        u(i6aVar);
     }
 
-    public void c(b bVar) {
+    @Override // com.baidu.tieba.ci
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.e = z;
         }
     }
 
-    public void b(int i) {
+    public int t(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int i2 = this.f.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            this.f.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
-        httpMessage.addParam("thread_id", this.a.M1());
-        httpMessage.addParam("status", String.valueOf(i));
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return invokeI.intValue;
+    }
+
+    public void u(i6a i6aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, i6aVar) == null) && i6aVar != null) {
+            this.a = i6aVar;
+            this.b = i6aVar.v2();
+            AbsVideoPbFragment h0 = i6aVar.h0();
+            this.c = h0;
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                this.mContext = pbFragment.getActivity();
+            } else if (h0 != null) {
+                this.mContext = h0.getActivity();
+            } else {
+                this.mContext = null;
+            }
+        }
     }
 }

@@ -70,13 +70,13 @@ public final class l33 {
 
         /* renamed from: com.baidu.tieba.l33$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0383a implements dl3<h33> {
+        public class C0384a implements dl3<h33> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ j33 b;
 
-            public C0383a(a aVar, String str, j33 j33Var) {
+            public C0384a(a aVar, String str, j33 j33Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class l33 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + j33Var.b);
                 }
                 synchronized (this.a.g) {
-                    cl3.a(j63.M(), new C0383a(this, str, j33Var), this.a.g);
+                    cl3.a(j63.M(), new C0384a(this, str, j33Var), this.a.g);
                 }
             }
         }

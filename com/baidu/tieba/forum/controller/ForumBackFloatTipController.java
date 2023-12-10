@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dk7;
+import com.baidu.tieba.ek7;
 import com.baidu.tieba.forum.ForumActivity;
 import com.baidu.tieba.forum.databinding.ActivityForumBinding;
 import com.baidu.tieba.lu4;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vo7;
-import com.baidu.tieba.wh7;
-import com.baidu.tieba.yh7;
+import com.baidu.tieba.wo7;
+import com.baidu.tieba.xh7;
+import com.baidu.tieba.zh7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,13 +34,13 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Reflection;
 @Metadata(d1 = {"\u0000M\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003*\u0001\f\u0018\u0000  2\u00020\u0001:\u0001 B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u000e\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u0014J\u0010\u0010\u0015\u001a\u00020\u00112\u0006\u0010\u0007\u001a\u00020\bH\u0002J\u0010\u0010\u0016\u001a\u00020\u00112\u0006\u0010\u0007\u001a\u00020\bH\u0002J\u0006\u0010\u0017\u001a\u00020\u0013J\u000e\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0002\u001a\u00020\u0014J\u0010\u0010\u0019\u001a\u00020\u00132\u0006\u0010\u001a\u001a\u00020\u001bH\u0016J\u001a\u0010\u001c\u001a\u00020\u00132\b\u0010\u001d\u001a\u0004\u0018\u00010\u001e2\u0006\u0010\u0007\u001a\u00020\bH\u0016J\b\u0010\u001f\u001a\u00020\u0013H\u0016R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\rR\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0011X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/forum/controller/ForumBackFloatTipController;", "Lcom/baidu/tieba/forum/controller/BaseActivityController;", "activity", "Landroidx/fragment/app/FragmentActivity;", "(Landroidx/fragment/app/FragmentActivity;)V", "getActivity", "()Landroidx/fragment/app/FragmentActivity;", "binding", "Lcom/baidu/tieba/forum/databinding/ActivityForumBinding;", "buttonLayout", "Landroid/view/View;", "hideForumFloatTipListener", "com/baidu/tieba/forum/controller/ForumBackFloatTipController$hideForumFloatTipListener$1", "Lcom/baidu/tieba/forum/controller/ForumBackFloatTipController$hideForumFloatTipListener$1;", "isCopyLinkDialogShowed", "", "view", "Lcom/baidu/tieba/forum/view/ForumBackFloatView;", "addCopyLinkGuideShowFrequency", "", "Landroid/app/Activity;", "buildBackForumBroadcastView", "buildBackForumDoingsView", "handlerShowForumBackTip", "isNeedShowForumCopyLinkGuide", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onCreate", "savedInstanceState", "Landroid/os/Bundle;", MissionEvent.MESSAGE_DESTROY, "Companion", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class ForumBackFloatTipController extends wh7 {
+/* loaded from: classes6.dex */
+public final class ForumBackFloatTipController extends xh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FragmentActivity b;
     public boolean c;
-    public vo7 d;
+    public wo7 d;
     public View e;
     public ActivityForumBinding f;
     public final a g;
@@ -60,7 +60,7 @@ public final class ForumBackFloatTipController extends wh7 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements lu4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,13 +96,13 @@ public final class ForumBackFloatTipController extends wh7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                vo7 vo7Var = this.a.d;
+                wo7 wo7Var = this.a.d;
                 boolean z = true;
-                if ((vo7Var == null || !vo7Var.b()) ? false : false) {
-                    dk7.a.a();
-                    vo7 vo7Var2 = this.a.d;
-                    if (vo7Var2 != null) {
-                        vo7Var2.c(false);
+                if ((wo7Var == null || !wo7Var.b()) ? false : false) {
+                    ek7.a.a();
+                    wo7 wo7Var2 = this.a.d;
+                    if (wo7Var2 != null) {
+                        wo7Var2.c(false);
                     }
                 }
             }
@@ -129,41 +129,41 @@ public final class ForumBackFloatTipController extends wh7 {
         this.g = new a(this);
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void i(int i) {
-        vo7 vo7Var;
+        wo7 wo7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (vo7Var = this.d) != null) {
-            vo7Var.a();
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (wo7Var = this.d) != null) {
+            wo7Var.a();
         }
     }
 
-    public final vo7 t(ActivityForumBinding activityForumBinding) {
+    public final wo7 t(ActivityForumBinding activityForumBinding) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, activityForumBinding)) == null) {
             String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0810);
             Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.frs_back_forum_broadcast_tip)");
-            return new vo7(string, R.color.CAM_X0305, R.drawable.pic_float_return_broadcast32, 0, null, false, 56, null);
+            return new wo7(string, R.color.CAM_X0305, R.drawable.pic_float_return_broadcast32, 0, null, false, 56, null);
         }
-        return (vo7) invokeL.objValue;
+        return (wo7) invokeL.objValue;
     }
 
-    public final vo7 u(ActivityForumBinding activityForumBinding) {
+    public final wo7 u(ActivityForumBinding activityForumBinding) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activityForumBinding)) == null) {
             String string = UtilHelper.getString(R.string.obfuscated_res_0x7f0f0811);
             Intrinsics.checkNotNullExpressionValue(string, "getString(R.string.frs_back_forum_doings_tip)");
-            return new vo7(string, R.color.CAM_X0309, R.drawable.obfuscated_res_0x7f08022a, 0, null, false, 56, null);
+            return new wo7(string, R.color.CAM_X0309, R.drawable.obfuscated_res_0x7f08022a, 0, null, false, 56, null);
         }
-        return (vo7) invokeL.objValue;
+        return (wo7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void k(Bundle bundle, ActivityForumBinding binding) {
         ForumActivity forumActivity;
-        yh7 yh7Var;
+        zh7 zh7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle, binding) == null) {
             Intrinsics.checkNotNullParameter(binding, "binding");
@@ -179,22 +179,22 @@ public final class ForumBackFloatTipController extends wh7 {
                 forumActivity = null;
             }
             boolean z = true;
-            if (!((forumActivity == null || (yh7Var = (yh7) forumActivity.j2(Reflection.getOrCreateKotlinClass(yh7.class))) == null || !yh7Var.g0(this.b)) ? false : false)) {
+            if (!((forumActivity == null || (zh7Var = (zh7) forumActivity.j2(Reflection.getOrCreateKotlinClass(zh7.class))) == null || !zh7Var.g0(this.b)) ? false : false)) {
                 s0();
             }
             lu4.b.a().c(this.g);
         }
     }
 
-    @Override // com.baidu.tieba.wh7
+    @Override // com.baidu.tieba.xh7
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.l();
-            vo7 vo7Var = this.d;
+            wo7 wo7Var = this.d;
             boolean z = true;
-            if ((vo7Var == null || !vo7Var.b()) ? false : false) {
-                dk7.a.a();
+            if ((wo7Var == null || !wo7Var.b()) ? false : false) {
+                ek7.a.a();
             }
             lu4.b.a().e(this.g);
         }
@@ -245,12 +245,12 @@ public final class ForumBackFloatTipController extends wh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             String stringExtra = this.b.getIntent().getStringExtra("key_forum_back_tip");
-            final vo7 vo7Var = null;
+            final wo7 wo7Var = null;
             ActivityForumBinding activityForumBinding = null;
-            vo7Var = null;
-            vo7Var = null;
+            wo7Var = null;
+            wo7Var = null;
             ActivityForumBinding activityForumBinding2 = null;
-            vo7Var = null;
+            wo7Var = null;
             if (stringExtra != null) {
                 int hashCode = stringExtra.hashCode();
                 if (hashCode != -1129864942) {
@@ -261,7 +261,7 @@ public final class ForumBackFloatTipController extends wh7 {
                         } else {
                             activityForumBinding = activityForumBinding3;
                         }
-                        vo7Var = t(activityForumBinding);
+                        wo7Var = t(activityForumBinding);
                     }
                 } else if (stringExtra.equals("back_forum_doings")) {
                     ActivityForumBinding activityForumBinding4 = this.f;
@@ -270,17 +270,17 @@ public final class ForumBackFloatTipController extends wh7 {
                     } else {
                         activityForumBinding2 = activityForumBinding4;
                     }
-                    vo7Var = u(activityForumBinding2);
+                    wo7Var = u(activityForumBinding2);
                 }
             }
-            this.d = vo7Var;
-            if (vo7Var != null) {
+            this.d = wo7Var;
+            if (wo7Var != null) {
                 FragmentActivity fragmentActivity = this.b;
                 if (fragmentActivity instanceof BaseFragmentActivity) {
-                    dk7.a.b(vo7Var, (BaseFragmentActivity) fragmentActivity, new Function1<Boolean, Unit>(this, vo7Var) { // from class: com.baidu.tieba.forum.controller.ForumBackFloatTipController$handlerShowForumBackTip$1$1
+                    ek7.a.b(wo7Var, (BaseFragmentActivity) fragmentActivity, new Function1<Boolean, Unit>(this, wo7Var) { // from class: com.baidu.tieba.forum.controller.ForumBackFloatTipController$handlerShowForumBackTip$1$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ vo7 $it;
+                        public final /* synthetic */ wo7 $it;
                         public final /* synthetic */ ForumBackFloatTipController this$0;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -290,7 +290,7 @@ public final class ForumBackFloatTipController extends wh7 {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, vo7Var};
+                                Object[] objArr = {this, wo7Var};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i = newInitContext.flag;
                                 if ((i & 1) != 0) {
@@ -302,7 +302,7 @@ public final class ForumBackFloatTipController extends wh7 {
                                 }
                             }
                             this.this$0 = this;
-                            this.$it = vo7Var;
+                            this.$it = wo7Var;
                         }
 
                         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */

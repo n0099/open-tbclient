@@ -39,7 +39,7 @@ public final class y87 implements a97<LayoutFactory> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.a97
     /* renamed from: a */
-    public rb7<?> b(LayoutFactory layoutFactory) {
+    public sb7<?> b(LayoutFactory layoutFactory) {
         InterceptResult invokeL;
         FrsTopThreadCardLayout frsTopThreadCardLayout;
         boolean z;
@@ -66,12 +66,12 @@ public final class y87 implements a97<LayoutFactory> {
                             arrayList.add(a);
                         }
                     }
-                    return new sb7(new l57(arrayList, this.a, this.b), "feed_top_card");
+                    return new tb7(new l57(arrayList, this.a, this.b), "feed_top_card");
                 }
             }
             return null;
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 
     public final void c(boolean z) {

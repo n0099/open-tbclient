@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an6;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.nl8;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,11 +69,11 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(nl8 nl8Var) {
+    public void a(ol8 ol8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nl8Var) == null) {
-            if (nl8Var != null && (nl8Var instanceof an6)) {
-                an6 an6Var = (an6) nl8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ol8Var) == null) {
+            if (ol8Var != null && (ol8Var instanceof an6)) {
+                an6 an6Var = (an6) ol8Var;
                 this.e = an6Var;
                 this.b.setTag(an6Var.b);
                 this.b.setTag(R.id.tag_forum_name, this.e.c);

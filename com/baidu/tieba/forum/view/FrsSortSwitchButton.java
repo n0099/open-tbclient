@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ve7;
-import com.baidu.tieba.zs7;
+import com.baidu.tieba.at7;
+import com.baidu.tieba.we7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,12 +63,12 @@ public class FrsSortSwitchButton extends View implements View.OnTouchListener {
     public boolean v;
     public boolean w;
     public boolean x;
-    public List<zs7> y;
+    public List<at7> y;
     public List<Float> z;
 
     /* loaded from: classes6.dex */
     public interface d {
-        boolean a(zs7 zs7Var);
+        boolean a(at7 at7Var);
     }
 
     /* loaded from: classes6.dex */
@@ -278,7 +278,7 @@ public class FrsSortSwitchButton extends View implements View.OnTouchListener {
     public final void v(int i) {
         d dVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (dVar = this.C) != null && !dVar.a((zs7) ListUtils.getItem(this.y, this.s))) {
+        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (dVar = this.C) != null && !dVar.a((at7) ListUtils.getItem(this.y, this.s))) {
             ValueAnimator valueAnimator = this.D;
             if (valueAnimator != null) {
                 valueAnimator.cancel();
@@ -313,7 +313,7 @@ public class FrsSortSwitchButton extends View implements View.OnTouchListener {
     public final void y(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ve7.FrsSortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, we7.FrsSortSwitchButton);
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -375,7 +375,7 @@ public class FrsSortSwitchButton extends View implements View.OnTouchListener {
         return f2;
     }
 
-    public void setData(List<zs7> list, int i) {
+    public void setData(List<at7> list, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, i) == null) {
             C();
@@ -447,10 +447,10 @@ public class FrsSortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    zs7 zs7Var = (zs7) ListUtils.getItem(this.y, i3);
-                    if (zs7Var != null) {
+                    at7 at7Var = (at7) ListUtils.getItem(this.y, i3);
+                    if (at7Var != null) {
                         Paint paint = this.n;
-                        String str = zs7Var.a;
+                        String str = at7Var.a;
                         if (str == null) {
                             str = "";
                         }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.biz.aibot.AibotChatRepo;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeSet;
+import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class kr8 {
     public static /* synthetic */ Interceptable $ic;
@@ -48,53 +53,33 @@ public final class kr8 {
         }
     }
 
-    public final void a(String botId, Integer num, String duration) {
-        int i;
+    public final void a(AibotChatRepo repo, JSONObject params, pv8 fetchMsgCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, botId, num, duration) == null) {
-            Intrinsics.checkNotNullParameter(botId, "botId");
-            Intrinsics.checkNotNullParameter(duration, "duration");
-            StatisticItem statisticItem = new StatisticItem("c15413");
-            statisticItem.param("obj_type", 5);
-            statisticItem.param("obj_id", botId);
-            if (num != null) {
-                i = num.intValue();
-            } else {
-                i = 0;
-            }
-            statisticItem.param("obj_source", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param(TiebaStatic.Params.OBJ_DURATION, duration);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, repo, params, fetchMsgCallback) == null) {
+            Intrinsics.checkNotNullParameter(repo, "repo");
+            Intrinsics.checkNotNullParameter(params, "params");
+            Intrinsics.checkNotNullParameter(fetchMsgCallback, "fetchMsgCallback");
+            repo.f0(params.optLong("beginMsgId"), params.optLong("endMsgId"), params.optInt("count"), fetchMsgCallback);
         }
     }
 
-    public final void b(int i, String botPaid, Integer num) {
-        int i2;
+    public final HashMap<String, Object> b(TreeSet<TbBaseMsg> fetchedMsgs, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, botPaid, num) == null) {
-            Intrinsics.checkNotNullParameter(botPaid, "botPaid");
-            StatisticItem statisticItem = new StatisticItem("c15413");
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_id", botPaid);
-            if (num != null) {
-                i2 = num.intValue();
-            } else {
-                i2 = 0;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchedMsgs, j)) == null) {
+            Intrinsics.checkNotNullParameter(fetchedMsgs, "fetchedMsgs");
+            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(fetchedMsgs, 10));
+            for (TbBaseMsg tbBaseMsg : fetchedMsgs) {
+                arrayList.add(uv8.c(tbBaseMsg, false));
             }
-            statisticItem.param("obj_source", i2);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String a2 = dx.a(DataExt.toJson(arrayList));
+            Intrinsics.checkNotNullExpressionValue(a2, "getEncodeValue(mapList.toJson())");
+            hashMap.put("msgs", a2);
+            hashMap.put("chatType", "AISingleChat");
+            hashMap.put("chatId", Long.valueOf(j));
+            return hashMap;
         }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            StatisticItem statisticItem = new StatisticItem("c15439");
-            statisticItem.param("obj_type", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
-        }
+        return (HashMap) invokeLJ.objValue;
     }
 }

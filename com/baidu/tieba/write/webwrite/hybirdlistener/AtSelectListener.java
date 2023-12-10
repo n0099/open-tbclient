@@ -15,11 +15,11 @@ import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
 import com.baidu.tieba.agb;
+import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.ugb;
+import com.baidu.tieba.vgb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public final class AtSelectListener extends BizBase {
     public final EditorTools g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AtSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, ugb writePageState, EditorTools editor) {
+    public AtSelectListener(TbPageContext<?> context, TbWebView webView, WriteData writeData, vgb writePageState, EditorTools editor) {
         super(context, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -51,7 +51,7 @@ public final class AtSelectListener extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,25 +76,25 @@ public final class AtSelectListener extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.cgb
+    @Override // com.baidu.tieba.dgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new WrapListener[]{h().invoke("writePage.addAt", new AtSelectListener$keyListeners$1(this))} : (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cgb
-    public agb[] b() {
+    @Override // com.baidu.tieba.dgb
+    public bgb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new agb[]{o(12004, new AtSelectListener$requestCodeHandlers$1(this))} : (agb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new bgb[]{o(12004, new AtSelectListener$requestCodeHandlers$1(this))} : (bgb[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cgb
-    public zfb[] f() {
+    @Override // com.baidu.tieba.dgb
+    public agb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new zfb[]{n(16, new AtSelectListener$editorActionHandlers$1(this))} : (zfb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new agb[]{n(16, new AtSelectListener$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
     public final void v(Intent intent) {

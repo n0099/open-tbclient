@@ -14,9 +14,10 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class xua extends BaseCardInfo implements pi {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ThreadData> a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class xua extends BaseCardInfo implements pi {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public xua() {
@@ -44,8 +45,10 @@ public class xua extends BaseCardInfo implements pi {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = -1;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
@@ -53,7 +56,7 @@ public class xua extends BaseCardInfo implements pi {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }

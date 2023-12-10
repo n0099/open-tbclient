@@ -42,7 +42,7 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.controller.TransmitShareController;
 import com.baidu.tieba.p05;
-import com.baidu.tieba.s9b;
+import com.baidu.tieba.t9b;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -85,10 +85,10 @@ public class es4 {
     public boolean w;
     public boolean x;
     public boolean y;
-    public g7a z;
+    public h7a z;
 
     /* loaded from: classes5.dex */
-    public class a implements s9b.c {
+    public class a implements t9b.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ es4 a;
@@ -111,7 +111,7 @@ public class es4 {
             this.a = es4Var;
         }
 
-        @Override // com.baidu.tieba.s9b.c
+        @Override // com.baidu.tieba.t9b.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.z == null) {
@@ -437,7 +437,7 @@ public class es4 {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements s9b.d {
+    public class k implements t9b.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ es4 a;
@@ -460,7 +460,7 @@ public class es4 {
             this.a = es4Var;
         }
 
-        @Override // com.baidu.tieba.s9b.d
+        @Override // com.baidu.tieba.t9b.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z != null && this.a.a != null) {
@@ -813,16 +813,16 @@ public class es4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.z == null) {
-                s9b s9bVar = new s9b(this.a);
+                t9b t9bVar = new t9b(this.a);
                 ArrayList arrayList = new ArrayList();
-                s9b.b bVar = new s9b.b(this.a.getString(R.string.report_text), s9bVar);
+                t9b.b bVar = new t9b.b(this.a.getString(R.string.report_text), t9bVar);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                s9bVar.h(new a(this));
-                s9bVar.g(arrayList);
-                g7a g7aVar = new g7a(this.a, s9bVar.b());
-                this.z = g7aVar;
-                g7aVar.a(0.7f);
+                t9bVar.h(new a(this));
+                t9bVar.g(arrayList);
+                h7a h7aVar = new h7a(this.a, t9bVar.b());
+                this.z = h7aVar;
+                h7aVar.a(0.7f);
             }
             this.z.show();
         }

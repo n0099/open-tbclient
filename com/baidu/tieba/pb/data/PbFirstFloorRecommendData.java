@@ -10,7 +10,7 @@ import com.baidu.tieba.pi;
 import com.baidu.tieba.vr6;
 import com.baidu.tieba.wr6;
 import com.baidu.tieba.xr6;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.z5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -210,20 +210,20 @@ public final class PbFirstFloorRecommendData implements pi {
                 themeColorInfo = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo, "novelRecomCard.chapter_b…or ?: emptyThemeColorInfo");
-            String c2 = y5b.c(themeColorInfo);
+            String c2 = z5b.c(themeColorInfo);
             int dimens3 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds25);
             ThemeColorInfo themeColorInfo2 = this.a.chapter_new_labels;
             if (themeColorInfo2 == null) {
                 themeColorInfo2 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "novelRecomCard.chapter_n…ls ?: emptyThemeColorInfo");
-            wr6 a2 = y5b.a(themeColorInfo2);
+            wr6 a2 = z5b.a(themeColorInfo2);
             ThemeColorInfo themeColorInfo3 = this.a.chapter_name_color;
             if (themeColorInfo3 == null) {
                 themeColorInfo3 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo3, "novelRecomCard.chapter_n…or ?: emptyThemeColorInfo");
-            String c3 = y5b.c(themeColorInfo3);
+            String c3 = z5b.c(themeColorInfo3);
             String str6 = this.a.chapter_name;
             if (str6 == null) {
                 str2 = "";
@@ -251,7 +251,7 @@ public final class PbFirstFloorRecommendData implements pi {
                 themeColorInfo4 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo4, "novelRecomCard.bottom_le…on ?: emptyThemeColorInfo");
-            vr6Var.a(y5b.a(themeColorInfo4));
+            vr6Var.a(z5b.a(themeColorInfo4));
             String str10 = this.a.bottom_title;
             if (str10 == null) {
                 str10 = "";
@@ -262,7 +262,7 @@ public final class PbFirstFloorRecommendData implements pi {
                 themeColorInfo5 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo5, "novelRecomCard.bottom_ri…on ?: emptyThemeColorInfo");
-            vr6Var.e(y5b.a(themeColorInfo5));
+            vr6Var.e(z5b.a(themeColorInfo5));
             String str11 = this.a.bottom_guide;
             if (str11 != null) {
                 str4 = str11;
@@ -273,7 +273,7 @@ public final class PbFirstFloorRecommendData implements pi {
                 themeColorInfo6 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo6, "novelRecomCard.bottom_ri…_2 ?: emptyThemeColorInfo");
-            vr6Var.c(y5b.a(themeColorInfo6));
+            vr6Var.c(z5b.a(themeColorInfo6));
             return vr6Var;
         }
         return (vr6) invokeV.objValue;

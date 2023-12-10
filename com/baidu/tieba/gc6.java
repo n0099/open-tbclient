@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gc6 extends gs7<xua, FrsPageAlaStageViewHolder> implements km6 {
+public class gc6 extends hs7<yua, FrsPageAlaStageViewHolder> implements km6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -75,12 +75,12 @@ public class gc6 extends gs7<xua, FrsPageAlaStageViewHolder> implements km6 {
         }
     }
 
-    public View I(int i, View view2, ViewGroup viewGroup, xua xuaVar, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+    public View I(int i, View view2, ViewGroup viewGroup, yua yuaVar, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xuaVar, frsPageAlaStageViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xuaVar, (xua) frsPageAlaStageViewHolder);
-            if (xuaVar != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yuaVar, frsPageAlaStageViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) yuaVar, (yua) frsPageAlaStageViewHolder);
+            if (yuaVar != null) {
                 int i2 = 0;
                 FrsViewData frsViewData = this.b;
                 if (frsViewData != null) {
@@ -89,16 +89,16 @@ public class gc6 extends gs7<xua, FrsPageAlaStageViewHolder> implements km6 {
                 rc6 rc6Var = frsPageAlaStageViewHolder.a;
                 rc6Var.x = (i + 1) - i2;
                 rc6Var.a(this.l);
-                frsPageAlaStageViewHolder.a.j(xuaVar);
+                frsPageAlaStageViewHolder.a.j(yuaVar);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.gs7, com.baidu.tieba.ci
+    @Override // com.baidu.tieba.hs7, com.baidu.tieba.ci
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        I(i, view2, viewGroup, (xua) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        I(i, view2, viewGroup, (yua) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view2;
     }
 }

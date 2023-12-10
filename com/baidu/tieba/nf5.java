@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
-import com.baidu.tieba.qva;
+import com.baidu.tieba.rva;
 import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -95,11 +95,11 @@ public class nf5 {
         if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (qf5Var = this.e) == null) {
             return;
         }
-        qf5Var.d(new qva.i() { // from class: com.baidu.tieba.jf5
+        qf5Var.d(new rva.i() { // from class: com.baidu.tieba.jf5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.qva.i
+            @Override // com.baidu.tieba.rva.i
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {

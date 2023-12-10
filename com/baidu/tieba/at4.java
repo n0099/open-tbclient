@@ -156,12 +156,12 @@ public class at4 implements qj6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public fxa d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public gxa d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
@@ -187,25 +187,25 @@ public class at4 implements qj6 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i2);
-                fxaVar.o(jSONObject3.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject3.toString());
+                return gxaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
-    public fxa f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject, JSONObject jSONObject2) {
+    public gxa f(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, String str11, long j, int i5, int i6, long j2, String str12, String str13, String str14, String str15, JSONObject jSONObject, JSONObject jSONObject2) {
         InterceptResult invokeCommon;
-        fxa fxaVar;
+        gxa gxaVar;
         int i7;
         CustomResponsedMessage runTask;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, str11, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str12, str13, str14, str15, jSONObject, jSONObject2})) == null) {
-            fxa fxaVar2 = new fxa();
+            gxa gxaVar2 = new gxa();
             Activity a2 = fj6.a(webView.getContext());
             JSONObject jSONObject3 = new JSONObject();
             try {
@@ -248,27 +248,27 @@ public class at4 implements qj6 {
                 }
                 if (shareItem != null && jSONObject2 != null) {
                     j(a2, shareItem, ((ShareFloatCardData) DataExt.toEntity(jSONObject2.toString(), ShareFloatCardData.class)).buildShareFloatCardData(), "1".equals(str13));
-                    fxaVar2.o("");
-                    return fxaVar2;
+                    gxaVar2.o("");
+                    return gxaVar2;
                 }
-                fxaVar = fxaVar2;
+                gxaVar = gxaVar2;
                 if (shareItem != null && shareItem.isShareGroup()) {
                     i(a2, shareItem, i5);
-                    fxaVar.o("");
-                    return fxaVar;
+                    gxaVar.o("");
+                    return gxaVar;
                 } else if (shareItem != null && shareItem.isShareAlbum()) {
                     i(a2, shareItem, i5);
-                    fxaVar.o("");
-                    return fxaVar;
+                    gxaVar.o("");
+                    return gxaVar;
                 } else if (shareItem != null && shareItem.isShareTopic()) {
                     i(a2, shareItem, i5);
-                    fxaVar.o("");
-                    return fxaVar;
+                    gxaVar.o("");
+                    return gxaVar;
                 } else if (shareItem != null && shareItem.isShareActive()) {
                     shareItem.setShowMoreForumIcon("1".equals(str2));
                     i(a2, shareItem, i5);
-                    fxaVar.o("");
-                    return fxaVar;
+                    gxaVar.o("");
+                    return gxaVar;
                 } else if ("1".equals(str2) && shareItem != null) {
                     shareItem.imageUrl = str;
                     shareItem.linkUrl = str3;
@@ -280,8 +280,8 @@ public class at4 implements qj6 {
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
                     TransmitShareController.getInstance().showShareDialog(shareDialogConfig);
-                    fxaVar.o("");
-                    return fxaVar;
+                    gxaVar.o("");
+                    return gxaVar;
                 } else {
                     if (i == 0) {
                         if (shareItem != null && !rd.isEmpty(str) && i2 == 1) {
@@ -304,20 +304,20 @@ public class at4 implements qj6 {
                     i7 = 1;
                 }
             } else {
-                fxaVar = fxaVar2;
+                gxaVar = gxaVar2;
                 i7 = 0;
             }
             try {
                 JSONObject jSONObject5 = new JSONObject();
                 jSONObject5.put("resultCode", i7);
-                fxaVar.o(jSONObject5.toString());
-                return fxaVar;
+                gxaVar.o(jSONObject5.toString());
+                return gxaVar;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return fxaVar;
+                return gxaVar;
             }
         }
-        return (fxa) invokeCommon.objValue;
+        return (gxa) invokeCommon.objValue;
     }
 
     public final void g(Context context, String str, int i) {
@@ -359,11 +359,11 @@ public class at4 implements qj6 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public fxa h(WebView webView, HashMap hashMap) {
+    public gxa h(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
             int intValue2 = ((Integer) hashMap.get("shareStatus")).intValue();
             if (intValue2 != 3 && intValue2 != 2) {
@@ -384,13 +384,13 @@ public class at4 implements qj6 {
                     e.printStackTrace();
                 }
                 a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-                fxaVar.o(jSONObject.toString());
+                gxaVar.o(jSONObject.toString());
             } else {
-                fxaVar.p();
+                gxaVar.p();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLL.objValue;
+        return (gxa) invokeLL.objValue;
     }
 
     public void i(Context context, ShareItem shareItem, int i) {
@@ -409,7 +409,7 @@ public class at4 implements qj6 {
         TransmitShareController.getInstance().showShareDialog(new ShareDialogConfig(context, shareItem, true, (SparseArray<String>) null));
         if (shareItem.isShareGroup()) {
             shareItem.obj_type = 11;
-            nz8.b(shareItem.groupData);
+            oz8.b(shareItem.groupData);
         }
     }
 

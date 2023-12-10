@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.d65;
 import com.baidu.tieba.f65;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.ps9;
+import com.baidu.tieba.qs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View j;
     public LinearLayout k;
     public View l;
-    public ps9 m;
+    public qs9 m;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -69,9 +69,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
             this.i.setOnClickListener(null);
-            ps9 ps9Var = this.m;
-            if (ps9Var != null) {
-                ps9Var.f();
+            qs9 qs9Var = this.m;
+            if (qs9Var != null) {
+                qs9Var.f();
             }
         }
     }
@@ -158,7 +158,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.e.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, K2(R.dimen.tbds78)));
             this.e.addHeaderView(view2);
-            this.m = new ps9(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
+            this.m = new qs9(this, this.e, this.i, this.f, getPageContext(), new InterestedForumModel(getUniqueId()), this.a);
         }
     }
 
@@ -174,9 +174,9 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             EMManager.from(this.j).setGradientColor(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
             EMManager.from(this.l).setGradientColor(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.f.k();
-            ps9 ps9Var = this.m;
-            if (ps9Var != null) {
-                ps9Var.l(i);
+            qs9 qs9Var = this.m;
+            if (qs9Var != null) {
+                qs9Var.l(i);
             }
         }
     }

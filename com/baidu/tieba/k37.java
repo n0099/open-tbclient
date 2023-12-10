@@ -72,7 +72,7 @@ public final class k37 {
 
             /* renamed from: com.baidu.tieba.k37$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0376a implements e {
+            public class C0375a implements e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,7 +149,7 @@ public final class k37 {
                     }
                 }
 
-                public C0376a(a aVar) {
+                public C0375a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public final class k37 {
 
             /* renamed from: com.baidu.tieba.k37$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0377b implements c {
+            public class C0376b implements c {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -189,7 +189,7 @@ public final class k37 {
                     return (View) invokeL.objValue;
                 }
 
-                public C0377b(a aVar) {
+                public C0376b(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,7 +225,7 @@ public final class k37 {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return new C0376a(this);
+                    return new C0375a(this);
                 }
                 return (e) invokeV.objValue;
             }
@@ -235,7 +235,7 @@ public final class k37 {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return new C0377b(this);
+                    return new C0376b(this);
                 }
                 return (c) invokeV.objValue;
             }

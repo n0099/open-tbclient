@@ -193,7 +193,7 @@ public class o16 {
                     this.a.f.remove(bVar);
                     if (this.a.E && this.a.s != null) {
                         this.a.s.setClickable(false);
-                        this.a.s.setTextColor(tua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                        this.a.s.setTextColor(uua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     }
                 }
             }
@@ -745,7 +745,7 @@ public class o16 {
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColorSelector(this.r, R.color.CAM_X0105);
             if (this.E) {
-                this.s.setTextColor(tua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.s.setTextColor(uua.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 this.s.setClickable(false);
             } else {
                 EMManager.from(this.s).setTextColor(R.color.CAM_X0302);

@@ -1,101 +1,133 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ggd;
+import com.baidu.tieba.hgd;
+import com.baidu.tieba.igd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPayAmountView;
+import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
+import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
+import tv.athena.revenue.payui.view.impl.YYPayGiftView;
+import tv.athena.revenue.payui.view.impl.YYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPaySignView;
+import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
+import tv.athena.revenue.payui.view.impl.YYPayWayView;
 /* loaded from: classes6.dex */
-public class ged {
+public class ged implements add {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public boolean b;
-    public Runnable c;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ged a;
-
-        public a(ged gedVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gedVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gedVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
-                this.a.b = false;
-            }
-        }
-    }
-
-    public ged() {
+    public ged(int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = false;
-        this.c = new a(this);
+        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.add
+    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, xcd xcdVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
-            this.b = false;
-            this.a.removeCallbacks(this.c);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, xcdVar)) == null) {
+            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, xcdVar);
         }
+        return (IYYPayAmountView) invokeLLL.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.add
+    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, xcd xcdVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, xcdVar)) == null) {
+            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, xcdVar);
         }
-        return invokeV.booleanValue;
+        return (IYYPayResultView) invokeLLL.objValue;
     }
 
-    public void e(boolean z) {
+    @Override // com.baidu.tieba.add
+    public ggd f(Activity activity, ggd.b bVar, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
-            this.b = z;
-            this.a.removeCallbacks(this.c);
-            if (this.b) {
-                this.a.postDelayed(this.c, 3000L);
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
+            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
         }
+        return (ggd) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.add
+    public igd g(Activity activity, igd.b bVar, cdd cddVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, cddVar)) == null) {
+            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, cddVar);
+        }
+        return (igd) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.add
+    public egd b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        }
+        return (egd) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.add
+    public dgd c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        }
+        return (dgd) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.add
+    public fgd d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        }
+        return (fgd) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.add
+    public hgd h(Activity activity, PayUIKitConfig payUIKitConfig, hgd.b bVar, cdd cddVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, cddVar)) == null) {
+            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, cddVar);
+        }
+        return (hgd) invokeLLLL.objValue;
     }
 }

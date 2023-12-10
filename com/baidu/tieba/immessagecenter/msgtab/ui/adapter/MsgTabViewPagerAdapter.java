@@ -15,7 +15,7 @@ import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.ChatTabFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.l79;
+import com.baidu.tieba.m79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,8 +39,8 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
     public final BaseFragment a;
     public final Set<Integer> b;
     public final HashSet<Long> c;
-    public final List<l79> d;
-    public final List<l79> e;
+    public final List<m79> d;
+    public final List<m79> e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgTabViewPagerAdapter(BaseFragment fragment) {
@@ -82,7 +82,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return invokeJ.booleanValue;
     }
 
-    public final void p(List<l79> list) {
+    public final void p(List<m79> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
@@ -92,7 +92,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         }
     }
 
-    public final void q(List<l79> list) {
+    public final void q(List<m79> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
             Intrinsics.checkNotNullParameter(list, "list");
@@ -163,7 +163,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return invokeV.intValue;
     }
 
-    public final List<l79> l() {
+    public final List<m79> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -216,7 +216,7 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
         return (Fragment) invokeI.objValue;
     }
 
-    public final Pair<Integer, l79> o(long j) {
+    public final Pair<Integer, m79> o(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
@@ -226,9 +226,9 @@ public final class MsgTabViewPagerAdapter extends FragmentStateAdapter {
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                l79 l79Var = (l79) obj;
-                if (l79Var.a() == j) {
-                    return new Pair<>(Integer.valueOf(i), l79Var);
+                m79 m79Var = (m79) obj;
+                if (m79Var.a() == j) {
+                    return new Pair<>(Integer.valueOf(i), m79Var);
                 }
                 i = i2;
             }

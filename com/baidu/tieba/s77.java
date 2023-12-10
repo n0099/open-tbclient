@@ -19,14 +19,14 @@ public final class s77 {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             try {
                 String str = businessInfo.get("forum_id");
-                nd7.b(str, null, 1, null);
+                od7.b(str, null, 1, null);
                 String str2 = businessInfo.get("thread_id");
-                nd7.b(str2, null, 1, null);
+                od7.b(str2, null, 1, null);
                 String str3 = businessInfo.get("from_tab_id");
-                nd7.b(str3, null, 1, null);
+                od7.b(str3, null, 1, null);
                 int parseInt = Integer.parseInt(str3);
                 String str4 = businessInfo.get("from_tab_name");
-                nd7.b(str4, null, 1, null);
+                od7.b(str4, null, 1, null);
                 return new p77(str, str2, parseInt, str4, tabList);
             } catch (Exception unused) {
                 return null;

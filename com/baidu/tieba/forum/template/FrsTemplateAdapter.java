@@ -5,10 +5,10 @@ import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.UbcRemoteStat;
 import com.baidu.tieba.feed.list.FeedTemplateAdapter;
-import com.baidu.tieba.ho7;
+import com.baidu.tieba.io7;
 import com.baidu.tieba.oa7;
-import com.baidu.tieba.rb7;
-import com.baidu.tieba.tj7;
+import com.baidu.tieba.sb7;
+import com.baidu.tieba.uj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +42,7 @@ public final class FrsTemplateAdapter extends FeedTemplateAdapter {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            List<? extends rb7<?>> list = this.a;
+            List<? extends sb7<?>> list = this.a;
             if (list != null) {
                 i = list.size();
             } else {
@@ -65,7 +65,7 @@ public final class FrsTemplateAdapter extends FeedTemplateAdapter {
     }
 
     @SuppressLint({"NotifyDataSetChanged"})
-    public final void A(List<? extends rb7<?>> list) {
+    public final void A(List<? extends sb7<?>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
             this.a = list;
@@ -86,14 +86,14 @@ public final class FrsTemplateAdapter extends FeedTemplateAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             if (i < 0) {
-                ho7.a("插入数据数据异常，insertIndex<0，请检查调用逻辑！");
+                io7.a("插入数据数据异常，insertIndex<0，请检查调用逻辑！");
             } else {
                 notifyItemInserted(i);
             }
         }
     }
 
-    public final void t(List<? extends rb7<?>> list) {
+    public final void t(List<? extends sb7<?>> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
@@ -115,17 +115,17 @@ public final class FrsTemplateAdapter extends FeedTemplateAdapter {
                 return;
             }
             A(list);
-            ho7.a("加载更多数据异常，请检查调用逻辑！");
+            io7.a("加载更多数据异常，请检查调用逻辑！");
         }
     }
 
     public final void u() {
-        List<? extends rb7<?>> list;
+        List<? extends sb7<?>> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (list = this.a) != null) {
-            for (rb7<?> rb7Var : list) {
-                if (rb7Var instanceof oa7) {
-                    ((oa7) rb7Var).d(new tj7());
+            for (sb7<?> sb7Var : list) {
+                if (sb7Var instanceof oa7) {
+                    ((oa7) sb7Var).d(new uj7());
                 }
             }
         }
@@ -139,7 +139,7 @@ public final class FrsTemplateAdapter extends FeedTemplateAdapter {
                 notifyDataSetChanged();
                 return;
             }
-            List<? extends rb7<?>> list = this.a;
+            List<? extends sb7<?>> list = this.a;
             if (list != null) {
                 i2 = list.size();
             } else {

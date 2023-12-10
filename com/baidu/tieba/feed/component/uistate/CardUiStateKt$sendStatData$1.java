@@ -2,7 +2,7 @@ package com.baidu.tieba.feed.component.uistate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.tieba.ac7;
+import com.baidu.tieba.bc7;
 import com.baidu.tieba.e87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +20,7 @@ public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionRefere
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardUiStateKt$sendStatData$1(Object obj) {
-        super(1, obj, ac7.a.class, LocalFilesFilterKt.FILTER_NAME_LOG, "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
+        super(1, obj, bc7.a.class, LocalFilesFilterKt.FILTER_NAME_LOG, "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionRefere
     public final void invoke2(e87 e87Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e87Var) == null) {
-            ((ac7.a) this.receiver).b(e87Var);
+            ((bc7.a) this.receiver).b(e87Var);
         }
     }
 }

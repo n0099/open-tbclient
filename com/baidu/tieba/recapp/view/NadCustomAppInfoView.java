@@ -21,7 +21,7 @@ import com.baidu.tieba.dz0;
 import com.baidu.tieba.hw4;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.NadCustomAppInfoView;
-import com.baidu.tieba.wha;
+import com.baidu.tieba.xha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -295,7 +295,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
                 return (TextView) invokeV.objValue;
             }
         });
-        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.uja
+        this.g = new View.OnClickListener() { // from class: com.baidu.tieba.vja
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -378,7 +378,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             } else if (id != R.id.ad_author_full_name) {
                 str = "";
                 str2 = str;
-                wha.a(context, str7, null, null, str);
+                xha.a(context, str7, null, null, str);
                 this$0.c(str2);
             } else {
                 hw4 hw4Var5 = this$0.f;
@@ -391,7 +391,7 @@ public final class NadCustomAppInfoView extends RelativeLayout {
             String str8 = str7;
             str7 = str3;
             str = str8;
-            wha.a(context, str7, null, null, str);
+            xha.a(context, str7, null, null, str);
             this$0.c(str2);
         }
     }

@@ -8,8 +8,8 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.p88;
 import com.baidu.tieba.pr6;
+import com.baidu.tieba.q88;
 import com.baidu.tieba.ws5;
 /* loaded from: classes4.dex */
 public class InitBearTask extends LaunchTask {
@@ -36,8 +36,8 @@ public class InitBearTask extends LaunchTask {
         SpeedStatsManager.getInstance().setIsNeedBear(q);
         SpeedStatsManager.getInstance().setIsNeedPlg(ws5.w());
         if (q) {
-            p88.m().u(new p88.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
-                @Override // com.baidu.tieba.p88.k
+            q88.m().u(new q88.k() { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                @Override // com.baidu.tieba.q88.k
                 public void initComplete() {
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
                         if (BdUtilHelper.isMainThread()) {

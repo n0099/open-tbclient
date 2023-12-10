@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Deprecated
 /* loaded from: classes5.dex */
 public abstract class ebc {
     public static /* synthetic */ Interceptable $ic;
@@ -25,30 +23,4 @@ public abstract class ebc {
             }
         }
     }
-
-    public static ebc a(fbc fbcVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fbcVar)) == null) ? acc.g(fbcVar) : (ebc) invokeL.objValue;
-    }
-
-    public static ebc c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? acc.f() : (ebc) invokeV.objValue;
-    }
-
-    public static synchronized void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (ebc.class) {
-                Log.i("AGConnectInstance", "AGConnectInstance#initialize");
-                acc.j(context);
-            }
-        }
-    }
-
-    public abstract Context b();
-
-    public abstract fbc d();
 }

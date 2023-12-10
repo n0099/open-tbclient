@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.goc;
-import com.baidu.tieba.iqc;
+import com.baidu.tieba.hoc;
 import com.baidu.tieba.jqc;
 import com.baidu.tieba.kqc;
-import com.baidu.tieba.nqc;
-import com.baidu.tieba.pqc;
-import com.baidu.tieba.tsc;
-import com.baidu.tieba.wsc;
+import com.baidu.tieba.lqc;
+import com.baidu.tieba.oqc;
+import com.baidu.tieba.qqc;
+import com.baidu.tieba.usc;
 import com.baidu.tieba.xsc;
+import com.baidu.tieba.ysc;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final goc a;
-    public final goc b;
-    public final goc c;
+    public final hoc a;
+    public final hoc b;
+    public final hoc c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static goc computation() {
-        return tsc.f(a().a);
+    public static hoc computation() {
+        return usc.f(a().a);
     }
 
-    public static goc immediate() {
-        return kqc.a;
+    public static hoc immediate() {
+        return lqc.a;
     }
 
-    public static goc io() {
-        return tsc.k(a().b);
+    public static hoc io() {
+        return usc.k(a().b);
     }
 
-    public static goc newThread() {
-        return tsc.l(a().c);
+    public static hoc newThread() {
+        return usc.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            jqc.d.shutdown();
+            kqc.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            jqc.d.start();
+            kqc.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static goc trampoline() {
-        return pqc.a;
+    public static hoc trampoline() {
+        return qqc.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof nqc) {
-            ((nqc) this.a).shutdown();
+        if (this.a instanceof oqc) {
+            ((oqc) this.a).shutdown();
         }
-        if (this.b instanceof nqc) {
-            ((nqc) this.b).shutdown();
+        if (this.b instanceof oqc) {
+            ((oqc) this.b).shutdown();
         }
-        if (this.c instanceof nqc) {
-            ((nqc) this.c).shutdown();
+        if (this.c instanceof oqc) {
+            ((oqc) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof nqc) {
-            ((nqc) this.a).start();
+        if (this.a instanceof oqc) {
+            ((oqc) this.a).start();
         }
-        if (this.b instanceof nqc) {
-            ((nqc) this.b).start();
+        if (this.b instanceof oqc) {
+            ((oqc) this.b).start();
         }
-        if (this.c instanceof nqc) {
-            ((nqc) this.c).start();
+        if (this.c instanceof oqc) {
+            ((oqc) this.c).start();
         }
     }
 
     public Schedulers() {
-        xsc f = wsc.c().f();
-        goc g = f.g();
+        ysc f = xsc.c().f();
+        hoc g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = xsc.a();
+            this.a = ysc.a();
         }
-        goc i = f.i();
+        hoc i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = xsc.c();
+            this.b = ysc.c();
         }
-        goc j = f.j();
+        hoc j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = xsc.e();
+            this.c = ysc.e();
         }
     }
 
-    public static goc from(Executor executor) {
-        return new iqc(executor);
+    public static hoc from(Executor executor) {
+        return new jqc(executor);
     }
 }

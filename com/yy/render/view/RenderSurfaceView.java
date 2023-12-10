@@ -9,7 +9,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mobads.sdk.internal.cl;
-import com.baidu.tieba.agc;
+import com.baidu.tieba.bgc;
 import com.yy.render.IRemoteRender;
 import com.yy.render.RenderEngine;
 import kotlin.Metadata;
@@ -118,7 +118,7 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender.surfaceDestroyed(RenderSurfaceView.this.getChannelId(), this.b.getSurface());
                     }
                 } catch (Exception e) {
-                    agc.a aVar = agc.b;
+                    bgc.a aVar = bgc.b;
                     e.printStackTrace();
                     aVar.g("sub_process_view", Unit.INSTANCE.toString());
                 }
@@ -132,14 +132,14 @@ public final class RenderSurfaceView extends SurfaceView {
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
             RenderSurfaceView.this.a = surfaceHolder;
-            agc.a aVar = agc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("surfaceCreated channelId: " + RenderSurfaceView.this.getChannelId());
             RenderSurfaceView.a(RenderSurfaceView.this).post(new b(surfaceHolder));
         }
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-            agc.a aVar = agc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("surfaceDestroyed channelId: " + RenderSurfaceView.this.getChannelId());
             RenderSurfaceView.this.l = false;
             RenderSurfaceView.a(RenderSurfaceView.this).post(new c(surfaceHolder));
@@ -148,7 +148,7 @@ public final class RenderSurfaceView extends SurfaceView {
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
             RenderSurfaceView.this.a = surfaceHolder;
-            agc.a aVar = agc.b;
+            bgc.a aVar = bgc.b;
             aVar.f("surfaceChanged channelId: " + RenderSurfaceView.this.getChannelId() + StringUtil.ARRAY_ELEMENT_SEPARATOR + "width = " + i2 + ", height = " + i3);
             RenderSurfaceView.a(RenderSurfaceView.this).post(new RunnableC0764a(surfaceHolder, i, i2, i3));
         }
@@ -208,7 +208,7 @@ public final class RenderSurfaceView extends SurfaceView {
 
     public final void setRemote(IRemoteRender iRemoteRender) {
         this.k = iRemoteRender;
-        agc.a aVar = agc.b;
+        bgc.a aVar = bgc.b;
         aVar.f("(setRemote) isSetRemoteSend: " + this.l + StringUtil.ARRAY_ELEMENT_SEPARATOR + "isSendSurfaceCreate: " + this.h + ", surface: " + this.b + ", channelId: " + getChannelId() + "remote: " + this.k + ", isSendSurfaceChange: " + this.i);
         if (this.b != null) {
             if (!this.h) {
@@ -218,7 +218,7 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender2.surfaceCreated(getChannelId(), this.b, this.g);
                     }
                 } catch (Exception e) {
-                    agc.a aVar2 = agc.b;
+                    bgc.a aVar2 = bgc.b;
                     aVar2.c("setRemote surfaceCreated ex: " + e.getMessage());
                 }
             }
@@ -229,14 +229,14 @@ public final class RenderSurfaceView extends SurfaceView {
                         iRemoteRender3.surfaceChanged(getChannelId(), this.b, this.g, this.e, this.d, this.c);
                     }
                 } catch (Exception e2) {
-                    agc.a aVar3 = agc.b;
+                    bgc.a aVar3 = bgc.b;
                     aVar3.c("setRemote surfaceChanged ex: " + e2.getMessage());
                 }
             }
         }
         if (!this.j) {
             try {
-                agc.a aVar4 = agc.b;
+                bgc.a aVar4 = bgc.b;
                 aVar4.c("addContentView send data to remote " + getChannelId());
                 IRemoteRender iRemoteRender4 = this.k;
                 if (iRemoteRender4 != null) {

@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class r47 implements rb7<r47> {
+public final class r47 implements sb7<r47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<k77> a;
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public final class r47 implements rb7<r47> {
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     public /* bridge */ /* synthetic */ r47 b() {
         c();
         return this;

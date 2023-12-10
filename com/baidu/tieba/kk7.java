@@ -1,139 +1,63 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.widget.image.TbImage;
-import com.baidu.tieba.forum.databinding.ForumNavBarSecondFloorBinding;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.forum.data.ForumTabItem;
+import com.baidu.tieba.forum.viewmodel.ForumViewModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class kk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ForumNavBarSecondFloorBinding a(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar navigationBar, mi7 mi7Var, int i, View.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
+    public static final void a(FragmentActivity fragmentActivity, int i) {
+        si7 value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{forumNavBarSecondFloorBinding, navigationBar, mi7Var, Integer.valueOf(i), onClickListener})) == null) {
-            if (forumNavBarSecondFloorBinding == null) {
-                forumNavBarSecondFloorBinding = ForumNavBarSecondFloorBinding.c(LayoutInflater.from(navigationBar.getContext()), navigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_RIGHT), false);
-                Intrinsics.checkNotNullExpressionValue(forumNavBarSecondFloorBinding, "inflate(LayoutInflater.f…HORIZONTAL_RIGHT), false)");
-            }
-            if (forumNavBarSecondFloorBinding.getRoot().getParent() != null) {
-                return forumNavBarSecondFloorBinding;
-            }
-            TbImage tbImage = forumNavBarSecondFloorBinding.b;
-            String c = mi7Var.c();
-            if (c == null) {
-                c = "";
-            }
-            tbImage.l(c);
-            forumNavBarSecondFloorBinding.c.setShadowEnabled(false);
-            forumNavBarSecondFloorBinding.c.refresh(0);
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, forumNavBarSecondFloorBinding.getRoot(), i, onClickListener);
-            return forumNavBarSecondFloorBinding;
-        }
-        return (ForumNavBarSecondFloorBinding) invokeCommon.objValue;
-    }
-
-    public static final ForumNavBarSecondFloorBinding b(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, NavigationBar nav, ri7 forumData, View visibilityTarget, View.OnClickListener clickListener) {
-        InterceptResult invokeLLLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, forumNavBarSecondFloorBinding, nav, forumData, visibilityTarget, clickListener)) == null) {
-            Intrinsics.checkNotNullParameter(nav, "nav");
-            Intrinsics.checkNotNullParameter(forumData, "forumData");
-            Intrinsics.checkNotNullParameter(visibilityTarget, "visibilityTarget");
-            Intrinsics.checkNotNullParameter(clickListener, "clickListener");
-            mi7 a = forumData.a();
-            if (a != null && a.g()) {
-                if (visibilityTarget.getVisibility() == 0) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                return a(forumNavBarSecondFloorBinding, nav, a, i, clickListener);
-            }
-            c(forumNavBarSecondFloorBinding);
-            return forumNavBarSecondFloorBinding;
-        }
-        return (ForumNavBarSecondFloorBinding) invokeLLLLL.objValue;
-    }
-
-    public static final void c(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, forumNavBarSecondFloorBinding) != null) || forumNavBarSecondFloorBinding == null) {
+        if ((interceptable != null && interceptable.invokeLI(65536, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
             return;
         }
-        ViewParent parent = forumNavBarSecondFloorBinding.getRoot().getParent();
-        if (parent instanceof ViewGroup) {
-            viewGroup = (ViewGroup) parent;
-        } else {
-            viewGroup = null;
-        }
-        if (viewGroup != null) {
-            viewGroup.removeView(forumNavBarSecondFloorBinding.getRoot());
-        }
+        TiebaStatic.log(new StatisticItem("c15555").param("fid", String.valueOf(value.f())).param("fname", value.g()).param("obj_type", i));
     }
 
-    public static final void d(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, Boolean bool) {
-        MessageRedDotView messageRedDotView;
-        int i;
+    public static final void b(FragmentActivity fragmentActivity, int i) {
+        si7 value;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, forumNavBarSecondFloorBinding, bool) != null) || bool == null) {
+        if ((interceptable != null && interceptable.invokeLI(65537, null, fragmentActivity, i) != null) || fragmentActivity == null || (value = ((ForumViewModel) new ViewModelProvider(fragmentActivity).get(ForumViewModel.class)).c().getValue()) == null) {
             return;
         }
-        if (forumNavBarSecondFloorBinding != null) {
-            messageRedDotView = forumNavBarSecondFloorBinding.c;
-        } else {
-            messageRedDotView = null;
-        }
-        if (messageRedDotView != null) {
-            if (bool.booleanValue()) {
-                i = 0;
-            } else {
-                i = 8;
+        TiebaStatic.log(new StatisticItem("c15554").param("fid", String.valueOf(value.f())).param("fname", value.g()).param("obj_type", i));
+    }
+
+    public static final void c(FragmentActivity activity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, activity, i) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            si7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
+            if (value == null) {
+                return;
             }
-            messageRedDotView.setVisibility(i);
+            List<ForumTabItem> o = value.o();
+            if (i >= 0 && i < o.size()) {
+                ForumTabItem forumTabItem = o.get(i);
+                TiebaStatic.log(new StatisticItem("c15550").param("fid", value.f()).param("fname", value.g()).param("obj_type", forumTabItem.getTabId()).param("obj_locate", forumTabItem.getTabName()).param("obj_source", forumTabItem.getTabType()));
+            }
         }
     }
 
-    public static final void e(ForumNavBarSecondFloorBinding forumNavBarSecondFloorBinding, View target) {
-        FrameLayout root;
-        boolean z;
+    public static final void d(FragmentActivity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, forumNavBarSecondFloorBinding, target) == null) {
-            Intrinsics.checkNotNullParameter(target, "target");
-            if (target.getVisibility() == 0 && forumNavBarSecondFloorBinding != null && (root = forumNavBarSecondFloorBinding.getRoot()) != null) {
-                boolean z2 = true;
-                if (target.getAlpha() == 0.0f) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    root.setVisibility(0);
-                    if (root.getTag(R.id.obfuscated_res_0x7f0919b1) != null) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        xm7.a(4);
-                        root.setTag(R.id.obfuscated_res_0x7f0919b1, "1");
-                        return;
-                    }
-                    return;
-                }
-                root.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            si7 value = ((ForumViewModel) new ViewModelProvider(activity).get(ForumViewModel.class)).c().getValue();
+            if (value == null) {
+                return;
             }
+            TiebaStatic.log(new StatisticItem("c15549").param("fid", value.f()).param("fname", value.g()));
         }
     }
 }

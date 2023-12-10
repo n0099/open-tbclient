@@ -49,13 +49,13 @@ public class rk1 {
 
         /* renamed from: com.baidu.tieba.rk1$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0459a extends pl1 {
+        public class C0460a extends pl1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dk1.a b;
             public final /* synthetic */ a c;
 
-            public C0459a(a aVar, dk1.a aVar2) {
+            public C0460a(a aVar, dk1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class rk1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         dk1.a aVar2 = (dk1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            rl1.c().b(new C0459a(this, aVar2));
+                            rl1.c().b(new C0460a(this, aVar2));
                         }
                     }
                 }

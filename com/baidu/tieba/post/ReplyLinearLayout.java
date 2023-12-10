@@ -67,12 +67,12 @@ public class ReplyLinearLayout extends LinearLayout {
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0442a implements View.OnClickListener {
+        public class View$OnClickListenerC0444a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0442a(a aVar) {
+            public View$OnClickListenerC0444a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -179,7 +179,7 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a.e.setTitleStr(this.a.b.getString(R.string.del_post_confirm));
             this.a.e.setDescStr(this.a.b.getString(R.string.obfuscated_res_0x7f0f0558));
             this.a.e.setDescLightStyle(true);
-            this.a.e.setOperateBtn(new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f03db), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0442a(this)), new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f055b), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.setOperateBtn(new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f03db), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0444a(this)), new TBAlertConfig.OperateBtnConfig(this.a.b.getString(R.string.obfuscated_res_0x7f0f055b), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.create().setCanceledOnTouchOutside(false);
             this.a.e.show();
         }

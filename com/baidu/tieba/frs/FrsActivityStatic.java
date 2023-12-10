@@ -42,7 +42,8 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a78;
-import com.baidu.tieba.dva;
+import com.baidu.tieba.b78;
+import com.baidu.tieba.eva;
 import com.baidu.tieba.frs.HorseRace.GetLiveHorseRaceHttpResponseMessage;
 import com.baidu.tieba.frs.accelerator.AcceleratorActivity;
 import com.baidu.tieba.frs.achievement.AchievementActivity;
@@ -57,21 +58,20 @@ import com.baidu.tieba.frs.loadmore.LoadMoreResponseSocketMessage;
 import com.baidu.tieba.frs.movearea.FrsMoveAreaResMsg;
 import com.baidu.tieba.frs.unreadbawu.BawuUnreadResponseMessage;
 import com.baidu.tieba.fv5;
-import com.baidu.tieba.gs7;
-import com.baidu.tieba.ns7;
+import com.baidu.tieba.hs7;
 import com.baidu.tieba.os7;
-import com.baidu.tieba.sv7;
+import com.baidu.tieba.ps7;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.vha;
+import com.baidu.tieba.tv7;
 import com.baidu.tieba.vq4;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wha;
 import com.baidu.tieba.wq4;
-import com.baidu.tieba.wt7;
+import com.baidu.tieba.wva;
 import com.baidu.tieba.xb;
 import com.baidu.tieba.xq4;
-import com.baidu.tieba.y68;
+import com.baidu.tieba.xt7;
 import com.baidu.tieba.z68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -116,12 +116,12 @@ public class FrsActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gs7> run(CustomMessage<TbPageContext> customMessage) {
+        public CustomResponsedMessage<hs7> run(CustomMessage<TbPageContext> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && (customMessage.getData() instanceof TbPageContext)) {
-                    return new CustomResponsedMessage<>(2921336, new ns7(customMessage.getData(), os7.b));
+                    return new CustomResponsedMessage<>(2921336, new os7(customMessage.getData(), ps7.b));
                 }
                 return null;
             }
@@ -154,7 +154,7 @@ public class FrsActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                fv5.a(sv7.e, StarTrendsResIdl.class);
+                fv5.a(tv7.e, StarTrendsResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -463,8 +463,8 @@ public class FrsActivityStatic {
                             tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg3));
                             return 1;
                         } else if (z2 && !TextUtils.isEmpty(str4)) {
-                            xb.c(TbadkCoreApplication.getInst(), a78.d(TbadkCoreApplication.getInst(), str4));
-                            z68.e(lowerCase, 2, 2);
+                            xb.c(TbadkCoreApplication.getInst(), b78.d(TbadkCoreApplication.getInst(), str4));
+                            a78.e(lowerCase, 2, 2);
                             return 1;
                         } else if (z) {
                             tbPageContext.showToast((int) R.string.page_not_found);
@@ -591,11 +591,11 @@ public class FrsActivityStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001012) {
                 return;
             }
-            if (vha.m().b() != null) {
-                vha.m().b().f();
+            if (wha.m().b() != null) {
+                wha.m().b().f();
             }
-            if (vha.m().j() != null) {
-                vha.m().j().c();
+            if (wha.m().j() != null) {
+                wha.m().j().c();
             }
         }
     }
@@ -630,7 +630,7 @@ public class FrsActivityStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && customResponsedMessage.getCmd() == 2016501 && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                y68.a();
+                z68.a();
             }
         }
     }
@@ -698,7 +698,7 @@ public class FrsActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                fv5.a(dva.WIRE, FrsPageResIdl.class);
+                fv5.a(eva.WIRE, FrsPageResIdl.class);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -743,7 +743,7 @@ public class FrsActivityStatic {
         q();
         TbadkCoreApplication.getInst().RegisterIntent(ForumRulesShowActivityConfig.class, ForumRulesShowActivity.class);
         g();
-        SwitchManager.getInstance().registerSwitch(wt7.class);
+        SwitchManager.getInstance().registerSwitch(xt7.class);
         TbadkCoreApplication.getInst().RegisterIntent(AcceleratorActivityConfig.class, AcceleratorActivity.class);
     }
 
@@ -819,7 +819,7 @@ public class FrsActivityStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            vva.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
+            wva.c(309667, CmdConfigHttp.CMD_FRS_LIVE_HORSE_RACE_LIST, TbConfig.URL_FRS_LIVE_HORSERACE_LIST, GetLiveHorseRaceHttpResponseMessage.class, true, false, true, false);
         }
     }
 
@@ -892,8 +892,8 @@ public class FrsActivityStatic {
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            vva.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, vva.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
+            wva.h(309602, FrsDynamicSocketResponsedMessage.class, false, false).setPriority(4);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_DYNAMIC, wva.a(TbConfig.FRS_DYNAMIC_ADDRESS, 309602));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -914,8 +914,8 @@ public class FrsActivityStatic {
         if ((interceptable != null && interceptable.invokeV(65545, null) != null) || UbsABTestHelper.isNewFrs()) {
             return;
         }
-        vva.f(301002, LoadMoreResponseSocketMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, vva.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
+        wva.f(301002, LoadMoreResponseSocketMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_LOAD_MORE_CMD, wva.a(FrsLoadMoreModel.LOAD_MORE_URL, 301002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -929,8 +929,8 @@ public class FrsActivityStatic {
         if ((interceptable != null && interceptable.invokeV(65546, null) != null) || UbsABTestHelper.isNewFrs()) {
             return;
         }
-        vva.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, vva.a(TbConfig.FRS_ADDRESS, 301001));
+        wva.h(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, wva.a(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.f65;
 import com.baidu.tieba.h65;
 import com.baidu.tieba.j55;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.xo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -206,7 +206,7 @@ public class TbMountCardLinkLayout extends RelativeLayout implements View.OnClic
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             CardLinkInfoData cardLinkInfoData = this.b;
             if (cardLinkInfoData != null && !StringUtils.isNull(cardLinkInfoData.getTagColor()) && this.b.getTagColor().startsWith("CAM_")) {
-                i = tua.d(this.a, this.b.getTagColor());
+                i = uua.d(this.a, this.b.getTagColor());
             } else {
                 i = 0;
             }

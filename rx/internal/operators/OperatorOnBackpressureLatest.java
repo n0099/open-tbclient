@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.doc;
 import com.baidu.tieba.eoc;
 import com.baidu.tieba.foc;
-import com.baidu.tieba.joc;
+import com.baidu.tieba.goc;
 import com.baidu.tieba.koc;
+import com.baidu.tieba.loc;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
+public final class OperatorOnBackpressureLatest<T> implements eoc.b<T, T> {
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -16,11 +16,11 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class LatestEmitter<T> extends AtomicLong implements foc, koc, eoc<T> {
+    public static final class LatestEmitter<T> extends AtomicLong implements goc, loc, foc<T> {
         public static final Object EMPTY = new Object();
         public static final long NOT_REQUESTED = -4611686018427387904L;
         public static final long serialVersionUID = -1364393685005146274L;
-        public final joc<? super T> child;
+        public final koc<? super T> child;
         public volatile boolean done;
         public boolean emitting;
         public boolean missed;
@@ -28,7 +28,7 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
         public Throwable terminal;
         public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
-        @Override // com.baidu.tieba.koc
+        @Override // com.baidu.tieba.loc
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -36,32 +36,32 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
             this.done = true;
             emit();
         }
 
-        @Override // com.baidu.tieba.koc
+        @Override // com.baidu.tieba.loc
         public void unsubscribe() {
             if (get() >= 0) {
                 getAndSet(Long.MIN_VALUE);
             }
         }
 
-        public LatestEmitter(joc<? super T> jocVar) {
-            this.child = jocVar;
+        public LatestEmitter(koc<? super T> kocVar) {
+            this.child = kocVar;
             lazySet(-4611686018427387904L);
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             this.terminal = th;
             this.done = true;
             emit();
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onNext(T t) {
             this.value.lazySet(t);
             emit();
@@ -147,7 +147,7 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.foc
+        @Override // com.baidu.tieba.goc
         public void request(long j) {
             long j2;
             int i;
@@ -177,7 +177,7 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> extends joc<T> {
+    public static final class b<T> extends koc<T> {
         public final LatestEmitter<T> e;
 
         public b(LatestEmitter<T> latestEmitter) {
@@ -188,22 +188,22 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
             e(j);
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             this.e.onError(th);
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onNext(T t) {
             this.e.onNext(t);
         }
 
-        @Override // com.baidu.tieba.joc
+        @Override // com.baidu.tieba.koc
         public void d() {
             e(0L);
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
             this.e.onCompleted();
         }
@@ -214,15 +214,15 @@ public final class OperatorOnBackpressureLatest<T> implements doc.b<T, T> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.woc
+    @Override // com.baidu.tieba.xoc
     /* renamed from: a */
-    public joc<? super T> call(joc<? super T> jocVar) {
-        LatestEmitter latestEmitter = new LatestEmitter(jocVar);
+    public koc<? super T> call(koc<? super T> kocVar) {
+        LatestEmitter latestEmitter = new LatestEmitter(kocVar);
         b<? super T> bVar = new b<>(latestEmitter);
         latestEmitter.parent = bVar;
-        jocVar.b(bVar);
-        jocVar.b(latestEmitter);
-        jocVar.f(latestEmitter);
+        kocVar.b(bVar);
+        kocVar.b(latestEmitter);
+        kocVar.f(latestEmitter);
         return bVar;
     }
 }

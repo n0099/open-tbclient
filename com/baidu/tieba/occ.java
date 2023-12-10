@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public final class occ<TResult> implements dcc<TResult> {
+public final class occ<TResult> implements ecc<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gcc<TResult> a;
+    public gcc a;
     public Executor b;
     public final Object c;
 
@@ -18,15 +18,15 @@ public final class occ<TResult> implements dcc<TResult> {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hcc a;
+        public final /* synthetic */ icc a;
         public final /* synthetic */ occ b;
 
-        public a(occ occVar, hcc hccVar) {
+        public a(occ occVar, icc iccVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {occVar, hccVar};
+                Object[] objArr = {occVar, iccVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,25 +37,23 @@ public final class occ<TResult> implements dcc<TResult> {
                 }
             }
             this.b = occVar;
-            this.a = hccVar;
+            this.a = iccVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.gcc */
-        /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this.b.c) {
                     if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
+                        this.b.a.onFailure(this.a.d());
                     }
                 }
             }
         }
     }
 
-    public occ(Executor executor, gcc<TResult> gccVar) {
+    public occ(Executor executor, gcc gccVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +73,7 @@ public final class occ<TResult> implements dcc<TResult> {
         this.b = executor;
     }
 
-    @Override // com.baidu.tieba.dcc
+    @Override // com.baidu.tieba.ecc
     public final void cancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -85,11 +83,12 @@ public final class occ<TResult> implements dcc<TResult> {
         }
     }
 
-    @Override // com.baidu.tieba.dcc
-    public final void onComplete(hcc<TResult> hccVar) {
+    @Override // com.baidu.tieba.ecc
+    public final void onComplete(icc<TResult> iccVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hccVar) == null) && hccVar.h() && !hccVar.f()) {
-            this.b.execute(new a(this, hccVar));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iccVar) == null) || iccVar.h() || iccVar.f()) {
+            return;
         }
+        this.b.execute(new a(this, iccVar));
     }
 }

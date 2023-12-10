@@ -30,20 +30,20 @@ public class kp6 implements a97<Message> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.a97
     /* renamed from: a */
-    public rb7<?> b(Message message) {
+    public sb7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
             if (!(message instanceof UserFollowLive)) {
                 return null;
             }
-            gc8 gc8Var = new gc8();
-            gc8Var.d((UserFollowLive) message);
-            qm6 qm6Var = new qm6(null, gc8Var.c(), ImageViewerConfig.FROM_CONCERN);
+            hc8 hc8Var = new hc8();
+            hc8Var.d((UserFollowLive) message);
+            qm6 qm6Var = new qm6(null, hc8Var.c(), ImageViewerConfig.FROM_CONCERN);
             u77 u77Var = new u77();
             u77Var.a = qm6Var;
-            return new sb7(new i37(u77Var), "ala_live_attention");
+            return new tb7(new i37(u77Var), "ala_live_attention");
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 }

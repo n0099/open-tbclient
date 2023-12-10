@@ -21,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class w57<T> implements oa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<rb7<? extends Object>> a;
+    public final List<sb7<? extends Object>> a;
     public final String b;
     public final boolean c;
     public final boolean d;
@@ -93,7 +93,7 @@ public final class w57<T> implements oa7 {
     }
 
     @JvmOverloads
-    public w57(List<rb7<? extends Object>> dataList, String schema, boolean z, boolean z2, String str, String str2, ThemeCardInUserData themeCardInUserData, t67 t67Var, Map<String, ? extends Object> map, r67 feedExtraData, Function2<? super Context, ? super w57<?>, Unit> onCardClick, Function2<? super Context, ? super w57<?>, Unit> onAllClick) {
+    public w57(List<sb7<? extends Object>> dataList, String schema, boolean z, boolean z2, String str, String str2, ThemeCardInUserData themeCardInUserData, t67 t67Var, Map<String, ? extends Object> map, r67 feedExtraData, Function2<? super Context, ? super w57<?>, Unit> onCardClick, Function2<? super Context, ? super w57<?>, Unit> onAllClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -181,7 +181,7 @@ public final class w57<T> implements oa7 {
         return invokeV.booleanValue;
     }
 
-    public final List<rb7<? extends Object>> c() {
+    public final List<sb7<? extends Object>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -312,9 +312,9 @@ public final class w57<T> implements oa7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
-            for (rb7<? extends Object> rb7Var : this.a) {
-                if (rb7Var instanceof oa7) {
-                    ((oa7) rb7Var).d(event);
+            for (sb7<? extends Object> sb7Var : this.a) {
+                if (sb7Var instanceof oa7) {
+                    ((oa7) sb7Var).d(event);
                 }
             }
             if (event instanceof x57) {

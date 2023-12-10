@@ -1,79 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import kotlin.Triple;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public interface uv8<TbMsg, SdkMsg> {
-    TbMsg a(vv8<SdkMsg> vv8Var, SdkMsg sdkmsg) throws Exception;
+public final class uv8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    SdkMsg b(vv8<SdkMsg> vv8Var, TbMsg tbmsg) throws Exception;
-
-    /* loaded from: classes8.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Class<?>, uv8<?, ?>> a;
-        public final Map<Class<?>, uv8<?, ?>> b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new LinkedHashMap();
-            this.b = new LinkedHashMap();
+    public static final void a(Class<?> cls, TbBaseMsg tbBaseMsg, Map<String, Object> map, Map<String, Object> map2, boolean z) {
+        String fieldName;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{cls, tbBaseMsg, map, map2, Boolean.valueOf(z)}) != null) || !TbBaseMsg.class.isAssignableFrom(cls)) {
+            return;
         }
-
-        public final uv8<?, ?> a(Class<?> sdkMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sdkMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(sdkMsgClass, "sdkMsgClass");
-                return this.b.get(sdkMsgClass);
+        Field[] declaredFields = cls.getDeclaredFields();
+        Intrinsics.checkNotNullExpressionValue(declaredFields, "clazz.declaredFields");
+        for (Field field : declaredFields) {
+            SerializedName serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+            if (serializedName == null || (fieldName = serializedName.value()) == null) {
+                fieldName = field.getName();
             }
-            return (uv8) invokeL.objValue;
-        }
-
-        public final void c(Triple<? extends Class<?>, ? extends Class<?>, ? extends uv8<?, ?>> triple) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, triple) == null) {
-                Intrinsics.checkNotNullParameter(triple, "triple");
-                this.a.put(triple.getFirst(), triple.getThird());
-                this.b.put(triple.getSecond(), triple.getThird());
+            if (z && field.getAnnotation(tv8.class) != null) {
+                map.remove(fieldName);
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && field.getAnnotation(sv8.class) != null) {
+                map.remove(fieldName);
+                field.setAccessible(true);
+                Intrinsics.checkNotNullExpressionValue(fieldName, "fieldName");
+                map2.put(fieldName, field.get(tbBaseMsg));
             }
         }
-
-        public final uv8<?, ?> b(Class<?> tbMsgClass) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbMsgClass)) == null) {
-                Intrinsics.checkNotNullParameter(tbMsgClass, "tbMsgClass");
-                if (this.a.containsKey(tbMsgClass)) {
-                    return this.a.get(tbMsgClass);
-                }
-                Class<? super Object> superclass = tbMsgClass.getSuperclass();
-                if (superclass == null) {
-                    return null;
-                }
-                return b(superclass);
-            }
-            return (uv8) invokeL.objValue;
+        Class<? super Object> superclass = cls.getSuperclass();
+        if (superclass != null) {
+            a(superclass, tbBaseMsg, map, map2, z);
         }
+    }
+
+    public static final Map<String, Object> b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "<this>");
+            Map<String, Object> mutableMap = MapsKt__MapsKt.toMutableMap(map);
+            Map<? extends String, ? extends Object> map2 = (Map) mutableMap.remove("content");
+            if (map2 != null) {
+                mutableMap.putAll(map2);
+            }
+            return mutableMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static final <TbMsg extends TbBaseMsg> Map<String, Object> c(TbMsg tbmsg, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, tbmsg, z)) == null) {
+            Intrinsics.checkNotNullParameter(tbmsg, "<this>");
+            Map<String, Object> mutableMap = MapsKt__MapsKt.toMutableMap(DataExt.toMap(tbmsg));
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            mutableMap.put("content", linkedHashMap);
+            a(tbmsg.getClass(), tbmsg, mutableMap, linkedHashMap, z);
+            return mutableMap;
+        }
+        return (Map) invokeLZ.objValue;
+    }
+
+    public static /* synthetic */ Map d(TbBaseMsg tbBaseMsg, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = true;
+        }
+        return c(tbBaseMsg, z);
     }
 }

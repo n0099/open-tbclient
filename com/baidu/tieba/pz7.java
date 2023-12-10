@@ -1,91 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.p55;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class pz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public gz7 b;
-    public View c;
-    public FrameLayout d;
-    public NavigationBar e;
-    public BdTypeListView f;
-    public NoNetworkView g;
-    public PbListView h;
-    public q55 i;
-    public String j;
-    public String k;
+    public List<pi> a;
+    public List<ThreadData> b;
+    public Object[] c;
 
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pz7 a;
-
-        public a(pz7 pz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pz7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.g();
-        }
-    }
-
-    public pz7(TbPageContext tbPageContext, String str, String str2) {
+    public pz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,156 +37,187 @@ public class pz7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.j = str;
-        this.k = str2;
-        h();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public void i(int i) {
+    public List<pi> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            NoNetworkView noNetworkView = this.g;
-            if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(this.a, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                ThreadData threadData = this.b.get(i);
+                if (threadData != null) {
+                    if (i % 4 == 0) {
+                        nu6 nu6Var = new nu6();
+                        nu6Var.c(threadData);
+                        this.a.add(nu6Var);
+                    } else {
+                        ou6 ou6Var = new ou6();
+                        ou6Var.c(threadData);
+                        this.a.add(ou6Var);
+                    }
+                }
             }
-            NavigationBar navigationBar = this.e;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a, i);
+        }
+    }
+
+    public void c(int i, nz7 nz7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, nz7Var) != null) || nz7Var == null) {
+            return;
+        }
+        if (1 == i) {
+            this.a.clear();
+            this.b.clear();
+            this.c = new Object[nz7Var.b + 10];
+        }
+        if (!ListUtils.isEmpty(nz7Var.c)) {
+            ArrayList arrayList = new ArrayList(nz7Var.c.size());
+            for (ThreadData threadData : nz7Var.c) {
+                if (threadData != null) {
+                    arrayList.add(threadData);
+                }
+            }
+            this.b.addAll(arrayList);
+        }
+        if (1 == i) {
+            e(nz7Var);
+        }
+        this.a.clear();
+        b();
+        g();
+        f(nz7Var);
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Object[] objArr = this.c;
+            if (i >= objArr.length) {
+                this.c = Arrays.copyOf(objArr, i + 1);
             }
         }
     }
 
-    public void l(p55.g gVar) {
+    public final void f(nz7 nz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
-            this.i.a(gVar);
+        if (interceptable == null || interceptable.invokeL(1048581, this, nz7Var) == null) {
+            tu6 tu6Var = new tu6();
+            tu6Var.d(nz7Var.d);
+            this.a.add(0, tu6Var);
         }
     }
 
-    public void n(BdListView.p pVar) {
+    public final void e(nz7 nz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) {
-            this.f.setOnSrollToBottomListener(pVar);
+        if (interceptable == null || interceptable.invokeL(1048580, this, nz7Var) == null) {
+            if (!ListUtils.isEmpty(nz7Var.e)) {
+                for (FeatureCardHot featureCardHot : nz7Var.e) {
+                    if (featureCardHot != null && featureCardHot.isValid()) {
+                        d(featureCardHot.floor.intValue());
+                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(nz7Var.f)) {
+                for (FeatureCardTopic featureCardTopic : nz7Var.f) {
+                    if (featureCardTopic != null && featureCardTopic.isValid()) {
+                        d(featureCardTopic.floor.intValue());
+                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(nz7Var.g)) {
+                for (oz7 oz7Var : nz7Var.g) {
+                    if (oz7Var != null && oz7Var.a()) {
+                        d(oz7Var.c.intValue());
+                        this.c[oz7Var.c.intValue()] = oz7Var;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(nz7Var.h)) {
+                for (FeatureCardCompetition featureCardCompetition : nz7Var.h) {
+                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
+                        d(featureCardCompetition.floor.intValue());
+                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(nz7Var.i)) {
+                for (FeatureCardGod featureCardGod : nz7Var.i) {
+                    if (featureCardGod != null && featureCardGod.isValid()) {
+                        d(featureCardGod.floor.intValue());
+                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(nz7Var.j)) {
+                for (FeatureCardGame featureCardGame : nz7Var.j) {
+                    if (featureCardGame != null && featureCardGame.isValid()) {
+                        d(featureCardGame.floor.intValue());
+                        this.c[featureCardGame.floor.intValue()] = featureCardGame;
+                    }
+                }
+            }
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f.y();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && BdNetTypeUtil.isNetWorkAvailable()) {
-            this.f.E();
-        }
-    }
-
-    public FrameLayout d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (FrameLayout) invokeV.objValue;
-    }
-
-    public NavigationBar e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (NavigationBar) invokeV.objValue;
-    }
-
-    public View f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
     }
 
     public final void g() {
+        Object[] objArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.getUniqueId()));
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f.setNextPage(null);
-        }
-    }
-
-    public final void o() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (pbListView = this.h) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.f.setNextPage(this.h);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (objArr = this.c) != null && objArr.length > 0) {
+            int i = 0;
+            while (true) {
+                Object[] objArr2 = this.c;
+                if (i < objArr2.length) {
+                    Object obj = objArr2[i];
+                    if (obj != null) {
+                        int i2 = i - 1;
+                        if (i2 < 0) {
+                            i2 = 0;
+                        } else if (i2 >= this.a.size()) {
+                            i2 = this.a.size();
+                        }
+                        if (obj instanceof FeatureCardHot) {
+                            ru6 ru6Var = new ru6();
+                            ru6Var.d((FeatureCardHot) obj);
+                            this.a.add(i2, ru6Var);
+                        } else if (obj instanceof FeatureCardTopic) {
+                            uu6 uu6Var = new uu6();
+                            uu6Var.b((FeatureCardTopic) obj);
+                            this.a.add(i2, uu6Var);
+                        } else if (obj instanceof oz7) {
+                            qu6 qu6Var = new qu6();
+                            qu6Var.d((oz7) obj);
+                            this.a.add(i2, qu6Var);
+                        } else if (obj instanceof FeatureCardCompetition) {
+                            pu6 pu6Var = new pu6();
+                            pu6Var.b((FeatureCardCompetition) obj);
+                            this.a.add(i2, pu6Var);
+                        } else if (obj instanceof FeatureCardGod) {
+                            us7 us7Var = new us7();
+                            us7Var.e((FeatureCardGod) obj);
+                            this.a.add(i2, us7Var);
+                        } else if (obj instanceof FeatureCardGame) {
+                            su6 su6Var = new su6();
+                            su6Var.b((FeatureCardGame) obj);
+                            this.a.add(i2, su6Var);
+                        }
+                    }
+                    i++;
+                } else {
+                    return;
+                }
             }
-            this.h.S();
-            this.h.U();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) null);
-            this.c = inflate;
-            this.g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090e69);
-            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090e6a);
-            this.f = bdTypeListView;
-            bdTypeListView.setDivider(null);
-            q55 q55Var = new q55(this.a);
-            this.i = q55Var;
-            q55Var.W(this.a.getUniqueId());
-            this.f.setPullRefresh(this.i);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-            this.e = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.e.showBottomLine();
-            PbListView pbListView = new PbListView(this.a.getPageActivity());
-            this.h = pbListView;
-            pbListView.a();
-            this.b = new gz7(this.a, this.f, this.j, this.k);
-            i(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void k(List<pi> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
-            if (z) {
-                o();
-            } else {
-                p();
-            }
-            this.b.c(list);
-        }
-    }
-
-    public final void p() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (pbListView = this.h) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.f.setNextPage(this.h);
-            }
-            this.h.H(this.a.getPageActivity().getResources().getString(R.string.list_no_more));
-            this.h.g();
         }
     }
 }

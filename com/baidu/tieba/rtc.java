@@ -1,40 +1,41 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import tbclient.ActInfo;
+import tbclient.SeniorLottery;
 /* loaded from: classes8.dex */
-public class rtc extends ktc {
+public class rtc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull ActPost actPost) {
+    public static JSONObject b(@NonNull ActInfo actInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, actPost)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, actInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (actPost.act_hot != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (ActHot actHot : actPost.act_hot) {
-                    jSONArray.put(ptc.b(actHot));
-                }
-                ktc.a(jSONObject, "act_hot", jSONArray);
+            ltc.a(jSONObject, "activity_type", actInfo.activity_type);
+            ltc.a(jSONObject, "status", actInfo.status);
+            ltc.a(jSONObject, DiskUpdateListener.BEGIN_TIME, actInfo.begin_time);
+            ltc.a(jSONObject, "end_time", actInfo.end_time);
+            ltc.a(jSONObject, "url", actInfo.url);
+            ltc.a(jSONObject, "total_num", actInfo.total_num);
+            ltc.a(jSONObject, "activity_id", actInfo.activity_id);
+            ltc.a(jSONObject, "award_act_id", actInfo.award_act_id);
+            ltc.a(jSONObject, "component_id", actInfo.component_id);
+            ltc.a(jSONObject, "is_senior", actInfo.is_senior);
+            ltc.a(jSONObject, "banner_img", actInfo.banner_img);
+            ltc.a(jSONObject, "banner_img_size", actInfo.banner_img_size);
+            SeniorLottery seniorLottery = actInfo.lottery_senior;
+            if (seniorLottery != null) {
+                ltc.a(jSONObject, "lottery_senior", a8d.b(seniorLottery));
             }
-            ktc.a(jSONObject, "list_head", actPost.list_head);
-            if (actPost.link_info != null) {
-                JSONArray jSONArray2 = new JSONArray();
-                for (LinkInfo linkInfo : actPost.link_info) {
-                    jSONArray2.put(s4d.b(linkInfo));
-                }
-                ktc.a(jSONObject, "link_info", jSONArray2);
-            }
+            ltc.a(jSONObject, "show_total_num", actInfo.show_total_num);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

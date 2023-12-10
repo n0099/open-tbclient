@@ -17,9 +17,9 @@ public final class z77 {
             Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
             try {
                 String str = businessInfo.get("forum_id");
-                nd7.b(str, null, 1, null);
+                od7.b(str, null, 1, null);
                 String str2 = businessInfo.get("thread_id");
-                nd7.b(str2, null, 1, null);
+                od7.b(str2, null, 1, null);
                 y77 y77Var = new y77(str, str2);
                 y77Var.d(q57Var);
                 return y77Var;

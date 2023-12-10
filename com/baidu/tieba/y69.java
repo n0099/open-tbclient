@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes9.dex */
-public final class y69 extends cga {
+public final class y69 extends dga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reply_message_bar" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "im" : (String) invokeV.objValue;
     }
 
     public y69() {
@@ -34,12 +34,12 @@ public final class y69 extends cga {
         }
     }
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ia5.e().B();
+            return ia5.e().s();
         }
         return invokeV.booleanValue;
     }

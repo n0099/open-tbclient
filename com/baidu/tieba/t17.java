@@ -157,7 +157,7 @@ public class t17 extends ye5 {
         if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && this.a != null) {
             for (int i = 0; i < this.a.size(); i++) {
                 s17 s17Var = (s17) this.a.get(i);
-                if (s17Var.u() && hr9.i().g(s17Var.f()) == null && aVar != null) {
+                if (s17Var.u() && ir9.i().g(s17Var.f()) == null && aVar != null) {
                     aVar.a(s17Var);
                 }
             }

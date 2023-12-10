@@ -38,10 +38,10 @@ import com.baidu.tieba.immessagecenter.msgtab.ui.adapter.MsgTabViewPagerAdapter;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgCenterContainerViewModel;
-import com.baidu.tieba.ja9;
 import com.baidu.tieba.ka9;
-import com.baidu.tieba.l79;
-import com.baidu.tieba.na9;
+import com.baidu.tieba.la9;
+import com.baidu.tieba.m79;
+import com.baidu.tieba.oa9;
 import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +57,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(d1 = {"\u0000¤\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\t\u0018\u00002\u0014\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020\u00040\u0001B!\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\n¢\u0006\u0002\u0010\u000bJ\u001f\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010\n2\u0006\u0010-\u001a\u00020\nH\u0002¢\u0006\u0002\u0010.J\u0006\u0010/\u001a\u00020+J\f\u00100\u001a\b\u0012\u0004\u0012\u00020\u000601J\b\u00102\u001a\u00020\nH\u0002J\u0010\u00103\u001a\u00020+2\u0006\u00104\u001a\u000205H\u0014J\u0010\u00106\u001a\u00020+2\u0006\u00104\u001a\u000205H\u0002J\b\u00107\u001a\u00020\u0004H\u0014J\u0010\u00108\u001a\u00020+2\u0006\u00109\u001a\u00020:H\u0016J\b\u0010;\u001a\u00020+H\u0014J\u0010\u0010<\u001a\u00020+2\u0006\u0010=\u001a\u00020\u0002H\u0014J\u0018\u0010>\u001a\u00020+2\u000e\u0010?\u001a\n\u0012\u0004\u0012\u00020A\u0018\u00010@H\u0002J\b\u0010B\u001a\u00020+H\u0002J\u0006\u0010C\u001a\u00020+J\u0006\u0010D\u001a\u00020+J\u0006\u0010E\u001a\u00020+J\u0006\u0010F\u001a\u00020+J\u0017\u0010G\u001a\u00020+2\b\u0010H\u001a\u0004\u0018\u00010:H\u0002¢\u0006\u0002\u0010IR\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0012\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u0012\u0010\u0011\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u0012\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u0013\u001a\u0004\u0018\u00010\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u001cX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\u0010X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010'\u001a\u0004\u0018\u00010(X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u001aX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006J"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "Lcom/baidu/tieba/immessagecenter/arch/view/BaseView;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNavigationUiIntent;", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgCenterContainerViewModel;", "activity", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "fragment", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "defaultSelectedTabId", "", "(Lcom/baidu/tbadk/core/BaseFragmentActivity;Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;Ljava/lang/Long;)V", "Ljava/lang/Long;", "mBgView", "Landroid/widget/ImageView;", "mBottomMaskView", "Landroid/view/View;", "mCurrentSelectedId", "mDividerLineBgView", "mEnterChatBtn", "Landroid/widget/TextView;", "mExtFunView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/NaExtensionView;", "mFragmentTabAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabViewPagerAdapter;", "mHeaderNavigationAdapter", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/adapter/MsgTabSideNavigationAdapter;", "mHeaderRecyclerView", "Landroidx/recyclerview/widget/RecyclerView;", "mLeftDrawable", "Landroid/graphics/drawable/Drawable;", "mNavigationBar", "Lcom/baidu/tbadk/core/view/NavigationBar;", "mRecyclerView", "mTopMaskView", "mTopSpace", "Landroid/widget/Space;", "mViewPager", "Landroidx/viewpager2/widget/ViewPager2;", "msgTabGuide", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "msgTabSideNavigationAdapter", "changeToPage", "", "oldSelectedId", "newSelectedId", "(Ljava/lang/Long;J)V", "doAfterRender", "getPageContext", "Lcom/baidu/tbadk/TbPageContext;", "getSelectedDataId", "init", "context", "Landroid/content/Context;", "initNavigationBar", "initViewModel", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onFinishInflate", "onRender", "state", "renderBodyData", "data", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "renderHeaderData", "requestData", "requestSilent", "resetSelected", "tryShowGuide", "updateNavigationBar", "type", "(Ljava/lang/Integer;)V", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterContainerViewModel> {
+public final class MsgCenterContainerView extends BaseView<la9, ka9, MsgCenterContainerViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragmentActivity f;
@@ -112,18 +112,18 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
     /* renamed from: c0 */
-    public void J(ka9 state) {
+    public void J(la9 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            if (state instanceof ka9.a) {
-                d0(((ka9.a) state).a());
+            if (state instanceof la9.a) {
+                d0(((la9.a) state).a());
             }
             S();
         }
     }
 
-    public final void d0(List<l79> list) {
+    public final void d0(List<m79> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null) {
             this.w.p(list);
@@ -132,21 +132,21 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
         }
     }
 
-    public static final void V(MsgCenterContainerView this$0, View view2, l79 itemData, int i, long j) {
+    public static final void V(MsgCenterContainerView this$0, View view2, m79 itemData, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(itemData, "itemData");
             this$0.h = null;
             if (itemData.b() == 3) {
-                na9.a.b(Long.valueOf(itemData.a()));
+                oa9.a.b(Long.valueOf(itemData.a()));
                 this$0.R(this$0.x, itemData.a());
                 this$0.g0();
             }
         }
     }
 
-    public static final void W(MsgCenterContainerView this$0, View view2, l79 itemData, int i, long j) {
+    public static final void W(MsgCenterContainerView this$0, View view2, m79 itemData, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{this$0, view2, itemData, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -155,13 +155,13 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
             int b = itemData.b();
             if (b != 1) {
                 if (b == 2) {
-                    na9.a.d();
+                    oa9.a.d();
                     this$0.R(this$0.x, itemData.a());
                     return;
                 }
                 return;
             }
-            na9.a.f();
+            oa9.a.f();
             this$0.R(this$0.x, itemData.a());
         }
     }
@@ -170,8 +170,8 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.q().k(new ja9.c(this$0.T(), "https://tieba.baidu.com/mo/q/hybrid-main-chatgroup/all-channel?customfullscreen=1&nonavigationbar=1"));
-            na9.a.h();
+            this$0.q().k(new ka9.c(this$0.T(), "https://tieba.baidu.com/mo/q/hybrid-main-chatgroup/all-channel?customfullscreen=1&nonavigationbar=1"));
+            oa9.a.h();
         }
     }
 
@@ -237,7 +237,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
             if (l != null && l.longValue() == j) {
                 return;
             }
-            Pair<Integer, l79> o = this.w.o(j);
+            Pair<Integer, m79> o = this.w.o(j);
             ViewPager2 viewPager2 = null;
             if (o == null) {
                 this.x = null;
@@ -258,14 +258,14 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                l79 l79Var = (l79) obj;
-                if (j == l79Var.a()) {
-                    l79Var.d(true);
+                m79 m79Var = (m79) obj;
+                if (j == m79Var.a()) {
+                    m79Var.d(true);
                     this.v.notifyItemChanged(i);
                 } else {
-                    long a = l79Var.a();
+                    long a = m79Var.a();
                     if (l != null && l.longValue() == a) {
-                        l79Var.d(false);
+                        m79Var.d(false);
                         this.v.notifyItemChanged(i);
                     }
                 }
@@ -277,14 +277,14 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 if (i3 < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                l79 l79Var2 = (l79) obj2;
-                if (j == l79Var2.a()) {
-                    l79Var2.d(true);
+                m79 m79Var2 = (m79) obj2;
+                if (j == m79Var2.a()) {
+                    m79Var2.d(true);
                     this.u.notifyItemChanged(i3);
                 } else {
-                    long a2 = l79Var2.a();
+                    long a2 = m79Var2.a();
                     if (l != null && l.longValue() == a2) {
-                        l79Var2.d(false);
+                        m79Var2.d(false);
                         this.u.notifyItemChanged(i3);
                     }
                 }
@@ -336,14 +336,14 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
     public final void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            q().k(new ja9.b(T()));
+            q().k(new ka9.b(T()));
         }
     }
 
     public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            q().k(new ja9.a(T()));
+            q().k(new ka9.a(T()));
         }
     }
 
@@ -386,8 +386,8 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new l79(-1L, 1, false, 4, null));
-            arrayList.add(new l79(-2L, 2, false, 4, null));
+            arrayList.add(new m79(-1L, 1, false, 4, null));
+            arrayList.add(new m79(-2L, 2, false, 4, null));
             this.w.q(arrayList);
             this.v.o(arrayList);
         }
@@ -408,7 +408,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mNavigationBar");
                 navigationBar3 = null;
             }
-            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.j99
+            navigationBar3.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.k99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -443,7 +443,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
             } else {
                 navigationBar2 = navigationBar4;
             }
-            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.j, new View.OnClickListener() { // from class: com.baidu.tieba.e99
+            navigationBar2.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.j, new View.OnClickListener() { // from class: com.baidu.tieba.f99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -502,7 +502,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
         }
     }
 
-    @Override // com.baidu.tieba.i19
+    @Override // com.baidu.tieba.j19
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -618,7 +618,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
             viewPager2.setOrientation(1);
             viewPager2.setAdapter(this.w);
             viewPager2.setUserInputEnabled(false);
-            this.u.s(new zu4() { // from class: com.baidu.tieba.i99
+            this.u.s(new zu4() { // from class: com.baidu.tieba.j99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -626,11 +626,11 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 public final void b(View view2, Object obj, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        MsgCenterContainerView.V(MsgCenterContainerView.this, view2, (l79) obj, i, j);
+                        MsgCenterContainerView.V(MsgCenterContainerView.this, view2, (m79) obj, i, j);
                     }
                 }
             });
-            this.v.s(new zu4() { // from class: com.baidu.tieba.m99
+            this.v.s(new zu4() { // from class: com.baidu.tieba.n99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -638,7 +638,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 public final void b(View view2, Object obj, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        MsgCenterContainerView.W(MsgCenterContainerView.this, view2, (l79) obj, i, j);
+                        MsgCenterContainerView.W(MsgCenterContainerView.this, view2, (m79) obj, i, j);
                     }
                 }
             });
@@ -729,7 +729,7 @@ public final class MsgCenterContainerView extends BaseView<ka9, ja9, MsgCenterCo
                 Intrinsics.throwUninitializedPropertyAccessException("mExtFunView");
                 naExtensionView = null;
             }
-            naExtensionView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.g99
+            naExtensionView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h99
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

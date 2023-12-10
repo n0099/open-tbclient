@@ -41,7 +41,7 @@ import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
 import com.baidu.tbadk.mvc.model.CacheModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq9;
+import com.baidu.tieba.bq9;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.go5;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
@@ -66,7 +66,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView c;
     public TextView d;
     public BdListView e;
-    public no5<PbHistoryData, go5, aq9> f;
+    public no5<PbHistoryData, go5, bq9> f;
     public boolean g;
     public List<PbHistoryData> h;
     public List<Long> i;
@@ -415,7 +415,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public final void b1(List<PbHistoryData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            no5<PbHistoryData, go5, aq9> no5Var = this.f;
+            no5<PbHistoryData, go5, bq9> no5Var = this.f;
             if (no5Var != null) {
                 no5Var.g(list);
             }
@@ -512,7 +512,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070421)));
             this.e.w(textView, 0);
-            this.f = new no5<>(getPageContext(), aq9.class, R.layout.obfuscated_res_0x7f0d07d0, null);
+            this.f = new no5<>(getPageContext(), bq9.class, R.layout.obfuscated_res_0x7f0d07d0, null);
             this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07038c)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f102d)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));

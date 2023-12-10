@@ -1,46 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.animation.Animator;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.tieba.x4c;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.c5c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.PxUtils;
-import com.fun.ad.sdk.internal.api.utils.ViewUtils;
-import com.qq.e.ads.splash.SplashAD;
 /* loaded from: classes5.dex */
-public class b5c {
+public class b5c implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public SplashAD g;
-    public View h;
-    public int i;
-    public int j;
-    public int[] k;
-    public int l;
-    public int m;
+    public final /* synthetic */ c5c.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ c5c h;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-    }
-
-    public b5c(Context context) {
+    public b5c(c5c c5cVar, c5c.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {c5cVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,38 +38,44 @@ public class b5c {
                 return;
             }
         }
-        this.k = new int[2];
-        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
-        this.a = round;
-        this.b = Math.round((round * 16) / 9);
-        this.c = PxUtils.dpToPx(context, 6);
-        this.d = PxUtils.dpToPx(context, 100);
-        this.e = 1;
-        this.f = 300;
+        this.h = c5cVar;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
-            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
-            ViewUtils.removeFromParent(view2);
-            view2.setScaleX(1.0f);
-            view2.setScaleY(1.0f);
-            view2.setX(0.0f);
-            view2.setY(0.0f);
-            int[] iArr2 = new int[2];
-            viewGroup.getLocationOnScreen(iArr2);
-            float f3 = (f - iArr2[0]) + iArr[0];
-            float f4 = (f2 - iArr2[1]) + iArr[1];
-            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
-            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
-            viewGroup2.addView(view2, -1, -1);
-            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
-            viewGroup2.setTranslationX(f3);
-            viewGroup2.setTranslationY(f4);
-            if (aVar != null) {
-                ((x4c.b.a) aVar).a.b.zoomOutAnimationFinish();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
+        }
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
         }
     }
 }

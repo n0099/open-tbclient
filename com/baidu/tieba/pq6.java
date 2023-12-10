@@ -61,19 +61,19 @@ public class pq6 {
                 } else if (id == R.id.private_no) {
                     if (this.a.b.isShowing()) {
                         this.a.b.dismiss();
-                        yqa.a("1", "2");
+                        zqa.a("1", "2");
                     }
                     if (this.a.c == null) {
                         pq6 pq6Var = this.a;
                         pq6Var.c = r16.a(pq6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                     }
                     this.a.c.show();
-                    yqa.b("2");
+                    zqa.b("2");
                 } else if (id == R.id.obfuscated_res_0x7f0904ce) {
                     pq6.g(this.a);
                     if (this.a.c.isShowing()) {
                         this.a.c.dismiss();
-                        yqa.a("2", "2");
+                        zqa.a("2", "2");
                         if (this.a.d == null) {
                             pq6 pq6Var2 = this.a;
                             TbPageContext<BaseFragmentActivity> pageContext = pq6Var2.a.getPageContext();
@@ -85,12 +85,12 @@ public class pq6 {
                             }
                             pq6Var2.d = r16.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
                             this.a.d.show();
-                            yqa.b("3");
+                            zqa.b("3");
                         }
                     }
                     if (this.a.d.isShowing() && this.a.e == 2) {
                         this.a.d.dismiss();
-                        yqa.a("3", "2");
+                        zqa.a("3", "2");
                         if (TbBrowseModeSwitch.isOn()) {
                             PermissionUtil.doBrowseModeInit();
                             PermissionUtil.starMainTabActivity(this.a.a, 2);
@@ -135,19 +135,19 @@ public class pq6 {
             if (f05Var != null && f05Var.isShowing()) {
                 this.b.dismiss();
                 SmartLaunchStats.onConfirmPrivacy();
-                yqa.a("1", "1");
+                zqa.a("1", "1");
                 GrowthFunnelHelper.logClientDau("logoController", false);
             }
             f05 f05Var2 = this.c;
             if (f05Var2 != null && f05Var2.isShowing()) {
                 this.c.dismiss();
-                yqa.a("2", "1");
+                zqa.a("2", "1");
                 GrowthFunnelHelper.logClientDau("logoController", false);
             }
             f05 f05Var3 = this.d;
             if (f05Var3 != null && f05Var3.isShowing()) {
                 this.d.dismiss();
-                yqa.a("3", "1");
+                zqa.a("3", "1");
                 GrowthFunnelHelper.logClientDau("logoController", false);
             }
             SharedPrefHelper.getInstance().putLong("key_first_enter_app_timestamp", System.currentTimeMillis());
@@ -164,7 +164,7 @@ public class pq6 {
             f05 b = r16.b(this.a.getPageContext(), this.f);
             this.b = b;
             b.show();
-            yqa.b("1");
+            zqa.b("1");
             TbSingleton.setExceptInsertAdDiaShow(true);
             SmartLaunchStats.onPrivacyDialogShow();
         }

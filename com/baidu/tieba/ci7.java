@@ -1,296 +1,220 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.BottomCommonTipLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.MemberBroadcastHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tieba.forum.databinding.ActivityForumBinding;
-import com.baidu.tieba.forum.viewmodel.ForumViewModel;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.forum.controller.AdVideoController;
+import com.baidu.tieba.forum.controller.ForumBackFloatTipController;
+import com.baidu.tieba.forum.controller.LinkageController;
+import com.baidu.tieba.forum.controller.MainController;
+import com.baidu.tieba.forum.controller.NavigationBarController;
+import com.baidu.tieba.forum.controller.PushPermissionController;
+import com.baidu.tieba.forum.controller.TimeoutController;
+import com.baidu.tieba.forum.controller.TopController;
+import com.baidu.tieba.forum.controller.VoicePlayController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Reflection;
 /* loaded from: classes5.dex */
-public final class ci7 extends wh7 {
+public final class ci7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FragmentActivity b;
-    public ActivityForumBinding c;
-    public PollingModel d;
-    public BottomCommonTipLayout e;
-    public boolean f;
-    public final CustomMessageListener g;
-    public final CustomMessageListener h;
-    public final Runnable i;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ci7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ci7 ci7Var) {
-            super(2921801);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ci7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ci7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof MemberBroadcastData)) {
-                ci7 ci7Var = this.a;
-                Object data = customResponsedMessage.getData();
-                if (data != null) {
-                    ci7Var.w((MemberBroadcastData) data);
-                    return;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.data.MemberBroadcastData");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ci7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ci7 ci7Var) {
-            super(2921774);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ci7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ci7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof MemberBroadcastData)) {
-                ri7 value = ((ForumViewModel) new ViewModelProvider(this.a.q()).get(ForumViewModel.class)).c().getValue();
-                boolean z = true;
-                if (!((value == null || value.r() != 1) ? false : false)) {
-                    return;
-                }
-                ci7 ci7Var = this.a;
-                Object data = customResponsedMessage.getData();
-                if (data != null) {
-                    ci7Var.w((MemberBroadcastData) data);
-                    return;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.data.MemberBroadcastData");
-            }
-        }
-    }
-
-    public ci7(FragmentActivity activity) {
+    public static final BdUniqueId a(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if (fragmentActivity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) fragmentActivity).getUniqueId();
             }
+            return null;
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        this.b = activity;
-        this.g = new b(this);
-        this.h = new a(this);
-        this.i = new Runnable() { // from class: com.baidu.tieba.tg7
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        return (BdUniqueId) invokeL.objValue;
+    }
 
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    ci7.t(ci7.this);
-                }
+    public static final AdVideoController b(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        AdVideoController adVideoController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (adVideoController = (AdVideoController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(AdVideoController.class))) != null) {
+                return adVideoController;
             }
-        };
-    }
-
-    public static final void u(ci7 this$0, ri7 ri7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, this$0, ri7Var) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            SafeHandler.getInst().post(this$0.i);
+            throw new IllegalStateException("AdVideoController must not be null!!!");
         }
+        return (AdVideoController) invokeL.objValue;
     }
 
-    public static final void t(ci7 this$0) {
+    public static final yh7 c(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        yh7 yh7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            PollingModel pollingModel = this$0.d;
-            if (pollingModel != null) {
-                pollingModel.getData(PollingModel.MEMBER_BROADCAST);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (yh7Var = (yh7) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(yh7.class))) != null) {
+                return yh7Var;
             }
+            throw new IllegalStateException("BottomController must not be null!!!");
         }
+        return (yh7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wh7
-    public void k(Bundle bundle, ActivityForumBinding binding) {
+    public static final di7 d(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        di7 di7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, binding) == null) {
-            Intrinsics.checkNotNullParameter(binding, "binding");
-            super.k(bundle, binding);
-            o(this.g);
-            o(this.h);
-            TbPageContext<?> a2 = jo7.a(this.b);
-            if (a2 != null) {
-                this.d = new PollingModel(a2, a2.getUniqueId());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (di7Var = (di7) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(di7.class))) != null) {
+                return di7Var;
             }
-            ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().observe(this.b, new Observer() { // from class: com.baidu.tieba.fg7
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // androidx.lifecycle.Observer
-                public final void onChanged(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        ci7.u(ci7.this, (ri7) obj);
-                    }
-                }
-            });
-            this.c = binding;
+            throw new IllegalStateException("FrsBottomTipController must not be null!!!");
         }
+        return (di7) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.wh7
-    public void l() {
+    public static final ForumBackFloatTipController e(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        ForumBackFloatTipController forumBackFloatTipController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.l();
-        }
-    }
-
-    @Override // com.baidu.tieba.wh7
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.m();
-            this.f = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.wh7
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.n();
-            this.f = true;
-        }
-    }
-
-    public final FragmentActivity q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (FragmentActivity) invokeV.objValue;
-    }
-
-    public final boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BottomCommonTipLayout bottomCommonTipLayout = this.e;
-            if (bottomCommonTipLayout != null) {
-                return bottomCommonTipLayout.m();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (forumBackFloatTipController = (ForumBackFloatTipController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(ForumBackFloatTipController.class))) != null) {
+                return forumBackFloatTipController;
             }
-            return false;
+            throw new IllegalStateException("ForumBackFloatTipController must not be null!!!");
         }
-        return invokeV.booleanValue;
+        return (ForumBackFloatTipController) invokeL.objValue;
     }
 
-    public final void v(MemberBroadcastData memberBroadcastData) {
+    public static final zh7 f(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        zh7 zh7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, memberBroadcastData) == null) {
-            if (this.e == null) {
-                ActivityForumBinding activityForumBinding = null;
-                BottomCommonTipLayout bottomCommonTipLayout = new BottomCommonTipLayout(this.b, null, 2, null);
-                this.e = bottomCommonTipLayout;
-                bottomCommonTipLayout.setId(R.id.member_broadcast_tip_layout);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-                layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds151);
-                layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-                layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.tbds203);
-                layoutParams.gravity = 80;
-                bottomCommonTipLayout.setLayoutParams(layoutParams);
-                ActivityForumBinding activityForumBinding2 = this.c;
-                if (activityForumBinding2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("binding");
-                } else {
-                    activityForumBinding = activityForumBinding2;
-                }
-                activityForumBinding.r.addView(bottomCommonTipLayout);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (zh7Var = (zh7) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(zh7.class))) != null) {
+                return zh7Var;
             }
-            ri7 value = ((ForumViewModel) new ViewModelProvider(this.b).get(ForumViewModel.class)).c().getValue();
-            String str = (value == null || (str = Long.valueOf(value.e()).toString()) == null) ? "" : "";
-            BottomCommonTipLayout bottomCommonTipLayout2 = this.e;
-            if (bottomCommonTipLayout2 != null) {
-                bottomCommonTipLayout2.p(memberBroadcastData, "frs_vip_brd", 1, str);
-            }
+            throw new IllegalStateException("ForumDIalogController must not be null!!!");
         }
+        return (zh7) invokeL.objValue;
     }
 
-    public final void w(MemberBroadcastData memberBroadcastData) {
+    public static final LinkageController g(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        LinkageController linkageController;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, memberBroadcastData) == null) && this.f && !YunDialogManager.isShowingDialog() && !bi7.k(this.b).u() && new MemberBroadcastHelper(memberBroadcastData).isMeetFrequency()) {
-            v(memberBroadcastData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (linkageController = (LinkageController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(LinkageController.class))) != null) {
+                return linkageController;
+            }
+            throw new IllegalStateException("LinkageController must not be null!!!");
         }
+        return (LinkageController) invokeL.objValue;
+    }
+
+    public static final gi7 h(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        gi7 gi7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (gi7Var = (gi7) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(gi7.class))) != null) {
+                return gi7Var;
+            }
+            throw new IllegalStateException("LinkageStatisticController must not be null!!!");
+        }
+        return (gi7) invokeL.objValue;
+    }
+
+    public static final MainController i(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        MainController mainController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (mainController = (MainController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(MainController.class))) != null) {
+                return mainController;
+            }
+            throw new IllegalStateException("MainController must not be null!!!");
+        }
+        return (MainController) invokeL.objValue;
+    }
+
+    public static final NavigationBarController j(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        NavigationBarController navigationBarController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (navigationBarController = (NavigationBarController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(NavigationBarController.class))) != null) {
+                return navigationBarController;
+            }
+            throw new IllegalStateException("NavigationBarController must not be null!!!");
+        }
+        return (NavigationBarController) invokeL.objValue;
+    }
+
+    public static final PushPermissionController k(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        PushPermissionController pushPermissionController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (pushPermissionController = (PushPermissionController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(PushPermissionController.class))) != null) {
+                return pushPermissionController;
+            }
+            throw new IllegalStateException("PushPermissionController must not be null!!!");
+        }
+        return (PushPermissionController) invokeL.objValue;
+    }
+
+    public static final TimeoutController l(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        TimeoutController timeoutController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (timeoutController = (TimeoutController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(TimeoutController.class))) != null) {
+                return timeoutController;
+            }
+            throw new IllegalStateException("TimeoutController must not be null!!!");
+        }
+        return (TimeoutController) invokeL.objValue;
+    }
+
+    public static final TopController m(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        TopController topController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (topController = (TopController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(TopController.class))) != null) {
+                return topController;
+            }
+            throw new IllegalStateException("TopController must not be null!!!");
+        }
+        return (TopController) invokeL.objValue;
+    }
+
+    public static final VoicePlayController n(FragmentActivity fragmentActivity) {
+        InterceptResult invokeL;
+        VoicePlayController voicePlayController;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, fragmentActivity)) == null) {
+            Intrinsics.checkNotNullParameter(fragmentActivity, "<this>");
+            if ((fragmentActivity instanceof fi7) && (voicePlayController = (VoicePlayController) ((fi7) fragmentActivity).j2(Reflection.getOrCreateKotlinClass(VoicePlayController.class))) != null) {
+                return voicePlayController;
+            }
+            throw new IllegalStateException("VoicePlayController must not be null!!!");
+        }
+        return (VoicePlayController) invokeL.objValue;
     }
 }

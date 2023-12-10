@@ -273,38 +273,38 @@ public class nc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
-            if (rfa.b()) {
+            if (sfa.b()) {
                 updateClientInfoMessage.addUserInfo("model", DeviceInfoHelper.getModel());
                 updateClientInfoMessage.addUserInfo("brand", Build.BRAND);
                 updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
                 updateClientInfoMessage.addUserInfo(HttpRequest.OS_VERSION, DeviceInfoHelper.getOsVersion());
                 updateClientInfoMessage.addUserInfo(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
             } else {
-                updateClientInfoMessage.addUserInfo(HttpRequest.NEED_DECRYPT, rfa.c());
-                String g = rfa.g(HttpRequest.PHONE_IMEI);
+                updateClientInfoMessage.addUserInfo(HttpRequest.NEED_DECRYPT, sfa.c());
+                String g = sfa.g(HttpRequest.PHONE_IMEI);
                 if (!TextUtils.isEmpty(g)) {
-                    updateClientInfoMessage.addUserInfo(g, rfa.f());
+                    updateClientInfoMessage.addUserInfo(g, sfa.f());
                 }
-                String g2 = rfa.g("model");
+                String g2 = sfa.g("model");
                 if (!TextUtils.isEmpty(g2)) {
-                    updateClientInfoMessage.addUserInfo(g2, rfa.h());
+                    updateClientInfoMessage.addUserInfo(g2, sfa.h());
                 }
-                String g3 = rfa.g("brand");
+                String g3 = sfa.g("brand");
                 if (!TextUtils.isEmpty(g3)) {
-                    updateClientInfoMessage.addUserInfo(g3, rfa.e());
+                    updateClientInfoMessage.addUserInfo(g3, sfa.e());
                 }
-                String g4 = rfa.g(HttpRequest.ANDROID_ID);
+                String g4 = sfa.g(HttpRequest.ANDROID_ID);
                 if (!TextUtils.isEmpty(g4)) {
-                    updateClientInfoMessage.addUserInfo(g4, rfa.d());
+                    updateClientInfoMessage.addUserInfo(g4, sfa.d());
                 }
             }
-            if (qfa.b()) {
+            if (rfa.b()) {
                 updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
             } else {
-                updateClientInfoMessage.addUserInfo("need_cam_decrypt", qfa.c());
-                String d = qfa.d("mac");
+                updateClientInfoMessage.addUserInfo("need_cam_decrypt", rfa.c());
+                String d = rfa.d("mac");
                 if (!TextUtils.isEmpty(d)) {
-                    updateClientInfoMessage.addUserInfo(d, qfa.e());
+                    updateClientInfoMessage.addUserInfo(d, rfa.e());
                 }
             }
             String str = "2";

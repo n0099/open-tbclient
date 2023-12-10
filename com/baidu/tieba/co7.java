@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.component.CardStaggeredVideoView;
+import com.baidu.tieba.forum.component.CardHeadlinesView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class co7 extends ab7<CardStaggeredVideoView, bg7> {
+public class co7 extends bb7<CardHeadlinesView, bg7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co7() {
-        super("staggered_video");
+        super("head_lines");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,13 +33,26 @@ public class co7 extends ab7<CardStaggeredVideoView, bg7> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
-    /* renamed from: e */
-    public void b(@NonNull CardStaggeredVideoView cardStaggeredVideoView, @NonNull bg7 bg7Var) {
+    @Override // com.baidu.tieba.bb7, com.baidu.tieba.rb7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cardStaggeredVideoView, bg7Var) == null) {
-            cardStaggeredVideoView.b(bg7Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            kd7.j(a);
+            return a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rb7
+    /* renamed from: e */
+    public void b(@NonNull CardHeadlinesView cardHeadlinesView, @NonNull bg7 bg7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardHeadlinesView, bg7Var) == null) {
+            cardHeadlinesView.d(bg7Var);
         }
     }
 }

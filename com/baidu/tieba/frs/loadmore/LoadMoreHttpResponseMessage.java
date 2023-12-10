@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.kja;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,13 +115,13 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                                 this.threadList.add(zx4Var);
                             } else {
                                 this.threadList.add(threadData);
-                                JSONObject b = jja.b(threadInfo);
+                                JSONObject b = kja.b(threadInfo);
                                 if (b != null) {
                                     arrayList.add(b);
                                 }
                             }
                         }
-                        jja.f().h("FRS", arrayList);
+                        kja.f().h("FRS", arrayList);
                     }
                 }
                 this.bannerListData = null;

@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.tracker.PvData;
 import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.a4b;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.tieba.tracker.core.data.EventParams;
 import com.baidu.tieba.tracker.core.data.IEventNode;
-import com.baidu.tieba.z3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public final class ts5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static final class a extends u3b {
+    public static final class a extends v3b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public final class ts5 {
             }
         }
 
-        @Override // com.baidu.tieba.u3b
+        @Override // com.baidu.tieba.v3b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,7 +73,7 @@ public final class ts5 {
             }
         }
 
-        @Override // com.baidu.tieba.u3b
+        @Override // com.baidu.tieba.v3b
         public void b(String ubcId, List<? extends IEventNode> events) {
             EventParams trackParams;
             Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public final class ts5 {
                         if (pvData == null) {
                             pvData = new PvData(valueOf, valueOf2, 0, 0);
                         }
-                        if (Intrinsics.areEqual(trackParams.get("type"), z3b.a.a.a())) {
+                        if (Intrinsics.areEqual(trackParams.get("type"), a4b.a.a.a())) {
                             pvData.setPv_lost(pvData.getPv_lost() + 1);
                         }
                         pvData.setPv(pvData.getPv() + 1);
@@ -101,7 +101,7 @@ public final class ts5 {
             }
         }
 
-        @Override // com.baidu.tieba.u3b
+        @Override // com.baidu.tieba.v3b
         public void c(String ubcId, IEventNode event) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ubcId, event) == null) {

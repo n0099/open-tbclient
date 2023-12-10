@@ -80,7 +80,7 @@ public class x07 implements w07 {
 
         /* renamed from: com.baidu.tieba.x07$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0528a implements y07.a {
+        public class C0525a implements y07.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -88,7 +88,7 @@ public class x07 implements w07 {
             public final /* synthetic */ DownloadData c;
             public final /* synthetic */ a d;
 
-            public C0528a(a aVar, String str, String str2, DownloadData downloadData) {
+            public C0525a(a aVar, String str, String str2, DownloadData downloadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,7 +166,7 @@ public class x07 implements w07 {
                 if (this.a.d != null && this.a.e != null && this.a.e.fileUrl != null && this.a.e.fileUrl.equals(downloadData.getUrl()) && downloadData.getPath().endsWith(".zip")) {
                     String substring = downloadData.getPath().substring(x07.h.length() + 1, downloadData.getPath().lastIndexOf("."));
                     String str = x07.h + "/" + substring;
-                    y07 y07Var = new y07(downloadData.getPath(), str, new C0528a(this, substring, str, downloadData));
+                    y07 y07Var = new y07(downloadData.getPath(), str, new C0525a(this, substring, str, downloadData));
                     y07Var.execute(new Void[0]);
                     this.a.f.add(y07Var);
                 }

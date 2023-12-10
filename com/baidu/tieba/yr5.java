@@ -280,7 +280,7 @@ public class yr5<Q extends rr5, P extends sr5> {
     public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, vva.a(str, i2));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, wva.a(str, i2));
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setIsNeedTbs(true);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);

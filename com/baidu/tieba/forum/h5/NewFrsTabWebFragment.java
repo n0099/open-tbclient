@@ -37,6 +37,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ao7;
 import com.baidu.tieba.ar6;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.browser.TbWebView;
@@ -45,13 +46,12 @@ import com.baidu.tieba.er6;
 import com.baidu.tieba.gs4;
 import com.baidu.tieba.jq5;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.mt7;
-import com.baidu.tieba.rb7;
+import com.baidu.tieba.nt7;
 import com.baidu.tieba.rj6;
+import com.baidu.tieba.sb7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.vj7;
+import com.baidu.tieba.wj7;
 import com.baidu.tieba.zj6;
-import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,7 +63,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn7 {
+public class NewFrsTabWebFragment extends BaseWebViewFragment implements nt7, ao7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String e;
@@ -82,14 +82,14 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
     public CustomMessageListener r;
     public final View.OnClickListener s;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -144,7 +144,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
     }
 
     /* loaded from: classes6.dex */
-    public class b extends er6<vj7> {
+    public class b extends er6<wj7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFrsTabWebFragment b;
@@ -172,10 +172,10 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(@NonNull vj7 vj7Var) {
+        public void onEvent(@NonNull wj7 wj7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vj7Var) == null) {
-                if (vj7Var.a()) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wj7Var) == null) {
+                if (wj7Var.a()) {
                     this.b.j.setVisibility(0);
                 } else if (!this.b.isResumed()) {
                     this.b.j.setVisibility(8);
@@ -518,7 +518,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
         }
     }
 
-    @Override // com.baidu.tieba.zn7
+    @Override // com.baidu.tieba.ao7
     public void C2(@NonNull ThreadData threadData, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, threadData, jSONObject) == null) && this.h == 102) {
@@ -528,10 +528,10 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
         }
     }
 
-    @Override // com.baidu.tieba.zn7
-    public void U0(@NonNull rb7<?> rb7Var, @NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.ao7
+    public void U0(@NonNull sb7<?> sb7Var, @NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, rb7Var, jSONObject) == null) && this.h == 102) {
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, sb7Var, jSONObject) == null) && this.h == 102) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("threadInfo", jSONObject);
             rj6.a().d(this.j, CommonTbJsBridge.CHANGE_POST_WALL, hashMap);
@@ -543,11 +543,11 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048606, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            br6.b().b(new ar6(getUniqueId(), this.q), new b(this, vj7.class));
+            br6.b().b(new ar6(getUniqueId(), this.q), new b(this, wj7.class));
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -558,7 +558,7 @@ public class NewFrsTabWebFragment extends BaseWebViewFragment implements mt7, zn
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

@@ -36,7 +36,7 @@ public class BdMemberCenterListView extends BdTypeListView {
     public final int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public final int f1123T;
+    public final int f1125T;
     public a U;
 
     /* loaded from: classes7.dex */
@@ -123,14 +123,14 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, s16.ExpandListView);
-        this.f1123T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
+        this.f1125T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
     public final void I(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.U.a(360.0f - ((f * 360.0f) / this.f1123T));
+            this.U.a(360.0f - ((f * 360.0f) / this.f1125T));
         }
     }
 
@@ -187,7 +187,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         } else {
             height = view2.getHeight();
         }
-        if (height >= this.O.b - (this.f1123T / 2)) {
+        if (height >= this.O.b - (this.f1125T / 2)) {
             J();
         } else {
             this.U.b();
@@ -271,7 +271,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                 }
                 this.M = this.N;
                 this.Q = this.R;
-                this.O = new b(0, height, 0, this.f1123T + height);
+                this.O = new b(0, height, 0, this.f1125T + height);
             }
             return super.dispatchTouchEvent(motionEvent);
         }

@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.deb;
+import com.baidu.tieba.eeb;
 import com.baidu.tieba.lq5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public deb k;
+    public eeb k;
     public ViewGroup l;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -64,9 +64,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.onDestroy();
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.onDestroy();
             }
         }
     }
@@ -75,9 +75,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.onPause();
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.onPause();
             }
             super.onPause();
         }
@@ -88,9 +88,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.onResume();
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.onResume();
             }
         }
     }
@@ -100,9 +100,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onStart();
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.I();
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.I();
             }
         }
     }
@@ -112,9 +112,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStop();
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.J();
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.J();
             }
         }
     }
@@ -137,9 +137,9 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                deb debVar = new deb(this, null, linearLayout.getId(), R.id.root_stub);
-                this.k = debVar;
-                debVar.Q(navigationBar);
+                eeb eebVar = new eeb(this, null, linearLayout.getId(), R.id.root_stub);
+                this.k = eebVar;
+                eebVar.Q(navigationBar);
             }
             return this.k;
         }
@@ -176,19 +176,19 @@ public class AlbumFloatActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048583, this, i, strArr, iArr) == null) {
             super.onRequestPermissionsResult(i, strArr, iArr);
-            deb debVar = this.k;
-            if (debVar != null) {
-                debVar.G(i, strArr, iArr);
+            eeb eebVar = this.k;
+            if (eebVar != null) {
+                eebVar.G(i, strArr, iArr);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        deb debVar;
+        eeb eebVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (debVar = this.k) != null) {
-            debVar.onClick(view2);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (eebVar = this.k) != null) {
+            eebVar.onClick(view2);
         }
     }
 

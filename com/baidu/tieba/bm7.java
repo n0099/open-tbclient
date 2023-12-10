@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.data.SubTabItem;
+import com.baidu.tieba.forum.data.SortItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class bm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<SubTabItem> a;
+    public final List<SortItem> a;
     public int b;
 
     public boolean equals(Object obj) {
@@ -42,17 +42,17 @@ public final class bm7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "SubTabData(subTabList=" + this.a + ", selectIndex=" + this.b + ')';
+            return "SortTabData(sortTabList=" + this.a + ", selectIndex=" + this.b + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public bm7(List<SubTabItem> subTabList, int i) {
+    public bm7(List<SortItem> sortTabList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {subTabList, Integer.valueOf(i)};
+            Object[] objArr = {sortTabList, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -62,8 +62,8 @@ public final class bm7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(subTabList, "subTabList");
-        this.a = subTabList;
+        Intrinsics.checkNotNullParameter(sortTabList, "sortTabList");
+        this.a = sortTabList;
         this.b = i;
     }
 
@@ -76,7 +76,7 @@ public final class bm7 {
         return invokeV.intValue;
     }
 
-    public final List<SubTabItem> b() {
+    public final List<SortItem> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

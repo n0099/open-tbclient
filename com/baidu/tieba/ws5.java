@@ -287,14 +287,14 @@ public class ws5 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            List<o88> j = p88.m().j(str);
+            List<p88> j = q88.m().j(str);
             JSONArray jSONArray = new JSONArray();
-            for (o88 o88Var : j) {
-                for (int i2 = 0; i2 < o88Var.e && jSONArray.length() < i; i2++) {
+            for (p88 p88Var : j) {
+                for (int i2 = 0; i2 < p88Var.e && jSONArray.length() < i; i2++) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", o88Var.d + i2);
-                        jSONObject.put(SplashAd.KEY_BIDFAIL_ECPM, String.valueOf(o88Var.f));
+                        jSONObject.put("id", p88Var.d + i2);
+                        jSONObject.put(SplashAd.KEY_BIDFAIL_ECPM, String.valueOf(p88Var.f));
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -397,22 +397,22 @@ public class ws5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        kwa kwaVar;
+        lwa lwaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
             if (obj instanceof yx4) {
                 return true;
             }
             if (obj instanceof mz4) {
-                kwaVar = ((mz4) obj).t.funAdData;
+                lwaVar = ((mz4) obj).t.funAdData;
             } else if (obj instanceof ThreadData) {
-                kwaVar = ((ThreadData) obj).funAdData;
-            } else if (obj instanceof mwa) {
-                kwaVar = ((mwa) obj).A0;
+                lwaVar = ((ThreadData) obj).funAdData;
+            } else if (obj instanceof nwa) {
+                lwaVar = ((nwa) obj).A0;
             } else {
-                kwaVar = null;
+                lwaVar = null;
             }
-            if (kwaVar != null) {
+            if (lwaVar != null) {
                 return true;
             }
             return false;
@@ -425,8 +425,8 @@ public class ws5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             int i = 0;
-            for (o88 o88Var : p88.m().j(str)) {
-                i += o88Var.e;
+            for (p88 p88Var : q88.m().j(str)) {
+                i += p88Var.e;
             }
             return i;
         }

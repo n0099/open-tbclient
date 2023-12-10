@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.xva;
+import com.baidu.tieba.yva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class ty6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LikeModel a;
-    public xva b;
+    public yva b;
     public boolean c;
     public b d;
     public a e;
@@ -34,7 +34,7 @@ public class ty6 {
     }
 
     /* loaded from: classes8.dex */
-    public class b extends w4 implements xva.a {
+    public class b extends w4 implements yva.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -65,7 +65,7 @@ public class ty6 {
             }
         }
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -78,7 +78,7 @@ public class ty6 {
             }
         }
 
-        @Override // com.baidu.tieba.xva.a
+        @Override // com.baidu.tieba.yva.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -186,9 +186,9 @@ public class ty6 {
             bVar.d(this.e);
         }
         if (this.b == null) {
-            xva xvaVar = new xva();
-            this.b = xvaVar;
-            xvaVar.b(this.d);
+            yva yvaVar = new yva();
+            this.b = yvaVar;
+            yvaVar.b(this.d);
         }
         long j = JavaTypesHelper.toLong(str2, -1L);
         if (j == -1) {

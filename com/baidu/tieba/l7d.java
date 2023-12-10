@@ -4,29 +4,23 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.RecomTopicInfo;
-import tbclient.RecomTopicList;
+import tbclient.RecomTagInfo;
 /* loaded from: classes7.dex */
-public class l7d extends ktc {
+public class l7d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecomTopicInfo recomTopicInfo) {
+    public static JSONObject b(@NonNull RecomTagInfo recomTagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTopicInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recomTagInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "recom_title", recomTopicInfo.recom_title);
-            if (recomTopicInfo.topic_list != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
-                    jSONArray.put(m7d.b(recomTopicList));
-                }
-                ktc.a(jSONObject, "topic_list", jSONArray);
-            }
+            ltc.a(jSONObject, "id", recomTagInfo.id);
+            ltc.a(jSONObject, "name", recomTagInfo.name);
+            ltc.a(jSONObject, pic.f, recomTagInfo.pic);
+            ltc.a(jSONObject, "first_class", recomTagInfo.first_class);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -19,17 +19,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.switchs.HeadlinesPreRenderSwitch;
 import com.baidu.tbadk.switchs.HeadlinesPrefetchSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag7;
+import com.baidu.tieba.bg7;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.fj6;
 import com.baidu.tieba.forum.component.CardHeadlinesView;
 import com.baidu.tieba.forum.view.InterviewLiveView;
 import com.baidu.tieba.jj6;
-import com.baidu.tieba.kb7;
 import com.baidu.tieba.kj6;
 import com.baidu.tieba.kz4;
 import com.baidu.tieba.lb7;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.mb7;
 import com.baidu.tieba.view.CustomFitFrameCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,8 +43,8 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000N\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B%\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0002J\b\u0010\u0016\u001a\u00020\u0013H\u0002J\b\u0010\u0017\u001a\u00020\u0013H\u0016J\u000e\u0010\u0018\u001a\u00020\u00132\u0006\u0010\u0019\u001a\u00020\u001aR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/forum/component/CardHeadlinesView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "headlinesAgreeView", "Lcom/baidu/card/view/HeadlinesAgreeCardView;", "headlinesFitView", "Lcom/baidu/tieba/view/CustomFitFrameCard;", "headlinesView", "Lcom/baidu/card/view/HeadlinesCardView;", "interViewLiveLayout", "Lcom/baidu/tieba/forum/view/InterviewLiveView;", "headlinesPerFetchOrRender", "", "taskData", "Lcom/baidu/tbadk/core/data/TaskInfoData;", "headlinesViewAllGone", "onChangeSkin", "updateState", "state", "Lcom/baidu/tieba/forum/component/uistate/CardHeadlinesUiState;", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class CardHeadlinesView extends LinearLayout implements kb7 {
+/* loaded from: classes6.dex */
+public final class CardHeadlinesView extends LinearLayout implements lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final InterviewLiveView a;
@@ -98,7 +98,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static final void e(ag7 state, CardHeadlinesView this$0, View view2) {
+    public static final void e(bg7 state, CardHeadlinesView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
@@ -183,12 +183,12 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
         }
     }
 
-    public static final void g(ag7 state, CardHeadlinesView this$0, View view2) {
+    public static final void g(bg7 state, CardHeadlinesView this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, null, state, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            Function2<Context, ag7, Unit> m = state.m();
+            Function2<Context, bg7, Unit> m = state.m();
             Context context = this$0.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             m.invoke(context, state);
@@ -216,7 +216,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
         }
     }
 
-    public final void d(final ag7 state) {
+    public final void d(final bg7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
@@ -228,7 +228,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
                         if (j == 4) {
                             this.d.e(state.o());
                             this.d.setVisibility(0);
-                            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yf7
+                            this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zf7
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -236,7 +236,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
                                 public final void onClick(View view2) {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                        CardHeadlinesView.g(ag7.this, this, view2);
+                                        CardHeadlinesView.g(bg7.this, this, view2);
                                     }
                                 }
                             });
@@ -244,7 +244,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
                         }
                     } else {
                         this.c.e(state.o());
-                        this.c.setItemBtnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tf7
+                        this.c.setItemBtnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uf7
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -252,7 +252,7 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
                             public final void onClick(View view2) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                    CardHeadlinesView.e(ag7.this, this, view2);
+                                    CardHeadlinesView.e(bg7.this, this, view2);
                                 }
                             }
                         });
@@ -280,10 +280,10 @@ public final class CardHeadlinesView extends LinearLayout implements kb7 {
         }
     }
 
-    @Override // com.baidu.tieba.kb7
+    @Override // com.baidu.tieba.lb7
     public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || lb7.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || mb7.a(this)) {
             return;
         }
         this.a.d();

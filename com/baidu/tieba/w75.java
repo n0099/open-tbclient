@@ -35,7 +35,7 @@ public class w75 {
             }
         }
         a = Domain.DOMAIN_ONLINE;
-        if (n3b.a(AppRuntime.getAppContext(), "USE_QA_PASS_LOGIN_ADDRESS")) {
+        if (o3b.a(AppRuntime.getAppContext(), "USE_QA_PASS_LOGIN_ADDRESS")) {
             a = Domain.DOMAIN_QA;
         }
         b = true;

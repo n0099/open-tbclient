@@ -18,7 +18,7 @@ import com.baidu.tieba.ak6;
 import com.baidu.tieba.bl6;
 import com.baidu.tieba.browser.data.PreRenderMode;
 import com.baidu.tieba.browser.webview.scroll.NestedScrollingWebView;
-import com.baidu.tieba.btc;
+import com.baidu.tieba.ctc;
 import com.baidu.tieba.el6;
 import com.baidu.tieba.il6;
 import com.baidu.tieba.jl6;
@@ -44,7 +44,7 @@ public abstract class MonitorWebView extends NestedScrollingWebView implements i
     public zj6 A;
     public ak6 B;
     public PreRenderMode C;
-    public final btc<Pair<Integer, Double>> D;
+    public final ctc<Pair<Integer, Double>> D;
     public mg6<Object> E;
     public final zk6 F;
     public jl6 s;
@@ -179,7 +179,7 @@ public abstract class MonitorWebView extends NestedScrollingWebView implements i
         this.A = null;
         this.B = null;
         this.C = PreRenderMode.NONE;
-        this.D = btc.Q();
+        this.D = ctc.Q();
         bl6 bl6Var = new bl6(null, new a(this));
         this.F = bl6Var;
         super.setWebViewClient(bl6Var);
@@ -214,7 +214,7 @@ public abstract class MonitorWebView extends NestedScrollingWebView implements i
         this.A = null;
         this.B = null;
         this.C = PreRenderMode.NONE;
-        this.D = btc.Q();
+        this.D = ctc.Q();
         bl6 bl6Var = new bl6(null, new a(this));
         this.F = bl6Var;
         super.setWebViewClient(bl6Var);
@@ -249,7 +249,7 @@ public abstract class MonitorWebView extends NestedScrollingWebView implements i
         this.A = null;
         this.B = null;
         this.C = PreRenderMode.NONE;
-        this.D = btc.Q();
+        this.D = ctc.Q();
         bl6 bl6Var = new bl6(null, new a(this));
         this.F = bl6Var;
         super.setWebViewClient(bl6Var);
@@ -372,13 +372,13 @@ public abstract class MonitorWebView extends NestedScrollingWebView implements i
         return (PreRenderMode) invokeV.objValue;
     }
 
-    public btc<Pair<Integer, Double>> getViewHeightBs() {
+    public ctc<Pair<Integer, Double>> getViewHeightBs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.D;
         }
-        return (btc) invokeV.objValue;
+        return (ctc) invokeV.objValue;
     }
 
     public void y() {

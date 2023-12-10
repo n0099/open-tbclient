@@ -1,93 +1,196 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FacePackageDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.util.GameCenterCoreUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class e68 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ms7 a;
 
-        public a(ms7 ms7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ms7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-879127771, "Lcom/baidu/tieba/e68$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-879127771, "Lcom/baidu/tieba/e68$a;");
                     return;
                 }
             }
-            this.a = ms7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.P0();
+            int[] iArr = new int[UtilHelper.NativePageType.values().length];
+            a = iArr;
+            try {
+                iArr[UtilHelper.NativePageType.FRS.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[UtilHelper.NativePageType.PB.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, ms7 ms7Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, ms7Var, frsViewData) != null) || frsViewData == null || ms7Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
-        }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686402, "Lcom/baidu/tieba/e68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686402, "Lcom/baidu/tieba/e68;");
+                return;
             }
         }
-        if (z) {
-            SafeHandler.getInst().postDelayed(new a(ms7Var), TimeUnit.SECONDS.toMillis(2L));
+        a = Pattern.compile("(/p/){1}(\\d+)");
+    }
+
+    public static void a(@Nullable qx4 qx4Var, @Nullable BaseFragment baseFragment) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, qx4Var, baseFragment) == null) && qx4Var != null && baseFragment != null) {
+            String e = qx4Var.e();
+            if (qx4Var.a() == 1) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2902014, new FacePackageDetailActivityConfig(baseFragment.getPageContext().getPageActivity(), e, false, "frs_banner")));
+            } else if (qx4Var.a() == 2) {
+                if (e.contains("tieba.baidu.com")) {
+                    Matcher matcher = a.matcher(e);
+                    if (matcher.find()) {
+                        try {
+                            String group = matcher.group(2);
+                            PbActivityConfig createNormalCfg = new PbActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(group, null, "frs_banner");
+                            createNormalCfg.setForumId(group);
+                            createNormalCfg.setStartFrom(3);
+                            baseFragment.sendMessage(new CustomMessage(2004001, createNormalCfg));
+                        } catch (Exception e2) {
+                            BdLog.e(e2.toString());
+                        }
+                    }
+                }
+            } else if (qx4Var.a() == 3) {
+                UtilHelper.NativePage isNativeAddress = UtilHelper.isNativeAddress(e);
+                UtilHelper.NativePageType nativePageType = isNativeAddress.type;
+                if (nativePageType != UtilHelper.NativePageType.NONE) {
+                    int i = a.a[nativePageType.ordinal()];
+                    if (i != 1) {
+                        if (i == 2) {
+                            PbActivityConfig createNormalCfg2 = new PbActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, null, "frs_banner");
+                            createNormalCfg2.setForumId(isNativeAddress.id);
+                            createNormalCfg2.setStartFrom(3);
+                            baseFragment.sendMessage(new CustomMessage(2004001, createNormalCfg2));
+                            return;
+                        }
+                        return;
+                    }
+                    baseFragment.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(baseFragment.getPageContext(), new String[]{e});
+                if (!StringUtils.isNull(e) && e.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL)) {
+                    TiebaStatic.eventStat(baseFragment.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", GameCenterCoreUtils.REF_TYPE_FROM_FRS);
+                }
+            } else if (qx4Var.a() == 4) {
+                baseFragment.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(baseFragment.getPageContext().getPageActivity()).createNormalCfg(e, "frs_banner")));
+            }
         }
     }
 
-    public static void b(ms7 ms7Var) {
-        HashMap<Integer, ThreadData> h;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ms7Var) == null) && ms7Var != null && ms7Var.a0() != null && (h = ms7Var.a0().h()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-                ThreadData value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            rs7 rs7Var = new rs7();
+            rs7Var.a = i;
+            rs7Var.b = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, rs7Var));
+        }
+    }
+
+    public static void c(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && !z) {
+            rs7 rs7Var = new rs7();
+            rs7Var.a = i;
+            rs7Var.b = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, rs7Var));
+        }
+    }
+
+    public static void d(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i) == null) {
+            if (i == 1) {
+                PraiseData praise = threadData.getPraise();
+                AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+                if (currentAccountObj != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.setName_show(currentAccountObj.getAccount());
+                    metaData.setPortrait(currentAccountObj.getPortrait());
+                    metaData.setUserId(currentAccountObj.getID());
+                    if (praise == null) {
+                        PraiseData praiseData = new PraiseData();
+                        praiseData.setIsLike(i);
+                        praiseData.setNum(1L);
+                        praiseData.getUser().add(0, metaData);
+                        threadData.setPraise(praiseData);
+                        return;
+                    }
+                    threadData.getPraise().getUser().add(0, metaData);
+                    threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
+                    threadData.getPraise().setIsLike(i);
+                }
+            } else if (threadData.getPraise() != null) {
+                threadData.getPraise().setIsLike(i);
+                threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
+                ArrayList<MetaData> user = threadData.getPraise().getUser();
+                if (user != null) {
+                    Iterator<MetaData> it = user.iterator();
+                    while (it.hasNext()) {
+                        MetaData next = it.next();
+                        if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                            threadData.getPraise().getUser().remove(next);
+                            return;
+                        }
+                    }
                 }
             }
-            kia.n().w(arrayList);
         }
     }
 }

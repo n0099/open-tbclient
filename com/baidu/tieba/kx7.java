@@ -1,11 +1,17 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes7.dex */
 public interface kx7 {
-    void a(boolean z);
+    void a(m78 m78Var, FrsViewData frsViewData);
 
-    void b(boolean z, boolean z2);
+    void b(View view2);
 
-    boolean c();
+    void c(m78 m78Var, ns7 ns7Var, FrsViewData frsViewData);
 
-    void onChangeSkinType(int i);
+    int d(int i, FrsRequestData frsRequestData);
+
+    boolean e(int i);
 }

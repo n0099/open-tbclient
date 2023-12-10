@@ -51,10 +51,10 @@ public class la implements pf1 {
             arrayList.add(new qh6());
             arrayList.add(new rh6());
             arrayList.add(new sh6());
-            arrayList.add(new xi8());
             arrayList.add(new yi8());
-            arrayList.add(new i79());
-            arrayList.add(new zja());
+            arrayList.add(new zi8());
+            arrayList.add(new j79());
+            arrayList.add(new aka());
             return arrayList;
         }
         return invokeV.objValue;

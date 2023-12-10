@@ -1,38 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
+import com.baidu.tieba.dga;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.push.PushGuideManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 /* loaded from: classes8.dex */
-public class r28 extends ci<cva, FrsLikeRecommendHolder> {
+public class r28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vb5 a;
+    public FrsActivity b;
+    public Map<String, Date> c;
+    public boolean d;
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public class a implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cva a;
-        public final /* synthetic */ ViewGroup b;
-        public final /* synthetic */ FrsLikeRecommendHolder c;
+        public final /* synthetic */ dga a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Date c;
         public final /* synthetic */ r28 d;
 
-        public a(r28 r28Var, cva cvaVar, ViewGroup viewGroup, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        /* renamed from: com.baidu.tieba.r28$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class View$OnClickListenerC0456a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public View$OnClickListenerC0456a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    new dga.b(this.a.d.b.getPageContext(), this.a.a).a();
+                    this.a.d.a();
+                }
+            }
+        }
+
+        public a(r28 r28Var, dga dgaVar, String str, Date date) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r28Var, cvaVar, viewGroup, frsLikeRecommendHolder};
+                Object[] objArr = {r28Var, dgaVar, str, date};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,71 +91,125 @@ public class r28 extends ci<cva, FrsLikeRecommendHolder> {
                 }
             }
             this.d = r28Var;
-            this.a = cvaVar;
-            this.b = viewGroup;
-            this.c = frsLikeRecommendHolder;
+            this.a = dgaVar;
+            this.b = str;
+            this.c = date;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function0
+        /* renamed from: a */
+        public Unit invoke() {
+            InterceptResult invokeV;
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
-                this.d.getOnAdapterItemClickListener().b(view2, this.a, cva.g, this.b, this.c.getAdapterPosition(), view2.getId());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                FrsActivity frsActivity = this.d.b;
+                if (frsActivity != null && frsActivity.q1() != null) {
+                    z = this.d.b.q1().B;
+                } else {
+                    z = false;
+                }
+                HashMap hashMap = new HashMap();
+                if (z) {
+                    hashMap.put(PushOpenUtil.VIEW_PARAMS_KEY_STYLE, "short");
+                }
+                vb5 vb5Var = this.d.a;
+                if (vb5Var != null) {
+                    vb5Var.o();
+                }
+                r28 r28Var = this.d;
+                r28Var.a = PushOpenUtil.showPushOpenView(r28Var.b.getPageContext(), this.a.h(), 2000L, hashMap);
+                vb5 vb5Var2 = this.d.a;
+                if (vb5Var2 != null) {
+                    vb5Var2.v(new View$OnClickListenerC0456a(this));
+                    this.a.g();
+                }
+                this.d.c.put(this.b, this.c);
+                TbSingleton.getInstance().setHasShowTip(this.d.c);
+                return null;
             }
+            return (Unit) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r28(@NonNull Context context) {
-        super(context, cva.g);
+    public r28(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new HashMap();
+        this.d = false;
+        this.b = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ci
-    /* renamed from: t */
-    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public void a() {
+        vb5 vb5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (vb5Var = this.a) != null) {
+            vb5Var.o();
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            vb5 vb5Var = this.a;
+            if (vb5Var != null && vb5Var.r()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Date c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a4, viewGroup, false));
-        }
-        return (FrsLikeRecommendHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.ci
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cva cvaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        u(i, view2, viewGroup, cvaVar, frsLikeRecommendHolder);
-        return view2;
-    }
-
-    public View u(int i, View view2, ViewGroup viewGroup, cva cvaVar, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cvaVar, frsLikeRecommendHolder})) == null) {
-            if (cvaVar != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.a(cvaVar);
-                frsLikeRecommendHolder.c(new a(this, cvaVar, viewGroup, frsLikeRecommendHolder));
-                frsLikeRecommendHolder.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c == null) {
+                this.c = new HashMap();
+            } else {
+                this.c = TbSingleton.getInstance().getHasShowTip();
             }
-            return view2;
+            Date date = new Date(System.currentTimeMillis());
+            Map<String, Date> map = this.c;
+            if (map != null && map.containsKey(str)) {
+                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
+                    this.d = true;
+                }
+            } else {
+                this.d = true;
+            }
+            return date;
         }
-        return (View) invokeCommon.objValue;
+        return (Date) invokeL.objValue;
+    }
+
+    public void d(@Nullable ForumData forumData) {
+        FrsActivity frsActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, forumData) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null && forumData != null) {
+            String id = forumData.getId();
+            Date c = c(id);
+            dga j = PushGuideManager.j("forum_follow");
+            if (j != null && this.d) {
+                j.e(forumData);
+                j.k(this.b.getPageContext(), new a(this, j, id, c));
+                return;
+            }
+            BdUtilHelper.showToastByTextCenter(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
+        }
     }
 }

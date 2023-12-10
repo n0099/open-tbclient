@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsFeedAd;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes5.dex */
-public class c6c extends b7c<KsRewardVideoAd> {
+public class c6c extends c7c<KsFeedAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c6c(KsRewardVideoAd ksRewardVideoAd) {
-        super(ksRewardVideoAd);
+    public c6c(KsFeedAd ksFeedAd) {
+        super(ksFeedAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ksRewardVideoAd};
+            Object[] objArr = {ksFeedAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,7 +33,7 @@ public class c6c extends b7c<KsRewardVideoAd> {
         }
     }
 
-    @Override // com.baidu.tieba.b7c
+    @Override // com.baidu.tieba.c7c
     public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,12 +42,12 @@ public class c6c extends b7c<KsRewardVideoAd> {
             if (a == 0) {
                 return 0.0d;
             }
-            return ((KsRewardVideoAd) a).getECPM();
+            return ((KsFeedAd) a).getECPM();
         }
         return invokeV.doubleValue;
     }
 
-    @Override // com.baidu.tieba.b7c
+    @Override // com.baidu.tieba.c7c
     public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
@@ -55,16 +55,16 @@ public class c6c extends b7c<KsRewardVideoAd> {
         }
         AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
         adExposureFailedReason.winEcpm = i;
-        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+        ((KsFeedAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    @Override // com.baidu.tieba.b7c
+    @Override // com.baidu.tieba.c7c
     public void c(long j, long j2) {
         A a;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
             return;
         }
-        ((KsRewardVideoAd) a).setBidEcpm((int) j);
+        ((KsFeedAd) a).setBidEcpm((int) j);
     }
 }

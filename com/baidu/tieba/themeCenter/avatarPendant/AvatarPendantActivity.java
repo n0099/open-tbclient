@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.e2b;
 import com.baidu.tieba.f2b;
 import com.baidu.tieba.g2b;
-import com.baidu.tieba.i2b;
-import com.baidu.tieba.i3b;
+import com.baidu.tieba.h2b;
+import com.baidu.tieba.j2b;
+import com.baidu.tieba.j3b;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAvatarPendantModel.b, View.OnClickListener {
+public class AvatarPendantActivity extends BaseActivity implements j2b.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i2b a;
+    public j2b a;
     public AvatarPendantModel b;
     public SetAvatarPendantModel c;
     public String d;
@@ -71,16 +71,16 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, i3b i3bVar, List<g2b> list) {
+        public void a(int i, String str, j3b j3bVar, List<h2b> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, i3bVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, j3bVar, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.z());
                 if (i != 0) {
                     this.a.showToast(str);
                     this.a.a.G();
                 } else {
-                    this.a.a.H(i3bVar, list);
+                    this.a.a.H(j3bVar, list);
                 }
                 this.a.e = !ListUtils.isEmpty(list);
             }
@@ -180,7 +180,7 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<g2b> T2 = this.b.T();
+            List<h2b> T2 = this.b.T();
             if (T2 != null && T2.size() > 0) {
                 int size = T2.size();
                 for (int i = 0; i < size; i++) {
@@ -209,9 +209,9 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
     public final void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            i2b i2bVar = new i2b(this);
-            this.a = i2bVar;
-            i2bVar.g(this.g);
+            j2b j2bVar = new j2b(this);
+            this.a = j2bVar;
+            j2bVar.g(this.g);
             this.a.F(this);
         }
     }
@@ -240,10 +240,10 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        i2b i2bVar;
+        j2b j2bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (i2bVar = this.a) != null) {
-            showLoadingView(i2bVar.z());
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b != null && (j2bVar = this.a) != null) {
+            showLoadingView(j2bVar.z());
             this.b.loadData();
         }
     }
@@ -258,16 +258,16 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
                 i3 = 0;
             }
             if (!StringUtils.isNull(str)) {
-                if (i == f2b.a) {
-                    e2b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-                } else if (i == f2b.b) {
-                    e2b.c(getPageContext(), 7, str, i3);
+                if (i == g2b.a) {
+                    f2b.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+                } else if (i == g2b.b) {
+                    f2b.c(getPageContext(), 7, str, i3);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.i2b.a
+    @Override // com.baidu.tieba.j2b.a
     public void W(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) && K0() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
@@ -305,7 +305,7 @@ public class AvatarPendantActivity extends BaseActivity implements i2b.a, SetAva
                 O0(i2, str, i);
                 return;
             }
-            List<g2b> T2 = this.b.T();
+            List<h2b> T2 = this.b.T();
             if (T2 != null && T2.size() > 0) {
                 if (i == 0) {
                     TiebaStatic.log("c11681");

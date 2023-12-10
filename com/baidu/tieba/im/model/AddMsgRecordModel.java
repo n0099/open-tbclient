@@ -3,7 +3,7 @@ package com.baidu.tieba.im.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ew8;
+import com.baidu.tieba.fw8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,7 +81,7 @@ public class AddMsgRecordModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<ImMessageCenterPojo> k = ew8.n().k();
+            List<ImMessageCenterPojo> k = fw8.n().k();
             ArrayList arrayList = null;
             if (k != null && k.size() != 0) {
                 for (ImMessageCenterPojo imMessageCenterPojo : k) {

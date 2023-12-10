@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ka6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
@@ -64,7 +64,7 @@ public class ka6 extends BaseCardInfo {
             return;
         }
         jSONObject.optString("url");
-        this.a = jSONObject.optString("pic");
+        this.a = jSONObject.optString(pic.f);
         jSONObject.optLong("start_time", 0L);
         jSONObject.optLong("end_time", 0L);
         jSONObject.optString("name");

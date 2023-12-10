@@ -25,7 +25,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.oz4;
 import com.baidu.tieba.rz4;
-import com.baidu.tieba.wva;
+import com.baidu.tieba.xva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -134,16 +134,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(wva wvaVar) {
+    public void f(xva xvaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, wvaVar) != null) || wvaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, xvaVar) != null) || xvaVar == null) {
             return;
         }
-        oz4 c = wvaVar.c();
-        rz4 d = wvaVar.d();
+        oz4 c = xvaVar.c();
+        rz4 d = xvaVar.d();
         this.k = c;
         this.l = d;
-        if (wvaVar.e()) {
+        if (xvaVar.e()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);

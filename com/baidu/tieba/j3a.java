@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class j3a extends BaseOriginalThreadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ju k;
+    public et k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j3a(TbPageContext tbPageContext) {
@@ -38,78 +37,77 @@ public class j3a extends BaseOriginalThreadView {
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.a();
-            l().addView(k().g());
             if (this.k == null) {
-                ju juVar = new ju(this.a.getPageActivity());
-                this.k = juVar;
-                juVar.setFrom("pb");
+                et etVar = new et(this.a.getPageActivity());
+                this.k = etVar;
+                etVar.q(Boolean.TRUE);
+                this.k.setFrom("pb");
+                this.k.D(0);
+                this.k.I(this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005), this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007), 0);
+                this.k.J(false);
+                this.k.H(true);
             }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
-            l().addView(this.k.g(), layoutParams);
-            l().addView(i(false));
+            l().addView(this.k.g());
+            l().addView(i(true));
             return l();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             super.b(tbPageContext, i);
             if (this.e != i) {
                 this.e = i;
-                ju juVar = this.k;
-                if (juVar != null) {
-                    juVar.onChangeSkinType(tbPageContext, i);
+                et etVar = this.k;
+                if (etVar != null) {
+                    etVar.onChangeSkinType(tbPageContext, i);
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.pb.pb.main.orignalThread.BaseOriginalThreadView, com.baidu.tieba.e3a
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             super.c(originalThreadInfo);
-            ju juVar = this.k;
-            if (juVar != null) {
-                juVar.onBindDataToView(f());
+            et etVar = this.k;
+            if (etVar != null) {
+                etVar.onBindDataToView(f());
             }
-            k().onBindDataToView(f());
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void d(os.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            ju juVar = this.k;
-            if (juVar != null) {
-                juVar.B(aVar);
+            et etVar = this.k;
+            if (etVar != null) {
+                etVar.E(aVar);
             }
-            k().A(aVar);
             m();
         }
     }
 
-    @Override // com.baidu.tieba.d3a
+    @Override // com.baidu.tieba.e3a
     public void e(mm6 mm6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mm6Var) == null) {
             super.e(mm6Var);
-            ju juVar = this.k;
-            if (juVar != null) {
-                juVar.n(this.b);
+            et etVar = this.k;
+            if (etVar != null) {
+                etVar.n(this.b);
             }
         }
     }

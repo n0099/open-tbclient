@@ -50,9 +50,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aa5;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.ra8;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.sa8;
 import com.baidu.tieba.yi8;
+import com.baidu.tieba.zi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -360,7 +360,7 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.SEARCH_BAR_CLICK).param("obj_type", 1));
                 if (UbsABTestHelper.isSearchWebView()) {
-                    BrowserHelper.startWebActivity(this.a.b, ra8.a);
+                    BrowserHelper.startWebActivity(this.a.b, sa8.a);
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(this.a.getContext(), "", false)));
                 }
@@ -449,9 +449,9 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, viewGroup) == null) {
             if (TbadkCoreApplication.isLogin()) {
-                isSwitchOn = xi8.isSwitchOn();
-            } else {
                 isSwitchOn = yi8.isSwitchOn();
+            } else {
+                isSwitchOn = zi8.isSwitchOn();
             }
             if (isSwitchOn) {
                 return;

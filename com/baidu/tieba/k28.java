@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,15 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class k28 {
     public static /* synthetic */ Interceptable $ic;
     public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public final List<String> a;
 
     static {
         InterceptResult invokeClinit;
@@ -58,39 +62,80 @@ public final class k28 {
 
         public final k28 a(JSONObject jsonObject) {
             InterceptResult invokeL;
+            int length;
+            boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
                 Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-                return new k28(jsonObject.optInt("primary_task_id"));
+                JSONArray optJSONArray = jsonObject.optJSONArray("image_list");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray != null && (length = optJSONArray.length()) >= 0) {
+                    int i = 0;
+                    while (true) {
+                        String optString = optJSONArray.optString(i);
+                        if (optString != null && optString.length() != 0) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (!z) {
+                            String optString2 = optJSONArray.optString(i);
+                            Intrinsics.checkNotNullExpressionValue(optString2, "optString(i)");
+                            arrayList.add(optString2);
+                        }
+                        if (i == length) {
+                            break;
+                        }
+                        i++;
+                    }
+                }
+                return new k28(arrayList);
             }
             return (k28) invokeL.objValue;
         }
     }
 
-    public k28(int i) {
+    public k28(List<String> imageList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {imageList};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        Intrinsics.checkNotNullParameter(imageList, "imageList");
+        this.a = imageList;
     }
 
-    public final int a() {
+    public final List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<String> list = this.a;
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            return !z;
+        }
+        return invokeV.booleanValue;
     }
 }

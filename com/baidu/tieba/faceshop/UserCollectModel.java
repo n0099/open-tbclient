@@ -15,7 +15,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.cs4;
 import com.baidu.tieba.hj5;
-import com.baidu.tieba.ir9;
+import com.baidu.tieba.jr9;
 import com.baidu.tieba.m17;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
 import com.baidu.tieba.pr6;
@@ -115,7 +115,7 @@ public class UserCollectModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    ir9.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
+                    jr9.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }

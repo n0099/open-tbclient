@@ -15,12 +15,12 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.forum.hybrid.biz.SharePageBiz;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
-import com.baidu.tieba.oi7;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.pk7;
+import com.baidu.tieba.pi7;
+import com.baidu.tieba.qk7;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.share.AddExperiencedModel;
-import com.baidu.tieba.wx9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public final class SharePageBiz extends BizBase {
     public final ShareSuccessReplyToServerModel g;
     public final AddExperiencedModel h;
 
-    @Override // com.baidu.tieba.qk7
+    @Override // com.baidu.tieba.rk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class SharePageBiz extends BizBase {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customDialogData) == null) {
                 SafeHandler inst = SafeHandler.getInst();
                 final SharePageBiz sharePageBiz = this.a;
-                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.ok7
+                inst.postDelayed(new Runnable() { // from class: com.baidu.tieba.pk7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -107,7 +107,7 @@ public final class SharePageBiz extends BizBase {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65537, null, this$0, customDialogData) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                wx9.a(this$0.f(), customDialogData).show();
+                xx9.a(this$0.f(), customDialogData).show();
             }
         }
     }
@@ -168,7 +168,7 @@ public final class SharePageBiz extends BizBase {
                 String valueOf;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    oi7 c = this.this$0.c();
+                    pi7 c = this.this$0.c();
                     if (c == null || (d = c.d()) == null || (l = d.id) == null || (valueOf = String.valueOf(l)) == null) {
                         return "";
                     }
@@ -181,11 +181,11 @@ public final class SharePageBiz extends BizBase {
         this.h = new AddExperiencedModel(pageContext);
     }
 
-    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.qk7
-    public pk7[] b() {
+    @Override // com.baidu.tieba.forum.hybrid.manager.BizBase, com.baidu.tieba.rk7
+    public qk7[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new pk7[]{h(24007, new SharePageBiz$requestCodeHandlers$1(this))} : (pk7[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new qk7[]{h(24007, new SharePageBiz$requestCodeHandlers$1(this))} : (qk7[]) invokeV.objValue;
     }
 
     public final String l() {

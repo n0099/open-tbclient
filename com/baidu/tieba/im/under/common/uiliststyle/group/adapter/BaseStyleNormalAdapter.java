@@ -28,8 +28,8 @@ import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.base.core.uilist.ReplyContentView;
 import com.baidu.tieba.im.lib.socket.msg.TbNormalMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.emjio.view.EmojiReplyView;
-import com.baidu.tieba.rq8;
-import com.baidu.tieba.yy8;
+import com.baidu.tieba.sq8;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -127,15 +127,15 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
             }
             this.r.setTagConfig(BdUtilHelper.getDimens(view2.getContext(), R.dimen.T_X08), BdUtilHelper.getDimens(view2.getContext(), R.dimen.tbds35), BdUtilHelper.getDimens(view2.getContext(), R.dimen.M_W_X002), R.color.CAM_X0105);
             if (z && view2.getContext() != null) {
-                ReplyContentView f = yy8.f(view2.getContext());
+                ReplyContentView f = zy8.f(view2.getContext());
                 this.q = f;
                 this.j.addView(f);
             }
             Context context = view2.getContext();
             if (context != null) {
-                this.l.addView(yy8.d(context));
+                this.l.addView(zy8.d(context));
             }
-            yy8.e(this.m);
+            zy8.e(this.m);
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
@@ -167,11 +167,11 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         }
 
         @Override // com.baidu.tieba.im.base.core.uilist.BaseViewHolder
-        public void d(@NonNull rq8 rq8Var) {
+        public void d(@NonNull sq8 sq8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rq8Var) == null) {
-                super.d(rq8Var);
-                rq8.d(this.e, rq8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sq8Var) == null) {
+                super.d(sq8Var);
+                sq8.d(this.e, sq8Var);
             }
         }
 
@@ -247,9 +247,9 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, selfHolder, childitemdata, i) == null) {
             if (i == 1) {
-                yy8.m(this.mContext, childitemdata, selfHolder, C(), B());
+                zy8.m(this.mContext, childitemdata, selfHolder, C(), B());
             } else if (i == 2) {
-                yy8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
+                zy8.l(this.mContext, childitemdata, selfHolder, G(), C(), E());
             }
         }
     }
@@ -260,18 +260,18 @@ public abstract class BaseStyleNormalAdapter<ChildItemData extends BaseItem<? ex
     public void W(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull SelfHolder selfHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, selfHolder, list, Integer.valueOf(i2)}) == null) {
-            yy8.w(selfHolder);
+            zy8.w(selfHolder);
             int e0 = e0(list);
             if (a0(e0)) {
                 Z(selfHolder, childitemdata, e0);
                 return;
             }
-            yy8.j(childitemdata, selfHolder);
-            yy8.i(childitemdata, selfHolder);
-            yy8.n(childitemdata, selfHolder);
-            yy8.k(this.mContext, childitemdata, selfHolder, C(), B());
-            yy8.m(this.mContext, childitemdata, selfHolder, C(), B());
-            yy8.h(G(), childitemdata, viewGroup);
+            zy8.j(childitemdata, selfHolder);
+            zy8.i(childitemdata, selfHolder);
+            zy8.n(childitemdata, selfHolder);
+            zy8.k(this.mContext, childitemdata, selfHolder, C(), B());
+            zy8.m(this.mContext, childitemdata, selfHolder, C(), B());
+            zy8.h(G(), childitemdata, viewGroup);
         }
     }
 

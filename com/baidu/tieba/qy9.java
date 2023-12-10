@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public vi d;
     public mm6<dn6> e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends mm6<dn6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements zi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,10 @@ public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            bVar.n(qt.s(this.b.getPageActivity(), "pb", this.c));
+            ot otVar = new ot(this.b.getPageActivity());
+            otVar.setFrom("pb");
+            otVar.x(this.c);
+            bVar.n(otVar);
             cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
             k.t(0);
             ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
@@ -168,8 +171,7 @@ public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
                 threadCardViewHolder.e(dn6Var);
                 threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.e);
-                gm6.a(threadCardViewHolder.a().g(), dn6Var.j, dn6Var.k);
-                b6a.q(dn6Var, this.b);
+                c6a.q(dn6Var, this.b);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -181,11 +183,11 @@ public class qy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, dn6Var) == null) {
             if (view2.getId() == R.id.thread_card_root) {
-                b6a.o(dn6Var, 1, this.b);
+                c6a.o(dn6Var, 1, this.b);
             } else if (view2 instanceof TbImageView) {
-                b6a.o(dn6Var, 3, this.b);
+                c6a.o(dn6Var, 3, this.b);
             } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
-                b6a.o(dn6Var, 1, this.b);
+                c6a.o(dn6Var, 1, this.b);
             }
         }
     }

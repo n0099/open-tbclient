@@ -13,8 +13,8 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.b7b;
 import com.baidu.tieba.c7b;
+import com.baidu.tieba.d7b;
 import com.baidu.tieba.s16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -355,7 +355,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new b7b(new c7b(getWidth(), getHeight()), new c7b(i, i2)).m(this.b)) != null) {
+        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new c7b(new d7b(getWidth(), getHeight()), new d7b(i, i2)).m(this.b)) != null) {
             setTransform(m);
         }
     }

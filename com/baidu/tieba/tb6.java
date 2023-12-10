@@ -55,7 +55,7 @@ public class tb6 {
     public View w;
     public View x;
     public nb6 y;
-    public vz7 z;
+    public wz7 z;
 
     public final void h() {
         Interceptable interceptable = $ic;
@@ -435,7 +435,7 @@ public class tb6 {
             this.y = new nb6(this.a, this.k, this.d);
             this.j.setOnClickListener(new a(this));
             if (this.e) {
-                this.z = new vz7(this.a.getPageActivity(), this.f, this.e);
+                this.z = new wz7(this.a.getPageActivity(), this.f, this.e);
                 this.k.setOnTouchListener(new b(this));
             }
         }

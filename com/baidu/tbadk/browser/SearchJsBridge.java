@@ -13,11 +13,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.bxa;
 import com.baidu.tieba.ck;
-import com.baidu.tieba.fxa;
+import com.baidu.tieba.cxa;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.oxa;
+import com.baidu.tieba.pxa;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
@@ -34,7 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @ck
 /* loaded from: classes4.dex */
-public class SearchJsBridge implements bxa {
+public class SearchJsBridge implements cxa {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -94,7 +94,7 @@ public class SearchJsBridge implements bxa {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                oxa.h(this.a);
+                pxa.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -159,7 +159,7 @@ public class SearchJsBridge implements bxa {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                oxa.b();
+                pxa.b();
                 return null;
             }
             return invokeV.objValue;
@@ -218,26 +218,26 @@ public class SearchJsBridge implements bxa {
         this.mHistoryDatas = new ArrayList();
     }
 
-    public fxa deleteAllSearchHistory() {
+    public gxa deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             ru5.b(new c(this), new d(this));
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa getSearchAdCookie() {
+    public gxa getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fxa fxaVar = new fxa();
-            fxaVar.o(initCookies());
-            return fxaVar;
+            gxa gxaVar = new gxa();
+            gxaVar.o(initCookies());
+            return gxaVar;
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
     public SearchJsBridge(List<String> list) {
@@ -259,15 +259,15 @@ public class SearchJsBridge implements bxa {
         this.mHistoryDatas = list;
     }
 
-    public fxa deleteSearchHistory(String str) {
+    public gxa deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             ru5.b(new a(this, str), new b(this));
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeL.objValue;
+        return (gxa) invokeL.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {
@@ -321,7 +321,7 @@ public class SearchJsBridge implements bxa {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bxa
+    @Override // com.baidu.tieba.cxa
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -361,31 +361,31 @@ public class SearchJsBridge implements bxa {
         return invokeLLLL.booleanValue;
     }
 
-    public fxa getSearchHistoryJson() {
+    public gxa getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                fxaVar.o("");
+                gxaVar.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            fxaVar.o(jSONArray.toString());
+            gxaVar.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeV.objValue;
+        return (gxa) invokeV.objValue;
     }
 
-    public fxa openSearchPage(String str, int i) {
+    public gxa openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            fxa fxaVar = new fxa();
+            gxa gxaVar = new gxa();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -394,8 +394,8 @@ public class SearchJsBridge implements bxa {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return fxaVar;
+            return gxaVar;
         }
-        return (fxa) invokeLI.objValue;
+        return (gxa) invokeLI.objValue;
     }
 }

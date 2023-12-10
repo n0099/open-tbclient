@@ -45,13 +45,13 @@ public class f56 extends fg1<ye0> {
 
         /* renamed from: com.baidu.tieba.f56$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0267a implements bf0 {
+        public class C0264a implements bf0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ ze0 b;
 
-            public C0267a(a aVar, boolean[] zArr, ze0 ze0Var) {
+            public C0264a(a aVar, boolean[] zArr, ze0 ze0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class f56 extends fg1<ye0> {
                     return true;
                 }
                 if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                    df0.a(context, str, null, new C0267a(this, new boolean[1], ze0Var), false);
+                    df0.a(context, str, null, new C0264a(this, new boolean[1], ze0Var), false);
                     return true;
                 }
                 UrlManager.getInstance().dealOneLink(new String[]{str});

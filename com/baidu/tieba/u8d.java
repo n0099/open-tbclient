@@ -5,22 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.StarVoice;
+import tbclient.StarRankIcon;
 /* loaded from: classes8.dex */
-public class u8d extends ktc {
+public class u8d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull StarVoice starVoice) {
+    public static JSONObject b(@NonNull StarRankIcon starRankIcon) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starVoice)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, starRankIcon)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "avatar", starVoice.avatar);
-            ktc.a(jSONObject, "title", starVoice.title);
-            ktc.a(jSONObject, "desc", starVoice.desc);
-            ktc.a(jSONObject, "voice_md5", starVoice.voice_md5);
+            ltc.a(jSONObject, "icon_pic_url", starRankIcon.icon_pic_url);
+            ltc.a(jSONObject, "icon_link", starRankIcon.icon_link);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

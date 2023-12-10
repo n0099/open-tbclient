@@ -4,10 +4,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.btc;
-import com.baidu.tieba.doc;
-import com.baidu.tieba.noc;
-import com.baidu.tieba.q79;
+import com.baidu.tieba.ctc;
+import com.baidu.tieba.eoc;
+import com.baidu.tieba.ooc;
+import com.baidu.tieba.r79;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u0000 \u00132\u00020\u0001:\u0001\u0013B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0006\u0010\r\u001a\u00020\u0007J\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00070\u000fJ\b\u0010\u0010\u001a\u00020\u0011H\u0016J\b\u0010\u0012\u001a\u00020\u0011H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R?\u0010\u0005\u001a&\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u0007 \b*\u0012\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u0007\u0018\u00010\u00060\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\n¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/obs/MainTabChangedMonitor;", "Lcom/baidu/tieba/immessagecenter/msgtab/obs/DataChangedMonitor;", "()V", "mDataChangedListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mSubject", "Lrx/subjects/BehaviorSubject;", "", "kotlin.jvm.PlatformType", "getMSubject", "()Lrx/subjects/BehaviorSubject;", "mSubject$delegate", "Lkotlin/Lazy;", "mainTabChangedData", "mainTabChangedObs", "Lrx/Observable;", "start", "", "stop", "Companion", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MainTabChangedMonitor implements q79 {
+public final class MainTabChangedMonitor implements r79 {
     public static /* synthetic */ Interceptable $ic;
     public static final a c;
     public static final Lazy<MainTabChangedMonitor> d;
@@ -163,27 +163,27 @@ public final class MainTabChangedMonitor implements q79 {
         this.b = new b(this);
     }
 
-    public final btc<Integer> c() {
+    public final ctc<Integer> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (btc) this.a.getValue();
+            return (ctc) this.a.getValue();
         }
-        return (btc) invokeV.objValue;
+        return (ctc) invokeV.objValue;
     }
 
-    public final doc<Integer> d() {
+    public final eoc<Integer> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            doc<Integer> s = c().a().w().s(noc.b());
+            eoc<Integer> s = c().a().w().s(ooc.b());
             Intrinsics.checkNotNullExpressionValue(s, "mSubject.asObservable()\n…dSchedulers.mainThread())");
             return s;
         }
-        return (doc) invokeV.objValue;
+        return (eoc) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q79
+    @Override // com.baidu.tieba.r79
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

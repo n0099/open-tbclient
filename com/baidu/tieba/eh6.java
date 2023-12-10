@@ -54,7 +54,7 @@ public class eh6 extends fg1<wk6> {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                tga.n().g();
+                uga.n().g();
                 pi6.n().k();
                 MessageManager.getInstance().sendMessage(new OfflineResourceReqMsg("0.0.0.0"));
             }
@@ -64,7 +64,7 @@ public class eh6 extends fg1<wk6> {
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                tga.n().g();
+                uga.n().g();
                 pi6.n().k();
                 qi6.e().j(null);
             }

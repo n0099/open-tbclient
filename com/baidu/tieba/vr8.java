@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface vr8 {
-    void a(int i, float f, String str);
+    int k();
 
-    void b();
+    void reset();
 
-    void c(String str, String str2);
+    int s();
 }

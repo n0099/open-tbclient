@@ -1,25 +1,25 @@
 package rx.subjects;
 
-import com.baidu.tieba.cpc;
-import com.baidu.tieba.crc;
-import com.baidu.tieba.csc;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.dpc;
 import com.baidu.tieba.drc;
 import com.baidu.tieba.dsc;
 import com.baidu.tieba.eoc;
+import com.baidu.tieba.erc;
+import com.baidu.tieba.esc;
 import com.baidu.tieba.foc;
-import com.baidu.tieba.joc;
-import com.baidu.tieba.jsc;
+import com.baidu.tieba.goc;
 import com.baidu.tieba.koc;
-import com.baidu.tieba.poc;
+import com.baidu.tieba.ksc;
+import com.baidu.tieba.loc;
 import com.baidu.tieba.qoc;
+import com.baidu.tieba.roc;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public final class UnicastSubject$State<T> extends AtomicLong implements foc, eoc<T>, doc.a<T>, koc {
+public final class UnicastSubject$State<T> extends AtomicLong implements goc, foc<T>, eoc.a<T>, loc {
     public static final long serialVersionUID = -9044104859202255786L;
     public volatile boolean caughtUp;
     public volatile boolean done;
@@ -27,46 +27,46 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
     public Throwable error;
     public boolean missed;
     public final Queue<Object> queue;
-    public final AtomicReference<joc<? super T>> subscriber = new AtomicReference<>();
-    public final AtomicReference<qoc> terminateOnce;
+    public final AtomicReference<koc<? super T>> subscriber = new AtomicReference<>();
+    public final AtomicReference<roc> terminateOnce;
 
-    public UnicastSubject$State(int i, qoc qocVar) {
-        AtomicReference<qoc> atomicReference;
-        Queue<Object> crcVar;
+    public UnicastSubject$State(int i, roc rocVar) {
+        AtomicReference<roc> atomicReference;
+        Queue<Object> drcVar;
         Queue<Object> queue;
-        if (qocVar != null) {
-            atomicReference = new AtomicReference<>(qocVar);
+        if (rocVar != null) {
+            atomicReference = new AtomicReference<>(rocVar);
         } else {
             atomicReference = null;
         }
         this.terminateOnce = atomicReference;
         if (i > 1) {
-            if (jsc.b()) {
-                queue = new dsc<>(i);
+            if (ksc.b()) {
+                queue = new esc<>(i);
             } else {
-                queue = new drc<>(i);
+                queue = new erc<>(i);
             }
         } else {
-            if (jsc.b()) {
-                crcVar = new csc<>();
+            if (ksc.b()) {
+                drcVar = new dsc<>();
             } else {
-                crcVar = new crc<>();
+                drcVar = new drc<>();
             }
-            queue = crcVar;
+            queue = drcVar;
         }
         this.queue = queue;
     }
 
-    public void call(joc<? super T> jocVar) {
-        if (this.subscriber.compareAndSet(null, jocVar)) {
-            jocVar.b(this);
-            jocVar.f(this);
+    public void call(koc<? super T> kocVar) {
+        if (this.subscriber.compareAndSet(null, kocVar)) {
+            kocVar.b(this);
+            kocVar.f(this);
             return;
         }
-        jocVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+        kocVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onError(Throwable th) {
         if (!this.done) {
             doTerminate();
@@ -88,12 +88,12 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
         }
     }
 
-    @Override // com.baidu.tieba.foc
+    @Override // com.baidu.tieba.goc
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                cpc.b(this, j);
+                dpc.b(this, j);
                 replay();
                 return;
             } else if (this.done) {
@@ -106,23 +106,23 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    @Override // com.baidu.tieba.roc
+    @Override // com.baidu.tieba.soc
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((joc) ((joc) obj));
+        call((koc) ((koc) obj));
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, joc<? super T> jocVar) {
-        if (jocVar.isUnsubscribed()) {
+    public boolean checkTerminated(boolean z, boolean z2, koc<? super T> kocVar) {
+        if (kocVar.isUnsubscribed()) {
             this.queue.clear();
             return true;
         } else if (z) {
             Throwable th = this.error;
             if (th != null) {
                 this.queue.clear();
-                jocVar.onError(th);
+                kocVar.onError(th);
                 return true;
             } else if (z2) {
-                jocVar.onCompleted();
+                kocVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -133,19 +133,19 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
     }
 
     public void doTerminate() {
-        qoc qocVar;
-        AtomicReference<qoc> atomicReference = this.terminateOnce;
-        if (atomicReference != null && (qocVar = atomicReference.get()) != null && atomicReference.compareAndSet(qocVar, null)) {
-            qocVar.call();
+        roc rocVar;
+        AtomicReference<roc> atomicReference = this.terminateOnce;
+        if (atomicReference != null && (rocVar = atomicReference.get()) != null && atomicReference.compareAndSet(rocVar, null)) {
+            rocVar.call();
         }
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public boolean isUnsubscribed() {
         return this.done;
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onCompleted() {
         if (!this.done) {
             doTerminate();
@@ -166,7 +166,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
         }
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public void unsubscribe() {
         doTerminate();
         this.done = true;
@@ -179,7 +179,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
         }
     }
 
-    @Override // com.baidu.tieba.eoc
+    @Override // com.baidu.tieba.foc
     public void onNext(T t) {
         if (!this.done) {
             if (!this.caughtUp) {
@@ -195,11 +195,11 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
                     return;
                 }
             }
-            joc<? super T> jocVar = this.subscriber.get();
+            koc<? super T> kocVar = this.subscriber.get();
             try {
-                jocVar.onNext(t);
+                kocVar.onNext(t);
             } catch (Throwable th) {
-                poc.g(th, jocVar, t);
+                qoc.g(th, kocVar, t);
             }
         }
     }
@@ -233,9 +233,9 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
             this.emitting = true;
             Queue<Object> queue = this.queue;
             while (true) {
-                joc<? super T> jocVar = this.subscriber.get();
-                if (jocVar != null) {
-                    if (checkTerminated(this.done, queue.isEmpty(), jocVar)) {
+                koc<? super T> kocVar = this.subscriber.get();
+                if (kocVar != null) {
+                    if (checkTerminated(this.done, queue.isEmpty(), kocVar)) {
                         return;
                     }
                     long j = get();
@@ -253,7 +253,7 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
                         } else {
                             z2 = false;
                         }
-                        if (checkTerminated(z3, z2, jocVar)) {
+                        if (checkTerminated(z3, z2, kocVar)) {
                             return;
                         }
                         if (z2) {
@@ -261,13 +261,13 @@ public final class UnicastSubject$State<T> extends AtomicLong implements foc, eo
                         }
                         Object obj = (Object) NotificationLite.e(poll);
                         try {
-                            jocVar.onNext(obj);
+                            kocVar.onNext(obj);
                             j--;
                             j2++;
                         } catch (Throwable th) {
                             queue.clear();
-                            poc.e(th);
-                            jocVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                            qoc.e(th);
+                            kocVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                             return;
                         }
                     }

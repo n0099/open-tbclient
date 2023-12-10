@@ -4,34 +4,21 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
+import tbclient.Equipment;
 /* loaded from: classes8.dex */
-public class twc extends ktc {
+public class twc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull Esport esport) {
+    public static JSONObject b(@NonNull Equipment equipment) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, esport)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, equipment)) == null) {
             JSONObject jSONObject = new JSONObject();
-            EsportStatic esportStatic = esport._static;
-            if (esportStatic != null) {
-                ktc.a(jSONObject, "static", wwc.b(esportStatic));
-            }
-            ktc.a(jSONObject, "floor_no", esport.floor_no);
-            if (esport.billboard != null) {
-                JSONArray jSONArray = new JSONArray();
-                for (EsportRank esportRank : esport.billboard) {
-                    jSONArray.put(vwc.b(esportRank));
-                }
-                ktc.a(jSONObject, "billboard", jSONArray);
-            }
+            ltc.a(jSONObject, "name", equipment.name);
+            ltc.a(jSONObject, "portrait", equipment.portrait);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

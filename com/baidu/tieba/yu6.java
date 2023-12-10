@@ -50,7 +50,7 @@ public final class yu6 extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            vz0 b = new ksa().b();
+            vz0 b = new lsa().b();
             String b2 = sz0.b(b);
             Intrinsics.checkNotNullExpressionValue(b2, "createTable(table)");
             sQLiteDatabase.execSQL(b2);

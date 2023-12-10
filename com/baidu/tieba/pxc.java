@@ -1,37 +1,48 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.BaseTextColor;
+import tbclient.FeedContentCustom;
+import tbclient.FeedHeadIcon;
+import tbclient.FeedHeadSymbol;
 import tbclient.FeedHeadText;
+import tbclient.FeedKV;
 /* loaded from: classes7.dex */
-public class pxc extends ktc {
+public class pxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedHeadText feedHeadText) {
+    public static JSONObject b(@NonNull FeedHeadSymbol feedHeadSymbol) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedHeadSymbol)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "text", feedHeadText.text);
-            ktc.a(jSONObject, "priority", feedHeadText.priority);
-            ktc.a(jSONObject, "can_degrade", feedHeadText.can_degrade);
-            ktc.a(jSONObject, "degrade_len", feedHeadText.degrade_len);
-            ktc.a(jSONObject, "degrade_priority", feedHeadText.degrade_priority);
-            ktc.a(jSONObject, "suffix", feedHeadText.suffix);
-            ktc.a(jSONObject, "type", feedHeadText.type);
-            BaseTextColor baseTextColor = feedHeadText.color;
-            if (baseTextColor != null) {
-                ktc.a(jSONObject, "color", dvc.b(baseTextColor));
+            FeedHeadIcon feedHeadIcon = feedHeadSymbol.icon;
+            if (feedHeadIcon != null) {
+                ltc.a(jSONObject, "icon", nxc.b(feedHeadIcon));
             }
-            BaseTextColor baseTextColor2 = feedHeadText.bg_color;
-            if (baseTextColor2 != null) {
-                ktc.a(jSONObject, "bg_color", dvc.b(baseTextColor2));
+            ltc.a(jSONObject, "type", feedHeadSymbol.type);
+            FeedHeadText feedHeadText = feedHeadSymbol.text;
+            if (feedHeadText != null) {
+                ltc.a(jSONObject, "text", qxc.b(feedHeadText));
+            }
+            ltc.a(jSONObject, "schema", feedHeadSymbol.schema);
+            if (feedHeadSymbol.log_info != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (FeedKV feedKV : feedHeadSymbol.log_info) {
+                    jSONArray.put(sxc.b(feedKV));
+                }
+                ltc.a(jSONObject, "log_info", jSONArray);
+            }
+            FeedContentCustom feedContentCustom = feedHeadSymbol.custom;
+            if (feedContentCustom != null) {
+                ltc.a(jSONObject, ExceptionHandlerImpl.KEY_CUSTOM, bxc.b(feedContentCustom));
             }
             return jSONObject;
         }

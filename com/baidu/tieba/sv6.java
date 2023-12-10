@@ -163,7 +163,7 @@ public class sv6 extends ov6 implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             for (mv6 mv6Var : list) {
-                PackageInfo a = a68.a(mv6Var.a.pkgName);
+                PackageInfo a = b68.a(mv6Var.a.pkgName);
                 if (a != null) {
                     mv6Var.f = true;
                     if (a.versionCode < mv6Var.a.apkDetail.version_code.intValue()) {

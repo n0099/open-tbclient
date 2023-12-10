@@ -5,23 +5,29 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.PluginUser;
+import tbclient.PkItem;
+import tbclient.PkModule;
 /* loaded from: classes7.dex */
-public class l6d extends ktc {
+public class l6d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull PluginUser pluginUser) {
+    public static JSONObject b(@NonNull PkModule pkModule) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pluginUser)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pkModule)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "user_id", pluginUser.user_id);
-            ktc.a(jSONObject, "user_name_show", pluginUser.user_name_show);
-            ktc.a(jSONObject, "user_type", pluginUser.user_type);
-            ktc.a(jSONObject, "user_photo", pluginUser.user_photo);
-            ktc.a(jSONObject, "is_download_card_whiteuser", pluginUser.is_download_card_whiteuser);
+            ltc.a(jSONObject, "pk_id", pkModule.pk_id);
+            ltc.a(jSONObject, "user_pk_id", pkModule.user_pk_id);
+            PkItem pkItem = pkModule.agree;
+            if (pkItem != null) {
+                ltc.a(jSONObject, "agree", k6d.b(pkItem));
+            }
+            PkItem pkItem2 = pkModule.disagree;
+            if (pkItem2 != null) {
+                ltc.a(jSONObject, "disagree", k6d.b(pkItem2));
+            }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

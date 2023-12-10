@@ -298,22 +298,22 @@ public class yq6 implements xq6 {
     }
 
     /* loaded from: classes9.dex */
-    public static class e implements wsb {
+    public static class e implements xsb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
-        @Override // com.baidu.tieba.wsb
-        public dub c() {
+        @Override // com.baidu.tieba.xsb
+        public eub c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (dub) invokeV.objValue;
+            return (eub) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -338,25 +338,25 @@ public class yq6 implements xq6 {
             this.a = z;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new fcb(TbadkApplication.getInst().getContext());
+                return new gcb(TbadkApplication.getInst().getContext());
             }
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.wsb
+        @Override // com.baidu.tieba.xsb
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.a) {
-                    return f6b.c;
+                    return g6b.c;
                 }
-                return f6b.d;
+                return g6b.d;
             }
             return (String) invokeV.objValue;
         }
@@ -521,7 +521,7 @@ public class yq6 implements xq6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (!o5b.a()) {
+            if (!p5b.a()) {
                 this.a.getPageActivity().finish();
                 return false;
             }
@@ -657,9 +657,9 @@ public class yq6 implements xq6 {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            vsb.d().i(TbadkCoreApplication.getInst());
-            vsb.d().k(FileHelper.getCacheDir());
-            vsb.d().l(new e(this.f));
+            wsb.d().i(TbadkCoreApplication.getInst());
+            wsb.d().k(FileHelper.getCacheDir());
+            wsb.d().l(new e(this.f));
         }
     }
 

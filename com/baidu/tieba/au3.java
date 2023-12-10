@@ -70,13 +70,13 @@ public class au3 extends Dialog {
 
         /* renamed from: com.baidu.tieba.au3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0230a implements View.OnClickListener {
+        public class View$OnClickListenerC0231a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0230a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0231a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -412,7 +412,7 @@ public class au3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0230a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0231a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

@@ -101,7 +101,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int[] SELECTED_STATE = {16842913};
     public static final int[] CHECKABLE_STATE_SET = {16842911};
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes9.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public ChipTouchHelper(Chip chip) {
             super(chip);

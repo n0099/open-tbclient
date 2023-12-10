@@ -181,7 +181,7 @@ public class s95 {
                 this.E = h95Var;
                 h95Var.a(optJSONObject3);
             }
-            lu8.f(jSONObject.optInt("android_max_stranger"));
+            mu8.f(jSONObject.optInt("android_max_stranger"));
             TiebaPlusConfigData tiebaPlusConfigData = new TiebaPlusConfigData();
             tiebaPlusConfigData.setSwitchOpen(jSONObject.optInt("switch_open") == 1);
             tiebaPlusConfigData.setJumpUrl(jSONObject.optString("tiebaplus_jumpurl"));

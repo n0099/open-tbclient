@@ -667,7 +667,7 @@ public class cu<T extends fw4> implements jt, d26 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.onBindDataToView(t);
                 os<T> osVar = this.g;
-                if (osVar instanceof idb) {
+                if (osVar instanceof jdb) {
                     this.d.setTag(R.id.virtual_image_user_head, osVar);
                 }
             }

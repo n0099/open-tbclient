@@ -10,7 +10,7 @@ import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tieba.cy;
-import com.baidu.tieba.fqb;
+import com.baidu.tieba.gqb;
 import com.baidu.ubc.UBCManager;
 import java.util.UUID;
 import org.json.JSONException;
@@ -186,7 +186,7 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.1
             @Override // java.lang.Runnable
             public void run() {
-                fqb fqbVar = (fqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                gqb gqbVar = (gqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
@@ -204,7 +204,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                fqbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                gqbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_EXTERNAL_INVOKE, 3);
     }
@@ -213,7 +213,7 @@ public class WarmTipsManager {
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.security.WarmTipsManager.2
             @Override // java.lang.Runnable
             public void run() {
-                fqb fqbVar = (fqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                gqb gqbVar = (gqb) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("source", str);
@@ -227,7 +227,7 @@ public class WarmTipsManager {
                         e.printStackTrace();
                     }
                 }
-                fqbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
+                gqbVar.onEvent(WarmTipsManager.LAUNCHER_UBC_ID, jSONObject, 128);
             }
         }, UBC_TASK_WIDGET_SCHEME_INVOKE, 3);
     }

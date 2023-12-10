@@ -1,37 +1,42 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class qcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public long d;
-    public Bitmap e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public ocb j;
+    public boolean a;
+    public vcb b;
+    public lcb c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qcb a;
+    }
 
-        public a(qcb qcbVar) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public vcb d;
+        public lcb e;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qcbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +46,65 @@ public class qcb {
                     return;
                 }
             }
-            this.a = qcbVar;
+            this.a = "";
+            this.b = true;
+            this.c = 0;
+            this.d = null;
+            this.e = null;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap bitmap;
+        public qcb d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qcb qcbVar = this.a;
-                if (qcbVar.j != null && (bitmap = qcbVar.e) != null && !bitmap.isRecycled()) {
-                    qcb qcbVar2 = this.a;
-                    qcbVar2.j.a(qcbVar2.f, qcbVar2.e);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e();
+                return new qcb(this, null);
+            }
+            return (qcb) invokeV.objValue;
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (TextUtils.isEmpty(this.a)) {
+                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+                }
+                if (this.c <= 0) {
+                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                }
+                if (this.d == null) {
+                    this.d = new vcb(this.c);
+                }
+                if (this.e == null) {
+                    this.e = new lcb(this.a);
                 }
             }
         }
     }
 
-    public qcb() {
+    public qcb(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        String unused = bVar.a;
+        this.a = bVar.b;
+        int unused2 = bVar.c;
+        this.b = bVar.d;
+        this.c = bVar.e;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kxb.a().post(new a(this));
-        }
+    public /* synthetic */ qcb(b bVar, a aVar) {
+        this(bVar);
     }
 }

@@ -32,12 +32,12 @@ import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
-import com.baidu.tieba.ku8;
+import com.baidu.tieba.lu8;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.u59;
+import com.baidu.tieba.v59;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.gameim.GameContactsView;
 import com.baidu.tieba.view.gameim.GamePersonalChatTitleView;
@@ -319,10 +319,10 @@ public class GamePersonalChatView extends PersonalChatView {
                 this.a.z.h(gameMatchUser);
                 this.a.w.K = false;
                 this.a.L0(gameMatchUser);
-                u59.h(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                v59.h(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
             }
             if (i != 1) {
-                u59.e(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                v59.e(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
             }
         }
     }
@@ -355,7 +355,7 @@ public class GamePersonalChatView extends PersonalChatView {
         public void a(@NonNull GameMatchUser gameMatchUser) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gameMatchUser) == null) {
-                u59.a(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
+                v59.a(this.a.G, this.a.F, gameMatchUser.getUserId(), gameMatchUser.getPos(), gameMatchUser.isFree());
                 if (gameMatchUser.isFree()) {
                     if (this.a.w.w1() != null && !TextUtils.isEmpty(this.a.E)) {
                         this.a.w.w1().sendTextMessage(this.a.E);
@@ -496,7 +496,7 @@ public class GamePersonalChatView extends PersonalChatView {
             if ((interceptable == null || interceptable.invokeL(1048576, this, he5Var) == null) && he5Var != null && this.a.H != null) {
                 int i = he5Var.a;
                 if (i == 14) {
-                    u59.d(this.a.G, this.a.F, this.a.H.getPos(), this.a.H.isFree());
+                    v59.d(this.a.G, this.a.F, this.a.H.getPos(), this.a.H.isFree());
                     return;
                 }
                 int i2 = 1;
@@ -511,7 +511,7 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue) {
                             i2 = 2;
                         }
-                        u59.f(str, str2, pos, isFree, i2);
+                        v59.f(str, str2, pos, isFree, i2);
                     }
                 } else if (i == 62) {
                     Object obj2 = he5Var.c;
@@ -524,10 +524,10 @@ public class GamePersonalChatView extends PersonalChatView {
                         if (!booleanValue2) {
                             i2 = 2;
                         }
-                        u59.c(str3, str4, pos2, isFree2, i2);
+                        v59.c(str3, str4, pos2, isFree2, i2);
                     }
                 } else if (i == 64) {
-                    u59.b(this.a.G, this.a.F, this.a.H.getPos(), this.a.H.isFree());
+                    v59.b(this.a.G, this.a.F, this.a.H.getPos(), this.a.H.isFree());
                 }
             }
         }
@@ -599,7 +599,7 @@ public class GamePersonalChatView extends PersonalChatView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ku8.w().a(this.a);
+                return lu8.w().a(this.a);
             }
             return (Void) invokeV.objValue;
         }

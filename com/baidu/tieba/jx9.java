@@ -1,59 +1,135 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.feedback.AigcFeedbackHelper;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.AgreeMessageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class jx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kx9 a;
-    public final kx9 b;
-    public final kx9 c;
-    public final kx9 d;
-    public final kx9 e;
+    public final BdUniqueId a;
+    public final Function0<ArrayList<pi>> b;
+    public final Function0<Unit> c;
+    public final CustomMessageListener d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes6.dex */
+    public static final class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jx9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jx9 jx9Var) {
+            super(2016530);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jx9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof jx9) {
-                jx9 jx9Var = (jx9) obj;
-                return Intrinsics.areEqual(this.a, jx9Var.a) && Intrinsics.areEqual(this.b, jx9Var.b) && Intrinsics.areEqual(this.c, jx9Var.c) && Intrinsics.areEqual(this.d, jx9Var.d) && Intrinsics.areEqual(this.e, jx9Var.e);
+            this.a = jx9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof AgreeMessageData)) {
+                Object data = customResponsedMessage.getData();
+                if (data != null) {
+                    AgreeMessageData agreeMessageData = (AgreeMessageData) data;
+                    AgreeData agreeData = agreeMessageData.agreeData;
+                    if (agreeData != null && !TextUtils.isEmpty(agreeData.threadId) && !TextUtils.isEmpty(agreeData.postId)) {
+                        ArrayList arrayList = (ArrayList) this.a.b.invoke();
+                        if (arrayList != null && !arrayList.isEmpty()) {
+                            z = false;
+                        } else {
+                            z = true;
+                        }
+                        if (z) {
+                            return;
+                        }
+                        Object obj = null;
+                        Iterator it = arrayList.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            }
+                            Object obj2 = (pi) it.next();
+                            if (obj2 instanceof nwa) {
+                                nwa nwaVar = (nwa) obj2;
+                                String valueOf = String.valueOf(nwaVar.q0());
+                                String U = nwaVar.U();
+                                if (Intrinsics.areEqual(agreeData.threadId, valueOf) && Intrinsics.areEqual(agreeData.postId, U)) {
+                                    obj = obj2;
+                                    break;
+                                }
+                            }
+                        }
+                        if (obj != null) {
+                            nwa nwaVar2 = (nwa) obj;
+                            if (nwaVar2.z0()) {
+                                AgreeData p = nwaVar2.p();
+                                if (p != null) {
+                                    jx9 jx9Var = this.a;
+                                    if (!Intrinsics.areEqual(jx9Var.a, agreeMessageData.uniqueId)) {
+                                        p.agreeType = agreeData.agreeType;
+                                        p.hasAgree = agreeData.hasAgree;
+                                        p.diffAgreeNum = agreeData.diffAgreeNum;
+                                        p.agreeNum = agreeData.agreeNum;
+                                        p.disAgreeNum = agreeData.disAgreeNum;
+                                    } else if (p.isSelectDisagree()) {
+                                        nwaVar2.X0(1);
+                                        AigcFeedbackHelper.d(nwaVar2);
+                                    } else if (p.isSelectAgree() || jx9Var.e(p)) {
+                                        nwaVar2.X0(0);
+                                    }
+                                }
+                                this.a.c.invoke();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type com.baidu.tieba.tbadkCore.data.AgreeMessageData");
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "AigcFeedbackTypesState(selectPositive=" + this.a + ", selectingPositive=" + this.b + ", selectNegative=" + this.c + ", unselectPositive=" + this.d + ", unselectNegative=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public jx9(kx9 selectPositive, kx9 selectingPositive, kx9 selectNegative, kx9 unselectPositive, kx9 unselectNegative) {
+    public jx9(BdUniqueId uniqueId, Function0<? extends ArrayList<pi>> dataList, Function0<Unit> afterSync) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {selectPositive, selectingPositive, selectNegative, unselectPositive, unselectNegative};
+            Object[] objArr = {uniqueId, dataList, afterSync};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,60 +139,34 @@ public final class jx9 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(selectPositive, "selectPositive");
-        Intrinsics.checkNotNullParameter(selectingPositive, "selectingPositive");
-        Intrinsics.checkNotNullParameter(selectNegative, "selectNegative");
-        Intrinsics.checkNotNullParameter(unselectPositive, "unselectPositive");
-        Intrinsics.checkNotNullParameter(unselectNegative, "unselectNegative");
-        this.a = selectPositive;
-        this.b = selectingPositive;
-        this.c = selectNegative;
-        this.d = unselectPositive;
-        this.e = unselectNegative;
+        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
+        Intrinsics.checkNotNullParameter(dataList, "dataList");
+        Intrinsics.checkNotNullParameter(afterSync, "afterSync");
+        this.a = uniqueId;
+        this.b = dataList;
+        this.c = afterSync;
+        this.d = new a(this);
     }
 
-    public final kx9 a() {
+    public final boolean e(AgreeData agreeData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeData)) == null) {
+            Intrinsics.checkNotNullParameter(agreeData, "<this>");
+            if (!agreeData.hasAgree && agreeData.isDisagreeType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final CustomMessageListener d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (kx9) invokeV.objValue;
-    }
-
-    public final kx9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (kx9) invokeV.objValue;
-    }
-
-    public final kx9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (kx9) invokeV.objValue;
-    }
-
-    public final kx9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (kx9) invokeV.objValue;
-    }
-
-    public final kx9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
-        return (kx9) invokeV.objValue;
+        return (CustomMessageListener) invokeV.objValue;
     }
 }

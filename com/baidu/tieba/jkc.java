@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.os.Message;
 import android.view.Surface;
-import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,18 +13,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.transvod.player.log.TLog;
 /* loaded from: classes6.dex */
-public class jkc extends fkc implements TextureView.SurfaceTextureListener {
+public class jkc extends gkc implements nkc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Surface K;
-    public int L;
 
-    public jkc(Context context, xjc xjcVar, int i, int i2, pic picVar) {
+    @Override // com.baidu.tieba.dkc
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.dkc
+    public void d(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+        }
+    }
+
+    public jkc(Context context, xjc xjcVar, int i, int i2, qic qicVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, xjcVar, Integer.valueOf(i), Integer.valueOf(i2), picVar};
+            Object[] objArr = {context, xjcVar, Integer.valueOf(i), Integer.valueOf(i2), qicVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -36,17 +48,16 @@ public class jkc extends fkc implements TextureView.SurfaceTextureListener {
             }
         }
         this.K = null;
-        this.L = 0;
-        A(context, xjcVar, i, i2, picVar);
+        A(context, xjcVar, i, i2, qicVar);
     }
 
-    @Override // com.baidu.tieba.fkc
-    public void A(Context context, Object obj, int i, int i2, pic picVar) {
+    @Override // com.baidu.tieba.gkc
+    public void A(Context context, Object obj, int i, int i2, qic qicVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), picVar}) == null) {
-            super.A(context, obj, i, i2, picVar);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, obj, Integer.valueOf(i), Integer.valueOf(i2), qicVar}) == null) {
+            super.A(context, obj, i, i2, qicVar);
             if (obj != null && (obj instanceof xjc)) {
-                ((xjc) obj).a(this);
+                ((xjc) obj).b(this);
             }
         }
     }
@@ -54,115 +65,76 @@ public class jkc extends fkc implements TextureView.SurfaceTextureListener {
     public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            X(false);
-            if (this.d != null && this.a.available()) {
-                this.d.g(2402);
-                this.d.f(2402);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ckc
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.c != null) {
-            TLog.g(this, "OutputExternalSurfaceRender destroyWindow");
-        }
-    }
-
-    @Override // com.baidu.tieba.ckc
-    public Object getWindow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.K;
-        }
-        return invokeV.objValue;
-    }
-
-    public final void Z(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture) == null) {
             X(true);
             if (this.d != null) {
                 if (this.a.available()) {
                     this.d.g(2402);
                     this.d.f(2402);
                 }
-                TLog.g(this, "do send surfaceCreated, playerUID:" + this.r);
+                TLog.h("[OutputExternalSetSurfaceRender]", "do send surfaceCreated.");
                 this.d.g(2401);
-                this.d.sendMessage(Message.obtain(null, 2401, surfaceTexture));
+                this.d.f(2401);
             }
         }
     }
 
-    public final void a0(SurfaceTexture surfaceTexture, int i, int i2) {
-        xhc xhcVar;
+    public final void Z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048579, this, surfaceTexture, i, i2) == null) && (xhcVar = this.d) != null) {
-            xhcVar.g(2404);
-            this.d.sendMessage(Message.obtain(null, 2404, i, i2, surfaceTexture));
-            TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            X(false);
+            if (this.d != null && this.a.available()) {
+                TLog.h("[OutputExternalSetSurfaceRender]", "do send surfaceDestroyed.");
+                this.d.g(2402);
+                this.d.f(2402);
+            }
         }
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+    @Override // com.baidu.tieba.nkc
+    public void a(Surface surface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, surfaceTexture, i, i2) == null) {
-            if (this.L % 100 == 0) {
-                TLog.g(this, "onSurfaceTextureSizeChanged() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            }
-            this.L++;
+        if (interceptable == null || interceptable.invokeL(1048579, this, surface) == null) {
+            this.K = surface;
+            this.I.set(true);
+            Y();
+        }
+    }
+
+    @Override // com.baidu.tieba.nkc
+    public void b(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
+            TLog.h("[OutputExternalSetSurfaceRender]", String.format("surfaceChanged(%d, %d, %d).", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)));
             D();
             this.I.set(true);
             U();
-            a0(surfaceTexture, i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ckc
-    public void d(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, surfaceTexture) == null) {
-            this.K = new Surface(surfaceTexture);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, surfaceTexture) == null) && this.d != null && this.a.available()) {
-            this.d.g(2405);
-            this.d.f(2405);
-        }
-    }
-
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, surfaceTexture, i, i2) == null) {
-            TLog.g(this, "onSurfaceTextureAvailable() width:" + i + ", height:" + i2 + ", playerUID:" + this.r);
-            this.I.set(true);
-            Z(surfaceTexture);
-            if (i > 0 && i2 > 0) {
-                a0(surfaceTexture, i, i2);
+            yhc yhcVar = this.d;
+            if (yhcVar != null) {
+                yhcVar.g(2404);
+                this.d.sendMessage(Message.obtain(null, 2404, i2, i3));
             }
         }
     }
 
-    @Override // android.view.TextureView.SurfaceTextureListener
-    public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dkc
+    public Object getWindow() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceTexture)) == null) {
-            TLog.g(this, "onSurfaceTextureDestroyed playerUID:" + this.r);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.K;
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nkc
+    public void surfaceDestroyed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Z();
             D();
             this.I.set(false);
             U();
-            Y();
-            return false;
+            this.K = null;
         }
-        return invokeL.booleanValue;
     }
 }

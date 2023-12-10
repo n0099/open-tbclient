@@ -35,11 +35,11 @@ public class wy3 {
 
         /* renamed from: com.baidu.tieba.wy3$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0527a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0524a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0527a(a aVar) {
+            public C0524a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class wy3 {
         public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && !TextUtils.isEmpty(str) && this.a != null) {
-                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0527a(this).getType());
+                ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0524a(this).getType());
                 if (resultData == null) {
                     this.a.onFail("result is null");
                 } else if (resultData.errno == 0) {

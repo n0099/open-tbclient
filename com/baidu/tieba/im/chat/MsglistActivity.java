@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.is8;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.js8;
+import com.baidu.tieba.ps8;
 import com.baidu.tieba.tt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements is8 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements js8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean u;
 
-    public abstract boolean P1(is8 is8Var);
+    public abstract boolean P1(js8 js8Var);
 
     public abstract boolean Q1(Bundle bundle);
 
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.baidu.tieba.is8
+    @Override // com.baidu.tieba.js8
     public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -164,7 +164,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             }
             S1();
             Z1();
-            os8.a = tt5.b();
+            ps8.a = tt5.b();
         }
     }
 

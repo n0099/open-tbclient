@@ -84,11 +84,11 @@ public class cn1 extends ou1 {
 
         /* renamed from: com.baidu.tieba.cn1$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0243b implements Runnable {
+        public class RunnableC0240b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0243b(b bVar) {
+            public RunnableC0240b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +188,7 @@ public class cn1 extends ou1 {
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
                         if (this.a) {
-                            ek3.e0(new RunnableC0243b(this));
+                            ek3.e0(new RunnableC0240b(this));
                         }
                         this.c.O(this.b, optInt, jSONObject.optString("errmsg"), false);
                         return;

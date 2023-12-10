@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.pu4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.u45;
@@ -169,25 +169,25 @@ public final class AigcFeedbackHelper {
     }
 
     @JvmStatic
-    public static final void d(mwa mwaVar) {
+    public static final void d(nwa nwaVar) {
         String str;
         AigcFeedbackInfo t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mwaVar) == null) {
-            if (mwaVar != null && (t = mwaVar.t()) != null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nwaVar) == null) {
+            if (nwaVar != null && (t = nwaVar.t()) != null) {
                 str = t.feedback_url;
             } else {
                 str = null;
             }
             if (str != null && !TextUtils.isEmpty(str)) {
                 HashMap<String, Serializable> hashMap = new HashMap<>();
-                String U = mwaVar.U();
+                String U = nwaVar.U();
                 String str2 = "0";
                 if (U == null) {
                     U = "0";
                 }
                 hashMap.put("post_id", U);
-                String v = mwaVar.v();
+                String v = nwaVar.v();
                 if (v != null) {
                     str2 = v;
                 }

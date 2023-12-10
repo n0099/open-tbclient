@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Objects;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class d19 {
@@ -45,12 +48,43 @@ public final class d19 {
         }
     }
 
-    public final void a(String tag, Exception exception) {
+    public final <T> boolean a(List<? extends T> first, List<? extends T> second) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tag, exception) == null) {
-            Intrinsics.checkNotNullParameter(tag, "tag");
-            Intrinsics.checkNotNullParameter(exception, "exception");
-            Log.e("lt-log", "IMExceptionMonitor-report-" + tag + "-exception:" + exception.getMessage());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, first, second)) == null) {
+            Intrinsics.checkNotNullParameter(first, "first");
+            Intrinsics.checkNotNullParameter(second, "second");
+            if (first == second) {
+                return true;
+            }
+            if (first.size() != second.size()) {
+                return false;
+            }
+            int i = 0;
+            for (T t : first) {
+                int i2 = i + 1;
+                if (i < 0) {
+                    CollectionsKt__CollectionsKt.throwIndexOverflow();
+                }
+                if (!Objects.equals(t, second.get(i))) {
+                    return false;
+                }
+                i = i2;
+            }
+            return true;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public final <T> boolean b(List<? extends T> list, List<? extends T> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2)) == null) {
+            if (list == null || list2 == null) {
+                return true;
+            }
+            return !a(list, list2);
+        }
+        return invokeLL.booleanValue;
     }
 }

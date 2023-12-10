@@ -11,7 +11,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.g92;
 import com.baidu.tieba.o63;
 import com.baidu.tieba.uf3;
@@ -30,19 +30,19 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class k92 extends o92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean C;
     public transient /* synthetic */ FieldHolder $fh;
     public ee4 A;
-    public joc<if4> B;
+    public koc<if4> B;
     public String c;
-    public joc<? super jf4> d;
-    public joc<? super kf4> e;
-    public joc<? super hf4> f;
-    public joc<? super ff4> g;
-    public joc<? super lf4> h;
+    public koc<? super jf4> d;
+    public koc<? super kf4> e;
+    public koc<? super hf4> f;
+    public koc<? super ff4> g;
+    public koc<? super lf4> h;
     public sj4 i;
     public jf4 j;
     public List<kf4> k;
@@ -75,20 +75,20 @@ public abstract class k92 extends o92 {
 
     public abstract void w0(Throwable th);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends yd4<jf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
 
         /* renamed from: com.baidu.tieba.k92$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0378a implements dl3<o63.a> {
+        /* loaded from: classes7.dex */
+        public class C0377a implements dl3<o63.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0378a(a aVar) {
+            public C0377a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -281,18 +281,18 @@ public abstract class k92 extends o92 {
                 if (k92.C) {
                     pr2.d(l0).f(jf4Var.toString()).d(1);
                 }
-                C0378a c0378a = new C0378a(this);
+                C0377a c0377a = new C0377a(this);
                 Bundle bundle = new Bundle();
                 bundle.putLong("length", j);
                 bundle.putFloat("progress_granularity", 0.1f);
                 ip2 ip2Var = new ip2();
-                ip2Var.u(c0378a);
+                ip2Var.u(c0377a);
                 ip2Var.K(bundle);
                 ip2Var.J(new hp2(jf4Var, this.a));
                 ip2Var.J(new fp2(jf4Var.m, this.a));
                 ip2Var.M(readableByteChannel);
                 boolean N = ip2Var.N();
-                ip2Var.o(c0378a);
+                ip2Var.o(c0377a);
                 if (k92.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.i0() + ": onProcessStream: installOk=" + N);
                 }
@@ -309,7 +309,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,7 +346,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements dl3<t92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -411,7 +411,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements dl3<t92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -448,7 +448,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements dl3<t92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -483,7 +483,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements g92.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -536,7 +536,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g implements g92.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -596,7 +596,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h implements g92.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -649,7 +649,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class i implements g92.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -699,8 +699,8 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class j extends joc<if4> {
+    /* loaded from: classes7.dex */
+    public class j extends koc<if4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 e;
@@ -724,7 +724,7 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         /* renamed from: g */
         public void onNext(if4 if4Var) {
             Interceptable interceptable = $ic;
@@ -733,7 +733,7 @@ public abstract class k92 extends o92 {
             }
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -742,7 +742,7 @@ public abstract class k92 extends o92 {
             }
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -752,8 +752,8 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class k implements doc.a<jf4> {
+    /* loaded from: classes7.dex */
+    public class k implements eoc.a<jf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
@@ -777,19 +777,19 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super jf4> jocVar) {
+        public void call(koc<? super jf4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.d = jocVar;
+            this.a.d = kocVar;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class l implements doc.a<kf4> {
+    /* loaded from: classes7.dex */
+    public class l implements eoc.a<kf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
@@ -813,19 +813,19 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super kf4> jocVar) {
+        public void call(koc<? super kf4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.e = jocVar;
+            this.a.e = kocVar;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class m implements doc.a<hf4> {
+    /* loaded from: classes7.dex */
+    public class m implements eoc.a<hf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
@@ -849,19 +849,19 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super hf4> jocVar) {
+        public void call(koc<? super hf4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.f = jocVar;
+            this.a.f = kocVar;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class n implements doc.a<ff4> {
+    /* loaded from: classes7.dex */
+    public class n implements eoc.a<ff4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
@@ -885,19 +885,19 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super ff4> jocVar) {
+        public void call(koc<? super ff4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.g = jocVar;
+            this.a.g = kocVar;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class o implements doc.a<lf4> {
+    /* loaded from: classes7.dex */
+    public class o implements eoc.a<lf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k92 a;
@@ -921,18 +921,18 @@ public abstract class k92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super lf4> jocVar) {
+        public void call(koc<? super lf4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.h = jocVar;
+            this.a.h = kocVar;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class p extends r92<k92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1052,7 +1052,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class q extends p92<k92> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1150,7 +1150,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class r extends yd4<hf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1290,7 +1290,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class s extends yd4<ff4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1429,7 +1429,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class t implements ee4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1470,7 +1470,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class u implements dl3<dl3<PMSAppInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1505,7 +1505,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class v implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1540,7 +1540,7 @@ public abstract class k92 extends o92 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class w implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1846,10 +1846,10 @@ public abstract class k92 extends o92 {
     }
 
     public final void q0(ff4 ff4Var) {
-        joc<? super ff4> jocVar;
+        koc<? super ff4> kocVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, ff4Var) == null) && (jocVar = this.g) != null) {
-            jocVar.onNext(ff4Var);
+        if ((interceptable == null || interceptable.invokeL(1048602, this, ff4Var) == null) && (kocVar = this.g) != null) {
+            kocVar.onNext(ff4Var);
             this.g.onCompleted();
         }
     }
@@ -2069,22 +2069,22 @@ public abstract class k92 extends o92 {
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.i.f()) {
-                arrayList.add(doc.d(new k(this)));
+                arrayList.add(eoc.d(new k(this)));
             }
             if (this.i.h()) {
-                arrayList.add(doc.d(new l(this)));
+                arrayList.add(eoc.d(new l(this)));
             }
             if (this.i.e()) {
-                arrayList.add(doc.d(new m(this)));
+                arrayList.add(eoc.d(new m(this)));
             }
             if (this.i.d()) {
-                arrayList.add(doc.d(new n(this)));
+                arrayList.add(eoc.d(new n(this)));
             }
             if (this.i.b()) {
-                arrayList.add(doc.d(new o(this)));
+                arrayList.add(eoc.d(new o(this)));
             }
             if (!arrayList.isEmpty()) {
-                doc.q(arrayList).F(this.B);
+                eoc.q(arrayList).F(this.B);
             }
         }
     }

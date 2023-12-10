@@ -9,16 +9,8 @@ import java.util.List;
 public class tva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public uva f;
-    public String g;
-    public int h;
-    public List<String> i;
-    public String j;
+    public int a;
+    public List<uva> b;
 
     public tva() {
         Interceptable interceptable = $ic;

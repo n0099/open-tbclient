@@ -21,8 +21,8 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.widget.titletags.TitleTagsView;
-import com.baidu.tieba.m08;
 import com.baidu.tieba.n08;
+import com.baidu.tieba.o08;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.tieba.xr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -37,7 +37,7 @@ import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 import tbclient.TagLabelInfo;
 /* loaded from: classes6.dex */
-public class HeaderComponentSingleView extends FrameLayout implements n08 {
+public class HeaderComponentSingleView extends FrameLayout implements o08 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -52,12 +52,12 @@ public class HeaderComponentSingleView extends FrameLayout implements n08 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public m08 j;
+    public n08 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.n08
+    @Override // com.baidu.tieba.o08
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,13 +79,13 @@ public class HeaderComponentSingleView extends FrameLayout implements n08 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0285a implements View.OnClickListener {
+        public class View$OnClickListenerC0281a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0285a(a aVar, int i) {
+            public View$OnClickListenerC0281a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class HeaderComponentSingleView extends FrameLayout implements n08 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.startLoad((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0285a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0281a(this, i));
             }
         }
 
@@ -328,16 +328,16 @@ public class HeaderComponentSingleView extends FrameLayout implements n08 {
         }
     }
 
-    @Override // com.baidu.tieba.n08
-    public void a(List<LiveFuseForumData> list, m08 m08Var) {
+    @Override // com.baidu.tieba.o08
+    public void a(List<LiveFuseForumData> list, n08 n08Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, m08Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, n08Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = m08Var;
+        this.j = n08Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -372,13 +372,13 @@ public class HeaderComponentSingleView extends FrameLayout implements n08 {
         }
         f();
         setOnClickListener(new b(this));
-        m08 m08Var2 = this.j;
-        if (m08Var2 != null) {
-            m08Var2.a(1, this.k);
+        n08 n08Var2 = this.j;
+        if (n08Var2 != null) {
+            n08Var2.a(1, this.k);
         }
     }
 
-    @Override // com.baidu.tieba.n08
+    @Override // com.baidu.tieba.o08
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

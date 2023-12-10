@@ -63,33 +63,33 @@ import com.baidu.tbadk.util.MaskView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.br6;
-import com.baidu.tieba.bu9;
 import com.baidu.tieba.cp5;
+import com.baidu.tieba.cu9;
 import com.baidu.tieba.ee5;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.ge5;
-import com.baidu.tieba.hs7;
 import com.baidu.tieba.i55;
-import com.baidu.tieba.ie7;
+import com.baidu.tieba.is7;
+import com.baidu.tieba.je7;
 import com.baidu.tieba.lw4;
-import com.baidu.tieba.mua;
 import com.baidu.tieba.nm6;
+import com.baidu.tieba.nua;
 import com.baidu.tieba.pb.PbFirstFloorDoubleClickAnimation;
 import com.baidu.tieba.r55;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sq6;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tua;
 import com.baidu.tieba.uh5;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wr7;
 import com.baidu.tieba.xb5;
 import com.baidu.tieba.xc5;
 import com.baidu.tieba.xl6;
 import com.baidu.tieba.xo5;
 import com.baidu.tieba.xr7;
+import com.baidu.tieba.yr7;
 import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -1088,7 +1088,7 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
             if (!TextUtils.isEmpty(xc5Var.e)) {
                 string = xc5Var.e;
             }
-            sq6Var.T(string, ie7.a("springfestival", "home_reply"));
+            sq6Var.T(string, je7.a("springfestival", "home_reply"));
         }
     }
 
@@ -1865,7 +1865,7 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
             EMTextView eMTextView = this.o;
             ThreadData threadData = this.C;
             if (threadData != null && threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                color = tua.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
+                color = uua.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
             } else {
                 color = SkinManager.getColor(R.color.CAM_X0107);
             }
@@ -1931,7 +1931,7 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
                 }
                 if (TbSingleton.getInstance().isPbPreloadSwitchOn() && z(this.C)) {
                     addLocateParam.setNeedPreLoad(true);
-                    hs7.e(this.C);
+                    is7.e(this.C);
                 }
                 if (this.C.isQualityReplyThread) {
                     addLocateParam.setFromHomePageQuality(true);
@@ -2127,18 +2127,18 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) && this.y != null && (threadData = this.C) != null && this.z != null && !threadData.isTransportThread()) {
             boolean z = true;
-            if (!this.C.isMarkToDel() && xr7.f().i()) {
-                if (xr7.f().a(this.C)) {
+            if (!this.C.isMarkToDel() && yr7.f().i()) {
+                if (yr7.f().a(this.C)) {
                     this.C.setMarkToDel(true);
                 }
-            } else if (!this.C.isMarkToMove() && wr7.h().j()) {
-                if (wr7.h().a(this.C)) {
+            } else if (!this.C.isMarkToMove() && xr7.h().j()) {
+                if (xr7.h().a(this.C)) {
                     this.C.setMarkToMove(true);
                 }
             } else {
-                xr7.f().l(this.C);
+                yr7.f().l(this.C);
                 this.C.setMarkToDel(false);
-                wr7.h().l(this.C);
+                xr7.h().l(this.C);
                 this.C.setMarkToMove(false);
             }
             if (!this.C.isMarkToDel() && !this.C.isMarkToMove()) {
@@ -2167,7 +2167,7 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
                     view2.setVisibility(8);
                 }
                 this.A.setVisibility(8);
-            } else if (this.M && !A(128) && (xr7.f().i() || wr7.h().j())) {
+            } else if (this.M && !A(128) && (yr7.f().i() || xr7.h().j())) {
                 if (this.d0 == null) {
                     View view3 = new View(getContext());
                     this.d0 = view3;
@@ -2348,7 +2348,7 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
                 f2 = 1.0f;
             }
             agreeView.setAlpha(f2);
-            if (!this.e.I() && this.e.getFriendBotView() != null && this.B.getVisibility() != 0 && threadData.getCallRobotEntrance() != null && bu9.c()) {
+            if (!this.e.I() && this.e.getFriendBotView() != null && this.B.getVisibility() != 0 && threadData.getCallRobotEntrance() != null && cu9.c()) {
                 u();
                 this.B.setVisibility(0);
                 this.B.playAnimation();
@@ -2531,9 +2531,9 @@ public class ThreadCommentAndPraiseInfoLayout extends RelativeLayout implements 
             i4 = 1;
         }
         if (i3 > 0 && i4 > 0) {
-            TiebaStatic.log(mua.o("c13694", threadData, i4, i3));
+            TiebaStatic.log(nua.o("c13694", threadData, i4, i3));
         }
-        mua.t(CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK, threadData, i2);
+        nua.t(CommonStatisticKey.KEY_LIVE_MERGE_CARD_CLICK, threadData, i2);
     }
 
     public final void p(Context context, ThreadData threadData) {

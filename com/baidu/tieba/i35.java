@@ -85,30 +85,30 @@ public final class i35 {
             return (ApkDownloadInfoData) invokeL.objValue;
         }
 
-        public final ApkDownloadInfoData b(jsa jsaVar) {
+        public final ApkDownloadInfoData b(ksa ksaVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsaVar)) == null) {
-                if (jsaVar == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ksaVar)) == null) {
+                if (ksaVar == null) {
                     return null;
                 }
                 TbDownloadManager tbDownloadManager = new TbDownloadManager();
                 ItemData itemData = new ItemData();
-                itemData.parseJson(jsaVar.c());
+                itemData.parseJson(ksaVar.c());
                 tbDownloadManager.w(itemData.mTbFileDownloaderType);
-                DownloadData downloadData = new DownloadData(jsaVar.t(), jsaVar.d());
+                DownloadData downloadData = new DownloadData(ksaVar.t(), ksaVar.d());
                 ApkDownloadInfoData apkDownloadInfoData = new ApkDownloadInfoData();
                 apkDownloadInfoData.setApkIcon(itemData.mIconUrl);
                 apkDownloadInfoData.setApkName(itemData.mTitle);
                 apkDownloadInfoData.setApkPackageName(itemData.pkgName);
-                apkDownloadInfoData.setFinishDownloadTime(jsaVar.f());
-                apkDownloadInfoData.setItemId((int) jsaVar.g());
-                apkDownloadInfoData.setTitle(jsaVar.t());
+                apkDownloadInfoData.setFinishDownloadTime(ksaVar.f());
+                apkDownloadInfoData.setItemId((int) ksaVar.g());
+                apkDownloadInfoData.setTitle(ksaVar.t());
                 apkDownloadInfoData.setApkPath(tbDownloadManager.o(downloadData));
                 apkDownloadInfoData.setApkFile(new File(apkDownloadInfoData.getApkPath()));
                 apkDownloadInfoData.setNotificationShowCount(itemData.notificationShowCount);
-                apkDownloadInfoData.setItemSource(jsaVar.r());
-                apkDownloadInfoData.setDownloadUrl(jsaVar.d());
+                apkDownloadInfoData.setItemSource(ksaVar.r());
+                apkDownloadInfoData.setDownloadUrl(ksaVar.d());
                 return apkDownloadInfoData;
             }
             return (ApkDownloadInfoData) invokeL.objValue;

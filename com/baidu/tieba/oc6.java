@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class oc6 extends nl6<wua> implements km6 {
+public class oc6 extends nl6<xua> implements km6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSkinView i;
@@ -48,7 +48,7 @@ public class oc6 extends nl6<wua> implements km6 {
     public ParentDisallowInterceptHListView p;
     public ec6 q;
     public boolean r;
-    public wua s;
+    public xua s;
     public String t;
     public AdapterView.d u;
 
@@ -198,14 +198,14 @@ public class oc6 extends nl6<wua> implements km6 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.nl6
     /* renamed from: B */
-    public void j(wua wuaVar) {
+    public void j(xua xuaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wuaVar) != null) || wuaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xuaVar) != null) || xuaVar == null) {
             return;
         }
-        this.s = wuaVar;
+        this.s = xuaVar;
         z();
-        this.q.b(wuaVar.a);
+        this.q.b(xuaVar.a);
         k(h(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -261,8 +261,8 @@ public class oc6 extends nl6<wua> implements km6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            wua wuaVar = this.s;
-            if (wuaVar != null && !ListUtils.isEmpty(wuaVar.a)) {
+            xua xuaVar = this.s;
+            if (xuaVar != null && !ListUtils.isEmpty(xuaVar.a)) {
                 for (ThreadData threadData2 : this.s.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(C(threadData2));
                 }

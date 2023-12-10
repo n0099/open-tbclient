@@ -39,13 +39,13 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c6a;
 import com.baidu.tieba.cs4;
 import com.baidu.tieba.d6a;
-import com.baidu.tieba.h5b;
+import com.baidu.tieba.e6a;
+import com.baidu.tieba.i5b;
 import com.baidu.tieba.ky5;
-import com.baidu.tieba.r6a;
 import com.baidu.tieba.rd;
+import com.baidu.tieba.s6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class PbFallingView extends FrameLayout {
     public View c;
     public View d;
     public TextView e;
-    public final List<r6a> f;
+    public final List<s6a> f;
     public final Context g;
     public int h;
     public int i;
@@ -383,7 +383,7 @@ public class PbFallingView extends FrameLayout {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements r6a.c {
+    public class h implements s6a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Random a;
@@ -408,7 +408,7 @@ public class PbFallingView extends FrameLayout {
             this.a = random;
         }
 
-        @Override // com.baidu.tieba.r6a.c
+        @Override // com.baidu.tieba.s6a.c
         public float a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -457,7 +457,7 @@ public class PbFallingView extends FrameLayout {
                 String jumpExternalScheme = adverSegmentData.getJumpExternalScheme();
                 if (!UtilHelper.isMatchScheme(this.a.getPageActivity(), jumpExternalScheme, this.b.getJumpExternalPackageName())) {
                     TbPageContext tbPageContext = this.a;
-                    h5b.a(tbPageContext, cs4.a + rd.getUrlEncode(this.b.getJumpLink()));
+                    i5b.a(tbPageContext, cs4.a + rd.getUrlEncode(this.b.getJumpLink()));
                     jumpExternalScheme = this.b.getJumpLink();
                 }
                 String str = jumpExternalScheme;
@@ -771,9 +771,9 @@ public class PbFallingView extends FrameLayout {
         }
     }
 
-    public final void o(r6a r6aVar, int i2) {
+    public final void o(s6a s6aVar, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, r6aVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, s6aVar, i2) == null) {
             if (this.h == 0) {
                 this.h = BdUtilHelper.getEquipmentWidth(this.g);
             }
@@ -782,9 +782,9 @@ public class PbFallingView extends FrameLayout {
             }
             this.f.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                r6a r6aVar2 = new r6a(r6aVar.i, this.h, this.i);
-                r6aVar2.e = (-i3) * 180;
-                this.f.add(r6aVar2);
+                s6a s6aVar2 = new s6a(s6aVar.i, this.h, this.i);
+                s6aVar2.e = (-i3) * 180;
+                this.f.add(s6aVar2);
             }
         }
     }
@@ -825,7 +825,7 @@ public class PbFallingView extends FrameLayout {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, adverSegmentData, tbPageContext, i2)) == null) {
-            if (!d6a.a(adverSegmentData, i2)) {
+            if (!e6a.a(adverSegmentData, i2)) {
                 return false;
             }
             this.B = 1;
@@ -879,8 +879,8 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            int c2 = d6a.c(1000, i3);
-            int c3 = d6a.c(600, i2);
+            int c2 = e6a.c(1000, i3);
+            int c3 = e6a.c(600, i2);
             setMeasuredDimension(c3, c2);
             this.h = c3;
             this.i = c2;
@@ -1083,10 +1083,10 @@ public class PbFallingView extends FrameLayout {
             float width = getWidth();
             PointF pointF = new PointF(((3.0f * width) / 4.0f) - (this.a.getWidth() / 2), (-height) / 4.0f);
             float f2 = height;
-            ValueAnimator ofObject = ValueAnimator.ofObject(new c6a(new PointF(BdUtilHelper.getDimens(this.g, R.dimen.tbds50), BdUtilHelper.getDimens(this.g, R.dimen.tbds400)), new PointF((width / 2.0f) - BdUtilHelper.getDimens(this.g, R.dimen.tbds50), f2 - BdUtilHelper.getDimens(this.g, R.dimen.tbds655))), pointF, new PointF(BdUtilHelper.getDimens(this.g, R.dimen.tbds0), f2 - BdUtilHelper.getDimens(this.g, R.dimen.tbds552)));
+            ValueAnimator ofObject = ValueAnimator.ofObject(new d6a(new PointF(BdUtilHelper.getDimens(this.g, R.dimen.tbds50), BdUtilHelper.getDimens(this.g, R.dimen.tbds400)), new PointF((width / 2.0f) - BdUtilHelper.getDimens(this.g, R.dimen.tbds50), f2 - BdUtilHelper.getDimens(this.g, R.dimen.tbds655))), pointF, new PointF(BdUtilHelper.getDimens(this.g, R.dimen.tbds0), f2 - BdUtilHelper.getDimens(this.g, R.dimen.tbds552)));
             ofObject.setDuration(5000L);
             ofObject.addUpdateListener(new k(this));
-            ValueAnimator ofInt = ValueAnimator.ofInt(0, d6a.b(this.c));
+            ValueAnimator ofInt = ValueAnimator.ofInt(0, e6a.b(this.c));
             ofInt.setInterpolator(new LinearInterpolator());
             ofInt.setDuration(500L);
             ofInt.addUpdateListener(new l(this));
@@ -1152,13 +1152,13 @@ public class PbFallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048591, this, tbPageContext, adverSegmentData, bitmap, i2) == null) {
             Random random = new Random();
-            r6a.b bVar = new r6a.b(bitmap);
+            s6a.b bVar = new s6a.b(bitmap);
             bVar.o(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
             bVar.n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds200), true);
             bVar.l(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100), BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds100));
             bVar.m(new h(this, random));
             bVar.p(true, true);
-            r6a k2 = bVar.k();
+            s6a k2 = bVar.k();
             this.A = i2;
             o(k2, 19);
             p pVar = this.y;

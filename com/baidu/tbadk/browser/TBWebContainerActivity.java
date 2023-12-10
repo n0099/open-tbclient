@@ -101,20 +101,20 @@ import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.al6;
 import com.baidu.tieba.as4;
-import com.baidu.tieba.axa;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.bxa;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.c95;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.cxa;
 import com.baidu.tieba.d45;
 import com.baidu.tieba.du5;
 import com.baidu.tieba.e45;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.es4;
-import com.baidu.tieba.fxa;
 import com.baidu.tieba.g05;
+import com.baidu.tieba.gxa;
 import com.baidu.tieba.i45;
 import com.baidu.tieba.ij6;
 import com.baidu.tieba.im.data.GroupInfoData;
@@ -122,18 +122,18 @@ import com.baidu.tieba.im.data.ShareIMCommonCardData;
 import com.baidu.tieba.iu4;
 import com.baidu.tieba.jk6;
 import com.baidu.tieba.jt4;
-import com.baidu.tieba.jxa;
 import com.baidu.tieba.kg6;
 import com.baidu.tieba.kt4;
+import com.baidu.tieba.kxa;
 import com.baidu.tieba.lt4;
 import com.baidu.tieba.mt4;
 import com.baidu.tieba.qu4;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.rj6;
 import com.baidu.tieba.rk6;
-import com.baidu.tieba.sga;
 import com.baidu.tieba.su4;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.tieba.tga;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.vv4;
 import com.baidu.tieba.zk6;
@@ -165,7 +165,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
     public boolean B;
     public Map<String, Object> C;
     public lt4 D;
-    public axa E;
+    public bxa E;
     public CustomBroadcastReciver F;
     public final ItemCardHelper.c G;
     public final CustomMessageListener H;
@@ -199,7 +199,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
     public ShareItem l;
     public PermissionJudgePolicy m;
     public v n;
-    public sga o;
+    public tga o;
     public boolean p;
     public WebViewBroadcastReceiver q;
     public boolean r;
@@ -1206,14 +1206,14 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         @Override // android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
-            axa i1;
+            bxa i1;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 if (!c95.a(str) && str2.startsWith("tiebaapp")) {
-                    fxa fxaVar = new fxa();
-                    fxaVar.w(jxa.b(str2));
-                    fxaVar.y(301);
-                    rj6.a().e(webView, "javascript:" + fxaVar.c() + "('" + fxaVar.d() + "')", null);
+                    gxa gxaVar = new gxa();
+                    gxaVar.w(kxa.b(str2));
+                    gxaVar.y(301);
+                    rj6.a().e(webView, "javascript:" + gxaVar.c() + "('" + gxaVar.d() + "')", null);
                 }
                 TBWebContainerActivity tBWebContainerActivity = this.a.get();
                 if (tBWebContainerActivity != null && (i1 = tBWebContainerActivity.i1()) != null && !i1.b()) {
@@ -1801,9 +1801,9 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             sendFinishMessage();
             super.onDestroy();
-            sga sgaVar = this.o;
-            if (sgaVar != null) {
-                sgaVar.h();
+            tga tgaVar = this.o;
+            if (tgaVar != null) {
+                tgaVar.h();
                 this.o = null;
             }
             if (this.R != null) {
@@ -1823,9 +1823,9 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
                 lt4Var.l();
                 this.D = null;
             }
-            axa axaVar = this.E;
-            if (axaVar != null) {
-                axaVar.h();
+            bxa bxaVar = this.E;
+            if (bxaVar != null) {
+                bxaVar.h();
                 this.E = null;
             }
             TbWebView tbWebView = this.a;
@@ -1927,11 +1927,11 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         }
     }
 
-    public void addJsPromptInterface(bxa bxaVar) {
-        axa axaVar;
+    public void addJsPromptInterface(cxa cxaVar) {
+        bxa bxaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bxaVar) == null) && bxaVar != null && (axaVar = this.E) != null) {
-            axaVar.a(bxaVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cxaVar) == null) && cxaVar != null && (bxaVar = this.E) != null) {
+            bxaVar.a(cxaVar);
         }
     }
 
@@ -2254,13 +2254,13 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
         return (View) invokeV.objValue;
     }
 
-    public axa i1() {
+    public bxa i1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.E;
         }
-        return (axa) invokeV.objValue;
+        return (bxa) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -2907,7 +2907,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity implements Lifec
             RefreshRateManager.getInstance().setRefreshRateListener(this.N);
             getLifecycle().addObserver(new KeyboardLifecycleHelper(this, new s(this)));
             br6.b().b(getPageContext(), this.O);
-            this.E = new axa();
+            this.E = new bxa();
             s1();
         }
     }

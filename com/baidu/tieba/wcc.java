@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.annotation.SuppressLint;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import org.bouncycastle.crypto.engines.AESEngine;
-import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
 /* loaded from: classes8.dex */
 public class wcc {
     public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static boolean b = true;
+    public static final String a = "BaseKeyUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,106 +28,96 @@ public class wcc {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static SecureRandom a() {
-        InterceptResult invokeV;
-        SecureRandom secureRandom;
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            adc.b("EncryptUtil", "generateSecureRandomNew ");
-            try {
-            } catch (NoSuchAlgorithmException unused) {
-                adc.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) {
+            if (i2 < i) {
+                i = i2;
             }
-            if (Build.VERSION.SDK_INT >= 26) {
-                secureRandom = SecureRandom.getInstanceStrong();
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        adc.c("EncryptUtil", "NoSuchAlgorithmException");
-                        return secureRandom;
-                    } catch (Throwable th) {
-                        if (b) {
-                            adc.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
-                            b = false;
-                        }
-                        return secureRandom;
-                    }
-                }
-                AESEngine aESEngine = new AESEngine();
-                byte[] bArr = new byte[32];
-                secureRandom.nextBytes(bArr);
-                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
-            }
-            secureRandom = null;
-            if (secureRandom == null) {
-            }
-            AESEngine aESEngine2 = new AESEngine();
-            byte[] bArr2 = new byte[32];
-            secureRandom.nextBytes(bArr2);
-            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
+            return i3 < i ? i3 : i;
         }
-        return (SecureRandom) invokeV.objValue;
+        return invokeIII.intValue;
     }
 
-    public static byte[] b(int i) {
+    public static boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            SecureRandom a2 = a();
-            if (a2 == null) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[i];
-            a2.nextBytes(bArr);
-            return bArr;
-        }
-        return (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 16 : invokeI.booleanValue;
     }
 
-    public static String d(int i) {
-        InterceptResult invokeI;
+    public static boolean c(int i, byte[] bArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return xcc.a(c(i));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+            return b(i) & d(bArr);
         }
-        return (String) invokeI.objValue;
+        return invokeIL.booleanValue;
     }
 
-    public static byte[] c(int i) {
-        InterceptResult invokeI;
+    public static boolean d(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (!a) {
-                byte[] bArr = new byte[i];
-                SecureRandom secureRandom = null;
-                try {
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        secureRandom = SecureRandom.getInstanceStrong();
-                    }
-                } catch (NoSuchAlgorithmException unused) {
-                    adc.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
-                }
-                if (secureRandom == null) {
-                    try {
-                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
-                    } catch (NoSuchAlgorithmException unused2) {
-                        adc.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
-                        return new byte[0];
-                    } catch (Exception e) {
-                        adc.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
-                        return new byte[0];
-                    }
-                }
-                secureRandom.nextBytes(bArr);
-                return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr.length >= 16) {
+                return true;
             }
-            return b(i);
+            return false;
         }
-        return (byte[]) invokeI.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(String str, String str2, String str3, String str4, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, ycc.b(str4), i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] g(String str, String str2, String str3, byte[] bArr, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return f(str, str2, str3, bArr, 10000, i, z);
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] f(String str, String str2, String str3, byte[] bArr, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, str3, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            byte[] b = ycc.b(str);
+            byte[] b2 = ycc.b(str2);
+            byte[] b3 = ycc.b(str3);
+            int a2 = a(b.length, b2.length, b3.length);
+            if (c(a2, bArr)) {
+                char[] cArr = new char[a2];
+                for (int i3 = 0; i3 < a2; i3++) {
+                    cArr[i3] = (char) ((b[i3] ^ b2[i3]) ^ b3[i3]);
+                }
+                if (!z) {
+                    bdc.d(a, "exportRootKey: sha1");
+                    return tcc.b(cArr, bArr, i, i2 * 8);
+                }
+                bdc.d(a, "exportRootKey: sha256");
+                return tcc.c(cArr, bArr, i, i2 * 8);
+            }
+            throw new IllegalArgumentException("key length must be more than 128bit.");
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public static byte[] h(String str, String str2, String str3, byte[] bArr, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, bArr, Boolean.valueOf(z)})) == null) {
+            return g(str, str2, str3, bArr, 16, z);
+        }
+        return (byte[]) invokeCommon.objValue;
     }
 }

@@ -97,15 +97,15 @@ public final class w97 {
                 if (arrayList.isEmpty()) {
                     return null;
                 }
-                return h67.a(arrayList, va7.a.b(jSONObject.optJSONArray("business_info")));
+                return h67.a(arrayList, wa7.a.b(jSONObject.optJSONArray("business_info")));
             } else if (i == ThreadManageType.ID_FORBID.getValue()) {
-                return z67.a(va7.a.b(jSONObject.optJSONArray("business_info")));
+                return z67.a(wa7.a.b(jSONObject.optJSONArray("business_info")));
             } else {
                 if (i == ThreadManageType.ID_TOP.getValue()) {
-                    return k87.a(va7.a.b(jSONObject.optJSONArray("business_info")));
+                    return k87.a(wa7.a.b(jSONObject.optJSONArray("business_info")));
                 }
                 if (i == ThreadManageType.ID_GOOD.getValue()) {
-                    return c77.a(va7.a.b(jSONObject.optJSONArray("business_info")));
+                    return c77.a(wa7.a.b(jSONObject.optJSONArray("business_info")));
                 }
                 if (i == ThreadManageType.ID_MULTI_DEL.getValue()) {
                     JSONArray jSONArray2 = jSONObject.getJSONArray("reason_list");
@@ -121,9 +121,9 @@ public final class w97 {
                     if (arrayList2.isEmpty()) {
                         return null;
                     }
-                    return h67.a(arrayList2, va7.a.b(jSONObject.optJSONArray("business_info")));
+                    return h67.a(arrayList2, wa7.a.b(jSONObject.optJSONArray("business_info")));
                 } else if (i == ThreadManageType.ID_RECOMMEND.getValue()) {
-                    return z77.a(r57.a(jSONObject.optJSONObject("bawu_thrones")), va7.a.b(jSONObject.optJSONArray("business_info")));
+                    return z77.a(r57.a(jSONObject.optJSONObject("bawu_thrones")), wa7.a.b(jSONObject.optJSONArray("business_info")));
                 } else {
                     if (i == ThreadManageType.ID_MOVE_AREA.getValue()) {
                         JSONArray jSONArray3 = jSONObject.getJSONArray("tab_list");
@@ -139,11 +139,11 @@ public final class w97 {
                         if (arrayList3.isEmpty()) {
                             return null;
                         }
-                        return s77.a(arrayList3, va7.a.b(jSONObject.optJSONArray("business_info")));
+                        return s77.a(arrayList3, wa7.a.b(jSONObject.optJSONArray("business_info")));
                     } else if (i != ThreadManageType.ID_BROADCAST.getValue()) {
                         return null;
                     } else {
-                        return t57.a(va7.a.b(jSONObject.optJSONArray("business_info")));
+                        return t57.a(wa7.a.b(jSONObject.optJSONArray("business_info")));
                     }
                 }
             }

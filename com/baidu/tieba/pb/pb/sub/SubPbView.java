@@ -20,7 +20,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw9;
+import com.baidu.tieba.rw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -278,7 +278,7 @@ public class SubPbView extends LinearLayout {
                             this.g = rawY;
                             this.p = 1.0f - ((rawY - this.f) / BdUtilHelper.getEquipmentHeight(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new qw9(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rw9(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -297,7 +297,7 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new qw9(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rw9(this.g, this.f, this.k, this.p, this.i)));
                         }
                         this.j.setIntValues((int) (this.g - this.f), BdUtilHelper.getEquipmentHeight(getContext()));
                         this.j.setDuration(300L);
@@ -307,7 +307,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new qw9(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rw9(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -375,7 +375,7 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new qw9(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new rw9(this.g, this.f, this.k, this.p, this.i)));
             }
             this.j.setIntValues(0, BdUtilHelper.getEquipmentHeight(getContext()));
             this.j.setDuration(300L);
@@ -410,19 +410,19 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(qw9 qw9Var) {
+    public void setSubPbViewData(rw9 rw9Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, qw9Var) != null) || qw9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048591, this, rw9Var) != null) || rw9Var == null) {
             return;
         }
-        this.p = qw9Var.d;
-        float f = qw9Var.b;
+        this.p = rw9Var.d;
+        float f = rw9Var.b;
         this.f = f;
-        float f2 = qw9Var.a;
+        float f2 = rw9Var.a;
         this.g = f2;
-        this.k = qw9Var.c;
-        this.i = qw9Var.e;
+        this.k = rw9Var.c;
+        this.i = rw9Var.e;
         if (f2 > f) {
             z = true;
         } else {

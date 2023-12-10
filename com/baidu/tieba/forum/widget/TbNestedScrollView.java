@@ -21,8 +21,8 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.download.util.LocalFilesFilterKt;
-import com.baidu.tieba.fp7;
-import com.baidu.tieba.ip7;
+import com.baidu.tieba.gp7;
+import com.baidu.tieba.jp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0092\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0015\n\u0002\u0010\u0015\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0010\u000e\n\u0002\b$\b\u0016\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u00032\u00020\u0004B%\b\u0007\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\b\u0012\b\b\u0002\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\b\u0010M\u001a\u00020:H\u0014J\u0010\u0010N\u001a\u00020\u00172\u0006\u0010O\u001a\u00020\nH\u0016J\u0010\u0010P\u001a\u00020\u00172\u0006\u0010Q\u001a\u00020\nH\u0016J\u0010\u0010R\u001a\u00020\u00172\u0006\u0010O\u001a\u00020\nH\u0016J\b\u0010S\u001a\u00020:H\u0016J \u0010T\u001a\u00020\u00172\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u00142\u0006\u0010W\u001a\u00020\u0017H\u0016J\u0018\u0010X\u001a\u00020\u00172\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u0014H\u0016J,\u0010Y\u001a\u00020\u00172\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\b\u0010W\u001a\u0004\u0018\u00010\\2\b\u0010]\u001a\u0004\u0018\u00010\\H\u0016J4\u0010Y\u001a\u00020\u00172\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\b\u0010W\u001a\u0004\u0018\u00010\\2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\nH\u0016J*\u0010_\u001a\u00020:2\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\2\b\b\u0002\u0010^\u001a\u00020\nH\u0002J2\u0010`\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\H\u0016J:\u0010`\u001a\u00020\u00172\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\nH\u0016JB\u0010`\u001a\u00020:2\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\u0010]\u001a\u0004\u0018\u00010\\2\u0006\u0010^\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J<\u0010e\u001a\u00020:2\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\b\b\u0002\u0010^\u001a\u00020\n2\b\b\u0002\u0010W\u001a\u00020\\H\u0002J \u0010f\u001a\u00020:2\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0002J\u0018\u0010g\u001a\u00020\n2\u0006\u0010h\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0002J\u0010\u0010i\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0016J&\u0010l\u001a\u00020:2\u0006\u0010m\u001a\u00020\u00142\u0016\b\u0002\u0010n\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109J\b\u0010o\u001a\u00020\nH\u0016J\u0010\u0010p\u001a\u00020\n2\u0006\u0010Z\u001a\u00020\nH\u0002J\u0010\u0010q\u001a\u00020\n2\u0006\u0010[\u001a\u00020\nH\u0002J\u0018\u0010r\u001a\u00020\u00172\u0006\u0010s\u001a\u00020\u00142\u0006\u0010t\u001a\u00020\u0014H\u0014J\b\u0010u\u001a\u00020\u0017H\u0016J\u0010\u0010u\u001a\u00020\u00172\u0006\u0010^\u001a\u00020\nH\u0016J\b\u0010v\u001a\u00020\u0017H\u0016J\u0006\u0010w\u001a\u00020\u0017J\u0010\u0010x\u001a\u00020:2\u0006\u0010y\u001a\u00020zH\u0002J\u0010\u0010{\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0016J2\u0010|\u001a\u00020:2\u0006\u0010}\u001a\u00020\u00172\u0006\u0010~\u001a\u00020\n2\u0006\u0010\u007f\u001a\u00020\n2\u0007\u0010\u0080\u0001\u001a\u00020\n2\u0007\u0010\u0081\u0001\u001a\u00020\nH\u0014J*\u0010\u0082\u0001\u001a\u00020\u00172\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u00142\u0006\u0010W\u001a\u00020\u0017H\u0016J\"\u0010\u0084\u0001\u001a\u00020\u00172\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010U\u001a\u00020\u00142\u0006\u0010V\u001a\u00020\u0014H\u0016J*\u0010\u0085\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J2\u0010\u0085\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010Z\u001a\u00020\n2\u0006\u0010[\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\2\u0006\u0010^\u001a\u00020\nH\u0016J2\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\nH\u0016J:\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016JB\u0010\u0086\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010a\u001a\u00020\n2\u0006\u0010b\u001a\u00020\n2\u0006\u0010c\u001a\u00020\n2\u0006\u0010d\u001a\u00020\n2\u0006\u0010^\u001a\u00020\n2\u0006\u0010W\u001a\u00020\\H\u0016J$\u0010\u0087\u0001\u001a\u00020:2\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\nH\u0016J,\u0010\u0087\u0001\u001a\u00020:2\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J-\u0010\u008a\u0001\u001a\u00020:2\u0007\u0010\u008b\u0001\u001a\u00020\n2\u0007\u0010\u008c\u0001\u001a\u00020\n2\u0007\u0010\u008d\u0001\u001a\u00020\n2\u0007\u0010\u008e\u0001\u001a\u00020\nH\u0014J$\u0010\u008f\u0001\u001a\u00020\u00172\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0090\u0001\u001a\u00020\nH\u0016J,\u0010\u008f\u0001\u001a\u00020\u00172\u0007\u0010\u0088\u0001\u001a\u0002022\u0007\u0010\u0083\u0001\u001a\u0002022\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J\u0012\u0010\u0091\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u000202H\u0016J\u001a\u0010\u0091\u0001\u001a\u00020:2\u0007\u0010\u0083\u0001\u001a\u0002022\u0006\u0010^\u001a\u00020\nH\u0016J\u0011\u0010\u0092\u0001\u001a\u00020\u00172\u0006\u0010j\u001a\u00020kH\u0017J\u001b\u0010\u0093\u0001\u001a\u00020:2\u0007\u0010\u0094\u0001\u001a\u00020\n2\u0007\u0010\u0095\u0001\u001a\u00020\nH\u0016J\u0012\u0010\u0096\u0001\u001a\u00020:2\u0007\u0010\u0097\u0001\u001a\u00020\u0017H\u0016J\t\u0010\u0098\u0001\u001a\u00020\u0017H\u0014J2\u0010\u0099\u0001\u001a\u00020:2\u0006\u0010h\u001a\u00020\n2\t\b\u0002\u0010\u009a\u0001\u001a\u00020\n2\u0016\b\u0002\u0010n\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109J\u0012\u0010\u009b\u0001\u001a\u00020\u00172\u0007\u0010\u0089\u0001\u001a\u00020\nH\u0016J\u001a\u0010\u009b\u0001\u001a\u00020\u00172\u0007\u0010\u0089\u0001\u001a\u00020\n2\u0006\u0010^\u001a\u00020\nH\u0016J\t\u0010\u009c\u0001\u001a\u00020:H\u0016J\u0011\u0010\u009c\u0001\u001a\u00020:2\u0006\u0010^\u001a\u00020\nH\u0016J\u0012\u0010\u009d\u0001\u001a\u00020:2\t\b\u0002\u0010\u009c\u0001\u001a\u00020\u0017R\u001b\u0010\f\u001a\u00020\r8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0010\u0010\u0011\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0012\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010\u001b\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u001dR\u000e\u0010\u001e\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010 \u001a\u0012\u0012\u0004\u0012\u00020\"0!j\b\u0012\u0004\u0012\u00020\"`#¢\u0006\b\n\u0000\u001a\u0004\b$\u0010%R\u000e\u0010&\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010'\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@DX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010\u001d\"\u0004\b)\u0010*R\u000e\u0010+\u001a\u00020\u0014X\u0082\u0004¢\u0006\u0002\n\u0000R$\u0010,\u001a\u00020\n2\u0006\u0010\u001a\u001a\u00020\n@DX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b-\u0010\u001d\"\u0004\b.\u0010*R\u000e\u0010/\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\"\u00103\u001a\u0004\u0018\u0001022\b\u0010\u001a\u001a\u0004\u0018\u000102@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b4\u00105R\"\u00106\u001a\u0004\u0018\u0001022\b\u0010\u001a\u001a\u0004\u0018\u000102@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b7\u00105R\u001c\u00108\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020:\u0018\u000109X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010;\u001a\u00020<8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b?\u0010\u0011\u001a\u0004\b=\u0010>R \u0010@\u001a\u00020\nX\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bA\u0010B\u001a\u0004\bC\u0010\u001d\"\u0004\bD\u0010*R\u000e\u0010E\u001a\u00020FX\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010H\u001a\u00020\n2\u0006\u0010G\u001a\u00020\n@BX\u0086\u000e¢\u0006\u0014\n\u0000\u0012\u0004\bI\u0010B\u001a\u0004\bJ\u0010\u001d\"\u0004\bK\u0010*R\u000e\u0010L\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u009e\u0001"}, d2 = {"Lcom/baidu/tieba/forum/widget/TbNestedScrollView;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "Landroidx/core/view/NestedScrollingParent3;", "Landroidx/core/view/NestedScrollingChild3;", "Lcom/baidu/tieba/forum/widget/NestedScrollBehavior;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "childHelper", "Landroidx/core/view/NestedScrollingChildHelper;", "getChildHelper", "()Landroidx/core/view/NestedScrollingChildHelper;", "childHelper$delegate", "Lkotlin/Lazy;", "downState", "downX", "", "downY", "enableLog", "", "lastEventTime", "", "<set-?>", "lastScrollDir", "getLastScrollDir", "()I", "lastX", "lastY", "listeners", "Ljava/util/HashSet;", "Lcom/baidu/tieba/forum/widget/BehaviorScrollListener;", "Lkotlin/collections/HashSet;", "getListeners", "()Ljava/util/HashSet;", "maxFlingVelocity", "maxScroll", "getMaxScroll", "setMaxScroll", "(I)V", "minFlingVelocity", "minScroll", "getMinScroll", "setMinScroll", "moveDuration", "moveDx", "moveDy", "Landroid/view/View;", "nestedScrollChild", "getNestedScrollChild", "()Landroid/view/View;", "nestedScrollTarget", "getNestedScrollTarget", "onEndListener", "Lkotlin/Function1;", "", "parentHelper", "Landroidx/core/view/NestedScrollingParentHelper;", "getParentHelper", "()Landroidx/core/view/NestedScrollingParentHelper;", "parentHelper$delegate", "scrollAxis", "getScrollAxis$annotations", "()V", "getScrollAxis", "setScrollAxis", "scroller", "Landroid/widget/Scroller;", "value", "state", "getState$annotations", "getState", "setState", "touchInterceptSlop", "adjustScrollBounds", "canScrollHorizontally", HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, "canScrollSelf", MapBundleKey.MapObjKey.OBJ_DIR, "canScrollVertically", "computeScroll", "dispatchNestedFling", "velocityX", "velocityY", "consumed", "dispatchNestedPreFling", "dispatchNestedPreScroll", LoginConstants.DX_ONE_KEY_LOGIN, "dy", "", "offsetInWindow", "type", "dispatchNestedPreScrollInternal", "dispatchNestedScroll", "dxConsumed", "dyConsumed", "dxUnconsumed", "dyUnconsumed", "dispatchNestedScrollInternal", "dispatchScrollInternal", "dispatchScrollSelf", "scroll", "dispatchTouchEvent", "e", "Landroid/view/MotionEvent;", "fling", "velocity", "onEnd", "getNestedScrollAxes", "getScrollByX", "getScrollByY", "handleFling", "vx", "vy", "hasNestedScrollingParent", "isNestedScrollingEnabled", "isScrolling", LocalFilesFilterKt.FILTER_NAME_LOG, "text", "", "onInterceptTouchEvent", "onLayout", "changed", "left", "top", "right", "bottom", "onNestedFling", "target", "onNestedPreFling", "onNestedPreScroll", "onNestedScroll", "onNestedScrollAccepted", MapBundleKey.OfflineMapKey.OFFLINE_CHILD, "axes", "onScrollChanged", "l", "t", "oldl", "oldt", "onStartNestedScroll", "nestedScrollAxes", "onStopNestedScroll", "onTouchEvent", "scrollBy", "x", "y", "setNestedScrollingEnabled", SapiOptions.KEY_CACHE_ENABLED, "shouldBlockOnInterceptTouch", "smoothScrollTo", "duration", "startNestedScroll", "stopNestedScroll", "stopScroll", "forum_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public class TbNestedScrollView extends ConstraintLayout implements NestedScrollingParent3, NestedScrollingChild3, ip7 {
+public class TbNestedScrollView extends ConstraintLayout implements NestedScrollingParent3, NestedScrollingChild3, jp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -52,7 +52,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
     public int c;
     public int d;
     public int e;
-    public final HashSet<fp7> f;
+    public final HashSet<gp7> f;
     public View g;
     public View h;
     public boolean i;
@@ -379,7 +379,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         return invokeV.intValue;
     }
 
-    public final HashSet<fp7> getListeners() {
+    public final HashSet<gp7> getListeners() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
@@ -485,8 +485,8 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65549, this, i) == null) && (i2 = this.e) != i) {
             this.e = i;
-            for (fp7 fp7Var : this.f) {
-                fp7Var.a(this, i2, i);
+            for (gp7 gp7Var : this.f) {
+                gp7Var.a(this, i2, i);
             }
         }
     }
@@ -587,7 +587,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, motionEvent)) == null) {
-            return ip7.a.a(this, motionEvent);
+            return jp7.a.a(this, motionEvent);
         }
         return (Boolean) invokeL.objValue;
     }
@@ -643,7 +643,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048644, this, motionEvent)) == null) {
-            return ip7.a.e(this, motionEvent);
+            return jp7.a.e(this, motionEvent);
         }
         return (Boolean) invokeL.objValue;
     }
@@ -836,7 +836,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048641, this, i, i2)) == null) {
-            return ip7.a.b(this, i, i2);
+            return jp7.a.b(this, i, i2);
         }
         return (Boolean) invokeII.objValue;
     }
@@ -845,7 +845,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048642, this, i, i2)) == null) {
-            return ip7.a.c(this, i, i2);
+            return jp7.a.c(this, i, i2);
         }
         return (Boolean) invokeII.objValue;
     }
@@ -854,7 +854,7 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048643, this, i, i2)) == null) {
-            return ip7.a.d(this, i, i2);
+            return jp7.a.d(this, i, i2);
         }
         return (Boolean) invokeII.objValue;
     }
@@ -1276,14 +1276,14 @@ public class TbNestedScrollView extends ConstraintLayout implements NestedScroll
                     return;
                 }
                 this.d = i2 - i4;
-                for (fp7 fp7Var : this.f) {
-                    fp7Var.b(this, i4, i2);
+                for (gp7 gp7Var : this.f) {
+                    gp7Var.b(this, i4, i2);
                 }
                 return;
             }
             this.d = i - i3;
-            for (fp7 fp7Var2 : this.f) {
-                fp7Var2.b(this, i3, i);
+            for (gp7 gp7Var2 : this.f) {
+                gp7Var2.b(this, i3, i);
             }
         }
     }

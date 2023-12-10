@@ -41,7 +41,7 @@ import com.baidu.tieba.filedownloader.data.ApkDownloadData;
 import com.baidu.tieba.mv6;
 import com.baidu.tieba.n65;
 import com.baidu.tieba.o65;
-import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.x25;
 import com.baidu.tieba.xj5;
@@ -276,7 +276,7 @@ public class ItemCardDownloadButton extends View {
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements oe7 {
+    public static class d implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<ItemCardDownloadButton> a;
@@ -299,7 +299,7 @@ public class ItemCardDownloadButton extends View {
             this.a = new WeakReference<>(itemCardDownloadButton);
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) {
@@ -307,7 +307,7 @@ public class ItemCardDownloadButton extends View {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
@@ -315,7 +315,7 @@ public class ItemCardDownloadButton extends View {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData) == null) {
@@ -323,7 +323,7 @@ public class ItemCardDownloadButton extends View {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
@@ -331,7 +331,7 @@ public class ItemCardDownloadButton extends View {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(@NonNull DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) {
@@ -339,7 +339,7 @@ public class ItemCardDownloadButton extends View {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(@NonNull DownloadData downloadData, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, downloadData, i) == null) {

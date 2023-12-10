@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c16;
-import com.baidu.tieba.pwa;
-import com.baidu.tieba.tua;
-import com.baidu.tieba.vya;
+import com.baidu.tieba.qwa;
+import com.baidu.tieba.uua;
+import com.baidu.tieba.wya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public boolean E;
     public boolean F;
     public boolean G;
-    public List<pwa> H;
+    public List<qwa> H;
     public List<Float> I;
     public GestureDetector J;
     public f K;
@@ -61,7 +61,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public BdUniqueId S;
 
     /* renamed from: T  reason: collision with root package name */
-    public CustomMessageListener f1164T;
+    public CustomMessageListener f1166T;
     public c16.a U;
     public GestureDetector.SimpleOnGestureListener V;
     public float a;
@@ -380,7 +380,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.o.setColor(SkinManager.getColor(0, this.d));
                 Paint paint = this.p;
                 if (paint != null) {
-                    paint.setColor(tua.a(SkinManager.getColor(0, this.e), this.g));
+                    paint.setColor(uua.a(SkinManager.getColor(0, this.e), this.g));
                 }
             }
         }
@@ -407,18 +407,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean G(pwa pwaVar, pwa pwaVar2) {
+    public final boolean G(qwa qwaVar, qwa qwaVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, pwaVar, pwaVar2)) == null) {
-            if (pwaVar == null && pwaVar2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, qwaVar, qwaVar2)) == null) {
+            if (qwaVar == null && qwaVar2 == null) {
                 return true;
             }
-            if (pwaVar != null && pwaVar2 != null) {
-                if (pwaVar.a() == pwaVar2.a() && pwaVar.b() != null && pwaVar.b().equals(pwaVar2.b())) {
+            if (qwaVar != null && qwaVar2 != null) {
+                if (qwaVar.a() == qwaVar2.a() && qwaVar.b() != null && qwaVar.b().equals(qwaVar2.b())) {
                     return true;
                 }
-                if (pwaVar.a() == pwaVar2.a() && pwaVar.b() == null && pwaVar2.b() == null) {
+                if (qwaVar.a() == qwaVar2.a() && qwaVar.b() == null && qwaVar2.b() == null) {
                     return true;
                 }
             }
@@ -454,7 +454,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         this.P = true;
         this.Q = false;
         this.S = BdUniqueId.gen();
-        this.f1164T = new a(this, 2921458);
+        this.f1166T = new a(this, 2921458);
         this.U = new b(this);
         this.V = new c(this);
         D(context, attributeSet);
@@ -486,7 +486,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<pwa> list) {
+    public void setData(List<qwa> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048593, this, list) != null) || !F(list)) {
             return;
@@ -503,8 +503,8 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public void setListenerTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) && this.Q) {
-            this.f1164T.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.f1164T);
+            this.f1166T.setTag(bdUniqueId);
+            MessageManager.getInstance().registerListener(this.f1166T);
         }
     }
 
@@ -548,7 +548,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean F(List<pwa> list) {
+    public final boolean F(List<qwa> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -621,7 +621,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.p = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.p.setStrokeWidth(this.f);
-                this.p.setColor(tua.a(SkinManager.getColor(this.d), this.g));
+                this.p.setColor(uua.a(SkinManager.getColor(this.d), this.g));
             }
             this.q = new Paint(1);
             Paint paint3 = new Paint(1);
@@ -651,7 +651,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(tua.a(SkinManager.getColor(this.d), this.g));
+                paint.setColor(uua.a(SkinManager.getColor(this.d), this.g));
             }
             invalidate();
         }
@@ -660,7 +660,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void D(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.SortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);
@@ -782,13 +782,13 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    pwa pwaVar = (pwa) ListUtils.getItem(this.H, i3);
-                    if (pwaVar != null) {
+                    qwa qwaVar = (qwa) ListUtils.getItem(this.H, i3);
+                    if (qwaVar != null) {
                         Paint paint = this.r;
-                        if (pwaVar.b() == null) {
+                        if (qwaVar.b() == null) {
                             b2 = "";
                         } else {
-                            b2 = pwaVar.b();
+                            b2 = qwaVar.b();
                         }
                         float measureText = paint.measureText(b2) + (this.l * 2.0f);
                         if (this.G) {
@@ -907,7 +907,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         return invokeLL.booleanValue;
     }
 
-    public void setData(List<pwa> list, int i) {
+    public void setData(List<qwa> list, int i) {
         c16 c16Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, list, i) == null) {

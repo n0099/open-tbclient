@@ -29,7 +29,7 @@ import com.baidu.tieba.q55;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.xsa;
+import com.baidu.tieba.ysa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,7 +40,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public xsa c;
+    public ysa c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
@@ -168,11 +168,11 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                             this.a.j = forumRankData.pic_url;
                         }
                         this.a.c.f(forumRankData.forumsquare_list);
-                        xsa xsaVar = this.a.c;
+                        ysa ysaVar = this.a.c;
                         if (forumRankData.is_order == 0) {
                             z = false;
                         }
-                        xsaVar.h(Boolean.valueOf(z));
+                        ysaVar.h(Boolean.valueOf(z));
                         this.a.d.setTitleText(forumRankData.title);
                         ForumInfoData[] forumInfoDataArr = forumRankData.forumsquare_list;
                         if (forumInfoDataArr != null && forumInfoDataArr.length > 100 && this.a.a.getAdapter2().l() <= 0) {
@@ -306,9 +306,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            xsa xsaVar = new xsa(getPageContext(), 0);
-            this.c = xsaVar;
-            xsaVar.e(100);
+            ysa ysaVar = new ysa(getPageContext(), 0);
+            this.c = ysaVar;
+            ysaVar.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);

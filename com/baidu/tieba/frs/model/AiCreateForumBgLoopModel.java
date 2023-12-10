@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.model.AiCreateForumBgLoopModel;
 import com.baidu.tieba.frs.model.AiCreateForumBgLoopModel$loopListener$2;
-import com.baidu.tieba.j28;
+import com.baidu.tieba.k28;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,7 +49,7 @@ public final class AiCreateForumBgLoopModel {
 
         /* renamed from: com.baidu.tieba.frs.model.AiCreateForumBgLoopModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0287a {
+        public static final class C0283a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -59,7 +59,7 @@ public final class AiCreateForumBgLoopModel {
                 }
             }
 
-            public static void b(a aVar, j28 loopData) {
+            public static void b(a aVar, k28 loopData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(65537, null, aVar, loopData) == null) {
                     Intrinsics.checkNotNullParameter(loopData, "loopData");
@@ -67,7 +67,7 @@ public final class AiCreateForumBgLoopModel {
             }
         }
 
-        void a(j28 j28Var);
+        void a(k28 k28Var);
 
         void onError();
     }
@@ -159,7 +159,7 @@ public final class AiCreateForumBgLoopModel {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SafeHandler inst = SafeHandler.getInst();
                 final AiCreateForumBgLoopModel aiCreateForumBgLoopModel = this.a;
-                inst.post(new Runnable() { // from class: com.baidu.tieba.i28
+                inst.post(new Runnable() { // from class: com.baidu.tieba.j28
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -261,7 +261,7 @@ public final class AiCreateForumBgLoopModel {
                                 }
                                 return;
                             }
-                            j28 aiCreateForumBgLoopData = aiCreateForumBgLoopRespondedMessage.getAiCreateForumBgLoopData();
+                            k28 aiCreateForumBgLoopData = aiCreateForumBgLoopRespondedMessage.getAiCreateForumBgLoopData();
                             if (aiCreateForumBgLoopData != null) {
                                 AiCreateForumBgLoopModel aiCreateForumBgLoopModel = this.a;
                                 DefaultLog.getInstance().i("AiCreateForumBgLoop", "请求结束，有返回数据");

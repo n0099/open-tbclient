@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface dcc<TResult> {
-    void cancel();
 
-    void onComplete(hcc<TResult> hccVar);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public abstract class dcc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract boolean a();
+
+    public abstract dcc b(Runnable runnable);
 }

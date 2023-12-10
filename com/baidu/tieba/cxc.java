@@ -5,22 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FeedContentIcon;
+import tbclient.FeedContentEmoji;
 /* loaded from: classes5.dex */
-public class cxc extends ktc {
+public class cxc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull FeedContentIcon feedContentIcon) {
+    public static JSONObject b(@NonNull FeedContentEmoji feedContentEmoji) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentIcon)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, feedContentEmoji)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "day_url", feedContentIcon.day_url);
-            ktc.a(jSONObject, "night_url", feedContentIcon.night_url);
-            ktc.a(jSONObject, "width", feedContentIcon.width);
-            ktc.a(jSONObject, "height", feedContentIcon.height);
+            ltc.a(jSONObject, "name", feedContentEmoji.name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

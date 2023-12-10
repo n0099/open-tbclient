@@ -25,7 +25,7 @@ public final class n97 {
             Intrinsics.checkNotNullParameter(decorationComponentList, "decorationComponentList");
             ArrayList arrayList = new ArrayList();
             for (PicDecoration picDecoration : decorationComponentList) {
-                HashMap<String, String> a = va7.a.a(picDecoration.decoration_info);
+                HashMap<String, String> a = wa7.a.a(picDecoration.decoration_info);
                 String str = picDecoration.name;
                 Intrinsics.checkNotNullExpressionValue(str, "decorationComponent.name");
                 String str2 = picDecoration.location;
@@ -91,7 +91,7 @@ public final class n97 {
         return (u47) invokeLLL.objValue;
     }
 
-    public static final void c(FeedPicComponent feedPicComponent, List<rb7<?>> dataList, r67 feedExtraData) {
+    public static final void c(FeedPicComponent feedPicComponent, List<sb7<?>> dataList, r67 feedExtraData) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, feedPicComponent, dataList, feedExtraData) == null) {
@@ -111,7 +111,7 @@ public final class n97 {
             Intrinsics.checkNotNullExpressionValue(pics, "pics");
             String schema = feedPicComponent.schema;
             Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            dataList.add(new sb7(b(pics, schema, feedExtraData), "pic"));
+            dataList.add(new tb7(b(pics, schema, feedExtraData), pic.f));
         }
     }
 }

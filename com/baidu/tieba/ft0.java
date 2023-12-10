@@ -24,7 +24,7 @@ public interface ft0 {
 
         /* renamed from: com.baidu.tieba.ft0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0290a implements ht0 {
+        public class C0286a implements ht0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -80,7 +80,7 @@ public interface ft0 {
                 }
             }
 
-            public C0290a(a aVar) {
+            public C0286a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public interface ft0 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-                return new C0290a(this);
+                return new C0286a(this);
             }
             return (ht0) invokeLL.objValue;
         }

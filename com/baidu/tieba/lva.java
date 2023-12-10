@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface lva {
-    boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i);
+    void a(int i);
+
+    void b();
+
+    void c(eva evaVar);
+
+    void d(int i, boolean z, wua wuaVar);
 }

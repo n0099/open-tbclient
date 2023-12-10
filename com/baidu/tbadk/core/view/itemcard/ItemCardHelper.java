@@ -36,8 +36,8 @@ import com.baidu.tieba.f65;
 import com.baidu.tieba.k65;
 import com.baidu.tieba.m65;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.rua;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.sua;
+import com.baidu.tieba.uua;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.tieba.x25;
@@ -390,7 +390,7 @@ public class ItemCardHelper {
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
             if ("PbActivity".equals(str)) {
                 i3 = 1;
-            } else if (rua.g(str)) {
+            } else if (sua.g(str)) {
                 i3 = 2;
             } else if ("MainTabActivity".equals(str)) {
                 i3 = 5;
@@ -571,13 +571,13 @@ public class ItemCardHelper {
             EMManager from = EMManager.from(textView);
             if (!d.equals(textView.getText().toString()) && !f.equals(textView.getText().toString())) {
                 textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
-                from.setCorner(R.string.J_X01).setBorderColor(R.color.transparent).setBackGroundRealColor(tua.f(m));
+                from.setCorner(R.string.J_X01).setBorderColor(R.color.transparent).setBackGroundRealColor(uua.f(m));
             } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 EMManager.from(textView).setTextColor(R.color.CAM_X0103);
                 from.setBorderWidth(R.dimen.tbds1).setBorderColor(R.color.CAM_X0209).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);
             } else {
-                textView.setTextColor(tua.a(tua.f(m), x25.b(R.string.A_X01)));
-                from.setBorderWidth(R.dimen.tbds1).setRealBorderColor(tua.a(tua.f(m), x25.b(R.string.A_X07))).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);
+                textView.setTextColor(uua.a(uua.f(m), x25.b(R.string.A_X01)));
+                from.setBorderWidth(R.dimen.tbds1).setRealBorderColor(uua.a(uua.f(m), x25.b(R.string.A_X07))).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0209);
             }
         }
     }

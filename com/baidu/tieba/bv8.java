@@ -1,87 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.lib.socket.msg.TbAtUserInfo;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class bv8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bv8 {
+    public static final a a = a.a;
 
-    public bv8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    void a(List<? extends ChatMsg> list);
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ a a;
+        public static final ServiceReference b;
+        public static final bv8 c;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-905909880, "Lcom/baidu/tieba/bv8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-905909880, "Lcom/baidu/tieba/bv8$a;");
+                    return;
+                }
+            }
+            a = new a();
+            ServiceReference serviceReference = new ServiceReference("MessageCenter", "MessageCenterAIBotService");
+            b = serviceReference;
+            Object service = ServiceManager.getService(serviceReference);
+            Intrinsics.checkNotNullExpressionValue(service, "getService<IMessageCente…ervice>(serviceReference)");
+            c = (bv8) service;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-    }
 
-    public IChatRoomEnterListener.AtUserInfo a(TbAtUserInfo tbInfo) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbInfo)) == null) {
-            Intrinsics.checkNotNullParameter(tbInfo, "tbInfo");
-            IChatRoomEnterListener.AtUserInfo atUserInfo = new IChatRoomEnterListener.AtUserInfo();
-            if (tbInfo.getAtType() == TbAtUserInfo.AtType.ALL) {
-                str = "all";
-            } else {
-                str = "user";
+        public final bv8 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return c;
             }
-            atUserInfo.atType = str;
-            atUserInfo.atBdUk = zv8.b(tbInfo.getAtUid());
-            atUserInfo.atName = tbInfo.getAtName();
-            atUserInfo.atPortrait = tbInfo.getAtPortrait();
-            atUserInfo.atPosition = String.valueOf(tbInfo.getAtPosition());
-            return atUserInfo;
+            return (bv8) invokeV.objValue;
         }
-        return (IChatRoomEnterListener.AtUserInfo) invokeL.objValue;
-    }
-
-    public TbAtUserInfo b(IChatRoomEnterListener.AtUserInfo sdkInfo) {
-        InterceptResult invokeL;
-        TbAtUserInfo.AtType atType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(sdkInfo, "sdkInfo");
-            TbAtUserInfo tbAtUserInfo = new TbAtUserInfo();
-            if (TextUtils.equals(sdkInfo.atType, "all")) {
-                atType = TbAtUserInfo.AtType.ALL;
-            } else {
-                atType = TbAtUserInfo.AtType.USER;
-            }
-            tbAtUserInfo.setAtType(atType);
-            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(sdkInfo.atBdUk);
-            Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(sdkInfo.atBdUk)");
-            tbAtUserInfo.setAtUid(Long.parseLong(bdUidFromBdUK));
-            String str = sdkInfo.atBdUk;
-            Intrinsics.checkNotNullExpressionValue(str, "sdkInfo.atBdUk");
-            tbAtUserInfo.setAtUid(zv8.a(str));
-            String atName = sdkInfo.atName;
-            Intrinsics.checkNotNullExpressionValue(atName, "atName");
-            tbAtUserInfo.setAtName(atName);
-            String atPortrait = sdkInfo.atPortrait;
-            Intrinsics.checkNotNullExpressionValue(atPortrait, "atPortrait");
-            tbAtUserInfo.setAtPortrait(atPortrait);
-            String atPosition = sdkInfo.atPosition;
-            Intrinsics.checkNotNullExpressionValue(atPosition, "atPosition");
-            tbAtUserInfo.setAtPosition(Integer.parseInt(atPosition));
-            return tbAtUserInfo;
-        }
-        return (TbAtUserInfo) invokeL.objValue;
     }
 }

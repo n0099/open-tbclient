@@ -7,8 +7,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f98;
-import com.baidu.tieba.jj9;
+import com.baidu.tieba.g98;
+import com.baidu.tieba.kj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,9 +41,9 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.e) {
-                f98.i().l();
+                g98.i().l();
             } else {
-                jj9.j().n();
+                kj9.j().n();
             }
         }
     }
@@ -133,15 +133,15 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             }
             this.b.setOnClickListener(this);
             if (this.e) {
-                if (!f98.i().k()) {
+                if (!g98.i().k()) {
                     finish();
                 } else {
-                    f98.i().m(this);
+                    g98.i().m(this);
                 }
-            } else if (!jj9.j().m()) {
+            } else if (!kj9.j().m()) {
                 finish();
             } else {
-                jj9.j().o(this);
+                kj9.j().o(this);
             }
         }
     }

@@ -5,20 +5,49 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.CallFansInfo;
+import tbclient.BusinessMix;
 /* loaded from: classes7.dex */
-public class ovc extends ktc {
+public class ovc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CallFansInfo callFansInfo) {
+    public static BusinessMix b(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, callFansInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            BusinessMix.Builder builder = new BusinessMix.Builder();
+            if (jSONObject.has("mix_type")) {
+                builder.mix_type = Integer.valueOf(jSONObject.optInt("mix_type"));
+            }
+            if (jSONObject.has("url")) {
+                builder.url = jSONObject.optString("url");
+            }
+            if (jSONObject.has("scheme")) {
+                builder.scheme = jSONObject.optString("scheme");
+            }
+            if (jSONObject.has("jump_type")) {
+                builder.jump_type = Integer.valueOf(jSONObject.optInt("jump_type"));
+            }
+            if (jSONObject.has("package_name")) {
+                builder.package_name = jSONObject.optString("package_name");
+            }
+            return builder.build(true);
+        }
+        return (BusinessMix) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(@NonNull BusinessMix businessMix) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, businessMix)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "can_call", callFansInfo.can_call);
-            ktc.a(jSONObject, "thread_id", callFansInfo.thread_id);
+            ltc.a(jSONObject, "mix_type", businessMix.mix_type);
+            ltc.a(jSONObject, "url", businessMix.url);
+            ltc.a(jSONObject, "scheme", businessMix.scheme);
+            ltc.a(jSONObject, "jump_type", businessMix.jump_type);
+            ltc.a(jSONObject, "package_name", businessMix.package_name);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

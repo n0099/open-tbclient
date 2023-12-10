@@ -288,12 +288,12 @@ public class pi6 {
         }
     }
 
-    public static void l(String str, xga xgaVar) {
+    public static void l(String str, yga ygaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, xgaVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, ygaVar) == null) {
             String p = n().p(str);
-            String c2 = xgaVar.c();
-            boolean d = xgaVar.d();
+            String c2 = ygaVar.c();
+            boolean d = ygaVar.d();
             if (StringUtils.isNull(p)) {
                 p = "0.0.0.0";
             }
@@ -308,7 +308,7 @@ public class pi6 {
                 TbLog hybridLog = HybridLog.getInstance();
                 hybridLog.i("Offline", "根据离线包配置下载离线包：" + str + " " + c2 + " " + p);
                 qi6.e().d(str);
-                xi6.c(str, xgaVar);
+                xi6.c(str, ygaVar);
                 return;
             }
             TbLog hybridLog2 = HybridLog.getInstance();
@@ -395,19 +395,19 @@ public class pi6 {
         }
     }
 
-    public static void u(String str, xga xgaVar) {
+    public static void u(String str, yga ygaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, xgaVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, ygaVar) == null) {
             String p = n().p(str);
             if (StringUtils.isNull(p)) {
                 p = "0.0.0.0";
             }
-            String c2 = xgaVar.c();
+            String c2 = ygaVar.c();
             if (c2.equals(p)) {
                 qi6.e().c(str);
             } else if (StringHelper.compareVersion(p, c2) == -1) {
                 qi6.e().d(str);
-                xi6.c(str, xgaVar);
+                xi6.c(str, ygaVar);
             }
         }
     }
@@ -425,15 +425,15 @@ public class pi6 {
         }
     }
 
-    public final void f(Map<String, xga> map) {
+    public final void f(Map<String, yga> map) {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
             JSONObject jSONObject = new JSONObject();
             if (!jk6.b(map)) {
-                for (Map.Entry<String, xga> entry : map.entrySet()) {
+                for (Map.Entry<String, yga> entry : map.entrySet()) {
                     String key = entry.getKey();
-                    xga value = entry.getValue();
+                    yga value = entry.getValue();
                     if (value != null && !StringUtils.isNull(value.c()) && !StringUtils.isNull(value.b()) && !StringUtils.isNull(value.a())) {
                         l(key, value);
                         str = value.c();
@@ -485,8 +485,8 @@ public class pi6 {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            vva.h(309485, WebViewCacheResSocketMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, vva.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
+            wva.h(309485, WebViewCacheResSocketMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, wva.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
             tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
             if (TbSingleton.getInstance().isDebugToolMode()) {
                 if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {

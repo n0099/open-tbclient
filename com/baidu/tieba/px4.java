@@ -87,8 +87,8 @@ public class px4 {
                 return;
             }
             this.c = jSONObject.optString("text");
-            this.a = y5b.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-            this.b = y5b.j(jSONObject.optJSONObject("bg_color"));
+            this.a = z5b.j(jSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+            this.b = z5b.j(jSONObject.optJSONObject("bg_color"));
         }
     }
 

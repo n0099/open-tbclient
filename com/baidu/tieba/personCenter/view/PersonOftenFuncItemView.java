@@ -40,11 +40,11 @@ import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.TbAiappsLaunchUtil;
-import com.baidu.tieba.h9a;
+import com.baidu.tieba.i9a;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.t8a;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.x8a;
+import com.baidu.tieba.u8a;
+import com.baidu.tieba.y8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -56,7 +56,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
-    public x8a c;
+    public y8a c;
     public boolean d;
 
     /* loaded from: classes7.dex */
@@ -190,11 +190,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(x8a x8aVar) {
+    public void a(y8a y8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x8aVar) == null) {
-            this.c = x8aVar;
-            this.b.setText(x8aVar.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, y8aVar) == null) {
+            this.c = y8aVar;
+            this.b.setText(y8aVar.e);
             f();
         }
     }
@@ -208,12 +208,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        x8a x8aVar;
+        y8a y8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (x8aVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (y8aVar = this.c) == null) {
             return;
         }
-        int i = x8aVar.a;
+        int i = y8aVar.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -246,11 +246,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            x8a x8aVar = this.c;
-            if (x8aVar.b > 0) {
+            y8a y8aVar = this.c;
+            if (y8aVar.b > 0) {
                 this.a.setVisibility(0);
                 SkinManager.setImageResource(this.a, this.c.b);
-            } else if (x8aVar.m && !TextUtils.isEmpty(x8aVar.k)) {
+            } else if (y8aVar.m && !TextUtils.isEmpty(y8aVar.k)) {
                 this.a.setVisibility(0);
                 this.a.startLoad(this.c.k, 10, false);
             } else {
@@ -261,14 +261,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        x8a x8aVar;
+        y8a y8aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (x8aVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (y8aVar = this.c) == null) {
             return;
         }
-        if (x8aVar.m && x8aVar.l != 0) {
+        if (y8aVar.m && y8aVar.l != 0) {
             if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
-                h9a.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                i9a.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
                 return;
             }
             return;
@@ -307,7 +307,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                                         case 54:
                                             String str2 = this.c.f;
                                             if (rd.isEmpty(str2)) {
-                                                str2 = t8a.w;
+                                                str2 = u8a.w;
                                             }
                                             BrowserHelper.startWebActivity(getContext(), str2);
                                             return;

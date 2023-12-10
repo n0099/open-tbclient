@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f7a;
+import com.baidu.tieba.g7a;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.o7a;
 import com.baidu.tieba.p7a;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.q7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public o7a e;
+    public p7a e;
     public int f;
     public TbPageContext g;
 
@@ -59,15 +59,15 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c3);
         HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091624);
         this.d = hTypeListView;
-        this.e = new o7a(this.g, hTypeListView);
+        this.e = new p7a(this.g, hTypeListView);
     }
 
-    public void a(p7a p7aVar) {
+    public void a(q7a q7aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, p7aVar) != null) || p7aVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, q7aVar) != null) || q7aVar == null) {
             return;
         }
-        this.e.c(c(p7aVar.a()));
+        this.e.c(c(q7aVar.a()));
     }
 
     public void b() {
@@ -89,9 +89,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            f7a f7aVar = new f7a(BdUtilHelper.getDimens(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), BdUtilHelper.getDimens(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070365));
-            ListUtils.add(arrayList, 0, f7aVar);
-            ListUtils.add(arrayList, f7aVar);
+            g7a g7aVar = new g7a(BdUtilHelper.getDimens(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), BdUtilHelper.getDimens(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070365));
+            ListUtils.add(arrayList, 0, g7aVar);
+            ListUtils.add(arrayList, g7aVar);
             return arrayList;
         }
         return (List) invokeL.objValue;

@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e59;
-import com.baidu.tieba.frb;
+import com.baidu.tieba.f59;
+import com.baidu.tieba.grb;
 import com.baidu.tieba.im.base.core.slice.Slice;
 import com.baidu.tieba.im.lib.socket.msg.data.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
@@ -39,8 +39,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopB
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.n05;
 import com.baidu.tieba.p05;
-import com.baidu.tieba.u39;
 import com.baidu.tieba.v39;
+import com.baidu.tieba.w39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class TopBubbleSlice extends Slice implements u39 {
+public class TopBubbleSlice extends Slice implements v39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -276,7 +276,7 @@ public class TopBubbleSlice extends Slice implements u39 {
                         this.a.dismiss();
                     }
                 } else if (!StringUtils.isNull(this.b.n) && !StringUtils.isNull(this.b.q)) {
-                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{v39.d(frb.a(frb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
+                    UrlManager.getInstance().dealOneLink(this.b.j, new String[]{w39.d(grb.a(grb.a(TbConfig.URL_EXCELLENT_ROOM, "roomId", this.b.q), "forumId", this.b.n))});
                     this.a.dismiss();
                 }
             }
@@ -312,7 +312,7 @@ public class TopBubbleSlice extends Slice implements u39 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.t.n();
-                e59.b(this.a.j.getPageActivity());
+                f59.b(this.a.j.getPageActivity());
             }
         }
     }
@@ -474,7 +474,7 @@ public class TopBubbleSlice extends Slice implements u39 {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.u39
+    @Override // com.baidu.tieba.v39
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -536,7 +536,7 @@ public class TopBubbleSlice extends Slice implements u39 {
         }
     }
 
-    @Override // com.baidu.tieba.u39
+    @Override // com.baidu.tieba.v39
     public void r(@NonNull List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
@@ -589,7 +589,7 @@ public class TopBubbleSlice extends Slice implements u39 {
             if (c2 != 0) {
                 if (c2 != 1) {
                     if (c2 == 2) {
-                        v39.f(topBubbleData.getVersionKey(), true);
+                        w39.f(topBubbleData.getVersionKey(), true);
                         this.l.i1(topBubbleData.getMsgId(), topBubbleData.getMsgKey());
                         return;
                     }

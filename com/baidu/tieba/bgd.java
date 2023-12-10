@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.Window;
-import tv.athena.revenue.payui.view.WindowParams;
+import tv.athena.revenue.payui.view.PayViewState;
 /* loaded from: classes5.dex */
 public interface bgd {
-    void attachWindow(Window window);
-
-    View getContentView();
-
-    void refreshView();
-
-    void refreshWindow(WindowParams windowParams);
+    void setViewState(PayViewState payViewState);
 }

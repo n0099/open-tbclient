@@ -32,8 +32,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.GroupChatRepo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.s39;
 import com.baidu.tieba.t39;
+import com.baidu.tieba.u39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class UpBubbleSlice extends Slice {
     public GroupChatRepo l;
     public GroupChatRepo.u<TreeSet<ChatMsg>> m;
     @NonNull
-    public final t39 n;
+    public final u39 n;
     public String o;
     public boolean p;
     public long q;
@@ -59,7 +59,7 @@ public class UpBubbleSlice extends Slice {
     public final ChatPage s;
 
     /* loaded from: classes6.dex */
-    public class a implements s39 {
+    public class a implements t39 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpBubbleSlice a;
@@ -82,7 +82,7 @@ public class UpBubbleSlice extends Slice {
             this.a = upBubbleSlice;
         }
 
-        @Override // com.baidu.tieba.s39
+        @Override // com.baidu.tieba.t39
         public void a(BdTypeRecyclerView bdTypeRecyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) {
@@ -94,7 +94,7 @@ public class UpBubbleSlice extends Slice {
             }
         }
 
-        @Override // com.baidu.tieba.s39
+        @Override // com.baidu.tieba.t39
         public void b(BdTypeRecyclerView bdTypeRecyclerView, GroupChatRepo groupChatRepo, GroupChatRepo.u<TreeSet<ChatMsg>> uVar) {
             RecyclerViewTypeAdapter recyclerViewTypeAdapter;
             Interceptable interceptable = $ic;
@@ -254,7 +254,7 @@ public class UpBubbleSlice extends Slice {
         this.q = Long.MAX_VALUE;
         this.j = groupChatFragment;
         this.s = chatPage;
-        this.n = new t39();
+        this.n = new u39();
     }
 
     public void r0(ChatRoomDetail chatRoomDetail) {

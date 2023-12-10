@@ -136,7 +136,7 @@ public class y16 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) {
-            if (combineDownload == null || rva.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
+            if (combineDownload == null || sva.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) {
                 return false;
             }
             return true;

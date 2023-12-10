@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.hu8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
+import com.baidu.tieba.iu8;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.oma;
+import com.baidu.tieba.pma;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SelectPrivateMsgPageDispatcher implements oma {
+public class SelectPrivateMsgPageDispatcher implements pma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,7 +64,7 @@ public class SelectPrivateMsgPageDispatcher implements oma {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return hu8.f().i(this.a);
+                return iu8.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements oma {
         }
     }
 
-    @Override // com.baidu.tieba.oma
+    @Override // com.baidu.tieba.pma
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;

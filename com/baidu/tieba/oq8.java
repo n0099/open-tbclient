@@ -6,5 +6,5 @@ import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 /* loaded from: classes7.dex */
 public interface oq8<ChildItemData extends BaseItem<? extends TbBaseMsg>> {
-    boolean a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
+    void a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
 }

@@ -56,12 +56,12 @@ public class us extends ku {
     }
 
     @Override // com.baidu.tieba.ku
-    public lea t() {
+    public mea t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new mea(this.b, this.i, this.A);
+            return new nea(this.b, this.i, this.A);
         }
-        return (lea) invokeV.objValue;
+        return (mea) invokeV.objValue;
     }
 }

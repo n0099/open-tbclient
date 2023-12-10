@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.em5;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
-import com.baidu.tieba.oma;
+import com.baidu.tieba.pma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatRoomDispatcher implements oma {
+public class ChatRoomDispatcher implements pma {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ChatRoomDispatcher implements oma {
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0088  */
     /* JADX WARN: Removed duplicated region for block: B:24:0x008a  */
-    @Override // com.baidu.tieba.oma
+    @Override // com.baidu.tieba.pma
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

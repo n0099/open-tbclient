@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes9.dex */
-public abstract class xrc<E> extends zrc<E> {
+public abstract class xrc<E> extends krc<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long h;
+    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +26,7 @@ public abstract class xrc<E> extends zrc<E> {
                 return;
             }
         }
-        h = jsc.a(xrc.class, "consumerIndex");
+        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,5 +47,6 @@ public abstract class xrc<E> extends zrc<E> {
                 return;
             }
         }
+        Math.min(i / 4, f.intValue());
     }
 }

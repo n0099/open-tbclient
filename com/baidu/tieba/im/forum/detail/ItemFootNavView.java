@@ -34,7 +34,7 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.xva;
+import com.baidu.tieba.yva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,7 +71,7 @@ public class ItemFootNavView extends LinearLayout {
         public final /* synthetic */ ItemFootNavView b;
 
         /* loaded from: classes6.dex */
-        public class a implements xva.a {
+        public class a implements yva.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -94,7 +94,7 @@ public class ItemFootNavView extends LinearLayout {
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.xva.a
+            @Override // com.baidu.tieba.yva.a
             public void a(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -110,7 +110,7 @@ public class ItemFootNavView extends LinearLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.xva.a
+            @Override // com.baidu.tieba.yva.a
             public void b(String str, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -152,10 +152,10 @@ public class ItemFootNavView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, f05Var) == null) {
                 this.b.j.dismiss();
-                xva xvaVar = new xva();
-                xvaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
-                xvaVar.b(new a(this));
-                xvaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
+                yva yvaVar = new yva();
+                yvaVar.a(BarDetailForDirSwitch.BAR_DETAIL_DIR);
+                yvaVar.b(new a(this));
+                yvaVar.c(this.b.h.forum_name, this.b.h.forum_id.longValue());
             }
         }
     }

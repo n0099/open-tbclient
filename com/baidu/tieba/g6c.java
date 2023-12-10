@@ -1,34 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.api.KsSplashScreenAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes6.dex */
-public class g6c extends BaseAdRipper {
+public class g6c extends c7c<KsSplashScreenAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g6c(Ssp.Pid pid) {
-        super(pid);
+    public g6c(KsSplashScreenAd ksSplashScreenAd) {
+        super(ksSplashScreenAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {ksSplashScreenAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,23 +33,38 @@ public class g6c extends BaseAdRipper {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
+    @Override // com.baidu.tieba.c7c
+    public double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                b7c b7cVar = (b7c) obj;
-                if (b7cVar == null || (findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", b7cVar.a)) == null) {
-                    return null;
-                }
-                return o6c.a((AdInfo) findField);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
+            return ((KsSplashScreenAd) a).getECPM();
         }
-        return (RippedAd) invokeL.objValue;
+        return invokeV.doubleValue;
+    }
+
+    @Override // com.baidu.tieba.c7c
+    public void b(int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
+        }
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsSplashScreenAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+    }
+
+    @Override // com.baidu.tieba.c7c
+    public void c(long j, long j2) {
+        A a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
+        }
+        ((KsSplashScreenAd) a).setBidEcpm((int) j);
     }
 }

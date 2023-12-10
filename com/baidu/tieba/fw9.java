@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +10,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class fw9 extends BaseCardInfo {
+public final class fw9 extends um6 {
     public static /* synthetic */ Interceptable $ic;
     @JvmField
-    public static final BdUniqueId c;
+
+    /* renamed from: T  reason: collision with root package name */
+    public static final BdUniqueId f1097T;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public final List<String> R;
+    public final String S;
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof fw9) {
+                fw9 fw9Var = (fw9) obj;
+                return Intrinsics.areEqual(this.R, fw9Var.R) && Intrinsics.areEqual(this.S, fw9Var.S);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.R.hashCode() * 31) + this.S.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "PbFirstFloorSimilarTitleData(tags=" + this.R + ", url=" + this.S + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,64 +68,69 @@ public final class fw9 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        f1097T = gen;
     }
 
-    public fw9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final String c() {
+    public final List<String> G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.R;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final String d() {
+    @Override // com.baidu.tieba.um6, com.baidu.tieba.fw4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.a;
+            Intrinsics.checkNotNullExpressionValue(threadData, "threadData");
+            return threadData;
         }
-        return (String) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BdUniqueId TYPE = c;
-            Intrinsics.checkNotNullExpressionValue(TYPE, "TYPE");
-            return TYPE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return f1097T;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void e(String str) {
+    public final String getUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.S;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void f(String str) {
+    public fw9(List<String> tags, String url) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tags, url};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        Intrinsics.checkNotNullParameter(tags, "tags");
+        Intrinsics.checkNotNullParameter(url, "url");
+        this.R = tags;
+        this.S = url;
     }
 }

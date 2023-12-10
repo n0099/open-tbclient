@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import androidx.core.app.NotificationCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopbarEntrance;
+import tbclient.FrsPage.TopNotice;
 /* loaded from: classes8.dex */
-public class s2d extends ktc {
+public class s2d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull TopbarEntrance topbarEntrance) {
+    public static JSONObject b(@NonNull TopNotice topNotice) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topbarEntrance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, topNotice)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "guide_tip_first_text", topbarEntrance.guide_tip_first_text);
-            ktc.a(jSONObject, "guide_tip_text", topbarEntrance.guide_tip_text);
-            ktc.a(jSONObject, BigdayActivityConfig.JUMP_URL, topbarEntrance.jump_url);
+            ltc.a(jSONObject, "title", topNotice.title);
+            ltc.a(jSONObject, "title_link", topNotice.title_link);
+            ltc.a(jSONObject, NotificationCompat.CarExtender.KEY_AUTHOR, topNotice.author);
+            ltc.a(jSONObject, "id", topNotice.id);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

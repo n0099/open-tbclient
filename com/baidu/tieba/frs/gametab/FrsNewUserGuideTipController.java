@@ -23,11 +23,11 @@ import com.baidu.tieba.core.widget.SpriteBottomTipView;
 import com.baidu.tieba.frs.gametab.FrsNewUserGuideTipController;
 import com.baidu.tieba.jr6;
 import com.baidu.tieba.lk5;
-import com.baidu.tieba.pma;
+import com.baidu.tieba.qma;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.sq6;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
-import com.baidu.tieba.yz7;
+import com.baidu.tieba.zz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -225,7 +225,7 @@ public final class FrsNewUserGuideTipController {
             return;
         }
         lk5.j(j(bubbleText));
-        pma.a(this.a, new String[]{k(bubbleText)});
+        qma.a(this.a, new String[]{k(bubbleText)});
     }
 
     public final void q(FrsSpriteNewUserGuide.BubbleText bubbleText) {
@@ -437,9 +437,9 @@ public final class FrsNewUserGuideTipController {
             aVar.q(valueOf);
             aVar.p(valueOf);
             aVar.r(h(frsSpriteNewUserGuide));
-            yz7.c(aVar);
-            yz7.d(aVar);
-            yz7.a(aVar, frsSpriteNewUserGuide.bubbleText);
+            zz7.c(aVar);
+            zz7.d(aVar);
+            zz7.a(aVar, frsSpriteNewUserGuide.bubbleText);
             SpriteBottomTipView a2 = aVar.a();
             e(a2);
             return a2;
@@ -481,7 +481,7 @@ public final class FrsNewUserGuideTipController {
             } else {
                 valueOf = Integer.valueOf(this.b);
             }
-            this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.tz7
+            this.c.w(new View.OnClickListener() { // from class: com.baidu.tieba.uz7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

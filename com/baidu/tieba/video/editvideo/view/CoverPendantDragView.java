@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a7b;
-import com.baidu.tieba.f7b;
-import com.baidu.tieba.n6b;
+import com.baidu.tieba.b7b;
+import com.baidu.tieba.g7b;
+import com.baidu.tieba.o6b;
 import com.baidu.tieba.uu5;
 import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class CoverPendantDragView extends FrameLayout {
     public Bitmap S;
 
     /* renamed from: T  reason: collision with root package name */
-    public long f1159T;
+    public long f1161T;
     public float U;
     public float V;
     public FrameLayout a;
@@ -92,7 +92,7 @@ public class CoverPendantDragView extends FrameLayout {
     public float w;
     public float x;
     public float y;
-    public f7b z;
+    public g7b z;
 
     /* loaded from: classes8.dex */
     public class a implements View.OnTouchListener {
@@ -345,14 +345,14 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* loaded from: classes8.dex */
-    public static class f implements a7b.b {
+    public static class f implements b7b.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<n6b.c> a;
+        public WeakReference<o6b.c> a;
         public WeakReference<CoverPendantDragView> b;
         public WeakReference<PendantData> c;
 
-        public f(n6b.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
+        public f(o6b.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -378,11 +378,11 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.a7b.b
+        @Override // com.baidu.tieba.b7b.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                WeakReference<n6b.c> weakReference = this.a;
+                WeakReference<o6b.c> weakReference = this.a;
                 if (weakReference != null && weakReference.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -393,21 +393,21 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.a7b.b
+        @Override // com.baidu.tieba.b7b.b
         public void b() {
-            WeakReference<n6b.c> weakReference;
+            WeakReference<o6b.c> weakReference;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && weakReference.get() != null) {
                 this.a.get().c.setVisibility(8);
             }
         }
 
-        @Override // com.baidu.tieba.a7b.b
+        @Override // com.baidu.tieba.b7b.b
         public void c(String str, String str2) {
             WeakReference<PendantData> weakReference;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                WeakReference<n6b.c> weakReference2 = this.a;
+                WeakReference<o6b.c> weakReference2 = this.a;
                 if (weakReference2 != null && weakReference2.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -500,7 +500,7 @@ public class CoverPendantDragView extends FrameLayout {
         this.y = 1.0f;
         this.F = true;
         this.R = new HashMap();
-        this.f1159T = 0L;
+        this.f1161T = 0L;
         this.U = 0.0f;
         this.V = 0.0f;
         this.E = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst());
@@ -547,10 +547,10 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void setParentViewController(f7b f7bVar) {
+    public void setParentViewController(g7b g7bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, f7bVar) == null) {
-            this.z = f7bVar;
+        if (interceptable == null || interceptable.invokeL(1048600, this, g7bVar) == null) {
+            this.z = g7bVar;
         }
     }
 
@@ -872,13 +872,13 @@ public class CoverPendantDragView extends FrameLayout {
                     float abs2 = Math.abs(rawY - this.V);
                     if (motionEvent.getPointerCount() <= 1) {
                         float f2 = this.k;
-                        if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.f1159T < 300) {
+                        if (abs < f2 && abs2 < f2 && System.currentTimeMillis() - this.f1161T < 300) {
                             A();
                         }
                     }
                 }
             } else {
-                this.f1159T = System.currentTimeMillis();
+                this.f1161T = System.currentTimeMillis();
                 this.U = motionEvent.getRawX();
                 this.V = motionEvent.getRawY();
             }
@@ -1167,12 +1167,12 @@ public class CoverPendantDragView extends FrameLayout {
                 if (i != 2) {
                     if (i != 3) {
                         A();
-                        String f2 = a7b.g().f(pendantData.resource);
+                        String f2 = b7b.g().f(pendantData.resource);
                         if (TextUtils.isEmpty(f2)) {
-                            if (view2 != null && (view2.getTag() instanceof n6b.c)) {
-                                n6b.c cVar = (n6b.c) view2.getTag();
+                            if (view2 != null && (view2.getTag() instanceof o6b.c)) {
+                                o6b.c cVar = (o6b.c) view2.getTag();
                                 cVar.c.setVisibility(0);
-                                a7b.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+                                b7b.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
                             }
                         } else {
                             G(f2, pendantData);

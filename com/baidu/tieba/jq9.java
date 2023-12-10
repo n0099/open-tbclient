@@ -1,55 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.annotation.NonNull;
+import tbclient.RecomTopicList;
 /* loaded from: classes6.dex */
 public interface jq9 {
-    void a(boolean z);
+    void B0(int i, long j, long j2, int i2);
 
-    void b(int i);
+    void F(int i, xl8 xl8Var);
 
-    void c(wl8 wl8Var);
+    void a0(xl8 xl8Var);
 
-    void d();
+    void h(int i, wl8 wl8Var);
 
-    void destroy();
+    void k0(int i);
 
-    void e(boolean z);
-
-    void f(long j, long j2);
-
-    wl8 g();
-
-    View getRootView();
-
-    void h();
-
-    void i(boolean z, int i);
-
-    void j(int i);
-
-    int k();
-
-    void l();
-
-    void m(wl8 wl8Var);
-
-    void n(long j, long j2, int i);
-
-    vl8 o(int i);
-
-    void onChangeSkinType();
-
-    void p();
-
-    void pause();
-
-    void q();
-
-    void r(int i);
-
-    void resetView();
-
-    void resume();
-
-    void s(vl8 vl8Var, boolean z, int i);
+    void s(@NonNull RecomTopicList recomTopicList);
 }

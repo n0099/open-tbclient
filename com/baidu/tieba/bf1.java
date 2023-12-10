@@ -51,7 +51,7 @@ public class bf1 {
     public long S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1084T;
+    public int f1086T;
     public float U;
     public String V;
     public String W;
@@ -158,7 +158,7 @@ public class bf1 {
                     bf1Var.W = jSONObject.optString("m_pn");
                     bf1Var.R = jSONObject.optLong("start_backup");
                     bf1Var.S = jSONObject.optLong("end_backup");
-                    bf1Var.f1084T = jSONObject.optInt("virtual", 0);
+                    bf1Var.f1086T = jSONObject.optInt("virtual", 0);
                     bf1Var.U = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
                 } catch (Exception unused) {
                 }
@@ -211,7 +211,7 @@ public class bf1 {
                     jSONObject.put("key", bf1Var.O);
                     jSONObject.put("hot_shake_sensitivity", bf1Var.P);
                     jSONObject.put("hot_background_time", bf1Var.Q);
-                    jSONObject.put("virtual", bf1Var.f1084T);
+                    jSONObject.put("virtual", bf1Var.f1086T);
                     jSONObject.put("shake_action_delay_time", bf1Var.U);
                     jSONObject.put("m_ua", bf1Var.V);
                     jSONObject.put("m_pn", bf1Var.W);
@@ -312,7 +312,7 @@ public class bf1 {
                                 bf1Var.N = optJSONObject5.optInt("shake_direction_count", 2);
                                 bf1Var.O = optJSONObject5.optString("key");
                                 bf1Var.P = (float) optJSONObject5.optDouble("hot_shake_sensitivity", 0.0d);
-                                bf1Var.f1084T = optJSONObject5.optInt("virtual", 0);
+                                bf1Var.f1086T = optJSONObject5.optInt("virtual", 0);
                                 bf1Var.U = (float) optJSONObject5.optDouble("shake_action_delay_time", -1.0d);
                             }
                             JSONArray optJSONArray6 = optJSONObject4.optJSONArray("show_urls");
@@ -618,7 +618,7 @@ public class bf1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.f1084T == 1) {
+            if (this.f1086T == 1) {
                 return true;
             }
             return false;

@@ -14,6 +14,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pic;
 import com.baidu.tieba.rd;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -469,7 +470,7 @@ public class MarkData implements Serializable {
                 JSONArray optJSONArray = jSONObject.optJSONArray("media");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     String optString = optJSONArray.getJSONObject(0).optString("type");
-                    if (StringHelper.equals(optString, "pic")) {
+                    if (StringHelper.equals(optString, pic.f)) {
                         this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
                     } else if (StringHelper.equals(optString, "flash")) {
                         this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");

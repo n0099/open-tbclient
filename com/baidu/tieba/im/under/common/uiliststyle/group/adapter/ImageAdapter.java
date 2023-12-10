@@ -21,9 +21,9 @@ import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseImageMsg;
 import com.baidu.tieba.im.under.common.uiliststyle.group.item.BaseImageItem;
-import com.baidu.tieba.kz8;
-import com.baidu.tieba.ns8;
+import com.baidu.tieba.lz8;
 import com.baidu.tieba.os8;
+import com.baidu.tieba.ps8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import java.util.List;
 public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseImageMsg>, Holder, BaseNormalAdapter.NonExtraHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ns8 m;
+    public os8 m;
     public String n;
 
     /* loaded from: classes6.dex */
@@ -122,8 +122,8 @@ public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseIma
                 }
                 TbBaseImageMsg tbBaseImageMsg = (TbBaseImageMsg) this.a.getTbMsg();
                 long sessionId = tbBaseImageMsg.getSessionId();
-                long a = kz8.a(tbBaseImageMsg);
-                this.b.m = new ns8(this.b.mContext, this.b.n, a, null, sessionId, false);
+                long a = lz8.a(tbBaseImageMsg);
+                this.b.m = new os8(this.b.mContext, this.b.n, a, null, sessionId, false);
                 this.b.m.execute(new String[0]);
             }
         }
@@ -162,7 +162,7 @@ public class ImageAdapter extends BaseStyleNormalAdapter<BaseImageItem<TbBaseIma
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                tbBaseImageMsg.setThumbSize(os8.d(chatImageWithTailView, thumbUrl, n0.second, R.drawable.icon_pic_im_image_default));
+                tbBaseImageMsg.setThumbSize(ps8.d(chatImageWithTailView, thumbUrl, n0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }

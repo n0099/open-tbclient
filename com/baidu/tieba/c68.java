@@ -1,59 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.app.Activity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class c68 {
+public final class c68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(t06 t06Var, ForumData forumData, List<pi> list, boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{t06Var, forumData, list, Boolean.valueOf(z), Integer.valueOf(i)}) != null) || ListUtils.isEmpty(list)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947626820, "Lcom/baidu/tieba/c68;")) == null) {
             return;
         }
-        b16 b16Var = new b16(t06Var, 5);
-        b16Var.G(list);
-        if (forumData != null) {
-            b16Var.w(forumData.getId());
-            b16Var.v(forumData.getFirst_class());
-            b16Var.E(forumData.getSecond_class());
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            b16Var.B(String.valueOf(currentAccountObj.isMemberCloseAdIsOpen()));
-        }
-        b16Var.A(z);
-        b16Var.C(i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, b16Var));
-    }
-
-    public static void b(t06 t06Var, FrsViewData frsViewData, List<pi> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65537, null, t06Var, frsViewData, list, i) == null) && frsViewData != null) {
-            a(t06Var, frsViewData.getForum(), list, false, i);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947626820, "Lcom/baidu/tieba/c68;");
         }
     }
 
-    public static void c(dwa dwaVar, List<pi> list, List<pi> list2) {
-        int[] iArr;
-        int indexOf;
+    @JvmStatic
+    public static final void a(TbPageContext<?> tbPageContext) {
+        FrsActivity frsActivity;
+        boolean z;
+        FrsFragment n1;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, dwaVar, list, list2) == null) && dwaVar != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
-            for (int i : dwa.f) {
-                pi piVar = (pi) ListUtils.getItem(list, i);
-                if (piVar != null && (indexOf = list2.indexOf(piVar)) >= 0) {
-                    dwaVar.a(i, indexOf);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, tbPageContext) != null) || tbPageContext == null) {
+            return;
+        }
+        Activity pageActivity = tbPageContext.getPageActivity();
+        Intrinsics.checkNotNullExpressionValue(pageActivity, "pageContext.pageActivity");
+        FrsActivity frsActivity2 = null;
+        if (pageActivity instanceof FrsActivity) {
+            frsActivity = (FrsActivity) pageActivity;
+        } else {
+            frsActivity = null;
+        }
+        if (frsActivity != null) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            frsActivity2 = frsActivity;
+        }
+        if (frsActivity2 != null && (n1 = frsActivity2.n1()) != null) {
+            fp5.a.h(n1.getUniqueId());
         }
     }
 }

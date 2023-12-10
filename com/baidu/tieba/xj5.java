@@ -194,7 +194,7 @@ public class xj5 {
                     if (tbDownloadManager.p(downloadData) <= 0) {
                         tbDownloadManager.w(1);
                         if (tbDownloadManager.p(downloadData) <= 0) {
-                            tbDownloadManager.w(me7.a());
+                            tbDownloadManager.w(ne7.a());
                         }
                     }
                 }
@@ -215,7 +215,7 @@ public class xj5 {
             downloadData.setName(itemData.mTitle);
             downloadData.setUniqueId(String.valueOf(itemData.itemId));
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(mia.p(str).intValue());
+            downloadData.setNotifyId(nia.p(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             downloadData.setItemData(itemData);

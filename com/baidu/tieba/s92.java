@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.model.PMSException;
-import com.baidu.tieba.doc;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.g92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,13 +24,13 @@ public abstract class s92 extends o92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public joc<? super hf4> c;
-    public joc<? super ff4> d;
+    public koc<? super hf4> c;
+    public koc<? super ff4> d;
     public sj4 e;
     public dl3<Exception> f;
     public be4<hf4> g;
     public be4<ff4> h;
-    public joc<if4> i;
+    public koc<if4> i;
 
     public abstract int U();
 
@@ -390,7 +390,7 @@ public abstract class s92 extends o92 {
     }
 
     /* loaded from: classes8.dex */
-    public class e implements doc.a<hf4> {
+    public class e implements eoc.a<hf4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s92 a;
@@ -414,19 +414,19 @@ public abstract class s92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super hf4> jocVar) {
+        public void call(koc<? super hf4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.c = jocVar;
+            this.a.c = kocVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class f implements doc.a<ff4> {
+    public class f implements eoc.a<ff4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s92 a;
@@ -450,19 +450,19 @@ public abstract class s92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
-        public void call(joc<? super ff4> jocVar) {
+        public void call(koc<? super ff4> kocVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, jocVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, kocVar) != null) {
                 return;
             }
-            this.a.d = jocVar;
+            this.a.d = kocVar;
         }
     }
 
     /* loaded from: classes8.dex */
-    public class g extends joc<if4> {
+    public class g extends koc<if4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ s92 e;
@@ -486,7 +486,7 @@ public abstract class s92 extends o92 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         /* renamed from: g */
         public void onNext(if4 if4Var) {
             Interceptable interceptable = $ic;
@@ -495,7 +495,7 @@ public abstract class s92 extends o92 {
             }
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -504,7 +504,7 @@ public abstract class s92 extends o92 {
             }
         }
 
-        @Override // com.baidu.tieba.eoc
+        @Override // com.baidu.tieba.foc
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -551,7 +551,7 @@ public abstract class s92 extends o92 {
         }
     }
 
-    public final joc<if4> Y() {
+    public final koc<if4> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -560,7 +560,7 @@ public abstract class s92 extends o92 {
             }
             return this.i;
         }
-        return (joc) invokeV.objValue;
+        return (koc) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.fe4
@@ -677,13 +677,13 @@ public abstract class s92 extends o92 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.e.e()) {
-                arrayList.add(doc.d(new e(this)));
+                arrayList.add(eoc.d(new e(this)));
             }
             if (this.e.d()) {
-                arrayList.add(doc.d(new f(this)));
+                arrayList.add(eoc.d(new f(this)));
             }
             if (!arrayList.isEmpty()) {
-                doc.q(arrayList).F(Y());
+                eoc.q(arrayList).F(Y());
             }
         }
     }

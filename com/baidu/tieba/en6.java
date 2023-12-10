@@ -32,7 +32,7 @@ public class en6 extends um6 implements IVideoData {
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1089T;
+    public int f1091T;
 
     @Override // com.baidu.tieba.um6
     public boolean isVideoThreadType() {
@@ -127,7 +127,7 @@ public class en6 extends um6 implements IVideoData {
         }
         this.R = false;
         this.S = true;
-        this.f1089T = 0;
+        this.f1091T = 0;
         this.a = threadData;
     }
 

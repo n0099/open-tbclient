@@ -34,10 +34,10 @@ import com.baidu.tieba.ch5;
 import com.baidu.tieba.e65;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.hib;
-import com.baidu.tieba.leb;
+import com.baidu.tieba.iib;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.lu4;
+import com.baidu.tieba.meb;
 import com.baidu.tieba.ne5;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.tbadkCore.util.AICapacityApplyHelper;
@@ -147,7 +147,7 @@ public class EditorInfoContainer extends LinearLayout implements ve5 {
                         }
                         this.a.b.E(i);
                         if ("2".equals(this.a.b.i)) {
-                            leb.b(this.a.b.k, i);
+                            meb.b(this.a.b.k, i);
                         }
                     }
                 }
@@ -183,7 +183,7 @@ public class EditorInfoContainer extends LinearLayout implements ve5 {
                 } else {
                     i = 12;
                 }
-                hib.b(this.a, i);
+                iib.b(this.a, i);
                 EditorInfoContainer editorInfoContainer = this.b;
                 editorInfoContainer.D(this.a, ((Integer) editorInfoContainer.a.a).intValue(), new a(this));
             }
@@ -514,7 +514,7 @@ public class EditorInfoContainer extends LinearLayout implements ve5 {
     }
 
     /* loaded from: classes8.dex */
-    public class j implements leb.c {
+    public class j implements meb.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -537,7 +537,7 @@ public class EditorInfoContainer extends LinearLayout implements ve5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.leb.c
+        @Override // com.baidu.tieba.meb.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -723,7 +723,7 @@ public class EditorInfoContainer extends LinearLayout implements ve5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048604, this, str, i2) == null) && "2".equals(this.i)) {
             this.k = str;
-            leb.a(str, i2, new j(this));
+            meb.a(str, i2, new j(this));
         }
     }
 

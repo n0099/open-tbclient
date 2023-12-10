@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax8;
+import com.baidu.tieba.bx8;
 import com.baidu.tieba.f05;
 import com.baidu.tieba.ij5;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -41,22 +41,22 @@ import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.is8;
-import com.baidu.tieba.ju8;
+import com.baidu.tieba.js8;
 import com.baidu.tieba.ku8;
+import com.baidu.tieba.lu8;
 import com.baidu.tieba.nu5;
-import com.baidu.tieba.os8;
+import com.baidu.tieba.ps8;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.st5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tt5;
-import com.baidu.tieba.tu8;
-import com.baidu.tieba.uz8;
+import com.baidu.tieba.uu8;
 import com.baidu.tieba.v85;
 import com.baidu.tieba.vz8;
 import com.baidu.tieba.w4;
-import com.baidu.tieba.xw8;
+import com.baidu.tieba.wz8;
 import com.baidu.tieba.yj5;
+import com.baidu.tieba.yw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     public long mId;
     public AntiHelper.k mInjectListener;
     public CustomMessageListener mListenerUnLogin;
-    public ax8 mSendCallback;
+    public bx8 mSendCallback;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -139,7 +139,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
 
     public abstract boolean loadDraft();
 
-    public abstract boolean loadFirst(is8 is8Var);
+    public abstract boolean loadFirst(js8 js8Var);
 
     public abstract boolean loadPrepage();
 
@@ -587,9 +587,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         if (w4Var != null) {
             w4Var.c(this.mDatas);
         }
-        ax8 ax8Var = this.mSendCallback;
-        if (ax8Var != null) {
-            ax8Var.a(0);
+        bx8 bx8Var = this.mSendCallback;
+        if (bx8Var != null) {
+            bx8Var.a(0);
         }
     }
 
@@ -655,12 +655,12 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     public void doSendVoice(ChatMessage chatMessage) {
         VoiceMsgData s;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65553, this, chatMessage) != null) || (s = vz8.s(chatMessage)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65553, this, chatMessage) != null) || (s = wz8.s(chatMessage)) == null) {
             return;
         }
         chatMessage.setLogTime(System.currentTimeMillis());
-        xw8.n(chatMessage);
-        xw8.k().A(s, chatMessage);
+        yw8.n(chatMessage);
+        yw8.k().A(s, chatMessage);
     }
 
     public void deleteMsg(int i) {
@@ -673,35 +673,35 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     public void doSendCommonShareCard(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, chatMessage) == null) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         }
     }
 
     public void doSendShareChatroom(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, chatMessage) == null) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         }
     }
 
     public void doSendShareForum(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, chatMessage) == null) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         }
     }
 
     public void doSendShareThread(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, chatMessage) == null) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         }
     }
 
     public void doSendText(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, chatMessage) == null) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         }
     }
 
@@ -796,7 +796,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
     public void setImageUploadUIProgressCallback(ij5.b<ChatMessage> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, bVar) == null) {
-            xw8.k().u(bVar);
+            yw8.k().u(bVar);
         }
     }
 
@@ -807,11 +807,11 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         }
     }
 
-    public void setSendCallback(ax8 ax8Var) {
+    public void setSendCallback(bx8 bx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, ax8Var) == null) {
-            this.mSendCallback = ax8Var;
-            xw8.k().v(ax8Var);
+        if (interceptable == null || interceptable.invokeL(1048625, this, bx8Var) == null) {
+            this.mSendCallback = bx8Var;
+            yw8.k().v(bx8Var);
         }
     }
 
@@ -856,7 +856,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                                         if (msgType != 38) {
                                             return "";
                                         }
-                                        ImShareCardCommonData d = vz8.d(chatMessage);
+                                        ImShareCardCommonData d = wz8.d(chatMessage);
                                         if (d != null) {
                                             if (d.getType() == 1) {
                                                 return string + TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
@@ -940,9 +940,9 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         chatMessage.setProgressValue(0);
         chatMessage.setIsUploading(true);
         if (str.startsWith("http")) {
-            xw8.k().t(chatMessage);
+            yw8.k().t(chatMessage);
         } else {
-            xw8.k().z(chatMessage, str);
+            yw8.k().z(chatMessage, str);
         }
     }
 
@@ -986,7 +986,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (msgPageData = this.mDatas) != null && msgPageData.getChatMessages() != null && this.mDatas.size() != 0) {
             ChatMessage findMaxMsgIdMessage = findMaxMsgIdMessage();
-            if (findMaxMsgIdMessage != null && vz8.A(findMaxMsgIdMessage)) {
+            if (findMaxMsgIdMessage != null && wz8.A(findMaxMsgIdMessage)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016020, findMaxMsgIdMessage));
             }
             this.mDatas.clear();
@@ -1196,7 +1196,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             this.mAntiDialog = null;
-            xw8.k().v(null);
+            yw8.k().v(null);
             unRegisterListener();
         }
     }
@@ -1244,14 +1244,14 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) chatMessage.getObjContent();
                     if (gamePlayOrderMsgData != null) {
                         gamePlayOrderMsgData.setLast(false);
-                        ku8.w().y(gamePlayOrderMsgData.getGid(), gamePlayOrderMsgData.getMid(), OrmObject.jsonStrWithObject(gamePlayOrderMsgData));
+                        lu8.w().y(gamePlayOrderMsgData.getGid(), gamePlayOrderMsgData.getMid(), OrmObject.jsonStrWithObject(gamePlayOrderMsgData));
                     } else {
                         GamePlayOrderMsgData parseFromJsonStr = GamePlayOrderMsgData.parseFromJsonStr(chatMessage.getContent());
                         if (parseFromJsonStr != null) {
                             parseFromJsonStr.setLast(false);
                             String jsonStrWithObject = OrmObject.jsonStrWithObject(parseFromJsonStr);
                             chatMessage.setContent(jsonStrWithObject);
-                            ku8.w().y(parseFromJsonStr.getGid(), parseFromJsonStr.getMid(), jsonStrWithObject);
+                            lu8.w().y(parseFromJsonStr.getGid(), parseFromJsonStr.getMid(), jsonStrWithObject);
                         }
                     }
                 }
@@ -1273,8 +1273,8 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                         if (MessageManager.getInstance().getSocketClient() != null) {
                             z = MessageManager.getInstance().getSocketClient().n(chatMessage);
                         }
-                        if (!z && (chatMessage.getMsgType() != 2 || !xw8.k().h(chatMessage))) {
-                            if (chatMessage.getMsgType() != 3 || !xw8.k().i(chatMessage)) {
+                        if (!z && (chatMessage.getMsgType() != 2 || !yw8.k().h(chatMessage))) {
+                            if (chatMessage.getMsgType() != 3 || !yw8.k().i(chatMessage)) {
                                 chatMessage.getLocalData().setStatus((short) 2);
                             }
                         }
@@ -1303,7 +1303,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         if (i2 >= 0 && i < size) {
             for (ChatMessage chatMessage : list) {
                 if (chatMessage.getMsgType() == 4) {
-                    os8.a = tt5.b();
+                    ps8.a = tt5.b();
                 }
                 long userId = chatMessage.getUserId();
                 String portrait = chatMessage.getUserInfo().getPortrait();
@@ -1451,7 +1451,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             chatMessage.setLocalData(msgLocalData);
         }
         chatMessage.getLocalData().setErrorString(chatMessage.getErrorString());
-        chatMessage.getLocalData().setStatus(Short.valueOf(tu8.b(chatMessage.getError())));
+        chatMessage.getLocalData().setStatus(Short.valueOf(uu8.b(chatMessage.getError())));
         List<ChatMessage> chatMessages = this.mDatas.getChatMessages();
         if (chatMessages != null && chatMessages.size() != 0) {
             long recordId = chatMessage.getRecordId();
@@ -1485,7 +1485,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             genChatMessage.setCustomGroupType(this.customGroupType);
             genChatMessage.setMsgType(s);
             genChatMessage.setContent(str);
-            long b = uz8.b(getLastMid());
+            long b = vz8.b(getLastMid());
             genChatMessage.setMsgId(b);
             genChatMessage.setRecordId(b);
             genChatMessage.setTime(System.currentTimeMillis() / 1000);
@@ -1571,7 +1571,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return Boolean.valueOf(ku8.w().n(vz8.r(this.val$personalMsg), this.val$list, false));
+                            return Boolean.valueOf(lu8.w().n(wz8.r(this.val$personalMsg), this.val$list, false));
                         }
                         return (Boolean) invokeV.objValue;
                     }
@@ -1650,7 +1650,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            return Boolean.valueOf(ju8.w().n(vz8.r(this.val$personalMsg), this.val$list, false));
+                            return Boolean.valueOf(ku8.w().n(wz8.r(this.val$personalMsg), this.val$list, false));
                         }
                         return (Boolean) invokeV.objValue;
                     }
@@ -1754,7 +1754,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             HashMap hashMap = new HashMap();
             hashMap.put(EmotionUbcHelper.MEME_ID, str);
             hashMap.put("meme_type", "4");
-            ChatMessage createMessage = createMessage((short) 2, xw8.g(str2, str2, i, i2, hashMap));
+            ChatMessage createMessage = createMessage((short) 2, yw8.g(str2, str2, i, i2, hashMap));
             if (createMessage == null) {
                 return;
             }
@@ -1765,7 +1765,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (w4Var != null) {
                 w4Var.c(this.mDatas);
             }
-            xw8.k().t(createMessage);
+            yw8.k().t(createMessage);
         }
     }
 
@@ -1774,8 +1774,8 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         if ((interceptable != null && interceptable.invokeLLL(1048619, this, str, bitmap, map) != null) || bitmap == null) {
             return;
         }
-        String g = xw8.g(str, str, bitmap.getWidth(), bitmap.getHeight(), map);
-        xw8.k().w(str, map);
+        String g = yw8.g(str, str, bitmap.getWidth(), bitmap.getHeight(), map);
+        yw8.k().w(str, map);
         ChatMessage createMessage = createMessage((short) 2, g);
         if (createMessage == null) {
             return;
@@ -1831,7 +1831,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(ku8.w().n(vz8.r(this.val$groupMsg), this.val$list, false));
+                        return Boolean.valueOf(lu8.w().n(wz8.r(this.val$groupMsg), this.val$list, false));
                     }
                     return (Boolean) invokeV.objValue;
                 }
@@ -1912,7 +1912,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        return Boolean.valueOf(ju8.w().n(vz8.r(this.val$groupMsg), this.val$list, false));
+                        return Boolean.valueOf(ku8.w().n(wz8.r(this.val$groupMsg), this.val$list, false));
                     }
                     return (Boolean) invokeV.objValue;
                 }

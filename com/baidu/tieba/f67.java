@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class f67 extends n57 implements g77, oa7, PreLoadImageProvider, wb7 {
+public class f67 extends n57 implements g77, oa7, PreLoadImageProvider, xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     @NonNull
     public String a() {
         InterceptResult invokeV;
@@ -47,13 +47,13 @@ public class f67 extends n57 implements g77, oa7, PreLoadImageProvider, wb7 {
         }
     }
 
-    @Override // com.baidu.tieba.wb7
+    @Override // com.baidu.tieba.xb7
     public void e(@NonNull FeedStat.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            for (rb7<? extends Object> rb7Var : this.c.c()) {
-                if (rb7Var.b() instanceof wb7) {
-                    ((wb7) rb7Var.b()).e(aVar);
+            for (sb7<? extends Object> sb7Var : this.c.c()) {
+                if (sb7Var.b() instanceof xb7) {
+                    ((xb7) sb7Var.b()).e(aVar);
                 }
             }
         }
@@ -64,9 +64,9 @@ public class f67 extends n57 implements g77, oa7, PreLoadImageProvider, wb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.c.t(i);
-            for (rb7<? extends Object> rb7Var : this.c.c()) {
-                if (rb7Var.b() instanceof g77) {
-                    ((g77) rb7Var.b()).setPosition(i);
+            for (sb7<? extends Object> sb7Var : this.c.c()) {
+                if (sb7Var.b() instanceof g77) {
+                    ((g77) sb7Var.b()).setPosition(i);
                 }
             }
         }
@@ -80,8 +80,8 @@ public class f67 extends n57 implements g77, oa7, PreLoadImageProvider, wb7 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.c != null) {
                 ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
-                for (rb7<? extends Object> rb7Var : this.c.c()) {
-                    if ((rb7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) rb7Var).getImages()) != null && images.size() > 0) {
+                for (sb7<? extends Object> sb7Var : this.c.c()) {
+                    if ((sb7Var instanceof PreLoadImageProvider) && (images = ((PreLoadImageProvider) sb7Var).getImages()) != null && images.size() > 0) {
                         arrayList.addAll(images);
                     }
                 }

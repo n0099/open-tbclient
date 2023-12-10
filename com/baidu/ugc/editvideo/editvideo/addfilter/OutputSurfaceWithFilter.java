@@ -6,7 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.os.Handler;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.vsb;
+import com.baidu.tieba.wsb;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -108,7 +108,7 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
     public void setup() {
         super.setup();
-        this.isAr = vsb.d().j();
+        this.isAr = wsb.d().j();
         this.mFullScreenFUDisplay = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
     }
 }

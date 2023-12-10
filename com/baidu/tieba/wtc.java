@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.AdInfo;
-import tbclient.Media;
+import tbclient.ActionControl;
+import tbclient.AdCloseInfo;
 /* loaded from: classes8.dex */
-public class wtc extends ktc {
+public class wtc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AdInfo adInfo) {
+    public static JSONObject b(@NonNull AdCloseInfo adCloseInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adCloseInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "show_rule", adInfo.show_rule);
-            ktc.a(jSONObject, TiebaStatic.Params.AD_TYPE, adInfo.ad_type);
-            ktc.a(jSONObject, TiebaStatic.Params.AD_DESC, adInfo.ad_desc);
-            ktc.a(jSONObject, "ad_pic", adInfo.ad_pic);
-            ktc.a(jSONObject, SignAllForumAdvertActivityConfig.AD_URL, adInfo.ad_url);
-            ktc.a(jSONObject, "ad_name", adInfo.ad_name);
-            ktc.a(jSONObject, "portrait", adInfo.portrait);
-            if (adInfo.media != null) {
+            ltc.a(jSONObject, "support_close", adCloseInfo.support_close);
+            ltc.a(jSONObject, "title", adCloseInfo.title);
+            if (adCloseInfo.reasons != null) {
                 JSONArray jSONArray = new JSONArray();
-                for (Media media : adInfo.media) {
-                    jSONArray.put(b5d.b(media));
+                for (String str : adCloseInfo.reasons) {
+                    jSONArray.put(str);
                 }
-                ktc.a(jSONObject, "media", jSONArray);
+                ltc.a(jSONObject, "reasons", jSONArray);
+            }
+            ltc.a(jSONObject, "confirm_title", adCloseInfo.confirm_title);
+            ActionControl actionControl = adCloseInfo.action_control;
+            if (actionControl != null) {
+                ltc.a(jSONObject, "action_control", ttc.b(actionControl));
             }
             return jSONObject;
         }

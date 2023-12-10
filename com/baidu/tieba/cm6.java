@@ -283,7 +283,7 @@ public class cm6 extends nl6<CardPersonDynamicThreadData> {
     }
 
     /* loaded from: classes5.dex */
-    public class e extends aab {
+    public class e extends bab {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cm6 b;
@@ -306,7 +306,7 @@ public class cm6 extends nl6<CardPersonDynamicThreadData> {
             this.b = cm6Var;
         }
 
-        @Override // com.baidu.tieba.aab
+        @Override // com.baidu.tieba.bab
         public void a(TextPaint textPaint, boolean z) {
             int color;
             Interceptable interceptable = $ic;
@@ -1137,7 +1137,7 @@ public class cm6 extends nl6<CardPersonDynamicThreadData> {
             SpannableStringBuilder parseTitleOrAbstractForFrs = threadData.parseTitleOrAbstractForFrs(false, true, this.R);
             if (parseTitleOrAbstractForFrs != null && !StringUtils.isNull(parseTitleOrAbstractForFrs.toString())) {
                 this.w.setVisibility(0);
-                this.w.setOnTouchListener(new cab(parseTitleOrAbstractForFrs));
+                this.w.setOnTouchListener(new dab(parseTitleOrAbstractForFrs));
                 this.w.setText(parseTitleOrAbstractForFrs);
                 if (!L()) {
                     xl6.l(this.w, cardPersonDynamicThreadData.b, R.color.CAM_X0105, R.color.CAM_X0109);

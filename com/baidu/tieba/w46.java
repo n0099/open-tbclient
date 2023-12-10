@@ -344,8 +344,8 @@ public final class w46 implements zd5 {
                     }
                 }
             }
-            for (jsa jsaVar : new TbDownloadManager().m().j()) {
-                ApkDownloadInfoData b2 = i35.a.b(jsaVar);
+            for (ksa ksaVar : new TbDownloadManager().m().j()) {
+                ApkDownloadInfoData b2 = i35.a.b(ksaVar);
                 if (b2 != null) {
                     g(b2);
                     if (q(b2)) {
@@ -537,7 +537,7 @@ public final class w46 implements zd5 {
             }
             apkDownloadInfoData.setNotificationShowCount(notificationShowCount);
             TbDownloadManager tbDownloadManager = new TbDownloadManager();
-            jsa i = tbDownloadManager.m().i(apkDownloadInfoData.getItemId());
+            ksa i = tbDownloadManager.m().i(apkDownloadInfoData.getItemId());
             if (i == null) {
                 return;
             }

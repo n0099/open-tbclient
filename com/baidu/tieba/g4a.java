@@ -1,151 +1,238 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.coreExtra.data.TiebaPlusConfigData;
-import com.baidu.tieba.pb.pb.main.PbFragment;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class g4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TextView a;
-    public final TBSpecificationBtn b;
-    public final PbFragment c;
-    public String d;
 
-    public g4a(TextView mPbViews, TBSpecificationBtn mPbViewsBtn, PbFragment mPbFragment) {
+    public static final void a(p05 popupDialogView, SparseArray<?> tags, List<l05> list, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, String floorPostId, boolean z6, boolean z7, int i) {
+        l05 l05Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mPbViews, mPbViewsBtn, mPbFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{popupDialogView, tags, list, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), floorPostId, Boolean.valueOf(z6), Boolean.valueOf(z7), Integer.valueOf(i)}) == null) {
+            Intrinsics.checkNotNullParameter(popupDialogView, "popupDialogView");
+            Intrinsics.checkNotNullParameter(tags, "tags");
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(floorPostId, "floorPostId");
+            if (!z6) {
                 return;
             }
+            l05 l05Var2 = null;
+            if (z2 && z4 && z5) {
+                SparseArray<Object> g = g(tags, z, z3, z4, z5, floorPostId, z7);
+                l05Var2 = new l05(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f055b), popupDialogView);
+                l05Var2.d.setTag(g);
+            } else if (z4) {
+                SparseArray<Object> f = f(tags, z);
+                if (i == 1002 && !z) {
+                    l05Var = new l05(6, TbadkCoreApplication.getInst().getString(R.string.report_text), popupDialogView);
+                } else {
+                    l05Var = new l05(6, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f055b), popupDialogView);
+                }
+                l05Var2 = l05Var;
+                l05Var2.d.setTag(f);
+            }
+            if (l05Var2 != null) {
+                list.add(l05Var2);
+            }
         }
-        Intrinsics.checkNotNullParameter(mPbViews, "mPbViews");
-        Intrinsics.checkNotNullParameter(mPbViewsBtn, "mPbViewsBtn");
-        Intrinsics.checkNotNullParameter(mPbFragment, "mPbFragment");
-        this.a = mPbViews;
-        this.b = mPbViewsBtn;
-        this.c = mPbFragment;
-        c();
     }
 
-    public static final void d(g4a this$0, View view2) {
+    public static final void b(p05 popupDialogView, SparseArray<?> tags, List<l05> list, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, String floorPostId, boolean z6, boolean z7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                BdUtilHelper.showToast(this$0.c.getContext(), (int) R.string.obfuscated_res_0x7f0f0e70);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{popupDialogView, tags, list, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), floorPostId, Boolean.valueOf(z6), Boolean.valueOf(z7)}) == null) {
+            Intrinsics.checkNotNullParameter(popupDialogView, "popupDialogView");
+            Intrinsics.checkNotNullParameter(tags, "tags");
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(floorPostId, "floorPostId");
+            if (!z6) {
                 return;
             }
-            UrlManager urlManager = UrlManager.getInstance();
-            TbPageContext<BaseFragmentActivity> pageContext = this$0.c.getPageContext();
-            TiebaPlusConfigData b = this$0.b();
-            String str = this$0.d;
-            Intrinsics.checkNotNull(str);
-            urlManager.dealOneLink(pageContext, new String[]{b.getJumpUrlWithTid(str)});
-            TiebaPlusConfigData.addClickStatsForFireLink(4);
+            l05 l05Var = null;
+            if (z2) {
+                SparseArray<Object> g = g(tags, z, z3, z4, z5, floorPostId, z7);
+                l05 l05Var2 = new l05(7, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f032e), popupDialogView);
+                l05Var2.d.setTag(g);
+                l05Var = l05Var2;
+            }
+            if (l05Var != null) {
+                list.add(l05Var);
+            }
         }
     }
 
-    public final void a(String tid) {
+    public static final void c(p05 popupDialogView, List<l05> list, boolean z, boolean z2, boolean z3, boolean z4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tid) == null) {
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            this.d = tid;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{popupDialogView, list, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            Intrinsics.checkNotNullParameter(popupDialogView, "popupDialogView");
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (!z4) {
+                return;
+            }
+            l05 l05Var = null;
+            if (!z && z2 && z3) {
+                l05Var = new l05(13, TbadkApplication.getInst().getString(R.string.multi_delete), popupDialogView);
+            }
+            if (l05Var != null) {
+                list.add(l05Var);
+            }
         }
     }
 
-    public final void e(int i) {
+    public static final void d(p05 popupDialogView, boolean z, boolean z2, SparseArray<?> tags, List<l05> list, boolean z3, boolean z4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (b().isSwitchOpen()) {
-                this.b.l(i);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{popupDialogView, Boolean.valueOf(z), Boolean.valueOf(z2), tags, list, Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            Intrinsics.checkNotNullParameter(popupDialogView, "popupDialogView");
+            Intrinsics.checkNotNullParameter(tags, "tags");
+            Intrinsics.checkNotNullParameter(list, "list");
+            if (!z3) {
+                return;
+            }
+            l05 l05Var = null;
+            if (!z4 && !z && z2) {
+                l05Var = new l05(5, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d4b), popupDialogView);
+                l05Var.d.setTag(i(tags));
+            }
+            if (l05Var != null) {
+                list.add(l05Var);
+            }
+        }
+    }
+
+    public static final void e(p05 popupDialogView, boolean z, boolean z2, List<l05> list, boolean z3, String floorPostId, boolean z4, boolean z5, boolean z6) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{popupDialogView, Boolean.valueOf(z), Boolean.valueOf(z2), list, Boolean.valueOf(z3), floorPostId, Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6)}) == null) {
+            Intrinsics.checkNotNullParameter(popupDialogView, "popupDialogView");
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(floorPostId, "floorPostId");
+            if (!z4) {
+                return;
+            }
+            l05 l05Var = null;
+            if ((z5 || z || !z2) && z6 && !z3) {
+                l05Var = new l05(5, TbadkCoreApplication.getInst().getString(R.string.report_text), popupDialogView);
+                l05Var.d.setTag(floorPostId);
+            }
+            if (l05Var != null) {
+                list.add(l05Var);
+            }
+        }
+    }
+
+    public static final SparseArray<Object> f(SparseArray<?> sparseArray, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, sparseArray, z)) == null) {
+            SparseArray<Object> sparseArray2 = new SparseArray<>();
+            sparseArray2.put(R.id.tag_should_manage_visible, Boolean.FALSE);
+            sparseArray2.put(R.id.tag_user_mute_visible, Boolean.FALSE);
+            sparseArray2.put(R.id.tag_should_delete_visible, Boolean.TRUE);
+            sparseArray2.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
+            sparseArray2.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));
+            sparseArray2.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
+            sparseArray2.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
+            sparseArray2.put(R.id.tag_has_sub_post, sparseArray.get(R.id.tag_has_sub_post));
+            return sparseArray2;
+        }
+        return (SparseArray) invokeLZ.objValue;
+    }
+
+    public static final SparseArray<Object> g(SparseArray<?> sparseArray, boolean z, boolean z2, boolean z3, boolean z4, String str, boolean z5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{sparseArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), str, Boolean.valueOf(z5)})) == null) {
+            SparseArray<Object> sparseArray2 = new SparseArray<>();
+            sparseArray2.put(R.id.tag_should_manage_visible, Boolean.TRUE);
+            sparseArray2.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
+            sparseArray2.put(R.id.tag_forbid_user_name, sparseArray.get(R.id.tag_forbid_user_name));
+            sparseArray2.put(R.id.tag_forbid_user_name_show, sparseArray.get(R.id.tag_forbid_user_name_show));
+            sparseArray2.put(R.id.tag_forbid_user_portrait, sparseArray.get(R.id.tag_forbid_user_portrait));
+            sparseArray2.put(R.id.tag_forbid_user_post_id, str);
+            sparseArray2.put(R.id.tag_mul_del_post_type, sparseArray.get(R.id.tag_mul_del_post_type));
+            if (!z5 && z2) {
+                sparseArray2.put(R.id.tag_user_mute_visible, Boolean.TRUE);
+                sparseArray2.put(R.id.tag_is_mem, sparseArray.get(R.id.tag_is_mem));
+                sparseArray2.put(R.id.tag_user_mute_mute_userid, sparseArray.get(R.id.tag_user_mute_mute_userid));
+                sparseArray2.put(R.id.tag_user_mute_mute_username, sparseArray.get(R.id.tag_user_mute_mute_username));
+                sparseArray2.put(R.id.tag_user_mute_mute_nameshow, sparseArray.get(R.id.tag_user_mute_mute_nameshow));
+                sparseArray2.put(R.id.tag_user_mute_post_id, sparseArray.get(R.id.tag_user_mute_post_id));
+                sparseArray2.put(R.id.tag_user_mute_thread_id, sparseArray.get(R.id.tag_user_mute_thread_id));
             } else {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+                sparseArray2.put(R.id.tag_user_mute_visible, Boolean.FALSE);
             }
-        }
-    }
-
-    public final void f(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, charSequence) != null) || charSequence == null) {
-            return;
-        }
-        if (b().isSwitchOpen()) {
-            this.b.setText(charSequence.toString());
-        } else {
-            this.a.setText(charSequence);
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            if (b().isSwitchOpen()) {
-                this.b.setVisibility(i);
-                this.a.setVisibility(8);
-                return;
+            if (z3) {
+                sparseArray2.put(R.id.tag_should_delete_visible, Boolean.TRUE);
+                sparseArray2.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));
+                sparseArray2.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
+                sparseArray2.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
+                sparseArray2.put(R.id.tag_has_sub_post, sparseArray.get(R.id.tag_has_sub_post));
+                sparseArray2.put(R.id.tag_is_self_post, Boolean.valueOf(z4));
+            } else {
+                sparseArray2.put(R.id.tag_should_delete_visible, Boolean.FALSE);
             }
-            this.b.setVisibility(8);
-            this.a.setVisibility(i);
+            return sparseArray2;
         }
+        return (SparseArray) invokeCommon.objValue;
     }
 
-    public final TiebaPlusConfigData b() {
-        InterceptResult invokeV;
+    public static final NegativeFeedBackData h(AntiData antiData) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            TiebaPlusConfigData config = TbSingleton.getInstance().getTiebaPlusConfigData();
-            if (config == null) {
-                config = TiebaPlusConfigData.DEFAULT;
-            }
-            Intrinsics.checkNotNullExpressionValue(config, "config");
-            return config;
-        }
-        return (TiebaPlusConfigData) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            e65 e65Var = new e65();
-            e65Var.u(R.color.CAM_X0302);
-            this.b.setConfig(e65Var);
-            this.b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v3a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        g4a.d(g4a.this, view2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, antiData)) == null) {
+            SparseArray<String> sparseArray = new SparseArray<>();
+            if (antiData != null && antiData.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = antiData.getDelThreadInfoList();
+                int size = delThreadInfoList.size();
+                for (int i = 0; i < size; i++) {
+                    String str = delThreadInfoList.get(i).text_info;
+                    if (str != null && str.length() != 0) {
+                        z = false;
+                    } else {
+                        z = true;
+                    }
+                    if (!z) {
+                        sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
                     }
                 }
-            });
+            }
+            NegativeFeedBackData negativeFeedBackData = new NegativeFeedBackData();
+            negativeFeedBackData.setFeedBackReasonMap(sparseArray);
+            return negativeFeedBackData;
         }
+        return (NegativeFeedBackData) invokeL.objValue;
+    }
+
+    public static final SparseArray<Object> i(SparseArray<?> tags) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tags)) == null) {
+            Intrinsics.checkNotNullParameter(tags, "tags");
+            SparseArray<Object> sparseArray = new SparseArray<>();
+            sparseArray.put(R.id.tag_user_mute_visible, Boolean.TRUE);
+            sparseArray.put(R.id.tag_is_mem, tags.get(R.id.tag_is_mem));
+            sparseArray.put(R.id.tag_user_mute_mute_userid, tags.get(R.id.tag_user_mute_mute_userid));
+            sparseArray.put(R.id.tag_user_mute_mute_username, tags.get(R.id.tag_user_mute_mute_username));
+            sparseArray.put(R.id.tag_user_mute_mute_nameshow, tags.get(R.id.tag_user_mute_mute_nameshow));
+            sparseArray.put(R.id.tag_user_mute_post_id, tags.get(R.id.tag_user_mute_post_id));
+            sparseArray.put(R.id.tag_user_mute_thread_id, tags.get(R.id.tag_user_mute_thread_id));
+            sparseArray.put(R.id.tag_del_post_is_self, tags.get(R.id.tag_del_post_is_self));
+            sparseArray.put(R.id.tag_del_post_type, tags.get(R.id.tag_del_post_type));
+            sparseArray.put(R.id.tag_del_post_id, tags.get(R.id.tag_del_post_id));
+            sparseArray.put(R.id.tag_manage_user_identity, tags.get(R.id.tag_manage_user_identity));
+            return sparseArray;
+        }
+        return (SparseArray) invokeL.objValue;
     }
 }

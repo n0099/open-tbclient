@@ -8,8 +8,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.n06;
 import com.baidu.tieba.p06;
-import com.baidu.tieba.rha;
 import com.baidu.tieba.s06;
+import com.baidu.tieba.sha;
 import com.baidu.tieba.t06;
 import com.baidu.tieba.x06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsFeedAdAdapter extends x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rha mRecAppContext;
+    public sha mRecAppContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsFeedAdAdapter(rha rhaVar, BdUniqueId bdUniqueId) {
-        super(rhaVar.I().getPageActivity(), bdUniqueId);
+    public FrsFeedAdAdapter(sha shaVar, BdUniqueId bdUniqueId) {
+        super(shaVar.I().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rhaVar, bdUniqueId};
+            Object[] objArr = {shaVar, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,7 +42,7 @@ public class FrsFeedAdAdapter extends x06 {
                 return;
             }
         }
-        this.mRecAppContext = rhaVar;
+        this.mRecAppContext = shaVar;
     }
 
     @Override // com.baidu.tieba.x06, com.baidu.tieba.ci

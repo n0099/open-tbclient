@@ -26,8 +26,8 @@ import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.b75;
 import com.baidu.tieba.c75;
-import com.baidu.tieba.ca8;
 import com.baidu.tieba.d75;
+import com.baidu.tieba.da8;
 import com.baidu.tieba.fx4;
 import com.baidu.tieba.rt5;
 import com.baidu.tieba.x65;
@@ -632,15 +632,15 @@ public class SpanGroupManager {
                     String substring = group.substring(18, group.length() - 7);
                     int start = matcher.start();
                     int end = matcher.end();
-                    ca8 ca8Var = null;
+                    da8 da8Var = null;
                     try {
-                        ca8Var = ca8.g(new JSONObject(substring));
+                        da8Var = da8.g(new JSONObject(substring));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    if (ca8Var != null) {
+                    if (da8Var != null) {
                         TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
-                        fx4 b2 = fx4.b(tbLinkSpanGroup, ca8Var);
+                        fx4 b2 = fx4.b(tbLinkSpanGroup, da8Var);
                         tbLinkSpanGroup.a(text, start, end, (int) this.c.getTextSize());
                         b2.h = substring;
                         tbLinkSpanGroup.C(b2.d);

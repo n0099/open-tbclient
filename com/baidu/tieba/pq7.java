@@ -1,73 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.p55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class pq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public BdTypeListView e;
-    public q55 f;
-    public NoNetworkView g;
-    public oq7 h;
+    public List<ci> a;
+    public BdTypeListView b;
+    public lq7 c;
+    public nq7 d;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pq7 a;
-
-        public a(pq7 pq7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pq7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pq7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.finish();
-            }
-        }
-    }
-
-    public pq7(BaseActivity baseActivity) {
+    public pq7(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
+            Object[] objArr = {baseActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,124 +34,45 @@ public class pq7 {
                 return;
             }
         }
-        this.a = baseActivity;
-        baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d031c);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f09009d);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0804)).setOnClickListener(new a(this));
-        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5b);
-        q55 q55Var = new q55(this.a.getPageContext());
-        this.f = q55Var;
-        q55Var.W(this.a.getUniqueId());
-        BaseActivity baseActivity2 = this.a;
-        if (baseActivity2 instanceof p55.g) {
-            this.f.a((p55.g) baseActivity2);
-        }
-        BaseActivity baseActivity3 = this.a;
-        if (baseActivity3 instanceof BdListView.p) {
-            this.e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
-        }
-        this.e.setPullRefresh(this.f);
-        this.c = BdListViewHelper.d(this.a.getPageContext().getPageActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        oq7 oq7Var = new oq7(this.a, this.e);
-        this.h = oq7Var;
-        this.e.addAdapters(oq7Var.a());
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        this.b = bdTypeListView;
+        arrayList.add(new hq7(baseActivity.getPageContext(), iq7.d));
+        this.a.add(new jq7(baseActivity.getPageContext(), kq7.c));
+        this.a.add(new gq7(baseActivity.getPageContext(), ks7.c));
+        this.a.add(new xp7(baseActivity.getPageContext(), yp7.b));
+        this.a.add(new zp7(baseActivity.getPageContext(), aq7.g));
+        this.a.add(new bq7(baseActivity.getPageContext()));
+        lq7 lq7Var = new lq7(baseActivity.getPageContext(), mq7.e);
+        this.c = lq7Var;
+        this.a.add(lq7Var);
+        nq7 nq7Var = new nq7(baseActivity.getPageContext(), oq7.d);
+        this.d = nq7Var;
+        this.a.add(nq7Var);
     }
 
-    public void b(boolean z) {
+    public List<ci> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            BdListViewHelper.c(this.c, BdListViewHelper.HeadType.DEFAULT, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void f(List<pi> list) {
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || list == null) {
-            return;
-        }
-        this.e.setData(list);
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d.onChangeSkinType(this.a.getPageContext(), i);
-            this.g.onChangeSkinType(this.a.getPageContext(), i);
-            g();
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-        }
-    }
-
-    public void j(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        this.g.addNetworkChangeListener(bVar);
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.e.setVisibility(8);
-            this.a.showNetRefreshView(this.b, str, true);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof gi)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.z(0L);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.setVisibility(0);
-            this.a.hideLoadingView(this.b);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.setVisibility(0);
-            this.a.hideNetRefreshView(this.b);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.b();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h.c();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e.setVisibility(8);
-            this.a.showLoadingView(this.b, true);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.E();
+            this.c.onDestroy();
+            this.d.onDestroy();
         }
     }
 }

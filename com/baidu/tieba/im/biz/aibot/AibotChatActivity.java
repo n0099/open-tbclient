@@ -9,11 +9,11 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.imaibot.AibotArgs;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs8;
+import com.baidu.tieba.ar8;
+import com.baidu.tieba.ds8;
 import com.baidu.tieba.im.base.core.slice.SliceActivity;
 import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.qt5;
-import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -97,7 +97,7 @@ public final class AibotChatActivity extends SliceActivity {
                 intent.putExtra(AiBotChatDispatcher.AI_SINGLE_IS_ANIMATION, aibotArgs.isAnimation());
                 intent.putExtra("botUk", botUk);
                 intent.putExtra("argsData", aibotArgs);
-                zq8.a.a("navTo", paid, botUk, aibotArgs);
+                ar8.a.a("navTo", paid, botUk, aibotArgs);
                 if (aibotArgs.getRequestCode() != 0 && (context instanceof Activity)) {
                     ((Activity) context).startActivityForResult(intent, aibotArgs.getRequestCode());
                 } else {
@@ -183,7 +183,7 @@ public final class AibotChatActivity extends SliceActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d002b);
-            cs8.d.a().g();
+            ds8.d.a().g();
             setSwipeBackEnabled(false);
             if (bundle == null) {
                 n1();

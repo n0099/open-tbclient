@@ -415,7 +415,7 @@ public class sb5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 83;
-            if (rua.f(activity)) {
+            if (sua.f(activity)) {
                 i = R.dimen.tbds95;
             } else {
                 i = R.dimen.tbds141;
@@ -437,7 +437,7 @@ public class sb5 {
                 curGlobalActivity = TbadkCoreApplication.getInst();
             }
             if (hotEventData != null && hotEventData.getWindowType() == 3) {
-                pma.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
+                qma.a(curGlobalActivity, new String[]{hotEventData.getSchemaUrl()});
             }
         }
     }
@@ -566,12 +566,12 @@ public class sb5 {
             r(hotEventData);
             Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
             if (currentActivity != null && !currentActivity.isFinishing()) {
-                if (currentActivity instanceof j0b) {
+                if (currentActivity instanceof k0b) {
                     DefaultLog.getInstance().e("HotEventTip", "精灵动画提示控件：通知首页展示S级事件");
-                    br6.b().c(new bua(new cua(hotEventData, eVar), 1));
+                    br6.b().c(new cua(new dua(hotEventData, eVar), 1));
                     return null;
                 }
-                if (rua.f(currentActivity)) {
+                if (sua.f(currentActivity)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921769));
                 }
                 SpriteAnimationTipManager spriteAnimationTipManager = new SpriteAnimationTipManager(currentActivity);

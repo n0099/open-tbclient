@@ -1,23 +1,63 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class k59 implements i59 {
+public class k59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public final ArrayList<j59> a;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ j59 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(k59 k59Var, ListView listView, List list, j59 j59Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k59Var, listView, list, j59Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = listView;
+            this.b = list;
+            this.c = j59Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
+                return;
+            }
+            this.c.b(this.a, this.d, this.e);
+        }
+    }
 
     public k59() {
         Interceptable interceptable = $ic;
@@ -32,45 +72,29 @@ public class k59 implements i59 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
+        ArrayList<j59> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new i59());
+        this.a.add(new l59());
     }
 
-    @Override // com.baidu.tieba.i59
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public void a(MsglistModel msglistModel, ListView listView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            return this.a.containsKey(c(chatMessageArr));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
-                return chatMessageArr[0].getContent();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
+            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+            if (ListUtils.isEmpty(chatMessages)) {
+                return;
             }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i59
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
-        }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-        if (chatMessageArr != null && chatMessageArr.length > 1) {
-            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
+            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+            Iterator<j59> it = this.a.iterator();
+            while (it.hasNext()) {
+                j59 next = it.next();
+                if (next.a(chatMessage, chatMessage2)) {
+                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                    return;
+                }
+            }
         }
     }
 }

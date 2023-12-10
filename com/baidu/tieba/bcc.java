@@ -2,7 +2,9 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ibc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +12,145 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public final class bcc {
+public class bcc extends fbc {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, xbc> b;
-    public static Map<Class<?>, Object> c;
+    public static List<ybc> c;
+    public static final Object d;
+    public static final Map<String, fbc> e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, xbc> a;
+    public final gbc a;
+    public final ccc b;
+
+    /* loaded from: classes5.dex */
+    public static class a implements ibc.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ibc.a
+        public String a(gbc gbcVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gbcVar)) == null) {
+                if (gbcVar.b().equals(dbc.c)) {
+                    str = "/agcgw_all/CN";
+                } else if (gbcVar.b().equals(dbc.e)) {
+                    str = "/agcgw_all/RU";
+                } else if (gbcVar.b().equals(dbc.d)) {
+                    str = "/agcgw_all/DE";
+                } else if (!gbcVar.b().equals(dbc.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG";
+                }
+                return gbcVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements ibc.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ibc.a
+        public String a(gbc gbcVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gbcVar)) == null) {
+                if (gbcVar.b().equals(dbc.c)) {
+                    str = "/agcgw_all/CN_back";
+                } else if (gbcVar.b().equals(dbc.e)) {
+                    str = "/agcgw_all/RU_back";
+                } else if (gbcVar.b().equals(dbc.d)) {
+                    str = "/agcgw_all/DE_back";
+                } else if (!gbcVar.b().equals(dbc.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG_back";
+                }
+                return gbcVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements ibc.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ibc.a
+        public String a(gbc gbcVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gbcVar)) == null) {
+                if (gbcVar.b().equals(dbc.c)) {
+                    str = "/service/analytics/collector_url_cn";
+                } else if (gbcVar.b().equals(dbc.e)) {
+                    str = "/service/analytics/collector_url_ru";
+                } else if (gbcVar.b().equals(dbc.d)) {
+                    str = "/service/analytics/collector_url_de";
+                } else if (!gbcVar.b().equals(dbc.f)) {
+                    return null;
+                } else {
+                    str = "/service/analytics/collector_url_sg";
+                }
+                return gbcVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,16 +165,16 @@ public final class bcc {
                 return;
             }
         }
-        b = new HashMap();
-        c = new HashMap();
+        d = new Object();
+        e = new HashMap();
     }
 
-    public bcc(List<xbc> list, Context context) {
+    public bcc(gbc gbcVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
+            Object[] objArr = {gbcVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,87 +184,137 @@ public final class bcc {
                 return;
             }
         }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
-    }
-
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
+        this.a = gbcVar;
+        if (c == null) {
+            Log.e("AGConnectInstance", "please call `initialize()` first");
         }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public final void b(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
+        new ccc(c, gbcVar.getContext());
+        ccc cccVar = new ccc(null, gbcVar.getContext());
+        this.b = cccVar;
+        if (gbcVar instanceof obc) {
+            cccVar.c(((obc) gbcVar).d(), gbcVar.getContext());
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<xbc> list, Context context) {
-        Map<Class<?>, xbc> map;
-        String str;
+    public static fbc f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f;
+            if (str == null) {
+                str = "DEFAULT_INSTANCE";
+            }
+            return i(str);
         }
-        for (xbc xbcVar : list) {
-            if (xbcVar.d()) {
-                if (!b.containsKey(xbcVar.a())) {
-                    map = b;
+        return (fbc) invokeV.objValue;
+    }
+
+    public static fbc g(gbc gbcVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gbcVar)) == null) ? h(gbcVar, false) : (fbc) invokeL.objValue;
+    }
+
+    public static fbc h(gbc gbcVar, boolean z) {
+        InterceptResult invokeLZ;
+        fbc fbcVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, gbcVar, z)) == null) {
+            synchronized (d) {
+                fbcVar = e.get(gbcVar.getIdentifier());
+                if (fbcVar == null || z) {
+                    fbcVar = new bcc(gbcVar);
+                    e.put(gbcVar.getIdentifier(), fbcVar);
                 }
-                if (xbcVar.c() && xbcVar.b() != null && !c.containsKey(xbcVar.a())) {
-                    try {
-                        Constructor a = a(xbcVar.b(), Context.class);
-                        c.put(xbcVar.a(), a == null ? a.newInstance(context) : xbcVar.b().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
+            }
+            return fbcVar;
+        }
+        return (fbc) invokeLZ.objValue;
+    }
+
+    public static fbc i(String str) {
+        InterceptResult invokeL;
+        fbc fbcVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (d) {
+                fbcVar = e.get(str);
+                if (fbcVar == null) {
+                    if ("DEFAULT_INSTANCE".equals(str)) {
+                        Log.w("AGC_Instance", "please call `initialize()` first");
+                    } else {
+                        Log.w("AGC_Instance", "not find instance for : " + str);
                     }
                 }
-            } else {
-                map = this.a;
             }
-            map.put(xbcVar.a(), xbcVar);
-            if (xbcVar.c()) {
-                Constructor a2 = a(xbcVar.b(), Context.class);
-                c.put(xbcVar.a(), a2 == null ? a2.newInstance(context) : xbcVar.b().newInstance());
+            return fbcVar;
+        }
+        return (fbc) invokeL.objValue;
+    }
+
+    public static synchronized void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (bcc.class) {
+                if (e.size() > 0) {
+                    Log.w("AGC_Instance", "Repeated invoking initialize");
+                } else {
+                    k(context, jbc.c(context));
+                }
             }
         }
+    }
+
+    public static synchronized void k(Context context, gbc gbcVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, gbcVar) == null) {
+            synchronized (bcc.class) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.w("AGC_Instance", "context.getApplicationContext null");
+                } else {
+                    context = applicationContext;
+                }
+                l();
+                m();
+                nbc.a(context);
+                if (c == null) {
+                    c = new com.huawei.agconnect.core.a.c(context).b();
+                }
+                h(gbcVar, true);
+                f = gbcVar.getIdentifier();
+                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + gbcVar.b().a());
+                acc.a();
+            }
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            ibc.b("/agcgw/url", new a());
+            ibc.b("/agcgw/backurl", new b());
+        }
+    }
+
+    public static void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            ibc.b("/service/analytics/collector_url", new c());
+        }
+    }
+
+    @Override // com.baidu.tieba.fbc
+    public Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fbc
+    public gbc d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (gbc) invokeV.objValue;
     }
 }

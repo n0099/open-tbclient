@@ -5,12 +5,12 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
-import com.baidu.tieba.i3b;
+import com.baidu.tieba.a3b;
+import com.baidu.tieba.j3b;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
-import com.baidu.tieba.u2b;
-import com.baidu.tieba.z2b;
+import com.baidu.tieba.v2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel a;
-    public z2b b;
-    public u2b c;
+    public a3b b;
+    public v2b c;
     public BubbleListModel.c d;
     public BdListView.p e;
     public final p55.g f;
@@ -60,9 +60,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
-        public void a(int i, String str, i3b i3bVar, List<DressItemData> list) {
+        public void a(int i, String str, j3b j3bVar, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, i3bVar, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, j3bVar, list}) == null) {
                 this.a.b.j();
                 BubbleListActivity bubbleListActivity = this.a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.b.c());
@@ -71,7 +71,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     this.a.b.h();
                     return;
                 }
-                this.a.b.i(i3bVar, list, this.a.a.d0());
+                this.a.b.i(j3bVar, list, this.a.a.d0());
             }
         }
     }
@@ -165,9 +165,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            z2b z2bVar = this.b;
-            if (z2bVar != null) {
-                z2bVar.d();
+            a3b a3bVar = this.b;
+            if (a3bVar != null) {
+                a3bVar.d();
             }
         }
     }
@@ -196,10 +196,10 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        z2b z2bVar;
+        a3b a3bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (z2bVar = this.b) != null) {
-            showLoadingView(z2bVar.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (a3bVar = this.b) != null) {
+            showLoadingView(a3bVar.c());
             this.a.loadData();
         }
     }
@@ -212,11 +212,11 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             BubbleListModel bubbleListModel = new BubbleListModel(this);
             this.a = bubbleListModel;
             bubbleListModel.f0(this.d);
-            u2b u2bVar = new u2b(getPageContext());
-            this.c = u2bVar;
-            z2b z2bVar = new z2b(this, u2bVar);
-            this.b = z2bVar;
-            z2bVar.g(this.e, this.f);
+            v2b v2bVar = new v2b(getPageContext());
+            this.c = v2bVar;
+            a3b a3bVar = new a3b(this, v2bVar);
+            this.b = a3bVar;
+            a3bVar.g(this.e, this.f);
             showLoadingView(this.b.c());
             this.a.loadData();
         }

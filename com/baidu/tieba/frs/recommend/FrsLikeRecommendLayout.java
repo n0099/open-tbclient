@@ -28,13 +28,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cva;
+import com.baidu.tieba.dva;
 import com.baidu.tieba.jt;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.r28;
 import com.baidu.tieba.s28;
-import com.baidu.tieba.u28;
+import com.baidu.tieba.t28;
 import com.baidu.tieba.v28;
+import com.baidu.tieba.w28;
 import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -52,12 +52,12 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public r28 f;
-    public s28 g;
+    public s28 f;
+    public t28 g;
     public ValueAnimator h;
-    public u28 i;
+    public v28 i;
     public boolean j;
-    public List<cva> k;
+    public List<dva> k;
     public int l;
     public boolean m;
     @SuppressLint({"HandlerLeak"})
@@ -70,7 +70,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
         /* loaded from: classes6.dex */
-        public class a implements v28 {
+        public class a implements w28 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -95,7 +95,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
                 this.a = i;
             }
 
-            @Override // com.baidu.tieba.v28
+            @Override // com.baidu.tieba.w28
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -126,15 +126,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
         @Override // com.baidu.tieba.zi
         public void b(View view2, pi piVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(piVar instanceof cva)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, piVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(piVar instanceof dva)) {
                 return;
             }
             if (view2.getId() == R.id.obfuscated_res_0x7f090d62) {
                 if (this.a.g != null) {
-                    this.a.g.g((cva) piVar);
+                    this.a.g.g((dva) piVar);
                 }
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090c4d && this.a.g != null) {
-                this.a.g.h((cva) piVar, i, new a(this, i));
+                this.a.g.h((dva) piVar, i, new a(this, i));
             }
         }
     }
@@ -493,10 +493,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
         }
     }
 
-    public void setHeightChangeListener(u28 u28Var) {
+    public void setHeightChangeListener(v28 v28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, u28Var) == null) {
-            this.i = u28Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, v28Var) == null) {
+            this.i = v28Var;
         }
     }
 
@@ -528,9 +528,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
     public void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            s28 s28Var = this.g;
-            if (s28Var != null) {
-                s28Var.d();
+            t28 t28Var = this.g;
+            if (t28Var != null) {
+                t28Var.d();
             }
             y();
         }
@@ -596,19 +596,19 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0619, null);
             }
-            r28 r28Var = this.f;
-            if (r28Var != null) {
-                r28Var.notifyDataSetChanged();
+            s28 s28Var = this.f;
+            if (s28Var != null) {
+                s28Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void p(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull String str2, @NonNull List<cva> list) {
+    public void p(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull String str2, @NonNull List<dva> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLL(1048580, this, tbPageContext, str, str2, list) == null) && this.e != null && this.f != null && !ListUtils.isEmpty(list)) {
-            s28 s28Var = new s28(tbPageContext, str, str2);
-            this.g = s28Var;
-            s28Var.l();
+            t28 t28Var = new t28(tbPageContext, str, str2);
+            this.g = t28Var;
+            t28Var.l();
             this.k = list;
             if (getVisibility() == 0) {
                 this.e.setData(list);
@@ -627,9 +627,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d65);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090d64);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d61);
-            r28 r28Var = new r28(getContext());
-            this.f = r28Var;
-            r28Var.setOnAdapterItemClickListener(getItemClickListener());
+            s28 s28Var = new s28(getContext());
+            this.f = s28Var;
+            s28Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -658,8 +658,8 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jt {
             return;
         }
         pi item = this.e.getItem(i);
-        if (item instanceof cva) {
-            ((cva) item).f = true;
+        if (item instanceof dva) {
+            ((dva) item).f = true;
             adapter.notifyDataSetChanged();
             Message obtain = Message.obtain();
             obtain.obj = Integer.valueOf(i);

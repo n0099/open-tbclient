@@ -40,8 +40,8 @@ import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aza;
 import com.baidu.tieba.mk5;
-import com.baidu.tieba.yya;
 import com.baidu.tieba.zya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -758,7 +758,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            yya.a("FragmentTabHost initViewPager");
+            zya.a("FragmentTabHost initViewPager");
             CustomViewPager customViewPager = this.i;
             if (customViewPager != null) {
                 customViewPager.setOnPageChangeListener(null);
@@ -768,15 +768,15 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             CustomViewPager customViewPager2 = new CustomViewPager(this.a);
             this.i = customViewPager2;
             customViewPager2.setId(R.id.tab_content);
-            zya.c(this.i, 2);
+            aza.c(this.i, 2);
             e(i);
-            yya.a("FragmentTabHost  ====== begin add ViewPager ======");
+            zya.a("FragmentTabHost  ====== begin add ViewPager ======");
             addView(this.i);
             removeView(this.l);
             addView(this.l);
             removeView(this.n);
             addView(this.n);
-            yya.a("FragmentTabHost  ====== end add ViewPager ======");
+            zya.a("FragmentTabHost  ====== end add ViewPager ======");
             this.i.setOffscreenPageLimit(this.g.size() - 1);
             this.i.setOnPageChangeListener(this);
             StringBuilder sb = new StringBuilder();
@@ -788,18 +788,18 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                     sb.append(cVar.c);
                 }
             }
-            yya.a("FragmentTabHost  ====== begin attach adapter ======" + ((Object) sb));
+            zya.a("FragmentTabHost  ====== begin attach adapter ======" + ((Object) sb));
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f, this.g);
             this.k = fragmentAdapter;
             this.i.setAdapter(fragmentAdapter);
-            yya.a("FragmentTabHost  ====== end attach adapter ======");
+            zya.a("FragmentTabHost  ====== end attach adapter ======");
         }
     }
 
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            yya.a("FragmentTabHost initViewPagerWithNoType");
+            zya.a("FragmentTabHost initViewPagerWithNoType");
             CustomViewPager customViewPager = this.i;
             if (customViewPager != null) {
                 removeView(customViewPager);
@@ -980,7 +980,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         if ((interceptable != null && interceptable.invokeI(1048616, this, i) != null) || this.b == null) {
             return;
         }
-        yya.a("FragmentTabHost setTabWidgetViewHeight height:" + i);
+        zya.a("FragmentTabHost setTabWidgetViewHeight height:" + i);
         this.b.getLayoutParams().height = i;
         this.b.requestLayout();
         this.l.getLayoutParams().height = i;

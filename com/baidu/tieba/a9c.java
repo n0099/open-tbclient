@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public final class a9c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ z8c b;
+    public final /* synthetic */ Activity a;
+    public final /* synthetic */ w8c b;
+    public final /* synthetic */ v8c c;
 
-    public a9c(z8c z8cVar, AtomicBoolean atomicBoolean) {
+    public a9c(v8c v8cVar, Activity activity, w8c w8cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z8cVar, atomicBoolean};
+            Object[] objArr = {v8cVar, activity, w8cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,18 +34,30 @@ public final class a9c implements Runnable {
                 return;
             }
         }
-        this.b = z8cVar;
-        this.a = atomicBoolean;
+        this.c = v8cVar;
+        this.a = activity;
+        this.b = w8cVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.getAndSet(true)) {
-            Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-            z8c z8cVar = this.b;
-            u8c u8cVar = z8cVar.c;
-            u8c.n(z8cVar.a, z8cVar.b);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                v8c v8cVar = this.c;
+                l = v8c.l();
+                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
+                new Handler().postDelayed(new b9c(this, atomicBoolean), 3000L);
+            } catch (RemoteException e) {
+                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
+                v8c v8cVar2 = this.c;
+                v8c.n(this.a, this.b);
+            }
         }
     }
 }

@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,8 +24,9 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public vi c;
-    public mm6<dn6> d;
+    public boolean c;
+    public vi d;
+    public mm6<dn6> e;
 
     /* loaded from: classes8.dex */
     public class a extends mm6<dn6> {
@@ -57,11 +57,8 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         /* renamed from: d */
         public void a(View view2, dn6 dn6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dn6Var) == null) {
-                em6.b().d(true);
-                if (view2 != null && dn6Var != null && dn6Var.getThreadData() != null && !StringUtils.isNull(dn6Var.getThreadData().getTid())) {
-                    this.b.z(view2, dn6Var);
-                }
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dn6Var) == null) && view2 != null && dn6Var != null && dn6Var.getThreadData() != null && !StringUtils.isNull(dn6Var.getThreadData().getTid())) {
+                this.b.z(view2, dn6Var);
             }
         }
     }
@@ -97,10 +94,10 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 dn6 dn6Var = (dn6) piVar;
                 dn6Var.f = 1;
-                if (this.a.d != null) {
-                    this.a.d.a(threadCardViewHolder.getView(), dn6Var);
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), dn6Var);
                 }
-                ThreadCardUtils.jumpToPB((fw4) dn6Var, view2.getContext(), dn6Var.C, false, ss.a((vi) viewGroup, view2, i));
+                ThreadCardUtils.jumpToPB((fw4) dn6Var, view2.getContext(), dn6Var.C, false);
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }
@@ -125,14 +122,15 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
                 return;
             }
         }
-        this.d = new a(this);
+        this.c = true;
+        this.e = new a(this);
         this.b = tbPageContext;
     }
 
     public void A(vi viVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viVar) == null) {
-            this.c = viVar;
+            this.d = viVar;
         }
     }
 
@@ -143,10 +141,15 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            cu.b bVar = new cu.b(this.b.getPageActivity());
+            cu.b bVar = new cu.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            bVar.o(new bt(this.b.getPageActivity()));
-            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            rt rtVar = new rt(this.b.getPageActivity());
+            rtVar.setFrom("pb");
+            rtVar.u(this.c);
+            bVar.n(rtVar);
+            cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.t(0);
+            ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
             setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
@@ -161,16 +164,16 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
-            if (dn6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || dn6Var.a == null) {
-                return null;
+            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && dn6Var.a != null) {
+                dn6Var.B(dn6Var.position + 1);
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.e(dn6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().r(this.e);
+                c6a.q(dn6Var, this.b);
+                return threadCardViewHolder.getView();
             }
-            dn6Var.B(dn6Var.position + 1);
-            threadCardViewHolder.a().s(i);
-            threadCardViewHolder.s(false, Align.ALIGN_RIGHT_TOP, null);
-            threadCardViewHolder.e(dn6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().r(this.d);
-            return threadCardViewHolder.getView();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }
@@ -178,15 +181,7 @@ public class sy9 extends ci<dn6, ThreadCardViewHolder<dn6>> {
     public final void z(View view2, dn6 dn6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, dn6Var) == null) {
-            int id = view2.getId();
-            if (dn6Var == null) {
-                return;
-            }
-            if (id != R.id.forum_head_image && id != R.id.forum_head_barname && id != R.id.forum_head_info_attention && id != R.id.forum_head_info_thread) {
-                b6a.o(dn6Var, 1, this.b);
-            } else {
-                b6a.o(dn6Var, 2, this.b);
-            }
+            c6a.o(dn6Var, 1, this.b);
         }
     }
 }

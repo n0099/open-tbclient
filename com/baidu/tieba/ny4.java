@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes7.dex */
-public class ny4 extends mwa {
+public class ny4 extends nwa {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId r1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class ny4 extends mwa {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.mwa, com.baidu.tieba.pi
+    @Override // com.baidu.tieba.nwa, com.baidu.tieba.pi
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

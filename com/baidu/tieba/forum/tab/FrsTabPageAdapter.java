@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.yn7;
+import com.baidu.tieba.zn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yn7> a;
+    public List<zn7> a;
 
     @Override // androidx.fragment.app.FragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
     public Parcelable saveState() {
@@ -54,7 +54,7 @@ public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
         Intrinsics.checkNotNullParameter(fm, "fm");
     }
 
-    public final List<yn7> b() {
+    public final List<zn7> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -68,7 +68,7 @@ public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<yn7> list = this.a;
+            List<zn7> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -77,7 +77,7 @@ public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
         return invokeV.intValue;
     }
 
-    public final void c(List<yn7> list) {
+    public final void c(List<zn7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.a = list;
@@ -89,7 +89,7 @@ public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<yn7> list = this.a;
+            List<zn7> list = this.a;
             Intrinsics.checkNotNull(list);
             return list.get(i).a();
         }
@@ -101,7 +101,7 @@ public final class FrsTabPageAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<yn7> list = this.a;
+            List<zn7> list = this.a;
             Intrinsics.checkNotNull(list);
             return list.get(i).b().getTabName();
         }

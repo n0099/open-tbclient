@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class b37 implements ib7 {
+public class b37 implements jb7 {
     public static /* synthetic */ Interceptable $ic;
     public static final List<Integer> d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,15 +61,15 @@ public class b37 implements ib7 {
         this.a = i;
     }
 
-    @Override // com.baidu.tieba.ib7
+    @Override // com.baidu.tieba.jb7
     @NonNull
-    public List<qb7<?, ?>> a() {
+    public List<rb7<?, ?>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < tf9.a.size(); i++) {
-                int keyAt = tf9.a.keyAt(i);
+            for (int i = 0; i < uf9.a.size(); i++) {
+                int keyAt = uf9.a.keyAt(i);
                 if (keyAt != 17 && keyAt != 33 && keyAt != 34) {
                     d37 d37Var = new d37(keyAt, this.a);
                     d37Var.f(this.b);

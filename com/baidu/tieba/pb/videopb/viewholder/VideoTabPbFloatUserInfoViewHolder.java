@@ -35,13 +35,13 @@ import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bv5;
-import com.baidu.tieba.gs8;
-import com.baidu.tieba.mwa;
+import com.baidu.tieba.hs8;
+import com.baidu.tieba.nwa;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.r2a;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.rz9;
+import com.baidu.tieba.sz9;
 import com.baidu.tieba.ty5;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.zu5;
@@ -81,7 +81,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
     public View t;
     public TextView u;
     public FrameLayout v;
-    public q2a w;
+    public r2a w;
     public boolean x;
     public AbsVideoPbFragment y;
     public final int z;
@@ -94,12 +94,12 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatUserInfoViewHolder$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0436a extends wb {
+        public class C0438a extends wb {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0436a(a aVar) {
+            public C0438a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -153,7 +153,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setStartOffset(500L);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new C0436a(this));
+                alphaAnimation.setAnimationListener(new C0438a(this));
                 this.a.o.startAnimation(alphaAnimation);
             }
         }
@@ -323,7 +323,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         this.p = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092a18);
         TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092a0e);
         this.q = tbRichTextView;
-        tbRichTextView.setLayoutStrategy(new rz9(this.q.getLayoutStrategy()));
+        tbRichTextView.setLayoutStrategy(new sz9(this.q.getLayoutStrategy()));
         this.q.getLayoutStrategy().o(1.0f);
         this.q.getLayoutStrategy().k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
         this.q.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X06));
@@ -334,17 +334,17 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         TbRichTextView tbRichTextView2 = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092a17);
         this.r = tbRichTextView2;
         tbRichTextView2.setIsNeedResizeEmotion(true);
-        rz9 rz9Var = new rz9(this.r.getLayoutStrategy());
-        rz9Var.x(TbConfig.getContentSize());
-        rz9Var.o(0.9f);
-        rz9Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-        this.r.setLayoutStrategy(rz9Var);
+        sz9 sz9Var = new sz9(this.r.getLayoutStrategy());
+        sz9Var.x(TbConfig.getContentSize());
+        sz9Var.o(0.9f);
+        sz9Var.k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+        this.r.setLayoutStrategy(sz9Var);
         this.r.setMaxLines(3);
         this.r.setAddExpandableListener(true);
         this.v = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092a10);
-        q2a q2aVar = new q2a(absVideoPbFragment, this.v);
-        this.w = q2aVar;
-        q2aVar.f = 2;
+        r2a r2aVar = new r2a(absVideoPbFragment, this.v);
+        this.w = r2aVar;
+        r2aVar.f = 2;
         this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092a0f);
         View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0929e8);
         this.t = findViewById;
@@ -596,13 +596,13 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void r(Context context, mwa mwaVar) {
+    public void r(Context context, nwa nwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, context, mwaVar) == null) {
-            if (mwaVar != null && ListUtils.getCount(mwaVar.t0) >= 2) {
-                List<PbContent> list = mwaVar.t0;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, context, nwaVar) == null) {
+            if (nwaVar != null && ListUtils.getCount(nwaVar.t0) >= 2) {
+                List<PbContent> list = nwaVar.t0;
                 TbRichText c0 = TbRichTextView.c0(ListUtils.subList(list, 1, list.size()), true);
-                i(c0, mwaVar.Y());
+                i(c0, nwaVar.Y());
                 this.r.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
                 this.r.setText(c0);
                 this.x = true;
@@ -625,7 +625,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
             if (!ListUtils.isEmpty(list)) {
                 tbRichText = TbRichTextView.d0(list, true, threadData);
             } else {
-                tbRichText = new TbRichText(gs8.c(str, 1));
+                tbRichText = new TbRichText(hs8.c(str, 1));
             }
             TbRichText tbRichText2 = tbRichText;
             i(tbRichText2, threadData.getItemStar());

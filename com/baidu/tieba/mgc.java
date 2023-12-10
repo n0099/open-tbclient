@@ -1,1185 +1,730 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
+import android.content.res.Configuration;
 import android.os.Build;
-import android.os.Environment;
-import android.os.Process;
-import android.os.StatFs;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.tieba.hgc;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import com.huawei.hms.framework.common.hianalytics.CrashHianalyticsData;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import com.yy.sdk.crashreportbaidu.ActivityHistory;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.sdk.crashreportbaidu.CrashInfo;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.RandomAccessFile;
-import java.io.StringWriter;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.net.URLConnection;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.WritableByteChannel;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.TimeZone;
-import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-import org.json.JSONException;
+import java.util.zip.ZipOutputStream;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class mgc {
-    public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static Map<String, String> j;
-    public static hgc.g k;
-    public static String l;
-    public static int m;
-    public static String n;
-    public static String o;
-    public static boolean p;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://crash-reporting.yy.com/crash/reporting";
+    public static long b = 31457280;
+    public static Executor c = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-        }
+    /* loaded from: classes7.dex */
+    public interface f {
+        void onResult(String str, boolean z, int i, String str2);
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973152, "Lcom/baidu/tieba/mgc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947973152, "Lcom/baidu/tieba/mgc;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947973152, "Lcom/baidu/tieba/mgc;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947973152, "Lcom/baidu/tieba/mgc;");
-                return;
-            }
-        }
-        j = new HashMap();
-        l = null;
-        m = 0;
-        o = BaseStatisContent.GUID;
-        p = false;
-    }
-
-    public static String B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return String.format("%s %s", Build.MANUFACTURER, Build.MODEL);
-            } catch (Exception unused) {
-                ggc.d("CrashUtils", "get phone model info failed!");
-                return "unknown";
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static long F() {
+    /* loaded from: classes7.dex */
+    public static class b implements ComponentCallbacks2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.ComponentCallbacks
+        public void onConfigurationChanged(Configuration configuration) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
+            }
+        }
+
+        @Override // android.content.ComponentCallbacks
+        public void onLowMemory() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // android.content.ComponentCallbacks2
+        public void onTrimMemory(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qgc.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ f e;
+
+        public d(List list, String str, String str2, Map map, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list, str, str2, map, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = str;
+            this.c = str2;
+            this.d = map;
+            this.e = fVar;
+        }
+
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:113:0x022c A[Catch: all -> 0x0279, TRY_LEAVE, TryCatch #9 {all -> 0x0279, blocks: (B:111:0x0223, B:113:0x022c), top: B:150:0x0223 }] */
+        /* JADX WARN: Removed duplicated region for block: B:144:0x025c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:152:0x027d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:154:0x023c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:158:0x029d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:198:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:64:0x012e A[Catch: all -> 0x01de, Exception -> 0x01e3, TryCatch #14 {Exception -> 0x01e3, blocks: (B:28:0x0064, B:29:0x006c, B:31:0x0072, B:34:0x009a, B:37:0x00a2, B:38:0x00a5, B:39:0x00ab, B:43:0x00b6, B:45:0x00bc, B:47:0x00ca, B:49:0x00d1, B:50:0x00d5, B:52:0x00e1, B:54:0x00fb, B:55:0x0100, B:57:0x0106, B:60:0x010d, B:62:0x0118, B:64:0x012e, B:67:0x0140, B:70:0x0155, B:73:0x0172, B:71:0x0161, B:61:0x0112, B:80:0x0180, B:81:0x0183, B:82:0x019d), top: B:156:0x0064 }] */
+        /* JADX WARN: Removed duplicated region for block: B:71:0x0161 A[Catch: all -> 0x01de, Exception -> 0x01e3, TryCatch #14 {Exception -> 0x01e3, blocks: (B:28:0x0064, B:29:0x006c, B:31:0x0072, B:34:0x009a, B:37:0x00a2, B:38:0x00a5, B:39:0x00ab, B:43:0x00b6, B:45:0x00bc, B:47:0x00ca, B:49:0x00d1, B:50:0x00d5, B:52:0x00e1, B:54:0x00fb, B:55:0x0100, B:57:0x0106, B:60:0x010d, B:62:0x0118, B:64:0x012e, B:67:0x0140, B:70:0x0155, B:73:0x0172, B:71:0x0161, B:61:0x0112, B:80:0x0180, B:81:0x0183, B:82:0x019d), top: B:156:0x0064 }] */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x0172 A[Catch: all -> 0x01de, Exception -> 0x01e3, TryCatch #14 {Exception -> 0x01e3, blocks: (B:28:0x0064, B:29:0x006c, B:31:0x0072, B:34:0x009a, B:37:0x00a2, B:38:0x00a5, B:39:0x00ab, B:43:0x00b6, B:45:0x00bc, B:47:0x00ca, B:49:0x00d1, B:50:0x00d5, B:52:0x00e1, B:54:0x00fb, B:55:0x0100, B:57:0x0106, B:60:0x010d, B:62:0x0118, B:64:0x012e, B:67:0x0140, B:70:0x0155, B:73:0x0172, B:71:0x0161, B:61:0x0112, B:80:0x0180, B:81:0x0183, B:82:0x019d), top: B:156:0x0064 }] */
+        /* JADX WARN: Type inference failed for: r6v0 */
+        /* JADX WARN: Type inference failed for: r6v1 */
+        /* JADX WARN: Type inference failed for: r6v2, types: [java.util.zip.ZipOutputStream] */
+        /* JADX WARN: Type inference failed for: r6v20 */
+        /* JADX WARN: Type inference failed for: r6v4, types: [java.util.zip.ZipOutputStream] */
+        @Override // java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void run() {
+            WritableByteChannel writableByteChannel;
+            Throwable th;
+            ZipOutputStream zipOutputStream;
+            ZipOutputStream zipOutputStream2;
+            Exception exc;
+            StringBuilder sb;
+            ZipOutputStream zipOutputStream3;
+            ZipOutputStream zipOutputStream4;
+            FileChannel fileChannel;
+            long length;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ArrayList<String> arrayList = new ArrayList();
+                    if (this.a != null) {
+                        try {
+                            if (this.a.size() > 0) {
+                                for (String str : this.a) {
+                                    if (str != null && str.length() > 0) {
+                                        arrayList.add(str);
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            zipOutputStream4 = null;
+                            writableByteChannel = null;
+                            zipOutputStream2 = zipOutputStream4;
+                            try {
+                                kgc.h("CrashUploader", "uploadReport ERROR:", e);
+                                if (this.e != null) {
+                                }
+                                if (zipOutputStream2 != 0) {
+                                }
+                                if (writableByteChannel == null) {
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                zipOutputStream = zipOutputStream2;
+                                if (zipOutputStream != 0) {
+                                    try {
+                                        zipOutputStream.finish();
+                                        zipOutputStream.close();
+                                    } catch (Exception e2) {
+                                        kgc.g("CrashUploader", "outZip close ERROR:" + e2.getMessage());
+                                    }
+                                }
+                                if (writableByteChannel != null) {
+                                    try {
+                                        writableByteChannel.close();
+                                    } catch (Exception e3) {
+                                        kgc.g("CrashUploader", "writableByteChannel close ERROR:" + e3.getMessage());
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            zipOutputStream3 = null;
+                            writableByteChannel = null;
+                            zipOutputStream = zipOutputStream3;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        ZipOutputStream zipOutputStream5 = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(this.b)));
+                        try {
+                            writableByteChannel = Channels.newChannel(zipOutputStream5);
+                            try {
+                                try {
+                                    long j = 0;
+                                    for (String str2 : arrayList) {
+                                        try {
+                                            kgc.d("CrashUploader", "uploadReport file = " + str2);
+                                            fileChannel = new FileInputStream(str2).getChannel();
+                                        } catch (Exception e4) {
+                                            e = e4;
+                                            fileChannel = null;
+                                        }
+                                        try {
+                                            File file = new File(str2);
+                                            if (!file.exists()) {
+                                                if (fileChannel != null) {
+                                                    fileChannel.close();
+                                                }
+                                                kgc.b("CrashUploader", "Exception: File is not exists");
+                                            } else {
+                                                if (!str2.endsWith("dmp")) {
+                                                    if (str2.endsWith("hprof")) {
+                                                        if (j + (file.length() / 4) > mgc.b) {
+                                                            kgc.b("CrashUploader", "Upload hprof file too large, not upload!");
+                                                            if (fileChannel != null) {
+                                                                fileChannel.close();
+                                                            }
+                                                        }
+                                                    } else if (j + file.length() > mgc.b) {
+                                                        kgc.b("CrashUploader", file.getName() + " too large, not upload!");
+                                                        if (fileChannel != null) {
+                                                            fileChannel.close();
+                                                        }
+                                                    }
+                                                }
+                                                if (!str2.endsWith("dmp") && !str2.endsWith("hprof")) {
+                                                    length = file.length();
+                                                    long j2 = j + length;
+                                                    zipOutputStream5.putNextEntry(new ZipEntry(file.getName()));
+                                                    if (!str2.endsWith("hprof")) {
+                                                        long length2 = file.length() / 4;
+                                                        long length3 = file.length();
+                                                        long j3 = 0;
+                                                        while (length3 > length2) {
+                                                            length3 -= length2;
+                                                            j3 += fileChannel.transferTo(j3, length2, writableByteChannel);
+                                                        }
+                                                        if (length3 > 0) {
+                                                            fileChannel.transferTo(j3, length3, writableByteChannel);
+                                                        }
+                                                    } else {
+                                                        fileChannel.transferTo(0L, file.length(), writableByteChannel);
+                                                    }
+                                                    if (fileChannel != null) {
+                                                        fileChannel.close();
+                                                    }
+                                                    j = j2;
+                                                }
+                                                length = file.length() / 4;
+                                                long j22 = j + length;
+                                                zipOutputStream5.putNextEntry(new ZipEntry(file.getName()));
+                                                if (!str2.endsWith("hprof")) {
+                                                }
+                                                if (fileChannel != null) {
+                                                }
+                                                j = j22;
+                                            }
+                                        } catch (Exception e5) {
+                                            e = e5;
+                                            if (fileChannel != null) {
+                                                fileChannel.close();
+                                            }
+                                            kgc.b("CrashUploader", "Exception: " + e.getMessage());
+                                        }
+                                    }
+                                    zipOutputStream5.flush();
+                                    zipOutputStream5.finish();
+                                    zipOutputStream5.close();
+                                    kgc.d("CrashUploader", "post file size = " + j);
+                                    mgc.h(mgc.c, this.c, this.d, this.b, this.e);
+                                    kgc.d("CrashUploader", "post end file size = " + j);
+                                } catch (Exception e6) {
+                                    e = e6;
+                                    zipOutputStream2 = zipOutputStream5;
+                                    kgc.h("CrashUploader", "uploadReport ERROR:", e);
+                                    if (this.e != null) {
+                                        this.e.onResult(this.c, false, 201, e.getMessage());
+                                    }
+                                    if (zipOutputStream2 != 0) {
+                                        try {
+                                            zipOutputStream2.finish();
+                                            zipOutputStream2.close();
+                                        } catch (Exception e7) {
+                                            kgc.g("CrashUploader", "outZip close ERROR:" + e7.getMessage());
+                                        }
+                                    }
+                                    if (writableByteChannel == null) {
+                                        try {
+                                            writableByteChannel.close();
+                                            return;
+                                        } catch (Exception e8) {
+                                            exc = e8;
+                                            sb = new StringBuilder();
+                                            sb.append("writableByteChannel close ERROR:");
+                                            sb.append(exc.getMessage());
+                                            kgc.g("CrashUploader", sb.toString());
+                                        }
+                                    }
+                                    return;
+                                }
+                            } catch (Throwable th4) {
+                                th = th4;
+                                zipOutputStream = zipOutputStream5;
+                                if (zipOutputStream != 0) {
+                                }
+                                if (writableByteChannel != null) {
+                                }
+                                throw th;
+                            }
+                        } catch (Exception e9) {
+                            e = e9;
+                            zipOutputStream4 = zipOutputStream5;
+                            writableByteChannel = null;
+                            zipOutputStream2 = zipOutputStream4;
+                            kgc.h("CrashUploader", "uploadReport ERROR:", e);
+                            if (this.e != null) {
+                            }
+                            if (zipOutputStream2 != 0) {
+                            }
+                            if (writableByteChannel == null) {
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            zipOutputStream3 = zipOutputStream5;
+                            writableByteChannel = null;
+                            zipOutputStream = zipOutputStream3;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        kgc.d("CrashUploader", "post file null");
+                        writableByteChannel = null;
+                        try {
+                            mgc.h(mgc.c, this.c, this.d, null, this.e);
+                            kgc.d("CrashUploader", "post file null end");
+                        } catch (Exception e10) {
+                            e = e10;
+                            zipOutputStream2 = writableByteChannel;
+                            kgc.h("CrashUploader", "uploadReport ERROR:", e);
+                            if (this.e != null) {
+                            }
+                            if (zipOutputStream2 != 0) {
+                            }
+                            if (writableByteChannel == null) {
+                            }
+                        } catch (Throwable th6) {
+                            th = th6;
+                            th = th;
+                            zipOutputStream = writableByteChannel;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    WritableByteChannel writableByteChannel2 = writableByteChannel;
+                    if (writableByteChannel2 != null) {
+                        try {
+                            writableByteChannel2.close();
+                        } catch (Exception e11) {
+                            exc = e11;
+                            sb = new StringBuilder();
+                            sb.append("writableByteChannel close ERROR:");
+                            sb.append(exc.getMessage());
+                            kgc.g("CrashUploader", sb.toString());
+                        }
+                    }
+                } catch (Exception e12) {
+                    e = e12;
+                    writableByteChannel = null;
+                } catch (Throwable th7) {
+                    th = th7;
+                    writableByteChannel = null;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ f d;
+
+        public e(Map map, String str, String str2, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, str, str2, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = map;
+            this.b = str;
+            this.c = str2;
+            this.d = fVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Thread.currentThread().setName("fallThread");
+                    MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        type.addPart(Headers.of("Content-Disposition", "form-data; name=\"" + ((String) entry.getKey()) + "\""), RequestBody.create((MediaType) null, (String) entry.getValue()));
+                    }
+                    if (this.b != null && this.b.length() > 0) {
+                        File file = new File(this.b);
+                        MediaType parse = MediaType.parse(URLConnection.getFileNameMap().getContentTypeFor(this.b));
+                        type.addPart(Headers.of("Content-Disposition", "form-data; name=\"files\"; filename=\"" + file.getName() + "\""), RequestBody.create(parse, file));
+                    }
+                    Request build = new Request.Builder().url(this.c).post(type.build()).build();
+                    OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                    builder.connectTimeout(3000L, TimeUnit.SECONDS);
+                    builder.writeTimeout(5000L, TimeUnit.SECONDS);
+                    builder.readTimeout(3000L, TimeUnit.SECONDS);
+                    Response execute = builder.build().newCall(build).execute();
+                    kgc.d("CrashUploader", "post end");
+                    String string = execute.body().string();
+                    int code = execute.code();
+                    if (this.d != null) {
+                        this.d.onResult(this.c, true, code, string);
+                    }
+                    execute.close();
+                } catch (Throwable th) {
+                    f fVar = this.d;
+                    if (fVar != null) {
+                        fVar.onResult(this.c, false, -3, th.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                ggc.d("CrashUtils", "get tatal internal storge size");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static long G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                try {
-                    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                    ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                    return memoryInfo.totalMem / 1024;
-                } catch (Throwable unused) {
-                    ggc.d("CrashUtils", "get total memory failed");
-                    return 0L;
-                }
-            }
-            return H();
-        }
-        return invokeV.longValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String str = c;
-            if (str == null) {
-                try {
-                    return a.getPackageManager().getPackageInfo(a.getPackageName(), 0).versionName;
-                } catch (Throwable th) {
-                    Log.i("CrashUtils", C(th));
-                    return "unknown";
-                }
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) {
-            try {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                return memoryInfo.availMem / 1024;
-            } catch (Throwable unused) {
-                ggc.d("CrashUtils", "get avail memory failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
-            try {
-                StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                ggc.d("CrashUtils", "get available internal storge size failed");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String w() {
-        InterceptResult invokeV;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                i2 = ActivityHistory.INSTANCE.getLastTrimLevel();
-            } else {
-                try {
-                    ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                    ((ActivityManager) a.getSystemService("activity")).getMemoryInfo(memoryInfo);
-                    i2 = memoryInfo.lowMemory;
-                } catch (Exception unused) {
-                    ggc.d("CrashUtils", "get low memory failed");
-                    i2 = -1;
-                }
-            }
-            return String.valueOf(i2);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.getPackageName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return p;
+            return d;
         }
         return invokeV.booleanValue;
     }
 
-    public static void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            f = D(System.currentTimeMillis());
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            return e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
-            return l;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
-            return String.valueOf(Process.myPid());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65578, null)) == null) {
-            String str = i;
-            if (str != null) {
-                return str;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
-            if (m == 0) {
-                m = Process.myPid();
-            }
-            return String.valueOf(m);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65587, null)) == null) {
-            try {
-                return String.format("Android %s", Build.VERSION.RELEASE);
-            } catch (Exception e2) {
-                ggc.d("CrashUtils", C(e2));
-                return "unknown";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String C(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, th)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            PrintWriter printWriter = new PrintWriter(stringWriter);
-            if (th != null) {
-                th.printStackTrace(printWriter);
-            }
-            String obj = stringWriter.toString();
-            printWriter.close();
-            return obj.trim();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String D(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(j2));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void R(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65554, null, i2) == null) {
-            m = i2;
-        }
-    }
-
-    public static void T(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, th) == null) {
-            i = C(th);
-        }
-    }
-
-    public static void U(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65557, null, z) == null) {
-            p = z;
-        }
-    }
-
-    public static void V(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, map) == null) {
-            try {
-                j.clear();
-                j.putAll(map);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void W(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, null, str) == null) {
-            o = str;
-        }
-    }
-
-    public static void a(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, map) == null) {
-            try {
-                j.putAll(map);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static String m(long j2) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65574, null, j2)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-            return simpleDateFormat.format(new Date(j2));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static String x(CrashInfo crashInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, crashInfo)) == null) {
-            return y(crashInfo.crashId, crashInfo.crashType, m(System.currentTimeMillis()), o(), q(), 0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static long E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            try {
-                if (!Environment.getExternalStorageState().equals("mounted")) {
-                    return 0L;
-                }
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                ggc.d("CrashUtils", "get total external storge size failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
-            String str = h;
-            if (str == null) {
-                try {
-                    PackageInfo packageInfo = a.getPackageManager().getPackageInfo(a.getPackageName(), 64);
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    messageDigest.update(packageInfo.signatures[0].toByteArray());
-                    return Y(messageDigest.digest());
-                } catch (Throwable th) {
-                    ggc.d("CrashUtils", C(th));
-                    return "unknown";
-                }
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
-            try {
-                if (!Environment.getExternalStorageState().equals("mounted")) {
-                    return 0L;
-                }
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
-            } catch (Throwable unused) {
-                ggc.d("CrashUtils", "get available external storge size failed!");
-                return 0L;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public static String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
-            String str = g;
-            if (str != null) {
-                return str;
-            }
-            File file = new File(qgc.b().a(a), "crash");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            g = file.getAbsolutePath();
-            jgc.d("CrashUtils", "getDumpDirectory: " + g);
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
-            if (TextUtils.isEmpty(o) || o.equals("default")) {
-                SharedPreferences sharedPreferences = a.getSharedPreferences("CrashUtils_preferences", 0);
-                String string = sharedPreferences.getString("uuid", "default");
-                if (TextUtils.isEmpty(string) || string.equals("default")) {
-                    if (TextUtils.isEmpty(string)) {
-                        string = UUID.randomUUID().toString();
-                    }
-                    string = X(string);
-                    sharedPreferences.edit().putString("uuid", string).apply();
-                }
-                o = string;
-            }
-            return o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:45:0x005d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static long H() {
-        InterceptResult invokeV;
-        RandomAccessFile randomAccessFile;
-        Exception e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            RandomAccessFile randomAccessFile2 = null;
-            try {
-                randomAccessFile = new RandomAccessFile(HardwareInfoUtils.MEM_INFO_FILE, "r");
-                try {
-                    try {
-                        Matcher matcher = Pattern.compile("(\\d+)").matcher(randomAccessFile.readLine());
-                        String str = "";
-                        while (matcher.find()) {
-                            str = matcher.group(1);
-                        }
-                        randomAccessFile.close();
-                        long parseLong = Long.parseLong(str);
-                        try {
-                            randomAccessFile.close();
-                            return parseLong;
-                        } catch (Exception unused) {
-                            ggc.d("CrashUtils", "close file failed");
-                            return parseLong;
-                        }
-                    } catch (Exception e3) {
-                        e2 = e3;
-                        ggc.d("CrashUtils", "get mem from file failed");
-                        jgc.c("CrashUtils", "get mem from file failed", e2);
-                        if (randomAccessFile != null) {
-                            try {
-                                randomAccessFile.close();
-                            } catch (Exception unused2) {
-                                ggc.d("CrashUtils", "close file failed");
-                            }
-                        }
-                        return 0L;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    randomAccessFile2 = randomAccessFile;
-                    if (randomAccessFile2 != null) {
-                        try {
-                            randomAccessFile2.close();
-                        } catch (Exception unused3) {
-                            ggc.d("CrashUtils", "close file failed");
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e4) {
-                randomAccessFile = null;
-                e2 = e4;
-            } catch (Throwable th2) {
-                th = th2;
-                if (randomAccessFile2 != null) {
-                }
-                throw th;
-            }
-        } else {
-            return invokeV.longValue;
-        }
-    }
-
-    public static void I(Context context, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, str, str2) == null) {
-            a = context;
-            d = str2;
-            b = str;
-            e = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
-            l = UUID.randomUUID().toString();
-        }
-    }
-
-    /* JADX WARN: Can't wrap try/catch for region: R(9:3|(2:5|(4:7|(1:73)|11|(4:15|(2:17|(1:19))|20|(3:27|28|(2:30|31)(5:32|33|35|36|(4:50|51|52|53)(4:42|43|44|45)))(2:24|25))))|74|(0)|20|(1:22)|27|28|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x015b, code lost:
-        r12 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x015c, code lost:
-        r12.printStackTrace();
-     */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x008a  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:56:0x015c -> B:78:0x015f). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean K(Context context, String str, ClassLoader classLoader) {
+    public static String b(String str, String str2, String str3) {
         InterceptResult invokeLLL;
-        String str2;
-        File file;
-        ZipFile zipFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, classLoader)) == null) {
-            File file2 = new File(context.getApplicationInfo().nativeLibraryDir);
-            ZipFile zipFile2 = null;
-            if (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI)) {
-                File file3 = new File(file2, "lib" + str + "-v7a.so");
-                if (file3.exists()) {
-                    File file4 = new File(context.getDir("lib_v7a", 0), "lib" + str + ".so");
-                    if (!file4.exists() || file3.length() != file4.length()) {
-                        c(file3, file4);
-                    }
-                    if (file4.exists() && file4.length() == file3.length()) {
-                        str2 = file4.getAbsolutePath();
-                        if (str2 == null) {
-                            File file5 = new File(file2, "lib" + str + ".so");
-                            if (file5.exists()) {
-                                str2 = file5.getAbsolutePath();
-                            }
-                        }
-                        if (str2 == null && L(str2, classLoader)) {
-                            jgc.d("CrashUtils", str2 + " loaded");
-                            return true;
-                        } else if (!N(str, classLoader)) {
-                            jgc.d("CrashUtils", str + " loaded");
-                            return true;
-                        } else {
-                            try {
-                                file = new File(context.getDir("lib_ext", 0), "lib" + str + ".so");
-                                zipFile = new ZipFile(new File(context.getApplicationInfo().sourceDir));
-                            } catch (Throwable th) {
-                                th = th;
-                            }
-                            try {
-                            } catch (Throwable th2) {
-                                th = th2;
-                                zipFile2 = zipFile;
-                                try {
-                                    th.printStackTrace();
-                                    if (zipFile2 != null) {
-                                        zipFile2.close();
-                                    }
-                                    jgc.b("CrashUtils", str + " load failed");
-                                    return false;
-                                } catch (Throwable th3) {
-                                    if (zipFile2 != null) {
-                                        try {
-                                            zipFile2.close();
-                                        } catch (Throwable th4) {
-                                            th4.printStackTrace();
-                                        }
-                                    }
-                                    throw th3;
-                                }
-                            }
-                            if (d(zipFile, str, file) && file.length() > 0 && L(file.getAbsolutePath(), classLoader)) {
-                                jgc.d("CrashUtils", file.getAbsolutePath() + " loaded");
-                                try {
-                                    zipFile.close();
-                                } catch (Throwable th5) {
-                                    th5.printStackTrace();
-                                }
-                                return true;
-                            }
-                            zipFile.close();
-                            jgc.b("CrashUtils", str + " load failed");
-                            return false;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return str;
             }
-            str2 = null;
-            if (str2 == null) {
-            }
-            if (str2 == null) {
-            }
-            if (!N(str, classLoader)) {
-            }
-        } else {
-            return invokeLLL.booleanValue;
-        }
-    }
-
-    public static boolean L(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, classLoader)) == null) {
             try {
-                Runtime runtime = Runtime.getRuntime();
-                Method declaredMethod = runtime.getClass().getDeclaredMethod("load", String.class, ClassLoader.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(runtime, str, classLoader);
-                return true;
-            } catch (InvocationTargetException e2) {
-                jgc.e("CrashUtils", "Fail to load library", e2.getTargetException());
-                return false;
-            } catch (Throwable th) {
-                jgc.e("CrashUtils", "Fail to load library", th);
-                return false;
+                JSONObject jSONObject = new JSONObject(str);
+                jSONObject.put(str2, str3);
+                return jSONObject.toString();
+            } catch (Exception unused) {
+                return str;
             }
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static boolean N(String str, ClassLoader classLoader) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, classLoader)) == null) {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                Method declaredMethod = runtime.getClass().getDeclaredMethod("loadLibrary", String.class, ClassLoader.class);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(runtime, str, classLoader);
-                return true;
-            } catch (InvocationTargetException e2) {
-                jgc.e("CrashUtils", "Fail to load library", e2.getTargetException());
-                return false;
-            } catch (Throwable th) {
-                jgc.e("CrashUtils", "Fail to load library", th);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean M(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, str)) == null) {
-            jgc.d("CrashUtils", String.format("load library: %s", str));
-            try {
-                System.loadLibrary(str);
-                jgc.d("CrashUtils", String.format("load library: %s success", str));
-                return true;
-            } catch (UnsatisfiedLinkError e2) {
-                jgc.c("CrashUtils", String.format("System.loadLibrary %s failed", str), e2);
-                if (Build.VERSION.SDK_INT > 24) {
-                    return false;
-                }
-                boolean K = K(context, str, context.getClassLoader());
-                if (K) {
-                    jgc.d("CrashUtils", String.format("load library: %s success", str));
-                } else {
-                    jgc.b("CrashUtils", String.format("load library: %s failed", str));
-                }
-                return K;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean O(String str) {
+    public static Map<String, String> c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                ggc.d("so_md5", String.format("%s so md5 : %s", str, u(file)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, ngc.e());
+            hashMap.put("sign", "");
+            hashMap.put("data", pgc.a(str));
+            kgc.d("CrashUploader", "APP_ID_KEY: " + ngc.e());
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return ngc.s() + File.separator + str + "_" + str2 + ".zip";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || c != null) {
+            return;
+        }
+        c = Executors.newSingleThreadExecutor();
+        if ((context instanceof Application) && Build.VERSION.SDK_INT >= 14) {
+            g((Application) context);
+        }
+        i(context);
+    }
+
+    @TargetApi(14)
+    public static void g(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, application) == null) {
+            application.registerActivityLifecycleCallbacks(new a());
+            application.registerComponentCallbacks(new b());
+        }
+    }
+
+    public static void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            if (context == null) {
+                kgc.b("CrashUploader", "Context is null");
+            } else {
+                c.execute(new c(context));
+            }
+        }
+    }
+
+    public static boolean h(Executor executor, String str, Map<String, String> map, String str2, f fVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, executor, str, map, str2, fVar)) == null) {
+            if (str != null && str.length() > 0) {
+                kgc.d("CrashUploader", "post start file name is " + str2);
+                executor.execute(new e(map, str2, str, fVar));
                 return true;
             }
-            ggc.d("so_md5", String.format("%s file path not exist", str));
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public static String X(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            try {
-                sb.append(b(MessageDigest.getInstance("MD5").digest(str.getBytes())));
-            } catch (NoSuchAlgorithmException e2) {
-                jgc.c("CrashReport", "Exception when MD5 %s", e2);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (bArr != null) {
-                for (byte b2 : bArr) {
-                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void P(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            ggc.d("CrashUtils", String.format("dump so md5 : %s", str));
-            String str2 = a.getApplicationInfo().nativeLibraryDir + File.separator;
-            O(str2 + "lib" + str + "-v7a.so");
-            O(str2 + "lib" + str + ".so");
-            O(a.getFilesDir().toString() + File.separator + "lib" + str + ".so");
-            O(a.getExternalCacheDir().toString() + File.separator + "lib" + str + ".so");
-        }
-    }
-
-    public static String Y(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            StringBuffer stringBuffer = new StringBuffer();
-            int length = bArr.length;
-            int i2 = 0;
-            while (i2 < length) {
-                stringBuffer.append(cArr[(bArr[i2] & 240) >> 4]);
-                stringBuffer.append(cArr[bArr[i2] & 15]);
-                i2++;
-                if (i2 < length) {
-                    stringBuffer.append(':');
-                }
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String u(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, file)) == null) {
-            if (!file.isFile()) {
-                return null;
-            }
-            byte[] bArr = new byte[1024];
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                FileInputStream fileInputStream = new FileInputStream(file);
-                while (true) {
-                    int read = fileInputStream.read(bArr, 0, 1024);
-                    if (read != -1) {
-                        messageDigest.update(bArr, 0, read);
-                    } else {
-                        fileInputStream.close();
-                        return new BigInteger(1, messageDigest.digest()).toString(16);
-                    }
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return null;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c(File file, File file2) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65564, null, file, file2) == null) {
-            FileInputStream fileInputStream = null;
-            try {
-                try {
-                    if (file2.exists()) {
-                        file2.delete();
-                    }
-                    if (file.exists()) {
-                        byte[] bArr = new byte[2048];
-                        FileInputStream fileInputStream2 = new FileInputStream(file);
-                        try {
-                            fileOutputStream2 = new FileOutputStream(file2);
-                            while (true) {
-                                try {
-                                    int read = fileInputStream2.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    fileOutputStream2.write(bArr, 0, read);
-                                } catch (Exception e2) {
-                                    fileOutputStream = fileOutputStream2;
-                                    e = e2;
-                                    fileInputStream = fileInputStream2;
-                                    try {
-                                        jgc.c("CrashUtils", "Fail to load library", e);
-                                        file2.delete();
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e3) {
-                                                jgc.c("CrashUtils", "Fail to load library", e3);
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            fileOutputStream.close();
-                                        }
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        if (fileInputStream != null) {
-                                            try {
-                                                fileInputStream.close();
-                                            } catch (Exception e4) {
-                                                jgc.c("CrashUtils", "Fail to load library", e4);
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (Exception e5) {
-                                                jgc.c("CrashUtils", "Fail to load library", e5);
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                } catch (Throwable th2) {
-                                    fileOutputStream = fileOutputStream2;
-                                    th = th2;
-                                    fileInputStream = fileInputStream2;
-                                    if (fileInputStream != null) {
-                                    }
-                                    if (fileOutputStream != null) {
-                                    }
-                                    throw th;
-                                }
-                            }
-                            fileInputStream = fileInputStream2;
-                        } catch (Exception e6) {
-                            e = e6;
-                            fileOutputStream = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            fileOutputStream = null;
-                        }
-                    } else {
-                        fileOutputStream2 = null;
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e7) {
-                            jgc.c("CrashUtils", "Fail to load library", e7);
-                        }
-                    }
-                } catch (Exception e8) {
-                    jgc.c("CrashUtils", "Fail to load library", e8);
-                    return;
-                }
-            } catch (Exception e9) {
-                e = e9;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-            }
-            if (fileOutputStream2 != null) {
-                fileOutputStream2.close();
-            }
-        }
-    }
-
-    public static boolean d(ZipFile zipFile, String str, File file) {
+    public static boolean j(CrashInfo crashInfo, String str, f fVar) {
         InterceptResult invokeLLL;
-        ZipEntry zipEntry;
-        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65565, null, zipFile, str, file)) == null) {
-            InputStream inputStream = null;
-            if (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI)) {
-                zipEntry = zipFile.getEntry("lib/armeabi-v7a/lib" + str + ".so");
-                if (zipEntry == null) {
-                    zipEntry = zipFile.getEntry("lib/armeabi/lib" + str + "-v7a.so");
-                }
-            } else {
-                zipEntry = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, crashInfo, str, fVar)) == null) {
+            Map<String, String> c2 = c(b(crashInfo.nyyData, "stage", "1"));
+            if (str != null && str.length() > 0) {
+                c2.put("errorInfo", str);
             }
-            if (zipEntry == null) {
-                zipEntry = zipFile.getEntry("lib/armeabi/lib" + str + ".so");
-            }
-            if (zipEntry == null) {
-                return false;
-            }
-            if (zipEntry.getSize() == file.length()) {
-                return true;
-            }
-            if (file.exists()) {
-                file.delete();
-            }
-            try {
-                InputStream inputStream2 = zipFile.getInputStream(zipEntry);
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[2048];
-                        while (true) {
-                            int read = inputStream2.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                        if (inputStream2 != null) {
-                            try {
-                                inputStream2.close();
-                            } catch (Exception e2) {
-                                jgc.c("CrashUtils", "Fail to load library", e2);
-                            }
-                        }
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e3) {
-                            jgc.c("CrashUtils", "Fail to load library", e3);
-                        }
-                        return true;
-                    } catch (Throwable th) {
-                        th = th;
-                        inputStream = inputStream2;
-                        try {
-                            th.printStackTrace();
-                            return false;
-                        } finally {
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e4) {
-                                    jgc.c("CrashUtils", "Fail to load library", e4);
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (Exception e5) {
-                                    jgc.c("CrashUtils", "Fail to load library", e5);
-                                }
-                            }
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream = null;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                fileOutputStream = null;
-            }
-        } else {
-            return invokeLLL.booleanValue;
+            return h(c, a, c2, null, fVar);
         }
+        return invokeLLL.booleanValue;
     }
 
-    public static JSONObject t() throws JSONException {
-        InterceptResult invokeV;
-        Map<String, String> extInfo;
+    public static boolean k(CrashInfo crashInfo, String str, List<String> list, f fVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65581, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            StringBuilder sb = new StringBuilder();
-            Map<String, String> map = j;
-            if (map != null) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (sb.length() > 0) {
-                        sb.append(",");
-                    }
-                    sb.append(entry.getKey());
-                    sb.append(":");
-                    sb.append(entry.getValue());
-                }
-            }
-            hgc.g gVar = k;
-            if (gVar != null && (extInfo = gVar.getExtInfo()) != null) {
-                for (Map.Entry<String, String> entry2 : extInfo.entrySet()) {
-                    if (sb.length() > 0) {
-                        sb.append(",");
-                    }
-                    sb.append(entry2.getKey());
-                    sb.append(":");
-                    sb.append(entry2.getValue());
-                }
-            }
-            jSONObject.put("description", sb.toString());
-            return jSONObject;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, crashInfo, str, list, fVar)) == null) {
+            return l(a, c(b(crashInfo.nyyData, "stage", str)), list, d(crashInfo.crashId, str), fVar);
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String y(String str, String str2, String str3, String str4, String str5, int i2) {
-        InterceptResult invokeCommon;
-        String C;
+    public static boolean l(String str, Map<String, String> map, List<String> list, String str2, f fVar) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, null, new Object[]{str, str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("report_id", str);
-                    jSONObject.put("sdk_version", "3.1.0-baidu-SNAPSHOT");
-                    jSONObject.put("launch_time", f());
-                    jSONObject.put("crash_time", str3);
-                    jSONObject.put(CrashHianalyticsData.CRASH_TYPE, str2);
-                    jSONObject.put("localTime", str4);
-                    jSONObject.put("pkg_name", A());
-                    jSONObject.put("app_version", i());
-                    jSONObject.put("auth_md5", h());
-                    jSONObject.put("app_market", g());
-                    jSONObject.put("sys_os_ver", z());
-                    jSONObject.put("crash_process", p());
-                    jSONObject.put("crash_thread", r());
-                    jSONObject.put("crash_device", v());
-                    jSONObject.put("crash_device_model", B());
-                    jSONObject.put("is_low_mem", w());
-                    jSONObject.put("crash_vss", pgc.e());
-                    jSONObject.put("flow_tracks", ActivityHistory.INSTANCE.getHistory());
-                    jSONObject.put(MigrateStatisticUtils.EXT_INFO, t());
-                    jSONObject.put("uid", n);
-                    if (i2 > 0) {
-                        jSONObject.put("feedback_module_id", String.valueOf(i2));
-                    }
-                    if (str5.length() > 512) {
-                        str5 = str5.substring(0, 510);
-                    }
-                    jSONObject.put("exception_description", str5);
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("RAM", j());
-                    jSONObject2.put("ROM", l());
-                    jSONObject2.put("SD", k());
-                    jSONObject2.put("VSS", pgc.e());
-                    jSONObject.put("runtime_avail", jSONObject2);
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("RAM", G());
-                    jSONObject3.put("ROM", F());
-                    jSONObject3.put("SD", E());
-                    jSONObject.put("runtime_total", jSONObject3);
-                    C = jSONObject.toString();
-                } catch (Exception e2) {
-                    String C2 = C(e2);
-                    if (C2.length() == 0) {
-                        C2 = "add report id error , error msg is null";
-                    }
-                    ggc.d("CrashUtils", C2);
-                    return C2;
-                }
-            } catch (Throwable th) {
-                C = C(th);
-                C = (C == null || C.isEmpty()) ? "json error, msg is null" : "json error, msg is null";
-                ggc.d("CrashUtils", C);
-            }
-            jgc.b("CrashReport", String.format("%s crash info : %s", e(), C));
-            return C;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, map, list, str2, fVar)) == null) {
+            c.execute(new d(list, str2, str, map, fVar));
+            return true;
         }
-        return (String) invokeCommon.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

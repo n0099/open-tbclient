@@ -1,61 +1,55 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbDomainConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import tbclient.GetRecommendTopic.TopicList;
 /* loaded from: classes7.dex */
-public final class qm8<T> extends um8<T> {
+public class qm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wm8<T> a;
-    public boolean b;
-    public boolean c;
+    public boolean a;
+    public String b;
+    public long c;
     public boolean d;
     public boolean e;
-    public int f;
+    public boolean f;
     public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public String n;
-    public String o;
-    public int p;
-    public int q;
-    public final Map<String, Object> r;
-    public final Map<String, String> s;
+    public long h;
+    public int i;
+    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948096749, "Lcom/baidu/tieba/qm8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948096749, "Lcom/baidu/tieba/qm8;");
-        }
-    }
-
-    public qm8() {
+    public qm8(String str, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+        this.c = j;
+        this.a = z;
+    }
+
+    public qm8(@NonNull TopicList topicList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {topicList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,303 +59,160 @@ public final class qm8<T> extends um8<T> {
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.f = 1;
-        this.i = true;
-        this.j = true;
-        this.l = true;
-        String DOMAIN_HTTPS_SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-        Intrinsics.checkNotNullExpressionValue(DOMAIN_HTTPS_SERVER_ADDRESS, "DOMAIN_HTTPS_SERVER_ADDRESS");
-        this.n = DOMAIN_HTTPS_SERVER_ADDRESS;
-        this.p = 2;
-        this.q = 1;
-        this.r = new HashMap();
-        this.s = new HashMap();
+        this.a = topicList.is_video_topic.intValue() == 1;
+        this.b = topicList.topic_name;
+        this.c = topicList.topic_id.longValue();
+        this.h = topicList.discuss_num.longValue();
+        this.i = topicList.tag.intValue();
     }
 
-    public final qm8<T> A(int i) {
-        InterceptResult invokeI;
+    public qm8(@NonNull tbclient.GetSugTopic.TopicList topicList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.f = i;
-            return this;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {topicList};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        return (qm8) invokeI.objValue;
+        this.a = topicList.is_video_topic.intValue() == 1;
+        this.b = topicList.topic_name;
+        this.c = topicList.topic_id.longValue();
+        this.h = topicList.discuss_num.longValue();
+        this.i = topicList.tag.intValue();
+        this.j = topicList.slogan;
     }
 
-    public final qm8<T> B(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.q = i;
-            return this;
-        }
-        return (qm8) invokeI.objValue;
-    }
-
-    public final qm8<T> C(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.p = i;
-            return this;
-        }
-        return (qm8) invokeI.objValue;
-    }
-
-    public final qm8<T> D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.o = str;
-            return this;
-        }
-        return (qm8) invokeL.objValue;
-    }
-
-    public final qm8<T> b(Map<String, ? extends Object> params) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, params)) == null) {
-            Intrinsics.checkNotNullParameter(params, "params");
-            this.r.putAll(params);
-            return this;
-        }
-        return (qm8) invokeL.objValue;
-    }
-
-    public final qm8<T> w(wm8<T> converter) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, converter)) == null) {
-            Intrinsics.checkNotNullParameter(converter, "converter");
-            this.a = converter;
-            return this;
-        }
-        return (qm8) invokeL.objValue;
-    }
-
-    public final qm8<T> x(String host) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, host)) == null) {
-            Intrinsics.checkNotNullParameter(host, "host");
-            this.n = host;
-            return this;
-        }
-        return (qm8) invokeL.objValue;
-    }
-
-    public final qm8<T> y(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (qm8) invokeZ.objValue;
-    }
-
-    public final qm8<T> z(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048605, this, z)) == null) {
-            this.e = z;
-            return this;
-        }
-        return (qm8) invokeZ.objValue;
-    }
-
-    public final qm8<T> a(String key, String value) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, key, value)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(value, "value");
-            this.s.put(key, value);
-            return this;
-        }
-        return (qm8) invokeLL.objValue;
-    }
-
-    public sm8<T> c() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return new ym8(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-        return (sm8) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final wm8<T> d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (wm8) invokeV.objValue;
-    }
-
-    public final Map<String, String> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.s;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean g() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public Long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return Long.valueOf(this.c);
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean h() {
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.e;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean j() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (j() && this.d) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final Map<String, Object> k() {
+    public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.r;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.q;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.g;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean q() {
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean r() {
-        InterceptResult invokeV;
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.f = z;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean s() {
-        InterceptResult invokeV;
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean t() {
-        InterceptResult invokeV;
+    public void m(boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.m;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            if (j() && z) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.d = z2;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean u() {
-        InterceptResult invokeV;
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.k;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.g = z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
     }
 }

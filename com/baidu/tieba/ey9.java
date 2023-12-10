@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,22 +27,32 @@ public final class ey9 {
     }
 
     @JvmStatic
-    public static final boolean a(String str) {
-        InterceptResult invokeL;
+    public static final void a(cy9 cy9Var, String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(65537, null, cy9Var, str, str2, i) == null) && !b(cy9Var, str) && cy9Var != null) {
+            cy9Var.startLoad(str2, i, false);
+        }
+    }
+
+    @JvmStatic
+    public static final boolean b(cy9 cy9Var, String str) {
+        InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cy9Var, str)) == null) {
+            if (cy9Var != null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    cy9Var.startLoad(str);
+                    return true;
+                }
             }
-            if (z) {
-                return false;
-            }
-            UrlManager.getInstance().dealOneLink(str);
-            return true;
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

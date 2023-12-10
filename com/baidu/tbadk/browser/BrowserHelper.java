@@ -30,8 +30,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.kj6;
 import com.baidu.tieba.mj6;
-import com.baidu.tieba.pfa;
 import com.baidu.tieba.pu4;
+import com.baidu.tieba.qfa;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.tv4;
 import com.baidu.tieba.wr4;
@@ -331,13 +331,13 @@ public class BrowserHelper {
             sb2.append(ParamableElem.DIVIDE_PARAM);
             wr4Var.setCookie(".baidu.com", sb2.toString());
             wr4Var.setCookie(".baidu.com", "DNARBBT=" + ParamableElem.DIVIDE_PARAM);
-            if (pfa.b()) {
+            if (qfa.b()) {
                 wr4Var.setCookie(".baidu.com", "TBBRAND=" + DeviceInfoHelper.getModel() + ParamableElem.DIVIDE_PARAM);
             } else {
-                wr4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + pfa.c() + ParamableElem.DIVIDE_PARAM);
-                String d = pfa.d("TBBRAND");
+                wr4Var.setCookie(".baidu.com", "need_cookie_decrypt=" + qfa.c() + ParamableElem.DIVIDE_PARAM);
+                String d = qfa.d("TBBRAND");
                 if (!TextUtils.isEmpty(d)) {
-                    wr4Var.setCookie(".baidu.com", d + "=" + pfa.e() + ParamableElem.DIVIDE_PARAM);
+                    wr4Var.setCookie(".baidu.com", d + "=" + qfa.e() + ParamableElem.DIVIDE_PARAM);
                 }
             }
             wr4Var.setCookie(".baidu.com", "BAIDUZID=" + TbadkCoreApplication.getInst().getZid() + ParamableElem.DIVIDE_PARAM);

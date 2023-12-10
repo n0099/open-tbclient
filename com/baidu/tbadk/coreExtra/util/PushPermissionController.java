@@ -7,7 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.cga;
+import com.baidu.tieba.dga;
 import com.baidu.tieba.push.PushGuideManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -86,7 +86,7 @@ public class PushPermissionController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            cga j = PushGuideManager.j("user_follow");
+            dga j = PushGuideManager.j("user_follow");
             if (j == null) {
                 return false;
             }
@@ -111,7 +111,7 @@ public class PushPermissionController {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showPushPermissionDialog(int i) {
-        cga j;
+        dga j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65539, this, i) == null) && this.mActivity != null && this.mContext != null && i == 10 && (j = PushGuideManager.j("user_follow")) != null) {
             j.j(this.mContext);

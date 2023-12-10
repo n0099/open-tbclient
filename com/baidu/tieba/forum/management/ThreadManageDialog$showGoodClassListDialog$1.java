@@ -128,7 +128,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             }
             View findViewById = inflate.findViewById(R.id.dialog_button_cancel);
             final ThreadManageDialog threadManageDialog = this.this$0;
-            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.xk7
+            findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yk7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -142,7 +142,7 @@ public final class ThreadManageDialog$showGoodClassListDialog$1 extends Lambda i
             });
             View findViewById2 = inflate.findViewById(R.id.dialog_button_ok);
             final ThreadManageDialog threadManageDialog2 = this.this$0;
-            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bl7
+            findViewById2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cl7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

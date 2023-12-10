@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.av4;
-import com.baidu.tieba.bj8;
-import com.baidu.tieba.ck8;
+import com.baidu.tieba.cj8;
+import com.baidu.tieba.dk8;
 import com.baidu.tieba.f35;
 import com.baidu.tieba.tw4;
 import com.baidu.tieba.vx4;
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void a(View view2, boolean z, Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), obj}) == null) && z) {
-                bj8.c("c13751", this.a.d);
+                cj8.c("c13751", this.a.d);
             }
         }
     }
@@ -149,7 +149,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         public void b(View view2, tw4 tw4Var, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, tw4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                bj8.a("c13751", tw4Var, i + 1, this.a.d);
+                cj8.a("c13751", tw4Var, i + 1, this.a.d);
             }
         }
     }
@@ -184,7 +184,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                 tw4 tw4Var = new tw4();
                 tw4Var.e(str);
-                bj8.a("c13750", tw4Var, i, this.a.d);
+                cj8.a("c13750", tw4Var, i, this.a.d);
             }
         }
 
@@ -196,7 +196,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, tw4Var) != null) || tw4Var == null) {
                 return;
             }
-            bj8.b("c13750", tw4Var, i, this.a.d);
+            cj8.b("c13750", tw4Var, i, this.a.d);
         }
     }
 
@@ -333,11 +333,11 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(ck8 ck8Var) {
+    public void setData(dk8 dk8Var) {
         int i;
         List<tw4> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, ck8Var) != null) || ck8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048583, this, dk8Var) != null) || dk8Var == null) {
             return;
         }
         setPadding(0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X003), 0, 0);
@@ -351,7 +351,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.b);
             this.b.setIWindowChangedListener(new a(this));
         }
-        this.b.onBindDataToView(ck8Var.e);
+        this.b.onBindDataToView(dk8Var.e);
         if (this.c == null) {
             GridIconLayout gridIconLayout = new GridIconLayout(getContext());
             this.c = gridIconLayout;
@@ -361,7 +361,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             addView(this.c, layoutParams);
             int dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.M_H_X002);
             int dimens2 = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds30);
-            vx4 vx4Var = ck8Var.f;
+            vx4 vx4Var = dk8Var.f;
             if (vx4Var != null && (list = vx4Var.a) != null) {
                 i = list.size();
             } else {
@@ -377,7 +377,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             this.c.setIWindowChangedListener(new b(this));
             this.c.setMaxItem(10);
         }
-        this.c.onBindDataToView(ck8Var.f);
+        this.c.onBindDataToView(dk8Var.f);
         this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 }

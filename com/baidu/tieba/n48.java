@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes7.dex */
-public class n48 extends m15 {
+public class n48 implements e25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.e25
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_GUIDE_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public n48() {
         Interceptable interceptable = $ic;
@@ -27,29 +34,13 @@ public class n48 extends m15 {
         }
     }
 
-    @Override // com.baidu.tieba.m15
-    public void a(@NonNull Context context, @NonNull a15 a15Var) {
+    @Override // com.baidu.tieba.e25
+    public c25 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, a15Var) == null) {
-            if (context instanceof i25) {
-                i25 i25Var = (i25) context;
-                if (i25Var.i1() != null) {
-                    h25 i1 = i25Var.i1();
-                    if (i1.W() == null) {
-                        YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧务管理弹窗失败：当前没有FRS吧数据");
-                        YunDialogManager.unMarkShowingDialogName("frsForumManage");
-                        return;
-                    } else if (!f68.a(i1, context)) {
-                        i1.S1(true);
-                        YunDialogManager.unMarkShowingDialogName("frsForumManage");
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "展示吧务管理弹窗失败：获取到的IForumDialogExtSupport为空");
-            YunDialogManager.unMarkShowingDialogName("frsForumManage");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new m48();
         }
+        return (c25) invokeV.objValue;
     }
 }

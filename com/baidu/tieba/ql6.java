@@ -116,7 +116,7 @@ public class ql6 extends nl6<ou6> {
                 SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
-                rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
                 } else {
@@ -182,7 +182,7 @@ public class ql6 extends nl6<ou6> {
             }
             this.k.startLoad(str, 10, false);
             this.n.setText(ou6Var.getThreadData().getTitle());
-            rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(ou6Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
             } else {

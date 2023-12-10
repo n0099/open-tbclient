@@ -13,7 +13,7 @@ public final class j97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<rb7<? extends Object>> mutableList) {
+    public static final void a(FeedLinkComponent feedLinkComponent, List<sb7<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
             Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");

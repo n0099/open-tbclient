@@ -131,12 +131,12 @@ public final class ek3 {
 
         /* renamed from: com.baidu.tieba.ek3$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0261b implements Runnable {
+        public class RunnableC0262b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0261b(b bVar) {
+            public RunnableC0262b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public final class ek3 {
                         return;
                     }
                 }
-                ek3.e0(new RunnableC0261b(this));
+                ek3.e0(new RunnableC0262b(this));
             }
         }
     }

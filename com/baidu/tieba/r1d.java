@@ -5,23 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.FrsPage.RecmForumInfo;
+import tbclient.FrsPage.RealTime;
 /* loaded from: classes8.dex */
-public class r1d extends ktc {
+public class r1d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull RecmForumInfo recmForumInfo) {
+    public static JSONObject b(@NonNull RealTime realTime) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, recmForumInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, realTime)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "forum_name", recmForumInfo.forum_name);
-            ktc.a(jSONObject, "forum_id", recmForumInfo.forum_id);
-            ktc.a(jSONObject, "member_count", recmForumInfo.member_count);
-            ktc.a(jSONObject, "post_num", recmForumInfo.post_num);
-            ktc.a(jSONObject, "avatar", recmForumInfo.avatar);
+            ltc.a(jSONObject, "task_id", realTime.task_id);
+            ltc.a(jSONObject, "icon", realTime.icon);
+            ltc.a(jSONObject, "url", realTime.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

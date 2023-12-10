@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz8;
+import com.baidu.tieba.hz8;
 import com.baidu.tieba.im.base.core.uilist.BaseSysAdapter;
 import com.baidu.tieba.im.base.core.uilist.BaseViewHolder;
 import com.baidu.tieba.im.lib.socket.msg.TbRecallSysMsg;
@@ -165,7 +165,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysItem, Holder> {
                     }
                 }
             }
-            gz8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
+            hz8.d("c15095", 3, this.l, this.m, TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

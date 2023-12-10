@@ -34,7 +34,7 @@ import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.kk5;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.p88;
+import com.baidu.tieba.q88;
 import com.baidu.tieba.s26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -53,7 +53,7 @@ public class y46 implements q56 {
     public static /* synthetic */ Interceptable $ic;
     public static String s;
     public static volatile boolean t;
-    public static volatile p88.g u;
+    public static volatile q88.g u;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<ViewGroup> b;
     public ViewGroup c;
@@ -71,7 +71,7 @@ public class y46 implements q56 {
     public final a66 o;
     public MutableContextWrapper p;
     public final Runnable q;
-    public final p88.h r;
+    public final q88.h r;
 
     @Override // com.baidu.tieba.q56
     public String c() {
@@ -91,7 +91,7 @@ public class y46 implements q56 {
     }
 
     /* loaded from: classes9.dex */
-    public class f implements p88.g {
+    public class f implements q88.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y46 a;
@@ -182,7 +182,7 @@ public class y46 implements q56 {
             this.a = y46Var;
         }
 
-        @Override // com.baidu.tieba.p88.g
+        @Override // com.baidu.tieba.q88.g
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -199,7 +199,7 @@ public class y46 implements q56 {
             }
         }
 
-        @Override // com.baidu.tieba.p88.g
+        @Override // com.baidu.tieba.q88.g
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -255,7 +255,7 @@ public class y46 implements q56 {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends p88.j {
+    public class b extends q88.j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y46 a;
@@ -278,7 +278,7 @@ public class y46 implements q56 {
             this.a = y46Var;
         }
 
-        @Override // com.baidu.tieba.p88.h
+        @Override // com.baidu.tieba.q88.h
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
@@ -293,7 +293,7 @@ public class y46 implements q56 {
             }
         }
 
-        @Override // com.baidu.tieba.p88.h
+        @Override // com.baidu.tieba.q88.h
         public void onAdClose(String str) {
             int hashCode;
             Interceptable interceptable = $ic;
@@ -326,7 +326,7 @@ public class y46 implements q56 {
             }
         }
 
-        @Override // com.baidu.tieba.p88.h
+        @Override // com.baidu.tieba.q88.h
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -345,7 +345,7 @@ public class y46 implements q56 {
             }
         }
 
-        @Override // com.baidu.tieba.p88.h
+        @Override // com.baidu.tieba.q88.h
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
@@ -408,7 +408,7 @@ public class y46 implements q56 {
     }
 
     /* loaded from: classes9.dex */
-    public class d implements p88.g {
+    public class d implements q88.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ y46 a;
@@ -431,7 +431,7 @@ public class y46 implements q56 {
             this.a = y46Var;
         }
 
-        @Override // com.baidu.tieba.p88.g
+        @Override // com.baidu.tieba.q88.g
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -446,7 +446,7 @@ public class y46 implements q56 {
                     this.a.g.g(z56.c, true);
                 }
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                if (p88.m().v(str)) {
+                if (q88.m().v(str)) {
                     this.a.f = AdLoadState.SUCCEED;
                     z56.h(z56.c, "0", null, null, 0, i, this.a.i, this.a.j);
                 } else {
@@ -461,7 +461,7 @@ public class y46 implements q56 {
             }
         }
 
-        @Override // com.baidu.tieba.p88.g
+        @Override // com.baidu.tieba.q88.g
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -615,7 +615,7 @@ public class y46 implements q56 {
                 return;
             }
         }
-        s = p88.p();
+        s = q88.p();
         t = false;
     }
 
@@ -623,7 +623,7 @@ public class y46 implements q56 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return p88.m().v(s);
+            return q88.m().v(s);
         }
         return invokeV.booleanValue;
     }
@@ -656,7 +656,7 @@ public class y46 implements q56 {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            p88.m().d(s);
+            q88.m().d(s);
             u = null;
         }
     }
@@ -709,9 +709,9 @@ public class y46 implements q56 {
         this.r = new b(this);
         this.k = splashNativePolicy;
         if (SharedPrefHelper.getInstance().getInt("splash_bear_sid_type_key", 0) == 1) {
-            p = p88.q();
+            p = q88.q();
         } else {
-            p = p88.p();
+            p = q88.p();
         }
         s = p;
     }
@@ -721,9 +721,9 @@ public class y46 implements q56 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
             if (i == 1) {
-                p = p88.q();
+                p = q88.q();
             } else {
-                p = p88.p();
+                p = q88.p();
             }
             s = p;
             SharedPrefHelper.getInstance().putInt("splash_bear_sid_type_key", i);
@@ -749,12 +749,12 @@ public class y46 implements q56 {
             if (this.p == null) {
                 this.p = new MutableContextWrapper(context);
             }
-            p88 m = p88.m();
+            q88 m = q88.m();
             MutableContextWrapper mutableContextWrapper = this.p;
             String str = s;
             int equipmentHeight = (int) (BdUtilHelper.getEquipmentHeight(context) * 0.85d);
             f fVar = new f(this);
-            m.w(mutableContextWrapper, str, equipmentHeight, fVar, p88.b("spalsh", p56.d().c() + ""));
+            m.w(mutableContextWrapper, str, equipmentHeight, fVar, q88.b("spalsh", p56.d().c() + ""));
             t = true;
         }
     }
@@ -827,7 +827,7 @@ public class y46 implements q56 {
                         }
                         TbLog defaultLog = DefaultLog.getInstance();
                         defaultLog.i("IAdSdkSplash", "开屏广告：小熊广告 showAdIfNeed, showSplash， splashSid is：" + s);
-                        p88.m().F((Activity) context, s, this.d, this.r, p88.b("spalsh", p56.d().c() + ""));
+                        q88.m().F((Activity) context, s, this.d, this.r, q88.b("spalsh", p56.d().c() + ""));
                         y();
                         DefaultLog.getInstance().i("IAdSdkSplash", "开屏广告：show，小熊广告开始展示");
                         SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
@@ -872,12 +872,12 @@ public class y46 implements q56 {
                     C();
                     t = false;
                 } else {
-                    p88 m = p88.m();
+                    q88 m = q88.m();
                     Activity activity = (Activity) context;
                     String str = s;
                     int equipmentHeight = (int) (BdUtilHelper.getEquipmentHeight(context) * 0.85d);
-                    p88.g gVar = u;
-                    m.w(activity, str, equipmentHeight, gVar, p88.b("spalsh", p56.d().c() + ""));
+                    q88.g gVar = u;
+                    m.w(activity, str, equipmentHeight, gVar, q88.b("spalsh", p56.d().c() + ""));
                 }
                 if (this.f == AdLoadState.INIT) {
                     this.f = AdLoadState.LOADING;

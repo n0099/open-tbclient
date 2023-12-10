@@ -50,14 +50,14 @@ public class j44 extends tr2 {
 
         /* renamed from: com.baidu.tieba.j44$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0362a implements Runnable {
+        public class RunnableC0360a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ dp2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0362a(a aVar, dp2 dp2Var, int i) {
+            public RunnableC0360a(a aVar, dp2 dp2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class j44 extends tr2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, dp2Var) == null) {
                 ek3.d0(this.c.m);
-                this.c.m = new RunnableC0362a(this, dp2Var, i);
+                this.c.m = new RunnableC0360a(this, dp2Var, i);
                 ek3.g0(this.c.m);
             }
         }

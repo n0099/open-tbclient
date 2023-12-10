@@ -3,16 +3,16 @@ package com.baidu.tieba.impersonal.ability;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ee9;
-import com.baidu.tieba.fd9;
+import com.baidu.tieba.fe9;
+import com.baidu.tieba.gd9;
 import com.baidu.tieba.im.base.core.uilist.BaseItem;
 import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.data.MsgGuideInfo;
-import com.baidu.tieba.lq8;
-import com.baidu.tieba.ub9;
+import com.baidu.tieba.mq8;
 import com.baidu.tieba.vb9;
-import com.baidu.tieba.yb9;
+import com.baidu.tieba.wb9;
+import com.baidu.tieba.zb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,12 +25,12 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0010B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J,\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0010\u0010\t\u001a\f\u0012\u0006\b\u0001\u0012\u00020\u000b\u0018\u00010\n2\b\u0010\f\u001a\u0004\u0018\u00010\rH\u0016J\b\u0010\u000e\u001a\u00020\u000fH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0011"}, d2 = {"Lcom/baidu/tieba/impersonal/ability/SpriteSendMsgHandler;", "Lcom/baidu/tieba/im/base/core/uilist/BaseAbilityHandler;", "repo", "Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;", "(Lcom/baidu/tieba/impersonal/sprite/ChatSpriteRepo;)V", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/im/lib/socket/msg/data/AbilityItem;", "oriMsg", "Lcom/baidu/tieba/im/base/core/uilist/BaseItem;", "Lcom/baidu/tieba/im/lib/socket/msg/TbBaseMsg;", "payload", "", "provideType", "", "Conf", "im-personal_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class SpriteSendMsgHandler extends lq8 {
+public final class SpriteSendMsgHandler extends mq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fd9 b;
+    public final gd9 b;
 
-    @Override // com.baidu.tieba.lq8
+    @Override // com.baidu.tieba.mq8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,7 +149,7 @@ public final class SpriteSendMsgHandler extends lq8 {
         }
     }
 
-    public SpriteSendMsgHandler(fd9 repo) {
+    public SpriteSendMsgHandler(gd9 repo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public final class SpriteSendMsgHandler extends lq8 {
         this.b = repo;
     }
 
-    @Override // com.baidu.tieba.lq8
+    @Override // com.baidu.tieba.mq8
     public void b(AbilityItem abilityItem, BaseItem<? extends TbBaseMsg> baseItem, Object obj) {
         String content;
         Interceptable interceptable = $ic;
@@ -178,16 +178,16 @@ public final class SpriteSendMsgHandler extends lq8 {
                 return;
             }
             if (1 == ((Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class)).getType()) {
-                MsgGuideInfo a = ee9.a.a(abilityItem);
+                MsgGuideInfo a = fe9.a.a(abilityItem);
                 if (a != null && (content = a.getContent()) != null) {
                     if (!(!StringsKt__StringsJVMKt.isBlank(content))) {
                         content = null;
                     }
                     if (content != null) {
-                        fd9 fd9Var = this.b;
-                        ub9<vb9> a2 = yb9.a(content);
+                        gd9 gd9Var = this.b;
+                        vb9<wb9> a2 = zb9.a(content);
                         Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(content)");
-                        fd9Var.u(a2);
+                        gd9Var.u(a2);
                         return;
                     }
                     return;

@@ -31,15 +31,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.cu5;
 import com.baidu.tieba.dq5;
 import com.baidu.tieba.eq5;
-import com.baidu.tieba.f5b;
-import com.baidu.tieba.fa8;
 import com.baidu.tieba.fq5;
 import com.baidu.tieba.fr4;
+import com.baidu.tieba.g5b;
 import com.baidu.tieba.ga8;
 import com.baidu.tieba.gq5;
-import com.baidu.tieba.gxa;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tieba.ha8;
 import com.baidu.tieba.hq5;
+import com.baidu.tieba.hxa;
 import com.baidu.tieba.hy4;
 import com.baidu.tieba.iq5;
 import com.baidu.tieba.l6;
@@ -51,10 +51,10 @@ public class InitMessageManagerTask extends LaunchTask {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof gxa)) {
-                gxa gxaVar = (gxa) customResponsedMessage.getData();
-                DescriptionTableInfo.setModuleSet(gxaVar.a);
-                DescriptionTableInfo.setDescriptionTable(gxaVar.b);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof hxa)) {
+                hxa hxaVar = (hxa) customResponsedMessage.getData();
+                DescriptionTableInfo.setModuleSet(hxaVar.a);
+                DescriptionTableInfo.setDescriptionTable(hxaVar.b);
             }
         }
     };
@@ -191,11 +191,11 @@ public class InitMessageManagerTask extends LaunchTask {
         messageManager.addMessageRule(new fq5(0));
         messageManager.addResponsedMessageRule(new hq5(0));
         messageManager.addRemovedMessageRule(new gq5(0));
+        messageManager.addResponsedMessageRule(new ha8());
         messageManager.addResponsedMessageRule(new ga8());
-        messageManager.addResponsedMessageRule(new fa8());
         messageManager.addResponsedMessageRule(new dq5());
         messageManager.addResponsedMessageRule(new eq5());
-        messageManager.addResponsedMessageRule(new f5b());
+        messageManager.addResponsedMessageRule(new g5b());
     }
 
     private void registerListener() {

@@ -40,7 +40,7 @@ import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
 import com.baidu.tieba.im.db.pojo.PbContentPojo;
-import com.baidu.tieba.nz8;
+import com.baidu.tieba.oz8;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.ty5;
 import com.baidu.tieba.video.VideoItemData;
@@ -87,7 +87,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public ShareThreadMsgData S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ShareForumMsgData f1113T;
+    public ShareForumMsgData f1115T;
     public short U;
     public int V;
     public long W;
@@ -352,7 +352,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.b.setVisibility(0);
                 if (ormObject instanceof ShareForumMsgData) {
                     ShareForumMsgData shareForumMsgData = (ShareForumMsgData) ormObject;
-                    this.f1113T = shareForumMsgData;
+                    this.f1115T = shareForumMsgData;
                     b(shareForumMsgData);
                     return;
                 }
@@ -527,15 +527,15 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                nz8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
+                oz8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
                 return;
             }
-            if (this.f1113T != null) {
+            if (this.f1115T != null) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getContext());
-                frsActivityConfig.createNormalCfg(this.f1113T.getForum_name(), "");
+                frsActivityConfig.createNormalCfg(this.f1115T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            nz8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
+            oz8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
         }
     }
 

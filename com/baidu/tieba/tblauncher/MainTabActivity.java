@@ -101,10 +101,12 @@ import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a1b;
+import com.baidu.tieba.a2b;
+import com.baidu.tieba.ax9;
+import com.baidu.tieba.aza;
 import com.baidu.tieba.b1b;
 import com.baidu.tieba.bi5;
 import com.baidu.tieba.br6;
-import com.baidu.tieba.bza;
 import com.baidu.tieba.c1b;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cza;
@@ -117,86 +119,84 @@ import com.baidu.tieba.e1b;
 import com.baidu.tieba.eh;
 import com.baidu.tieba.eza;
 import com.baidu.tieba.f06;
-import com.baidu.tieba.f0b;
 import com.baidu.tieba.f16;
 import com.baidu.tieba.f1b;
 import com.baidu.tieba.fh;
+import com.baidu.tieba.fza;
 import com.baidu.tieba.g0b;
 import com.baidu.tieba.g1b;
 import com.baidu.tieba.ga5;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.h0b;
 import com.baidu.tieba.h1b;
 import com.baidu.tieba.i1b;
-import com.baidu.tieba.iza;
-import com.baidu.tieba.j0b;
 import com.baidu.tieba.j1b;
 import com.baidu.tieba.jv4;
 import com.baidu.tieba.jza;
+import com.baidu.tieba.k0b;
 import com.baidu.tieba.k1b;
-import com.baidu.tieba.ke9;
-import com.baidu.tieba.l0b;
+import com.baidu.tieba.kza;
 import com.baidu.tieba.l1b;
 import com.baidu.tieba.le0;
+import com.baidu.tieba.le9;
 import com.baidu.tieba.m0b;
 import com.baidu.tieba.m1b;
 import com.baidu.tieba.me0;
 import com.baidu.tieba.model.CheckRealNameModel;
 import com.baidu.tieba.mr4;
-import com.baidu.tieba.mza;
 import com.baidu.tieba.n0b;
 import com.baidu.tieba.n1b;
 import com.baidu.tieba.nu5;
+import com.baidu.tieba.nza;
 import com.baidu.tieba.o0b;
 import com.baidu.tieba.o1b;
 import com.baidu.tieba.p0b;
 import com.baidu.tieba.p1b;
-import com.baidu.tieba.p88;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.po4;
 import com.baidu.tieba.pr6;
 import com.baidu.tieba.q0b;
 import com.baidu.tieba.q1b;
+import com.baidu.tieba.q88;
 import com.baidu.tieba.r0b;
 import com.baidu.tieba.r1b;
-import com.baidu.tieba.r4b;
-import com.baidu.tieba.rdb;
-import com.baidu.tieba.rta;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.s0b;
 import com.baidu.tieba.s1b;
-import com.baidu.tieba.sza;
+import com.baidu.tieba.s4b;
+import com.baidu.tieba.sdb;
+import com.baidu.tieba.sta;
 import com.baidu.tieba.t0b;
 import com.baidu.tieba.t1b;
-import com.baidu.tieba.t4b;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.td5;
 import com.baidu.tieba.ti;
+import com.baidu.tieba.tza;
 import com.baidu.tieba.u0b;
 import com.baidu.tieba.u1b;
+import com.baidu.tieba.u4b;
 import com.baidu.tieba.v0b;
 import com.baidu.tieba.v1b;
 import com.baidu.tieba.v45;
-import com.baidu.tieba.v88;
 import com.baidu.tieba.vp5;
 import com.baidu.tieba.w0b;
 import com.baidu.tieba.w1b;
-import com.baidu.tieba.woa;
+import com.baidu.tieba.w88;
 import com.baidu.tieba.write.WriteWebViewCacheManager;
 import com.baidu.tieba.ws5;
-import com.baidu.tieba.wya;
 import com.baidu.tieba.x0b;
-import com.baidu.tieba.xe9;
+import com.baidu.tieba.x1b;
 import com.baidu.tieba.xk6;
+import com.baidu.tieba.xoa;
 import com.baidu.tieba.xya;
 import com.baidu.tieba.y0b;
-import com.baidu.tieba.yw9;
+import com.baidu.tieba.ye9;
+import com.baidu.tieba.yya;
 import com.baidu.tieba.z0b;
-import com.baidu.tieba.z1b;
 import com.baidu.tieba.zh5;
 import com.baidu.tieba.zw9;
 import com.baidu.tieba.zx6;
-import com.baidu.tieba.zya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -209,16 +209,16 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceManager.j, VoiceManager.i, UserIconBox.c, le0, FrsCommonImageLayout.e, IVideoNeedPreload, j0b {
+public class MainTabActivity extends BaseFragmentActivity implements xya, VoiceManager.j, VoiceManager.i, UserIconBox.c, le0, FrsCommonImageLayout.e, IVideoNeedPreload, k0b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean W;
     public transient /* synthetic */ FieldHolder $fh;
-    public iza A;
+    public jza A;
     public boolean B;
     public boolean C;
     @Nullable
     public TiePlusEventController D;
-    public rta E;
+    public sta E;
     public boolean F;
     public int G;
     public int H;
@@ -230,22 +230,22 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
     public boolean N;
     @NonNull
     public final PriorityOrganizer O;
-    public w1b P;
-    public zw9 Q;
+    public x1b P;
+    public ax9 Q;
     public final ComponentCallbacks R;
     public boolean S;
 
     /* renamed from: T  reason: collision with root package name */
-    public CustomMessageListener f1156T;
+    public CustomMessageListener f1158T;
     public CheckRealNameModel.b U;
     public String V;
     public boolean a;
     public int b;
     public boolean c;
-    public eza d;
-    public sza e;
-    public g0b f;
-    public f0b g;
+    public fza d;
+    public tza e;
+    public h0b f;
+    public g0b g;
     public m h;
     public PackageChangedReceiver i;
     public long j;
@@ -256,13 +256,13 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
     public boolean o;
     public f06 p;
     public ViewGroup q;
-    public rdb r;
+    public sdb r;
     public CheckRealNameModel s;
     public String t;
     public f16 u;
     public ShareSuccessReplyToServerModel v;
-    public cza w;
-    public r4b x;
+    public dza w;
+    public s4b x;
     public int y;
     public Integer z;
 
@@ -405,9 +405,9 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            sza szaVar;
+            tza tzaVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (szaVar = this.a.e) != null && szaVar.b() != null) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tzaVar = this.a.e) != null && tzaVar.b() != null) {
                 this.a.e.b().a();
             }
         }
@@ -561,11 +561,11 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                     if (this.a.Q != null) {
                         return;
                     }
-                    zw9 zw9Var = this.a.Q;
+                    ax9 ax9Var = this.a.Q;
                     if (num.intValue() == 2) {
                         z = true;
                     }
-                    zw9Var.b(z);
+                    ax9Var.b(z);
                     return;
                 }
                 TbSingleton.getInstance().setChatTabPage(false);
@@ -846,7 +846,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         this.Q = null;
         this.R = new d(this);
         this.S = false;
-        this.f1156T = new e(this, 2001384);
+        this.f1158T = new e(this, 2001384);
         this.U = new a(this);
     }
 
@@ -901,15 +901,15 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         if (J1()) {
             return;
         }
-        jza.a().b(configuration);
+        kza.a().b(configuration);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        eza ezaVar;
+        fza fzaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (ezaVar = this.d) != null) {
-            ezaVar.H(z);
+        if ((interceptable == null || interceptable.invokeZ(1048612, this, z) == null) && (fzaVar = this.d) != null) {
+            fzaVar.H(z);
         }
     }
 
@@ -978,8 +978,8 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         TbPageTag tbPageTag;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            eza ezaVar = this.d;
-            if (ezaVar != null && ezaVar.A() != null) {
+            fza fzaVar = this.d;
+            if (fzaVar != null && fzaVar.A() != null) {
                 Fragment currentFragment = this.d.A().getCurrentFragment();
                 if (currentFragment instanceof BaseFragment) {
                     tbPageTag = ((BaseFragment) currentFragment).getTbPageTag();
@@ -1122,7 +1122,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         }
     }
 
-    @Override // com.baidu.tieba.wya
+    @Override // com.baidu.tieba.xya
     @NonNull
     public PriorityOrganizer a0() {
         InterceptResult invokeV;
@@ -1215,13 +1215,13 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wya
+    @Override // com.baidu.tieba.xya
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            eza ezaVar = this.d;
-            if (ezaVar != null && ezaVar.A() != null) {
+            fza fzaVar = this.d;
+            if (fzaVar != null && fzaVar.A() != null) {
                 return this.d.A().getCurrentTabType();
             }
             return -1;
@@ -1244,11 +1244,11 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            eza ezaVar = this.d;
-            if (ezaVar == null) {
+            fza fzaVar = this.d;
+            if (fzaVar == null) {
                 return true;
             }
-            return ezaVar.P();
+            return fzaVar.P();
         }
         return invokeV.booleanValue;
     }
@@ -1284,15 +1284,15 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j0b
+    @Override // com.baidu.tieba.k0b
     /* renamed from: x1 */
-    public w1b N() {
+    public x1b N() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             return this.P;
         }
-        return (w1b) invokeV.objValue;
+        return (x1b) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
@@ -1311,7 +1311,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
     public final void E1(Bundle bundle) {
         int i2;
         boolean z;
-        sza szaVar;
+        tza tzaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_SECONDCREATE_START_STAMP_KEY);
@@ -1330,9 +1330,9 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             }
             MainEntrance.ENTER_BAR_DEFAULT_INDEX = MainEntrance.ENTER_BAR_DEFAULT_INDEX_MY_BAR;
             if (getIntent() != null) {
-                iza izaVar = new iza(getPageContext());
-                this.A = izaVar;
-                if (!izaVar.b(getIntent()) && (szaVar = this.e) != null && szaVar.e() != null) {
+                jza jzaVar = new jza(getPageContext());
+                this.A = jzaVar;
+                if (!jzaVar.b(getIntent()) && (tzaVar = this.e) != null && tzaVar.e() != null) {
                     this.e.e().b(getIntent());
                 }
                 if (getIntent().getIntExtra(MainEntrance.GOTO_TYPE, 0) == 200) {
@@ -1341,28 +1341,28 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 }
                 getIntent().getStringExtra("from");
             }
-            xya xyaVar = new xya();
-            MainEntrance.setMainTabInst(xyaVar);
-            xyaVar.g(this);
+            yya yyaVar = new yya();
+            MainEntrance.setMainTabInst(yyaVar);
+            yyaVar.g(this);
             if (w1()) {
                 CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_HOME_FRAGMENT_CONTROLLER_START_STAMP_KEY);
-            this.w = new cza(this);
+            this.w = new dza(this);
             this.d.J(this.mIsLogin);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_HOME_FRAGMENT_CONTROLLER_END_STAMP_KEY);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY);
             G1();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY);
-            mza.i().e(this);
+            nza.i().e(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY);
             po4.w().q();
             this.p = new f06();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_TABS_ON_ACTIVITY_CREATED_START_STAMP_KEY);
             A1();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_TABS_ON_ACTIVITY_CREATED_END_STAMP_KEY);
-            registerListener(new b1b(this, this.d));
+            registerListener(new c1b(this, this.d));
             Intent intent = new Intent();
             intent.putExtras(getIntent());
             boolean z2 = true;
@@ -1387,14 +1387,14 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 TbadkCoreApplication.getInst().setInstallOtherApp(null);
             }
             TbadkCoreApplication.getInst().startTrackConfigRequest();
-            registerListener(new e1b(this, this.d));
+            registerListener(new f1b(this, this.d));
             this.k = d1();
             this.l = M0();
             VoiceManager voiceManager = this.k;
             if (voiceManager != null) {
                 voiceManager.onCreate(getPageContext());
             }
-            registerListener(new l0b(this, this.d));
+            registerListener(new m0b(this, this.d));
             addNoAdjustSoftInputHeightListener();
             if (TbadkCoreApplication.isLogin()) {
                 vp5.a().e();
@@ -1410,7 +1410,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             s1();
             this.u = new f16(getPageContext(), DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
             this.v = new ShareSuccessReplyToServerModel();
-            new t4b(getPageContext());
+            new u4b(getPageContext());
             BdTokenController.E();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             StatisticItem param = new StatisticItem("c14261").param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -1423,26 +1423,26 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (TbSingleton.getInstance().isEnableBenchmark() && TbSingleton.getInstance().getCpuFlopsDuration() <= 0) {
                 SafeHandler.getInst().postDelayed(new k(this), 5000L);
             }
-            registerListener(new s1b(this, this.d));
+            registerListener(new t1b(this, this.d));
             TbSingleton.getInstance().startOneGame();
             t1();
-            iza izaVar2 = this.A;
-            if (izaVar2 != null && izaVar2.b(intent)) {
+            jza jzaVar2 = this.A;
+            if (jzaVar2 != null && jzaVar2.b(intent)) {
                 this.A.a(getIntent(), this.d);
             }
             zx6.o().C(true);
             if (UbsABTestHelper.isPersonalizeFunAdABTest()) {
-                p88.m().I(this, p88.g(), p88.b("personalize", "1"));
+                q88.m().I(this, q88.g(), q88.b("personalize", "1"));
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_START_STAMP_KEY);
             if (UbsABTestHelper.isFrsFunAdSdkTest() && ws5.r()) {
-                p88.m().J(this, v88.e().d("frs_feed"), p88.b("frs", "1"), "", ws5.f());
+                q88.m().J(this, w88.e().d("frs_feed"), q88.b("frs", "1"), "", ws5.f());
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_END_STAMP_KEY);
             TbSingleton.getInstance().getChannelConfigModel().startLoad();
             TbSingleton.getInstance().setActiveTimeStamp();
-            sza szaVar2 = this.e;
-            if (szaVar2 != null && szaVar2.e() != null) {
+            tza tzaVar2 = this.e;
+            if (tzaVar2 != null && tzaVar2.e() != null) {
                 this.e.e().c();
             }
             SafeHandler.getInst().postDelayed(new l(this), 1000L);
@@ -1465,12 +1465,12 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerListener(new m0b(this, this.d));
-            registerListener(new h1b(this, this.d));
-            registerListener(new v0b(this, this.d));
-            registerListener(new f1b(this, this.d));
-            registerListener(new m1b(this, this.d));
-            registerListener(new q0b(this, this.d));
+            registerListener(new n0b(this, this.d));
+            registerListener(new i1b(this, this.d));
+            registerListener(new w0b(this, this.d));
+            registerListener(new g1b(this, this.d));
+            registerListener(new n1b(this, this.d));
+            registerListener(new r0b(this, this.d));
             this.h = new m(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
@@ -1483,35 +1483,35 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             intentFilter2.addAction("android.intent.action.PACKAGE_CHANGED");
             intentFilter2.addDataScheme("package");
             registerReceiver(this.i, intentFilter2);
-            registerListener(new l1b(this, this.d));
-            registerListener(new r1b(this, this.d));
-            registerListener(new c1b(this, this.d));
-            registerListener(new p0b(this));
-            registerListener(new u0b(this, this.d));
-            registerListener(new v1b(this, this.d));
-            registerListener(new u1b(this));
-            registerListener(new s0b(this, this.d));
-            registerListener(new j1b(this, this.d));
+            registerListener(new m1b(this, this.d));
+            registerListener(new s1b(this, this.d));
             registerListener(new d1b(this, this.d));
-            registerListener(new y0b(this, this.d));
+            registerListener(new q0b(this));
+            registerListener(new v0b(this, this.d));
+            registerListener(new w1b(this, this.d));
+            registerListener(new v1b(this));
             registerListener(new t0b(this, this.d));
-            registerListener(new g1b(this, this.d));
-            registerListener(new r0b(this, this.d));
-            registerListener(new t1b(this, this.d));
             registerListener(new k1b(this, this.d));
-            registerListener(new p1b(this, this.d));
-            registerListener(new o1b(this));
+            registerListener(new e1b(this, this.d));
+            registerListener(new z0b(this, this.d));
+            registerListener(new u0b(this, this.d));
+            registerListener(new h1b(this, this.d));
+            registerListener(new s0b(this, this.d));
+            registerListener(new u1b(this, this.d));
+            registerListener(new l1b(this, this.d));
+            registerListener(new q1b(this, this.d));
+            registerListener(new p1b(this));
+            registerListener(new b1b(this));
+            registerListener(new o0b(this, this.d));
+            registerListener(new x0b(this, this.d));
+            registerListener(new y0b(this));
+            registerListener(new p0b(this));
             registerListener(new a1b(this));
-            registerListener(new n0b(this, this.d));
-            registerListener(new w0b(this, this.d));
-            registerListener(new x0b(this));
-            registerListener(new o0b(this));
-            registerListener(new z0b(this));
-            registerListener(new q1b(this));
-            registerListener(this.f1156T);
-            registerListener(new i1b(this));
+            registerListener(new r1b(this));
+            registerListener(this.f1158T);
+            registerListener(new j1b(this));
             if (this.Q == null) {
-                this.Q = new zw9(yw9.class);
+                this.Q = new ax9(zw9.class);
                 br6.b().b(this, this.Q);
             }
         }
@@ -1550,16 +1550,16 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 this.mWaitingDialog = null;
             }
             r1();
-            eza ezaVar = this.d;
-            if (ezaVar != null) {
-                ezaVar.F();
+            fza fzaVar = this.d;
+            if (fzaVar != null) {
+                fzaVar.F();
             }
-            cza czaVar = this.w;
-            if (czaVar != null) {
-                czaVar.i();
+            dza dzaVar = this.w;
+            if (dzaVar != null) {
+                dzaVar.i();
             }
-            sza szaVar = this.e;
-            if (szaVar != null && szaVar.i() != null) {
+            tza tzaVar = this.e;
+            if (tzaVar != null && tzaVar.i() != null) {
                 this.e.i().b();
             }
             try {
@@ -1578,9 +1578,9 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (M0 != null) {
                 M0.onDestory(getPageContext());
             }
-            rdb rdbVar = this.r;
-            if (rdbVar != null) {
-                rdbVar.e();
+            sdb sdbVar = this.r;
+            if (sdbVar != null) {
+                sdbVar.e();
             }
             f16 f16Var = this.u;
             if (f16Var != null) {
@@ -1590,49 +1590,49 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (shareSuccessReplyToServerModel != null) {
                 shareSuccessReplyToServerModel.cancelLoadData();
             }
-            r4b r4bVar = this.x;
-            if (r4bVar != null) {
-                r4bVar.f();
+            s4b s4bVar = this.x;
+            if (s4bVar != null) {
+                s4bVar.f();
             }
-            eza ezaVar2 = this.d;
-            if (ezaVar2 != null && ezaVar2.y() != null) {
+            fza fzaVar2 = this.d;
+            if (fzaVar2 != null && fzaVar2.y() != null) {
                 this.d.y().m();
             }
-            p88.m().c(p88.s());
+            q88.m().c(q88.s());
             if (this.D != null) {
                 getLifecycle().removeObserver(this.D);
             }
-            xe9.b().c();
+            ye9.b().c();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask instanceof fh) {
                 searchTask.cancel();
             }
             KernelCacheAssistant.get().release();
-            sza szaVar2 = this.e;
-            if (szaVar2 != null && szaVar2.c() != null) {
+            tza tzaVar2 = this.e;
+            if (tzaVar2 != null && tzaVar2.c() != null) {
                 this.e.c().c();
             }
-            sza szaVar3 = this.e;
-            if (szaVar3 != null && szaVar3.g() != null) {
+            tza tzaVar3 = this.e;
+            if (tzaVar3 != null && tzaVar3.g() != null) {
                 this.e.g().c();
             }
-            sza szaVar4 = this.e;
-            if (szaVar4 != null && szaVar4.f() != null) {
+            tza tzaVar4 = this.e;
+            if (tzaVar4 != null && tzaVar4.f() != null) {
                 this.e.f().b();
             }
-            sza szaVar5 = this.e;
-            if (szaVar5 != null && szaVar5.k() != null) {
+            tza tzaVar5 = this.e;
+            if (tzaVar5 != null && tzaVar5.k() != null) {
                 this.e.k().d();
             }
-            ke9.n(this).A();
+            le9.n(this).A();
             System.gc();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        sza szaVar;
-        eza ezaVar;
+        tza tzaVar;
+        fza fzaVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_START_STAMP_KEY);
@@ -1640,7 +1640,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (J1()) {
                 return;
             }
-            jza.a().d();
+            kza.a().d();
             this.B = true;
             int i2 = this.G;
             if (i2 <= 1) {
@@ -1655,16 +1655,16 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 TbSingleton.getInstance().mIsSplashClick = false;
                 this.G = 2;
             }
-            sza szaVar2 = this.e;
-            if (szaVar2 != null && szaVar2.a() != null) {
+            tza tzaVar2 = this.e;
+            if (tzaVar2 != null && tzaVar2.a() != null) {
                 I1(true);
             }
             TbSingleton.getInstance().isCanShowHotSplash = false;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && (ezaVar = this.d) != null && ezaVar.y() != null) {
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && (fzaVar = this.d) != null && fzaVar.y() != null) {
                 this.d.y().setLottieView(true);
             }
-            eza ezaVar2 = this.d;
-            if (ezaVar2 != null && ezaVar2.A() != null) {
+            fza fzaVar2 = this.d;
+            if (fzaVar2 != null && fzaVar2.A() != null) {
                 this.b = this.d.A().getCurrentTabType();
             }
             changeSkinType(this.mSkinType);
@@ -1682,22 +1682,22 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (M0 != null) {
                 M0.onResume(getPageContext());
             }
-            eza ezaVar3 = this.d;
-            if (ezaVar3 != null) {
-                ezaVar3.I();
+            fza fzaVar3 = this.d;
+            if (fzaVar3 != null) {
+                fzaVar3.I();
             }
             vp5.a().e();
             if (dp4.f().b() != null && dp4.f().h() != null && dp4.f().b().getCurTaskType() == 6) {
                 dp4.f().h().a();
             }
-            sza szaVar3 = this.e;
-            if (szaVar3 != null && szaVar3.a() != null) {
+            tza tzaVar3 = this.e;
+            if (tzaVar3 != null && tzaVar3.a() != null) {
                 this.e.a().f();
                 if (this.z.intValue() != 1) {
                     this.e.a().f();
                 }
             }
-            if (!TbSingleton.getInstance().isNewUserRedPackageShowed() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (szaVar = this.e) != null && szaVar.c() != null) {
+            if (!TbSingleton.getInstance().isNewUserRedPackageShowed() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (tzaVar = this.e) != null && tzaVar.c() != null) {
                 this.e.c().d();
             }
             M1();
@@ -1737,7 +1737,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, keyEvent)) == null) {
             if (!MainTabActivityConfig.IS_BACK_CLOSE_ALL_ACTIVITY && keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
                 if (this.f == null) {
-                    this.f = new g0b(this, this.d);
+                    this.f = new h0b(this, this.d);
                 }
                 return this.f.f(keyEvent);
             }
@@ -1754,14 +1754,14 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 return;
             }
             TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-            eza ezaVar = this.d;
-            if (ezaVar != null) {
-                ezaVar.E(i2);
+            fza fzaVar = this.d;
+            if (fzaVar != null) {
+                fzaVar.E(i2);
             }
             adjustResizeForSoftInputOnSkinTypeChanged(i2);
-            rdb rdbVar = this.r;
-            if (rdbVar != null) {
-                rdbVar.d(i2);
+            sdb sdbVar = this.r;
+            if (sdbVar != null) {
+                sdbVar.d(i2);
             }
         }
     }
@@ -1786,8 +1786,8 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             super.onScreenShot(str);
-            eza ezaVar = this.d;
-            if (ezaVar != null && ezaVar.A() != null && this.d.A().getCurrentTabType() == 2) {
+            fza fzaVar = this.d;
+            if (fzaVar != null && fzaVar.A() != null && this.d.A().getCurrentTabType() == 2) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 1));
             }
         }
@@ -1816,12 +1816,12 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (!this.N) {
                 return false;
             }
-            eza ezaVar = this.d;
-            if (ezaVar != null && ezaVar.A() != null && this.d.A().getCurrentTabType() == 1 && motionEvent.getPointerCount() > 1 && this.d.C()) {
+            fza fzaVar = this.d;
+            if (fzaVar != null && fzaVar.A() != null && this.d.A().getCurrentTabType() == 1 && motionEvent.getPointerCount() > 1 && this.d.C()) {
                 return true;
             }
-            eza ezaVar2 = this.d;
-            if (ezaVar2 != null && ezaVar2.A() != null && ((currentTabType = this.d.A().getCurrentTabType()) == 2 || currentTabType == 22)) {
+            fza fzaVar2 = this.d;
+            if (fzaVar2 != null && fzaVar2.A() != null && ((currentTabType = this.d.A().getCurrentTabType()) == 2 || currentTabType == 22)) {
                 this.M.a(motionEvent);
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -1839,7 +1839,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             }
             super.onActivityResult(i2, i3, intent);
             if (this.g == null) {
-                this.g = new f0b(this, this.d);
+                this.g = new g0b(this, this.d);
             }
             this.g.e(i2, i3, intent);
         }
@@ -1851,7 +1851,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         if (interceptable == null || interceptable.invokeL(1048608, this, bundle) == null) {
             getLifecycle().addObserver(this.O);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_CREATE_START_STAMP_KEY);
-            woa.b("main");
+            xoa.b("main");
             vp5.a().v(System.currentTimeMillis());
             setIsAddSwipeBackLayout(false);
             try {
@@ -1862,12 +1862,12 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (PermissionUtil.isBrowseMode()) {
                 B1();
                 LaunchTaskSchedule.getInstance().startTaskInSingleThread(5);
-                eza ezaVar = new eza(this);
-                this.d = ezaVar;
-                this.P = new w1b(this, ezaVar);
-                this.e = new sza(this, this.d);
+                fza fzaVar = new fza(this);
+                this.d = fzaVar;
+                this.P = new x1b(this, fzaVar);
+                this.e = new tza(this, this.d);
                 this.mHandler.post(new f(this));
-                zya.b(new g(this, bundle), 0);
+                aza.b(new g(this, bundle), 0);
             } else if (!PermissionUtil.isAgreePrivacyPolicy()) {
             } else {
                 TbadkCoreApplication.getInst().setMainActivity(this);
@@ -1884,20 +1884,20 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                     finish();
                     return;
                 }
-                dza.a(this, getIntent());
+                eza.a(this, getIntent());
                 if (AccountLoginCoreHelper.getInstance() != null) {
                     AccountLoginCoreHelper.getInstance().reLoginByCacheAccount();
                 }
-                if (!z1b.b().f()) {
+                if (!a2b.b().f()) {
                     u1();
                 }
                 B1();
                 z1();
                 LaunchTaskSchedule.getInstance().startTaskInSingleThread(5);
-                eza ezaVar2 = new eza(this);
-                this.d = ezaVar2;
-                this.P = new w1b(this, ezaVar2);
-                this.e = new sza(this, this.d);
+                fza fzaVar2 = new fza(this);
+                this.d = fzaVar2;
+                this.P = new x1b(this, fzaVar2);
+                this.e = new tza(this, this.d);
                 this.mHandler.post(new h(this));
                 registerComponentCallbacks(this.R);
                 int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
@@ -1910,8 +1910,8 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                     TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
                     TbadkCoreApplication.getInst().SendSkinTypeBroadcast(loadInt);
                 }
-                zya.b(new i(this, bundle), 0);
-                z1b.b().l(false);
+                aza.b(new i(this, bundle), 0);
+                a2b.b().l(false);
                 vp5.a().w(System.currentTimeMillis());
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_CREATE_END_STAMP_KEY);
             }
@@ -1920,8 +1920,8 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        eza ezaVar;
-        eza ezaVar2;
+        fza fzaVar;
+        fza fzaVar2;
         FragmentTabHost.c h2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048613, this, intent) == null) {
@@ -1931,12 +1931,12 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             }
             setIntent(intent);
             String stringExtra = intent.getStringExtra("target_scheme");
-            iza izaVar = this.A;
-            if (izaVar != null && izaVar.b(intent)) {
+            jza jzaVar = this.A;
+            if (jzaVar != null && jzaVar.b(intent)) {
                 this.A.a(intent, this.d);
             } else {
-                sza szaVar = this.e;
-                if (szaVar != null && szaVar.e() != null) {
+                tza tzaVar = this.e;
+                if (tzaVar != null && tzaVar.e() != null) {
                     this.e.e().b(intent);
                 }
             }
@@ -1945,7 +1945,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             }
             bi5.d().h();
             if (intent.getBooleanExtra("refresh_all", false)) {
-                z1b.b().o(true);
+                a2b.b().o(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007008));
                 A1();
             }
@@ -1961,7 +1961,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 TbadkCoreApplication.getInst().notifyAppEnterBackground();
                 finish();
             } else if (intExtra != 1 && intExtra != 20 && intExtra != 3 && intExtra != 2 && intExtra != 4 && intExtra != 8 && intExtra != 15 && intExtra != 22) {
-                if ((intExtra == 17 || intExtra == 18) && (ezaVar = this.d) != null && ezaVar.A() != null) {
+                if ((intExtra == 17 || intExtra == 18) && (fzaVar = this.d) != null && fzaVar.A() != null) {
                     this.d.A().setCurrentTab(0);
                 }
             } else {
@@ -1972,19 +1972,19 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                         intExtra = this.p.a();
                     }
                 }
-                eza ezaVar3 = this.d;
-                if (ezaVar3 != null && ezaVar3.A() != null) {
+                fza fzaVar3 = this.d;
+                if (fzaVar3 != null && fzaVar3.A() != null) {
                     this.d.M(intExtra);
                 }
             }
-            eza ezaVar4 = this.d;
-            if (ezaVar4 != null && ezaVar4.A() != null && (h2 = this.d.A().h(intExtra)) != null) {
+            fza fzaVar4 = this.d;
+            if (fzaVar4 != null && fzaVar4.A() != null && (h2 = this.d.A().h(intExtra)) != null) {
                 Fragment fragment = h2.c;
                 if (fragment instanceof jv4) {
                     ((jv4) fragment).o2(intent);
                 }
             }
-            if (!TextUtils.isEmpty(intent.getStringExtra(MainTabActivityConfig.PUSH_TID)) && (ezaVar2 = this.d) != null && ezaVar2.A() != null) {
+            if (!TextUtils.isEmpty(intent.getStringExtra(MainTabActivityConfig.PUSH_TID)) && (fzaVar2 = this.d) != null && fzaVar2.A() != null) {
                 this.d.M(2);
             }
             v1(getPageContext().getPageActivity(), TbadkCoreApplication.getIntent());
@@ -2020,7 +2020,7 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (J1()) {
                 return;
             }
-            jza.a().c();
+            kza.a().c();
             this.B = false;
             LogoActivityConfig.isFirst = false;
             if (this.a) {
@@ -2038,23 +2038,23 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
                 M0.onPause();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921003));
-            cza czaVar = this.w;
-            if (czaVar != null) {
-                czaVar.g();
+            dza dzaVar = this.w;
+            if (dzaVar != null) {
+                dzaVar.g();
             }
             KuangFloatingViewController.getInstance().hideFloatingView();
             zh5.h().i(true);
-            sza szaVar = this.e;
-            if (szaVar != null && szaVar.a() != null) {
+            tza tzaVar = this.e;
+            if (tzaVar != null && tzaVar.a() != null) {
                 this.e.a().a();
             }
-            sza szaVar2 = this.e;
-            if (szaVar2 != null && szaVar2.c() != null) {
+            tza tzaVar2 = this.e;
+            if (tzaVar2 != null && tzaVar2.c() != null) {
                 this.e.c().c();
             }
-            eza ezaVar = this.d;
-            if (ezaVar != null) {
-                ezaVar.L();
+            fza fzaVar = this.d;
+            if (fzaVar != null) {
+                fzaVar.L();
             }
             SpeedStatsManager.getInstance().setStatsFlag(-1);
         }
@@ -2071,8 +2071,8 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
             if (J1()) {
                 return;
             }
-            eza ezaVar = this.d;
-            if (ezaVar != null && ezaVar.A() != null) {
+            fza fzaVar = this.d;
+            if (fzaVar != null && fzaVar.A() != null) {
                 bundle.putInt(MainEntrance.GOTO_TYPE, this.d.A().getCurrentTabType());
             }
             bundle.putParcelable(com.kwad.components.core.proxy.c.FRAGMENTS_TAG, null);
@@ -2145,11 +2145,11 @@ public class MainTabActivity extends BaseFragmentActivity implements wya, VoiceM
         if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
             DefaultLog.getInstance().i("MainTabActivity", "开屏广告：initSplash, 初始化开屏广告");
             SpeedStatsManager.getInstance().setIsSwitchOn(true);
-            MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = bza.a(getIntent());
-            registerListener(new n1b(this));
+            MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = cza.a(getIntent());
+            registerListener(new o1b(this));
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                zya.a(MainTabScheduleStrategy.SCHEDULE);
-                jza.a().e(this);
+                aza.a(MainTabScheduleStrategy.SCHEDULE);
+                kza.a().e(this);
             } else if (!TbSingleton.getInstance().getIsPushOrSchemeLog()) {
                 BaseVM.m(1);
             } else {

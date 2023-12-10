@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.t7c;
+import com.baidu.tieba.u7c;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public t7c mBlockWatchDog = null;
+    public u7c mBlockWatchDog = null;
 
     /* loaded from: classes3.dex */
-    public static class BlockListenerImpl implements t7c.f {
+    public static class BlockListenerImpl implements u7c.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.t7c.f
+        @Override // com.baidu.tieba.u7c.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        t7c t7cVar;
-        if (this.mMonitorStarted && (t7cVar = this.mBlockWatchDog) != null) {
-            t7cVar.interrupt();
+        u7c u7cVar;
+        if (this.mMonitorStarted && (u7cVar = this.mBlockWatchDog) != null) {
+            u7cVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        t7c t7cVar = new t7c(i);
-        this.mBlockWatchDog = t7cVar;
-        t7cVar.e();
+        u7c u7cVar = new u7c(i);
+        this.mBlockWatchDog = u7cVar;
+        u7cVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

@@ -1,48 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.vip.models.VipUserInfoKt;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
 import org.json.JSONObject;
-import tbclient.AnchorInfo;
-import tbclient.ZhiBoInfoTW;
+import tbclient.AlaUserInfo;
+import tbclient.YyExt;
 /* loaded from: classes7.dex */
-public class muc extends ktc {
+public class muc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull AnchorInfo anchorInfo) {
+    public static JSONObject b(@NonNull AlaUserInfo alaUserInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, anchorInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaUserInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "portrait", anchorInfo.portrait);
-            ktc.a(jSONObject, "name", anchorInfo.name);
-            ktc.a(jSONObject, "start_time", anchorInfo.start_time);
-            ktc.a(jSONObject, "status", anchorInfo.status);
-            ktc.a(jSONObject, "author_id", anchorInfo.author_id);
-            ktc.a(jSONObject, NativeUnifiedADAppInfoImpl.Keys.AUTHOR_NAME, anchorInfo.author_name);
-            ktc.a(jSONObject, "listeners", anchorInfo.listeners);
-            ktc.a(jSONObject, "likers", anchorInfo.likers);
-            ktc.a(jSONObject, "group_id", anchorInfo.group_id);
-            ktc.a(jSONObject, "intro", anchorInfo.intro);
-            ktc.a(jSONObject, "publisherPortrait", anchorInfo.publisherPortrait);
-            ktc.a(jSONObject, "publisherName", anchorInfo.publisherName);
-            ktc.a(jSONObject, "publisherId", anchorInfo.publisherId);
-            ktc.a(jSONObject, ForumBroadcastHelper.KEY_PARMARS_FORUM_NAME, anchorInfo.forumName);
-            ktc.a(jSONObject, "from_type", anchorInfo.from_type);
-            ktc.a(jSONObject, VipUserInfoKt.KEY_VIP_MAIN_VIP_STATUS, anchorInfo.is_vip);
-            ktc.a(jSONObject, "label_id", anchorInfo.label_id);
-            ktc.a(jSONObject, "label_name", anchorInfo.label_name);
-            ktc.a(jSONObject, "type", anchorInfo.type);
-            ZhiBoInfoTW zhiBoInfoTW = anchorInfo.twzhibo_info;
-            if (zhiBoInfoTW != null) {
-                ktc.a(jSONObject, "twzhibo_info", ubd.b(zhiBoInfoTW));
+            ltc.a(jSONObject, "ala_id", alaUserInfo.ala_id);
+            ltc.a(jSONObject, "user_name", alaUserInfo.user_name);
+            ltc.a(jSONObject, "portrait", alaUserInfo.portrait);
+            ltc.a(jSONObject, "description", alaUserInfo.description);
+            ltc.a(jSONObject, "sex", alaUserInfo.sex);
+            ltc.a(jSONObject, "enter_live", alaUserInfo.enter_live);
+            ltc.a(jSONObject, "anchor_live", alaUserInfo.anchor_live);
+            ltc.a(jSONObject, IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfo.live_status);
+            ltc.a(jSONObject, "live_id", alaUserInfo.live_id);
+            ltc.a(jSONObject, "location", alaUserInfo.location);
+            ltc.a(jSONObject, SuggestAddrField.KEY_LNG, alaUserInfo.lng);
+            ltc.a(jSONObject, SuggestAddrField.KEY_LAT, alaUserInfo.lat);
+            ltc.a(jSONObject, "update_time", alaUserInfo.update_time);
+            ltc.a(jSONObject, "charm_count", alaUserInfo.charm_count);
+            ltc.a(jSONObject, "level_exp", alaUserInfo.level_exp);
+            ltc.a(jSONObject, "is_official", alaUserInfo.is_official);
+            ltc.a(jSONObject, "verify_status", alaUserInfo.verify_status);
+            ltc.a(jSONObject, "level_id", alaUserInfo.level_id);
+            ltc.a(jSONObject, "great_anchor_icon", alaUserInfo.great_anchor_icon);
+            ltc.a(jSONObject, "great_anchor_desc_grade", alaUserInfo.great_anchor_desc_grade);
+            ltc.a(jSONObject, "great_anchor_desc_role", alaUserInfo.great_anchor_desc_role);
+            ltc.a(jSONObject, "level_name", alaUserInfo.level_name);
+            ltc.a(jSONObject, "user_id", alaUserInfo.user_id);
+            ltc.a(jSONObject, "anchor_fans", alaUserInfo.anchor_fans);
+            YyExt yyExt = alaUserInfo.yy_ext;
+            if (yyExt != null) {
+                ltc.a(jSONObject, "yy_ext", tbd.b(yyExt));
             }
             return jSONObject;
         }

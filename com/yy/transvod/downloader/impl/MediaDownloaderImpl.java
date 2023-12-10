@@ -1,9 +1,9 @@
 package com.yy.transvod.downloader.impl;
 
-import com.baidu.tieba.vgc;
+import com.baidu.tieba.wgc;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
-public class MediaDownloaderImpl extends vgc {
+public class MediaDownloaderImpl extends wgc {
     private native String nativeCheckVideoCachePath(String str);
 
     public static native void nativeClassInit();

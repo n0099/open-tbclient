@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,15 +10,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes5.dex */
-public final class f5a extends cga {
+public final class f5a extends dga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "user_follow" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "collect" : (String) invokeV.objValue;
     }
 
     public f5a() {
@@ -34,13 +35,79 @@ public final class f5a extends cga {
         }
     }
 
-    @Override // com.baidu.tieba.cga
+    @Override // com.baidu.tieba.dga
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ia5.e().n();
+            return ia5.e().d();
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadAbstract() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getAbstract();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTid();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dga, com.baidu.tieba.push.guide.DialogParamProvider
+    public String provideThreadTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Object d = d();
+            String str = null;
+            if (!(d instanceof ThreadData)) {
+                d = null;
+            }
+            ThreadData threadData = (ThreadData) d;
+            if (threadData != null) {
+                str = threadData.getTitle();
+            }
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
     }
 }

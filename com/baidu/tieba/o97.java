@@ -37,7 +37,7 @@ public final class o97 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void a(FeedPostExpose feedPostExpose, List<rb7<?>> dataList, r67 feedExtraData) {
+    public static final void a(FeedPostExpose feedPostExpose, List<sb7<?>> dataList, r67 feedExtraData) {
         boolean z;
         PostExposeHead postExposeHead;
         String str;
@@ -74,7 +74,7 @@ public final class o97 {
                     if (num != null && num.intValue() == 1) {
                         z = true;
                         v57 v57Var = new v57();
-                        v57Var.b(va7.a.a(feedPostExpose.business_info));
+                        v57Var.b(wa7.a.a(feedPostExpose.business_info));
                         p67 p67Var = new p67(j, z, v57Var);
                         postExposeHead = feedPostExpose.head_img;
                         if (postExposeHead == null) {
@@ -134,12 +134,12 @@ public final class o97 {
                             Intrinsics.checkNotNullExpressionValue(str11, "schema ?: \"\"");
                             str12 = str11;
                         }
-                        dataList.add(new sb7(new w47(a87Var, str10, str12, v57Var.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_head_click1", null, 2, null), s67.e(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_name_click1", null, 2, null), s67.e(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_card_click1", null, 2, null), s67.e(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
+                        dataList.add(new tb7(new w47(a87Var, str10, str12, v57Var.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_head_click1", null, 2, null), s67.e(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_name_click1", null, 2, null), s67.e(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_card_click1", null, 2, null), s67.e(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
                     }
                 }
                 z = false;
                 v57 v57Var2 = new v57();
-                v57Var2.b(va7.a.a(feedPostExpose.business_info));
+                v57Var2.b(wa7.a.a(feedPostExpose.business_info));
                 p67 p67Var2 = new p67(j, z, v57Var2);
                 postExposeHead = feedPostExpose.head_img;
                 if (postExposeHead == null) {
@@ -166,7 +166,7 @@ public final class o97 {
                 str11 = feedPostExpose.schema;
                 if (str11 != null) {
                 }
-                dataList.add(new sb7(new w47(a87Var2, str10, str12, v57Var2.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_head_click1", null, 2, null), s67.e(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_name_click1", null, 2, null), s67.e(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_card_click1", null, 2, null), s67.e(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
+                dataList.add(new tb7(new w47(a87Var2, str10, str12, v57Var2.a(), feedExtraData.c().a(), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_head_click1", null, 2, null), s67.e(feedExtraData, "reply_user_head_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_user_name_click1", null, 2, null), s67.e(feedExtraData, "reply_user_name_click2", null, 2, null)}), CollectionsKt__CollectionsKt.listOf((Object[]) new e87[]{s67.e(feedExtraData, "reply_card_click1", null, 2, null), s67.e(feedExtraData, "reply_card_click2", null, 2, null)}), null, 256, null), "reply"));
             }
         }
     }

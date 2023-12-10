@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes5.dex */
 public interface af8 {
-    void a(int i);
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    void c();
+    boolean b(int i, lf8 lf8Var);
 
-    void onChangeSkinType(int i);
+    boolean c(int i);
 
     void setData(List<pi> list);
 }

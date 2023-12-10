@@ -3,7 +3,7 @@ package com.baidu.tieba.model;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.so9;
+import com.baidu.tieba.to9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public final class ForbidShareRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public so9 data;
+    public to9 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbidShareRespondedMessage() {
@@ -36,13 +36,13 @@ public final class ForbidShareRespondedMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public final so9 getData() {
+    public final to9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (so9) invokeV.objValue;
+        return (to9) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -51,19 +51,19 @@ public final class ForbidShareRespondedMessage extends JsonHttpResponsedMessage 
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
-                so9 so9Var = new so9(null, 1, null);
-                this.data = so9Var;
-                if (so9Var != null) {
-                    so9Var.b(jSONObject);
+                to9 to9Var = new to9(null, 1, null);
+                this.data = to9Var;
+                if (to9Var != null) {
+                    to9Var.b(jSONObject);
                 }
             }
         }
     }
 
-    public final void setData(so9 so9Var) {
+    public final void setData(to9 to9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, so9Var) == null) {
-            this.data = so9Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, to9Var) == null) {
+            this.data = to9Var;
         }
     }
 }

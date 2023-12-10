@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes6.dex */
-public final class itc implements koc {
+public final class itc implements loc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SequentialSubscription a;
@@ -29,7 +29,7 @@ public final class itc implements koc {
         this.a = new SequentialSubscription();
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public final class itc implements koc {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.koc
+    @Override // com.baidu.tieba.loc
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -47,11 +47,11 @@ public final class itc implements koc {
         }
     }
 
-    public void a(koc kocVar) {
+    public void a(loc locVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kocVar) == null) {
-            if (kocVar != null) {
-                this.a.update(kocVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, locVar) == null) {
+            if (locVar != null) {
+                this.a.replace(locVar);
                 return;
             }
             throw new IllegalArgumentException("Subscription can not be null");

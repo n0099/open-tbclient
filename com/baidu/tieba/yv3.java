@@ -18,7 +18,7 @@ import rx.subjects.PublishSubject;
 public final class yv3 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
-    public static final roc b;
+    public static final soc b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes9.dex */
@@ -27,7 +27,7 @@ public final class yv3 {
     }
 
     /* loaded from: classes9.dex */
-    public static class a implements roc<Pair<Runnable, String>> {
+    public static class a implements soc<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public final class yv3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public final class yv3 {
     }
 
     /* loaded from: classes9.dex */
-    public static class b implements woc<Pair<Runnable, String>, doc<?>> {
+    public static class b implements xoc<Pair<Runnable, String>, eoc<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -83,36 +83,36 @@ public final class yv3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
-        public doc<?> call(Pair<Runnable, String> pair) {
+        public eoc<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return hoc.g(pair).h(Schedulers.io()).f(yv3.b).l();
+                return ioc.g(pair).h(Schedulers.io()).f(yv3.b).l();
             }
-            return (doc) invokeL.objValue;
+            return (eoc) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public static class d extends dtc<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+    public static class d extends etc<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(etc etcVar) {
-            super(etcVar);
+        public d(ftc ftcVar) {
+            super(ftcVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {etcVar};
+                Object[] objArr = {ftcVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((etc) newInitContext.callArgs[0]);
+                    super((ftc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

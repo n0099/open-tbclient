@@ -23,7 +23,7 @@ public final class ej3 {
     public static volatile k b;
     public static volatile k c;
     public static volatile k d;
-    public static final roc e;
+    public static final soc e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -32,7 +32,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements roc<Pair<Runnable, String>> {
+    public static class a implements soc<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Pair<Runnable, String> pair) {
             boolean z;
@@ -80,7 +80,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements woc<Pair<Runnable, String>, doc<?>> {
+    public static class b implements xoc<Pair<Runnable, String>, eoc<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,20 +99,20 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
-        public doc<?> call(Pair<Runnable, String> pair) {
+        public eoc<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return hoc.g(pair).h(Schedulers.io()).f(ej3.e).l();
+                return ioc.g(pair).h(Schedulers.io()).f(ej3.e).l();
             }
-            return (doc) invokeL.objValue;
+            return (eoc) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements woc<Pair<Runnable, String>, doc<?>> {
+    public static class c implements xoc<Pair<Runnable, String>, eoc<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -131,20 +131,20 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
-        public doc<?> call(Pair<Runnable, String> pair) {
+        public eoc<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return hoc.g(pair).h(Schedulers.computation()).f(ej3.e).l();
+                return ioc.g(pair).h(Schedulers.computation()).f(ej3.e).l();
             }
-            return (doc) invokeL.objValue;
+            return (eoc) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements roc<Throwable> {
+    public static class d implements soc<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -168,7 +168,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
@@ -179,7 +179,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements roc<Pair<Runnable, String>> {
+    public static class e implements soc<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +198,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class f implements roc<Throwable> {
+    public static class f implements soc<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -233,7 +233,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
@@ -244,7 +244,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class g implements roc<Pair<Runnable, String>> {
+    public static class g implements soc<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -263,7 +263,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
@@ -274,7 +274,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class h implements roc<Throwable> {
+    public static class h implements soc<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -298,7 +298,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
@@ -309,7 +309,7 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class i implements roc<Pair<Runnable, String>> {
+    public static class i implements soc<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,7 +328,7 @@ public final class ej3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
@@ -339,23 +339,23 @@ public final class ej3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class k extends dtc<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
+    public static class k extends etc<Pair<Runnable, String>, Pair<Runnable, String>> implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(etc etcVar) {
-            super(etcVar);
+        public k(ftc ftcVar) {
+            super(ftcVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {etcVar};
+                Object[] objArr = {ftcVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((etc) newInitContext.callArgs[0]);
+                    super((ftc) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -411,31 +411,31 @@ public final class ej3 {
         }
     }
 
-    public static koc c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static loc c(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return hoc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
+            return ioc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new g()).e(new f(str)).i();
         }
-        return (koc) invokeCommon.objValue;
+        return (loc) invokeCommon.objValue;
     }
 
-    public static koc d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static loc d(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return hoc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
+            return ioc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new e()).e(new d(str)).i();
         }
-        return (koc) invokeCommon.objValue;
+        return (loc) invokeCommon.objValue;
     }
 
-    public static koc e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
+    public static loc e(@NonNull Runnable runnable, @NonNull String str, @NonNull long j2, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{runnable, str, Long.valueOf(j2), timeUnit})) == null) {
-            return hoc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
+            return ioc.g(Pair.create(runnable, i(str))).c(j2, timeUnit).f(new i()).e(new h(str)).i();
         }
-        return (koc) invokeCommon.objValue;
+        return (loc) invokeCommon.objValue;
     }
 
     public static j f() {

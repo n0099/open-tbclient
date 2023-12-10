@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
 import com.baidu.tieba.feed.widget.roundcorners.RoundLinearLayout;
-import com.baidu.tieba.ld7;
-import com.baidu.tieba.yd7;
+import com.baidu.tieba.md7;
+import com.baidu.tieba.zd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,9 +31,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VirtualImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yd7 a;
-    public yd7 b;
-    public yd7 c;
+    public zd7 a;
+    public zd7 b;
+    public zd7 c;
 
     static {
         InterceptResult invokeClinit;
@@ -99,9 +99,9 @@ public final class VirtualImageView extends RelativeLayout {
         int i3 = (int) (1.2f * f);
         RoundFrameLayout roundFrameLayout = new RoundFrameLayout(context);
         roundFrameLayout.setId(R.id.obfuscated_res_0x7f09062f);
-        yd7 yd7Var = new yd7(context);
-        this.a = yd7Var;
-        roundFrameLayout.addView(yd7Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        zd7 zd7Var = new zd7(context);
+        this.a = zd7Var;
+        roundFrameLayout.addView(zd7Var.h(), new FrameLayout.LayoutParams(-1, -1));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimens, dimens);
         roundFrameLayout.setRadius(f);
         layoutParams.addRule(13);
@@ -111,7 +111,7 @@ public final class VirtualImageView extends RelativeLayout {
         roundLinearLayout.setOrientation(0);
         roundLinearLayout.setGravity(80);
         roundLinearLayout.setId(R.id.obfuscated_res_0x7f09062b);
-        this.b = new yd7(context);
+        this.b = new zd7(context);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(i3, i3);
         layoutParams2.leftMargin = (-(i3 - dimens)) / 2;
         roundLinearLayout.addView(this.b.h(), layoutParams2);
@@ -121,7 +121,7 @@ public final class VirtualImageView extends RelativeLayout {
         layoutParams3.addRule(10);
         layoutParams3.addRule(14);
         addView(roundLinearLayout, layoutParams3);
-        this.c = new yd7(context);
+        this.c = new zd7(context);
         int dimens2 = BdUtilHelper.getDimens(context, R.dimen.tbds42);
         RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(dimens2, dimens2);
         layoutParams4.addRule(8, R.id.obfuscated_res_0x7f09062b);
@@ -173,7 +173,7 @@ public final class VirtualImageView extends RelativeLayout {
                 return;
             }
             this.c.h().setVisibility(0);
-            ld7.b(this.c.h(), str);
+            md7.b(this.c.h(), str);
         }
     }
 

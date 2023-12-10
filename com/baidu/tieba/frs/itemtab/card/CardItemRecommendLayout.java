@@ -36,7 +36,7 @@ import com.baidu.tieba.a5;
 import com.baidu.tieba.fw4;
 import com.baidu.tieba.jt;
 import com.baidu.tieba.l65;
-import com.baidu.tieba.m18;
+import com.baidu.tieba.n18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -386,10 +386,10 @@ public class CardItemRecommendLayout extends LinearLayout implements jt {
 
     public void setData(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) && (fw4Var instanceof m18)) {
-            m18 m18Var = (m18) fw4Var;
-            if (m18Var.c() != null) {
-                this.d = m18Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) && (fw4Var instanceof n18)) {
+            n18 n18Var = (n18) fw4Var;
+            if (n18Var.c() != null) {
+                this.d = n18Var.c();
                 this.c.notifyDataSetChanged();
             }
         }

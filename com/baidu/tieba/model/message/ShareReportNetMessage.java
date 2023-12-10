@@ -20,7 +20,7 @@ public class ShareReportNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1125common;
+    public CommonReq f1127common;
     public long fid;
     public int from;
     public long tid;
@@ -68,7 +68,7 @@ public class ShareReportNetMessage extends NetMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f1125common;
+            return this.f1127common;
         }
         return (CommonReq) invokeV.objValue;
     }
@@ -103,7 +103,7 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f1125common = commonReq;
+            this.f1127common = commonReq;
         }
     }
 

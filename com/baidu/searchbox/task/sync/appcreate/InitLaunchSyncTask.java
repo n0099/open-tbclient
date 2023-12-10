@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.InputMethodManagerLeaksFixer;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.ForeBackLifecycleMonitorUtil;
-import com.baidu.tieba.g1a;
+import com.baidu.tieba.h1a;
 import com.baidu.tieba.im5;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.pv4;
@@ -77,6 +77,6 @@ public class InitLaunchSyncTask extends LaunchTask {
         TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new pv4());
         InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
         cleanDirectoryNewStatIfNeed();
-        qk5.a(im5.a, new g1a());
+        qk5.a(im5.a, new h1a());
     }
 }

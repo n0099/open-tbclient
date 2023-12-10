@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.app.Dialog;
+import com.baidu.tieba.ggd;
 import com.baidu.tieba.hgd;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import com.baidu.tieba.igd;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
 /* loaded from: classes5.dex */
 public interface add {
-    void a(Activity activity, qed qedVar, ued uedVar, Dialog dialog, agd agdVar, AppCustomExpand appCustomExpand, hgd.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, xcd xcdVar);
+
+    egd b(Activity activity);
+
+    dgd c(Activity activity);
+
+    fgd d(Activity activity);
+
+    IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, xcd xcdVar);
+
+    ggd f(Activity activity, ggd.b bVar, PayUIKitConfig payUIKitConfig);
+
+    igd g(Activity activity, igd.b bVar, cdd cddVar);
+
+    hgd h(Activity activity, PayUIKitConfig payUIKitConfig, hgd.b bVar, cdd cddVar);
 }

@@ -30,16 +30,16 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.dynamicIcon.MainTabBottomDynamicIconManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.doc;
 import com.baidu.tieba.ea5;
+import com.baidu.tieba.eoc;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ObserverRegistry;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.koc;
-import com.baidu.tieba.pma;
-import com.baidu.tieba.roc;
-import com.baidu.tieba.woc;
+import com.baidu.tieba.loc;
+import com.baidu.tieba.qma;
+import com.baidu.tieba.soc;
 import com.baidu.tieba.xoc;
+import com.baidu.tieba.yoc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView a;
-    public koc b;
+    public loc b;
 
     /* loaded from: classes6.dex */
     public class a implements kk5.b {
@@ -151,14 +151,14 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return pma.b(tbPageContext, strArr);
+                return qma.b(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class d implements roc<Triple<Boolean, Integer, Boolean>> {
+    public class d implements soc<Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ea5 a;
@@ -184,7 +184,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
+        @Override // com.baidu.tieba.soc
         /* renamed from: a */
         public void call(Triple<Boolean, Integer, Boolean> triple) {
             Interceptable interceptable = $ic;
@@ -205,7 +205,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements woc<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
+    public class e implements xoc<Pair<NewsRemindMessage, Boolean>, Triple<Boolean, Integer, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -226,7 +226,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Triple<Boolean, Integer, Boolean> call(Pair<NewsRemindMessage, Boolean> pair) {
             InterceptResult invokeL;
@@ -247,7 +247,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class f implements xoc<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
+    public class f implements yoc<NewsRemindMessage, Boolean, Pair<NewsRemindMessage, Boolean>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -268,7 +268,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xoc
+        @Override // com.baidu.tieba.yoc
         /* renamed from: b */
         public Pair<NewsRemindMessage, Boolean> a(NewsRemindMessage newsRemindMessage, Boolean bool) {
             InterceptResult invokeLL;
@@ -281,7 +281,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements woc<NewsRemindMessage, Boolean> {
+    public class g implements xoc<NewsRemindMessage, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -302,7 +302,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.woc
+        @Override // com.baidu.tieba.xoc
         /* renamed from: a */
         public Boolean call(NewsRemindMessage newsRemindMessage) {
             InterceptResult invokeL;
@@ -388,9 +388,9 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onRemove();
-            koc kocVar = this.b;
-            if (kocVar != null) {
-                kocVar.unsubscribe();
+            loc locVar = this.b;
+            if (locVar != null) {
+                locVar.unsubscribe();
             }
             this.b = null;
             FragmentTabStructure fragmentTabStructure = this.mFragement;
@@ -467,7 +467,7 @@ public class ImMessageCenterDelegateStatic extends FragmentDelegate {
         ea5 ea5Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ea5Var = (ea5) ServiceManager.getService(ea5.a)) != null && this.b == null) {
-            this.b = doc.c(ea5Var.g().k(new g(this)), ea5Var.c(), new f(this)).p(new e(this)).H(new d(this, ea5Var));
+            this.b = eoc.c(ea5Var.g().k(new g(this)), ea5Var.c(), new f(this)).p(new e(this)).H(new d(this, ea5Var));
         }
     }
 

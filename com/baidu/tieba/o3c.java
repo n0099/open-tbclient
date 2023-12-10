@@ -1,81 +1,95 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes7.dex */
-public class o3c extends FunNativeAd2Bridger<w2c, View> {
+public class o3c implements q2c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FunAdInteractionListener b;
-    public final /* synthetic */ Context c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ l3c e;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ x2c c;
+    public final /* synthetic */ p3c d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o3c(l3c l3cVar, ReporterPidLoader reporterPidLoader, Context context, String str) {
-        super(reporterPidLoader);
+    public o3c(p3c p3cVar, x2c x2cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l3cVar, reporterPidLoader, context, str};
+            Object[] objArr = {p3cVar, x2cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = l3cVar;
-        this.c = context;
-        this.d = str;
+        this.d = p3cVar;
+        this.c = x2cVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(w2c w2cVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q2c
+    public void onADExposed() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w2cVar)) == null) {
-            w2c w2cVar2 = w2cVar;
-            return j2c.a(this.c, w2cVar2.a, new n3c(this, w2cVar2));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.e.onAdShow((m3c) this.c, this.a, new String[0]);
+            this.a = true;
+            p3c p3cVar = this.d;
+            FunAdInteractionListener funAdInteractionListener = p3cVar.b;
+            if (funAdInteractionListener != null) {
+                String str = p3cVar.d;
+                pid = p3cVar.e.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.d.e.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
         }
-        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, w2c w2cVar, BaseNativeAd2<w2c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.q2c
+    public void onADExposureFailed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, w2cVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.e.f(w2cVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), funAdInteractionListener);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            LogPrinter.d();
+            this.a = false;
+            this.d.e.onAdError(this.c, i, "F:onADExposureFailed");
+            p3c p3cVar = this.d;
+            FunAdInteractionListener funAdInteractionListener = p3cVar.b;
+            if (funAdInteractionListener != null) {
+                funAdInteractionListener.onAdError(p3cVar.d);
+            }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, w2c w2cVar, BaseNativeAd2<w2c, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.q2c
+    public void onAdClick() {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, w2cVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.e.onShowStart(w2cVar);
-            this.b = funAdInteractionListener;
-            expressInflater.inflate();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.d.e.onAdClicked((m3c) this.c, this.b, new String[0]);
+            this.b = true;
+            p3c p3cVar = this.d;
+            FunAdInteractionListener funAdInteractionListener = p3cVar.b;
+            if (funAdInteractionListener != null) {
+                String str = p3cVar.d;
+                pid = p3cVar.e.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.d.e.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
+            }
         }
     }
 }

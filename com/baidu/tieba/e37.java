@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e37 implements qb7<View, AdvertAppInfo> {
+public class e37 implements rb7<View, AdvertAppInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class e37 implements qb7<View, AdvertAppInfo> {
         }
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public String c() {
         InterceptResult invokeV;
@@ -40,7 +40,7 @@ public class e37 implements qb7<View, AdvertAppInfo> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -54,10 +54,11 @@ public class e37 implements qb7<View, AdvertAppInfo> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qb7
+    @Override // com.baidu.tieba.rb7
     /* renamed from: d */
     public void b(@NonNull View view2, @NonNull AdvertAppInfo advertAppInfo) {
         boolean z;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, advertAppInfo) == null) {
             kw4 kw4Var = advertAppInfo.i;
@@ -66,7 +67,11 @@ public class e37 implements qb7<View, AdvertAppInfo> {
             } else {
                 z = false;
             }
-            kw4.f(kw4Var, advertAppInfo.position, z);
+            if (kw4Var != null && (str = kw4Var.a) != null && ra7.a(str)) {
+                kw4.c(kw4Var, advertAppInfo.position, z);
+            } else {
+                kw4.f(kw4Var, advertAppInfo.position, z);
+            }
         }
     }
 }

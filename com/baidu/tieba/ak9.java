@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
+import com.baidu.searchbox.live.imp.LiveUserSecurityDeviceInfoServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityDeviceInfoService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ak9 extends fg1<EventDispatcherService> {
+public final class ak9 extends fg1<LiveUserSecurityDeviceInfoService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,12 +29,12 @@ public class ak9 extends fg1<EventDispatcherService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.fg1
     /* renamed from: a */
-    public EventDispatcherService createService() throws ServiceNotFoundException {
+    public LiveUserSecurityDeviceInfoService createService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new bk9();
+            return new LiveUserSecurityDeviceInfoServiceImpl();
         }
-        return (EventDispatcherService) invokeV.objValue;
+        return (LiveUserSecurityDeviceInfoService) invokeV.objValue;
     }
 }

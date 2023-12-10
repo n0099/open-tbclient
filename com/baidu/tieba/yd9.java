@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes9.dex */
-public final class yd9 extends td9<TextMsg, vb9> {
+public final class yd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.td9
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    public final SparseArray<xd9<ChatMsg, vb9<?>>> a;
+    public final HashMap<Class<? extends ChatMsg>, Integer> b;
 
     public yd9() {
         Interceptable interceptable = $ic;
@@ -35,55 +27,57 @@ public final class yd9 extends td9<TextMsg, vb9> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
+        this.b = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.td9
-    /* renamed from: h */
-    public TextMsg e(vb9 vb9Var) {
-        InterceptResult invokeL;
+    public final void a(int i, xd9<ChatMsg, vb9<?>> converter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vb9Var)) == null) {
-            TextMsg textMsg = new TextMsg();
-            textMsg.setText((vb9Var == null || (r5 = vb9Var.c()) == null) ? "" : "");
-            return textMsg;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, converter) == null) {
+            Intrinsics.checkNotNullParameter(converter, "converter");
+            this.a.put(i, converter);
         }
-        return (TextMsg) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.td9
-    /* renamed from: i */
-    public vb9 g(TextMsg sdkMsg) {
-        InterceptResult invokeL;
+    public final void b(Class<? extends ChatMsg> sdkMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkMsg, i) == null) {
             Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            vb9 vb9Var = new vb9();
-            String msgContent = sdkMsg.getMsgContent();
-            if (msgContent == null) {
-                msgContent = "";
-            } else {
-                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
+            this.b.put(sdkMsg, Integer.valueOf(i));
+        }
+    }
+
+    public final ChatMsg c(vb9<?> tbMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMsg)) == null) {
+            Intrinsics.checkNotNullParameter(tbMsg, "tbMsg");
+            xd9<ChatMsg, vb9<?>> xd9Var = this.a.get(tbMsg.e().d());
+            if (xd9Var == null) {
+                return null;
             }
-            if (!rd.isEmpty(msgContent)) {
-                try {
-                    vb9Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
+            return xd9Var.b(tbMsg);
+        }
+        return (ChatMsg) invokeL.objValue;
+    }
+
+    public final vb9<?> d(ChatMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            Integer num = this.b.get(sdkMsg.getClass());
+            if (num == null) {
+                return null;
             }
-            if (vb9Var.b() == null) {
-                String text = sdkMsg.getText();
-                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
-                vb9Var.f(text);
+            xd9<ChatMsg, vb9<?>> xd9Var = this.a.get(num.intValue());
+            if (xd9Var == null) {
+                return null;
             }
-            String text2 = sdkMsg.getText();
-            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
-            vb9Var.d(text2);
-            return vb9Var;
+            return xd9Var.a(sdkMsg);
         }
         return (vb9) invokeL.objValue;
     }

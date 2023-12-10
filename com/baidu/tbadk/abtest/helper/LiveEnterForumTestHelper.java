@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.group.LiveEnterForumABTest;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tieba.a2b;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.ok5;
-import com.baidu.tieba.z1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -134,7 +134,7 @@ public final class LiveEnterForumTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!z1b.j.a().a() && isLiveEnterForumTestA()) {
+            if (!a2b.j.a().a() && isLiveEnterForumTestA()) {
                 return true;
             }
             return false;

@@ -188,7 +188,7 @@ public class MockFloatWindowManager {
             LinearLayout linearLayout = new LinearLayout(this.e);
             this.f = linearLayout;
             linearLayout.setOnTouchListener(new a(this));
-            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uec
+            this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.vec
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -4,22 +4,28 @@ import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.CommonDistance;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes8.dex */
-public class tzc extends ktc {
+public class tzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull CommonDistance commonDistance) {
+    public static JSONObject b(@NonNull ColorEgg colorEgg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, commonDistance)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, colorEgg)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "distance", commonDistance.distance);
-            ktc.a(jSONObject, "time", commonDistance.time);
-            ktc.a(jSONObject, "is_hide", commonDistance.is_hide);
+            if (colorEgg.holiday_words != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str : colorEgg.holiday_words) {
+                    jSONArray.put(str);
+                }
+                ltc.a(jSONObject, "holiday_words", jSONArray);
+            }
+            ltc.a(jSONObject, "style_flag", colorEgg.style_flag);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

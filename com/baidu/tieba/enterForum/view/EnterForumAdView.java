@@ -22,10 +22,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.home.EnterForumDelegateStatic;
 import com.baidu.tieba.eo5;
-import com.baidu.tieba.mua;
+import com.baidu.tieba.nua;
 import com.baidu.tieba.nx6;
 import com.baidu.tieba.ox6;
-import com.baidu.tieba.pua;
+import com.baidu.tieba.qua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,8 +188,8 @@ public class EnterForumAdView extends FrameLayout {
                 if (context != null) {
                     BrowserHelper.startWebActivity(context, str);
                 }
-                if (bdUniqueId != null && (k = mua.k(true, "a025", "common_click", 3, 1, true, String.valueOf(T2.b), String.valueOf(T2.b), 5)) != null) {
-                    pua.g().c(bdUniqueId, k);
+                if (bdUniqueId != null && (k = nua.k(true, "a025", "common_click", 3, 1, true, String.valueOf(T2.b), String.valueOf(T2.b), 5)) != null) {
+                    qua.g().c(bdUniqueId, k);
                 }
             }
         }
@@ -376,11 +376,11 @@ public class EnterForumAdView extends FrameLayout {
                     this.g.dispatchMvcEvent(eo5Var);
                 }
                 setVisibility(0);
-                if (this.l != T2 && (k = mua.k(false, "a025", "common_exp", 0, 1, true, String.valueOf(T2.b), String.valueOf(T2.b), 5)) != null) {
-                    pua g = pua.g();
+                if (this.l != T2 && (k = nua.k(false, "a025", "common_exp", 0, 1, true, String.valueOf(T2.b), String.valueOf(T2.b), 5)) != null) {
+                    qua g = qua.g();
                     BdUniqueId bdUniqueId = this.h;
-                    g.d(bdUniqueId, mua.c("" + T2.b), k);
-                    pua.g().h(this.h, false);
+                    g.d(bdUniqueId, nua.c("" + T2.b), k);
+                    qua.g().h(this.h, false);
                 }
             } else {
                 if (this.g != null) {

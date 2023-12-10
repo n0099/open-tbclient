@@ -32,10 +32,10 @@ public class bz5 {
     public int k;
 
     @NonNull
-    public bz5 a(@Nullable mwa mwaVar) {
+    public bz5 a(@Nullable nwa nwaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mwaVar)) == null) ? this : (bz5) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nwaVar)) == null) ? this : (bz5) invokeL.objValue;
     }
 
     /* loaded from: classes5.dex */

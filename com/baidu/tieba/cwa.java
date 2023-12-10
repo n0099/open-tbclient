@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes5.dex */
 public class cwa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDelegateAdapterList a;
-    public Context b;
+    public ArrayList<awa> a;
+    public ArrayList<bwa> b;
 
-    public cwa(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
+    public cwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, absDelegateAdapterList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,16 +29,30 @@ public class cwa {
                 return;
             }
         }
-        this.b = context;
-        this.a = absDelegateAdapterList;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public AbsDelegateAdapterList a() {
-        InterceptResult invokeV;
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
+            return;
         }
-        return (AbsDelegateAdapterList) invokeV.objValue;
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                awa awaVar = new awa();
+                awaVar.a(actHot);
+                this.a.add(awaVar);
+            }
+        }
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                bwa bwaVar = new bwa();
+                bwaVar.a(linkInfo);
+                this.b.add(bwaVar);
+            }
+        }
     }
 }

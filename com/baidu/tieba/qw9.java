@@ -1,38 +1,388 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qw9 {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Error;
+import tbclient.Page;
+import tbclient.PbFloor.DataRes;
+import tbclient.SubPostList;
+/* loaded from: classes8.dex */
+public class qw9 implements wv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public int c;
-    public float d;
-    public boolean e;
+    public ForumData a;
+    public nwa b;
+    public ArrayList<nwa> c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public AntiData i;
+    public ThreadData j;
+    public boolean k;
+    public Error l;
 
-    public qw9(float f, float f2, int i, float f3, boolean z) {
+    public qw9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f;
-        this.b = f2;
-        this.c = i;
-        this.d = f3;
-        this.e = z;
+        this.f = 20;
+        this.h = -1;
+        this.b = null;
+        this.c = new ArrayList<>();
+        this.d = 1;
+    }
+
+    public static qw9 r(DataRes dataRes) {
+        InterceptResult invokeL;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dataRes)) == null) {
+            if (dataRes == null) {
+                return null;
+            }
+            try {
+                qw9 qw9Var = new qw9();
+                AntiData antiData = new AntiData();
+                antiData.parserProtobuf(dataRes.anti);
+                qw9Var.s(antiData);
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(dataRes.thread);
+                qw9Var.z(threadData);
+                ForumData forumData = new ForumData();
+                forumData.parserProtobuf(dataRes.forum);
+                qw9Var.v(forumData);
+                nwa nwaVar = new nwa();
+                nwaVar.c1(forumData.isBrandForum);
+                nwaVar.O0(dataRes.post, threadData);
+                qw9Var.x(nwaVar);
+                List<SubPostList> list = dataRes.subpost_list;
+                int size = list.size();
+                ArrayList<nwa> arrayList = new ArrayList<>();
+                int L = nwaVar.L();
+                boolean z = false;
+                for (int i = 0; i < size; i++) {
+                    nwa nwaVar2 = new nwa();
+                    nwaVar2.c1(forumData.isBrandForum);
+                    nwaVar2.M0(list.get(i), false, threadData, L);
+                    if (nwaVar2.p() != null && nwaVar2.p().baijiahaoData == null && threadData.getBaijiahaoData() != null) {
+                        nwaVar2.p().baijiahaoData = threadData.getBaijiahaoData();
+                    }
+                    arrayList.add(nwaVar2);
+                }
+                qw9Var.y(arrayList);
+                AntiData antiData2 = new AntiData();
+                antiData2.parserProtobuf(dataRes.anti);
+                qw9Var.s(antiData2);
+                Page page = dataRes.page;
+                if (page != null) {
+                    int intValue2 = page.total_page.intValue();
+                    if (page.page_size.intValue() == 0) {
+                        intValue = 20;
+                    } else {
+                        intValue = page.page_size.intValue();
+                    }
+                    int intValue3 = page.current_page.intValue();
+                    int intValue4 = page.total_count.intValue();
+                    qw9Var.u(intValue3);
+                    qw9Var.w(intValue);
+                    qw9Var.A(intValue4);
+                    qw9Var.B(intValue2);
+                }
+                if (dataRes.is_black_white.intValue() == 1) {
+                    z = true;
+                }
+                qw9Var.t(z);
+                return qw9Var;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return null;
+            }
+        }
+        return (qw9) invokeL.objValue;
+    }
+
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void B(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void s(AntiData antiData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, antiData) == null) {
+            this.i = antiData;
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void v(ForumData forumData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, forumData) == null) {
+            this.a = forumData;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && i != 0) {
+            this.f = i;
+        }
+    }
+
+    public void x(nwa nwaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, nwaVar) == null) {
+            this.b = nwaVar;
+        }
+    }
+
+    public void y(ArrayList<nwa> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, arrayList) == null) {
+            this.c = arrayList;
+        }
+    }
+
+    public void z(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, threadData) == null) {
+            this.j = threadData;
+        }
+    }
+
+    @Override // com.baidu.tieba.wv9
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ThreadData threadData = this.j;
+            if (threadData != null && threadData.isUgcThreadType()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wv9
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public AntiData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (AntiData) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public Error e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.l;
+        }
+        return (Error) invokeV.objValue;
+    }
+
+    public ForumData f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (ForumData) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public nwa i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (nwa) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.h == -1) {
+                this.h = this.g;
+            }
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public ArrayList<nwa> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ThreadData l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.j;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (this.g < this.d) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ThreadData threadData = this.j;
+            if (threadData != null && this.b != null && threadData.getAuthor() != null && this.j.getAuthor().getUserId() != null && this.b.u() != null && this.b.u().getUserId() != null) {
+                return this.j.getAuthor().getUserId().equals(this.b.u().getUserId());
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void p(qw9 qw9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048593, this, qw9Var, z) != null) || qw9Var == null) {
+            return;
+        }
+        s(qw9Var.c());
+        v(qw9Var.f());
+        x(qw9Var.i());
+        z(qw9Var.l());
+        t(qw9Var.b());
+        if (qw9Var.k() != null) {
+            u(qw9Var.d());
+            w(qw9Var.h());
+            A(qw9Var.m());
+            B(qw9Var.n());
+        }
+        int size = this.c.size();
+        if (z && size % this.f != 0) {
+            for (int i = 0; i < size % this.f; i++) {
+                ArrayList<nwa> arrayList = this.c;
+                arrayList.remove(arrayList.size() - 1);
+            }
+        }
+        this.c.addAll(qw9Var.k());
+    }
+
+    public void q(qw9 qw9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048594, this, qw9Var, z) != null) || qw9Var == null) {
+            return;
+        }
+        s(qw9Var.c());
+        this.h = qw9Var.d();
+        v(qw9Var.f());
+        w(qw9Var.h());
+        z(qw9Var.l());
+        A(qw9Var.m());
+        B(qw9Var.n());
+        t(qw9Var.b());
+        this.c.addAll(0, qw9Var.k());
     }
 }

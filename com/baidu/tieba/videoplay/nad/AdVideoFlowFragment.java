@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a06;
-import com.baidu.tieba.jha;
-import com.baidu.tieba.m9b;
+import com.baidu.tieba.kha;
+import com.baidu.tieba.n9b;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
+public class AdVideoFlowFragment extends BaseFragment implements a06.b, n9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public jha c;
+    public kha c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -134,7 +134,7 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -149,11 +149,11 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            jha jhaVar = this.c;
-            if (jhaVar == null) {
+            kha khaVar = this.c;
+            if (khaVar == null) {
                 return;
             }
-            jhaVar.onDestroy();
+            khaVar.onDestroy();
         }
     }
 
@@ -174,11 +174,11 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            jha jhaVar = this.c;
-            if (jhaVar == null) {
+            kha khaVar = this.c;
+            if (khaVar == null) {
                 return;
             }
-            jhaVar.onPause();
+            khaVar.onPause();
         }
     }
 
@@ -187,35 +187,35 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            jha jhaVar = this.c;
-            if (jhaVar == null) {
+            kha khaVar = this.c;
+            if (khaVar == null) {
                 return;
             }
-            jhaVar.onPrimary(isPrimary());
+            khaVar.onPrimary(isPrimary());
         }
     }
 
     @Override // com.baidu.tieba.a06.b
     public void onViewClick() {
-        jha jhaVar;
+        kha khaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (jhaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (khaVar = this.c) == null) {
             return;
         }
-        jhaVar.onViewClick();
+        khaVar.onViewClick();
     }
 
     @Override // com.baidu.tieba.a06.b
     public void onViewDragToRight() {
-        jha jhaVar;
+        kha khaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (jhaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (khaVar = this.c) == null) {
             return;
         }
-        jhaVar.onViewDragToRight();
+        khaVar.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public VideoItemModel z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -225,14 +225,14 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         return (VideoItemModel) invokeV.objValue;
     }
 
-    public void G2(jha jhaVar) {
+    public void G2(kha khaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jhaVar) == null) {
-            this.c = jhaVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, khaVar) == null) {
+            this.c = khaVar;
         }
     }
 
-    @Override // com.baidu.tieba.m9b
+    @Override // com.baidu.tieba.n9b
     public void b1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -261,22 +261,22 @@ public class AdVideoFlowFragment extends BaseFragment implements a06.b, m9b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             super.setUserVisibleHint(z);
-            jha jhaVar = this.c;
-            if (jhaVar == null) {
+            kha khaVar = this.c;
+            if (khaVar == null) {
                 return;
             }
-            jhaVar.onUserVisibleHint(z);
+            khaVar.onUserVisibleHint(z);
         }
     }
 
     @Override // com.baidu.tieba.a06.b
     public void Y0(float f, float f2) {
-        jha jhaVar;
+        kha khaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (jhaVar = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (khaVar = this.c) == null) {
             return;
         }
-        jhaVar.onViewDoubleClick();
+        khaVar.onViewDoubleClick();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

@@ -39,14 +39,14 @@ public class i55 {
     public PopupWindow g;
 
     /* loaded from: classes6.dex */
-    public class a implements xw9 {
+    public class a implements yw9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i55 a;
 
-        @Override // com.baidu.tieba.xw9
+        @Override // com.baidu.tieba.yw9
         public /* synthetic */ void onStart() {
-            ww9.a(this);
+            xw9.a(this);
         }
 
         public a(i55 i55Var) {
@@ -67,7 +67,7 @@ public class i55 {
             this.a = i55Var;
         }
 
-        @Override // com.baidu.tieba.xw9
+        @Override // com.baidu.tieba.yw9
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

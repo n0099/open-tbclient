@@ -13,13 +13,13 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ak8;
-import com.baidu.tieba.dj8;
+import com.baidu.tieba.bk8;
 import com.baidu.tieba.ej8;
-import com.baidu.tieba.ek8;
+import com.baidu.tieba.fj8;
+import com.baidu.tieba.fk8;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
-import com.baidu.tieba.vva;
+import com.baidu.tieba.wva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
+public class TabFeedNetFeedModel extends BdBaseModel implements fj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -35,8 +35,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
     public int c;
     public String d;
     public String e;
-    public dj8 f;
-    public ek8 g;
+    public ej8 f;
+    public fk8 g;
     public NetMessageListener h;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -85,9 +85,9 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
                 if (responsedMessage == null) {
                     return;
                 }
-                ak8 ak8Var = null;
+                bk8 bk8Var = null;
                 if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                    ak8Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
+                    bk8Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
@@ -97,8 +97,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
                 if (this.a.f == null) {
                     return;
                 }
-                if (this.a.mErrorCode == 0 && ak8Var != null) {
-                    this.a.X(ak8Var);
+                if (this.a.mErrorCode == 0 && bk8Var != null) {
+                    this.a.X(bk8Var);
                 } else {
                     this.a.f.i(errorData);
                 }
@@ -107,13 +107,13 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabFeedNetFeedModel(TbPageContext tbPageContext, dj8 dj8Var) {
+    public TabFeedNetFeedModel(TbPageContext tbPageContext, ej8 ej8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dj8Var};
+            Object[] objArr = {tbPageContext, ej8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,24 +128,24 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
         this.b = false;
         this.c = 1;
         this.h = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        vva.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.g = new ek8();
-        this.f = dj8Var;
+        wva.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.g = new fk8();
+        this.f = ej8Var;
     }
 
-    public final void X(ak8 ak8Var) {
+    public final void X(bk8 bk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ak8Var) == null) {
-            if (ak8Var != null) {
-                this.c = ak8Var.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bk8Var) == null) {
+            if (bk8Var != null) {
+                this.c = bk8Var.b();
             }
             if (this.f != null) {
-                this.f.X0(this.g.a(this.a, ak8Var));
+                this.f.X0(this.g.a(this.a, bk8Var));
             }
         }
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public void B(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
@@ -174,7 +174,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
         }
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public void f(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
@@ -186,7 +186,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
         }
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public void b() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b) {
@@ -216,21 +216,21 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
         }
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ek8 ek8Var = this.g;
-            if (ek8Var == null) {
+            fk8 fk8Var = this.g;
+            if (fk8Var == null) {
                 return false;
             }
-            return ek8Var.c();
+            return fk8Var.c();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -240,21 +240,21 @@ public class TabFeedNetFeedModel extends BdBaseModel implements ej8 {
         }
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public List<ThreadData> q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ek8 ek8Var = this.g;
-            if (ek8Var == null) {
+            fk8 fk8Var = this.g;
+            if (fk8Var == null) {
                 return null;
             }
-            return ek8Var.b();
+            return fk8Var.b();
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ej8
+    @Override // com.baidu.tieba.fj8
     public void refresh() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.b) {

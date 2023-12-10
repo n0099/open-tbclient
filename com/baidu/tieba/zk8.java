@@ -13,7 +13,6 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.nu;
-import com.baidu.tieba.rs;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,58 +56,20 @@ public class zk8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dn6Var) == null) && view2 != null && dn6Var != null && dn6Var.getThreadData() != null) {
                 int id = view2.getId();
-                if (id != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
-                    if (id == R.id.user_avatar) {
-                        cl8.e(dn6Var);
-                        return;
-                    } else if (id == R.id.user_name) {
-                        cl8.e(dn6Var);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                cl8.f(dn6Var);
-            }
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class b implements rs.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.rs.b
-        public void a(fw4 fw4Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, fw4Var, view2) == null) {
-            }
-        }
-
-        public b(zk8 zk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (id == R.id.thread_card_root || id == R.id.thread_info_commont_container) {
+                    dl8.f(dn6Var);
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public class c implements zi {
+    public class b implements zi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zk8 a;
 
-        public c(zk8 zk8Var) {
+        public b(zk8 zk8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,7 +97,7 @@ public class zk8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
                 if (this.a.e != null) {
                     this.a.e.a(threadCardViewHolder.getView(), dn6Var);
                 }
-                cl8.c(dn6Var, view2.getContext(), 19, false, ss.a((vi) viewGroup, view2, i));
+                dl8.c(dn6Var, view2.getContext(), 19, false, ss.a((vi) viewGroup, view2, i));
                 threadCardViewHolder.a().q(new nu.a(1));
             }
         }
@@ -193,18 +154,24 @@ public class zk8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            cu.b bVar = new cu.b(this.a.getPageActivity());
-            rs rsVar = new rs(this.a.getPageActivity());
-            rsVar.o(this.b);
-            rsVar.c(1024);
-            rsVar.x(new b(this));
-            rsVar.A(this.a);
-            bVar.o(rsVar);
-            cu k = bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c);
+            cu.b bVar = new cu.b(this.a.getPageActivity(), false);
+            eu euVar = new eu(this.a.getPageActivity());
+            lw4 lw4Var = new lw4();
+            lw4Var.b = 21;
+            lw4Var.c = 2;
+            lw4Var.h = 18;
+            euVar.D(false);
+            euVar.C(lw4Var);
+            euVar.E(16);
+            euVar.J(10);
+            euVar.F(19);
+            euVar.b(32);
+            bVar.m(euVar);
+            cu k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.c);
             k.t(19);
             ThreadCardViewHolder<dn6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.b);
-            setOnAdapterItemClickListener(new c(this));
+            setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
         }
         return (ThreadCardViewHolder) invokeL.objValue;
@@ -217,17 +184,17 @@ public class zk8 extends ci<dn6, ThreadCardViewHolder<dn6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dn6Var, threadCardViewHolder})) == null) {
-            if (dn6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || dn6Var.a == null) {
-                return null;
+            if (dn6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && dn6Var.a != null) {
+                dn6Var.B(dn6Var.position + 1);
+                threadCardViewHolder.a().s(i);
+                threadCardViewHolder.r(false).setNegEventCallback(this.d);
+                threadCardViewHolder.s(false, Align.ALIGN_RIGHT_BOTTOM, this.d);
+                threadCardViewHolder.e(dn6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().r(this.e);
+                return threadCardViewHolder.getView();
             }
-            dn6Var.B(dn6Var.position + 1);
-            threadCardViewHolder.a().s(i);
-            threadCardViewHolder.n(dn6Var.a.showFollowBtn(), null);
-            threadCardViewHolder.s(true, Align.ALIGN_RIGHT_TOP, this.d);
-            threadCardViewHolder.e(dn6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().r(this.e);
-            return threadCardViewHolder.getView();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }

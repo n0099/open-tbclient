@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.tieba.jia;
-import com.baidu.tieba.video.VideoItemModel;
+import android.content.Context;
+import android.os.Bundle;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface jha {
-    void onDestroy();
 
-    void onPause();
+    /* loaded from: classes6.dex */
+    public interface a {
+        int a(Context context, String[] strArr);
+    }
 
-    void onPrimary(boolean z);
+    /* loaded from: classes6.dex */
+    public interface b {
+        int a(Context context, Map<String, String> map);
+    }
 
-    void onUserVisibleHint(boolean z);
+    /* loaded from: classes6.dex */
+    public interface c {
+        int a(Context context, String str, String str2, boolean z, d dVar, boolean z2, Bundle bundle);
+    }
 
-    void onViewClick();
+    /* loaded from: classes6.dex */
+    public interface d {
+    }
 
-    void onViewDoubleClick();
+    boolean a(String str);
 
-    void onViewDragToRight();
+    void b(Context context, String[] strArr, boolean z, Bundle bundle);
 
-    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
-
-    void setPageChangeHandler(jia.a aVar, int i);
-
-    void updateTiebaData(int i, VideoItemModel videoItemModel);
+    boolean c(Context context, String[] strArr, Bundle bundle);
 }

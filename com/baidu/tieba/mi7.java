@@ -1,43 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.forum.secondfloor.SecondFloorVisitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class mi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final pi7 a;
-    public final yi7 b;
-    public final List<li7> c;
-    public final li7 d;
+    public final String a;
+    public final long b;
+    public final String c;
+    public final String d;
     public final String e;
-    public final String f;
-    public final String g;
-    public final String h;
-    public li7 i;
-    public boolean j;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (this == obj) {
                 return true;
             }
             if (obj instanceof mi7) {
                 mi7 mi7Var = (mi7) obj;
-                return Intrinsics.areEqual(this.a, mi7Var.a) && Intrinsics.areEqual(this.b, mi7Var.b) && Intrinsics.areEqual(this.c, mi7Var.c) && Intrinsics.areEqual(this.d, mi7Var.d) && Intrinsics.areEqual(this.e, mi7Var.e) && Intrinsics.areEqual(this.f, mi7Var.f) && Intrinsics.areEqual(this.g, mi7Var.g) && Intrinsics.areEqual(this.h, mi7Var.h);
+                return Intrinsics.areEqual(this.a, mi7Var.a) && this.b == mi7Var.b && Intrinsics.areEqual(this.c, mi7Var.c) && Intrinsics.areEqual(this.d, mi7Var.d) && Intrinsics.areEqual(this.e, mi7Var.e);
             }
             return false;
         }
@@ -47,20 +36,10 @@ public final class mi7 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            yi7 yi7Var = this.b;
-            int hashCode2 = (hashCode + (yi7Var == null ? 0 : yi7Var.hashCode())) * 31;
-            List<li7> list = this.c;
-            int hashCode3 = (hashCode2 + (list == null ? 0 : list.hashCode())) * 31;
-            li7 li7Var = this.d;
-            int hashCode4 = (((hashCode3 + (li7Var == null ? 0 : li7Var.hashCode())) * 31) + this.e.hashCode()) * 31;
-            String str = this.f;
-            int hashCode5 = (hashCode4 + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.g;
-            int hashCode6 = (hashCode5 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.h;
-            return hashCode6 + (str3 != null ? str3.hashCode() : 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((((((this.a.hashCode() * 31) + c.a(this.b)) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31;
+            String str = this.e;
+            return hashCode + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;
     }
@@ -68,18 +47,18 @@ public final class mi7 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "AiChatroomGuideInfoData(defaultGuideInfo=" + this.a + ", newGuideInfo=" + this.b + ", aiBotList=" + this.c + ", defaultBot=" + this.d + ", titleImg=" + this.e + ", navBtnIcon=" + this.f + ", secondFloorTopImage=" + this.g + ", aiPageUrl=" + this.h + ')';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "AiBotInfoData(botUk=" + this.a + ", botPa=" + this.b + ", botName=" + this.c + ", botPortrait=" + this.d + ", botBackground=" + this.e + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public mi7(pi7 defaultGuideInfo, yi7 yi7Var, List<li7> list, li7 li7Var, String titleImg, String str, String str2, String str3) {
+    public mi7(String botUk, long j, String botName, String botPortrait, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultGuideInfo, yi7Var, list, li7Var, titleImg, str, str2, str3};
+            Object[] objArr = {botUk, Long.valueOf(j), botName, botPortrait, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,156 +68,49 @@ public final class mi7 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(defaultGuideInfo, "defaultGuideInfo");
-        Intrinsics.checkNotNullParameter(titleImg, "titleImg");
-        this.a = defaultGuideInfo;
-        this.b = yi7Var;
-        this.c = list;
-        this.d = li7Var;
-        this.e = titleImg;
-        this.f = str;
-        this.g = str2;
-        this.h = str3;
-        this.j = true;
+        Intrinsics.checkNotNullParameter(botUk, "botUk");
+        Intrinsics.checkNotNullParameter(botName, "botName");
+        Intrinsics.checkNotNullParameter(botPortrait, "botPortrait");
+        this.a = botUk;
+        this.b = j;
+        this.c = botName;
+        this.d = botPortrait;
+        this.e = str;
     }
 
-    public final List<li7> a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.e;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final pi7 b() {
+    public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return (pi7) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public final yi7 d() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (yi7) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.b != null || (!this.a.a().isEmpty()) || this.d != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f(String fid) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fid) == null) {
-            Intrinsics.checkNotNullParameter(fid, "fid");
-            SecondFloorVisitHelper secondFloorVisitHelper = SecondFloorVisitHelper.a;
-            yi7 yi7Var = this.b;
-            if (yi7Var != null) {
-                str = yi7Var.a();
-            } else {
-                str = null;
-            }
-            this.j = secondFloorVisitHelper.a(fid, str);
-        }
-    }
-
-    public final void h(li7 li7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, li7Var) == null) {
-            this.i = li7Var;
-        }
-    }
-
-    public final ni7 i() {
-        InterceptResult invokeV;
-        String b;
-        List list;
-        String str;
-        String str2;
-        yi7 yi7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            li7 li7Var = this.i;
-            if (li7Var == null) {
-                yi7 yi7Var2 = this.b;
-                if (yi7Var2 != null) {
-                    li7Var = yi7Var2.d();
-                } else {
-                    li7Var = null;
-                }
-                if (li7Var == null) {
-                    List<li7> list2 = this.c;
-                    if (list2 != null) {
-                        li7Var = (li7) CollectionsKt___CollectionsKt.firstOrNull((List<? extends Object>) list2);
-                    } else {
-                        li7Var = null;
-                    }
-                    if (li7Var == null && (li7Var = this.d) == null) {
-                        return null;
-                    }
-                }
-            }
-            li7 li7Var2 = li7Var;
-            if (this.j && (yi7Var = this.b) != null) {
-                b = yi7Var.c();
-                list = CollectionsKt__CollectionsKt.arrayListOf(this.b.d());
-            } else {
-                b = this.a.b();
-                list = this.c;
-                if (list == null) {
-                    list = new ArrayList();
-                }
-            }
-            String str3 = b;
-            List list3 = list;
-            String str4 = this.g;
-            if (str4 == null) {
-                str = "";
-            } else {
-                str = str4;
-            }
-            String str5 = this.e;
-            String str6 = this.h;
-            if (str6 == null) {
-                str2 = "";
-            } else {
-                str2 = str6;
-            }
-            return new ni7(list3, li7Var2, str3, str, str5, str2);
-        }
-        return (ni7) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import android.content.Context;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.l5b;
+import com.baidu.tieba.m5b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public final class s36 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, threadData)) == null) {
                 boolean isBusinessMixCard = ThreadCardUtils.isBusinessMixCard(threadData);
                 if (isBusinessMixCard && threadData != null && (businessMix = threadData.getBusinessMix()) != null) {
-                    l5b.a.d(l5b.a, context, businessMix.scheme, businessMix.url, businessMix.package_name, false, 16, null);
+                    m5b.a.d(m5b.a, context, businessMix.scheme, businessMix.url, businessMix.package_name, false, 16, null);
                 }
                 return isBusinessMixCard;
             }

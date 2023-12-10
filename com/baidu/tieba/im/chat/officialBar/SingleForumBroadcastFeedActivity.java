@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.ResponsedEventListener;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.ht8;
-import com.baidu.tieba.jw8;
-import com.baidu.tieba.qu8;
+import com.baidu.tieba.it8;
+import com.baidu.tieba.kw8;
+import com.baidu.tieba.ru8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import java.util.List;
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ht8 a;
+    public it8 a;
     public OfficialBarFeedMsglistView b;
     public String c;
     public byte d;
     public ResponsedEventListener e;
-    public ht8.d f;
+    public it8.d f;
 
     /* loaded from: classes6.dex */
     public class a extends ResponsedEventListener<TopToastEvent> {
@@ -73,7 +73,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ht8.d {
+    public class b implements it8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -96,16 +96,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // com.baidu.tieba.ht8.d
-        public void a(List<jw8> list) {
+        @Override // com.baidu.tieba.it8.d
+        public void a(List<kw8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.b.F(list, null);
             }
         }
 
-        @Override // com.baidu.tieba.ht8.d
-        public void onReadCountLoad(LongSparseArray<qu8> longSparseArray) {
+        @Override // com.baidu.tieba.it8.d
+        public void onReadCountLoad(LongSparseArray<ru8> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.b.G(longSparseArray);
@@ -135,9 +135,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            ht8 ht8Var = this.a;
-            if (ht8Var != null) {
-                ht8Var.e();
+            it8 it8Var = this.a;
+            if (it8Var != null) {
+                it8Var.e();
             }
             unRegisterResponsedEventListener();
         }
@@ -157,9 +157,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            ht8 ht8Var = new ht8(getPageContext());
-            this.a = ht8Var;
-            ht8Var.i(this.f);
+            it8 it8Var = new it8(getPageContext());
+            this.a = it8Var;
+            it8Var.i(this.f);
             this.b = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra("key_uid");

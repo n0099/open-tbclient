@@ -29,19 +29,19 @@ public class mp6 implements a97<Message> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.a97
     /* renamed from: a */
-    public rb7<?> b(Message message) {
+    public sb7<?> b(Message message) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
             if (!(message instanceof LiveAnswer)) {
                 return null;
             }
-            rh8 rh8Var = new rh8();
-            rh8Var.c((LiveAnswer) message);
+            sh8 sh8Var = new sh8();
+            sh8Var.c((LiveAnswer) message);
             u77 u77Var = new u77();
-            u77Var.a = rh8Var;
-            return new sb7(new i37(u77Var), "recommend_banner");
+            u77Var.a = sh8Var;
+            return new tb7(new i37(u77Var), "recommend_banner");
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 }

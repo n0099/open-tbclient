@@ -9,14 +9,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tieba.c19;
+import com.baidu.tieba.d19;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
 import com.baidu.tieba.immessagecenter.arch.vm.IUiState;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabInteractNotifyItemView;
-import com.baidu.tieba.k79;
-import com.baidu.tieba.r99;
+import com.baidu.tieba.l79;
+import com.baidu.tieba.s99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public final class MsgTabNotifyItemAdapter extends RecyclerView.Adapter<ViewHold
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment a;
-    public final List<k79> b;
+    public final List<l79> b;
     public final List<ImMessageCenterShowItemData> c;
 
     static {
@@ -88,13 +88,13 @@ public final class MsgTabNotifyItemAdapter extends RecyclerView.Adapter<ViewHold
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 BaseView<? extends IUiState, ? extends IUiIntent, ? extends BaseViewModel<? extends IUiState, ? extends IUiIntent>> baseView = this.a;
-                if (baseView instanceof r99) {
-                    ((r99) baseView).R(data);
+                if (baseView instanceof s99) {
+                    ((s99) baseView).R(data);
                 }
             }
         }
 
-        public final void b(k79 data) {
+        public final void b(l79 data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
@@ -213,11 +213,11 @@ public final class MsgTabNotifyItemAdapter extends RecyclerView.Adapter<ViewHold
             Intrinsics.checkNotNullParameter(parent, "parent");
             if (i != 0) {
                 if (i == 1) {
-                    r99 r99Var = new r99(this.a);
+                    s99 s99Var = new s99(this.a);
                     Context context = parent.getContext();
                     Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                    BaseView.N(r99Var, context, parent, false, false, 8, null);
-                    return new ViewHolder(r99Var);
+                    BaseView.N(s99Var, context, parent, false, false, 8, null);
+                    return new ViewHolder(s99Var);
                 }
                 throw new IllegalStateException("MsgNotifyTabComItemAdapter exception");
             }
@@ -230,14 +230,14 @@ public final class MsgTabNotifyItemAdapter extends RecyclerView.Adapter<ViewHold
         return (ViewHolder) invokeLI.objValue;
     }
 
-    public final void q(int i, List<k79> list, List<? extends ImMessageCenterShowItemData> list2) {
+    public final void q(int i, List<l79> list, List<? extends ImMessageCenterShowItemData> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list, list2) == null) {
             if (list != null) {
                 if (!(!list.isEmpty())) {
                     list = null;
                 }
-                if (list != null && c19.a.b(list, this.b)) {
+                if (list != null && d19.a.b(list, this.b)) {
                     this.b.clear();
                     this.b.addAll(list);
                     notifyItemRangeChanged(i, list.size());

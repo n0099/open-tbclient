@@ -115,11 +115,11 @@ public class sz6 extends lo5<sx6, ox6> implements jx6 {
 
         /* renamed from: com.baidu.tieba.sz6$c$c  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0477c implements f05.e {
+        public class C0479c implements f05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0477c(c cVar) {
+            public C0479c(c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public class sz6 extends lo5<sx6, ox6> implements jx6 {
                                 string = b2.O();
                             }
                         }
-                        DialogUtil.createAlertDialog(this.a.c(), (String) null, string, this.a.c().getResources().getString(R.string.obfuscated_res_0x7f0f0b86), (String) null, new C0477c(this), (f05.e) null).show();
+                        DialogUtil.createAlertDialog(this.a.c(), (String) null, string, this.a.c().getResources().getString(R.string.obfuscated_res_0x7f0f0b86), (String) null, new C0479c(this), (f05.e) null).show();
                     }
                 }
             }
@@ -346,7 +346,7 @@ public class sz6 extends lo5<sx6, ox6> implements jx6 {
         }
     }
 
-    @Override // com.baidu.tieba.lva
+    @Override // com.baidu.tieba.mva
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

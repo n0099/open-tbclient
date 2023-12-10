@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ik implements hya {
+public class ik implements iya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ge a;
@@ -77,13 +77,13 @@ public class ik implements hya {
 
         /* renamed from: com.baidu.tieba.ik$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0331b implements Runnable {
+        public class RunnableC0330b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0331b(b bVar, String str) {
+            public RunnableC0330b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class ik implements hya {
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0331b(this, d));
+                        this.c.b.post(new RunnableC0330b(this, d));
                     }
                 }
             }
@@ -375,7 +375,7 @@ public class ik implements hya {
         return (ik) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class ik implements hya {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class ik implements hya {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public void e(ge geVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, geVar) == null) {
@@ -509,7 +509,7 @@ public class ik implements hya {
         }
     }
 
-    @Override // com.baidu.tieba.hya
+    @Override // com.baidu.tieba.iya
     public boolean c(ge geVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;

@@ -113,7 +113,7 @@ public class pl6 extends nl6<nu6> {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(i(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
-                rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.u.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.j, R.color.CAM_X0108, 1);
                 } else {
@@ -197,7 +197,7 @@ public class pl6 extends nl6<nu6> {
             }
             this.l.startLoad(str, 10, false);
             this.j.setText(nu6Var.getThreadData().getTitle());
-            rxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            sxa readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(nu6Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
             } else {

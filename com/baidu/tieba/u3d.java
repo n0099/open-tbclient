@@ -5,21 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.HeadItem;
+import tbclient.Guess;
 /* loaded from: classes8.dex */
-public class u3d extends ktc {
+public class u3d extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull HeadItem headItem) {
+    public static JSONObject b(@NonNull Guess guess) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, headItem)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, guess)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "name", headItem.name);
-            ktc.a(jSONObject, "content", headItem.content);
-            ktc.a(jSONObject, "type", headItem.type);
+            ltc.a(jSONObject, "title", guess.title);
+            ltc.a(jSONObject, "url", guess.url);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

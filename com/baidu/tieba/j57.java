@@ -19,7 +19,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.KFunction;
 /* loaded from: classes6.dex */
-public class j57 extends pb7 {
+public class j57 extends qb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function2<Context, String, Unit> c;

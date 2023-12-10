@@ -10,6 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
 import com.baidu.tieba.nu;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
+public class tq9 extends pq9<mz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId c;
@@ -152,10 +153,7 @@ public class tq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.d.getPageActivity(), false);
-            rt rtVar = new rt(this.d.getPageActivity());
-            rtVar.setFrom("index");
-            rtVar.u(this.e);
-            bVar.n(rtVar);
+            bVar.n(qt.s(this.d.getPageActivity(), "index", this.e));
             cu k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
             k.t(17);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
@@ -180,7 +178,8 @@ public class tq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
                 threadCardViewHolder.e(mz4Var.t);
                 threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
                 threadCardViewHolder.a().r(this.g);
-                kq9.c(this, mz4Var);
+                lq9.c(this, mz4Var);
+                gm6.a(threadCardViewHolder.a().g(), mz4Var.u, mz4Var.v);
                 return threadCardViewHolder.getView();
             }
             return null;
@@ -191,7 +190,10 @@ public class tq9 extends oq9<mz4, ThreadCardViewHolder<ThreadData>> {
     public final void C(View view2, ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            kq9.b(this, threadData);
+            lq9.b(this, threadData);
+            if (view2 instanceof TbImageView) {
+                lq9.e(threadData);
+            }
         }
     }
 }

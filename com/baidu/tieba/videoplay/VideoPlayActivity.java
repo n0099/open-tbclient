@@ -30,8 +30,8 @@ import com.baidu.tbadk.vcode.VcodeTool;
 import com.baidu.tieba.R;
 import com.baidu.tieba.f16;
 import com.baidu.tieba.oo4;
-import com.baidu.tieba.p88;
 import com.baidu.tieba.po4;
+import com.baidu.tieba.q88;
 import com.baidu.tieba.rd;
 import com.baidu.tieba.sn6;
 import com.baidu.tieba.video.VideoItemData;
@@ -135,7 +135,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (f16Var != null) {
                 f16Var.h();
             }
-            p88.m().c(p88.s());
+            q88.m().c(q88.s());
             sn6.a();
         }
     }

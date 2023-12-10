@@ -19,7 +19,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes9.dex */
-public class z47 implements g77, wb7 {
+public class z47 implements g77, xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, String> a;
@@ -105,7 +105,7 @@ public class z47 implements g77, wb7 {
         this((i & 1) != 0 ? new LinkedHashMap() : map, (i & 2) != 0 ? new LinkedHashMap() : map2, (i & 4) != 0 ? CardUiStateKt.a() : function2, (i & 8) != 0 ? CardUiStateKt.b() : function1);
     }
 
-    @Override // com.baidu.tieba.wb7
+    @Override // com.baidu.tieba.xb7
     public void e(FeedStat.a callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {

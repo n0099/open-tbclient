@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ct8;
+import com.baidu.tieba.dt8;
 import com.baidu.tieba.ff5;
 import com.baidu.tieba.gf5;
 import com.baidu.tieba.he5;
@@ -32,7 +32,7 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
 import com.baidu.tieba.lh5;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.tt8;
 import com.baidu.tieba.ue5;
 import com.baidu.tieba.ve5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -402,13 +402,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void K(List<st8> list) {
+    public void K(List<tt8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                st8 st8Var = list.get(i);
-                this.g[i].c.setText(st8Var.d());
-                if (st8Var.a() != 0) {
+                tt8 tt8Var = list.get(i);
+                this.g[i].c.setText(tt8Var.d());
+                if (tt8Var.a() != 0) {
                     this.g[i].d.setVisibility(8);
                 }
             }
@@ -548,7 +548,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             lh5Var.i(R.string.send_msg);
             this.mTool.f(lh5Var);
             if (this.h) {
-                this.mTool.f(new ct8(talkableActivity.getActivity()));
+                this.mTool.f(new dt8(talkableActivity.getActivity()));
             }
             this.mTool.setBarLauncherType(7);
             this.mTool.h();

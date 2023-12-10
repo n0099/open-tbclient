@@ -20,13 +20,13 @@ import com.baidu.tieba.filedownloader.logs.DownloaderLog;
 import com.baidu.tieba.filedownloader.utils.PermissionUtil;
 import com.baidu.tieba.hu4;
 import com.baidu.tieba.i35;
-import com.baidu.tieba.je7;
-import com.baidu.tieba.le7;
+import com.baidu.tieba.ke7;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.tieba.me7;
 import com.baidu.tieba.ne7;
 import com.baidu.tieba.nu5;
 import com.baidu.tieba.oe7;
+import com.baidu.tieba.pe7;
 import com.baidu.tieba.ru5;
 import com.baidu.tieba.sf1;
 import com.baidu.tieba.vu6;
@@ -71,12 +71,12 @@ public final class TbDownloadManager {
     }
 
     /* loaded from: classes5.dex */
-    public final class a implements oe7 {
+    public final class a implements pe7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbDownloadManager a;
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -103,7 +103,7 @@ public final class TbDownloadManager {
             this.a = tbDownloadManager;
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -113,7 +113,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -123,7 +123,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -135,7 +135,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -146,7 +146,7 @@ public final class TbDownloadManager {
             }
         }
 
-        @Override // com.baidu.tieba.oe7
+        @Override // com.baidu.tieba.pe7
         public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
@@ -325,7 +325,7 @@ public final class TbDownloadManager {
                 return;
             }
         }
-        this.a = me7.a.a();
+        this.a = ne7.a.a();
         this.b = LazyKt__LazyJVMKt.lazy(TbDownloadManager$downloadMultiInfoDbManager$2.INSTANCE);
     }
 
@@ -339,7 +339,7 @@ public final class TbDownloadManager {
         }
     }
 
-    public final void g(oe7 callback) {
+    public final void g(pe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -385,7 +385,7 @@ public final class TbDownloadManager {
         }
     }
 
-    public final void u(oe7 callback) {
+    public final void u(pe7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -501,7 +501,7 @@ public final class TbDownloadManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    ne7 n;
+                    oe7 n;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                         return;
@@ -523,9 +523,9 @@ public final class TbDownloadManager {
                 string = TbadkCoreApplication.getInst().getString(R.string.start_download_toast_content);
             }
             Intrinsics.checkNotNullExpressionValue(string, "if (isDownloadResume) {\n…_toast_content)\n        }");
-            le7 le7Var = new le7();
-            le7Var.c(string);
-            le7Var.a();
+            me7 me7Var = new me7();
+            me7Var.c(string);
+            me7Var.a();
         }
     }
 
@@ -574,7 +574,7 @@ public final class TbDownloadManager {
                 /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    ne7 n;
+                    oe7 n;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null && interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                         return;
@@ -611,7 +611,7 @@ public final class TbDownloadManager {
             }
             hu4.b().c(z, downloadData, this.a);
             x(z);
-            je7.d(downloadData);
+            ke7.d(downloadData);
         }
     }
 
@@ -624,13 +624,13 @@ public final class TbDownloadManager {
         return (vu6) invokeV.objValue;
     }
 
-    public final ne7 n() {
+    public final oe7 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return FileDownloaderProxy.b.a(this.a);
         }
-        return (ne7) invokeV.objValue;
+        return (oe7) invokeV.objValue;
     }
 
     public final int r() {

@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b36;
 import com.baidu.tieba.hw4;
-import com.baidu.tieba.wha;
+import com.baidu.tieba.xha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 hw4.c cVar = this.a;
-                wha.a(context, cVar.b, null, null, cVar.c);
+                xha.a(context, cVar.b, null, null, cVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 hw4.b bVar = this.a;
-                wha.a(context, bVar.b, null, null, bVar.c);
+                xha.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }

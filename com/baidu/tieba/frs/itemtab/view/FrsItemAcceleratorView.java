@@ -20,7 +20,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tua;
+import com.baidu.tieba.uua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -195,7 +195,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             if (StringUtils.isNull(this.g)) {
                 EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0303);
             } else {
-                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(tua.f(this.g));
+                EMManager.from(this.c).setCorner(R.string.J_X07).setBackGroundRealColor(uua.f(this.g));
             }
             EMManager.from(this.d).setTextSelectorColor(R.color.CAM_X0101);
             EMManager.from(this.e).setBackGroundColor(R.color.CAM_X0617);

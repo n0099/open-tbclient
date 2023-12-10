@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
-public interface vnc {
-    vnc a();
+public interface vnc extends pnc, unc {
+    void c(String str);
 
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+    void h(short s);
 }

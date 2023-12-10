@@ -24,8 +24,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
-import com.baidu.tieba.wr9;
-import com.baidu.tieba.yr9;
+import com.baidu.tieba.xr9;
+import com.baidu.tieba.zr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements yr9<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements zr9<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -189,7 +189,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yr9
+    @Override // com.baidu.tieba.zr9
     /* renamed from: t1 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
@@ -234,8 +234,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !wr9.b().a();
-                wr9.b().d(z);
+                boolean z = !xr9.b().a();
+                xr9.b().d(z);
                 if (z) {
                     this.i.setText(R.string.obfuscated_res_0x7f0f0666);
                 } else {

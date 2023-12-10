@@ -1,208 +1,271 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.goc;
-import com.baidu.tieba.hoc;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
+import java.util.Queue;
+import rx.exceptions.MissingBackpressureException;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes8.dex */
-public final class wqc<T> extends hoc<T> {
+public class wqc implements loc {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T b;
+    public Queue<Object> a;
+    public volatile Object b;
 
-    /* loaded from: classes8.dex */
-    public class a implements hoc.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
-
-        public a(Object obj) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        int i;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280672, "Lcom/baidu/tieba/wqc;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = obj;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948280672, "Lcom/baidu/tieba/wqc;");
+                return;
+            }
         }
+        if (vqc.c()) {
+            i = 16;
+        } else {
+            i = 128;
+        }
+        String property = System.getProperty("rx.ring-buffer.size");
+        if (property != null) {
+            try {
+                i = Integer.parseInt(property);
+            } catch (NumberFormatException e) {
+                PrintStream printStream = System.err;
+                printStream.println("Failed to set 'rx.buffer.size' with value " + property + " => " + e.getMessage());
+            }
+        }
+        c = i;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
-        /* renamed from: a */
-        public void call(ioc<? super T> iocVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iocVar) == null) {
-                iocVar.c((Object) this.a);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public wqc() {
+        this(new brc(c), c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Queue) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static final class b<T> implements hoc.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final hqc a;
-        public final T b;
-
-        public b(hqc hqcVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hqcVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hqcVar;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
-        /* renamed from: a */
-        public void call(ioc<? super T> iocVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iocVar) == null) {
-                iocVar.a(this.a.a(new d(iocVar, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c<T> implements hoc.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final goc a;
-        public final T b;
-
-        public c(goc gocVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gocVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gocVar;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.roc
-        /* renamed from: a */
-        public void call(ioc<? super T> iocVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, iocVar) == null) {
-                goc.a createWorker = this.a.createWorker();
-                iocVar.a(createWorker);
-                createWorker.b(new d(iocVar, this.b));
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class d<T> implements qoc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ioc<? super T> a;
-        public final T b;
-
-        public d(ioc<? super T> iocVar, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iocVar, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iocVar;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // com.baidu.tieba.qoc
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.c((T) this.b);
-                } catch (Throwable th) {
-                    this.a.b(th);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wqc(T t) {
-        super(new a(t));
+    public wqc(Queue<Object> queue, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hoc.c) newInitContext.callArgs[0]);
+            Object[] objArr = {queue, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.b = t;
+        this.a = queue;
     }
 
-    public static <T> wqc<T> m(T t) {
-        InterceptResult invokeL;
+    public wqc(boolean z, int i) {
+        Queue<Object> wrcVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) {
-            return new wqc<>(t);
-        }
-        return (wqc) invokeL.objValue;
-    }
-
-    public hoc<T> n(goc gocVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gocVar)) == null) {
-            if (gocVar instanceof hqc) {
-                return hoc.b(new b((hqc) gocVar, this.b));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
-            return hoc.b(new c(gocVar, this.b));
         }
-        return (hoc) invokeL.objValue;
+        if (z) {
+            wrcVar = new orc<>(i);
+        } else {
+            wrcVar = new wrc<>(i);
+        }
+        this.a = wrcVar;
+    }
+
+    public static wqc a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (ksc.b()) {
+                return new wqc(true, c);
+            }
+            return new wqc();
+        }
+        return (wqc) invokeV.objValue;
+    }
+
+    public static wqc b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (ksc.b()) {
+                return new wqc(false, c);
+            }
+            return new wqc();
+        }
+        return (wqc) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Queue<Object> queue = this.a;
+            if (queue != null && !queue.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
+            this.b = NotificationLite.b();
+        }
+    }
+
+    public Object h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
+                }
+                Object peek = queue.peek();
+                Object obj = this.b;
+                if (peek == null && obj != null && queue.peek() == null) {
+                    peek = obj;
+                }
+                return peek;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                if (queue == null) {
+                    return null;
+                }
+                Object poll = queue.poll();
+                Object obj = this.b;
+                if (poll == null && obj != null && queue.peek() == null) {
+                    this.b = null;
+                    poll = obj;
+                }
+                return poll;
+            }
+        }
+        return invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.loc
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.loc
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            j();
+        }
+    }
+
+    public Object c(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            return NotificationLite.e(obj);
+        }
+        return invokeL.objValue;
+    }
+
+    public boolean d(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return NotificationLite.f(obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(Object obj) throws MissingBackpressureException {
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                Queue<Object> queue = this.a;
+                z = true;
+                z2 = false;
+                if (queue != null) {
+                    z2 = !queue.offer(NotificationLite.i(obj));
+                    z = false;
+                }
+            }
+            if (!z) {
+                if (!z2) {
+                    return;
+                }
+                throw new MissingBackpressureException();
+            }
+            throw new IllegalStateException("This instance has been unsubscribed and the queue is no longer usable.");
+        }
     }
 }

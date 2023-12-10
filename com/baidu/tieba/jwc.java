@@ -5,23 +5,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-import tbclient.DeclareInfo;
+import tbclient.DealMedia;
 /* loaded from: classes6.dex */
-public class jwc extends ktc {
+public class jwc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static JSONObject b(@NonNull DeclareInfo declareInfo) {
+    public static JSONObject b(@NonNull DealMedia dealMedia) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, declareInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, dealMedia)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "declare_id", declareInfo.declare_id);
-            ktc.a(jSONObject, "declare_url", declareInfo.declare_url);
-            ktc.a(jSONObject, "declare_text", declareInfo.declare_text);
-            ktc.a(jSONObject, "declare_num", declareInfo.declare_num);
-            ktc.a(jSONObject, "is_declare", declareInfo.is_declare);
+            ltc.a(jSONObject, "type", dealMedia.type);
+            ltc.a(jSONObject, "small_pic", dealMedia.small_pic);
+            ltc.a(jSONObject, "big_pic", dealMedia.big_pic);
+            ltc.a(jSONObject, "water_pic", dealMedia.water_pic);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes7.dex */
-public final class kn9 implements oeb {
+public final class kn9 implements peb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public final class kn9 implements oeb {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && customMessage.getData() != null) {
-                    return new CustomResponsedMessage<>(2001343, new go9(customMessage.getData(), 1));
+                    return new CustomResponsedMessage<>(2001339, new dm9(customMessage.getData()));
                 }
                 return null;
             }
@@ -64,11 +64,11 @@ public final class kn9 implements oeb {
         }
     }
 
-    @Override // com.baidu.tieba.oeb
+    @Override // com.baidu.tieba.peb
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001343, new a());
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001339, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
         }

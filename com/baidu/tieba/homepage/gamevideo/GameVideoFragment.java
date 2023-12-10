@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.kk5;
-import com.baidu.tieba.mt7;
-import com.baidu.tieba.td8;
+import com.baidu.tieba.nt7;
+import com.baidu.tieba.ud8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class GameVideoFragment extends BaseFragment implements mt7 {
+public class GameVideoFragment extends BaseFragment implements nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td8 a;
+    public ud8 a;
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -64,7 +64,7 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -72,21 +72,21 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         }
     }
 
-    @Override // com.baidu.tieba.mt7
+    @Override // com.baidu.tieba.nt7
     public void T() {
-        td8 td8Var;
+        ud8 ud8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (td8Var = this.a) != null) {
-            td8Var.y();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ud8Var = this.a) != null) {
+            ud8Var.y();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
-        td8 td8Var;
+        ud8 ud8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (td8Var = this.a) != null) {
-            td8Var.v();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ud8Var = this.a) != null) {
+            ud8Var.v();
         }
     }
 
@@ -95,9 +95,9 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            td8 td8Var = this.a;
-            if (td8Var != null) {
-                td8Var.w();
+            ud8 ud8Var = this.a;
+            if (ud8Var != null) {
+                ud8Var.w();
             }
             kk5.e().b();
         }
@@ -108,9 +108,9 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onLazyLoad();
-            td8 td8Var = this.a;
-            if (td8Var != null) {
-                td8Var.t();
+            ud8 ud8Var = this.a;
+            if (ud8Var != null) {
+                ud8Var.t();
             }
         }
     }
@@ -120,9 +120,9 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
-            td8 td8Var = this.a;
-            if (td8Var != null) {
-                td8Var.x();
+            ud8 ud8Var = this.a;
+            if (ud8Var != null) {
+                ud8Var.x();
             }
         }
     }
@@ -154,9 +154,9 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            td8 td8Var = this.a;
-            if (td8Var != null) {
-                td8Var.z(isPrimary());
+            ud8 ud8Var = this.a;
+            if (ud8Var != null) {
+                ud8Var.z(isPrimary());
             }
         }
     }
@@ -166,9 +166,9 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            td8 td8Var = this.a;
-            if (td8Var != null) {
-                td8Var.n();
+            ud8 ud8Var = this.a;
+            if (ud8Var != null) {
+                ud8Var.n();
             }
         }
     }
@@ -180,7 +180,7 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new td8(this, getPageContext(), getUniqueId());
+                this.a = new ud8(this, getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -195,8 +195,8 @@ public class GameVideoFragment extends BaseFragment implements mt7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            td8 td8Var = this.a;
-            if (td8Var != null && td8Var.r() != null) {
+            ud8 ud8Var = this.a;
+            if (ud8Var != null && ud8Var.r() != null) {
                 if (this.a.r().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.r().getParent()).removeView(this.a.r());
                 }

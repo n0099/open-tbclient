@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,23 +12,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class gp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public RoundTbImageView b;
+    public final String a;
+    public final RoundTbImageView b;
+    public final RoundTbImageView c;
+    public final String d;
 
-    public gp8() {
+    public gp8(@NonNull String str, @NonNull RoundTbImageView roundTbImageView, @NonNull RoundTbImageView roundTbImageView2, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, roundTbImageView, roundTbImageView2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = roundTbImageView;
+        this.c = roundTbImageView2;
+        this.d = str2;
     }
 
+    @NonNull
     public RoundTbImageView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,26 +48,33 @@ public class gp8 {
         return (RoundTbImageView) invokeV.objValue;
     }
 
-    public String b() {
+    @NonNull
+    public RoundTbImageView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.c;
+        }
+        return (RoundTbImageView) invokeV.objValue;
+    }
+
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(RoundTbImageView roundTbImageView) {
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, roundTbImageView) == null) {
-            this.b = roundTbImageView;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (String) invokeV.objValue;
     }
 }

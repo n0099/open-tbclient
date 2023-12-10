@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes7.dex */
-public final class qj7 implements c25 {
+public final class qj7 implements o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.o15
+    public Class<? extends m15> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? pj7.class : (Class) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.o15
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsCopyLinkGuide" : (String) invokeV.objValue;
+    }
 
     public qj7() {
         Interceptable interceptable = $ic;
@@ -29,37 +39,5 @@ public final class qj7 implements c25 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.c25
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("dialogName", "frsCopyLinkGuide");
-            linkedHashMap.putAll(strategyData);
-            linkedHashMap.putAll(extraData);
-            return linkedHashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.c25
-    public boolean b(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if ((currentActivity instanceof i25) && ((i25) currentActivity).i1().g0(currentActivity)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

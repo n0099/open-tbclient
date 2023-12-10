@@ -24,7 +24,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.dz0;
 import com.baidu.tieba.hw4;
 import com.baidu.tieba.s16;
-import com.baidu.tieba.wha;
+import com.baidu.tieba.xha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,7 +178,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                wha.a(this.a.getContext(), str3, null, null, str);
+                xha.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

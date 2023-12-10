@@ -45,14 +45,14 @@ public class gw1 extends cw1 {
 
         /* renamed from: com.baidu.tieba.gw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0304a implements z93.e {
+        public class C0303a implements z93.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ k63 b;
             public final /* synthetic */ a c;
 
-            public C0304a(a aVar, Activity activity, k63 k63Var) {
+            public C0303a(a aVar, Activity activity, k63 k63Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class gw1 extends cw1 {
                         return;
                     }
                     this.a.a();
-                    z93.g(M, this.c, "", new C0304a(this, activity, M), this.d);
+                    z93.g(M, this.c, "", new C0303a(this, activity, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new ly1(1001, "swan activity is null"));

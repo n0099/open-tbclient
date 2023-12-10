@@ -17,16 +17,16 @@ import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
 import com.baidu.tieba.dr6;
 import com.baidu.tieba.er6;
-import com.baidu.tieba.fl8;
 import com.baidu.tieba.forum.hybrid.biz.FrsFollowAndSignBiz;
 import com.baidu.tieba.forum.hybrid.manager.BizBase;
 import com.baidu.tieba.forum.hybrid.manager.WrapListener;
 import com.baidu.tieba.ft5;
+import com.baidu.tieba.gl8;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
-import com.baidu.tieba.l68;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.oi7;
+import com.baidu.tieba.m68;
+import com.baidu.tieba.pi7;
 import com.baidu.tieba.tbadkCore.LikeReturnData;
 import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,13 +49,13 @@ public final class FrsFollowAndSignBiz extends BizBase {
     public final Lazy f;
 
     /* loaded from: classes6.dex */
-    public static final class a extends er6<fl8> {
+    public static final class a extends er6<gl8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsFollowAndSignBiz b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(FrsFollowAndSignBiz frsFollowAndSignBiz, Class<fl8> cls) {
+        public a(FrsFollowAndSignBiz frsFollowAndSignBiz, Class<gl8> cls) {
             super(cls);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -77,7 +77,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(fl8 event) {
+        public void onEvent(gl8 event) {
             String str;
             ForumInfo d;
             Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 TbLog defaultLog = DefaultLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("群内发生签到行为，已经通知H5。当前吧为：");
-                oi7 c = this.b.c();
+                pi7 c = this.b.c();
                 if (c != null && (d = c.d()) != null) {
                     str = d.name;
                 } else {
@@ -105,12 +105,12 @@ public final class FrsFollowAndSignBiz extends BizBase {
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final oi7 a;
+        public final pi7 a;
         public boolean b;
         public int c;
         public int d;
 
-        public b(oi7 oi7Var) {
+        public b(pi7 pi7Var) {
             Integer num;
             int intValue;
             ForumInfo d;
@@ -119,7 +119,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oi7Var};
+                Object[] objArr = {pi7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,9 +129,9 @@ public final class FrsFollowAndSignBiz extends BizBase {
                     return;
                 }
             }
-            this.a = oi7Var;
+            this.a = pi7Var;
             Integer num2 = null;
-            if (oi7Var != null && (d2 = oi7Var.d()) != null) {
+            if (pi7Var != null && (d2 = pi7Var.d()) != null) {
                 num = d2.levelup_score;
             } else {
                 num = null;
@@ -142,8 +142,8 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 intValue = num.intValue();
             }
             this.c = intValue;
-            oi7 oi7Var2 = this.a;
-            if (oi7Var2 != null && (d = oi7Var2.d()) != null) {
+            pi7 pi7Var2 = this.a;
+            if (pi7Var2 != null && (d = pi7Var2.d()) != null) {
                 num2 = d.cur_score;
             }
             this.d = num2 != null ? num2.intValue() : 0;
@@ -164,24 +164,24 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 Intrinsics.checkNotNullParameter(data, "data");
                 SignData signData = new SignData();
                 signData.parserJson(data);
-                oi7 oi7Var = this.a;
+                pi7 pi7Var = this.a;
                 String str3 = null;
-                if (oi7Var != null && (d4 = oi7Var.d()) != null && (l = d4.id) != null) {
+                if (pi7Var != null && (d4 = pi7Var.d()) != null && (l = d4.id) != null) {
                     str = String.valueOf(l);
                 } else {
                     str = null;
                 }
                 signData.forumId = str;
-                oi7 oi7Var2 = this.a;
-                if (oi7Var2 != null && (d3 = oi7Var2.d()) != null) {
+                pi7 pi7Var2 = this.a;
+                if (pi7Var2 != null && (d3 = pi7Var2.d()) != null) {
                     str2 = d3.name;
                 } else {
                     str2 = null;
                 }
                 signData.forumName = str2;
                 b(signData);
-                oi7 oi7Var3 = this.a;
-                if (oi7Var3 != null && (d2 = oi7Var3.d()) != null) {
+                pi7 pi7Var3 = this.a;
+                if (pi7Var3 != null && (d2 = pi7Var3.d()) != null) {
                     num = d2.user_level;
                 } else {
                     num = null;
@@ -195,8 +195,8 @@ public final class FrsFollowAndSignBiz extends BizBase {
                     intValue++;
                 }
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                oi7 oi7Var4 = this.a;
-                if (oi7Var4 != null && (d = oi7Var4.d()) != null) {
+                pi7 pi7Var4 = this.a;
+                if (pi7Var4 != null && (d = pi7Var4.d()) != null) {
                     str3 = d.name;
                 }
                 inst.addSignedForum(str3, signData.sign_bonus_point, intValue);
@@ -285,7 +285,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
         dr6 b2 = br6.b();
         BdUniqueId uniqueId = pageContext.getUniqueId();
         Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
-        b2.b(new ar6(uniqueId, fl8.class), new a(this, fl8.class));
+        b2.b(new ar6(uniqueId, gl8.class), new a(this, gl8.class));
     }
 
     public final void p(boolean z, String str) {
@@ -296,7 +296,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
         }
     }
 
-    @Override // com.baidu.tieba.qk7
+    @Override // com.baidu.tieba.rk7
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,7 +315,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
     public final void m(boolean z, String str) {
         Long l;
         long longValue;
-        oi7 c;
+        pi7 c;
         ForumInfo d;
         Long l2;
         String str2;
@@ -329,7 +329,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
             AttentionBarData attentionBarData = new AttentionBarData();
-            oi7 c2 = c();
+            pi7 c2 = c();
             String str4 = null;
             if (c2 != null && (d6 = c2.d()) != null) {
                 l = d6.id;
@@ -344,29 +344,29 @@ public final class FrsFollowAndSignBiz extends BizBase {
             attentionBarData.forumId = longValue;
             if (z) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                oi7 c3 = c();
+                pi7 c3 = c();
                 if (c3 != null && (d5 = c3.d()) != null) {
                     str2 = d5.name;
                 } else {
                     str2 = null;
                 }
                 inst.delLikeForum(str2);
-                oi7 c4 = c();
+                pi7 c4 = c();
                 if (c4 != null && (d4 = c4.d()) != null) {
                     l3 = d4.id;
                 } else {
                     l3 = null;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, l3));
-                oi7 c5 = c();
+                pi7 c5 = c();
                 if (c5 != null && (d3 = c5.d()) != null) {
                     str4 = d3.name;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, str4));
                 attentionBarData.isSuccess = true;
-                oi7 c6 = c();
+                pi7 c6 = c();
                 if (c6 != null && (d2 = c6.d()) != null && (str3 = d2.name) != null) {
-                    l68.a.d(str3);
+                    m68.a.d(str3);
                 }
             } else {
                 attentionBarData.isSuccess = false;
@@ -408,7 +408,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
             bdToastData.parserJson(str);
             likeReturnData.setToastData(bdToastData);
             AttentionBarData attentionBarData = new AttentionBarData();
-            oi7 c = c();
+            pi7 c = c();
             String str4 = null;
             if (c != null && (d6 = c.d()) != null) {
                 l = d6.id;
@@ -424,7 +424,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
             attentionBarData.forumId = longValue;
             attentionBarData.likeNum = likeReturnData.getLikeNum();
             if (z) {
-                oi7 c2 = c();
+                pi7 c2 = c();
                 if (c2 != null && (d5 = c2.d()) != null) {
                     l2 = d5.id;
                 } else {
@@ -434,7 +434,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
                     j = l2.longValue();
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(j)));
-                oi7 c3 = c();
+                pi7 c3 = c();
                 if (c3 != null && (d4 = c3.d()) != null) {
                     str2 = d4.name;
                 } else {
@@ -442,21 +442,21 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new ft5.a(str2, likeReturnData.getUserLevel())));
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                oi7 c4 = c();
+                pi7 c4 = c();
                 if (c4 != null && (d3 = c4.d()) != null) {
                     str4 = d3.name;
                 }
                 inst.addLikeForum(str4);
                 attentionBarData.isSuccess = true;
-                oi7 c5 = c();
+                pi7 c5 = c();
                 if (c5 != null && (d2 = c5.d()) != null && (l3 = d2.id) != null) {
                     long longValue2 = l3.longValue();
                     likeReturnData.setFid(String.valueOf(longValue2));
                     p(true, String.valueOf(longValue2));
                 }
-                oi7 c6 = c();
+                pi7 c6 = c();
                 if (c6 != null && (d = c6.d()) != null && (str3 = d.name) != null) {
-                    l68.a.h(str3);
+                    m68.a.h(str3);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, likeReturnData));
             } else {
@@ -484,7 +484,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 sb.append("收到H5通知，操作类型为：");
                 sb.append(optInt);
                 sb.append("。当前吧为：");
-                oi7 c = c();
+                pi7 c = c();
                 if (c != null && (d3 = c.d()) != null) {
                     str2 = d3.name;
                 } else {
@@ -502,7 +502,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
                                     sb2.append("收到H5通知，操作类型为：");
                                     sb2.append(optInt);
                                     sb2.append("，不需要处理。当前吧为：");
-                                    oi7 c2 = c();
+                                    pi7 c2 = c();
                                     if (c2 != null && (d2 = c2.d()) != null) {
                                         str3 = d2.name;
                                     }
@@ -530,7 +530,7 @@ public final class FrsFollowAndSignBiz extends BizBase {
                 TbLog defaultLog3 = DefaultLog.getInstance();
                 StringBuilder sb3 = new StringBuilder();
                 sb3.append("收到H5通知，数据解析异常！当前吧为：");
-                oi7 c3 = c();
+                pi7 c3 = c();
                 if (c3 != null && (d = c3.d()) != null) {
                     str3 = d.name;
                 }

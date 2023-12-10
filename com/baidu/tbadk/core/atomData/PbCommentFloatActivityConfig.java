@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.rua;
+import com.baidu.tieba.sua;
 import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -180,7 +180,7 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (intent = getIntent()) != null && (context = this.mContext) != null) {
             String simpleName = context.getClass().getSimpleName();
-            if (rua.g(simpleName)) {
+            if (sua.g(simpleName)) {
                 intent.putExtra("from_frs", true);
             } else {
                 intent.putExtra("from_frs", false);

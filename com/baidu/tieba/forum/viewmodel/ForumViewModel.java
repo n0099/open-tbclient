@@ -3,9 +3,9 @@ package com.baidu.tieba.forum.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bj7;
-import com.baidu.tieba.ri7;
+import com.baidu.tieba.cj7;
 import com.baidu.tieba.si7;
+import com.baidu.tieba.ti7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,9 +17,9 @@ import kotlin.Metadata;
 public final class ForumViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutableLiveData<ri7> a;
-    public MutableLiveData<si7> b;
-    public MutableLiveData<bj7> c;
+    public MutableLiveData<si7> a;
+    public MutableLiveData<ti7> b;
+    public MutableLiveData<cj7> c;
     public MutableLiveData<Boolean> d;
     public final MutableLiveData<Boolean> e;
 
@@ -43,7 +43,7 @@ public final class ForumViewModel extends ViewModel {
         this.e = new MutableLiveData<>(null);
     }
 
-    public final MutableLiveData<si7> a() {
+    public final MutableLiveData<ti7> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -52,7 +52,7 @@ public final class ForumViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<ri7> c() {
+    public final MutableLiveData<si7> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -70,7 +70,7 @@ public final class ForumViewModel extends ViewModel {
         return (MutableLiveData) invokeV.objValue;
     }
 
-    public final MutableLiveData<bj7> g() {
+    public final MutableLiveData<cj7> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

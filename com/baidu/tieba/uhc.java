@@ -1,174 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zhc;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.MixAudioExtraInfo;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.preference.Preference;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executor;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class uhc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wic a;
-    public zgc b;
+    public String a;
+    public int b;
     public int c;
-    public boolean d;
-    public boolean e;
-    public WeakReference<nhc> f;
-    public zhc.a g;
-    public final List<WeakReference<ghc>> h;
-    public final ghc i;
-
-    /* loaded from: classes8.dex */
-    public interface d {
-        void a(Bitmap bitmap);
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? "12.1.0.34" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements zhc.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ uhc b;
-
-        public a(uhc uhcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uhcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = uhcVar;
-            this.a = 0L;
-        }
-
-        @Override // com.baidu.tieba.zhc.a
-        public void a(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                synchronized (this) {
-                    if (j <= this.a) {
-                        return;
-                    }
-                    this.a = j;
-                    if (this.b.a != null) {
-                        this.b.a.e();
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zhc.a
-        public void b(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                synchronized (this) {
-                    if (j <= this.a) {
-                        return;
-                    }
-                    this.a = j;
-                    if (this.b.a != null) {
-                        this.b.a.f();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements ghc {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uhc a;
-
-        public b(uhc uhcVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uhcVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uhcVar;
-        }
-
-        @Override // com.baidu.tieba.ghc
-        public void onPlayerFirstVideoFrameShow(uhc uhcVar, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLIII(1048576, this, uhcVar, i, i2, i3) != null) {
-                return;
-            }
-            synchronized (this.a.h) {
-                for (WeakReference weakReference : this.a.h) {
-                    ghc ghcVar = (ghc) weakReference.get();
-                    if (ghcVar != null) {
-                        TLog.g(this, "ff notify " + ghcVar);
-                        ghcVar.onPlayerFirstVideoFrameShow(uhcVar, i, i2, i3);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a(uhc uhcVar, ArrayList<MixAudioExtraInfo> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, uhcVar, arrayList) == null) {
-            }
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public transient yjc j;
+    public transient xjc k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
 
     public uhc() {
         Interceptable interceptable = $ic;
@@ -184,366 +42,85 @@ public class uhc {
             }
         }
         this.a = null;
-        this.b = null;
-        this.d = false;
-        this.e = false;
-        this.f = new WeakReference<>(null);
-        this.g = new a(this);
-        this.h = new ArrayList();
-        this.i = new b(this);
+        this.b = 1;
+        this.c = 1;
+        this.d = 0;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = null;
+        this.l = 0;
+        this.m = false;
+        this.n = 1;
+        this.o = 4000;
     }
 
-    public int G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            TLog.g(this, "start");
-            if (this.b == null) {
-                TLog.g(this, "start mDataSource is null!");
-                return -1;
-            }
-            this.d = true;
-            if (this.e) {
-                TLog.g(this, "player start and update DataSource");
-                t(this.b);
-                this.e = false;
-            }
-            this.c = (int) this.b.j();
-            this.a.F(this.c, ugc.a());
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public uhc(Context context, thc thcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, thcVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.d = false;
-        this.e = false;
-        this.f = new WeakReference<>(null);
-        this.g = new a(this);
-        this.h = new ArrayList();
-        this.i = new b(this);
-        if (uic.x(context)) {
-            new WeakReference(context);
-            rgc.a(context);
-            rgc.b(context);
-            if (Preference.f()) {
-                thcVar.m = Preference.g();
-                TLog.h("[VodPlayer]", "global process config enabled, globalSubprocess=" + thcVar.m);
-            }
-            if (thcVar.m && Preference.h()) {
-                thcVar.m = false;
-                TLog.h("[VodPlayer]", "subprocess fail over to main process, so set subprocess as false");
-            }
-            if (thcVar.m && !alc.n().r()) {
-                TLog.h("[VodPlayer]", "subprocess is not support in current devices!!");
-                thcVar.m = false;
-            }
-            if (thcVar.m && !alc.n().o(context.getApplicationContext())) {
-                TLog.h("[VodPlayer]", "subprocess fail as initSubProcess fail!!");
-                thcVar.m = false;
-            }
-            if (thcVar.m && !alc.n().q()) {
-                TLog.h("[VodPlayer]", "initSubProcess but subProcess is not connected, VodPlayer force start in main process !!!");
-                thcVar.m = false;
-            }
-            TLog.h("[VodPlayer]", thcVar.toString());
-            if (thcVar.m) {
-                yic yicVar = new yic(context.getApplicationContext(), thcVar, this);
-                this.a = yicVar;
-                shc.a(yicVar);
-            } else {
-                this.a = new xic(context.getApplicationContext(), thcVar, this);
-            }
-            zhc.b(this.g);
-            TLog.g(this, "VodPlayer, subprocess: " + thcVar.m + ", vodplayer version : " + h());
-            return;
-        }
-        throw new RuntimeException("dynamic load so enabled, make sure isLibReady returns true or onLibDownloadSuccess!");
-    }
-
-    public static boolean l(Context context) {
+    public static uhc a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return uic.x(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            TLog.h("AudioFocus", " setAudioFocusEnable:" + z);
-            shc.b(z);
-        }
-    }
-
-    public void B(hhc hhcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hhcVar) == null) {
-            this.a.A(hhcVar);
-        }
-    }
-
-    public void C(mhc mhcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mhcVar) == null) {
-            this.a.B(mhcVar);
-        }
-    }
-
-    public void D(nhc nhcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nhcVar) == null) {
-            this.a.C(nhcVar);
-            this.f = new WeakReference<>(nhcVar);
-        }
-    }
-
-    public void E(ohc ohcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ohcVar) == null) {
-            this.a.D(ohcVar);
-        }
-    }
-
-    public void F(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.E(i);
-        }
-    }
-
-    public void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.a.r(j);
-        }
-    }
-
-    public void t(zgc zgcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, zgcVar) == null) {
-            zgcVar.p(0L);
-            this.a.s(zgcVar);
-            this.b = zgcVar;
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.a.u(i);
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.a.v(i);
-        }
-    }
-
-    public void y(chc chcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, chcVar) == null) {
-            this.a.x(chcVar);
-        }
-    }
-
-    public void z(ehc ehcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, ehcVar) == null) {
-            this.a.y(ehcVar);
-        }
-    }
-
-    public static void k(Context context, kic kicVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, kicVar) == null) {
-            uic.r(context, null, kicVar, null);
-        }
-    }
-
-    public void q(Executor executor, d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, executor, dVar) == null) {
-            this.a.q(executor, dVar);
-        }
-    }
-
-    public void x(Executor executor, bhc bhcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, executor, bhcVar) == null) {
-            this.a.w(executor, bhcVar);
-        }
-    }
-
-    public void A(ghc ghcVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ghcVar) == null) {
-            TLog.g(this, " OnPlayerFirstVideoFrameShowListener:" + ghcVar);
-            synchronized (this.h) {
-                if (ghcVar == null) {
-                    this.h.clear();
-                    return;
-                }
-                for (WeakReference<ghc> weakReference : this.h) {
-                    if (weakReference.get() == ghcVar) {
-                        TLog.g(this, " OnPlayerFirstVideoFrameShowListener dup:" + ghcVar);
-                        return;
-                    }
-                }
-                this.h.add(new WeakReference<>(ghcVar));
-                this.a.z(this.i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            uhc uhcVar = new uhc();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                uhcVar.a = jSONObject.optString("cacheDirectory");
+                uhcVar.b = jSONObject.optInt("avcCodec");
+                uhcVar.c = jSONObject.optInt("hevcCodec");
+                uhcVar.d = jSONObject.optInt("audioCodec");
+                uhcVar.e = jSONObject.optInt("videoSeekMode");
+                uhcVar.f = jSONObject.optBoolean("clearRender");
+                uhcVar.g = jSONObject.optBoolean("usingSurfaceView");
+                uhcVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
+                uhcVar.i = jSONObject.optBoolean("forceNotCrop");
+                uhcVar.l = jSONObject.optInt("samplerFilter");
+                uhcVar.m = jSONObject.optBoolean("isSubProcess");
+                uhcVar.n = jSONObject.optInt("pcdnCatonTime");
+                uhcVar.o = jSONObject.optInt("pcdnCatonCount");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return uhcVar;
         }
+        return (uhc) invokeL.objValue;
     }
 
-    public void u(zgc zgcVar) {
+    public static String b(uhc uhcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, zgcVar) == null) {
-            if (zgcVar == null) {
-                TLog.g(this, "DataSource is null");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uhcVar)) == null) {
+            if (uhcVar == null) {
+                return null;
             }
-            zgc zgcVar2 = this.b;
-            if (zgcVar2 != null && TextUtils.equals(zgcVar2.k(), zgcVar.k())) {
-                TLog.g(this, "setDataSourceAndPrepare pre taskid:" + this.b.j() + " cur taskId:" + zgcVar.j());
-                zgcVar.q(this.b.j());
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cacheDirectory", uhcVar.a);
+                jSONObject.put("avcCodec", uhcVar.b);
+                jSONObject.put("hevcCodec", uhcVar.c);
+                jSONObject.put("audioCodec", uhcVar.d);
+                jSONObject.put("videoSeekMode", uhcVar.e);
+                jSONObject.put("clearRender", uhcVar.f);
+                jSONObject.put("usingSurfaceView", uhcVar.g);
+                jSONObject.put("hardDecodeOutputToBuffer", uhcVar.h);
+                jSONObject.put("forceNotCrop", uhcVar.i);
+                jSONObject.put("samplerFilter", uhcVar.l);
+                jSONObject.put("isSubProcess", uhcVar.m);
+                jSONObject.put("pcdnCatonTime", uhcVar.n);
+                jSONObject.put("pcdnCatonCount", uhcVar.o);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            zgcVar.p(ugc.a());
-            zgcVar.m(false);
-            this.b = zgcVar;
-            if (!this.d) {
-                this.a.t(zgcVar);
-                return;
-            }
-            TLog.g(this, "player has already started, need update DataSource when next start");
-            this.e = true;
+            return jSONObject.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.e = false;
-            this.a.G();
-        }
-    }
-
-    public long c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
         }
-        return invokeV.longValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.h();
-        }
-        return invokeV.longValue;
-    }
-
-    public nhc f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f.get();
-        }
-        return (nhc) invokeV.objValue;
-    }
-
-    public void finalize() throws Throwable {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.finalize();
-        }
-    }
-
-    public Object g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a.i();
-        }
-        return invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.a.k();
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.a.l();
-        }
-        return invokeV.intValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a.m();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a.n();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.a.o();
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a.p();
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -69,7 +69,7 @@ public class d63 {
 
         /* renamed from: com.baidu.tieba.d63$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class animation.Animation$AnimationListenerC0248a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0246a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -90,17 +90,17 @@ public class d63 {
 
             /* renamed from: com.baidu.tieba.d63$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0249a implements Runnable {
+            public class RunnableC0247a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ animation.Animation$AnimationListenerC0248a a;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0246a a;
 
-                public RunnableC0249a(animation.Animation$AnimationListenerC0248a animation_animation_animationlistenerc0248a) {
+                public RunnableC0247a(animation.Animation$AnimationListenerC0246a animation_animation_animationlistenerc0246a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0248a};
+                        Object[] objArr = {animation_animation_animationlistenerc0246a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -110,7 +110,7 @@ public class d63 {
                             return;
                         }
                     }
-                    this.a = animation_animation_animationlistenerc0248a;
+                    this.a = animation_animation_animationlistenerc0246a;
                 }
 
                 @Override // java.lang.Runnable
@@ -127,14 +127,14 @@ public class d63 {
             public class b implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ animation.Animation$AnimationListenerC0248a a;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0246a a;
 
-                public b(animation.Animation$AnimationListenerC0248a animation_animation_animationlistenerc0248a) {
+                public b(animation.Animation$AnimationListenerC0246a animation_animation_animationlistenerc0246a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0248a};
+                        Object[] objArr = {animation_animation_animationlistenerc0246a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -144,7 +144,7 @@ public class d63 {
                             return;
                         }
                     }
-                    this.a = animation_animation_animationlistenerc0248a;
+                    this.a = animation_animation_animationlistenerc0246a;
                 }
 
                 @Override // java.lang.Runnable
@@ -157,7 +157,7 @@ public class d63 {
                 }
             }
 
-            public animation.Animation$AnimationListenerC0248a(a aVar) {
+            public animation.Animation$AnimationListenerC0246a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,7 +180,7 @@ public class d63 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0249a(this));
+                        this.a.a.post(new RunnableC0247a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {
@@ -218,7 +218,7 @@ public class d63 {
                     return;
                 }
                 Animation loadAnimation = AnimationUtils.loadAnimation((Context) weakReference.get(), R.anim.obfuscated_res_0x7f010029);
-                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0248a(this));
+                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0246a(this));
                 this.a.startAnimation(loadAnimation);
             }
         }

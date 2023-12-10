@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class saa extends ci<cca, CardViewHolder<dda>> {
+public class saa extends ci<cca, CardViewHolder<jda>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public saa(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), cca.c);
+        super(tbPageContext.getPageActivity(), cca.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,11 +44,11 @@ public class saa extends ci<cca, CardViewHolder<dda>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public CardViewHolder<dda> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<jda> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new dda(this.a));
+            return new CardViewHolder<>(new jda(this.a));
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -56,7 +56,7 @@ public class saa extends ci<cca, CardViewHolder<dda>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cca ccaVar, CardViewHolder<dda> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, cca ccaVar, CardViewHolder<jda> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ccaVar, cardViewHolder})) == null) {

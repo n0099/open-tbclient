@@ -19,14 +19,14 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class i57 extends pb7 {
+public final class i57 extends qb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final z57 c;
     public g87 d;
     public g87 e;
     public String f;
-    public final he7 g;
+    public final ie7 g;
     public e87 h;
     public final Function1<e87, Unit> i;
     public final Function2<View, String, Unit> j;
@@ -89,7 +89,7 @@ public final class i57 extends pb7 {
     }
 
     @JvmOverloads
-    public i57(z57 headData, g87 g87Var, g87 g87Var2, String str, he7 personAttentionUiState, e87 e87Var, Function1<? super e87, Unit> onStat, Function2<? super View, ? super String, Unit> onItemClick) {
+    public i57(z57 headData, g87 g87Var, g87 g87Var2, String str, ie7 personAttentionUiState, e87 e87Var, Function1<? super e87, Unit> onStat, Function2<? super View, ? super String, Unit> onItemClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,8 +122,8 @@ public final class i57 extends pb7 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ i57(z57 z57Var, g87 g87Var, g87 g87Var2, String str, he7 he7Var, e87 e87Var, Function1 function1, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(z57Var, r5, r6, r7, he7Var, r9, r10, r11);
+    public /* synthetic */ i57(z57 z57Var, g87 g87Var, g87 g87Var2, String str, ie7 ie7Var, e87 e87Var, Function1 function1, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(z57Var, r5, r6, r7, ie7Var, r9, r10, r11);
         g87 g87Var3;
         g87 g87Var4;
         String str2;
@@ -189,13 +189,13 @@ public final class i57 extends pb7 {
         return (Function1) invokeV.objValue;
     }
 
-    public final he7 i() {
+    public final ie7 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.g;
         }
-        return (he7) invokeV.objValue;
+        return (ie7) invokeV.objValue;
     }
 
     public final String j() {

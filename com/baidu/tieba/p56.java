@@ -138,7 +138,7 @@ public class p56 {
                 if (next instanceof y46) {
                     y46 y46Var = (y46) next;
                     boolean D = y46Var.D();
-                    yya.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + D);
+                    zya.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + D);
                     if (D && BearTimeoutTryShowSwitch.isOn()) {
                         int i = 1;
                         StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1);
@@ -327,7 +327,7 @@ public class p56 {
                             if (String.valueOf((int) e(next)).equals(z56.c)) {
                                 BaseVM.m(28);
                             }
-                            zya.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            aza.a(MainTabScheduleStrategy.UNSCHEDULE);
                             if (this.f != null) {
                                 String str = null;
                                 if (next instanceof z46) {

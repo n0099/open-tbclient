@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.tieba.impersonal.data.BehaviorExt;
 import com.baidu.tieba.impersonal.databinding.LayoutMsgGuideBinding;
-import com.baidu.tieba.kq8;
+import com.baidu.tieba.lq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -134,7 +134,7 @@ public final class MsgGuideLayout extends RelativeLayout {
         EMManager.from(layoutMsgGuideBinding.getRoot()).setCorner(R.string.J_X06).setBackGroundRealColor(SkinManager.getColor(0, (int) R.color.CAM_X0205));
     }
 
-    public final void c(kq8 processor, BehaviorExt behaviorExt) {
+    public final void c(lq8 processor, BehaviorExt behaviorExt) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, processor, behaviorExt) == null) {
             Intrinsics.checkNotNullParameter(processor, "processor");

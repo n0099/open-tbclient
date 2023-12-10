@@ -47,7 +47,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.a5;
 import com.baidu.tieba.j55;
 import com.baidu.tieba.jt;
-import com.baidu.tieba.k18;
+import com.baidu.tieba.l18;
 import com.baidu.tieba.l65;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -558,10 +558,10 @@ public class CardItemHotVideoLayout extends LinearLayout implements jt {
         c();
     }
 
-    public void setData(k18 k18Var) {
+    public void setData(l18 l18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, k18Var) == null) {
-            this.d = k18Var.c();
+        if (interceptable == null || interceptable.invokeL(1048579, this, l18Var) == null) {
+            this.d = l18Var.c();
             this.c.notifyDataSetChanged();
         }
     }

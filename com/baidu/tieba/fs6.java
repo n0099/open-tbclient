@@ -29,7 +29,7 @@ public final class fs6 implements Comparable<fs6> {
     public final int i;
     public final int j;
     public Long k;
-    public mwa l;
+    public nwa l;
     public int m;
     public float n;
     public float o;
@@ -94,7 +94,7 @@ public final class fs6 implements Comparable<fs6> {
         q = aVar.b(Long.MAX_VALUE);
     }
 
-    public fs6(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, mwa postData, int i7, float f) {
+    public fs6(long j, long j2, String content, CharSequence contentSpan, int i, int i2, int i3, int i4, int i5, int i6, Long l, nwa postData, int i7, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,13 +132,13 @@ public final class fs6 implements Comparable<fs6> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ fs6(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, mwa mwaVar, int i7, float f, int i8, DefaultConstructorMarker defaultConstructorMarker) {
+    public /* synthetic */ fs6(long j, long j2, String str, CharSequence charSequence, int i, int i2, int i3, int i4, int i5, int i6, Long l, nwa nwaVar, int i7, float f, int i8, DefaultConstructorMarker defaultConstructorMarker) {
         this(j, j2, str, charSequence, i, i2, i3, r13, r14, r15, r16, r17, r18, r19);
         int i9;
         int i10;
         int i11;
         Long l2;
-        mwa mwaVar2;
+        nwa nwaVar2;
         int i12;
         float f2;
         if ((i8 & 128) != 0) {
@@ -162,9 +162,9 @@ public final class fs6 implements Comparable<fs6> {
             l2 = l;
         }
         if ((i8 & 2048) != 0) {
-            mwaVar2 = new mwa();
+            nwaVar2 = new nwa();
         } else {
-            mwaVar2 = mwaVar;
+            nwaVar2 = nwaVar;
         }
         if ((i8 & 4096) != 0) {
             i12 = 0;
@@ -259,13 +259,13 @@ public final class fs6 implements Comparable<fs6> {
         return invokeV.longValue;
     }
 
-    public final mwa m() {
+    public final nwa m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.l;
         }
-        return (mwa) invokeV.objValue;
+        return (nwa) invokeV.objValue;
     }
 
     public final int n() {

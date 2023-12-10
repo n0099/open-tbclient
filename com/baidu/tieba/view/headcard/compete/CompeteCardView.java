@@ -33,13 +33,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gbb;
-import com.baidu.tieba.jbb;
-import com.baidu.tieba.nbb;
+import com.baidu.tieba.hbb;
+import com.baidu.tieba.kbb;
 import com.baidu.tieba.obb;
 import com.baidu.tieba.pbb;
+import com.baidu.tieba.qbb;
 import com.baidu.tieba.rd;
-import com.baidu.tieba.ubb;
 import com.baidu.tieba.vbb;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.tieba.view.headcard.compete.CompeteCardView;
@@ -47,6 +46,7 @@ import com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback
 import com.baidu.tieba.view.headcard.data.QuizCardRespondedMessage;
 import com.baidu.tieba.view.headcard.utils.RaceGuessingDialogHelper;
 import com.baidu.tieba.wbb;
+import com.baidu.tieba.xbb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,24 +86,24 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     public final Lazy G;
     public final Lazy H;
     public final Lazy I;
-    public vbb J;
+    public wbb J;
     public String K;
     public String L;
     public String M;
     public long N;
     public long O;
     public long P;
-    public gbb Q;
-    public final ubb<QuizCardRespondedMessage.a> R;
+    public hbb Q;
+    public final vbb<QuizCardRespondedMessage.a> R;
     public final Lazy S;
 
     /* renamed from: T  reason: collision with root package name */
-    public final Lazy f1166T;
+    public final Lazy f1168T;
     public int U;
-    public final wbb V;
+    public final xbb V;
     public final d W;
     public View a;
-    public jbb a0;
+    public kbb a0;
     public final Lazy b;
     public final Lazy b0;
     public final Lazy c;
@@ -230,7 +230,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes8.dex */
-    public static final class b implements ubb<QuizCardRespondedMessage.a> {
+    public static final class b implements vbb<QuizCardRespondedMessage.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CompeteCardView a;
@@ -253,20 +253,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             this.a = competeCardView;
         }
 
-        @Override // com.baidu.tieba.ubb
+        @Override // com.baidu.tieba.vbb
         public void a(String msg) {
-            nbb d;
+            obb d;
             Long c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
                 Intrinsics.checkNotNullParameter(msg, "msg");
-                jbb jbbVar = this.a.a0;
-                if (jbbVar != null) {
+                kbb kbbVar = this.a.a0;
+                if (kbbVar != null) {
                     CompeteCardView competeCardView = this.a;
-                    boolean f = jbbVar.f();
+                    boolean f = kbbVar.f();
                     if (!f) {
-                        jbb jbbVar2 = competeCardView.a0;
-                        if (jbbVar2 != null && (d = jbbVar2.d()) != null && (c = d.c()) != null) {
+                        kbb kbbVar2 = competeCardView.a0;
+                        if (kbbVar2 != null && (d = kbbVar2.d()) != null && (c = d.c()) != null) {
                             competeCardView.A(c.longValue());
                         }
                     } else {
@@ -275,9 +275,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     }
                     competeCardView.C();
                     competeCardView.D();
-                    jbb jbbVar3 = competeCardView.a0;
-                    if (jbbVar3 != null) {
-                        competeCardView.E(jbbVar3, true, !f);
+                    kbb kbbVar3 = competeCardView.a0;
+                    if (kbbVar3 != null) {
+                        competeCardView.E(kbbVar3, true, !f);
                         competeCardView.G();
                     }
                 }
@@ -285,7 +285,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ubb
+        @Override // com.baidu.tieba.vbb
         /* renamed from: c */
         public void b(String msg, int i, QuizCardRespondedMessage.a aVar) {
             Interceptable interceptable = $ic;
@@ -365,13 +365,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     /* loaded from: classes8.dex */
-    public static final class d implements wbb.a {
+    public static final class d implements xbb.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CompeteCardView a;
         public final /* synthetic */ TbPageContext<BaseFragmentActivity> b;
 
-        @Override // com.baidu.tieba.wbb.a
+        @Override // com.baidu.tieba.xbb.a
         public void onError(int i, String errorMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, errorMsg) == null) {
@@ -398,36 +398,36 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             this.b = tbPageContext;
         }
 
-        @Override // com.baidu.tieba.wbb.a
-        public void a(QuizInfo quizInfo, pbb pbbVar) {
-            nbb d;
+        @Override // com.baidu.tieba.xbb.a
+        public void a(QuizInfo quizInfo, qbb qbbVar) {
+            obb d;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, quizInfo, pbbVar) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, quizInfo, qbbVar) == null) {
                 if (quizInfo != null) {
                     CompeteCardView competeCardView = this.a;
-                    jbb jbbVar = competeCardView.a0;
-                    if (jbbVar != null && (d = jbbVar.d()) != null) {
+                    kbb kbbVar = competeCardView.a0;
+                    if (kbbVar != null && (d = kbbVar.d()) != null) {
                         d.k(quizInfo);
                     }
                     if (competeCardView.a0 != null) {
                         competeCardView.C();
-                        jbb jbbVar2 = competeCardView.a0;
-                        Intrinsics.checkNotNull(jbbVar2);
-                        competeCardView.E(jbbVar2, true, true);
+                        kbb kbbVar2 = competeCardView.a0;
+                        Intrinsics.checkNotNull(kbbVar2);
+                        competeCardView.E(kbbVar2, true, true);
                         competeCardView.G();
                     }
                 }
-                jbb jbbVar3 = this.a.a0;
-                if (jbbVar3 != null) {
+                kbb kbbVar3 = this.a.a0;
+                if (kbbVar3 != null) {
                     CompeteCardView competeCardView2 = this.a;
                     TbPageContext<BaseFragmentActivity> tbPageContext = this.b;
-                    if (!jbbVar3.f() || pbbVar == null) {
+                    if (!kbbVar3.f() || qbbVar == null) {
                         return;
                     }
                     RaceGuessingDialogHelper raceGuessingDialogHelper = competeCardView2.getRaceGuessingDialogHelper();
                     Activity pageActivity = tbPageContext.getPageActivity();
                     Intrinsics.checkNotNullExpressionValue(pageActivity, "context.pageActivity");
-                    raceGuessingDialogHelper.d(pageActivity, pbbVar, competeCardView2.getDialogClickCallback());
+                    raceGuessingDialogHelper.d(pageActivity, qbbVar, competeCardView2.getDialogClickCallback());
                 }
             }
         }
@@ -1746,10 +1746,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 return (ImageView) invokeV.objValue;
             }
         });
-        this.Q = new gbb();
+        this.Q = new hbb();
         this.R = new b(this);
         this.S = LazyKt__LazyJVMKt.lazy(CompeteCardView$raceGuessingDialogHelper$2.INSTANCE);
-        this.f1166T = LazyKt__LazyJVMKt.lazy(new Function0<CompeteCardView$dialogClickCallback$2.a>(this) { // from class: com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback$2
+        this.f1168T = LazyKt__LazyJVMKt.lazy(new Function0<CompeteCardView$dialogClickCallback$2.a>(this) { // from class: com.baidu.tieba.view.headcard.compete.CompeteCardView$dialogClickCallback$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CompeteCardView this$0;
@@ -2066,10 +2066,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         Intrinsics.checkNotNullExpressionValue(inflate, "from(context.pageActivit…te_card_view, this, true)");
         this.a = inflate;
         B(SkinManager.getCurrentSkinType());
-        this.J = new vbb(context);
-        wbb wbbVar = new wbb();
-        this.V = wbbVar;
-        wbbVar.g(this.W);
+        this.J = new wbb(context);
+        xbb xbbVar = new xbb();
+        this.V = xbbVar;
+        xbbVar.g(this.W);
         this.V.h(context.getUniqueId());
         this.J.c(this.R);
         getMCardLeftBottom().setOnClickListener(this);
@@ -2093,25 +2093,25 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void E(jbb data, boolean z, boolean z2) {
+    public final void E(kbb data, boolean z, boolean z2) {
         String str;
         String str2;
         String str3;
         String str4;
         String str5;
         int i;
-        nbb d2;
+        obb d2;
         Long l;
         LinkConf a2;
         String str6;
         LinkConf a3;
         Long l2;
-        ArrayList<obb> arrayList;
-        ArrayList<obb> arrayList2;
+        ArrayList<pbb> arrayList;
+        ArrayList<pbb> arrayList2;
         boolean z3;
         Long g;
-        obb obbVar;
-        nbb d3;
+        pbb pbbVar;
+        obb d3;
         boolean z4;
         Long g2;
         Long l3;
@@ -2153,15 +2153,15 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             mCompeteBackground.startLoad(str2);
             TbImageView mHeaderIcon = getMHeaderIcon();
-            jbb jbbVar = this.a0;
-            if (jbbVar != null && (e = jbbVar.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.day) != null) {
+            kbb kbbVar = this.a0;
+            if (kbbVar != null && (e = kbbVar.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.day) != null) {
                 str3 = themeElement.pattern_image;
             } else {
                 str3 = null;
             }
             mHeaderIcon.startLoad(str3);
             TextView mCardAbs = getMCardAbs();
-            nbb d4 = data.d();
+            obb d4 = data.d();
             if (d4 != null) {
                 str4 = d4.g();
             } else {
@@ -2169,20 +2169,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             mCardAbs.setText(str4);
             TbImageView mPrizeIcon = getMPrizeIcon();
-            nbb d5 = data.d();
+            obb d5 = data.d();
             if (d5 != null) {
                 str5 = d5.i();
             } else {
                 str5 = null;
             }
             mPrizeIcon.startLoad(str5);
-            nbb d6 = data.d();
+            obb d6 = data.d();
             if (d6 != null && (c4 = d6.c()) != null) {
                 c4.longValue();
             }
             if (z2) {
                 TextView mPrizeNum = getMPrizeNum();
-                nbb d7 = data.d();
+                obb d7 = data.d();
                 if (d7 != null) {
                     l9 = d7.h();
                 } else {
@@ -2191,14 +2191,14 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                 mPrizeNum.setText(String.valueOf(l9));
             }
             if (data.d() != null) {
-                nbb d8 = data.d();
+                obb d8 = data.d();
                 if (d8 != null) {
                     arrayList = d8.d();
                 } else {
                     arrayList = null;
                 }
                 if (arrayList != null) {
-                    nbb d9 = data.d();
+                    obb d9 = data.d();
                     if (d9 != null) {
                         arrayList2 = d9.d();
                     } else {
@@ -2206,17 +2206,17 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     }
                     Intrinsics.checkNotNull(arrayList2);
                     if (arrayList2.size() > 1) {
-                        nbb d10 = data.d();
+                        obb d10 = data.d();
                         Intrinsics.checkNotNull(d10);
-                        obb obbVar2 = d10.d().get(0);
-                        nbb d11 = data.d();
+                        pbb pbbVar2 = d10.d().get(0);
+                        obb d11 = data.d();
                         if (d11 != null && (c3 = d11.c()) != null && c3.longValue() == 0) {
                             z3 = true;
                         } else {
                             z3 = false;
                         }
                         if (!z3) {
-                            nbb d12 = data.d();
+                            obb d12 = data.d();
                             if (d12 != null && (a5 = d12.a()) != null && a5.longValue() == 2) {
                                 z6 = true;
                             } else {
@@ -2225,9 +2225,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                             if (!z6) {
                                 getMCardLeftIcon().setVisibility(0);
                                 getMCardLeftText().setVisibility(0);
-                                getMCardLeftIcon().startLoad(obbVar2.a());
+                                getMCardLeftIcon().startLoad(pbbVar2.a());
                                 TextView mCardLeftText = getMCardLeftText();
-                                nbb d13 = data.d();
+                                obb d13 = data.d();
                                 if (d13 != null) {
                                     l8 = d13.c();
                                 } else {
@@ -2235,20 +2235,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                 }
                                 mCardLeftText.setText(String.valueOf(l8));
                                 getMCompeteLeftHead().setIsRound(true);
-                                getMCompeteLeftHead().startLoad(obbVar2.d());
-                                getMCardLeftPartTitle().setText(obbVar2.e());
-                                getMCardLeftTitle().setText(obbVar2.b());
-                                this.M = obbVar2.c();
-                                if (obbVar2.f() != null) {
-                                    nbb d14 = data.d();
+                                getMCompeteLeftHead().startLoad(pbbVar2.d());
+                                getMCardLeftPartTitle().setText(pbbVar2.e());
+                                getMCardLeftTitle().setText(pbbVar2.b());
+                                this.M = pbbVar2.c();
+                                if (pbbVar2.f() != null) {
+                                    obb d14 = data.d();
                                     if (d14 != null) {
                                         l6 = d14.b();
                                     } else {
                                         l6 = null;
                                     }
                                     if (l6 != null) {
-                                        Long f = obbVar2.f();
-                                        nbb d15 = data.d();
+                                        Long f = pbbVar2.f();
+                                        obb d15 = data.d();
                                         if (d15 != null) {
                                             l7 = d15.b();
                                         } else {
@@ -2256,7 +2256,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                         }
                                         if (Intrinsics.areEqual(f, l7)) {
                                             i = 2;
-                                            g = obbVar2.g();
+                                            g = pbbVar2.g();
                                             if (g != null) {
                                                 this.N = g.longValue();
                                                 TextView mCompeteLeftProgressNum = getMCompeteLeftProgressNum();
@@ -2267,9 +2267,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
                                                 mCompeteLeftProgressNum.setText(format);
                                             }
-                                            nbb d16 = data.d();
+                                            obb d16 = data.d();
                                             Intrinsics.checkNotNull(d16);
-                                            obbVar = d16.d().get(1);
+                                            pbbVar = d16.d().get(1);
                                             d3 = data.d();
                                             if (d3 == null && (c2 = d3.c()) != null && c2.longValue() == 0) {
                                                 z4 = true;
@@ -2277,7 +2277,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 z4 = false;
                                             }
                                             if (!z4) {
-                                                nbb d17 = data.d();
+                                                obb d17 = data.d();
                                                 if (d17 != null && (a4 = d17.a()) != null && a4.longValue() == 2) {
                                                     z5 = true;
                                                 } else {
@@ -2286,9 +2286,9 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                 if (!z5) {
                                                     getMCardRightIcon().setVisibility(0);
                                                     getMCardRightText().setVisibility(0);
-                                                    getMCardRightIcon().startLoad(obbVar.a());
+                                                    getMCardRightIcon().startLoad(pbbVar.a());
                                                     TextView mCardRightText = getMCardRightText();
-                                                    nbb d18 = data.d();
+                                                    obb d18 = data.d();
                                                     if (d18 != null) {
                                                         l5 = d18.c();
                                                     } else {
@@ -2296,20 +2296,20 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                     }
                                                     mCardRightText.setText(String.valueOf(l5));
                                                     getMCompeteRightHead().setIsRound(true);
-                                                    getMCompeteRightHead().startLoad(obbVar.d());
-                                                    getMCardRightPartTitle().setText(obbVar.e());
-                                                    getMCardRightTitle().setText(obbVar.b());
-                                                    this.L = obbVar.c();
-                                                    if (obbVar.f() != null) {
-                                                        nbb d19 = data.d();
+                                                    getMCompeteRightHead().startLoad(pbbVar.d());
+                                                    getMCardRightPartTitle().setText(pbbVar.e());
+                                                    getMCardRightTitle().setText(pbbVar.b());
+                                                    this.L = pbbVar.c();
+                                                    if (pbbVar.f() != null) {
+                                                        obb d19 = data.d();
                                                         if (d19 != null) {
                                                             l3 = d19.b();
                                                         } else {
                                                             l3 = null;
                                                         }
                                                         if (l3 != null) {
-                                                            Long f2 = obbVar.f();
-                                                            nbb d20 = data.d();
+                                                            Long f2 = pbbVar.f();
+                                                            obb d20 = data.d();
                                                             if (d20 != null) {
                                                                 l4 = d20.b();
                                                             } else {
@@ -2320,7 +2320,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                             }
                                                         }
                                                     }
-                                                    g2 = obbVar.g();
+                                                    g2 = pbbVar.g();
                                                     if (g2 != null) {
                                                         this.P = g2.longValue();
                                                         TextView mCompeteRightProgressNum = getMCompeteRightProgressNum();
@@ -2338,7 +2338,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                                         l = null;
                                                     }
                                                     if (l != null) {
-                                                        nbb d21 = data.d();
+                                                        obb d21 = data.d();
                                                         if (d21 != null) {
                                                             l2 = d21.j();
                                                         } else {
@@ -2376,13 +2376,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                             getMCardRightIcon().setVisibility(8);
                                             getMCardRightText().setVisibility(8);
                                             getMCompeteRightHead().setIsRound(true);
-                                            getMCompeteRightHead().startLoad(obbVar.d());
-                                            getMCardRightPartTitle().setText(obbVar.e());
-                                            getMCardRightTitle().setText(obbVar.b());
-                                            this.L = obbVar.c();
-                                            if (obbVar.f() != null) {
+                                            getMCompeteRightHead().startLoad(pbbVar.d());
+                                            getMCardRightPartTitle().setText(pbbVar.e());
+                                            getMCardRightTitle().setText(pbbVar.b());
+                                            this.L = pbbVar.c();
+                                            if (pbbVar.f() != null) {
                                             }
-                                            g2 = obbVar.g();
+                                            g2 = pbbVar.g();
                                             if (g2 != null) {
                                             }
                                             d2 = data.d();
@@ -2406,12 +2406,12 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                     }
                                 }
                                 i = 0;
-                                g = obbVar2.g();
+                                g = pbbVar2.g();
                                 if (g != null) {
                                 }
-                                nbb d162 = data.d();
+                                obb d162 = data.d();
                                 Intrinsics.checkNotNull(d162);
-                                obbVar = d162.d().get(1);
+                                pbbVar = d162.d().get(1);
                                 d3 = data.d();
                                 if (d3 == null) {
                                 }
@@ -2421,13 +2421,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                                 getMCardRightIcon().setVisibility(8);
                                 getMCardRightText().setVisibility(8);
                                 getMCompeteRightHead().setIsRound(true);
-                                getMCompeteRightHead().startLoad(obbVar.d());
-                                getMCardRightPartTitle().setText(obbVar.e());
-                                getMCardRightTitle().setText(obbVar.b());
-                                this.L = obbVar.c();
-                                if (obbVar.f() != null) {
+                                getMCompeteRightHead().startLoad(pbbVar.d());
+                                getMCardRightPartTitle().setText(pbbVar.e());
+                                getMCardRightTitle().setText(pbbVar.b());
+                                this.L = pbbVar.c();
+                                if (pbbVar.f() != null) {
                                 }
-                                g2 = obbVar.g();
+                                g2 = pbbVar.g();
                                 if (g2 != null) {
                                 }
                                 d2 = data.d();
@@ -2452,19 +2452,19 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                         getMCardLeftIcon().setVisibility(8);
                         getMCardLeftText().setVisibility(8);
                         getMCompeteLeftHead().setIsRound(true);
-                        getMCompeteLeftHead().startLoad(obbVar2.d());
-                        getMCardLeftPartTitle().setText(obbVar2.e());
-                        getMCardLeftTitle().setText(obbVar2.b());
-                        this.M = obbVar2.c();
-                        if (obbVar2.f() != null) {
+                        getMCompeteLeftHead().startLoad(pbbVar2.d());
+                        getMCardLeftPartTitle().setText(pbbVar2.e());
+                        getMCardLeftTitle().setText(pbbVar2.b());
+                        this.M = pbbVar2.c();
+                        if (pbbVar2.f() != null) {
                         }
                         i = 0;
-                        g = obbVar2.g();
+                        g = pbbVar2.g();
                         if (g != null) {
                         }
-                        nbb d1622 = data.d();
+                        obb d1622 = data.d();
                         Intrinsics.checkNotNull(d1622);
-                        obbVar = d1622.d().get(1);
+                        pbbVar = d1622.d().get(1);
                         d3 = data.d();
                         if (d3 == null) {
                         }
@@ -2474,13 +2474,13 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                         getMCardRightIcon().setVisibility(8);
                         getMCardRightText().setVisibility(8);
                         getMCompeteRightHead().setIsRound(true);
-                        getMCompeteRightHead().startLoad(obbVar.d());
-                        getMCardRightPartTitle().setText(obbVar.e());
-                        getMCardRightTitle().setText(obbVar.b());
-                        this.L = obbVar.c();
-                        if (obbVar.f() != null) {
+                        getMCompeteRightHead().startLoad(pbbVar.d());
+                        getMCardRightPartTitle().setText(pbbVar.e());
+                        getMCardRightTitle().setText(pbbVar.b());
+                        this.L = pbbVar.c();
+                        if (pbbVar.f() != null) {
                         }
-                        g2 = obbVar.g();
+                        g2 = pbbVar.g();
                         if (g2 != null) {
                         }
                         d2 = data.d();
@@ -2567,7 +2567,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            return (CompeteCardView$dialogClickCallback$2.a) this.f1166T.getValue();
+            return (CompeteCardView$dialogClickCallback$2.a) this.f1168T.getValue();
         }
         return (CompeteCardView$dialogClickCallback$2.a) invokeV.objValue;
     }
@@ -2978,10 +2978,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     public final void C() {
-        jbb jbbVar;
-        nbb d2;
+        kbb kbbVar;
+        obb d2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jbbVar = this.a0) != null && (d2 = jbbVar.d()) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (kbbVar = this.a0) != null && (d2 = kbbVar.d()) != null) {
             d2.l(Long.valueOf(this.O));
         }
     }
@@ -3062,30 +3062,30 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     public final void A(long j) {
-        jbb jbbVar;
-        nbb d2;
+        kbb kbbVar;
+        obb d2;
         Long h;
-        nbb nbbVar;
+        obb obbVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (jbbVar = this.a0) != null && (d2 = jbbVar.d()) != null && (h = d2.h()) != null) {
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (kbbVar = this.a0) != null && (d2 = kbbVar.d()) != null && (h = d2.h()) != null) {
             long longValue = h.longValue();
-            jbb jbbVar2 = this.a0;
-            if (jbbVar2 != null) {
-                nbbVar = jbbVar2.d();
+            kbb kbbVar2 = this.a0;
+            if (kbbVar2 != null) {
+                obbVar = kbbVar2.d();
             } else {
-                nbbVar = null;
+                obbVar = null;
             }
-            if (nbbVar != null) {
-                nbbVar.m(Long.valueOf(longValue + j));
+            if (obbVar != null) {
+                obbVar.m(Long.valueOf(longValue + j));
             }
         }
     }
 
-    public final void s(jbb data) {
+    public final void s(kbb data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            nbb d2 = data.d();
+            obb d2 = data.d();
             if (d2 != null) {
                 Long e = d2.e();
                 if (e != null) {
@@ -3142,32 +3142,32 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             String str3 = null;
             if (TbadkApplication.getInst().getSkinType() == 0) {
                 TbImageView mCompeteBackground = getMCompeteBackground();
-                jbb jbbVar = this.a0;
-                if (jbbVar != null && (b3 = jbbVar.b()) != null && (themeElement4 = b3.day) != null) {
+                kbb kbbVar = this.a0;
+                if (kbbVar != null && (b3 = kbbVar.b()) != null && (themeElement4 = b3.day) != null) {
                     str2 = themeElement4.pattern_image;
                 } else {
                     str2 = null;
                 }
                 mCompeteBackground.startLoad(str2);
                 TbImageView mHeaderIcon = getMHeaderIcon();
-                jbb jbbVar2 = this.a0;
-                if (jbbVar2 != null && (e2 = jbbVar2.e()) != null && (themeColorInfo2 = e2.img) != null && (themeElement3 = themeColorInfo2.day) != null) {
+                kbb kbbVar2 = this.a0;
+                if (kbbVar2 != null && (e2 = kbbVar2.e()) != null && (themeColorInfo2 = e2.img) != null && (themeElement3 = themeColorInfo2.day) != null) {
                     str3 = themeElement3.pattern_image;
                 }
                 mHeaderIcon.startLoad(str3);
                 return;
             }
             TbImageView mCompeteBackground2 = getMCompeteBackground();
-            jbb jbbVar3 = this.a0;
-            if (jbbVar3 != null && (b2 = jbbVar3.b()) != null && (themeElement2 = b2.night) != null) {
+            kbb kbbVar3 = this.a0;
+            if (kbbVar3 != null && (b2 = kbbVar3.b()) != null && (themeElement2 = b2.night) != null) {
                 str = themeElement2.pattern_image;
             } else {
                 str = null;
             }
             mCompeteBackground2.startLoad(str);
             TbImageView mHeaderIcon2 = getMHeaderIcon();
-            jbb jbbVar4 = this.a0;
-            if (jbbVar4 != null && (e = jbbVar4.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.night) != null) {
+            kbb kbbVar4 = this.a0;
+            if (kbbVar4 != null && (e = kbbVar4.e()) != null && (themeColorInfo = e.img) != null && (themeElement = themeColorInfo.night) != null) {
                 str3 = themeElement.pattern_image;
             }
             mHeaderIcon2.startLoad(str3);
@@ -3175,14 +3175,14 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     public final void D() {
-        nbb d2;
+        obb d2;
         Long j;
-        nbb nbbVar;
-        nbb d3;
+        obb obbVar;
+        obb d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            jbb jbbVar = this.a0;
-            if (jbbVar != null && (d3 = jbbVar.d()) != null && d3.d().size() > 1) {
+            kbb kbbVar = this.a0;
+            if (kbbVar != null && (d3 = kbbVar.d()) != null && d3.d().size() > 1) {
                 if (this.U == 2 && d3.d().get(0).g() != null) {
                     Long g = d3.d().get(0).g();
                     Intrinsics.checkNotNull(g);
@@ -3193,17 +3193,17 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
                     d3.d().get(1).i(Long.valueOf(g2.longValue() + 1));
                 }
             }
-            jbb jbbVar2 = this.a0;
-            if (jbbVar2 != null && (d2 = jbbVar2.d()) != null && (j = d2.j()) != null) {
+            kbb kbbVar2 = this.a0;
+            if (kbbVar2 != null && (d2 = kbbVar2.d()) != null && (j = d2.j()) != null) {
                 long longValue = j.longValue();
-                jbb jbbVar3 = this.a0;
-                if (jbbVar3 != null) {
-                    nbbVar = jbbVar3.d();
+                kbb kbbVar3 = this.a0;
+                if (kbbVar3 != null) {
+                    obbVar = kbbVar3.d();
                 } else {
-                    nbbVar = null;
+                    obbVar = null;
                 }
-                if (nbbVar != null) {
-                    nbbVar.n(Long.valueOf(longValue + 1));
+                if (obbVar != null) {
+                    obbVar.n(Long.valueOf(longValue + 1));
                 }
             }
         }
@@ -3269,14 +3269,14 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
     }
 
     public final void x() {
-        jbb jbbVar;
-        nbb d2;
+        kbb kbbVar;
+        obb d2;
         boolean z;
         int i;
         long y;
         Long f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (jbbVar = this.a0) != null && (d2 = jbbVar.d()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (kbbVar = this.a0) != null && (d2 = kbbVar.d()) != null) {
             if (d2.d().size() > 1) {
                 z = true;
             } else {
@@ -3380,10 +3380,10 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
             }
             return;
         }
-        jbb jbbVar = this.a0;
-        if (jbbVar != null) {
-            boolean f = jbbVar.f();
-            nbb d2 = jbbVar.d();
+        kbb kbbVar = this.a0;
+        if (kbbVar != null) {
+            boolean f = kbbVar.f();
+            obb d2 = kbbVar.d();
             if (d2 != null) {
                 if (d2.d().size() > 1) {
                     z = true;
@@ -3487,7 +3487,7 @@ public final class CompeteCardView extends RelativeLayout implements View.OnClic
         }
     }
 
-    public final void t(jbb data, boolean z, String str, String str2) {
+    public final void t(kbb data, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{data, Boolean.valueOf(z), str, str2}) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

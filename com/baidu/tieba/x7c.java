@@ -1,256 +1,206 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b8c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes9.dex */
-public final class x7c {
-    public static /* synthetic */ Interceptable $ic;
-    public static x7c e;
-    public static w7c f;
+public class x7c implements z7c {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Context sApplicationContext = null;
+    public static int sBlockThreshold = 2000;
+    public static x7c sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public b8c a;
-    public d8c b;
-    public c8c c;
-    public List<y7c> d;
 
-    /* loaded from: classes9.dex */
-    public class a implements b8c.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x7c a;
-
-        public a(x7c x7cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x7cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x7cVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948254725, "Lcom/baidu/tieba/x7c;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.b8c.b
-        public void a(long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (!e.isEmpty()) {
-                    e8c b = e8c.b();
-                    b.c(j, j2, j3, j4);
-                    b.d(this.a.c.e());
-                    b.e(e);
-                    b.a();
-                    if (x7c.d().displayNotification()) {
-                        a8c.c(b.toString());
-                    }
-                    if (this.a.d.size() != 0) {
-                        for (y7c y7cVar : this.a.d) {
-                            y7cVar.onBlock(x7c.d().provideContext(), b);
-                        }
-                    }
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948254725, "Lcom/baidu/tieba/x7c;");
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ".log";
+    public List<String> concernPackages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
+        return (List) invokeV.objValue;
+    }
 
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(this.a);
-            }
-            return invokeLL.booleanValue;
+    public boolean deleteFilesInWhiteList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public abstract boolean displayNotification();
+
+    public boolean filterNonConcernStack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z7c
+    public void onBlock(Context context, f8c f8cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, f8cVar) == null) {
+        }
+    }
+
+    public int provideMonitorDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String provideNetworkType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String providePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
+    }
+
+    public String provideQualifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String provideUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
+    }
+
+    public boolean stopWhenDebugging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean zip(File[] fileArr, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     public x7c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new LinkedList();
-        this.b = new d8c(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new c8c(f.provideDumpInterval());
-        m(new b8c(new a(this), d().provideBlockThreshold(), d().stopWhenDebugging()));
-        a8c.b();
     }
 
-    public static String i() {
-        InterceptResult invokeV;
-        String providePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (d() == null) {
-                providePath = "";
-            } else {
-                providePath = d().providePath();
-            }
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
-            }
-            return d().provideContext().getFilesDir() + d().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void l(w7c w7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, w7cVar) == null) {
-            f = w7cVar;
-        }
-    }
-
-    public void b(y7c y7cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, y7cVar) == null) {
-            this.d.add(y7cVar);
-        }
-    }
-
-    public final void m(b8c b8cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b8cVar) == null) {
-            this.a = b8cVar;
-        }
-    }
-
-    public static File c() {
+    public static x7c get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(i());
-            if (!file.exists()) {
-                file.mkdirs();
+            x7c x7cVar = sInstance;
+            if (x7cVar != null) {
+                return x7cVar;
             }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static w7c d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f;
-        }
-        return (w7c) invokeV.objValue;
-    }
-
-    public static x7c f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (x7c.class) {
-                    if (e == null) {
-                        e = new x7c();
-                    }
-                }
-            }
-            return e;
+            throw new RuntimeException("BlockCanaryContext null");
         }
         return (x7c) invokeV.objValue;
     }
 
-    public static File[] g() {
+    public int provideBlockThreshold() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return sBlockThreshold;
         }
-        return (File[]) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public c8c e() {
+    public Context provideContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return sApplicationContext;
         }
-        return (c8c) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public b8c h() {
+    public int provideDumpInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return provideBlockThreshold();
         }
-        return (b8c) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public long j() {
+    public List<String> provideWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d().provideBlockThreshold() * 0.8f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add("org.chromium");
+            return linkedList;
         }
-        return invokeV.longValue;
+        return (List) invokeV.objValue;
     }
 
-    public d8c k() {
-        InterceptResult invokeV;
+    public static void init(Context context, x7c x7cVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, x7cVar, i) == null) {
+            sApplicationContext = context;
+            sInstance = x7cVar;
+            sBlockThreshold = i;
         }
-        return (d8c) invokeV.objValue;
+    }
+
+    public void upload(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
+            throw new UnsupportedOperationException();
+        }
     }
 }

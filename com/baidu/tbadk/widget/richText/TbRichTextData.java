@@ -6,13 +6,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.abb;
+import com.baidu.tieba.bbb;
 import com.baidu.tieba.bz5;
 import com.baidu.tieba.sf;
 import com.baidu.tieba.sy5;
 import com.baidu.tieba.vy5;
-import com.baidu.tieba.yab;
 import com.baidu.tieba.yy5;
+import com.baidu.tieba.zab;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,8 +42,8 @@ public class TbRichTextData extends OrmObject {
     public TbRichTextTiebaPlusInfo o;
     public List<bz5> p;
     public vy5 q;
-    public yab r;
-    public abb s;
+    public zab r;
+    public bbb s;
 
     public void q0(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
         Interceptable interceptable = $ic;
@@ -183,17 +183,17 @@ public class TbRichTextData extends OrmObject {
         this.n = tbRichTextEvaluateItemInfo;
     }
 
-    public void l0(yab yabVar) {
+    public void l0(zab zabVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, yabVar) == null) {
-            this.r = yabVar;
+        if (interceptable == null || interceptable.invokeL(1048601, this, zabVar) == null) {
+            this.r = zabVar;
         }
     }
 
-    public void m0(abb abbVar) {
+    public void m0(bbb bbbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, abbVar) == null) {
-            this.s = abbVar;
+        if (interceptable == null || interceptable.invokeL(1048602, this, bbbVar) == null) {
+            this.s = bbbVar;
         }
     }
 
@@ -327,22 +327,22 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
-    public yab T() {
+    public zab T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.r;
         }
-        return (yab) invokeV.objValue;
+        return (zab) invokeV.objValue;
     }
 
-    public abb U() {
+    public bbb U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.s;
         }
-        return (abb) invokeV.objValue;
+        return (bbb) invokeV.objValue;
     }
 
     public TbRichTextImageInfo V() {

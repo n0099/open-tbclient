@@ -7,24 +7,34 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.NetMessageListener;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.GlobalBuildConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ek7;
-import com.baidu.tieba.forum.model.FrsPageRequestMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.forum.model.FrsGeneralTabListReqMsg;
+import com.baidu.tieba.forum.model.FrsGeneralTabListResMsg;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.GeneralTabList.DataRes;
 /* loaded from: classes5.dex */
-public final class dm7 extends ql7 {
+public final class dm7 extends rl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context q;
-    public final List<List<rb7<?>>> r;
-    public final NetMessageListener s;
+    public final NetMessageListener t;
+
+    @Override // com.baidu.tieba.rl7
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "FRS_GENERAL_TAB" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
     public static final class a extends NetMessageListener {
@@ -34,7 +44,7 @@ public final class dm7 extends ql7 {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(dm7 dm7Var) {
-            super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
+            super(CmdConfigHttp.CMD_FRS_COMMON_TAB, 309622);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,7 +68,7 @@ public final class dm7 extends ql7 {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.C(responsedMessage);
+                this.a.I(responsedMessage);
             }
         }
     }
@@ -85,123 +95,136 @@ public final class dm7 extends ql7 {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(bdUniqueId, "bdUniqueId");
         Intrinsics.checkNotNullParameter(bundle, "bundle");
-        this.q = context;
-        this.r = new ArrayList();
         a aVar = new a(this);
-        this.s = aVar;
+        this.t = aVar;
         aVar.setTag(bdUniqueId);
-        this.s.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.s);
-        F(3);
+        this.t.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.t);
+        P();
     }
 
-    @Override // com.baidu.tieba.ql7
-    public void B(si7 responseData, boolean z, boolean z2) {
-        int i;
+    @Override // com.baidu.tieba.rl7
+    public void H(ti7 responseData, boolean z, boolean z2) {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{responseData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             Intrinsics.checkNotNullParameter(responseData, "responseData");
-            if (z) {
-                try {
-                    b().a.clear();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (GlobalBuildConfig.isDebug()) {
-                        System.exit(0);
+            super.H(responseData, z, z2);
+            Object a2 = responseData.a();
+            if (a2 instanceof DataRes) {
+                dataRes = (DataRes) a2;
+            } else {
+                dataRes = null;
+            }
+            if (dataRes != null && p().getInt("forum_tab_type") == 100) {
+                List<VideoItemData> a3 = mj7.a(dataRes);
+                if (!a3.isEmpty()) {
+                    String str = a3.get(0).forum_id;
+                    if (z) {
+                        FrsVideoTabPlayActivityConfig.putVideoTabListByFid(str, a3);
                         return;
                     }
-                    return;
+                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).clear();
+                    FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str).addAll(a3);
                 }
             }
-            List<rb7<?>> c = responseData.b().c(responseData.a(), b(), s(), z2);
-            if (z) {
-                q67 b = b();
-                if (!z2) {
-                    i = c.size();
-                } else {
-                    i = 0;
-                }
-                b.b = i;
-                if (this.r.size() > 0 && this.r.get(0).size() > 0 && Intrinsics.areEqual(this.r.get(0).get(0).a(), "feed_top_card")) {
-                    this.r.get(0).remove(0);
-                }
-                if (this.r.size() > 1 && this.r.get(1).size() > 0 && Intrinsics.areEqual(this.r.get(1).get(0).a(), "browse_location")) {
-                    this.r.get(1).remove(0);
-                }
-                if (this.r.size() > 0) {
-                    List<rb7<?>> list = this.r.get(0);
-                    ek7.a aVar = ek7.a;
-                    Context context = this.q;
-                    BdUniqueId l = l();
-                    String string = m().getString("forum_id");
-                    if (string == null) {
-                        string = "";
-                    }
-                    list.add(0, aVar.a(context, l, string));
-                }
-                this.r.add(0, c);
-            } else {
-                this.r.add(c);
-            }
-            int i2 = 0;
-            for (List<rb7<?>> list2 : this.r) {
-                i2 += list2.size();
-            }
-            if (i2 > 300) {
-                this.r.remove(this.r.size() / 2);
-            }
-            b().a.clear();
-            for (List<rb7<?>> list3 : this.r) {
-                b().a.addAll(list3);
-            }
-            int size = b().a.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                rb7<?> rb7Var = b().a.get(i3);
-                if (rb7Var instanceof g77) {
-                    ((g77) rb7Var).setPosition(i3);
-                }
-                if (rb7Var instanceof wb7) {
-                    ((wb7) rb7Var).e(o());
-                }
-            }
-            b().c = responseData.b().a(responseData.a());
         }
     }
 
-    @Override // com.baidu.tieba.dc7
+    public final String O() {
+        InterceptResult invokeV;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = 0;
+            boolean z = true;
+            if (v() != 1) {
+                z = false;
+            }
+            if (!z) {
+                i = c37.f(b().a);
+            }
+            if (z) {
+                d = "";
+            } else {
+                kja f = kja.f();
+                d = f.d("FRS_GENERAL_TAB" + B());
+            }
+            String g = c37.g(b().a, z);
+            AdExtParam.a b = AdExtParam.a.b();
+            b.g(i);
+            b.e(g);
+            b.c(d);
+            b.f(q());
+            String a2 = b.a();
+            Intrinsics.checkNotNullExpressionValue(a2, "get().setPreAdThreadCoun…umName(fName).buildJson()");
+            return a2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            FrsGeneralTabListReqMsg frsGeneralTabListReqMsg = new FrsGeneralTabListReqMsg();
+            frsGeneralTabListReqMsg.setTag(o());
+            frsGeneralTabListReqMsg.setForumId(p().getLong("forum_id"));
+            frsGeneralTabListReqMsg.setTabId(p().getInt("forum_tab_id"));
+            frsGeneralTabListReqMsg.setTabType(p().getInt("forum_tab_type"));
+            String string = p().getString("forum_tab_name");
+            if (string == null) {
+                string = "";
+            }
+            frsGeneralTabListReqMsg.setTabName(string);
+            frsGeneralTabListReqMsg.setPn(w());
+            frsGeneralTabListReqMsg.setSortType(z());
+            frsGeneralTabListReqMsg.setLoadType(v());
+            frsGeneralTabListReqMsg.setFrsCommonInfo(u());
+            frsGeneralTabListReqMsg.setNewFrs(1);
+            frsGeneralTabListReqMsg.set_video_doublerow(F() ? 1 : 0);
+            frsGeneralTabListReqMsg.setAdExtParams(O());
+            MessageManager.getInstance().sendMessage(frsGeneralTabListReqMsg);
+        }
+    }
+
+    public final void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FRS_COMMON_TAB, wva.a(TbConfig.FRS_COMMON_TAB, 309622));
+            tbHttpMessageTask.setResponsedClass(FrsGeneralTabListResMsg.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    @Override // com.baidu.tieba.ec7
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.s);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.t);
         }
     }
 
-    @Override // com.baidu.tieba.dc7
-    public void g() {
+    @Override // com.baidu.tieba.ec7
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || e()) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || e()) {
             return;
         }
-        A();
+        K(1);
+        J(1);
+        Q();
         i(true);
     }
 
-    @Override // com.baidu.tieba.dc7
-    public void f() {
+    @Override // com.baidu.tieba.ec7
+    public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || e()) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || e()) {
             return;
         }
-        FrsPageRequestMessage a2 = yl7.a(m());
-        a2.setTag(l());
-        E(1);
-        a2.setPn(r());
-        a2.setSortType(t());
-        a2.setLoadType(1);
-        String g = c37.g(b().a, true);
-        Intrinsics.checkNotNullExpressionValue(g, "getAdFloorInfo(feedData.dataList, true)");
-        a2.setAdFloorInfo(g);
-        MessageManager.getInstance().sendMessage(a2);
+        K(w() + 1);
+        J(2);
+        Q();
         i(true);
     }
 }

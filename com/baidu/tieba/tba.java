@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,14 +13,9 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class tba extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
-    public List<UserData> f;
+    public List<wba> a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +30,7 @@ public class tba extends BaseCardInfo {
                 return;
             }
         }
-        g = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public tba() {
@@ -58,7 +52,7 @@ public class tba extends BaseCardInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return g;
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }

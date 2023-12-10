@@ -1,49 +1,40 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.BusinessPromotCommentList;
+import tbclient.FrsPage.BrandForumInfo;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.OriForumInfo;
 /* loaded from: classes7.dex */
-public class lzc extends ktc {
+public class lzc extends ltc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @NonNull
-    public static BusinessPromotCommentList b(@NonNull JSONObject jSONObject) {
+    public static JSONObject b(@NonNull BrandForumInfo brandForumInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            BusinessPromotCommentList.Builder builder = new BusinessPromotCommentList.Builder();
-            if (jSONObject.has("title")) {
-                builder.title = jSONObject.optString("title");
-            }
-            if (jSONObject.has("username")) {
-                builder.username = jSONObject.optString("username");
-            }
-            if (jSONObject.has("uid")) {
-                builder.uid = Long.valueOf(jSONObject.optLong("uid"));
-            }
-            if (jSONObject.has("is_lz")) {
-                builder.is_lz = Integer.valueOf(jSONObject.optInt("is_lz"));
-            }
-            return builder.build(true);
-        }
-        return (BusinessPromotCommentList) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(@NonNull BusinessPromotCommentList businessPromotCommentList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, businessPromotCommentList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, brandForumInfo)) == null) {
             JSONObject jSONObject = new JSONObject();
-            ktc.a(jSONObject, "title", businessPromotCommentList.title);
-            ktc.a(jSONObject, "username", businessPromotCommentList.username);
-            ktc.a(jSONObject, "uid", businessPromotCommentList.uid);
-            ktc.a(jSONObject, "is_lz", businessPromotCommentList.is_lz);
+            if (brandForumInfo.relation_forum != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (OriForumInfo oriForumInfo : brandForumInfo.relation_forum) {
+                    jSONArray.put(u5d.b(oriForumInfo));
+                }
+                ltc.a(jSONObject, "relation_forum", jSONArray);
+            }
+            HeadImgs headImgs = brandForumInfo.head_imgs;
+            if (headImgs != null) {
+                ltc.a(jSONObject, "head_imgs", r0d.c(headImgs));
+            }
+            ltc.a(jSONObject, "brand_desc", brandForumInfo.brand_desc);
+            ltc.a(jSONObject, BigdayActivityConfig.JUMP_URL, brandForumInfo.jump_url);
+            ltc.a(jSONObject, "jump_desc", brandForumInfo.jump_desc);
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;

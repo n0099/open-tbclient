@@ -9,19 +9,21 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.cu;
+import com.baidu.tieba.homepage.concern.data.RecommendBarCardModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bc8 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
+public class bc8 extends ci<RecommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel>> implements e26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BdUniqueId b;
     public vi c;
     public String d;
+    public byte e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
@@ -43,6 +45,7 @@ public class bc8 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
             }
         }
         this.a = tbPageContext;
+        this.e = b;
     }
 
     @Override // com.baidu.tieba.e26
@@ -63,21 +66,17 @@ public class bc8 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: t */
-    public ThreadCardViewHolder<qbb> onCreateViewHolder(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<RecommendBarCardModel> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             cu.b bVar = new cu.b(this.a.getPageActivity(), false);
-            fbb fbbVar = new fbb(this.a);
-            fbbVar.s(2);
-            fbbVar.o(this.b);
-            bVar.n(fbbVar);
+            bVar.n(new sc8(this.a, this.b, this.e));
             bVar.l().c(0);
             bVar.l().g(0);
             bVar.l().f(0);
-            bVar.l().e(0);
             bVar.l().i(0);
-            ThreadCardViewHolder<qbb> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
+            ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
             threadCardViewHolder.i(this.b);
             return threadCardViewHolder;
         }
@@ -87,12 +86,11 @@ public class bc8 extends ci<qbb, ThreadCardViewHolder<qbb>> implements e26 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ci
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qbb qbbVar, ThreadCardViewHolder<qbb> threadCardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, RecommendBarCardModel recommendBarCardModel, ThreadCardViewHolder<RecommendBarCardModel> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qbbVar, threadCardViewHolder})) == null) {
-            qbbVar.o(i);
-            threadCardViewHolder.e(qbbVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, recommendBarCardModel, threadCardViewHolder})) == null) {
+            threadCardViewHolder.e(recommendBarCardModel);
             if (threadCardViewHolder.a() != null) {
                 threadCardViewHolder.a().s(i);
                 threadCardViewHolder.a().b(this.d);

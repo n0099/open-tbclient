@@ -57,7 +57,7 @@ public class zv5 implements bw5 {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public float f1179T;
+    public float f1181T;
     public float U;
     public c V;
     public boolean W;
@@ -1166,7 +1166,7 @@ public class zv5 implements bw5 {
         this.P = false;
         this.Q = null;
         this.S = 0;
-        this.f1179T = 0.25f;
+        this.f1181T = 0.25f;
         this.U = 0.0f;
         this.W = false;
         this.Y = false;
@@ -1705,7 +1705,7 @@ public class zv5 implements bw5 {
                     g0 = i3;
                     i3 = i9;
                 }
-                int i10 = (int) (this.f1179T * 0.5f * abs);
+                int i10 = (int) (this.f1181T * 0.5f * abs);
                 float f3 = i10;
                 int i11 = g0 + i10;
                 int i12 = i3 - i10;
@@ -2198,7 +2198,7 @@ public class zv5 implements bw5 {
         if (interceptable == null || interceptable.invokeLLL(1048599, this, listView, context, attributeSet) == null) {
             int i4 = 150;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vya.DragSort, 0, 0);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, wya.DragSort, 0, 0);
                 this.u = Math.max(1, obtainStyledAttributes.getDimensionPixelSize(1, 1));
                 boolean z2 = obtainStyledAttributes.getBoolean(16, false);
                 this.W = z2;
@@ -2210,7 +2210,7 @@ public class zv5 implements bw5 {
                 this.h = f2;
                 this.s = obtainStyledAttributes.getBoolean(2, this.s);
                 float max = Math.max(0.0f, Math.min(1.0f, 1.0f - obtainStyledAttributes.getFloat(12, 0.75f)));
-                this.f1179T = max;
+                this.f1181T = max;
                 if (max > 0.0f) {
                     z = true;
                 } else {

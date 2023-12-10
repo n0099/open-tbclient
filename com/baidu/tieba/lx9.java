@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.feedback.FeedbackButtonStateType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.NoWhenBranchMatchedException;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -18,115 +15,216 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class lx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public String b;
+    public final int c;
+    public final int d;
+    public final int e;
+    public final boolean f;
+    public final boolean g;
+    public Function0<Unit> h;
+    public View.OnClickListener i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947958396, "Lcom/baidu/tieba/lx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947958396, "Lcom/baidu/tieba/lx9;");
+            if (obj instanceof lx9) {
+                lx9 lx9Var = (lx9) obj;
+                return this.a == lx9Var.a && Intrinsics.areEqual(this.b, lx9Var.b) && this.c == lx9Var.c && this.d == lx9Var.d && this.e == lx9Var.e && this.f == lx9Var.f && this.g == lx9Var.g && Intrinsics.areEqual(this.h, lx9Var.h) && Intrinsics.areEqual(this.i, lx9Var.i);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int hashCode = ((((((((this.a * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31;
+            boolean z = this.f;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (hashCode + i) * 31;
+            boolean z2 = this.g;
+            int i3 = (i2 + (z2 ? 1 : z2 ? 1 : 0)) * 31;
+            Function0<Unit> function0 = this.h;
+            int hashCode2 = (i3 + (function0 == null ? 0 : function0.hashCode())) * 31;
+            View.OnClickListener onClickListener = this.i;
+            return hashCode2 + (onClickListener != null ? onClickListener.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return "FeedbackButtonState(iconResId=" + this.a + ", text=" + this.b + ", borderColorInt=" + this.c + ", backgroundColorInt=" + this.d + ", textColorResId=" + this.e + ", needPlay=" + this.f + ", isLooping=" + this.g + ", onDynamicAnimEndListener=" + this.h + ", onClickListener=" + this.i + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public lx9(int i, String text, int i2, int i3, int i4, boolean z, boolean z2, Function0<Unit> function0, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), text, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), function0, onClickListener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = i;
+        this.b = text;
+        this.c = i2;
+        this.d = i3;
+        this.e = i4;
+        this.f = z;
+        this.g = z2;
+        this.h = function0;
+        this.i = onClickListener;
     }
 
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.lx9$a$a */
-        /* loaded from: classes7.dex */
-        public /* synthetic */ class C0390a {
-            public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            static {
-                InterceptResult invokeClinit;
-                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-944149246, "Lcom/baidu/tieba/lx9$a$a;")) != null) {
-                    Interceptable interceptable = invokeClinit.interceptor;
-                    if (interceptable != null) {
-                        $ic = interceptable;
-                    }
-                    if ((invokeClinit.flags & 1) != 0) {
-                        classClinitInterceptable.invokePostClinit(-944149246, "Lcom/baidu/tieba/lx9$a$a;");
-                        return;
-                    }
-                }
-                int[] iArr = new int[FeedbackButtonStateType.values().length];
-                iArr[FeedbackButtonStateType.UNSELECT_POSITIVE_STATE.ordinal()] = 1;
-                iArr[FeedbackButtonStateType.SELECT_POSITIVE_STATE.ordinal()] = 2;
-                iArr[FeedbackButtonStateType.SELECTING_POSITIVE_STATE.ordinal()] = 3;
-                iArr[FeedbackButtonStateType.UNSELECT_NEGATIVE_STATE.ordinal()] = 4;
-                iArr[FeedbackButtonStateType.SELECT_NEGATIVE_STATE.ordinal()] = 5;
-                $EnumSwitchMapping$0 = iArr;
-            }
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ lx9(int i, String str, int i2, int i3, int i4, boolean z, boolean z2, Function0 function0, View.OnClickListener onClickListener, int i5, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, str, i2, i3, i4, r9, r10, r11, r12);
+        boolean z3;
+        boolean z4;
+        Function0 function02;
+        View.OnClickListener onClickListener2;
+        if ((i5 & 32) != 0) {
+            z3 = false;
+        } else {
+            z3 = z;
         }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        if ((i5 & 64) != 0) {
+            z4 = false;
+        } else {
+            z4 = z2;
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+        if ((i5 & 128) != 0) {
+            function02 = null;
+        } else {
+            function02 = function0;
         }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.lx9$a */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static /* synthetic */ kx9 b(a aVar, FeedbackButtonStateType feedbackButtonStateType, String str, Function0 function0, View.OnClickListener onClickListener, int i, Object obj) {
-            if ((i & 4) != 0) {
-                function0 = null;
-            }
-            if ((i & 8) != 0) {
-                onClickListener = null;
-            }
-            return aVar.a(feedbackButtonStateType, str, function0, onClickListener);
+        if ((i5 & 256) != 0) {
+            onClickListener2 = null;
+        } else {
+            onClickListener2 = onClickListener;
         }
+    }
 
-        public final kx9 a(FeedbackButtonStateType type, String text, Function0<Unit> function0, View.OnClickListener onClickListener) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, type, text, function0, onClickListener)) == null) {
-                Intrinsics.checkNotNullParameter(type, "type");
-                Intrinsics.checkNotNullParameter(text, "text");
-                int i = C0390a.$EnumSwitchMapping$0[type.ordinal()];
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i == 5) {
-                                    return new kx9(R.drawable.obfuscated_res_0x7f080cb1, text, SkinManager.getColor(R.color.CAM_X0601), tua.a(SkinManager.getColor(R.color.CAM_X0107), 0.08f), R.color.CAM_X0107, false, false, null, onClickListener, 224, null);
-                                }
-                                throw new NoWhenBranchMatchedException();
-                            }
-                            return new kx9(R.drawable.obfuscated_res_0x7f080d4d, text, tua.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-                        }
-                        return new kx9(R.drawable.obfuscated_res_0x7f0808b9, text, SkinManager.getColor(R.color.CAM_X0601), tua.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, true, false, function0, onClickListener);
-                    }
-                    return new kx9(R.drawable.obfuscated_res_0x7f080cb2, text, SkinManager.getColor(R.color.CAM_X0601), tua.a(SkinManager.getColor(R.color.CAM_X0301), 0.08f), R.color.CAM_X0301, false, false, null, onClickListener, 224, null);
-                }
-                return new kx9(R.drawable.obfuscated_res_0x7f080d4e, text, tua.a(SkinManager.getColor(R.color.CAM_X0109), 0.5f), SkinManager.getColor(R.color.CAM_X0601), R.color.CAM_X0109, false, false, null, onClickListener, 224, null);
-            }
-            return (kx9) invokeLLLL.objValue;
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final View.OnClickListener e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (View.OnClickListener) invokeV.objValue;
+    }
+
+    public final Function0<Unit> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (Function0) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void j(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
+            this.i = onClickListener;
+        }
+    }
+
+    public final void k(Function0<Unit> function0) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, function0) == null) {
+            this.h = function0;
         }
     }
 }

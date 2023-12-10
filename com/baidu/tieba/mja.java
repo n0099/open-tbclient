@@ -1,39 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.a36;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mja extends qja {
+public class mja extends rja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView h;
     public TextView i;
-    public TextView j;
+    public ApkDownloadView j;
+    public boolean k;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bja a;
-        public final /* synthetic */ mja b;
+        public final /* synthetic */ mja a;
 
-        public a(mja mjaVar, bja bjaVar) {
+        public a(mja mjaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mjaVar, bjaVar};
+                Object[] objArr = {mjaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mjaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j.performClick();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements a36.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cja a;
+        public final /* synthetic */ mja b;
+
+        public b(mja mjaVar, cja cjaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mjaVar, cjaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,33 +78,27 @@ public class mja extends qja {
                 }
             }
             this.b = mjaVar;
-            this.a = bjaVar;
+            this.a = cjaVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
+        @Override // com.baidu.tieba.a36.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.b.b.getContext();
-                bja bjaVar = this.a;
-                String str2 = bjaVar.d;
-                String str3 = bjaVar.f;
-                AdvertAppInfo advertAppInfo = this.b.c;
-                if (advertAppInfo != null) {
-                    str = advertAppInfo.g;
-                } else {
-                    str = "";
-                }
-                wha.a(context, str2, str3, str, this.a.j);
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
-                dz0.e(clogBuilder);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
                 mja mjaVar = this.b;
-                if (mjaVar.d != null) {
-                    yf9.c(mjaVar.c);
+                if (mjaVar.k) {
+                    p26.a(this.a.j);
+                } else {
+                    AdCard adCard = mjaVar.f;
+                    if (adCard != null) {
+                        p26.a(adCard.getButtonCmdScheme());
+                    }
                 }
+                zf9.c(this.b.c);
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
@@ -93,34 +121,50 @@ public class mja extends qja {
                 return;
             }
         }
-        k();
+        l();
     }
 
-    @Override // com.baidu.tieba.qja
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.rja
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.b();
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f08152c, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+            this.j.setTextColorInitSkin(R.color.CAM_X0101);
+            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f08152c);
+            this.j.d();
         }
     }
 
-    @Override // com.baidu.tieba.qja
-    public void c(bja bjaVar) {
+    @Override // com.baidu.tieba.rja
+    public void c(cja cjaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bjaVar) == null) {
-            super.c(bjaVar);
-            this.h.startLoad(bjaVar.c, 10, false);
-            this.i.setText(bjaVar.b);
-            this.j.setText(bjaVar.e);
-            this.b.setOnClickListener(new a(this, bjaVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cjaVar) == null) {
+            super.c(cjaVar);
+            this.h.startLoad(cjaVar.c, 10, false);
+            this.i.setText(cjaVar.b);
+            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+            this.j.setInitText(cjaVar.e);
+            if (this.c != null) {
+                this.b.setOnClickListener(new a(this));
+                this.j.setOnClickInterceptListener(new b(this, cjaVar));
+                AdCard adCard = this.f;
+                if (adCard != null) {
+                    new z26(this.j, dja.d(adCard));
+                }
+            }
             b();
         }
     }
 
-    public final void k() {
+    public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f09294b);
@@ -129,7 +173,7 @@ public class mja extends qja {
             this.h.setDefaultBgResource(R.color.CAM_X0205);
             this.h.setIsRound(true);
             this.i = (TextView) a(R.id.user_name);
-            this.j = (TextView) a(R.id.obfuscated_res_0x7f09007d);
+            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09099b);
         }
     }
 }

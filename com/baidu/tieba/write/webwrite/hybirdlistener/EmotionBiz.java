@@ -7,14 +7,14 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.agb;
+import com.baidu.tieba.bgb;
 import com.baidu.tieba.browser.TbWebView;
 import com.baidu.tieba.common.JSONKt;
-import com.baidu.tieba.fhb;
-import com.baidu.tieba.ugb;
+import com.baidu.tieba.ghb;
 import com.baidu.tieba.v85;
+import com.baidu.tieba.vgb;
 import com.baidu.tieba.write.webwrite.data.BizBase;
 import com.baidu.tieba.write.webwrite.data.WrapListener;
-import com.baidu.tieba.zfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public final class EmotionBiz extends BizBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cgb
+    @Override // com.baidu.tieba.dgb
     public WrapListener[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,18 +42,18 @@ public final class EmotionBiz extends BizBase {
         return (WrapListener[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cgb
-    public agb[] b() {
+    @Override // com.baidu.tieba.dgb
+    public bgb[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (agb[]) invokeV.objValue;
+        return (bgb[]) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, ugb writePageState) {
+    public EmotionBiz(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, vgb writePageState) {
         super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -65,7 +65,7 @@ public final class EmotionBiz extends BizBase {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (ugb) objArr2[3]);
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (vgb) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,11 +77,11 @@ public final class EmotionBiz extends BizBase {
         Intrinsics.checkNotNullParameter(writePageState, "writePageState");
     }
 
-    @Override // com.baidu.tieba.cgb
-    public zfb[] f() {
+    @Override // com.baidu.tieba.dgb
+    public agb[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new zfb[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (zfb[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new agb[]{n(24, new EmotionBiz$editorActionHandlers$1(this))} : (agb[]) invokeV.objValue;
     }
 
     public final void s(int i, Object obj) {
@@ -118,7 +118,7 @@ public final class EmotionBiz extends BizBase {
             JSONObject jSONObject = new JSONObject();
             EmotionGroupType g = v85Var.g();
             Intrinsics.checkNotNullExpressionValue(g, "data.type");
-            b = fhb.b(g);
+            b = ghb.b(g);
             JSONKt.c(jSONObject, "type", b);
             JSONKt.c(jSONObject, "name", d);
             if (v85Var.g() != EmotionGroupType.LOCAL) {

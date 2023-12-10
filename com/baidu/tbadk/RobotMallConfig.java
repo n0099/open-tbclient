@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.model.CloudControlData;
-import com.baidu.tieba.t3b;
+import com.baidu.tieba.u3b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -98,7 +98,7 @@ public class RobotMallConfig {
             this.mDefaultConf = jSONObject.optString("default_conf");
             this.mAiChatEntranceImage = jSONObject.optString("aichat_entrance_img");
             this.mAiChatEntranceUrl = jSONObject.optString("aichat_entrance_url");
-            t3b.a.b(jSONObject.optInt("errlog_switch", 0));
+            u3b.a.b(jSONObject.optInt("errlog_switch", 0));
         }
     }
 

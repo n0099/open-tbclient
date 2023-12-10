@@ -1,31 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class jo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final TbPageContext<?> a(Context context) {
-        InterceptResult invokeL;
+    public static final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            if (context instanceof BaseActivity) {
-                return ((BaseActivity) context).getPageContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                return 1;
             }
-            if (context instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) context).getPageContext();
+            if (BdNetTypeUtil.isWifiNet()) {
+                return 2;
             }
-            return null;
+            if (BdNetTypeUtil.isMobileNet()) {
+                return 3;
+            }
+            return 0;
         }
-        return (TbPageContext) invokeL.objValue;
+        return invokeV.intValue;
     }
 }

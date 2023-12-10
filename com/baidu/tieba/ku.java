@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ku extends os<fw4> implements pda {
+public abstract class ku extends os<fw4> implements qda {
     public static /* synthetic */ Interceptable $ic;
     public static final int v;
     public static int w;
@@ -45,7 +45,7 @@ public abstract class ku extends os<fw4> implements pda {
     public RoundCornerFrameLayout i;
     public RoundRelativeLayout j;
     public AbsDownloadGuide k;
-    public lea l;
+    public mea l;
     public String m;
     public String n;
     public BdUniqueId o;
@@ -56,7 +56,7 @@ public abstract class ku extends os<fw4> implements pda {
     public final View.OnClickListener t;
     public nu.b u;
 
-    public abstract lea t();
+    public abstract mea t();
 
     public void x() {
         Interceptable interceptable = $ic;
@@ -255,23 +255,23 @@ public abstract class ku extends os<fw4> implements pda {
                     xl6.l(kuVar.g, kuVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    lea leaVar = this.a.l;
-                    if (leaVar != null) {
-                        leaVar.onScroll();
+                    mea meaVar = this.a.l;
+                    if (meaVar != null) {
+                        meaVar.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    lea leaVar2 = this.a.l;
-                    if (leaVar2 != null) {
-                        leaVar2.onVolumeUp();
+                    mea meaVar2 = this.a.l;
+                    if (meaVar2 != null) {
+                        meaVar2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    lea leaVar3 = this.a.l;
-                    if (leaVar3 != null) {
-                        return leaVar3.onBackPress();
+                    mea meaVar3 = this.a.l;
+                    if (meaVar3 != null) {
+                        return meaVar3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -346,11 +346,11 @@ public abstract class ku extends os<fw4> implements pda {
         }
     }
 
-    public void B(gea geaVar) {
-        lea leaVar;
+    public void B(hea heaVar) {
+        mea meaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, geaVar) == null) && (leaVar = this.l) != null) {
-            leaVar.setStatistic(geaVar);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heaVar) == null) && (meaVar = this.l) != null) {
+            meaVar.setStatistic(heaVar);
         }
     }
 
@@ -366,9 +366,9 @@ public abstract class ku extends os<fw4> implements pda {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.m = str;
-            lea leaVar = this.l;
-            if (leaVar != null) {
-                leaVar.setFrom(str);
+            mea meaVar = this.l;
+            if (meaVar != null) {
+                meaVar.setFrom(str);
             }
         }
     }
@@ -377,9 +377,9 @@ public abstract class ku extends os<fw4> implements pda {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.n = str;
-            lea leaVar = this.l;
-            if (leaVar != null) {
-                leaVar.setStageType(str);
+            mea meaVar = this.l;
+            if (meaVar != null) {
+                meaVar.setStageType(str);
             }
         }
     }
@@ -405,7 +405,7 @@ public abstract class ku extends os<fw4> implements pda {
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
                 this.j = (RoundRelativeLayout) this.f.findViewById(R.id.download_guide_layout);
-                lea t = t();
+                mea t = t();
                 this.l = t;
                 t.setUniqueId(this.o);
                 this.l.setFrom(this.m);
@@ -416,7 +416,7 @@ public abstract class ku extends os<fw4> implements pda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public abstract class ku extends os<fw4> implements pda {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public abstract class ku extends os<fw4> implements pda {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,21 +450,21 @@ public abstract class ku extends os<fw4> implements pda {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            lea leaVar = this.l;
-            if (leaVar == null) {
+            mea meaVar = this.l;
+            if (meaVar == null) {
                 return false;
             }
-            return leaVar.isFullScreen();
+            return meaVar.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -474,7 +474,7 @@ public abstract class ku extends os<fw4> implements pda {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -484,16 +484,16 @@ public abstract class ku extends os<fw4> implements pda {
         return invokeV.booleanValue;
     }
 
-    public lea s() {
+    public mea s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.l;
         }
-        return (lea) invokeV.objValue;
+        return (mea) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
@@ -504,7 +504,7 @@ public abstract class ku extends os<fw4> implements pda {
         }
     }
 
-    @Override // com.baidu.tieba.pda
+    @Override // com.baidu.tieba.qda
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -544,7 +544,7 @@ public abstract class ku extends os<fw4> implements pda {
         RoundRelativeLayout roundRelativeLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, threadData) == null) && threadData != null && this.i != null && (roundRelativeLayout = this.j) != null) {
-            AbsDownloadGuide c2 = nxa.c(this.b, threadData, roundRelativeLayout, this.k);
+            AbsDownloadGuide c2 = oxa.c(this.b, threadData, roundRelativeLayout, this.k);
             this.k = c2;
             if (c2 == null) {
                 this.i.setCornerId(R.string.J_X05);

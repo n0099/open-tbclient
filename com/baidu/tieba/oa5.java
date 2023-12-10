@@ -50,7 +50,7 @@ import org.json.JSONObject;
 public class oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public knb A;
+    public lnb A;
     public NewGodData B;
     public z85 C;
     public e85 D;
@@ -329,9 +329,9 @@ public class oa5 {
             YYLiveConfig yYLiveConfig = new YYLiveConfig();
             this.z = yYLiveConfig;
             yYLiveConfig.parseJson(A(jSONObject, "yy_live_config"));
-            knb knbVar = new knb();
-            this.A = knbVar;
-            knbVar.b(z(jSONObject, "yy_live_tab"));
+            lnb lnbVar = new lnb();
+            this.A = lnbVar;
+            lnbVar.b(z(jSONObject, "yy_live_tab"));
             aw4.b().f(this.x);
             this.m.d(jSONObject.optJSONObject("profile_icon"));
             TbSingleton tbSingleton = TbSingleton.getInstance();
@@ -351,22 +351,22 @@ public class oa5 {
             TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
             JSONArray z9 = z(jSONObject, "offpack");
             if (z9 != null && z9.length() > 0 && (jSONObject2 = z9.getJSONObject(0)) != null) {
-                wga wgaVar = new wga();
-                wgaVar.e(jSONObject2.optString("mod_name"));
+                xga xgaVar = new xga();
+                xgaVar.e(jSONObject2.optString("mod_name"));
                 if (jSONObject2.optInt("upload_offline_web_cache") == 1) {
                     z6 = true;
                 } else {
                     z6 = false;
                 }
-                wgaVar.f(z6);
+                xgaVar.f(z6);
                 if (jSONObject2.optInt("clear_offline_web_cache") == 1) {
                     z7 = true;
                 } else {
                     z7 = false;
                 }
-                wgaVar.d(z7);
-                if (!TextUtils.isEmpty(wgaVar.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(wgaVar);
+                xgaVar.d(z7);
+                if (!TextUtils.isEmpty(xgaVar.a())) {
+                    TbSingleton.getInstance().setUploadAndClearModule(xgaVar);
                 }
             }
             String optString2 = jSONObject.optString("proxy_ip");
@@ -418,7 +418,7 @@ public class oa5 {
             }
             tbSingleton3.showStampMissionDialog = z4;
             int optInt4 = jSONObject.optInt("afSearch_tab", 0);
-            xma d = xma.d();
+            yma d = yma.d();
             if (optInt4 == 1) {
                 z5 = true;
             } else {
@@ -706,13 +706,13 @@ public class oa5 {
         return (YYLiveConfig) invokeV.objValue;
     }
 
-    public knb x() {
+    public lnb x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.A;
         }
-        return (knb) invokeV.objValue;
+        return (lnb) invokeV.objValue;
     }
 
     public String y() {

@@ -6,60 +6,82 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qi7<T> implements xi7<T> {
+public final class qi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<String> a;
+    public final String b;
 
-    @Override // com.baidu.tieba.xi7
-    public boolean a(Object originData) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof qi7) {
+                qi7 qi7Var = (qi7) obj;
+                return Intrinsics.areEqual(this.a, qi7Var.a) && Intrinsics.areEqual(this.b, qi7Var.b);
+            }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xi7
-    public T b(byte[] bArr) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
     }
 
-    public qi7() {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DefaultGuideInfoData(portraitList=" + this.a + ", text=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public qi7(List<String> portraitList, String text) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {portraitList, text};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(portraitList, "portraitList");
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = portraitList;
+        this.b = text;
     }
 
-    @Override // com.baidu.tieba.xi7
-    public List<rb7<?>> c(Object originData, q67 feedData, Map<String, String> schemaLocalInfo, boolean z) {
-        InterceptResult invokeCommon;
+    public final List<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{originData, feedData, schemaLocalInfo, Boolean.valueOf(z)})) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            Intrinsics.checkNotNullParameter(feedData, "feedData");
-            Intrinsics.checkNotNullParameter(schemaLocalInfo, "schemaLocalInfo");
-            return new ArrayList();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (List) invokeCommon.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

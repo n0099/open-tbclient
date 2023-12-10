@@ -76,7 +76,7 @@ public abstract class pg1 implements ah1, AdView.a, SensorEventListener {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public int f1145T;
+    public int f1144T;
     public AtomicBoolean U;
     public float V;
     public LottieAnimationView W;
@@ -143,12 +143,12 @@ public abstract class pg1 implements ah1, AdView.a, SensorEventListener {
 
         /* renamed from: com.baidu.tieba.pg1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0440a implements View.OnClickListener {
+        public class View$OnClickListenerC0442a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0440a(a aVar) {
+            public View$OnClickListenerC0442a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -205,7 +205,7 @@ public abstract class pg1 implements ah1, AdView.a, SensorEventListener {
                         this.c.W.setComposition(lottieComposition);
                         this.c.W.playAnimation();
                         this.c.o(this.c.W, this.a, this.b, "click_float_lottie", this.c.K);
-                        this.c.W.setOnClickListener(new View$OnClickListenerC0440a(this));
+                        this.c.W.setOnClickListener(new View$OnClickListenerC0442a(this));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -370,22 +370,22 @@ public abstract class pg1 implements ah1, AdView.a, SensorEventListener {
                         float m = w11.c.m(this.c.b.a, x - this.a);
                         float m2 = w11.c.m(this.c.b.a, y - this.b);
                         pg1 pg1Var = this.c.b;
-                        if ((pg1Var.f1145T & 1) == 1 && m2 <= (-pg1Var.S)) {
+                        if ((pg1Var.f1144T & 1) == 1 && m2 <= (-pg1Var.S)) {
                             BaseVM.s("2");
                             this.c.b.N();
                         } else {
                             pg1 pg1Var2 = this.c.b;
-                            if ((pg1Var2.f1145T & 2) == 2 && m2 >= pg1Var2.S) {
+                            if ((pg1Var2.f1144T & 2) == 2 && m2 >= pg1Var2.S) {
                                 BaseVM.s("2");
                                 this.c.b.N();
                             } else {
                                 pg1 pg1Var3 = this.c.b;
-                                if ((pg1Var3.f1145T & 4) == 4 && m <= (-pg1Var3.S)) {
+                                if ((pg1Var3.f1144T & 4) == 4 && m <= (-pg1Var3.S)) {
                                     BaseVM.s("2");
                                     this.c.b.N();
                                 } else {
                                     pg1 pg1Var4 = this.c.b;
-                                    if ((pg1Var4.f1145T & 8) == 8 && m >= pg1Var4.S) {
+                                    if ((pg1Var4.f1144T & 8) == 8 && m >= pg1Var4.S) {
                                         BaseVM.s("2");
                                         this.c.b.N();
                                     }
@@ -1501,7 +1501,7 @@ public abstract class pg1 implements ah1, AdView.a, SensorEventListener {
                 }
                 this.Q = z4;
                 this.S = (float) this.i.optDouble("gesture_lottie_sensitivity", 0.0d);
-                this.f1145T = this.i.optInt("gesture_lottie_direction", 1);
+                this.f1144T = this.i.optInt("gesture_lottie_direction", 1);
             } catch (Exception unused) {
             }
         }

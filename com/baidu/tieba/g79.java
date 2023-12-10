@@ -1,75 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class g79 {
+public final class g79 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(m69 m69Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g79(View contentView, int i, int i2, boolean z) {
+        super(contentView, i, i2, z);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, m69Var, i) == null) && m69Var != null && m69Var.u() != null && !ListUtils.isEmpty(m69Var.k()) && m69Var.k().size() >= 2) {
-            List<NewFloorInfo> k = m69Var.k();
-            if (k.size() > 2) {
-                if (StringHelper.equals(m69Var.u().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (k.get(1) != null) {
-                        if (k.get(1).is_floor.intValue() == 0) {
-                            b(m69Var, 12, i);
-                            return;
-                        } else if (k.get(1).is_floor.intValue() == 1) {
-                            b(m69Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (k.get(1) != null) {
-                    if (k.get(1).is_floor.intValue() == 0) {
-                        if (m69Var.q() != null) {
-                            if (StringHelper.equals(m69Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(m69Var, 14, i);
-                                return;
-                            } else {
-                                b(m69Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (k.get(1).is_floor.intValue() == 1) {
-                        b(m69Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentView, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            b(m69Var, 11, i);
         }
+        Intrinsics.checkNotNullParameter(contentView, "contentView");
     }
 
-    public static void b(m69 m69Var, int i, int i2) {
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2) {
+        Integer num;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, m69Var, i, i2) == null) && m69Var != null && m69Var.s() != null && m69Var.l() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", m69Var.l().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", m69Var.l().e);
-            statisticItem.param("fname", m69Var.l().d);
-            statisticItem.param("pid", m69Var.o());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Rect rect = new Rect();
+                if (view2 != null) {
+                    view2.getGlobalVisibleRect(rect);
+                }
+                if (view2 != null && (resources = view2.getResources()) != null && (displayMetrics = resources.getDisplayMetrics()) != null) {
+                    num = Integer.valueOf(displayMetrics.heightPixels - rect.bottom);
+                } else {
+                    num = null;
+                }
+                if (num != null) {
+                    setHeight(num.intValue() + UtilHelper.getStatusBarHeight());
+                }
+            }
+            super.showAsDropDown(view2);
         }
     }
 }

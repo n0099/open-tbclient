@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class a37<T> extends bb7<T> implements g77, oa7, PreLoadImageProvider {
+public final class a37<T> extends cb7<T> implements g77, oa7, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final T c;
@@ -37,7 +37,7 @@ public final class a37<T> extends bb7<T> implements g77, oa7, PreLoadImageProvid
         this.d = str;
     }
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     @NonNull
     public String a() {
         InterceptResult invokeV;
@@ -48,7 +48,7 @@ public final class a37<T> extends bb7<T> implements g77, oa7, PreLoadImageProvid
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rb7
+    @Override // com.baidu.tieba.sb7
     @NonNull
     public T b() {
         InterceptResult invokeV;

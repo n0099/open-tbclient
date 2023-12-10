@@ -33,9 +33,9 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ata;
 import com.baidu.tieba.p55;
 import com.baidu.tieba.q55;
-import com.baidu.tieba.zsa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,7 +63,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
     public boolean mHasMore;
     public boolean mIsLoading;
     public CustomMessageListener mLikeForumListener;
-    public zsa mListAdapter;
+    public ata mListAdapter;
     public final List<ForumSpaceForumInfo> mListData;
     public View mListFooter;
     public NavigationBar mNavigationBar;
@@ -450,9 +450,9 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.mListFooter.setOnClickListener(new g(this));
             this.mForumListView.addFooterView(this.mListFooter);
             this.mListFooter.setVisibility(8);
-            zsa zsaVar = new zsa(getPageContext(), this.mPageType);
-            this.mListAdapter = zsaVar;
-            this.mForumListView.setAdapter((ListAdapter) zsaVar);
+            ata ataVar = new ata(getPageContext(), this.mPageType);
+            this.mListAdapter = ataVar;
+            this.mForumListView.setAdapter((ListAdapter) ataVar);
         }
     }
 

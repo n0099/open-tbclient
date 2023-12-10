@@ -46,10 +46,10 @@ import tbclient.ThreadRecommendInfo;
 import tbclient.TitleComponent;
 import tbclient.Voice;
 /* loaded from: classes8.dex */
-public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
+public abstract class u87 implements a97<LayoutFactory>, yb7, va7, h77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends yb7> a;
+    public Map<String, ? extends zb7> a;
     public Map<String, String> b;
     public boolean c;
     public final Set<w87> d;
@@ -65,7 +65,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
         return invokeLL.objValue;
     }
 
-    public abstract rb7<?> h(w57<?> w57Var, r67 r67Var);
+    public abstract sb7<?> h(w57<?> w57Var, r67 r67Var);
 
     public u87() {
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
         this.d = new LinkedHashSet();
     }
 
-    @Override // com.baidu.tieba.ua7
+    @Override // com.baidu.tieba.va7
     public void a(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
@@ -102,8 +102,8 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
         }
     }
 
-    @Override // com.baidu.tieba.xb7
-    public void d(Map<String, ? extends yb7> map) {
+    @Override // com.baidu.tieba.yb7
+    public void d(Map<String, ? extends zb7> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
             Intrinsics.checkNotNullParameter(map, "map");
@@ -176,7 +176,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public rb7<?> b(LayoutFactory originData) {
+    public sb7<?> b(LayoutFactory originData) {
         InterceptResult invokeL;
         t67 t67Var;
         v57 v57Var;
@@ -202,7 +202,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, originData)) == null) {
             Intrinsics.checkNotNullParameter(originData, "originData");
-            List<rb7<? extends Object>> arrayList = new ArrayList<>();
+            List<sb7<? extends Object>> arrayList = new ArrayList<>();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             r67 r67Var = new r67();
             r67Var.h(this.a);
@@ -338,7 +338,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
                             if (str4.equals("feed_title")) {
                                 List<ComponentFactory> list2 = originData.feed.components;
                                 Intrinsics.checkNotNullExpressionValue(list2, "originData.feed.components");
-                                boolean a = wa7.a(list2);
+                                boolean a = xa7.a(list2);
                                 TitleComponent titleComponent = componentFactory.feed_title;
                                 if (titleComponent != null) {
                                     q97.b(titleComponent, arrayList, spannableStringBuilder, r67Var, a);
@@ -432,7 +432,7 @@ public abstract class u87 implements a97<LayoutFactory>, xb7, ua7, h77 {
             Intrinsics.checkNotNullExpressionValue(schema, "schema");
             return h(new w57<>(arrayList, schema, areEqual, Intrinsics.areEqual(r67Var.a().a().get("can_multi_manage"), "1"), str6, r67Var.a().a().get("user_id"), b, t67Var, f, r67Var, null, null, p61.a, null), r67Var);
         }
-        return (rb7) invokeL.objValue;
+        return (sb7) invokeL.objValue;
     }
 
     public final Set<w87> i() {

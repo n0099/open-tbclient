@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a2b;
 import com.baidu.tieba.ar6;
 import com.baidu.tieba.br6;
 import com.baidu.tieba.er6;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
-import com.baidu.tieba.mqa;
-import com.baidu.tieba.wc8;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.nqa;
+import com.baidu.tieba.xc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     /* loaded from: classes6.dex */
-    public class a extends er6<wc8> {
+    public class a extends er6<xc8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomeTabBarView b;
@@ -88,10 +88,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.er6
-        public void onEvent(@NonNull wc8 wc8Var) {
+        public void onEvent(@NonNull xc8 xc8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc8Var) == null) {
-                this.b.g = wc8Var.a();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xc8Var) == null) {
+                this.b.g = xc8Var.a();
                 if (!ListUtils.isEmpty(this.b.g) && this.b.f && !this.b.e) {
                     DefaultLog.getInstance().i("liveTipLog", "直播二楼数据返回更新并渲染直播tip");
                     this.b.q();
@@ -446,7 +446,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             DefaultLog.getInstance().i("liveTipLog", "注册直播二楼数据更新event");
-            br6.b().b(new ar6(this.c, wc8.class), new a(this, wc8.class));
+            br6.b().b(new ar6(this.c, xc8.class), new a(this, xc8.class));
             if (this.h == null) {
                 this.h = new b(this);
                 ViewTreeObserver viewTreeObserver = getViewTreeObserver();
@@ -471,7 +471,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             View h = h(getConcernTabIndex());
-            if (!z1b.b().a() && LiveEnterForumTestHelper.isLiveEnterForumTestA() && !mqa.c().a() && h != null && this.a != null) {
+            if (!a2b.b().a() && LiveEnterForumTestHelper.isLiveEnterForumTestA() && !nqa.c().a() && h != null && this.a != null) {
                 this.e = true;
                 if (this.d == null) {
                     this.d = new LiveTipLabelView(getContext());

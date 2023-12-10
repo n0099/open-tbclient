@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import android.graphics.SurfaceTexture;
 /* loaded from: classes7.dex */
 public interface kwb {
-    void a(double d);
-
-    void a(String str, boolean z);
+    void a(ewb ewbVar, SurfaceTexture surfaceTexture);
 }
