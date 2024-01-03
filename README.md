@@ -1,12 +1,12 @@
 # 跨`repo/barnch`索引
 | repo | branch | 意义 |
 |-|-|-|
-| [`tbclient.protobuf`](https://github.com/n0099/tbclient.protobuf) | [`main`](https://github.com/n0099/tbclient.protobuf/tree/main) | 作为`repo default branch`<br>存储此前遗留的几个版本的`.java/.proto`文件<br>以及[tbm](https://github.com/n0099/TiebaMonitor)中所使用的部分`.proto`文件及其字段 |
+| [`tbclient.protobuf`](https://github.com/n0099/tbclient.protobuf) | [`main`](https://github.com/n0099/tbclient.protobuf/tree/main) | 作为`repo default branch`<br>存储此前遗留的几个版本的`.java/.proto`文件<br>以及[tbm](https://github.com/n0099/open-tbm)中所使用的部分`.proto`文件及其字段 |
 | [`tbclient.protobuf`](https://github.com/n0099/tbclient.protobuf) | [`tbclient`](https://github.com/n0099/tbclient.protobuf/tree/tbclient) | 210 个历史版本中提取的`.java/.proto`文件 |
 | [`open-tbclient`](https://github.com/n0099/open-tbclient)➡️ | [`main`](https://github.com/n0099/open-tbclient/tree/main)🏠➡️ | 作为`repo default branch` |
-| [`open-tbclient`](https://github.com/n0099/open-tbclient) | [`src`](https://github.com/n0099/open-tbclient/tree/src) | 260 个历史版本中的所有`.java`文件 |
+| [`open-tbclient`](https://github.com/n0099/open-tbclient) | [`src`](https://github.com/n0099/open-tbclient/tree/src) | 259 个历史版本中的所有`.java`文件 |
 
-# 260 个历史版本百度贴吧客户端中的所有`.java`文件
+# 259 个历史版本百度贴吧客户端中的所有`.java`文件
 版本跨度`1.0.0`\~`12.34.3.0`
 
 时间跨度`11-11-02`\~`22-12-27`
@@ -24,7 +24,7 @@ jadx
   {}.apk
 2>&1 > {}.log
 ```
-所有 260 个 apk 以及 `jadx` 的输出结果（[`src branch`](https://github.com/n0099/open-tbclient/tree/src)中只有`jadx/$VER.7z/src`中的文件）下载：[百度网盘](https://pan.baidu.com/s/1-ENjudLPVp_OCbNpjVb4oA?pwd=siye) [OneDrive](https://n0099-my.sharepoint.cn/:f:/g/personal/n_n0099_partner_onmschina_cn/EolZx_WzrVRBm-jPm6O_030BX0hO1EzNgK3IiNeM2VfnGA)
+所有 259 个 apk 以及 `jadx` 的输出结果（[`src branch`](https://github.com/n0099/open-tbclient/tree/src)中只有`jadx/$VER.7z/src`中的文件）下载：[百度网盘](https://pan.baidu.com/s/1-ENjudLPVp_OCbNpjVb4oA?pwd=siye) [OneDrive](https://n0099-my.sharepoint.cn/:f:/g/personal/n_n0099_partner_onmschina_cn/EolZx_WzrVRBm-jPm6O_030BX0hO1EzNgK3IiNeM2VfnGA)
 
 ## 列名表
 | 列名 | 说明 | [`tbclient.protobuf/issues/2`](https://github.com/n0099/tbclient.protobuf/issues/2)<br>中的相关comment |
@@ -100,7 +100,6 @@ jadx
 | 6.1.1     | 14-05-24 16:07:02 | 86   | 2   | 🔴  | 🔴  | 🔴  | ✔️  |
 | 6.1.2     | 14-05-29 15:42:14 | 86   | 2   | 🔴  | 🔴  | ✔️  | ⚠️  |
 | 6.1.3     | 14-06-20 13:46:28 | 86   | 2   | 🔴  | 🔴  | ✔️  | ⚠️  |
-| 6.2.0     | 13-07-02 23:54:42 | 0    | 0   | 🔴  | 🔴  | ✔️  | ⚠️  |
 | 6.2.1     | 14-07-10 12:14:48 | 134  | 9   | 🔴  | 🔴  | ✔️  | ⚠️  |
 | 6.2.2     | 14-08-15 16:01:16 | 202  | 19  | 🔴  | 🔴  | ✔️  | ⚠️  |
 | 6.3.2     | 14-08-21 13:25:06 | 202  | 19  | 🔴  | 🔴  | ✔️  | ⚠️  |
